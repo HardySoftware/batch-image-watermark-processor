@@ -1,10 +1,13 @@
 ﻿using System;
-/*using System.Collections.Generic;
-using System.Linq;
+using System.Collections.Generic;
+/*using System.Linq;
 using System.Text;*/
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using System.Threading;
+
+using Microsoft.Practices.EnterpriseLibrary.Validation;
 
 using HardySoft.UI.BatchImageProcessor.View;
 using HardySoft.UI.BatchImageProcessor.Model;
@@ -24,12 +27,17 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 			this.view.SaveProject += new ProjectWithFileNameEventHandler(view_SaveProject);
 			this.view.SaveProjectAs += new ProjectWithFileNameEventHandler(view_SaveProjectAs);
 			this.view.OpenProject += new ProjectWithFileNameEventHandler(view_OpenProject);
+			this.view.ProcessImage += new ProcessThreadNumberEventHandler(view_ProcessImage);
 
 			view.PS = ps;
 		}
 
 		public void SetErrorMessage(Exception ex) {
 			this.view.ErrorMessage = ex;
+		}
+
+		public void SetErrorMessage(List<string> messages) {
+			this.view.ErrorMessages = messages;
 		}
 
 		void view_OpenProject(object sender, ProjectWithFileNameEventArgs e) {
@@ -79,6 +87,26 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 			ps = new ProjectSetting();
 			ps.NewProject();
 			view.PS = ps;
+		}
+
+		void view_ProcessImage(object sender, ProcessThreadNumberEventArgs e) {
+			ValidationResults results = Validation.Validate<ProjectSetting>(ps);
+			if (!results.IsValid) {
+				List<string> exceptions = new List<string>();
+				foreach (ValidationResult vr in results) {
+					exceptions.Add(vr.Message);
+				}
+
+				SetErrorMessage(exceptions);
+			} else {
+				AutoResetEvent[] events = new AutoResetEvent[e.ThreadNumber];
+				for (int i = 0; i < events.Length; i++) {
+					events[i] = new AutoResetEvent(false);
+				}
+
+				ImageProcessorEngine engine = new ImageProcessorEngine(e.ThreadNumber, events);
+				engine.StartProcess(this.ps);
+			}
 		}
 	}
 }

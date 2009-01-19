@@ -6,6 +6,8 @@ using System.Text;
 using System.ComponentModel;
 using System.IO;
 
+using Microsoft.Practices.EnterpriseLibrary.Validation.Validators;
+
 namespace HardySoft.UI.BatchImageProcessor.Model {
 	[Serializable]
 	public class ProjectSetting : INotifyPropertyChanged {
@@ -130,6 +132,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 		}
 
 		private string sourceDirectory;
+		[StringLengthValidator(3, 500, MessageTemplate = "ReqSouceDirectory")]
 		public string SourceDirectory {
 			get {
 				return sourceDirectory;
@@ -160,6 +163,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 		}
 
 		private string outputDirectory;
+		[StringLengthValidator(3, 500, MessageTemplate = "ReqDestDirectory")]
 		public string OutputDirectory {
 			get {
 				return outputDirectory;

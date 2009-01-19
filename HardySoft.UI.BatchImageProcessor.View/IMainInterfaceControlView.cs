@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Collections.Generic;
 
 using HardySoft.UI.BatchImageProcessor.Model;
 
@@ -15,6 +16,10 @@ namespace HardySoft.UI.BatchImageProcessor.View {
 
 		Exception ErrorMessage {
 			//get;
+			set;
+		}
+
+		List<string> ErrorMessages {
 			set;
 		}
 

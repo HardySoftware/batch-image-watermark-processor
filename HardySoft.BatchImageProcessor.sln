@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HardySoft.UI.BatchImageProcessor", "HardySoft.UI.BatchImageProcessor\HardySoft.UI.BatchImageProcessor.csproj", "{D5B6B547-B5AE-4188-B7DE-8DB86D6B5362}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A11E714B-8CFA-46D5-BDE2-AD7AE97737AD}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HardySoft.UI.BatchImageProcessor.View", "HardySoft.UI.BatchImageProcessor.View\HardySoft.UI.BatchImageProcessor.View.csproj", "{9C6D00B8-CD82-49FC-A857-44B3A57AF627}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HardySoft.UI.BatchImageProcessor.Presenter", "HardySoft.UI.BatchImageProcessor.Presenter\HardySoft.UI.BatchImageProcessor.Presenter.csproj", "{EDC5BEF6-F013-41D0-B812-D68B5ABB3B0A}"
@@ -12,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HardySoft.UI.BatchImageProcessor.Model", "HardySoft.UI.BatchImageProcessor.Model\HardySoft.UI.BatchImageProcessor.Model.csproj", "{5AC6B983-70B4-4FC9-A3E2-5C95C74AEE08}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HardySoft.CC", "HardySoft.CC\HardySoft.CC.csproj", "{D162A876-9517-4E74-89AF-C889FF5BFAD0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "External References", "External References", "{AF0B357C-7852-44C3-BBEF-5233B9339ECD}"
 EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
