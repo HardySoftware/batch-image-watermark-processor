@@ -175,6 +175,21 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 				System.Windows.MessageBox.Show(messageBoxText, caption, button, icon);
 			}
 		}
+
+		public List<string> ErrorMessages {
+			set {
+				string messageBoxText = string.Empty;
+				foreach (string s in value) {
+					messageBoxText += Properties.Resources.ResourceManager.GetString(s) + "\r\n";
+				}
+				string caption = "Error";
+				MessageBoxButton button = MessageBoxButton.OK;
+				MessageBoxImage icon = MessageBoxImage.Error;
+
+				// Display message box
+				System.Windows.MessageBox.Show(messageBoxText, caption, button, icon);
+			}
+		}
 		#endregion
 
 		#region View events

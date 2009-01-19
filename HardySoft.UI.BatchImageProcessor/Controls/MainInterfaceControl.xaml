@@ -575,7 +575,7 @@
 									Margin="10,0,0,0"
 									HorizontalAlignment="Left"
 									Style="{StaticResource cfgTextBox}"
-									Text="{Binding Path=ShrinkLongSidePixelTo, Mode=TwoWay}"
+									Text="{Binding Path=ShrinkLongSidePixelTo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 									IsEnabled="{Binding ElementName=chkShrinkImage, Path=IsChecked}">
 								</HSCtrl:IntegerTextBox>
 
