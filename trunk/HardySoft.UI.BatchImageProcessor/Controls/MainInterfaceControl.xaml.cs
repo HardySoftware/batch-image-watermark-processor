@@ -110,18 +110,18 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 
 		private void btnShadowBackgroundPicker_Click(object sender, RoutedEventArgs e) {
 			ColorPickerDialog cPicker = new ColorPickerDialog();
-			cPicker.StartingColor = ps.DropShadowSetting.Background;
+			cPicker.StartingColor = ps.DropShadowSetting.BackgroundColor;
 			//cPicker.Owner = this.Parent;
 
 			bool? dialogResult = cPicker.ShowDialog();
 			if (dialogResult != null && (bool)dialogResult == true) {
-				ps.DropShadowSetting.Background = cPicker.SelectedColor;
+				ps.DropShadowSetting.BackgroundColor = cPicker.SelectedColor;
 			}
 		}
 
 		private void btnImageBorderColorPicker_Click(object sender, RoutedEventArgs e) {
 			ColorPickerDialog cPicker = new ColorPickerDialog();
-			cPicker.StartingColor = ps.DropShadowSetting.Background;
+			cPicker.StartingColor = ps.DropShadowSetting.BackgroundColor;
 			//cPicker.Owner = this.Parent;
 
 			bool? dialogResult = cPicker.ShowDialog();

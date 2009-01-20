@@ -117,7 +117,8 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 					}
 
 					// image watermark operation
-					if (!string.IsNullOrEmpty(ps.Watermark.WatermarkImageFile)) {
+					if (!string.IsNullOrEmpty(ps.Watermark.WatermarkImageFile) 
+						&& ! string.IsNullOrEmpty(ps.Watermark.WatermarkImageFile)) {
 						process = container.Resolve<IProcess>("WatermarkImage");
 						normalImage = process.ProcessImage(normalImage, this.ps);
 					}
@@ -170,6 +171,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 		}
 
 		private bool saveProcessedImage(string originalFilename, Image normalImage, Image thumb) {
+			string destFolder = ps.OutputDirectory;
 			return false;
 		}
 	}

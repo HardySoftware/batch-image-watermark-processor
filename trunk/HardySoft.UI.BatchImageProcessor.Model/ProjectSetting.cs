@@ -52,7 +52,8 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			this.sourceDirectory = string.Empty;
 			this.outputDirectory = string.Empty;
 			this.photos = new ObservableCollection<PhotoItem>();
-			this.processType = new ImageProcessType();
+			this.processType = ImageProcessType.None;
+			this.shrinkLongSidePixelTo = 800;
 
 			this.watermark = new Watermark();
 			this.watermark.PropertyChanged += new PropertyChangedEventHandler(watermark_PropertyChanged);

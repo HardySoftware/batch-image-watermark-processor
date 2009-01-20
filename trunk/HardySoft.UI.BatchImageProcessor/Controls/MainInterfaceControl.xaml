@@ -646,7 +646,7 @@
 					<StackPanel Grid.Column="1" Grid.Row="3" FlowDirection="LeftToRight" Orientation="Horizontal">
 						<Slider x:Name="sThumbSize" Margin="10,0,0,0"
 							Orientation="Horizontal" Width="200"
-							Minimum="0" Maximum="100"
+							Minimum="0" Maximum="150"
 							Value="{Binding Path=ThumbnailSetting.ThumbnailSize, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 							IsSnapToTickEnabled="True"
 							TickFrequency="1"
