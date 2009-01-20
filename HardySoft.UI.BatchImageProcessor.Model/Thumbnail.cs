@@ -30,6 +30,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 		public Thumbnail() {
 			this.thumbnailFileNamePrefix = "thumb_";
 			this.thumbnailFileNameSuffix = "_thumb";
+			this.thumbnailSize = 100;
 		}
 
 		private bool generateThumbnail;

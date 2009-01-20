@@ -32,38 +32,38 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 		}
 
 		public DropShadow() {
-			this.background = Color.FromArgb(255, 0, 0, 0);
+			this.backgroundColor = Color.FromArgb(255, 0, 0, 0);
 		}
 
 		// System.Windows.Media.Color is not serializable, one workaround is to use other format to wrap around it.
 		[NonSerialized]
-		private Color background;
-		public Color Background {
+		private Color backgroundColor;
+		public Color BackgroundColor {
 			get {
-				return background;
+				return backgroundColor;
 			}
 			set {
-				if (background.A != value.A
-					|| background.R != value.R
-					|| background.G != value.G
-					|| background.B != value.B) {
-					background = value;
+				if (backgroundColor.A != value.A
+					|| backgroundColor.R != value.R
+					|| backgroundColor.G != value.G
+					|| backgroundColor.B != value.B) {
+					backgroundColor = value;
 					notify("Background");
 				}
 			}
 		}
 
-		// for serialize purpose only
+		// for serialize purpose only, because System.Windows.Media.Color is not serializable
 		public string BackgroundColorString {
 			get {
 				ColorConverter cnv = new ColorConverter();
-				return cnv.ConvertToString(this.background);
+				return cnv.ConvertToString(this.backgroundColor);
 			}
 			set {
 				if (string.IsNullOrEmpty(value)) {
 					throw new ArgumentException("Color parameter cannot be null");
 				}
-				this.background = (Color)ColorConverter.ConvertFromString(value);
+				this.backgroundColor = (Color)ColorConverter.ConvertFromString(value);
 			}
 		}
 
