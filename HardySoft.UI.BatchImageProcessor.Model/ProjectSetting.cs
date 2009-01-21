@@ -54,6 +54,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			this.photos = new ObservableCollection<PhotoItem>();
 			this.processType = ImageProcessType.None;
 			this.shrinkLongSidePixelTo = 800;
+			this.jpgCompressionRatio = 100;
 
 			this.watermark = new Watermark();
 			this.watermark.PropertyChanged += new PropertyChangedEventHandler(watermark_PropertyChanged);
@@ -225,6 +226,21 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 					keepExif = value;
 					this.isDirty = true;
 					notify("KeepExif");
+				}
+			}
+		}
+
+		private int jpgCompressionRatio;
+		[RangeValidator(0, RangeBoundaryType.Inclusive, 100, RangeBoundaryType.Inclusive,
+			MessageTemplate = "ValJpgCompressionRatio")]
+		public int JpgCompressionRatio {
+			get {
+				return jpgCompressionRatio;
+			}
+			set {
+				if (this.jpgCompressionRatio != value) {
+					jpgCompressionRatio = value;
+					notify("JpgCompressionRatio");
 				}
 			}
 		}
