@@ -77,5 +77,14 @@ namespace HardySoft.UI.BatchImageProcessor.Properties {
                 return ResourceManager.GetString("ReqSouceDirectory", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Jpg compression ratio must be between 0 and 100..
+        /// </summary>
+        internal static string ValJpgCompressionRatio {
+            get {
+                return ResourceManager.GetString("ValJpgCompressionRatio", resourceCulture);
+            }
+        }
     }
 }

@@ -388,6 +388,7 @@
 							<Grid.RowDefinitions>
 								<RowDefinition></RowDefinition>
 								<RowDefinition></RowDefinition>
+								<RowDefinition></RowDefinition>
 							</Grid.RowDefinitions>
 
 							<TextBlock Style="{StaticResource ConfigSectionLabel}"
@@ -415,6 +416,24 @@
 								IsChecked="{Binding Path=KeepExif, Mode=TwoWay}"
 								IsEnabled="False">
 							</CheckBox>
+							
+							<TextBlock Style="{StaticResource ConfigSectionLabel}"
+								Grid.Column="0" Grid.Row="2">
+								JPG Compression Ratio
+							</TextBlock>
+
+							<StackPanel Grid.Column="1" Grid.Row="2" FlowDirection="LeftToRight" Orientation="Horizontal">
+								<Slider x:Name="sJpgCompressionRatio" Margin="10,0,0,0"
+									Orientation="Horizontal" Width="200"
+									Minimum="0" Maximum="100"
+									Value="{Binding Path=JpgCompressionRatio, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+									IsSnapToTickEnabled="True"
+									TickFrequency="1"/>
+								<TextBlock Text="{Binding Path=JpgCompressionRatio}" 
+									Margin="10,0,0,0" VerticalAlignment="Center" />
+
+								<TextBlock Text=" %" VerticalAlignment="Center" />
+							</StackPanel>
 						</Grid>
 					</GroupBox>
 					<!-- Blank line to add more spaces between group box -->
