@@ -123,4 +123,7 @@
   <data name="ReqSouceDirectory" xml:space="preserve">
     <value>Please select a source directory with image(s) to proceed.</value>
   </data>
+  <data name="ValJpgCompressionRatio" xml:space="preserve">
+    <value>Jpg compression ratio must be between 0 and 100.</value>
+  </data>
 </root>
