@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Drawing;
 using System.Drawing.Imaging;
-using System.Diagnostics;
 using System.IO;
 
 using Microsoft.Practices.Unity;
@@ -17,13 +14,13 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 		private object syncRoot = new object();
 		private uint threadNumber;
 		private volatile bool stopFlag = false;
-		private Queue<string> jobQueue;
+		private Queue<JobItem> jobQueue;
 		private AutoResetEvent[] events;
 		private ProjectSetting ps = null;
 
 		public ImageProcessorEngine(uint threadNumber, AutoResetEvent[] events) {
 			this.threadNumber = threadNumber;
-			this.jobQueue = new Queue<string>();
+			this.jobQueue = new Queue<JobItem>();
 			this.events = events;
 		}
 
@@ -31,9 +28,17 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 			this.stopFlag = false;
 			this.ps = ps;
 
+			// add all selected images to job queue.
+			uint index = 0;
 			foreach (PhotoItem item in ps.Photos) {
 				if (item.Selected) {
-					jobQueue.Enqueue(item.PhotoPath);
+					jobQueue.Enqueue(new JobItem()
+					{
+						FileName = item.PhotoPath,
+						Index = index
+					});
+
+					index++;
 				}
 			}
 
@@ -57,15 +62,26 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 			container.RegisterType<IProcess, GrayScale>("GrayscaleEffect", new PerThreadLifetimeManager());
 			container.RegisterType<IProcess, NegativeImage>("NegativeEffect", new PerThreadLifetimeManager());
 			container.RegisterType<IProcess, ShrinkImage>("ShrinkImage", new PerThreadLifetimeManager());
+			// register generate file name classes
+			container.RegisterType<IFilenameProvider, ThumbnailFileName>("ThumbFileName", new PerThreadLifetimeManager());
+			container.RegisterType<IFilenameProvider, ProcessedFileName>("NormalFileName", new PerThreadLifetimeManager());
+			container.RegisterType<IFilenameProvider, BatchRenamedFileName>("BatchRenamedFileName", new PerThreadLifetimeManager());
+			// register save image classes
+			container.RegisterType<ISaveImage, SaveNormalImage>("SaveNormalImage", new PerThreadLifetimeManager());
+			container.RegisterType<ISaveImage, SaveCompressedJPGImage>("SaveCompressedJpgImage", new PerThreadLifetimeManager());
 			
 			string imagePath = string.Empty;
+			uint imageIndex = 0;
 
 			lock(syncRoot) {
 				if (jobQueue.Count > 0) {
-					imagePath = jobQueue.Dequeue();
+					JobItem item = jobQueue.Dequeue();
+					imagePath = item.FileName;
+					imageIndex = item.Index;
 				} else {
 					// nothing more to process, signal
 					events[index].Set();
+					return;
 				}
 			}
 
@@ -135,14 +151,40 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 						normalImage = process.ProcessImage(normalImage, this.ps);
 					}
 
-					saveProcessedImage(imagePath, normalImage, thumb);
+					ISaveImage imageSaver;
+
+					if (format == ImageFormat.Jpeg
+						&& ps.JpgCompressionRatio > 0
+						&& ps.JpgCompressionRatio < 100) {
+						imageSaver = container.Resolve<ISaveImage>("SaveCompressedJPGImage");
+					} else {
+						imageSaver = container.Resolve<ISaveImage>("SaveNormalImage");
+					}
+
+					IFilenameProvider fileNameProvider;
+
+					if (ps.RenamingSetting.EnableBatchRename) {
+						fileNameProvider = container.Resolve<IFilenameProvider>("BatchRenamedFileName");
+					} else {
+						fileNameProvider = container.Resolve<IFilenameProvider>("NormalFileName");
+					}
+					saveImage(imagePath, normalImage, format, fileNameProvider, imageSaver);
+
+					fileNameProvider = container.Resolve<IFilenameProvider>("ThumbFileName");
+					fileNameProvider.ImageIndex = imageIndex;
+					saveImage(imagePath, thumb, format, fileNameProvider, imageSaver);
 				} catch (Exception ex) {
 					// TODO add logic
 				}
 				finally {
 					normalImage.Dispose();
+
+					if (thumb != null) {
+						thumb.Dispose();
+					}
 				}
 
+				// go back to check if there are more files waiting to be processed.
 				processImage(threadIndex);
 			}
 		}
@@ -170,9 +212,27 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 			}
 		}
 
-		private bool saveProcessedImage(string originalFilename, Image normalImage, Image thumb) {
-			string destFolder = ps.OutputDirectory;
-			return false;
+		private bool saveImage(string originalFilename, Image image, ImageFormat format,
+			IFilenameProvider fileNameProvider, ISaveImage save) {
+			if (image == null) {
+				// nothing to save
+				return true;
+			}
+
+			string filename = fileNameProvider.GetFileName(originalFilename, ps);
+			return save.SaveImageToDisk(image, filename, format);
+		}
+	}
+
+	class JobItem {
+		public string FileName {
+			get;
+			set;
+		}
+
+		public uint Index {
+			get;
+			set;
 		}
 	}
 }
