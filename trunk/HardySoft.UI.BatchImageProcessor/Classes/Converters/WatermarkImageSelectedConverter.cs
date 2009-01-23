@@ -10,13 +10,24 @@ namespace HardySoft.UI.BatchImageProcessor.Classes.Converters {
 				return false;
 			}
 
-			double actualWidth = 0;
+			/*double actualWidth = 0;
 			if (value is double) {
 				actualWidth = (double)value;
 			}
 
 			if (actualWidth > 0) {
 				return true;
+			} else {
+				return false;
+			}*/
+
+			if (value is string) {
+				string imagePath = (string)value;
+				if (!string.IsNullOrEmpty(imagePath)) {
+					return true;
+				} else {
+					return false;
+				}
 			} else {
 				return false;
 			}

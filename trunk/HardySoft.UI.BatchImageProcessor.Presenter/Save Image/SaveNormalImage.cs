@@ -12,8 +12,18 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 				image.Save(fileName, format);
 
 				return true;
-			} catch (Exception ex) {
+			} catch {
+				// TODO add error handling logic here
 				return false;
+			}
+		}
+
+		public long CompressionRatio {
+			get {
+				throw new NotImplementedException();
+			}
+			set {
+				throw new NotImplementedException();
 			}
 		}
 	}

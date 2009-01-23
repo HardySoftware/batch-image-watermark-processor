@@ -68,6 +68,7 @@
     <Compile Include="Image File Name\BatchRenamedFileName.cs" />
     <Compile Include="Image Process\DropShadowImage.cs" />
     <Compile Include="Image Process\GenerateThumbnail.cs" />
+    <Compile Include="ImageProcessedEventArgs.cs" />
     <Compile Include="Save Image\ISaveImage.cs" />
     <Compile Include="Image File Name\ProcessedFileName.cs" />
     <Compile Include="Image File Name\ThumbnailFileName.cs" />
@@ -78,7 +79,7 @@
     <Compile Include="PreferenceWindow_Presenter.cs" />
     <Compile Include="MainControl_Presenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ResizeImage.cs" />
+    <Compile Include="Image Process\ResizeImage.cs" />
     <Compile Include="Image Process\ShrinkImage.cs" />
     <Compile Include="Image Process\NegativeImage.cs" />
     <Compile Include="Save Image\SaveCompressedJPGImage.cs" />

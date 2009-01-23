@@ -51,6 +51,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 
 			this.sourceDirectory = string.Empty;
 			this.outputDirectory = string.Empty;
+
 			this.photos = new ObservableCollection<PhotoItem>();
 			this.processType = ImageProcessType.None;
 			this.shrinkLongSidePixelTo = 800;
@@ -99,6 +100,11 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			Initialize();
 
 			this.projectCreated = true;
+
+#if DEBUG
+			this.SourceDirectory = @"G:\1";
+			this.outputDirectory = @"G:\2";
+#endif
 		}
 
 		/// <summary>

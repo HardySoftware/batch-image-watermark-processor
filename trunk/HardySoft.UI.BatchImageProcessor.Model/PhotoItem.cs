@@ -9,6 +9,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 	public class PhotoItem {
 		public PhotoItem() {
 			this.selected = true;
+			this.processed = false;
 		}
 
 		private bool selected;
@@ -31,6 +32,13 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 					photoPath = value;
 				}
 			}
+		}
+
+		[NonSerialized]
+		private bool processed;
+		public bool Processed {
+			get { return processed; }
+			set { processed = value; }
 		}
 	}
 }

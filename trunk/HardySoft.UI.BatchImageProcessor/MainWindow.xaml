@@ -5,6 +5,7 @@
     xmlns:sys="clr-namespace:System;assembly=mscorlib"
     xmlns:enum="clr-namespace:HardySoft.UI.BatchImageProcessor.Model;assembly=HardySoft.UI.BatchImageProcessor.Model"
     Title="HardySoft Batch Image Processor" Height="500" Width="800"
+    Icon="/HardySoft.UI.BatchImageProcessor;component/Images/icon.ico"
     AllowsTransparency="True" Background="Transparent"
     WindowStyle="None" ResizeMode="CanResizeWithGrip">
 	<Window.Resources>

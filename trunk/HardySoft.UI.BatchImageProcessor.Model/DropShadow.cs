@@ -32,7 +32,9 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 		}
 
 		public DropShadow() {
-			this.backgroundColor = Color.FromArgb(255, 0, 0, 0);
+			this.backgroundColor = Color.FromArgb(255, 255, 255, 255);
+			this.dropShadowColor = Color.FromArgb(255, 0, 0, 0);
+			this.shadowLocation = DropShadowLocation.BottomRight;
 		}
 
 		// System.Windows.Media.Color is not serializable, one workaround is to use other format to wrap around it.
@@ -48,7 +50,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 					|| backgroundColor.G != value.G
 					|| backgroundColor.B != value.B) {
 					backgroundColor = value;
-					notify("Background");
+					notify("BackgroundColor");
 				}
 			}
 		}
@@ -64,6 +66,36 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 					throw new ArgumentException("Color parameter cannot be null");
 				}
 				this.backgroundColor = (Color)ColorConverter.ConvertFromString(value);
+			}
+		}
+
+		// System.Windows.Media.Color is not serializable, one workaround is to use other format to wrap around it.
+		[NonSerialized]
+		private Color dropShadowColor;
+		public Color DropShadowColor {
+			get { return dropShadowColor; }
+			set {
+				if (dropShadowColor.A != value.A
+					|| dropShadowColor.R != value.R
+					|| dropShadowColor.G != value.G
+					|| dropShadowColor.B != value.B) {
+					dropShadowColor = value;
+					notify("DropShadowColor");
+				}
+			}
+		}
+
+		// for serialize purpose only, because System.Windows.Media.Color is not serializable
+		public string DropShadowColorString {
+			get {
+				ColorConverter cnv = new ColorConverter();
+				return cnv.ConvertToString(this.dropShadowColor);
+			}
+			set {
+				if (string.IsNullOrEmpty(value)) {
+					throw new ArgumentException("Color parameter cannot be null");
+				}
+				this.dropShadowColor = (Color)ColorConverter.ConvertFromString(value);
 			}
 		}
 

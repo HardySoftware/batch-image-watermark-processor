@@ -13,6 +13,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Forms;
 using System.Drawing;
+using System.Windows.Threading;
 
 using Microsoft.Practices.Unity;
 
@@ -79,6 +80,9 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 
 		private void btnWatermarkTextFontPicker_Click(object sender, RoutedEventArgs e) {
 			FontDialog fd = new System.Windows.Forms.FontDialog();
+			if (ps.Watermark.WatermarkTextFont != null) {
+				fd.Font = ps.Watermark.WatermarkTextFont;
+			}
 			DialogResult dr = fd.ShowDialog();
 
 			if (dr == System.Windows.Forms.DialogResult.OK) {
@@ -119,9 +123,20 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 			}
 		}
 
+		private void btnShadowColorPicker_Click(object sender, RoutedEventArgs e) {
+			ColorPickerDialog cPicker = new ColorPickerDialog();
+			cPicker.StartingColor = ps.DropShadowSetting.DropShadowColor;
+			//cPicker.Owner = this.Parent;
+
+			bool? dialogResult = cPicker.ShowDialog();
+			if (dialogResult != null && (bool)dialogResult == true) {
+				ps.DropShadowSetting.DropShadowColor = cPicker.SelectedColor;
+			}
+		}
+
 		private void btnImageBorderColorPicker_Click(object sender, RoutedEventArgs e) {
 			ColorPickerDialog cPicker = new ColorPickerDialog();
-			cPicker.StartingColor = ps.DropShadowSetting.BackgroundColor;
+			cPicker.StartingColor = ps.BorderSetting.BorderColor;
 			//cPicker.Owner = this.Parent;
 
 			bool? dialogResult = cPicker.ShowDialog();
@@ -189,6 +204,21 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 				// Display message box
 				System.Windows.MessageBox.Show(messageBoxText, caption, button, icon);
 			}
+		}
+
+		public void ResetJobSize(int jobSize) {
+			this.Progress.Maximum = jobSize;
+			this.Progress.Value = 0;
+		}
+
+		public void ReportProgress() {
+			Progress.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal,
+				new DispatcherOperationCallback(
+					delegate {
+						System.Diagnostics.Debug.WriteLine("value is: " + Progress.Value);
+						Progress.Value = Progress.Value + 1;
+						return null;
+					}), null);
 		}
 		#endregion
 
