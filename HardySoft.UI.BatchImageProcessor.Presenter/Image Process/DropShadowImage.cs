@@ -13,19 +13,22 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 			int originalWidth = input.Width;
 			int originalHeight = input.Height;
 			int depth = ps.DropShadowSetting.ShadowDepth;
+			// size with shadow included
 			Bitmap bmp = new Bitmap(originalWidth + depth, originalHeight + depth);
+			//bmp.SetResolution(input.HorizontalResolution, input.VerticalResolution);
 			Graphics graphic = Graphics.FromImage(bmp);
 
 			Rectangle rc = new Rectangle(0, 0, originalWidth + depth, originalHeight + depth);
 
 			//calculate the opacities 
-			Color darkShadow = Color.FromArgb(ps.DropShadowSetting.BackgroundColor.A,
-				ps.DropShadowSetting.BackgroundColor.R,
-				ps.DropShadowSetting.BackgroundColor.G,
-				ps.DropShadowSetting.BackgroundColor.B);
-			Color lightShadow = Color.FromArgb(0, ps.DropShadowSetting.BackgroundColor.R,
-				ps.DropShadowSetting.BackgroundColor.G,
-				ps.DropShadowSetting.BackgroundColor.B);
+			Color darkShadow = Color.FromArgb(ps.DropShadowSetting.DropShadowColor.A,
+				ps.DropShadowSetting.DropShadowColor.R,
+				ps.DropShadowSetting.DropShadowColor.G,
+				ps.DropShadowSetting.DropShadowColor.B);
+			Color lightShadow = Color.FromArgb(0,
+				ps.DropShadowSetting.DropShadowColor.R,
+				ps.DropShadowSetting.DropShadowColor.G,
+				ps.DropShadowSetting.DropShadowColor.B);
 
 			//Create a brush that will create a softshadow circle 
 			GraphicsPath gp = new GraphicsPath();
@@ -41,7 +44,10 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 			g.Dispose();
 			pgb.Dispose();
 
-			SolidBrush sb = new SolidBrush(darkShadow);
+			SolidBrush sb = new SolidBrush(Color.FromArgb(ps.DropShadowSetting.BackgroundColor.A,
+				ps.DropShadowSetting.BackgroundColor.R,
+				ps.DropShadowSetting.BackgroundColor.G,
+				ps.DropShadowSetting.BackgroundColor.B));
 			graphic.FillRectangle(sb, rc);
 			sb.Dispose();
 

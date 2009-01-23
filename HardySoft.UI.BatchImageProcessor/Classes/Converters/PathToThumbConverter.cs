@@ -4,15 +4,19 @@ using System.Windows.Media.Imaging;
 using System.Globalization;
 
 namespace HardySoft.UI.BatchImageProcessor.Classes.Converters {
-	public class PathToImageConverter : IValueConverter {
+	public class PathToThumbConverter : IValueConverter {
 		public object Convert(object value, Type targetType, object parameter, CultureInfo culture) {
 			if (value == null) {
 				return null;
 			}
 
 			if (value is string) {
-				//value = new Uri((string)value);
-				value = new Uri((string)value, UriKind.RelativeOrAbsolute);
+				string path = (string)value;
+				if (string.IsNullOrEmpty(path)) {
+					return null;
+				}
+
+				value = new Uri(path, UriKind.RelativeOrAbsolute);
 			}
 
 			if (value is Uri) {

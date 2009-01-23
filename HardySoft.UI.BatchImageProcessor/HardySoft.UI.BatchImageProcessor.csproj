@@ -14,8 +14,7 @@
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
-    <ApplicationIcon>
-    </ApplicationIcon>
+    <ApplicationIcon>Images\icon.ico</ApplicationIcon>
     <SccProjectName>Svn</SccProjectName>
     <SccLocalPath>Svn</SccLocalPath>
     <SccAuxPath>Svn</SccAuxPath>
@@ -133,6 +132,7 @@
     <Compile Include="Classes\Commands\ApplicationCommand.cs" />
     <Compile Include="Classes\Converters\ColorDisplayNameConverter.cs" />
     <Compile Include="Classes\Converters\EnumToFriendlyNameConverter.cs" />
+    <Compile Include="Classes\Converters\PathToImageConverter.cs" />
     <Compile Include="Classes\Converters\WatermarkImageSelectedConverter.cs" />
     <Compile Include="Controls\ColorPicker.cs" />
     <Compile Include="Controls\ColorPickerDialog.xaml.cs">
@@ -149,7 +149,7 @@
     <Compile Include="Controls\SortableListView.cs" />
     <Compile Include="Classes\Converters\DebugConvertor.cs" />
     <Compile Include="Classes\Converters\ImagePathToExifConverter.cs" />
-    <Compile Include="Classes\Converters\PathToImageConverter.cs" />
+    <Compile Include="Classes\Converters\PathToThumbConverter.cs" />
     <Compile Include="Controls\SpectrumSlider.cs" />
     <Compile Include="Preference.xaml.cs">
       <DependentUpon>Preference.xaml</DependentUpon>

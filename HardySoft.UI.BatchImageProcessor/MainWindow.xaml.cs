@@ -25,8 +25,8 @@ namespace HardySoft.UI.BatchImageProcessor {
 			InitializeComponent();
 
 			// Set an icon using code
-			Uri iconUri = new Uri("pack://application:,,,/Images/icon.png", UriKind.RelativeOrAbsolute);
-			this.Icon = BitmapFrame.Create(iconUri);
+			//Uri iconUri = new Uri("pack://application:,,,/Images/icon.png", UriKind.RelativeOrAbsolute);
+			//this.Icon = BitmapFrame.Create(iconUri);
 
 			IUnityContainer container = new UnityContainer();
 			MainInterfaceControl mainControl = (MainInterfaceControl)container.Resolve<MainInterfaceControl>();

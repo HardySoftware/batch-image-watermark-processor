@@ -18,34 +18,29 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 		private AutoResetEvent[] events;
 		private ProjectSetting ps = null;
 
+		public event ImageProcessedDelegate ImageProcessed;
+
 		public ImageProcessorEngine(uint threadNumber, AutoResetEvent[] events) {
 			this.threadNumber = threadNumber;
 			this.jobQueue = new Queue<JobItem>();
 			this.events = events;
 		}
 
-		public void StartProcess(ProjectSetting ps) {
+		public void StartProcess(ProjectSetting ps, Queue<JobItem> jobQueue) {
 			this.stopFlag = false;
 			this.ps = ps;
-
-			// add all selected images to job queue.
-			uint index = 0;
-			foreach (PhotoItem item in ps.Photos) {
-				if (item.Selected) {
-					jobQueue.Enqueue(new JobItem()
-					{
-						FileName = item.PhotoPath,
-						Index = index
-					});
-
-					index++;
-				}
-			}
+			this.jobQueue = jobQueue;
 
 			for (int i = 0; i < this.threadNumber; i++) {
 				Thread t = new Thread(new ParameterizedThreadStart(processImage));
 				t.Name = i.ToString();
 				t.Start(i);
+			}
+		}
+
+		protected void OnImageProcessed(ImageProcessedEventArgs args) {
+			if (ImageProcessed != null) {
+				ImageProcessed(args);
 			}
 		}
 
@@ -88,6 +83,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 			if (stopFlag) {
 				// stop requested, signal
 				events[index].Set();
+				return;
 			} else {
 				Image normalImage = null;
 				Image thumb = null;
@@ -157,6 +153,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 						&& ps.JpgCompressionRatio > 0
 						&& ps.JpgCompressionRatio < 100) {
 						imageSaver = container.Resolve<ISaveImage>("SaveCompressedJPGImage");
+						imageSaver.CompressionRatio = (long)ps.JpgCompressionRatio;
 					} else {
 						imageSaver = container.Resolve<ISaveImage>("SaveNormalImage");
 					}
@@ -178,13 +175,18 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 				}
 				finally {
 					normalImage.Dispose();
+					normalImage = null;
 
 					if (thumb != null) {
 						thumb.Dispose();
+						thumb = null;
 					}
+
+					ImageProcessedEventArgs args = new ImageProcessedEventArgs(imagePath);
+					OnImageProcessed(args);
 				}
 
-				// go back to check if there are more files waiting to be processed.
+				// recursive call to go back to check if there are more files waiting to be processed.
 				processImage(threadIndex);
 			}
 		}

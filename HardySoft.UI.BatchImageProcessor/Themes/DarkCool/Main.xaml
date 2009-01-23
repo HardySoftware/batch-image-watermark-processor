@@ -5,7 +5,8 @@
 	xmlns:enum="clr-namespace:HardySoft.UI.BatchImageProcessor.Model;assembly=HardySoft.UI.BatchImageProcessor.Model"
 	>
 
-	<cnv:PathToImageConverter x:Key="cnvPath2Img"></cnv:PathToImageConverter>
+	<cnv:PathToThumbConverter x:Key="cnvPath2Thumb"></cnv:PathToThumbConverter>
+	<cnv:PathToImageConverter x:Key="cnvPath2Image"></cnv:PathToImageConverter>
 	<cnv:DebugConvertor x:Key="cnvDebug"></cnv:DebugConvertor>
 	<cnv:ImagePathToExifConverter x:Key="cnvExif"></cnv:ImagePathToExifConverter>
 	<cnv:EnumToFriendlyNameConverter x:Key="cnvFriendlyEnum"></cnv:EnumToFriendlyNameConverter>
