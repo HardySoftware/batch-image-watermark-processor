@@ -102,8 +102,8 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			this.projectCreated = true;
 
 #if DEBUG
-			this.SourceDirectory = @"G:\1";
-			this.outputDirectory = @"G:\2";
+			this.SourceDirectory = @"C:\Temp\1";
+			this.outputDirectory = @"C:\Temp\2";
 #endif
 		}
 
