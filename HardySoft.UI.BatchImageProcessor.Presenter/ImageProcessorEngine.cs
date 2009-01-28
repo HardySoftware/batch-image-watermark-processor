@@ -17,6 +17,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 		private Queue<JobItem> jobQueue;
 		private AutoResetEvent[] events;
 		private ProjectSetting ps = null;
+		private Thread[] threads;
 
 		public event ImageProcessedDelegate ImageProcessed;
 
@@ -24,6 +25,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 			this.threadNumber = threadNumber;
 			this.jobQueue = new Queue<JobItem>();
 			this.events = events;
+			this.threads = new Thread[this.threadNumber];
 		}
 
 		public void StartProcess(ProjectSetting ps, Queue<JobItem> jobQueue) {
@@ -32,9 +34,9 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 			this.jobQueue = jobQueue;
 
 			for (int i = 0; i < this.threadNumber; i++) {
-				Thread t = new Thread(new ParameterizedThreadStart(processImage));
-				t.Name = i.ToString();
-				t.Start(i);
+				threads[i] = new Thread(new ParameterizedThreadStart(processImage));
+				threads[i].Name = i.ToString();
+				threads[i].Start(i);
 			}
 		}
 
@@ -46,6 +48,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 
 		private void processImage(object threadIndex) {
 			int index = (int)threadIndex;
+			System.Diagnostics.Debug.WriteLine("Thread " + index + " is created.");
 
 			// TODO make registration in config file
 			IUnityContainer container = new UnityContainer();
@@ -76,6 +79,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 					imageIndex = item.Index;
 				} else {
 					// nothing more to process, signal
+					System.Diagnostics.Debug.WriteLine("Thread " + index + " is set because no more image to process.");
 					events[index].Set();
 					return;
 				}
@@ -83,6 +87,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 
 			if (stopFlag) {
 				// stop requested, signal
+				System.Diagnostics.Debug.WriteLine("Thread " + index + " is set because stop requested.");
 				events[index].Set();
 				return;
 			} else {
