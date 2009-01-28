@@ -259,376 +259,386 @@
 
 			<!-- Second Tab, watermark options -->
 			<TabItem Header="Watermark Setting">
-				<StackPanel>
-					<GroupBox Header="Copyright Image">
-						<Grid ShowGridLines="False">
-							<Grid.ColumnDefinitions>
-								<ColumnDefinition Width="auto"></ColumnDefinition>
-								<ColumnDefinition Width="3*"></ColumnDefinition>
-								<ColumnDefinition Width="auto"></ColumnDefinition>
-							</Grid.ColumnDefinitions>
-							<Grid.RowDefinitions>
-								<RowDefinition Height="*"></RowDefinition>
-								<RowDefinition Height="*"></RowDefinition>
-								<RowDefinition Height="auto"></RowDefinition>
-							</Grid.RowDefinitions>
-							<TextBlock Style="{StaticResource ConfigSectionLabel}"
-								Grid.Column="0" Grid.Row="0">
-								Choose Watermark Image
-							</TextBlock>
-							<TextBox x:Name="txtWatermarkImageUrl"
-								Margin="10,0,0,0"
-								Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left"
-								Style="{StaticResource cfgTextBox}"
-								Text="{Binding Path=Watermark.WatermarkImageFile, Mode=OneWay}"
-								IsReadOnly="True" />
-							<Button x:Name="btnWatermarkImagePicker"
-								Margin="10,0,0,0"
-								Style="{StaticResource GlassButton}"
-								Grid.Column="2" Grid.Row="0"
-								Click="btnWatermarkImagePicker_Click">...</Button>
+				<ScrollViewer VerticalScrollBarVisibility="Auto">
+					<StackPanel>
+						<GroupBox Header="Copyright Image">
+							<Grid ShowGridLines="False">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="auto"></ColumnDefinition>
+									<ColumnDefinition Width="3*"></ColumnDefinition>
+									<ColumnDefinition Width="auto"></ColumnDefinition>
+								</Grid.ColumnDefinitions>
+								<Grid.RowDefinitions>
+									<RowDefinition Height="*"></RowDefinition>
+									<RowDefinition Height="*"></RowDefinition>
+									<RowDefinition Height="auto"></RowDefinition>
+								</Grid.RowDefinitions>
+								<TextBlock Style="{StaticResource ConfigSectionLabel}"
+									Grid.Column="0" Grid.Row="0">
+									Choose Watermark Image
+								</TextBlock>
+								<TextBox x:Name="txtWatermarkImageUrl"
+									Margin="10,0,0,0"
+									Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left"
+									Style="{StaticResource cfgTextBox}"
+									Text="{Binding Path=Watermark.WatermarkImageFile, Mode=OneWay}"
+									IsReadOnly="True" />
+								<Button x:Name="btnWatermarkImagePicker"
+									Margin="10,0,0,0"
+									Style="{StaticResource GlassButton}"
+									Grid.Column="2" Grid.Row="0"
+									Click="btnWatermarkImagePicker_Click">...</Button>
 
-							<TextBlock Style="{StaticResource ConfigSectionLabel}"
-								Grid.Column="0" Grid.Row="1">
-								Watermark Image Position
-							</TextBlock>
+								<TextBlock Style="{StaticResource ConfigSectionLabel}"
+									Grid.Column="0" Grid.Row="1">
+									Watermark Image Position
+								</TextBlock>
 
-							<ComboBox x:Name="cmbWatermarkImagePosition"
-								Margin="10,0,0,0"
-								HorizontalAlignment="Stretch"
-								VerticalAlignment="Stretch"
-								ItemsSource="{Binding Source={StaticResource PositionData}}"
-								SelectedItem="{Binding Path=Watermark.WatermarkImagePosition, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-								Grid.Column="1" Grid.Row="1">
-							</ComboBox>
+								<ComboBox x:Name="cmbWatermarkImagePosition"
+									Margin="10,0,0,0"
+									HorizontalAlignment="Stretch"
+									VerticalAlignment="Stretch"
+									ItemsSource="{Binding Source={StaticResource PositionData}}"
+									SelectedItem="{Binding Path=Watermark.WatermarkImagePosition, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+									Grid.Column="1" Grid.Row="1">
+								</ComboBox>
 
-							<TextBlock Style="{StaticResource ConfigSectionLabel}" VerticalAlignment="Top"
-								Grid.Column="0" Grid.Row="2">
-								Watermark Image
-							</TextBlock>
-							<Image x:Name="imgWatermarkImage"
-								Margin="10,0,0,0"
-								HorizontalAlignment="Left"
-								Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2"
-								Source="{Binding Path=Watermark.WatermarkImageFile,
-									Mode=OneWay,
-									Converter={StaticResource cnvPath2Image}}"
-								MaxWidth="100" MaxHeight="100"></Image>
-							<Button x:Name="btnRemoveWatermarkImage"
-								Margin="10,0,0,0"
-								VerticalAlignment="Top"
-								Style="{StaticResource GlassButton}"
-								Grid.Column="2" Grid.Row="2"
-								IsEnabled="{Binding Path=Watermark.WatermarkImageFile,
-									Mode=OneWay,
-									Converter={StaticResource cnvHasWatermarkImage}}"
-								Click="btnRemoveWatermarkImage_Click">Remove</Button>
-						</Grid>
-					</GroupBox>
-					<GroupBox Header="Copyright Text">
-						<Grid ShowGridLines="False">
-							<Grid.ColumnDefinitions>
-								<ColumnDefinition Width="auto"></ColumnDefinition>
-								<ColumnDefinition Width="3*"></ColumnDefinition>
-								<ColumnDefinition Width="auto"></ColumnDefinition>
-							</Grid.ColumnDefinitions>
-							<Grid.RowDefinitions>
-								<RowDefinition Height="*"></RowDefinition>
-								<RowDefinition Height="*"></RowDefinition>
-								<RowDefinition Height="*"></RowDefinition>
-							</Grid.RowDefinitions>
-							<TextBlock Style="{StaticResource ConfigSectionLabel}"
-								Grid.Column="0" Grid.Row="0">
-								Watermark Text
-							</TextBlock>
-							<TextBox x:Name="txtWatermarkText"
-								Margin="10,0,0,0"
-								Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left"
-								Style="{StaticResource cfgTextBox}"
-								Text="{Binding Path=Watermark.WatermarkText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-							
-							<TextBlock Style="{StaticResource ConfigSectionLabel}"
-								Grid.Column="0" Grid.Row="1">
-								Watermark Text Font
-							</TextBlock>
-							<TextBox x:Name="txtWatermarkTextFont"
-								Margin="10,0,0,0"
-								Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left"
-								Style="{StaticResource cfgTextBox}"
-								Text="{Binding Path=Watermark.WatermarkTextFontName, Mode=OneWay}"
-								IsReadOnly="True" />
-							<Button x:Name="btnWatermarkTextFontPicker"
-								Margin="10,0,0,0"
-								Style="{StaticResource GlassButton}"
-								Grid.Column="2" Grid.Row="1" Click="btnWatermarkTextFontPicker_Click">Font</Button>
+								<TextBlock Style="{StaticResource ConfigSectionLabel}" VerticalAlignment="Top"
+									Grid.Column="0" Grid.Row="2">
+									Watermark Image
+								</TextBlock>
+								<Image x:Name="imgWatermarkImage"
+									Margin="10,0,0,0"
+									HorizontalAlignment="Left"
+									Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2"
+									Source="{Binding Path=Watermark.WatermarkImageFile,
+										Mode=OneWay,
+										Converter={StaticResource cnvPath2Image}}"
+									MaxWidth="100" MaxHeight="100"></Image>
+								<Button x:Name="btnRemoveWatermarkImage"
+									Margin="10,0,0,0"
+									VerticalAlignment="Top"
+									Style="{StaticResource GlassButton}"
+									Grid.Column="2" Grid.Row="2"
+									IsEnabled="{Binding Path=Watermark.WatermarkImageFile,
+										Mode=OneWay,
+										Converter={StaticResource cnvHasWatermarkImage}}"
+									Click="btnRemoveWatermarkImage_Click">Remove</Button>
+							</Grid>
+						</GroupBox>
+						<GroupBox Header="Copyright Text">
+							<Grid ShowGridLines="False">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="auto"></ColumnDefinition>
+									<ColumnDefinition Width="3*"></ColumnDefinition>
+									<ColumnDefinition Width="auto"></ColumnDefinition>
+								</Grid.ColumnDefinitions>
+								<Grid.RowDefinitions>
+									<RowDefinition Height="*"></RowDefinition>
+									<RowDefinition Height="*"></RowDefinition>
+									<RowDefinition Height="*"></RowDefinition>
+								</Grid.RowDefinitions>
+								<TextBlock Style="{StaticResource ConfigSectionLabel}"
+									Grid.Column="0" Grid.Row="0">
+									Watermark Text
+								</TextBlock>
+								<TextBox x:Name="txtWatermarkText"
+									Margin="10,0,0,0"
+									Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left"
+									Style="{StaticResource cfgTextBox}"
+									Text="{Binding Path=Watermark.WatermarkText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+								
+								<TextBlock Style="{StaticResource ConfigSectionLabel}"
+									Grid.Column="0" Grid.Row="1">
+									Watermark Text Font
+								</TextBlock>
+								<TextBox x:Name="txtWatermarkTextFont"
+									Margin="10,0,0,0"
+									Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left"
+									Style="{StaticResource cfgTextBox}"
+									Text="{Binding Path=Watermark.WatermarkTextFontName, Mode=OneWay}"
+									IsReadOnly="True" />
+								<Button x:Name="btnWatermarkTextFontPicker"
+									Margin="10,0,0,0"
+									Style="{StaticResource GlassButton}"
+									Grid.Column="2" Grid.Row="1" Click="btnWatermarkTextFontPicker_Click">Font</Button>
 
-							<TextBlock Style="{StaticResource ConfigSectionLabel}"
-								Grid.Column="0" Grid.Row="2">
-								Watermark Text Position
-							</TextBlock>
+								<TextBlock Style="{StaticResource ConfigSectionLabel}"
+									Grid.Column="0" Grid.Row="2">
+									Watermark Text Position
+								</TextBlock>
 
-							<ComboBox x:Name="cmbWatermarkTextPosition"
-								Margin="10,0,0,0"
-								HorizontalAlignment="Stretch"
-								VerticalAlignment="Stretch"
-								ItemsSource="{Binding Source={StaticResource PositionData}}"
-								SelectedItem="{Binding Path=Watermark.WatermarkTextPosition, Mode=TwoWay}"
-								Grid.Column="1" Grid.Row="2">
-							</ComboBox>
-						</Grid>
-					</GroupBox>
-				</StackPanel>
+								<ComboBox x:Name="cmbWatermarkTextPosition"
+									Margin="10,0,0,0"
+									HorizontalAlignment="Stretch"
+									VerticalAlignment="Stretch"
+									ItemsSource="{Binding Source={StaticResource PositionData}}"
+									SelectedItem="{Binding Path=Watermark.WatermarkTextPosition, Mode=TwoWay}"
+									Grid.Column="1" Grid.Row="2">
+								</ComboBox>
+							</Grid>
+						</GroupBox>
+					</StackPanel>
+				</ScrollViewer>
 			</TabItem>
 
 			<!-- Third Tab, picture options -->
 			<TabItem Header="Process Settings">
-				<StackPanel>
-					<GroupBox Header="Picture Settings">
-						<Grid>
-							<Grid.ColumnDefinitions>
-								<ColumnDefinition Width="*"></ColumnDefinition>
-								<ColumnDefinition Width="3*"></ColumnDefinition>
-							</Grid.ColumnDefinitions>
-							<Grid.RowDefinitions>
-								<RowDefinition></RowDefinition>
-								<RowDefinition></RowDefinition>
-								<RowDefinition></RowDefinition>
-							</Grid.RowDefinitions>
+				<ScrollViewer VerticalScrollBarVisibility="Auto">
+					<StackPanel>
+						<GroupBox Header="Picture Settings">
+							<Grid>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="*"></ColumnDefinition>
+									<ColumnDefinition Width="3*"></ColumnDefinition>
+								</Grid.ColumnDefinitions>
+								<Grid.RowDefinitions>
+									<RowDefinition></RowDefinition>
+									<RowDefinition></RowDefinition>
+									<RowDefinition></RowDefinition>
+								</Grid.RowDefinitions>
 
-							<TextBlock Style="{StaticResource ConfigSectionLabel}"
-								Grid.Column="0" Grid.Row="0">
-								Image Process Type
-							</TextBlock>
+								<TextBlock Style="{StaticResource ConfigSectionLabel}"
+									Grid.Column="0" Grid.Row="0">
+									Image Process Type
+								</TextBlock>
 
-							<ComboBox x:Name="cmbProcessType"
-								Margin="10,0,0,0"
-								HorizontalAlignment="Stretch"
-								VerticalAlignment="Stretch"
-								ItemsSource="{Binding Source={StaticResource ImageProcessTypeData}}"
-								SelectedItem="{Binding Path=ProcessType, Mode=TwoWay}"
-								Grid.Column="1" Grid.Row="0">
-							</ComboBox>
-
-							<TextBlock Style="{StaticResource ConfigSectionLabel}"
-								Grid.Column="0" Grid.Row="1">
-								Keep EXIF
-							</TextBlock>
-
-							<CheckBox x:Name="chkKeepExif"
-								Grid.Column="1" Grid.Row="1"
-								Margin="10,0,0,0"
-								IsChecked="{Binding Path=KeepExif, Mode=TwoWay}"
-								IsEnabled="False">
-							</CheckBox>
-							
-							<TextBlock Style="{StaticResource ConfigSectionLabel}"
-								Grid.Column="0" Grid.Row="2">
-								JPG Compression Ratio
-							</TextBlock>
-
-							<StackPanel Grid.Column="1" Grid.Row="2" FlowDirection="LeftToRight" Orientation="Horizontal">
-								<Slider x:Name="sJpgCompressionRatio" Margin="10,0,0,0"
-									Orientation="Horizontal" Width="200"
-									Minimum="0" Maximum="100"
-									Value="{Binding Path=JpgCompressionRatio, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-									IsSnapToTickEnabled="True"
-									TickFrequency="1"/>
-								<TextBlock Text="{Binding Path=JpgCompressionRatio}" 
-									Margin="10,0,0,0" VerticalAlignment="Center" />
-
-								<TextBlock Text=" %" VerticalAlignment="Center" />
-							</StackPanel>
-						</Grid>
-					</GroupBox>
-					<!-- Blank line to add more spaces between group box -->
-					<TextBlock></TextBlock>
-					<GroupBox Header="Drop Shadow Option">
-						<Grid ShowGridLines="False">
-							<Grid.ColumnDefinitions>
-								<ColumnDefinition Width="*"></ColumnDefinition>
-								<ColumnDefinition Width="3*"></ColumnDefinition>
-							</Grid.ColumnDefinitions>
-							<Grid.RowDefinitions>
-								<RowDefinition></RowDefinition>
-								<RowDefinition></RowDefinition>
-								<RowDefinition></RowDefinition>
-								<RowDefinition></RowDefinition>
-							</Grid.RowDefinitions>
-
-							<TextBlock Style="{StaticResource ConfigSectionLabel}"
-								Grid.Column="0" Grid.Row="0"
-								VerticalAlignment="Top">
-								Background Color
-							</TextBlock>
-
-							<StackPanel Grid.Column="1" Grid.Row="0" FlowDirection="LeftToRight" Orientation="Horizontal">
-								<Button x:Name="btnShadowBackgroundPicker" Background="Transparent"
-									Click="btnShadowBackgroundPicker_Click"
-									Width="40" Height="20" Margin="10,0,0,0"
-									HorizontalAlignment="Left">
-									<Rectangle Width="30" Height="15" Stroke="Black" StrokeThickness="2">
-										<Rectangle.Fill>
-											<SolidColorBrush Color="{Binding Path=DropShadowSetting.BackgroundColor, Mode=OneWay}" />
-										</Rectangle.Fill>
-									</Rectangle>
-								</Button>
-								<TextBlock x:Name="BackgroundColor" Margin="10,0,0,0"
-									Text="{Binding Path=DropShadowSetting.BackgroundColor, Mode=OneWay, Converter={StaticResource cnvColorValue}}"></TextBlock>
-							</StackPanel>
-							
-							<TextBlock Style="{StaticResource ConfigSectionLabel}"
-								Grid.Column="0" Grid.Row="1"
-								VerticalAlignment="Top">
-								Drop Shadow Color
-							</TextBlock>
-							
-							<StackPanel Grid.Column="1" Grid.Row="1" FlowDirection="LeftToRight" Orientation="Horizontal">
-								<Button x:Name="btnShadowColorPicker" Background="Transparent"
-									Click="btnShadowColorPicker_Click"
-									Width="40" Height="20" Margin="10,0,0,0"
-									HorizontalAlignment="Left">
-									<Rectangle Width="30" Height="15" Stroke="Black" StrokeThickness="2">
-										<Rectangle.Fill>
-											<SolidColorBrush Color="{Binding Path=DropShadowSetting.DropShadowColor, Mode=OneWay}" />
-										</Rectangle.Fill>
-									</Rectangle>
-								</Button>
-								<TextBlock x:Name="DropShadowColor" Margin="10,0,0,0"
-									Text="{Binding Path=DropShadowSetting.DropShadowColor, Mode=OneWay, Converter={StaticResource cnvColorValue}}"></TextBlock>
-							</StackPanel>
-							
-							<TextBlock Style="{StaticResource ConfigSectionLabel}"
-								Grid.Column="0" Grid.Row="2"
-								VerticalAlignment="Top">
-								Shadow Depth
-							</TextBlock>
-							
-							<StackPanel Grid.Column="1" Grid.Row="2" FlowDirection="LeftToRight" Orientation="Horizontal">
-								<Slider x:Name="sShadowDepth" Margin="10,0,0,0"
-									Orientation="Horizontal" Width="200"
-									Minimum="0" Maximum="50"
-									Value="{Binding Path=DropShadowSetting.ShadowDepth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-									IsSnapToTickEnabled="True"
-									TickFrequency="1"/>
-								<TextBlock Text="{Binding Path=DropShadowSetting.ShadowDepth}" 
-									Margin="10,0,0,0" VerticalAlignment="Center" />
-								<TextBlock Text=" pixel(s)" VerticalAlignment="Center" />
-							</StackPanel>
-							
-							<TextBlock Style="{StaticResource ConfigSectionLabel}"
-								Grid.Column="0" Grid.Row="3"
-								VerticalAlignment="Top">
-								Shadow Location
-							</TextBlock>
-							
-							<ComboBox x:Name="cmbDropShadowLocation"
-								Margin="10,0,0,0"
-								HorizontalAlignment="Stretch"
-								VerticalAlignment="Stretch"
-								ItemsSource="{Binding Source={StaticResource DropShadowLocationData}}"
-								SelectedItem="{Binding Path=DropShadowSetting.ShadowLocation, Mode=TwoWay}"
-								Grid.Column="1" Grid.Row="3">
-							</ComboBox>
-						</Grid>
-					</GroupBox>
-					<!-- Blank line to add more spaces between group box -->
-					<TextBlock></TextBlock>
-					<GroupBox Header="Border Option">
-						<Grid ShowGridLines="False">
-							<Grid.ColumnDefinitions>
-								<ColumnDefinition Width="*"></ColumnDefinition>
-								<ColumnDefinition Width="3*"></ColumnDefinition>
-							</Grid.ColumnDefinitions>
-							<Grid.RowDefinitions>
-								<RowDefinition></RowDefinition>
-								<RowDefinition></RowDefinition>
-							</Grid.RowDefinitions>
-							
-							<TextBlock Style="{StaticResource ConfigSectionLabel}"
-								Grid.Column="0" Grid.Row="0"
-								VerticalAlignment="Top">
-								Image Border Width
-							</TextBlock>
-
-							<StackPanel Grid.Column="1" Grid.Row="0" FlowDirection="LeftToRight" Orientation="Horizontal">
-								<Slider x:Name="sImageBorderWidth" Margin="10,0,0,0"
-									Orientation="Horizontal" Width="200"
-									Minimum="0" Maximum="50"
-									Value="{Binding Path=BorderSetting.BorderWidth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-									IsSnapToTickEnabled="True"
-									TickFrequency="1"/>
-								<TextBlock Text="{Binding Path=BorderSetting.BorderWidth}" 
-									Margin="10,0,0,0" VerticalAlignment="Center" />
-								<TextBlock Text=" pixel(s)" VerticalAlignment="Center" />
-							</StackPanel>
-							
-							<TextBlock Style="{StaticResource ConfigSectionLabel}"
-								Grid.Column="0" Grid.Row="1"
-								VerticalAlignment="Top">
-								Image Border Color
-							</TextBlock>
-							
-							<StackPanel Grid.Column="1" Grid.Row="1" FlowDirection="LeftToRight" Orientation="Horizontal">
-								<Button x:Name="btnImageBorderColorPicker" Background="Transparent"
-									Width="40" Height="20" Margin="10,0,0,0"
-									Click="btnImageBorderColorPicker_Click"
-									HorizontalAlignment="Left">
-									<Rectangle Width="30" Height="15" Stroke="Black" StrokeThickness="2">
-										<Rectangle.Fill>
-											<SolidColorBrush Color="{Binding Path=BorderSetting.BorderColor}" />
-										</Rectangle.Fill>
-									</Rectangle>
-								</Button>
-								<TextBlock x:Name="ImageBorderColor" Margin="10,0,0,0"
-									Text="{Binding Path=BorderSetting.BorderColor, Converter={StaticResource cnvColorValue}}"></TextBlock>
-							</StackPanel>
-						</Grid>
-					</GroupBox>
-					<!-- Blank line to add more spaces between group box -->
-					<TextBlock></TextBlock>
-					<GroupBox Header="Shrink Option">
-						<Grid ShowGridLines="False">
-							<Grid.ColumnDefinitions>
-								<ColumnDefinition Width="*"></ColumnDefinition>
-								<ColumnDefinition Width="3*"></ColumnDefinition>
-							</Grid.ColumnDefinitions>
-							<Grid.RowDefinitions>
-								<RowDefinition></RowDefinition>
-								<RowDefinition></RowDefinition>
-							</Grid.RowDefinitions>
-							
-							<TextBlock Style="{StaticResource ConfigSectionLabel}"
-								Grid.Column="0" Grid.Row="0"
-								VerticalAlignment="Top">
-								Shrink Image
-							</TextBlock>
-							
-							<CheckBox x:Name="chkShrinkImage"
-								Grid.Column="1" Grid.Row="0"
-								Margin="10,0,0,0"
-								IsChecked="{Binding Path=ShrinkImage, Mode=TwoWay}">
-							</CheckBox>
-							
-							<TextBlock Style="{StaticResource ConfigSectionLabel}"
-								Grid.Column="0" Grid.Row="1">
-								Shrink Image Long Side To
-							</TextBlock>
-							
-							<StackPanel Grid.Column="1" Grid.Row="1" FlowDirection="LeftToRight" Orientation="Horizontal">
-								<HSCtrl:IntegerTextBox x:Name="txtShrinkLongSideTo"
+								<ComboBox x:Name="cmbProcessType"
 									Margin="10,0,0,0"
-									HorizontalAlignment="Left"
-									Style="{StaticResource cfgTextBox}"
-									Text="{Binding Path=ShrinkLongSidePixelTo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-									IsEnabled="{Binding ElementName=chkShrinkImage, Path=IsChecked}">
-								</HSCtrl:IntegerTextBox>
+									HorizontalAlignment="Stretch"
+									VerticalAlignment="Stretch"
+									ItemsSource="{Binding Source={StaticResource ImageProcessTypeData}}"
+									SelectedItem="{Binding Path=ProcessType, Mode=TwoWay}"
+									Grid.Column="1" Grid.Row="0">
+								</ComboBox>
 
-								<TextBlock VerticalAlignment="Center"
-									Margin="5,0,0,0"> Pixel(s)</TextBlock>
-							</StackPanel>
-						</Grid>
-					</GroupBox>
-				</StackPanel>
+								<TextBlock Style="{StaticResource ConfigSectionLabel}"
+									Grid.Column="0" Grid.Row="1">
+									Keep EXIF
+								</TextBlock>
+
+								<CheckBox x:Name="chkKeepExif"
+									Grid.Column="1" Grid.Row="1"
+									Margin="10,0,0,0"
+									IsChecked="{Binding Path=KeepExif, Mode=TwoWay}"
+									IsEnabled="False">
+								</CheckBox>
+								
+								<TextBlock Style="{StaticResource ConfigSectionLabel}"
+									Grid.Column="0" Grid.Row="2">
+									JPG Compression Ratio
+								</TextBlock>
+
+								<StackPanel Grid.Column="1" Grid.Row="2" FlowDirection="LeftToRight" Orientation="Horizontal">
+									<Slider x:Name="sJpgCompressionRatio" Margin="10,0,0,0"
+										Orientation="Horizontal" Width="200"
+										Minimum="0" Maximum="100"
+										Value="{Binding Path=JpgCompressionRatio, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+										IsSnapToTickEnabled="True"
+										TickFrequency="1"/>
+									<TextBlock Text="{Binding Path=JpgCompressionRatio}" 
+										Margin="10,0,0,0" VerticalAlignment="Center" />
+
+									<TextBlock Text=" %" VerticalAlignment="Center" />
+								</StackPanel>
+							</Grid>
+						</GroupBox>
+
+						<!-- Blank line to add more spaces between group box -->
+						<TextBlock></TextBlock>
+
+						<GroupBox Header="Drop Shadow Option">
+							<Grid ShowGridLines="False">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="*"></ColumnDefinition>
+									<ColumnDefinition Width="3*"></ColumnDefinition>
+								</Grid.ColumnDefinitions>
+								<Grid.RowDefinitions>
+									<RowDefinition></RowDefinition>
+									<RowDefinition></RowDefinition>
+									<RowDefinition></RowDefinition>
+									<RowDefinition></RowDefinition>
+								</Grid.RowDefinitions>
+
+								<TextBlock Style="{StaticResource ConfigSectionLabel}"
+									Grid.Column="0" Grid.Row="0"
+									VerticalAlignment="Top">
+									Background Color
+								</TextBlock>
+
+								<StackPanel Grid.Column="1" Grid.Row="0" FlowDirection="LeftToRight" Orientation="Horizontal">
+									<Button x:Name="btnShadowBackgroundPicker" Background="Transparent"
+										Click="btnShadowBackgroundPicker_Click"
+										Width="40" Height="20" Margin="10,0,0,0"
+										HorizontalAlignment="Left">
+										<Rectangle Width="30" Height="15" Stroke="Black" StrokeThickness="2">
+											<Rectangle.Fill>
+												<SolidColorBrush Color="{Binding Path=DropShadowSetting.BackgroundColor, Mode=OneWay}" />
+											</Rectangle.Fill>
+										</Rectangle>
+									</Button>
+									<TextBlock x:Name="BackgroundColor" Margin="10,0,0,0"
+										Text="{Binding Path=DropShadowSetting.BackgroundColor, Mode=OneWay, Converter={StaticResource cnvColorValue}}"></TextBlock>
+								</StackPanel>
+								
+								<TextBlock Style="{StaticResource ConfigSectionLabel}"
+									Grid.Column="0" Grid.Row="1"
+									VerticalAlignment="Top">
+									Drop Shadow Color
+								</TextBlock>
+								
+								<StackPanel Grid.Column="1" Grid.Row="1" FlowDirection="LeftToRight" Orientation="Horizontal">
+									<Button x:Name="btnShadowColorPicker" Background="Transparent"
+										Click="btnShadowColorPicker_Click"
+										Width="40" Height="20" Margin="10,0,0,0"
+										HorizontalAlignment="Left">
+										<Rectangle Width="30" Height="15" Stroke="Black" StrokeThickness="2">
+											<Rectangle.Fill>
+												<SolidColorBrush Color="{Binding Path=DropShadowSetting.DropShadowColor, Mode=OneWay}" />
+											</Rectangle.Fill>
+										</Rectangle>
+									</Button>
+									<TextBlock x:Name="DropShadowColor" Margin="10,0,0,0"
+										Text="{Binding Path=DropShadowSetting.DropShadowColor, Mode=OneWay, Converter={StaticResource cnvColorValue}}"></TextBlock>
+								</StackPanel>
+								
+								<TextBlock Style="{StaticResource ConfigSectionLabel}"
+									Grid.Column="0" Grid.Row="2"
+									VerticalAlignment="Top">
+									Shadow Depth
+								</TextBlock>
+								
+								<StackPanel Grid.Column="1" Grid.Row="2" FlowDirection="LeftToRight" Orientation="Horizontal">
+									<Slider x:Name="sShadowDepth" Margin="10,0,0,0"
+										Orientation="Horizontal" Width="200"
+										Minimum="0" Maximum="50"
+										Value="{Binding Path=DropShadowSetting.ShadowDepth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+										IsSnapToTickEnabled="True"
+										TickFrequency="1"/>
+									<TextBlock Text="{Binding Path=DropShadowSetting.ShadowDepth}" 
+										Margin="10,0,0,0" VerticalAlignment="Center" />
+									<TextBlock Text=" pixel(s)" VerticalAlignment="Center" />
+								</StackPanel>
+								
+								<TextBlock Style="{StaticResource ConfigSectionLabel}"
+									Grid.Column="0" Grid.Row="3"
+									VerticalAlignment="Top">
+									Shadow Location
+								</TextBlock>
+								
+								<ComboBox x:Name="cmbDropShadowLocation"
+									Margin="10,0,0,0"
+									HorizontalAlignment="Stretch"
+									VerticalAlignment="Stretch"
+									ItemsSource="{Binding Source={StaticResource DropShadowLocationData}}"
+									SelectedItem="{Binding Path=DropShadowSetting.ShadowLocation, Mode=TwoWay}"
+									Grid.Column="1" Grid.Row="3">
+								</ComboBox>
+							</Grid>
+						</GroupBox>
+
+						<!-- Blank line to add more spaces between group box -->
+						<TextBlock></TextBlock>
+
+						<GroupBox Header="Border Option">
+							<Grid ShowGridLines="False">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="*"></ColumnDefinition>
+									<ColumnDefinition Width="3*"></ColumnDefinition>
+								</Grid.ColumnDefinitions>
+								<Grid.RowDefinitions>
+									<RowDefinition></RowDefinition>
+									<RowDefinition></RowDefinition>
+								</Grid.RowDefinitions>
+								
+								<TextBlock Style="{StaticResource ConfigSectionLabel}"
+									Grid.Column="0" Grid.Row="0"
+									VerticalAlignment="Top">
+									Image Border Width
+								</TextBlock>
+
+								<StackPanel Grid.Column="1" Grid.Row="0" FlowDirection="LeftToRight" Orientation="Horizontal">
+									<Slider x:Name="sImageBorderWidth" Margin="10,0,0,0"
+										Orientation="Horizontal" Width="200"
+										Minimum="0" Maximum="50"
+										Value="{Binding Path=BorderSetting.BorderWidth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+										IsSnapToTickEnabled="True"
+										TickFrequency="1"/>
+									<TextBlock Text="{Binding Path=BorderSetting.BorderWidth}" 
+										Margin="10,0,0,0" VerticalAlignment="Center" />
+									<TextBlock Text=" pixel(s)" VerticalAlignment="Center" />
+								</StackPanel>
+								
+								<TextBlock Style="{StaticResource ConfigSectionLabel}"
+									Grid.Column="0" Grid.Row="1"
+									VerticalAlignment="Top">
+									Image Border Color
+								</TextBlock>
+								
+								<StackPanel Grid.Column="1" Grid.Row="1" FlowDirection="LeftToRight" Orientation="Horizontal">
+									<Button x:Name="btnImageBorderColorPicker" Background="Transparent"
+										Width="40" Height="20" Margin="10,0,0,0"
+										Click="btnImageBorderColorPicker_Click"
+										HorizontalAlignment="Left">
+										<Rectangle Width="30" Height="15" Stroke="Black" StrokeThickness="2">
+											<Rectangle.Fill>
+												<SolidColorBrush Color="{Binding Path=BorderSetting.BorderColor}" />
+											</Rectangle.Fill>
+										</Rectangle>
+									</Button>
+									<TextBlock x:Name="ImageBorderColor" Margin="10,0,0,0"
+										Text="{Binding Path=BorderSetting.BorderColor, Converter={StaticResource cnvColorValue}}"></TextBlock>
+								</StackPanel>
+							</Grid>
+						</GroupBox>
+
+						<!-- Blank line to add more spaces between group box -->
+						<TextBlock></TextBlock>
+
+						<GroupBox Header="Shrink Option">
+							<Grid ShowGridLines="False">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="*"></ColumnDefinition>
+									<ColumnDefinition Width="3*"></ColumnDefinition>
+								</Grid.ColumnDefinitions>
+								<Grid.RowDefinitions>
+									<RowDefinition></RowDefinition>
+									<RowDefinition></RowDefinition>
+								</Grid.RowDefinitions>
+								
+								<TextBlock Style="{StaticResource ConfigSectionLabel}"
+									Grid.Column="0" Grid.Row="0"
+									VerticalAlignment="Top">
+									Shrink Image
+								</TextBlock>
+								
+								<CheckBox x:Name="chkShrinkImage"
+									Grid.Column="1" Grid.Row="0"
+									Margin="10,0,0,0"
+									IsChecked="{Binding Path=ShrinkImage, Mode=TwoWay}">
+								</CheckBox>
+								
+								<TextBlock Style="{StaticResource ConfigSectionLabel}"
+									Grid.Column="0" Grid.Row="1">
+									Shrink Image Long Side To
+								</TextBlock>
+								
+								<StackPanel Grid.Column="1" Grid.Row="1" FlowDirection="LeftToRight" Orientation="Horizontal">
+									<HSCtrl:IntegerTextBox x:Name="txtShrinkLongSideTo"
+										Margin="10,0,0,0"
+										HorizontalAlignment="Left"
+										Style="{StaticResource cfgTextBox}"
+										Text="{Binding Path=ShrinkLongSidePixelTo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+										IsEnabled="{Binding ElementName=chkShrinkImage, Path=IsChecked}">
+									</HSCtrl:IntegerTextBox>
+
+									<TextBlock VerticalAlignment="Center"
+										Margin="5,0,0,0"> Pixel(s)</TextBlock>
+								</StackPanel>
+							</Grid>
+						</GroupBox>
+					</StackPanel>
+				</ScrollViewer>
 			</TabItem>
 
 			<!-- Forth Tab, thumbnail output options -->

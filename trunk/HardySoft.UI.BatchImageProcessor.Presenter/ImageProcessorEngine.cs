@@ -47,6 +47,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 		private void processImage(object threadIndex) {
 			int index = (int)threadIndex;
 
+			// TODO make registration in config file
 			IUnityContainer container = new UnityContainer();
 			// register all supported image process classes
 			container.RegisterType<IProcess, AddBorder>("AddBorder", new PerThreadLifetimeManager());
@@ -64,11 +65,11 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 			// register save image classes
 			container.RegisterType<ISaveImage, SaveNormalImage>("SaveNormalImage", new PerThreadLifetimeManager());
 			container.RegisterType<ISaveImage, SaveCompressedJPGImage>("SaveCompressedJpgImage", new PerThreadLifetimeManager());
-			
+
 			string imagePath = string.Empty;
 			uint imageIndex = 0;
 
-			lock(syncRoot) {
+			lock (syncRoot) {
 				if (jobQueue.Count > 0) {
 					JobItem item = jobQueue.Dequeue();
 					imagePath = item.FileName;
@@ -129,8 +130,8 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 					}
 
 					// image watermark operation
-					if (!string.IsNullOrEmpty(ps.Watermark.WatermarkImageFile) 
-						&& ! string.IsNullOrEmpty(ps.Watermark.WatermarkImageFile)) {
+					if (!string.IsNullOrEmpty(ps.Watermark.WatermarkImageFile)
+						&& !string.IsNullOrEmpty(ps.Watermark.WatermarkImageFile)) {
 						process = container.Resolve<IProcess>("WatermarkImage");
 						normalImage = process.ProcessImage(normalImage, this.ps);
 					}
@@ -172,8 +173,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 					saveImage(imagePath, thumb, format, fileNameProvider, imageSaver);
 				} catch (Exception ex) {
 					// TODO add logic
-				}
-				finally {
+				} finally {
 					normalImage.Dispose();
 					normalImage = null;
 

@@ -220,6 +220,10 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 						return null;
 					}), null);
 		}
+
+		public void ProcessingStopped() {
+			this.processing = false;
+		}
 		#endregion
 
 		#region View events
@@ -323,6 +327,12 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 
 		#region Stop Command
 		private void StopCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e) {
+#if DEBUG
+			string message = string.Format("Processing status is {0} at {1}.",
+				this.processing,
+				DateTime.Now);
+			System.Diagnostics.Debug.WriteLine(message);
+#endif
 			e.CanExecute = this.processing;
 		}
 		
@@ -343,6 +353,8 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 		private void MakeCommand_Executed(object sender, ExecutedRoutedEventArgs e) {
 			ProcessThreadNumberEventHandler handlers = ProcessImage;
 			if (handlers != null) {
+				this.processing = true;
+				this.Progress.Value = 0;
 				ProcessThreadNumberEventArgs args = new ProcessThreadNumberEventArgs(Properties.Settings.Default.ThreadNumber);
 				handlers(this, args);
 			}
