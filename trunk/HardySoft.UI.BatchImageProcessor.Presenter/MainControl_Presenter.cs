@@ -100,34 +100,42 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 
 				SetErrorMessage(exceptions);
 			} else {
-				AutoResetEvent[] events = new AutoResetEvent[e.ThreadNumber];
-				for (int i = 0; i < events.Length; i++) {
-					events[i] = new AutoResetEvent(false);
-				}
-
-				// add all selected images to job queue.
-				Queue<JobItem> jobQueue = new Queue<JobItem>();
-				uint index = 0;
-				foreach (PhotoItem item in ps.Photos) {
-					if (item.Selected) {
-						jobQueue.Enqueue(new JobItem()
-						{
-							FileName = item.PhotoPath,
-							Index = index
-						});
-
-						index++;
-					}
-				}
-
-				view.ResetJobSize(jobQueue.Count);
-
-				engine = new ImageProcessorEngine(e.ThreadNumber, events);
-				engine.ImageProcessed += new ImageProcessedDelegate(engine_ImageProcessed);
-				engine.StartProcess(this.ps, jobQueue);
-
-				//AutoResetEvent.WaitAll(events);
+				// we need to use WaitAll to be notified all jobs from all threads are done,
+				// WaitAll will block the current thread, I don't want it happen to main thread,
+				// that is the reason we create another thread instead.
+				Thread controlThread = new Thread(new ParameterizedThreadStart(engineControl));
+				controlThread.Start(e.ThreadNumber);
 			}
+		}
+
+		private void engineControl(object state) {
+			uint threadNumber = (uint)state;
+			AutoResetEvent[] events = new AutoResetEvent[threadNumber];
+			for (int i = 0; i < events.Length; i++) {
+				events[i] = new AutoResetEvent(false);
+			}
+
+			// add all selected images to job queue.
+			Queue<JobItem> jobQueue = new Queue<JobItem>();
+			uint index = 0;
+			foreach (PhotoItem item in ps.Photos) {
+				if (item.Selected) {
+					jobQueue.Enqueue(new JobItem() {
+						FileName = item.PhotoPath,
+						Index = index
+					});
+
+					index++;
+				}
+			}
+
+			view.ResetJobSize(jobQueue.Count);
+
+			engine = new ImageProcessorEngine(threadNumber, events);
+			engine.ImageProcessed += new ImageProcessedDelegate(engine_ImageProcessed);
+			engine.StartProcess(this.ps, jobQueue);
+
+			AutoResetEvent.WaitAll(events);
 
 			this.view.ProcessingStopped();
 		}

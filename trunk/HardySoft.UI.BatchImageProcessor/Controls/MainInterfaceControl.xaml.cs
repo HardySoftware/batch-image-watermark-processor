@@ -12,8 +12,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Forms;
-using System.Drawing;
 using System.Windows.Threading;
+using System.Drawing;
 
 using Microsoft.Practices.Unity;
 
@@ -29,12 +29,21 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 	/// </summary>
 	public partial class MainInterfaceControl : System.Windows.Controls.UserControl, IMainInterfaceControlView {
 		private MainControl_Presenter presenter;
-		private bool processing = false;
+		private bool processing;
+		private DispatcherTimer dispatcherTimer;
 
 		public MainInterfaceControl() {
 			IUnityContainer container = new UnityContainer();
 
 			InitializeComponent();
+
+			this.processing = false;
+
+			//  DispatcherTimer setup
+			dispatcherTimer = new DispatcherTimer();
+			dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
+			dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
+			dispatcherTimer.Start();
 		}
 
 		[Dependency]
@@ -46,6 +55,11 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 				presenter = value;
 				presenter.SetView(this);
 			}
+		}
+
+		void dispatcherTimer_Tick(object sender, EventArgs e) {
+			// force commands to re-evaluate
+			CommandManager.InvalidateRequerySuggested();
 		}
 
 		private void FileList_SelectionChanged(object sender, SelectionChangedEventArgs e) {
@@ -207,22 +221,46 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 		}
 
 		public void ResetJobSize(int jobSize) {
-			this.Progress.Maximum = jobSize;
-			this.Progress.Value = 0;
+			//this.Progress.Maximum = jobSize;
+			//this.Progress.Value = 0;
+
+			if (!this.Dispatcher.CheckAccess()) {
+				this.Dispatcher.Invoke(
+				  System.Windows.Threading.DispatcherPriority.Normal,
+				  new Action(
+					delegate() {
+						this.Progress.Maximum = jobSize;
+						this.Progress.Value = 0;
+					}
+				));
+			} else {
+				this.Progress.Maximum = jobSize;
+				this.Progress.Value = 0;
+			}
 		}
 
 		public void ReportProgress() {
 			Progress.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal,
 				new DispatcherOperationCallback(
 					delegate {
-						System.Diagnostics.Debug.WriteLine("value is: " + Progress.Value);
+						//System.Diagnostics.Debug.WriteLine("Progress bar value is: " + Progress.Value);
 						Progress.Value = Progress.Value + 1;
 						return null;
 					}), null);
 		}
 
 		public void ProcessingStopped() {
-			this.processing = false;
+			if (!this.Dispatcher.CheckAccess()) {
+				this.Dispatcher.Invoke(
+				  System.Windows.Threading.DispatcherPriority.Normal,
+				  new Action(
+					delegate() {
+						this.processing = false;
+					}
+				));
+			} else {
+				this.processing = false;
+			}
 		}
 		#endregion
 
@@ -337,7 +375,11 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 		}
 		
 		private void StopCommand_Executed(object sender, ExecutedRoutedEventArgs e) {
-
+			EventHandler handlers = StopProcessing;
+			if (handlers != null) {
+				EventArgs args = new EventArgs();
+				handlers(this, args);
+			}
 		}
 		#endregion
 
@@ -346,7 +388,11 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 			if (ps == null) {
 				e.CanExecute = false;
 			} else {
-				e.CanExecute = ps.ProjectCreated;
+				if (this.processing) {
+					e.CanExecute = false;
+				} else {
+					e.CanExecute = ps.ProjectCreated;
+				}
 			}
 		}
 
