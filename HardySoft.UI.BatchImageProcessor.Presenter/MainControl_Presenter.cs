@@ -16,6 +16,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 	public class MainControl_Presenter {
 		private IMainInterfaceControlView view;
 		private ProjectSetting ps;
+		private ImageProcessorEngine engine = null;
 
 		public MainControl_Presenter() {
 			ps = new ProjectSetting();
@@ -121,10 +122,14 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 
 				view.ResetJobSize(jobQueue.Count);
 
-				ImageProcessorEngine engine = new ImageProcessorEngine(e.ThreadNumber, events);
+				engine = new ImageProcessorEngine(e.ThreadNumber, events);
 				engine.ImageProcessed += new ImageProcessedDelegate(engine_ImageProcessed);
 				engine.StartProcess(this.ps, jobQueue);
+
+				//AutoResetEvent.WaitAll(events);
 			}
+
+			this.view.ProcessingStopped();
 		}
 
 		void engine_ImageProcessed(ImageProcessedEventArgs args) {

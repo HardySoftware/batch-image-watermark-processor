@@ -50,7 +50,7 @@
 		<Setter Property="CornerRadius" Value="0,20,30,40"></Setter>
 		<Setter Property="Background">
 			<Setter.Value>
-				<LinearGradientBrush >
+				<LinearGradientBrush>
 					<GradientBrush.GradientStops>
 						<GradientStopCollection>
 							<GradientStop Color="#DEDEDE" Offset="0.0"/>
@@ -459,7 +459,9 @@
     
 	<!-- Textboxes for configurations -->
 	<Style x:Key="cfgTextBox" TargetType="{x:Type TextBox}">
-		<Setter Property="Foreground" Value="#F1F894" />
+		<!--
+		<Setter Property="Foreground" Value="#FF000000" />
+		-->
 		<Setter Property="FontFamily" Value="Calibri, Tahoma, Arial" />
 		<Setter Property="FontSize" Value="12" />
 		<Setter Property="Height" Value="25"/>
@@ -474,16 +476,26 @@
 					</Border>
 					<ControlTemplate.Triggers>
 						<Trigger Property="IsFocused" Value="True">
-							<Setter Property="Border.Background">
+							<Setter TargetName="Border" Property="Background">
 								<Setter.Value>
-									<SolidColorBrush Opacity="0.4" Color="#CCCCCC" />
+									<LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
+										<LinearGradientBrush.GradientStops>
+											<GradientStop Color="#CCC" Offset="0" />
+											<GradientStop Color="#EEE" Offset="1" />
+										</LinearGradientBrush.GradientStops>
+									</LinearGradientBrush>
 								</Setter.Value>
 							</Setter>
 						</Trigger>
 						<Trigger Property="IsFocused" Value="False">
 							<Setter TargetName="Border" Property="Background">
 								<Setter.Value>
-									<SolidColorBrush Opacity="1" Color="#353533" />
+									<LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
+										<LinearGradientBrush.GradientStops>
+											<GradientStop Color="#EEE" Offset="0" />
+											<GradientStop Color="#CCC" Offset="1" />
+										</LinearGradientBrush.GradientStops>
+									</LinearGradientBrush>
 								</Setter.Value>
 							</Setter>
 						</Trigger>
@@ -504,7 +516,7 @@
 				<LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
 					<LinearGradientBrush.GradientStops>
 						<GradientStop Color="#282828" Offset="0" />
-						<GradientStop Color="#CFCFCF" Offset="1"></GradientStop>
+						<GradientStop Color="#CFCFCF" Offset="1" />
 					</LinearGradientBrush.GradientStops>
 				</LinearGradientBrush>
 			</Setter.Value>
@@ -585,12 +597,12 @@
 				<ColumnDefinition Width="20"/>
 			</Grid.ColumnDefinitions>
 			<Rectangle x:Name="Rectangle"
-					Grid.ColumnSpan="2"
-					HorizontalAlignment="Stretch"
-					VerticalAlignment="Stretch"
-					Width="Auto" Height="Auto"
-					RadiusX="5" RadiusY="5"
-					TextBlock.Foreground="Black">
+				Grid.ColumnSpan="2"
+				HorizontalAlignment="Stretch"
+				VerticalAlignment="Stretch"
+				Width="Auto" Height="Auto"
+				RadiusX="5" RadiusY="5"
+				TextBlock.Foreground="Black">
 				<Rectangle.Fill>
 					<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
 						<GradientStop Color="#EEE" Offset="0.0"/>
@@ -605,10 +617,10 @@
 				</Rectangle.Stroke>
 			</Rectangle>
 			<Rectangle Grid.Column="0"
-					HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-					Width="Auto" Height="Auto"
-					RadiusX="5" RadiusY="5"
-					TextBlock.Foreground="Black">
+				HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+				Width="Auto" Height="Auto"
+				RadiusX="5" RadiusY="5"
+				TextBlock.Foreground="Black">
 				<Rectangle.Fill>
 					<SolidColorBrush Color="Transparent"/>
 				</Rectangle.Fill>
@@ -620,9 +632,9 @@
 				</Rectangle.Stroke>
 			</Rectangle>
 			<Path x:Name="Arrow"
-					Grid.Column="1"
-					HorizontalAlignment="Center" VerticalAlignment="Center"
-					Data="M 0 0 L 4 4 L 8 0 Z">
+				Grid.Column="1"
+				HorizontalAlignment="Center" VerticalAlignment="Center"
+				Data="M 0 0 L 4 4 L 8 0 Z">
 				<Path.Fill>
 					<SolidColorBrush Color="#444"/>
 				</Path.Fill>
@@ -691,38 +703,38 @@
 					<Grid>
 						<!-- The ToggleButton is databound to the ComboBox itself to toggle IsDropDownOpen -->
 						<ToggleButton x:Name="ToggleButton"
-								Grid.Column="2"
-								Template="{DynamicResource ComboBoxToggleButton}"
-								Foreground="Black"
-								Focusable="false"
-								IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
-								ClickMode="Press"/>
+							Grid.Column="2"
+							Template="{DynamicResource ComboBoxToggleButton}"
+							Foreground="Black"
+							Focusable="false"
+							IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+							ClickMode="Press"/>
 						<ContentPresenter x:Name="ContentSite"
-								HorizontalAlignment="Left" VerticalAlignment="Center"
-								Margin="3,3,23,3"
-								Content="{TemplateBinding SelectionBoxItem}"
-								ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
-								ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"
-								IsHitTestVisible="False"/>
+							HorizontalAlignment="Left" VerticalAlignment="Center"
+							Margin="3,3,23,3"
+							Content="{TemplateBinding SelectionBoxItem}"
+							ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+							ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"
+							IsHitTestVisible="False"/>
 
 						<!-- The TextBox must be named PART_EditableTextBox or ComboBox will not recognize it -->
 						<TextBox x:Name="PART_EditableTextBox"
-								Visibility="Hidden"
-								Template="{DynamicResource ComboBoxTextBox}"
-								HorizontalAlignment="Left"
-								Margin="3,3,23,3" VerticalAlignment="Center"
-								Style="{x:Null}" Focusable="True" Background="Transparent"
-								IsReadOnly="{TemplateBinding IsReadOnly}"/>
+							Visibility="Hidden"
+							Template="{DynamicResource ComboBoxTextBox}"
+							HorizontalAlignment="Left"
+							Margin="3,3,23,3" VerticalAlignment="Center"
+							Style="{x:Null}" Focusable="True" Background="Transparent"
+							IsReadOnly="{TemplateBinding IsReadOnly}"/>
 
 						<!-- The Popup shows the list of items in the ComboBox. IsOpen is databound to IsDropDownOpen which is toggled via the ComboBoxToggleButton -->
 						<Popup x:Name="Popup"
-								IsOpen="{TemplateBinding IsDropDownOpen}"
-								Placement="Bottom" Focusable="False"
-								AllowsTransparency="True" PopupAnimation="Slide">
+							IsOpen="{TemplateBinding IsDropDownOpen}"
+							Placement="Bottom" Focusable="False"
+							AllowsTransparency="True" PopupAnimation="Slide">
 							<Grid x:Name="DropDown"
-									MaxHeight="{TemplateBinding MaxDropDownHeight}"
-									MinWidth="{TemplateBinding ActualWidth}"
-									SnapsToDevicePixels="True">
+								MaxHeight="{TemplateBinding MaxDropDownHeight}"
+								MinWidth="{TemplateBinding ActualWidth}"
+								SnapsToDevicePixels="True">
 								<Border x:Name="DropDownBorder" BorderBrush="{DynamicResource SolidBorderBrush}"
 										BorderThickness="1">
 									<Border.Background>
@@ -730,14 +742,14 @@
 									</Border.Background>
 								</Border>
 								<ScrollViewer
-										Margin="4,6,4,6"
-										Style="{DynamicResource PropertyGridScrollViewer}"
-										SnapsToDevicePixels="True"
-										HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"
-										CanContentScroll="True">
+									Margin="4,6,4,6"
+									Style="{DynamicResource PropertyGridScrollViewer}"
+									SnapsToDevicePixels="True"
+									HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"
+									CanContentScroll="True">
 									<!-- The StackPanel is used to display the children by setting IsItemsHost to be True -->
 									<StackPanel IsItemsHost="True"
-											KeyboardNavigation.DirectionalNavigation="Contained"/>
+										KeyboardNavigation.DirectionalNavigation="Contained"/>
 								</ScrollViewer>
 							</Grid>
 						</Popup>
@@ -772,7 +784,7 @@
 		</Setter>
 	</Style>
 
-	<!-- WPG ComboBoxItem -->
+	<!-- ComboBoxItem -->
 	<Style TargetType="{x:Type ComboBoxItem}">
 		<Setter Property="SnapsToDevicePixels" Value="true"/>
 		<Setter Property="Template">
@@ -780,12 +792,12 @@
 				<ControlTemplate TargetType="{x:Type ComboBoxItem}">
 					<Grid SnapsToDevicePixels="true">
 						<Border x:Name="Border"
-								Background="{TemplateBinding Background}"
-								BorderBrush="{TemplateBinding BorderBrush}"
-								BorderThickness="{TemplateBinding BorderThickness}"/>
+							Background="{TemplateBinding Background}"
+							BorderBrush="{TemplateBinding BorderBrush}"
+							BorderThickness="{TemplateBinding BorderThickness}"/>
 						<ContentPresenter
-								HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-								VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+							HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+							VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
 					</Grid>
 					<ControlTemplate.Triggers>
 						<!-- Change IsHighlighted SelectedBackgroundBrush to set the selection color for the items -->
@@ -927,4 +939,61 @@
 	<!-- ======================== -->
 	<!-- End of Style of Checkbox -->
 	<!-- ======================== -->
+
+	<!-- ==================== -->
+	<!-- Begin of ProgressBar -->
+	<!-- ==================== -->
+	<Style TargetType="{x:Type ProgressBar}">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type ProgressBar}">
+					<Grid MinHeight="14">
+						<Border Name="PART_Track" CornerRadius="2" BorderThickness="1" >
+							<Border.Background>
+								<LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+									<GradientBrush.GradientStops>
+										<GradientStopCollection>
+											<GradientStop Color="#BBB" Offset="0.0"/>
+											<GradientStop Color="#EEE" Offset="0.1"/>
+											<GradientStop Color="#EEE" Offset="0.9"/>
+											<GradientStop Color="#FFF" Offset="1.0"/>
+										</GradientStopCollection>
+									</GradientBrush.GradientStops>
+								</LinearGradientBrush>
+							</Border.Background>
+							<Border.BorderBrush>
+								<SolidColorBrush Color="#888" />
+							</Border.BorderBrush>
+						</Border>
+						<Border Name="PART_Indicator" CornerRadius="2"
+								BorderThickness="1" HorizontalAlignment="Left">
+							<Border.Background>
+								<LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+									<GradientBrush.GradientStops>
+										<GradientStopCollection>
+											<GradientStop Color="#DEDEDE" Offset="0.0"/>
+											<GradientStop Color="#111111" Offset="1.0"/>
+										</GradientStopCollection>
+									</GradientBrush.GradientStops>
+								</LinearGradientBrush>
+							</Border.Background>
+							<Border.BorderBrush>
+								<LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+									<GradientBrush.GradientStops>
+										<GradientStopCollection>
+											<GradientStop Color="#CCC" Offset="0.0"/>
+											<GradientStop Color="#444" Offset="1.0"/>
+										</GradientStopCollection>
+									</GradientBrush.GradientStops>
+								</LinearGradientBrush>
+							</Border.BorderBrush>
+						</Border>
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<!-- ================== -->
+	<!-- End of ProgressBar -->
+	<!-- ================== -->
 </ResourceDictionary>

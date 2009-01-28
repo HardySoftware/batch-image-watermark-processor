@@ -25,6 +25,7 @@ namespace HardySoft.UI.BatchImageProcessor.View {
 
 		void ResetJobSize(int jobSize);
 		void ReportProgress();
+		void ProcessingStopped();
 
 		event EventHandler NewProjectCreated;
 		event ProjectWithFileNameEventHandler SaveProject;
