@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.IO;
 
 using HardySoft.UI.BatchImageProcessor.Model;
 
@@ -11,7 +12,12 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 	public class ApplyWatermarkImage : IProcess {
 		public Image ProcessImage(Image input, ProjectSetting ps) {
 			// image used as watermark
-			Image copyrightImage = Bitmap.FromFile(ps.Watermark.WatermarkImageFile);
+			Image copyrightImage;
+			using (Stream stream = File.OpenRead(ps.Watermark.WatermarkImageFile)) {
+				copyrightImage = Image.FromStream(stream);
+			}
+
+			// copyrightImage = Bitmap.FromFile(ps.Watermark.WatermarkImageFile);
 
 			int watermarkWidth = copyrightImage.Width;
 			int watermarkHeight = copyrightImage.Height;

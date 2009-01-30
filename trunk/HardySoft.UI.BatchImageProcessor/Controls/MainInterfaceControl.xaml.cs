@@ -159,6 +159,10 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 			}
 		}
 
+		private void HelpButton_Click(object sender, RoutedEventArgs e) {
+
+		}
+
 		#region View member
 		private ProjectSetting ps;
 
@@ -276,7 +280,11 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 		#region Commands
 		#region New Command
 		private void NewCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e) {
-			e.CanExecute = true;
+			if (this.processing) {
+				e.CanExecute = false;
+			} else {
+				e.CanExecute = true;
+			}
 		}
 
 		private void NewCommand_Executed(object sender, ExecutedRoutedEventArgs e) {
@@ -289,7 +297,11 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 
 		#region Open Command
 		private void OpenCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e) {
-			e.CanExecute = true;
+			if (this.processing) {
+				e.CanExecute = false;
+			} else {
+				e.CanExecute = true;
+			}
 		}
 		
 		private void OpenCommand_Executed(object sender, ExecutedRoutedEventArgs e) {

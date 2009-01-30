@@ -26,8 +26,8 @@
 			</Grid.ColumnDefinitions>
 
 			<!-- Menu Bar -->
-			<Menu Grid.Row="0" Grid.Column="0" Style="{StaticResource TopLevelMenu}">
-				<MenuItem Header="_File" Style="{StaticResource TopLevelMenuItem}">
+			<Menu Grid.Row="0" Grid.Column="0">
+				<MenuItem Header="_File">
 					<MenuItem Header="_New Project" Command="ApplicationCommands.New">
 						<MenuItem.Icon>
 							<Image Source="/HardySoft.UI.BatchImageProcessor;component/Themes/DarkCool/Images/Menu_Icons/new.png"></Image>
@@ -55,7 +55,7 @@
 						</MenuItem.Icon>
 					</MenuItem>
 				</MenuItem>
-				<MenuItem Header="_Process" Style="{StaticResource TopLevelMenuItem}">
+				<MenuItem Header="_Process">
 					<MenuItem Header="_Make" Command="HSC:ApplicationCommand.Make">
 						<MenuItem.Icon>
 							<Image Source="/HardySoft.UI.BatchImageProcessor;component/Themes/DarkCool/Images/Menu_Icons/fire.png"></Image>
@@ -72,7 +72,7 @@
 						</MenuItem.Icon>
 					</MenuItem>
 				</MenuItem>
-				<MenuItem Header="_Help" Style="{StaticResource TopLevelMenuItem}">
+				<MenuItem Header="_Help">
 					<MenuItem Header="_Online Help">
 						<MenuItem.Icon>
 							<Image Source="/HardySoft.UI.BatchImageProcessor;component/Themes/DarkCool/Images/Menu_Icons/help.png"></Image>
@@ -119,14 +119,19 @@
 					</StackPanel>
 				</Button>
 			</ToolBar>
+			
+			<Popup x:Name="HelpPopup" StaysOpen="False" Placement="Mouse">
+				<Border Style="{StaticResource HelpPopupStyle}">
+				</Border>
+			</Popup>
 		</Grid>
 
 		<ProgressBar Name="Progress" DockPanel.Dock="Bottom" Minimum="0"
 			Background="Transparent" Height="20"/>
 
 		<!-- Configuration Areas -->
-		<TabControl x:Name="tabConfiguration" 
-			Background="Transparent" Margin="4" BorderThickness="1" VerticalAlignment="Stretch">
+		<TabControl x:Name="tabConfiguration" Margin="10, 5, 10, 5"
+			Background="Transparent" BorderThickness="1" VerticalAlignment="Stretch">
 
 			<!-- First Tab, file selection -->
 			<TabItem Header="Directory Selection">
@@ -149,29 +154,34 @@
 						<ColumnDefinition Width="60"></ColumnDefinition>
 					</Grid.ColumnDefinitions>
 
-					<TextBlock x:Name="lSourceDirectory" Style="{StaticResource ConfigSectionLabel}"
-						Grid.Row="0" Grid.Column="0">
-						Source Directory:
-					</TextBlock>
+					<StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
+						<TextBlock x:Name="lSourceDirectory" Style="{StaticResource ConfigSectionLabel}"
+							VerticalAlignment="Center">
+							Source Directory
+						</TextBlock>
+						<Button Style="{StaticResource HelpButton}" Click="HelpButton_Click"></Button>
+					</StackPanel>
 					<TextBox x:Name="txtSourceDirectory"
 						Grid.Row="0" Grid.Column="1" IsReadOnly="True"
-						VerticalAlignment="Top" MaxLines="1"
+						VerticalAlignment="Center" HorizontalAlignment="Stretch"
+						MaxLines="1" Margin="0, 5, 5, 5"
 						Style="{StaticResource cfgTextBox}"
 						Text="{Binding Path=SourceDirectory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-					<Button x:Name="btnSourceDirectory" VerticalAlignment="Top"
+					<Button x:Name="btnSourceDirectory" VerticalAlignment="Center"
 						Style="{StaticResource GlassButton}"
 						Height="{Binding ElementName=lSourceDirectory, Path=Height}"
 						Grid.Row="0" Grid.Column="2"
 						Click="btnSourceDirectory_Click">...</Button>
 
-					<TextBlock Style="{StaticResource ConfigSectionLabel}"
-						Grid.Row="1" Grid.Column="0">Ouput Directory:</TextBlock>
+					<TextBlock Style="{StaticResource ConfigSectionLabel}" VerticalAlignment="Center"
+						Grid.Row="1" Grid.Column="0">Ouput Directory</TextBlock>
 					<TextBox x:Name="txtDestDirectory"
 						Grid.Row="1" Grid.Column="1" IsReadOnly="True"
-						Style="{StaticResource cfgTextBox}"
-						VerticalAlignment="Top" MaxLines="1"
+						Style="{StaticResource cfgTextBox}" Margin="0, 5, 5, 5"
+						VerticalAlignment="Center" HorizontalAlignment="Stretch"
+						MaxLines="1"
 						Text="{Binding Path=OutputDirectory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-					<Button x:Name="btnDestDirectory" VerticalAlignment="Top"
+					<Button x:Name="btnDestDirectory" VerticalAlignment="Center"
 						Style="{StaticResource GlassButton}"
 						Grid.Row="1" Grid.Column="2"
 						Click="btnDestDirectory_Click">...</Button>
@@ -278,8 +288,8 @@
 									Choose Watermark Image
 								</TextBlock>
 								<TextBox x:Name="txtWatermarkImageUrl"
-									Margin="10,0,0,0"
-									Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left"
+									Margin="10,5,0,5"
+									Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch"
 									Style="{StaticResource cfgTextBox}"
 									Text="{Binding Path=Watermark.WatermarkImageFile, Mode=OneWay}"
 									IsReadOnly="True" />
@@ -343,8 +353,8 @@
 									Watermark Text
 								</TextBlock>
 								<TextBox x:Name="txtWatermarkText"
-									Margin="10,0,0,0"
-									Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left"
+									Margin="10,5,0,5"
+									Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch"
 									Style="{StaticResource cfgTextBox}"
 									Text="{Binding Path=Watermark.WatermarkText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 								
@@ -353,8 +363,8 @@
 									Watermark Text Font
 								</TextBlock>
 								<TextBox x:Name="txtWatermarkTextFont"
-									Margin="10,0,0,0"
-									Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left"
+									Margin="10,5,0,5"
+									Grid.Column="1" Grid.Row="1" HorizontalAlignment="Stretch"
 									Style="{StaticResource cfgTextBox}"
 									Text="{Binding Path=Watermark.WatermarkTextFontName, Mode=OneWay}"
 									IsReadOnly="True" />
@@ -625,8 +635,8 @@
 								
 								<StackPanel Grid.Column="1" Grid.Row="1" FlowDirection="LeftToRight" Orientation="Horizontal">
 									<HSCtrl:IntegerTextBox x:Name="txtShrinkLongSideTo"
-										Margin="10,0,0,0"
-										HorizontalAlignment="Left"
+										Margin="10,5,0,5"
+										HorizontalAlignment="Stretch"
 										Style="{StaticResource cfgTextBox}"
 										Text="{Binding Path=ShrinkLongSidePixelTo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 										IsEnabled="{Binding ElementName=chkShrinkImage, Path=IsChecked}">
@@ -673,9 +683,9 @@
 					
 					<TextBox x:Name="txtThumbnailFileNamePrefix"
 						Grid.Column="1" Grid.Row="1"
-						Margin="10,0,0,0"
+						Margin="10,5,0,5"
 						Style="{StaticResource cfgTextBox}"
-						HorizontalAlignment="Left"
+						HorizontalAlignment="Stretch"
 						Text="{Binding Path=ThumbnailSetting.ThumbnailFileNamePrefix, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 						IsEnabled="{Binding ElementName=chkGenerateThumbnail, Path=IsChecked}"/>
 
@@ -686,9 +696,9 @@
 
 					<TextBox x:Name="txtThumbnailFileNameSuffix"
 						Grid.Column="1" Grid.Row="2"
-						Margin="10,0,0,0"
+						Margin="10,5,0,5"
 						Style="{StaticResource cfgTextBox}"
-						HorizontalAlignment="Left"
+						HorizontalAlignment="Stretch"
 						Text="{Binding Path=ThumbnailSetting.ThumbnailFileNameSuffix, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 						IsEnabled="{Binding ElementName=chkGenerateThumbnail, Path=IsChecked}"/>
 						
@@ -748,9 +758,9 @@
 					
 					<TextBox x:Name="txtOutputFileNamePrefix"
 						Grid.Column="1" Grid.Row="1"
-						Margin="10,0,0,0"
+						Margin="10,5,0,5"
 						Style="{StaticResource cfgTextBox}"
-						HorizontalAlignment="Left"
+						HorizontalAlignment="Stretch"
 						Text="{Binding Path=RenamingSetting.OutputFileNamePrefix, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 						IsEnabled="{Binding ElementName=chkEnableBatchRename, Path=IsChecked}"/>
 
@@ -761,9 +771,9 @@
 
 					<TextBox x:Name="txtOutputFileNameSuffix"
 						Grid.Column="1" Grid.Row="2"
-						Margin="10,0,0,0"
+						Margin="10,5,0,5"
 						Style="{StaticResource cfgTextBox}"
-						HorizontalAlignment="Left"
+						HorizontalAlignment="Stretch"
 						Text="{Binding Path=RenamingSetting.OutputFileNameSuffix, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 						IsEnabled="{Binding ElementName=chkEnableBatchRename, Path=IsChecked}"/>
 						
@@ -791,8 +801,8 @@
 
 					<HSCtrl:IntegerTextBox x:Name="txtOutputFileNameStartNumber"
 						Grid.Column="1" Grid.Row="4"
-						Margin="10,0,0,0"
-						HorizontalAlignment="Left"
+						Margin="10,5,0,5"
+						HorizontalAlignment="Stretch"
 						Style="{StaticResource cfgTextBox}"
 						Text="{Binding Path=RenamingSetting.StartNumber, Mode=TwoWay}"
 						IsEnabled="{Binding ElementName=chkEnableBatchRename, Path=IsChecked}">
