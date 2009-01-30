@@ -29,6 +29,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 			this.view.SaveProjectAs += new ProjectWithFileNameEventHandler(view_SaveProjectAs);
 			this.view.OpenProject += new ProjectWithFileNameEventHandler(view_OpenProject);
 			this.view.ProcessImage += new ProcessThreadNumberEventHandler(view_ProcessImage);
+			this.view.StopProcessing += new EventHandler(view_StopProcessing);
 
 			view.PS = ps;
 		}
@@ -142,6 +143,12 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 
 		void engine_ImageProcessed(ImageProcessedEventArgs args) {
 			view.ReportProgress();
+		}
+
+		void view_StopProcessing(object sender, EventArgs e) {
+			if (engine != null) {
+				engine.StopProcess();
+			}
 		}
 	}
 }

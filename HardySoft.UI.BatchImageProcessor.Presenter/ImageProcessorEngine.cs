@@ -94,7 +94,10 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 				Image normalImage = null;
 				Image thumb = null;
 				try {
-					normalImage = Image.FromFile(imagePath);
+					using (Stream stream = File.OpenRead(imagePath)) {
+						normalImage = Image.FromStream(stream);
+					}
+					// normalImage = Image.FromFile(imagePath);
 
 					ImageFormat format = getImageFormat(imagePath);
 
@@ -197,7 +200,9 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 		}
 
 		public void StopProcess() {
-			this.stopFlag = true;
+			lock (syncRoot) {
+				this.stopFlag = true;
+			}
 		}
 
 		private ImageFormat getImageFormat(string fileName) {
