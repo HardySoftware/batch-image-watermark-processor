@@ -159,10 +159,6 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 			}
 		}
 
-		private void HelpButton_Click(object sender, RoutedEventArgs e) {
-
-		}
-
 		#region View member
 		private ProjectSetting ps;
 
@@ -451,6 +447,21 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 		private void AboutCommand_Executed(object sender, ExecutedRoutedEventArgs e) {
 			About about = new About();
 			about.ShowDialog();
+		}
+		#endregion
+
+		#region Help context button command
+		private void HelpCommand_Executed(object sender, ExecutedRoutedEventArgs e) {
+			HelpPopup popup = new HelpPopup();
+
+			// Mouse position
+			System.Windows.Point mousePoint = this.PointToScreen(Mouse.GetPosition(this));
+			//System.Windows.Point mousePoint = Mouse.GetPosition(this);
+			popup.ShowDialog(mousePoint.X, mousePoint.Y, (string)e.Parameter);
+		}
+
+		private void HelpCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e) {
+			e.CanExecute = true;
 		}
 		#endregion
 		#endregion

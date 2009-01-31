@@ -3,7 +3,7 @@
   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
   x:Class="HardySoft.UI.BatchImageProcessor.Controls.ColorPickerDialog"
   xmlns:customControls="clr-namespace:HardySoft.UI.BatchImageProcessor.Controls"
-  WindowStyle="None" ResizeMode="NoResize"
+  WindowStyle="None" ResizeMode="NoResize" ShowInTaskbar="False"
   AllowsTransparency="True" Background="Transparent"
   Width="600" Height="400"
   Icon="/HardySoft.UI.BatchImageProcessor;component/Images/icon.ico">

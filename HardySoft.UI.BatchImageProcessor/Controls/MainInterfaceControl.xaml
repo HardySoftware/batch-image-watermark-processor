@@ -16,6 +16,7 @@
 		<CommandBinding x:Name="ExitCommand" Command="HSC:ApplicationCommand.Exit" Executed="ExitCommand_Executed" CanExecute="ExitCommand_CanExecute" />
 		<CommandBinding x:Name="PreferenceCommand" Command="HSC:ApplicationCommand.Preference" Executed="PreferenceCommand_Executed" CanExecute="PreferenceCommand_CanExecute"/>
 		<CommandBinding x:Name="AboutCommand" Command="HSC:ApplicationCommand.About" Executed="AboutCommand_Executed" CanExecute="AboutCommand_CanExecute" />
+		<CommandBinding x:Name="HelpCommand" Command="ApplicationCommands.Help" Executed="HelpCommand_Executed" CanExecute="HelpCommand_CanExecute"/>
 	</Control.CommandBindings>
 
 	<DockPanel LastChildFill="True" VerticalAlignment="Stretch">
@@ -119,11 +120,6 @@
 					</StackPanel>
 				</Button>
 			</ToolBar>
-			
-			<Popup x:Name="HelpPopup" StaysOpen="False" Placement="Mouse">
-				<Border Style="{StaticResource HelpPopupStyle}">
-				</Border>
-			</Popup>
 		</Grid>
 
 		<ProgressBar Name="Progress" DockPanel.Dock="Bottom" Minimum="0"
@@ -159,7 +155,9 @@
 							VerticalAlignment="Center">
 							Source Directory
 						</TextBlock>
-						<Button Style="{StaticResource HelpButton}" Click="HelpButton_Click"></Button>
+						<Button Style="{StaticResource HelpButton}"
+							CommandParameter="SourceDirectory"
+							Command="ApplicationCommands.Help"></Button>
 					</StackPanel>
 					<TextBox x:Name="txtSourceDirectory"
 						Grid.Row="0" Grid.Column="1" IsReadOnly="True"
@@ -173,8 +171,13 @@
 						Grid.Row="0" Grid.Column="2"
 						Click="btnSourceDirectory_Click">...</Button>
 
-					<TextBlock Style="{StaticResource ConfigSectionLabel}" VerticalAlignment="Center"
-						Grid.Row="1" Grid.Column="0">Ouput Directory</TextBlock>
+					<StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal">
+						<TextBlock Style="{StaticResource ConfigSectionLabel}" VerticalAlignment="Center"
+							Grid.Row="1" Grid.Column="0">Ouput Directory</TextBlock>
+						<Button Style="{StaticResource HelpButton}"
+							CommandParameter="DestinationDirectory"
+							Command="ApplicationCommands.Help"></Button>
+					</StackPanel>
 					<TextBox x:Name="txtDestDirectory"
 						Grid.Row="1" Grid.Column="1" IsReadOnly="True"
 						Style="{StaticResource cfgTextBox}" Margin="0, 5, 5, 5"
@@ -186,9 +189,13 @@
 						Grid.Row="1" Grid.Column="2"
 						Click="btnDestDirectory_Click">...</Button>
 
-					<TextBlock HorizontalAlignment="Center"
-							Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3"
-							Style="{StaticResource ConfigSectionLabel}">Image File List:</TextBlock>
+					<StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Orientation="Horizontal">
+						<TextBlock HorizontalAlignment="Center"
+							Style="{StaticResource ConfigSectionLabel}">Image File List</TextBlock>
+						<Button Style="{StaticResource HelpButton}"
+							CommandParameter="ImageFileList"
+							Command="ApplicationCommands.Help"></Button>
+					</StackPanel>
 					<HSCtrl:SortableListView x:Name="lvFileList"
 							Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3"
 							IsSynchronizedWithCurrentItem="True"
@@ -283,10 +290,14 @@
 									<RowDefinition Height="*"></RowDefinition>
 									<RowDefinition Height="auto"></RowDefinition>
 								</Grid.RowDefinitions>
-								<TextBlock Style="{StaticResource ConfigSectionLabel}"
-									Grid.Column="0" Grid.Row="0">
-									Choose Watermark Image
-								</TextBlock>
+								<StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal">
+									<TextBlock Style="{StaticResource ConfigSectionLabel}">
+										Choose Watermark Image
+									</TextBlock>
+									<Button Style="{StaticResource HelpButton}"
+										CommandParameter="WatermarkImage"
+										Command="ApplicationCommands.Help"></Button>
+								</StackPanel>
 								<TextBox x:Name="txtWatermarkImageUrl"
 									Margin="10,5,0,5"
 									Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch"
@@ -348,10 +359,14 @@
 									<RowDefinition Height="*"></RowDefinition>
 									<RowDefinition Height="*"></RowDefinition>
 								</Grid.RowDefinitions>
-								<TextBlock Style="{StaticResource ConfigSectionLabel}"
-									Grid.Column="0" Grid.Row="0">
-									Watermark Text
-								</TextBlock>
+								<StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal">
+									<TextBlock Style="{StaticResource ConfigSectionLabel}">
+										Watermark Text
+									</TextBlock>
+									<Button Style="{StaticResource HelpButton}"
+										CommandParameter="WatermarkText"
+										Command="ApplicationCommands.Help"></Button>
+								</StackPanel>
 								<TextBox x:Name="txtWatermarkText"
 									Margin="10,5,0,5"
 									Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch"
