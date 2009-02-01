@@ -310,10 +310,14 @@
 									Grid.Column="2" Grid.Row="0"
 									Click="btnWatermarkImagePicker_Click">...</Button>
 
-								<TextBlock Style="{StaticResource ConfigSectionLabel}"
-									Grid.Column="0" Grid.Row="1">
-									Watermark Image Position
-								</TextBlock>
+								<StackPanel Grid.Column="0" Grid.Row="1" Orientation="Horizontal">
+									<TextBlock Style="{StaticResource ConfigSectionLabel}">
+										Watermark Image Position
+									</TextBlock>
+									<Button Style="{StaticResource HelpButton}"
+										CommandParameter="WatermarkImagePosition"
+										Command="ApplicationCommands.Help"></Button>
+								</StackPanel>
 
 								<ComboBox x:Name="cmbWatermarkImagePosition"
 									Margin="10,0,0,0"
@@ -324,10 +328,14 @@
 									Grid.Column="1" Grid.Row="1">
 								</ComboBox>
 
-								<TextBlock Style="{StaticResource ConfigSectionLabel}" VerticalAlignment="Top"
-									Grid.Column="0" Grid.Row="2">
-									Watermark Image
-								</TextBlock>
+								<StackPanel Grid.Column="0" Grid.Row="2" Orientation="Horizontal">
+									<TextBlock Style="{StaticResource ConfigSectionLabel}" VerticalAlignment="Top">
+										Watermark Image
+									</TextBlock>
+									<Button Style="{StaticResource HelpButton}"
+										CommandParameter="WatermarkImagePreview"
+										Command="ApplicationCommands.Help"></Button>
+								</StackPanel>
 								<Image x:Name="imgWatermarkImage"
 									Margin="10,0,0,0"
 									HorizontalAlignment="Left"
@@ -372,11 +380,15 @@
 									Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch"
 									Style="{StaticResource cfgTextBox}"
 									Text="{Binding Path=Watermark.WatermarkText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-								
-								<TextBlock Style="{StaticResource ConfigSectionLabel}"
-									Grid.Column="0" Grid.Row="1">
-									Watermark Text Font
-								</TextBlock>
+
+								<StackPanel Grid.Column="0" Grid.Row="1" Orientation="Horizontal">
+									<TextBlock Style="{StaticResource ConfigSectionLabel}">
+										Watermark Text Font
+									</TextBlock>
+									<Button Style="{StaticResource HelpButton}"
+										CommandParameter="WatermarkTextFont"
+										Command="ApplicationCommands.Help"></Button>
+								</StackPanel>
 								<TextBox x:Name="txtWatermarkTextFont"
 									Margin="10,5,0,5"
 									Grid.Column="1" Grid.Row="1" HorizontalAlignment="Stretch"
@@ -388,10 +400,14 @@
 									Style="{StaticResource GlassButton}"
 									Grid.Column="2" Grid.Row="1" Click="btnWatermarkTextFontPicker_Click">Font</Button>
 
-								<TextBlock Style="{StaticResource ConfigSectionLabel}"
-									Grid.Column="0" Grid.Row="2">
-									Watermark Text Position
-								</TextBlock>
+								<StackPanel Grid.Column="0" Grid.Row="2" Orientation="Horizontal">
+									<TextBlock Style="{StaticResource ConfigSectionLabel}">
+										Watermark Text Position
+									</TextBlock>
+									<Button Style="{StaticResource HelpButton}"
+										CommandParameter="WatermarkTextPosition"
+										Command="ApplicationCommands.Help"></Button>
+								</StackPanel>
 
 								<ComboBox x:Name="cmbWatermarkTextPosition"
 									Margin="10,0,0,0"
@@ -423,10 +439,14 @@
 									<RowDefinition></RowDefinition>
 								</Grid.RowDefinitions>
 
-								<TextBlock Style="{StaticResource ConfigSectionLabel}"
-									Grid.Column="0" Grid.Row="0">
-									Image Process Type
-								</TextBlock>
+								<StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal">
+									<TextBlock Style="{StaticResource ConfigSectionLabel}">
+										Image Effect
+									</TextBlock>
+									<Button Style="{StaticResource HelpButton}"
+										CommandParameter="ImageEffect"
+										Command="ApplicationCommands.Help"></Button>
+								</StackPanel>
 
 								<ComboBox x:Name="cmbProcessType"
 									Margin="10,0,0,0"
@@ -437,10 +457,14 @@
 									Grid.Column="1" Grid.Row="0">
 								</ComboBox>
 
-								<TextBlock Style="{StaticResource ConfigSectionLabel}"
-									Grid.Column="0" Grid.Row="1">
-									Keep EXIF
-								</TextBlock>
+								<StackPanel Grid.Column="0" Grid.Row="1" Orientation="Horizontal">
+									<TextBlock Style="{StaticResource ConfigSectionLabel}">
+										Keep EXIF
+									</TextBlock>
+									<Button Style="{StaticResource HelpButton}"
+										CommandParameter="KeepExif"
+										Command="ApplicationCommands.Help"></Button>
+								</StackPanel>
 
 								<CheckBox x:Name="chkKeepExif"
 									Grid.Column="1" Grid.Row="1"
@@ -448,11 +472,15 @@
 									IsChecked="{Binding Path=KeepExif, Mode=TwoWay}"
 									IsEnabled="False">
 								</CheckBox>
-								
-								<TextBlock Style="{StaticResource ConfigSectionLabel}"
-									Grid.Column="0" Grid.Row="2">
-									JPG Compression Ratio
-								</TextBlock>
+
+								<StackPanel Grid.Column="0" Grid.Row="2" Orientation="Horizontal">
+									<TextBlock Style="{StaticResource ConfigSectionLabel}">
+										JPG Compression Ratio
+									</TextBlock>
+									<Button Style="{StaticResource HelpButton}"
+										CommandParameter="JpgCompressionRatio"
+										Command="ApplicationCommands.Help"></Button>
+								</StackPanel>
 
 								<StackPanel Grid.Column="1" Grid.Row="2" FlowDirection="LeftToRight" Orientation="Horizontal">
 									<Slider x:Name="sJpgCompressionRatio" Margin="10,0,0,0"
@@ -485,11 +513,16 @@
 									<RowDefinition></RowDefinition>
 								</Grid.RowDefinitions>
 
-								<TextBlock Style="{StaticResource ConfigSectionLabel}"
-									Grid.Column="0" Grid.Row="0"
-									VerticalAlignment="Top">
-									Background Color
-								</TextBlock>
+								<StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal">
+									<TextBlock Style="{StaticResource ConfigSectionLabel}"
+										Grid.Column="0" Grid.Row="0"
+										VerticalAlignment="Top">
+										Background Color
+									</TextBlock>
+									<Button Style="{StaticResource HelpButton}"
+										CommandParameter="DropShadowBackgroundColor"
+										Command="ApplicationCommands.Help"></Button>
+								</StackPanel>
 
 								<StackPanel Grid.Column="1" Grid.Row="0" FlowDirection="LeftToRight" Orientation="Horizontal">
 									<Button x:Name="btnShadowBackgroundPicker" Background="Transparent"
@@ -505,12 +538,15 @@
 									<TextBlock x:Name="BackgroundColor" Margin="10,0,0,0"
 										Text="{Binding Path=DropShadowSetting.BackgroundColor, Mode=OneWay, Converter={StaticResource cnvColorValue}}"></TextBlock>
 								</StackPanel>
-								
-								<TextBlock Style="{StaticResource ConfigSectionLabel}"
-									Grid.Column="0" Grid.Row="1"
-									VerticalAlignment="Top">
-									Drop Shadow Color
-								</TextBlock>
+
+								<StackPanel Grid.Column="0" Grid.Row="1" Orientation="Horizontal">
+									<TextBlock Style="{StaticResource ConfigSectionLabel}">
+										Drop Shadow Color
+									</TextBlock>
+									<Button Style="{StaticResource HelpButton}"
+										CommandParameter="DropShadowColor"
+										Command="ApplicationCommands.Help"></Button>
+								</StackPanel>
 								
 								<StackPanel Grid.Column="1" Grid.Row="1" FlowDirection="LeftToRight" Orientation="Horizontal">
 									<Button x:Name="btnShadowColorPicker" Background="Transparent"
@@ -526,12 +562,15 @@
 									<TextBlock x:Name="DropShadowColor" Margin="10,0,0,0"
 										Text="{Binding Path=DropShadowSetting.DropShadowColor, Mode=OneWay, Converter={StaticResource cnvColorValue}}"></TextBlock>
 								</StackPanel>
-								
-								<TextBlock Style="{StaticResource ConfigSectionLabel}"
-									Grid.Column="0" Grid.Row="2"
-									VerticalAlignment="Top">
-									Shadow Depth
-								</TextBlock>
+
+								<StackPanel Grid.Column="0" Grid.Row="2" Orientation="Horizontal">
+									<TextBlock Style="{StaticResource ConfigSectionLabel}">
+										Shadow Depth
+									</TextBlock>
+									<Button Style="{StaticResource HelpButton}"
+										CommandParameter="DropShadowDepth"
+										Command="ApplicationCommands.Help"></Button>
+								</StackPanel>
 								
 								<StackPanel Grid.Column="1" Grid.Row="2" FlowDirection="LeftToRight" Orientation="Horizontal">
 									<Slider x:Name="sShadowDepth" Margin="10,0,0,0"
@@ -545,11 +584,14 @@
 									<TextBlock Text=" pixel(s)" VerticalAlignment="Center" />
 								</StackPanel>
 								
-								<TextBlock Style="{StaticResource ConfigSectionLabel}"
-									Grid.Column="0" Grid.Row="3"
-									VerticalAlignment="Top">
-									Shadow Location
-								</TextBlock>
+								<StackPanel Grid.Column="0" Grid.Row="3" Orientation="Horizontal">
+									<TextBlock Style="{StaticResource ConfigSectionLabel}">
+										Shadow Location
+									</TextBlock>
+									<Button Style="{StaticResource HelpButton}"
+										CommandParameter="DropShadowLocation"
+										Command="ApplicationCommands.Help"></Button>
+								</StackPanel>
 								
 								<ComboBox x:Name="cmbDropShadowLocation"
 									Margin="10,0,0,0"
@@ -575,12 +617,15 @@
 									<RowDefinition></RowDefinition>
 									<RowDefinition></RowDefinition>
 								</Grid.RowDefinitions>
-								
-								<TextBlock Style="{StaticResource ConfigSectionLabel}"
-									Grid.Column="0" Grid.Row="0"
-									VerticalAlignment="Top">
-									Image Border Width
-								</TextBlock>
+
+								<StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal">
+									<TextBlock Style="{StaticResource ConfigSectionLabel}">
+										Image Border Width
+									</TextBlock>
+									<Button Style="{StaticResource HelpButton}"
+										CommandParameter="ImageBorderWidth"
+										Command="ApplicationCommands.Help"></Button>
+								</StackPanel>
 
 								<StackPanel Grid.Column="1" Grid.Row="0" FlowDirection="LeftToRight" Orientation="Horizontal">
 									<Slider x:Name="sImageBorderWidth" Margin="10,0,0,0"
@@ -593,12 +638,15 @@
 										Margin="10,0,0,0" VerticalAlignment="Center" />
 									<TextBlock Text=" pixel(s)" VerticalAlignment="Center" />
 								</StackPanel>
-								
-								<TextBlock Style="{StaticResource ConfigSectionLabel}"
-									Grid.Column="0" Grid.Row="1"
-									VerticalAlignment="Top">
-									Image Border Color
-								</TextBlock>
+
+								<StackPanel Grid.Column="0" Grid.Row="1" Orientation="Horizontal">
+									<TextBlock Style="{StaticResource ConfigSectionLabel}">
+										Image Border Color
+									</TextBlock>
+									<Button Style="{StaticResource HelpButton}"
+										CommandParameter="ImageBorderColor"
+										Command="ApplicationCommands.Help"></Button>
+								</StackPanel>
 								
 								<StackPanel Grid.Column="1" Grid.Row="1" FlowDirection="LeftToRight" Orientation="Horizontal">
 									<Button x:Name="btnImageBorderColorPicker" Background="Transparent"
