@@ -26,11 +26,17 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 		}
 
 		public void ShowDialog(double left, double top, string helpKey) {
-			HelpPopupContent.Document = getRichText(HelpContent.ResourceManager.GetString(helpKey));
-			
-			this.Left = left;
-			this.Top = top;
-			this.ShowDialog();
+			string helpString = HelpContent.ResourceManager.GetString(helpKey);
+			if (!string.IsNullOrEmpty(helpString)) {
+				FlowDocument flowDoc = getRichText(helpString);
+				if (flowDoc != null) {
+					HelpPopupContent.Document = flowDoc;
+
+					this.Left = left;
+					this.Top = top;
+					this.ShowDialog();
+				}
+			}
 		}
 
 		private void btnClose_Click(object sender, RoutedEventArgs e) {
