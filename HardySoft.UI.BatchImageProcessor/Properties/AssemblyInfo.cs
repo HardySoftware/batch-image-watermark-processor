@@ -8,10 +8,10 @@ using System.Windows;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("HardySoft.UI.BatchImageProcessor")]
-[assembly: AssemblyDescription("Hardy Software Batch Image Process Processor Utility")]
+[assembly: AssemblyDescription("Hardy Software Batch Image Process Utility")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Hardy Software")]
-[assembly: AssemblyProduct("Hardy Software Batch Image Process Processor Utility")]
+[assembly: AssemblyProduct("Sea Turtle Image Process Utility")]
 [assembly: AssemblyCopyright("Copyright © Hardy Software 2000 - 2009")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

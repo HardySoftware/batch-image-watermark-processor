@@ -31,57 +31,52 @@
 				<MenuItem Header="_File">
 					<MenuItem Header="_New Project" Command="ApplicationCommands.New">
 						<MenuItem.Icon>
-							<Image Source="/HardySoft.UI.BatchImageProcessor;component/Themes/DarkCool/Images/Menu_Icons/new.png"></Image>
+							<Image Source="/SeaTurtle;component/Themes/DarkCool/Images/Menu_Icons/new.png"></Image>
 						</MenuItem.Icon>
 					</MenuItem>
 					<MenuItem Header="_Open Project" Command="ApplicationCommands.Open">
 						<MenuItem.Icon>
-							<Image Source="/HardySoft.UI.BatchImageProcessor;component/Themes/DarkCool/Images/Menu_Icons/open.png"></Image>
+							<Image Source="/SeaTurtle;component/Themes/DarkCool/Images/Menu_Icons/open.png"></Image>
 						</MenuItem.Icon>
 					</MenuItem>
 					<MenuItem Header="_Save Project" Command="ApplicationCommands.Save">
 						<MenuItem.Icon>
-							<Image Source="/HardySoft.UI.BatchImageProcessor;component/Themes/DarkCool/Images/Menu_Icons/save.png"></Image>
+							<Image Source="/SeaTurtle;component/Themes/DarkCool/Images/Menu_Icons/save.png"></Image>
 						</MenuItem.Icon>
 					</MenuItem>
 					<MenuItem Header="S_ave Project As" Command="ApplicationCommands.SaveAs">
 						<MenuItem.Icon>
-							<Image Source="/HardySoft.UI.BatchImageProcessor;component/Themes/DarkCool/Images/Menu_Icons/saveas.png"></Image>
+							<Image Source="/SeaTurtle;component/Themes/DarkCool/Images/Menu_Icons/saveas.png"></Image>
 						</MenuItem.Icon>
 					</MenuItem>
 					<Separator></Separator>
 					<MenuItem Header="E_xit" Command="HSC:ApplicationCommand.Exit">
 						<MenuItem.Icon>
-							<Image Source="/HardySoft.UI.BatchImageProcessor;component/Themes/DarkCool/Images/Menu_Icons/exit.png"></Image>
+							<Image Source="/SeaTurtle;component/Themes/DarkCool/Images/Menu_Icons/exit.png"></Image>
 						</MenuItem.Icon>
 					</MenuItem>
 				</MenuItem>
 				<MenuItem Header="_Process">
 					<MenuItem Header="_Make" Command="HSC:ApplicationCommand.Make">
 						<MenuItem.Icon>
-							<Image Source="/HardySoft.UI.BatchImageProcessor;component/Themes/DarkCool/Images/Menu_Icons/fire.png"></Image>
+							<Image Source="/SeaTurtle;component/Themes/DarkCool/Images/Menu_Icons/fire.png"></Image>
 						</MenuItem.Icon>
 					</MenuItem>
 					<MenuItem Header="_Stop" Command="ApplicationCommands.Stop">
 						<MenuItem.Icon>
-							<Image Source="/HardySoft.UI.BatchImageProcessor;component/Themes/DarkCool/Images/Menu_Icons/stop.png"></Image>
+							<Image Source="/SeaTurtle;component/Themes/DarkCool/Images/Menu_Icons/stop.png"></Image>
 						</MenuItem.Icon>
 					</MenuItem>
 					<MenuItem Header="_Preference" Command="HSC:ApplicationCommand.Preference">
 						<MenuItem.Icon>
-							<Image Source="/HardySoft.UI.BatchImageProcessor;component/Themes/DarkCool/Images/Menu_Icons/preference.png"></Image>
+							<Image Source="/SeaTurtle;component/Themes/DarkCool/Images/Menu_Icons/preference.png"></Image>
 						</MenuItem.Icon>
 					</MenuItem>
 				</MenuItem>
 				<MenuItem Header="_Help">
-					<MenuItem Header="_Online Help">
-						<MenuItem.Icon>
-							<Image Source="/HardySoft.UI.BatchImageProcessor;component/Themes/DarkCool/Images/Menu_Icons/help.png"></Image>
-						</MenuItem.Icon>
-					</MenuItem>
 					<MenuItem Header="_About" Command="HSC:ApplicationCommand.About">
 						<MenuItem.Icon>
-							<Image Source="/HardySoft.UI.BatchImageProcessor;component/Themes/DarkCool/Images/Menu_Icons/information.png"></Image>
+							<Image Source="/SeaTurtle;component/Themes/DarkCool/Images/Menu_Icons/information.png"></Image>
 						</MenuItem.Icon>
 					</MenuItem>
 				</MenuItem>
@@ -91,31 +86,31 @@
 			<ToolBar Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top">
 				<Button Command="ApplicationCommands.New">
 					<StackPanel Orientation="Horizontal">
-						<Image Source="/HardySoft.UI.BatchImageProcessor;component/Themes/DarkCool/Images/Menu_Icons/new.png"></Image>
+						<Image Source="/SeaTurtle;component/Themes/DarkCool/Images/Menu_Icons/new.png"></Image>
 						<TextBlock Style="{StaticResource ToolbarText}">New Project</TextBlock>
 					</StackPanel>
 				</Button>
 				<Button Command="ApplicationCommands.Open">
 					<StackPanel Orientation="Horizontal">
-						<Image Source="/HardySoft.UI.BatchImageProcessor;component/Themes/DarkCool/Images/Menu_Icons/open.png"></Image>
+						<Image Source="/SeaTurtle;component/Themes/DarkCool/Images/Menu_Icons/open.png"></Image>
 						<TextBlock Style="{StaticResource ToolbarText}">Open Project</TextBlock>
 					</StackPanel>
 				</Button>
 				<Button Command="ApplicationCommands.Save">
 					<StackPanel Orientation="Horizontal">
-						<Image Source="/HardySoft.UI.BatchImageProcessor;component/Themes/DarkCool/Images/Menu_Icons/save.png"></Image>
+						<Image Source="/SeaTurtle;component/Themes/DarkCool/Images/Menu_Icons/save.png"></Image>
 						<TextBlock Style="{StaticResource ToolbarText}">Save Project</TextBlock>
 					</StackPanel>
 				</Button>
 				<Button Command="HSC:ApplicationCommand.Make">
 					<StackPanel Orientation="Horizontal">
-						<Image Source="/HardySoft.UI.BatchImageProcessor;component/Themes/DarkCool/Images/Menu_Icons/fire.png"></Image>
+						<Image Source="/SeaTurtle;component/Themes/DarkCool/Images/Menu_Icons/fire.png"></Image>
 						<TextBlock Style="{StaticResource ToolbarText}">Make</TextBlock>
 					</StackPanel>
 				</Button>
 				<Button Command="ApplicationCommands.Stop">
 					<StackPanel Orientation="Horizontal">
-						<Image Source="/HardySoft.UI.BatchImageProcessor;component/Themes/DarkCool/Images/Menu_Icons/stop.png"></Image>
+						<Image Source="/SeaTurtle;component/Themes/DarkCool/Images/Menu_Icons/stop.png"></Image>
 						<TextBlock Style="{StaticResource ToolbarText}">Stop</TextBlock>
 					</StackPanel>
 				</Button>
@@ -675,15 +670,18 @@
 									<ColumnDefinition Width="3*"></ColumnDefinition>
 								</Grid.ColumnDefinitions>
 								<Grid.RowDefinitions>
-									<RowDefinition></RowDefinition>
-									<RowDefinition></RowDefinition>
+									<RowDefinition Height="auto"></RowDefinition>
+									<RowDefinition Height="auto"></RowDefinition>
 								</Grid.RowDefinitions>
-								
-								<TextBlock Style="{StaticResource ConfigSectionLabel}"
-									Grid.Column="0" Grid.Row="0"
-									VerticalAlignment="Top">
-									Shrink Image
-								</TextBlock>
+
+								<StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal">
+									<TextBlock Style="{StaticResource ConfigSectionLabel}">
+										Shrink Image
+									</TextBlock>
+									<Button Style="{StaticResource HelpButton}"
+										CommandParameter="ShrinkImage"
+										Command="ApplicationCommands.Help"></Button>
+								</StackPanel>
 								
 								<CheckBox x:Name="chkShrinkImage"
 									Grid.Column="1" Grid.Row="0"
@@ -691,17 +689,30 @@
 									IsChecked="{Binding Path=ShrinkImage, Mode=TwoWay}">
 								</CheckBox>
 								
-								<TextBlock Style="{StaticResource ConfigSectionLabel}"
-									Grid.Column="0" Grid.Row="1">
-									Shrink Image Long Side To
-								</TextBlock>
+								<StackPanel Grid.Column="0" Grid.Row="1" Orientation="Horizontal">
+									<TextBlock Style="{StaticResource ConfigSectionLabel}"
+										Grid.Column="0" Grid.Row="1">
+										Shrink Image To
+									</TextBlock>
+									<Button Style="{StaticResource HelpButton}"
+										CommandParameter="ShrinkImageSize"
+										Command="ApplicationCommands.Help"></Button>
+								</StackPanel>
 								
-								<StackPanel Grid.Column="1" Grid.Row="1" FlowDirection="LeftToRight" Orientation="Horizontal">
-									<HSCtrl:IntegerTextBox x:Name="txtShrinkLongSideTo"
-										Margin="10,5,0,5"
+								<StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Stretch">
+									<ComboBox x:Name="cmbShrinkMode"
+										Margin="10,0,0,0"
+										MinWidth="75"
+										ItemsSource="{Binding Source={StaticResource ShrinkModeData}}"
+										SelectedItem="{Binding Path=ShrinkMode, Mode=TwoWay}"
+										IsEnabled="{Binding ElementName=chkShrinkImage, Path=IsChecked}">
+									</ComboBox>
+
+									<HSCtrl:IntegerTextBox x:Name="txtShrinkTo"
+										Margin="5,0,0,0"
 										HorizontalAlignment="Stretch"
 										Style="{StaticResource cfgTextBox}"
-										Text="{Binding Path=ShrinkLongSidePixelTo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+										Text="{Binding Path=ShrinkPixelTo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 										IsEnabled="{Binding ElementName=chkShrinkImage, Path=IsChecked}">
 									</HSCtrl:IntegerTextBox>
 
@@ -718,7 +729,7 @@
 			<TabItem Header="Generate Thumbnail">
 				<Grid ShowGridLines="False">
 					<Grid.ColumnDefinitions>
-						<ColumnDefinition Width="*"></ColumnDefinition>
+						<ColumnDefinition Width="auto"></ColumnDefinition>
 						<ColumnDefinition Width="3*"></ColumnDefinition>
 					</Grid.ColumnDefinitions>
 					<Grid.RowDefinitions>
@@ -728,10 +739,14 @@
 						<RowDefinition Height="auto"></RowDefinition>
 					</Grid.RowDefinitions>
 
-					<TextBlock Style="{StaticResource ConfigSectionLabel}"
-						Grid.Column="0" Grid.Row="0">
-						Generate Thumbnail
-					</TextBlock>
+					<StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal">
+						<TextBlock Style="{StaticResource ConfigSectionLabel}">
+							Generate Thumbnail
+						</TextBlock>
+						<Button Style="{StaticResource HelpButton}"
+							CommandParameter="GenerateThumbnail"
+							Command="ApplicationCommands.Help"></Button>
+					</StackPanel>
 
 					<CheckBox x:Name="chkGenerateThumbnail"
 						Grid.Column="1" Grid.Row="0"
@@ -739,10 +754,14 @@
 						IsChecked="{Binding Path=ThumbnailSetting.GenerateThumbnail, Mode=TwoWay}">
 					</CheckBox>
 					
-					<TextBlock Style="{StaticResource ConfigSectionLabel}"
-						Grid.Column="0" Grid.Row="1">
-						Thumbnail File Name Prefix
-					</TextBlock>
+					<StackPanel Grid.Column="0" Grid.Row="1" Orientation="Horizontal">
+						<TextBlock Style="{StaticResource ConfigSectionLabel}">
+							Thumbnail File Name Prefix
+						</TextBlock>
+						<Button Style="{StaticResource HelpButton}"
+							CommandParameter="ThumbnailFileNamePrefix"
+							Command="ApplicationCommands.Help"></Button>
+					</StackPanel>
 					
 					<TextBox x:Name="txtThumbnailFileNamePrefix"
 						Grid.Column="1" Grid.Row="1"
@@ -752,10 +771,14 @@
 						Text="{Binding Path=ThumbnailSetting.ThumbnailFileNamePrefix, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 						IsEnabled="{Binding ElementName=chkGenerateThumbnail, Path=IsChecked}"/>
 
-					<TextBlock Style="{StaticResource ConfigSectionLabel}"
-						Grid.Column="0" Grid.Row="2">
-						Thumbnail File Name Prefix
-					</TextBlock>
+					<StackPanel Grid.Column="0" Grid.Row="2" Orientation="Horizontal">
+						<TextBlock Style="{StaticResource ConfigSectionLabel}">
+							Thumbnail File Name Prefix
+						</TextBlock>
+						<Button Style="{StaticResource HelpButton}"
+							CommandParameter="ThumbnailFileNameSuffix"
+							Command="ApplicationCommands.Help"></Button>
+					</StackPanel>
 
 					<TextBox x:Name="txtThumbnailFileNameSuffix"
 						Grid.Column="1" Grid.Row="2"
@@ -764,11 +787,15 @@
 						HorizontalAlignment="Stretch"
 						Text="{Binding Path=ThumbnailSetting.ThumbnailFileNameSuffix, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 						IsEnabled="{Binding ElementName=chkGenerateThumbnail, Path=IsChecked}"/>
-						
-					<TextBlock Style="{StaticResource ConfigSectionLabel}"
-						Grid.Column="0" Grid.Row="3">
-						Thumbnail Size
-					</TextBlock>
+
+					<StackPanel Grid.Column="0" Grid.Row="3" Orientation="Horizontal">
+						<TextBlock Style="{StaticResource ConfigSectionLabel}">
+							Thumbnail Size
+						</TextBlock>
+						<Button Style="{StaticResource HelpButton}"
+							CommandParameter="ThumbnailImageSize"
+							Command="ApplicationCommands.Help"></Button>
+					</StackPanel>
 
 					<StackPanel Grid.Column="1" Grid.Row="3" FlowDirection="LeftToRight" Orientation="Horizontal">
 						<Slider x:Name="sThumbSize" Margin="10,0,0,0"
@@ -802,22 +829,30 @@
 						<RowDefinition Height="auto"></RowDefinition>
 						<RowDefinition Height="auto"></RowDefinition>
 					</Grid.RowDefinitions>
-					
-					<TextBlock Style="{StaticResource ConfigSectionLabel}"
-						Grid.Column="0" Grid.Row="0">
-						Enable Batch Rename
-					</TextBlock>
-					
+
+					<StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal">
+						<TextBlock Style="{StaticResource ConfigSectionLabel}">
+							Enable Batch Rename
+						</TextBlock>
+						<Button Style="{StaticResource HelpButton}"
+							CommandParameter="BatchRename"
+							Command="ApplicationCommands.Help"></Button>
+					</StackPanel>
+
 					<CheckBox x:Name="chkEnableBatchRename"
 						Grid.Column="1" Grid.Row="0"
 						Margin="10,0,0,0"
 						IsChecked="{Binding Path=RenamingSetting.EnableBatchRename, Mode=TwoWay}">
 					</CheckBox>
 					
-					<TextBlock Style="{StaticResource ConfigSectionLabel}"
-						Grid.Column="0" Grid.Row="1">
-						Output File Name Prefix
-					</TextBlock>
+					<StackPanel Grid.Column="0" Grid.Row="1" Orientation="Horizontal">
+						<TextBlock Style="{StaticResource ConfigSectionLabel}">
+							Output File Name Prefix
+						</TextBlock>
+						<Button Style="{StaticResource HelpButton}"
+							CommandParameter="BatchRenamePrefix"
+							Command="ApplicationCommands.Help"></Button>
+					</StackPanel>
 					
 					<TextBox x:Name="txtOutputFileNamePrefix"
 						Grid.Column="1" Grid.Row="1"
@@ -827,10 +862,14 @@
 						Text="{Binding Path=RenamingSetting.OutputFileNamePrefix, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 						IsEnabled="{Binding ElementName=chkEnableBatchRename, Path=IsChecked}"/>
 
-					<TextBlock Style="{StaticResource ConfigSectionLabel}"
-						Grid.Column="0" Grid.Row="2">
-						Output File Name Suffix
-					</TextBlock>
+					<StackPanel Grid.Column="0" Grid.Row="2" Orientation="Horizontal">
+						<TextBlock Style="{StaticResource ConfigSectionLabel}">
+							Output File Name Suffix
+						</TextBlock>
+						<Button Style="{StaticResource HelpButton}"
+							CommandParameter="BatchRenameSuffix"
+							Command="ApplicationCommands.Help"></Button>
+					</StackPanel>
 
 					<TextBox x:Name="txtOutputFileNameSuffix"
 						Grid.Column="1" Grid.Row="2"
@@ -839,11 +878,15 @@
 						HorizontalAlignment="Stretch"
 						Text="{Binding Path=RenamingSetting.OutputFileNameSuffix, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 						IsEnabled="{Binding ElementName=chkEnableBatchRename, Path=IsChecked}"/>
-						
-					<TextBlock Style="{StaticResource ConfigSectionLabel}"
-						Grid.Column="0" Grid.Row="3">
-						Number Padding
-					</TextBlock>
+
+					<StackPanel Grid.Column="0" Grid.Row="3" Orientation="Horizontal">
+						<TextBlock Style="{StaticResource ConfigSectionLabel}">
+							Number Padding
+						</TextBlock>
+						<Button Style="{StaticResource HelpButton}"
+							CommandParameter="BatchRenameNumberPadding"
+							Command="ApplicationCommands.Help"></Button>
+					</StackPanel>
 					
 					<StackPanel Grid.Column="1" Grid.Row="3" FlowDirection="LeftToRight" Orientation="Horizontal">
 						<Slider x:Name="sOutputFileNameNumberPadding" Margin="10,0,0,0"
@@ -856,11 +899,15 @@
 						<TextBlock Text="{Binding Path=RenamingSetting.NumberPadding}" 
 							Margin="10,0,0,0" VerticalAlignment="Center" />
 					</StackPanel>
-					
-					<TextBlock Style="{StaticResource ConfigSectionLabel}"
-						Grid.Column="0" Grid.Row="4">
-						Start with Number
-					</TextBlock>
+
+					<StackPanel Grid.Column="0" Grid.Row="4" Orientation="Horizontal">
+						<TextBlock Style="{StaticResource ConfigSectionLabel}">
+							Start with Number
+						</TextBlock>
+						<Button Style="{StaticResource HelpButton}"
+							CommandParameter="BatchRenameStartNumber"
+							Command="ApplicationCommands.Help"></Button>
+					</StackPanel>
 
 					<HSCtrl:IntegerTextBox x:Name="txtOutputFileNameStartNumber"
 						Grid.Column="1" Grid.Row="4"
@@ -871,10 +918,14 @@
 						IsEnabled="{Binding ElementName=chkEnableBatchRename, Path=IsChecked}">
 					</HSCtrl:IntegerTextBox>
 					
-					<TextBlock Style="{StaticResource ConfigSectionLabel}"
-						Grid.Column="0" Grid.Row="5">
-						Output File Name Case
-					</TextBlock>
+					<StackPanel Grid.Column="0" Grid.Row="5" Orientation="Horizontal">
+						<TextBlock Style="{StaticResource ConfigSectionLabel}">
+							Output File Name Case
+						</TextBlock>
+						<Button Style="{StaticResource HelpButton}"
+							CommandParameter="BatchRenameFileNameCase"
+							Command="ApplicationCommands.Help"></Button>
+					</StackPanel>
 
 					<ComboBox x:Name="cmbOutputFileNameCase"
 						Grid.Column="1" Grid.Row="5"

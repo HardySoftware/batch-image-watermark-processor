@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="ThreadNumber" Type="System.UInt32" Scope="User">
-      <Value Profile="(Default)">1</Value>
+      <Value Profile="(Default)">2</Value>
     </Setting>
     <Setting Name="AppSkin" Type="HardySoft.UI.BatchImageProcessor.Model.Skin" Scope="User">
       <Value Profile="(Default)">DarkCool</Value>

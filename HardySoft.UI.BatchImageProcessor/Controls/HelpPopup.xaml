@@ -3,7 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     WindowStyle="None" ResizeMode="NoResize" ShowInTaskbar="False"
     AllowsTransparency="True" Background="Transparent"
-    Icon="/HardySoft.UI.BatchImageProcessor;component/Images/icon.ico"
+    Icon="/SeaTurtle;component/Images/icon.ico"
     Title="Help" Height="150" Width="250">
 	<Border Width="Auto" Height="Auto" Name="windowFrame"
 		Style="{StaticResource HelpPopupStyle}">

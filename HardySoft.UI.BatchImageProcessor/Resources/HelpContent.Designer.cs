@@ -61,6 +61,60 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;FlowDocument PagePadding=&quot;5,0,5,0&quot; AllowDrop=&quot;True&quot; NumberSubstitution.CultureSource=&quot;User&quot; xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Verdana&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;Enable Batch Renaming Output Files&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Calibri&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;Instead of keeping original file names as output image file names, you can also define your own rule to batch rename ou [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string BatchRename {
+            get {
+                return ResourceManager.GetString("BatchRename", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;FlowDocument PagePadding=&quot;5,0,5,0&quot; AllowDrop=&quot;True&quot; NumberSubstitution.CultureSource=&quot;User&quot; xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Verdana&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;Batch Renaming File Name Case&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Calibri&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;It indicates the way to handle case of file name.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;.
+        /// </summary>
+        internal static string BatchRenameFileNameCase {
+            get {
+                return ResourceManager.GetString("BatchRenameFileNameCase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;FlowDocument PagePadding=&quot;5,0,5,0&quot; AllowDrop=&quot;True&quot; NumberSubstitution.CultureSource=&quot;User&quot; xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Verdana&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;Batch Renaming File Name Number Padding&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Calibri&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;It indicates how many digits of number to use as auto increment number. For example if you specify 3 as value, you [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string BatchRenameNumberPadding {
+            get {
+                return ResourceManager.GetString("BatchRenameNumberPadding", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;FlowDocument PagePadding=&quot;5,0,5,0&quot; AllowDrop=&quot;True&quot; NumberSubstitution.CultureSource=&quot;User&quot; xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Verdana&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;Batch Renaming File Name Prefix&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Calibri&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;Prefix of batch rename file name.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;.
+        /// </summary>
+        internal static string BatchRenamePrefix {
+            get {
+                return ResourceManager.GetString("BatchRenamePrefix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;FlowDocument PagePadding=&quot;5,0,5,0&quot; AllowDrop=&quot;True&quot; NumberSubstitution.CultureSource=&quot;User&quot; xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Verdana&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;Batch Renaming File Name Starting Number&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Calibri&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;It indicates the starting number as auto increment number of the file name.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;.
+        /// </summary>
+        internal static string BatchRenameStartNumber {
+            get {
+                return ResourceManager.GetString("BatchRenameStartNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;FlowDocument PagePadding=&quot;5,0,5,0&quot; AllowDrop=&quot;True&quot; NumberSubstitution.CultureSource=&quot;User&quot; xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Verdana&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;Batch Renaming File Name Suffix&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Calibri&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;Suffix of batch rename file name.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;.
+        /// </summary>
+        internal static string BatchRenameSuffix {
+            get {
+                return ResourceManager.GetString("BatchRenameSuffix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;FlowDocument PagePadding=&quot;5,0,5,0&quot; AllowDrop=&quot;True&quot; NumberSubstitution.CultureSource=&quot;User&quot; xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Verdana&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;Destination Directory&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Calibri&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;This is the directory which will be used to save all processed image files.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;.
         /// </summary>
         internal static string DestinationDirectory {
@@ -102,6 +156,15 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         internal static string DropShadowLocation {
             get {
                 return ResourceManager.GetString("DropShadowLocation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;FlowDocument PagePadding=&quot;5,0,5,0&quot; AllowDrop=&quot;True&quot; NumberSubstitution.CultureSource=&quot;User&quot; xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Verdana&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;Generate Thumbnail&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Calibri&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;By checking this checkbox, application will generate thumbnail image for each of the output image.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;.
+        /// </summary>
+        internal static string GenerateThumbnail {
+            get {
+                return ResourceManager.GetString("GenerateThumbnail", resourceCulture);
             }
         }
         
@@ -160,11 +223,74 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;FlowDocument PagePadding=&quot;5,0,5,0&quot; AllowDrop=&quot;True&quot; NumberSubstitution.CultureSource=&quot;User&quot; xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Verdana&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;Application Skin&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Calibri&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;Choose the skin of application.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;.
+        /// </summary>
+        internal static string PreferenceApplicationSkin {
+            get {
+                return ResourceManager.GetString("PreferenceApplicationSkin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;FlowDocument PagePadding=&quot;5,0,5,0&quot; AllowDrop=&quot;True&quot; NumberSubstitution.CultureSource=&quot;User&quot; xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Verdana&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;Thread Number&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Calibri&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;It is used to define how many concurrent thread(s) used to process images simultaneously. If you have multiple cores CPU and big memory, it  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string PreferenceThreadNumber {
+            get {
+                return ResourceManager.GetString("PreferenceThreadNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;FlowDocument PagePadding=&quot;5,0,5,0&quot; AllowDrop=&quot;True&quot; NumberSubstitution.CultureSource=&quot;User&quot; xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Verdana&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;Shrink Image&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Calibri&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;By checking this checkbox, the application will shrink output images to your designated size.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;.
+        /// </summary>
+        internal static string ShrinkImage {
+            get {
+                return ResourceManager.GetString("ShrinkImage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;FlowDocument PagePadding=&quot;5,0,5,0&quot; AllowDrop=&quot;True&quot; NumberSubstitution.CultureSource=&quot;User&quot; xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Verdana&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;Shrink Image Size&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Calibri&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;Here you can specify the expected new size of output images as long as the mode how to calculate new image size. There 3 modes you can c [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string ShrinkImageSize {
+            get {
+                return ResourceManager.GetString("ShrinkImageSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;FlowDocument PagePadding=&quot;5,0,5,0&quot; AllowDrop=&quot;True&quot; NumberSubstitution.CultureSource=&quot;User&quot; xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Verdana&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;Source Directory&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Calibri&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;This is the directory which contains all the image files waiting to be processed.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;.
         /// </summary>
         internal static string SourceDirectory {
             get {
                 return ResourceManager.GetString("SourceDirectory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;FlowDocument PagePadding=&quot;5,0,5,0&quot; AllowDrop=&quot;True&quot; NumberSubstitution.CultureSource=&quot;User&quot; xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Verdana&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;Thumbnail Image File Name Prefix&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Calibri&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;It is used as prefix of output thumbnail file name.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;.
+        /// </summary>
+        internal static string ThumbnailFileNamePrefix {
+            get {
+                return ResourceManager.GetString("ThumbnailFileNamePrefix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;FlowDocument PagePadding=&quot;5,0,5,0&quot; AllowDrop=&quot;True&quot; NumberSubstitution.CultureSource=&quot;User&quot; xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Verdana&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;Thumbnail Image File Name Suffix&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Calibri&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;It is used as suffix of output thumbnail file name.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;.
+        /// </summary>
+        internal static string ThumbnailFileNameSuffix {
+            get {
+                return ResourceManager.GetString("ThumbnailFileNameSuffix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;FlowDocument PagePadding=&quot;5,0,5,0&quot; AllowDrop=&quot;True&quot; NumberSubstitution.CultureSource=&quot;User&quot; xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Verdana&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;Thumbnail Image Size&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Calibri&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot; xml:space=&quot;preserve&quot;&gt;The size of thumbnail image, application uses &quot;shrink by long side&quot; algorithm to calculate the actual size of th [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string ThumbnailImageSize {
+            get {
+                return ResourceManager.GetString("ThumbnailImageSize", resourceCulture);
             }
         }
         

@@ -14,7 +14,7 @@ namespace HardySoft.UI.BatchImageProcessor.Classes.Commands {
 		static ApplicationCommand() {
 			// initialize the command
 			InputGestureCollection inputs = new InputGestureCollection();
-			inputs.Add(new KeyGesture(Key.M, ModifierKeys.Control, "Ctrl+R"));
+			inputs.Add(new KeyGesture(Key.M, ModifierKeys.Control, "Ctrl+M"));
 			make = new RoutedUICommand("Make", "Make", typeof(ApplicationCommand), inputs);
 
 			exit = new RoutedUICommand("Exit", "Exit", typeof(ApplicationCommand));

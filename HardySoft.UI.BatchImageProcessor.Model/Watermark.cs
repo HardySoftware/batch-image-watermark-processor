@@ -57,6 +57,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			}
 		}
 
+		// TODO add feature to use EXIF information as watermark text
 		private string watermarkText;
 		public string WatermarkText {
 			get {

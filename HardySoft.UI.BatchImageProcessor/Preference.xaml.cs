@@ -16,6 +16,7 @@ using Microsoft.Practices.Unity;
 using HardySoft.UI.BatchImageProcessor.View;
 using HardySoft.UI.BatchImageProcessor.Presenter;
 using HardySoft.UI.BatchImageProcessor.Model;
+using HardySoft.UI.BatchImageProcessor.Controls;
 
 namespace HardySoft.UI.BatchImageProcessor {
 	/// <summary>
@@ -82,6 +83,19 @@ namespace HardySoft.UI.BatchImageProcessor {
 
 		private void btnCancel_Click(object sender, RoutedEventArgs e) {
 			DialogResult = false;
+		}
+
+		private void HelpCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e) {
+			e.CanExecute = true;
+		}
+
+		private void HelpCommand_Executed(object sender, ExecutedRoutedEventArgs e) {
+			HelpPopup popup = new HelpPopup();
+
+			// Mouse position
+			System.Windows.Point mousePoint = this.PointToScreen(Mouse.GetPosition(this));
+			//System.Windows.Point mousePoint = Mouse.GetPosition(this);
+			popup.ShowDialog(mousePoint.X, mousePoint.Y, (string)e.Parameter);
 		}
 	}
 }

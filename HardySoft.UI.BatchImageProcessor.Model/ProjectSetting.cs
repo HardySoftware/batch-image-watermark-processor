@@ -54,7 +54,8 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 
 			this.photos = new ObservableCollection<PhotoItem>();
 			this.processType = ImageProcessType.None;
-			this.shrinkLongSidePixelTo = 800;
+			this.shrinkMode = ShrinkImageMode.LongSide;
+			this.shrinkPixelTo = 800;
 			this.jpgCompressionRatio = 100;
 
 			this.watermark = new Watermark();
@@ -283,16 +284,29 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			}
 		}
 
-		private uint shrinkLongSidePixelTo;
-		public uint ShrinkLongSidePixelTo {
+		private uint shrinkPixelTo;
+		public uint ShrinkPixelTo {
 			get {
-				return shrinkLongSidePixelTo;
+				return shrinkPixelTo;
 			}
 			set {
-				if (this.shrinkLongSidePixelTo != value) {
-					shrinkLongSidePixelTo = value;
+				if (this.shrinkPixelTo != value) {
+					shrinkPixelTo = value;
 					this.isDirty = true;
-					notify("ShrinkLongSidePixelTo");
+					notify("ShrinkPixelTo");
+				}
+			}
+		}
+
+		private ShrinkImageMode shrinkMode;
+		public ShrinkImageMode ShrinkMode {
+			get {
+				return shrinkMode;
+			}
+			set {
+				if (this.shrinkMode != value) {
+					shrinkMode = value;
+					notify("ShrinkMode");
 				}
 			}
 		}
