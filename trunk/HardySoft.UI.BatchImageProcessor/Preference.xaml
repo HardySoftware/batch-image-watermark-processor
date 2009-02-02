@@ -1,9 +1,15 @@
 ﻿<Window x:Class="HardySoft.UI.BatchImageProcessor.Preference"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:HSC="clr-namespace:HardySoft.UI.BatchImageProcessor.Classes.Commands"
     Title="Preference" Height="300" Width="500"
     AllowsTransparency="True" Background="Transparent" ShowInTaskbar="False"
-    WindowStyle="None" Icon="/HardySoft.UI.BatchImageProcessor;component/Images/icon.ico">
+    WindowStyle="None" Icon="/SeaTurtle;component/Images/icon.ico">
+
+    <Control.CommandBindings>
+		<CommandBinding x:Name="HelpCommand" Command="ApplicationCommands.Help" CanExecute="HelpCommand_CanExecute" Executed="HelpCommand_Executed"/>
+	</Control.CommandBindings>
+	
 	<Border Width="Auto" Height="Auto" Name="windowFrame"
 		Style="{StaticResource WindowBackground}">
 		<Grid Margin="10,10,10,10">
@@ -18,7 +24,7 @@
 			<Grid x:Name="InformationSection"
 				Grid.Row="1" ShowGridLines="False">
 				<Grid.ColumnDefinitions>
-					<ColumnDefinition Width="*"></ColumnDefinition>
+					<ColumnDefinition Width="auto"></ColumnDefinition>
 					<ColumnDefinition Width="2*"></ColumnDefinition>
 				</Grid.ColumnDefinitions>
 				<Grid.RowDefinitions>
@@ -26,10 +32,13 @@
 					<RowDefinition Height="auto"></RowDefinition>
 				</Grid.RowDefinitions>
 
-				<TextBlock Grid.Column="0" Grid.Row="0"
-					VerticalAlignment="Top"
-					Margin="10, 0, 10, 0"
-					Style="{StaticResource AboutWindowLabel}">Application Skin</TextBlock>
+				<StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal">
+					<TextBlock Margin="10, 0, 10, 0"
+						Style="{StaticResource AboutWindowLabel}">Application Skin</TextBlock>
+					<Button Style="{StaticResource HelpButton}"
+						CommandParameter="PreferenceApplicationSkin"
+						Command="ApplicationCommands.Help"></Button>
+				</StackPanel>
 
 				<ComboBox x:Name="cmbAppSkin"
 					Margin="10,0,0,0"
@@ -40,10 +49,15 @@
 					Grid.Column="1" Grid.Row="0">
 				</ComboBox>
 
-				<TextBlock Grid.Column="0" Grid.Row="1"
-					VerticalAlignment="Top"
-					Margin="10, 0, 10, 0"
-					Style="{StaticResource AboutWindowLabel}">Process Thread Number</TextBlock>
+				<StackPanel Grid.Column="0" Grid.Row="2" Orientation="Horizontal">
+					<TextBlock Grid.Column="0" Grid.Row="1"
+						VerticalAlignment="Top"
+						Margin="10, 0, 10, 0"
+						Style="{StaticResource AboutWindowLabel}">Process Thread Number</TextBlock>
+					<Button Style="{StaticResource HelpButton}"
+						CommandParameter="PreferenceThreadNumber"
+						Command="ApplicationCommands.Help"></Button>
+				</StackPanel>
 
 				<StackPanel Grid.Column="1" Grid.Row="1" FlowDirection="LeftToRight" Orientation="Horizontal">
 					<Slider x:Name="sThreadNumber" Margin="10,0,0,0"

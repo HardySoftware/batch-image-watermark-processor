@@ -110,7 +110,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 					}
 
 					// shrink image operation
-					if (ps.ShrinkImage && ps.ShrinkLongSidePixelTo > 0) {
+					if (ps.ShrinkImage && ps.ShrinkPixelTo > 0) {
 						process = container.Resolve<IProcess>("ShrinkImage");
 						normalImage = process.ProcessImage(normalImage, this.ps);
 					}
@@ -176,6 +176,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 					}
 					saveImage(imagePath, normalImage, format, fileNameProvider, imageSaver);
 
+					// TODO think about applying thumb file name to batch renamed original file
 					fileNameProvider = container.Resolve<IFilenameProvider>("ThumbFileName");
 					fileNameProvider.ImageIndex = imageIndex;
 					saveImage(imagePath, thumb, format, fileNameProvider, imageSaver);
@@ -194,7 +195,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 					OnImageProcessed(args);
 				}
 
-				// recursive call to go back to check if there are more files waiting to be processed.
+				// recursively call itself to go back to check if there are more files waiting to be processed.
 				processImage(threadIndex);
 			}
 		}

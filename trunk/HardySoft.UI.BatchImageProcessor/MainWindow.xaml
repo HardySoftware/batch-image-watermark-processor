@@ -4,10 +4,9 @@
     xmlns:HSC="clr-namespace:HardySoft.UI.BatchImageProcessor.Controls"
     xmlns:sys="clr-namespace:System;assembly=mscorlib"
     xmlns:enum="clr-namespace:HardySoft.UI.BatchImageProcessor.Model;assembly=HardySoft.UI.BatchImageProcessor.Model"
-    Title="HardySoft Batch Image Processor" Height="500" Width="800"
-    Icon="/HardySoft.UI.BatchImageProcessor;component/Images/icon.ico"
+    Title="Sea Turtle Image Processor" Height="500" Width="800"
     AllowsTransparency="True" Background="Transparent"
-    WindowStyle="None" ResizeMode="CanResizeWithGrip">
+    WindowStyle="None" ResizeMode="CanResizeWithGrip" Icon="/SeaTurtle;component/Images/icon.ico">
 	<Window.Resources>
 		
 	</Window.Resources>
@@ -19,12 +18,12 @@
                 <RowDefinition></RowDefinition>
                 <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
-            <TextBlock Text="HardySoft Batch Image Processor" 
+            <TextBlock Text="Sea Turtle Image Processor" 
 				Style="{StaticResource WindowTitle}"
 				MouseLeftButtonDown="titleBar_MouseLeftButtonDown"></TextBlock>
             <Grid Grid.Row="1">
                 <Grid.Background>
-                    <ImageBrush ImageSource="/HardySoft.UI.BatchImageProcessor;component/Themes/DarkCool/Images/Background.jpg"
+                    <ImageBrush ImageSource="/SeaTurtle;component/Themes/DarkCool/Images/Background.jpg"
                         TileMode="Tile" Viewport="0,0,0.3,0.3" Opacity="0.7"></ImageBrush>
                 </Grid.Background>
                 <Grid.RowDefinitions>

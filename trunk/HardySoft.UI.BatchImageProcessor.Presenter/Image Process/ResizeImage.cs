@@ -13,23 +13,12 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 	public abstract class ResizeImage : IProcess {
 		public abstract Image ProcessImage(Image input, ProjectSetting ps);
 
-		protected Image ResizeImageJob(Image input, uint newSize, InterpolationMode mode) {
+		protected Image ResizeImageJob(Image input, System.Windows.Size newSize, InterpolationMode mode) {
 			int originalWidth, originalHeight;
 			originalWidth = input.Width;
 			originalHeight = input.Height;
 
-			float ratio = (float)originalWidth / (float)originalHeight;
-			uint newWidth, newHeight;
-			if (originalWidth >= originalHeight) {
-				// wider picture
-				newWidth = newSize;
-				newHeight = (uint)((float)newSize / ratio);
-			} else {
-				// taller picture
-				newWidth = (uint)((float)newSize * ratio);
-				newHeight = newSize;
-			}
-			Bitmap newImage = new Bitmap((int)newWidth, (int)newHeight);
+			Bitmap newImage = new Bitmap((int)newSize.Width, (int)newSize.Height);
 			Graphics g = Graphics.FromImage(newImage);
 
 			g.InterpolationMode = mode;

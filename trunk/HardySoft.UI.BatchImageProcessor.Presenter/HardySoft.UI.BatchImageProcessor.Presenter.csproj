@@ -72,7 +72,11 @@
     <Compile Include="Image File Name\BatchRenamedFileName.cs" />
     <Compile Include="Image Process\DropShadowImage.cs" />
     <Compile Include="Image Process\GenerateThumbnail.cs" />
+    <Compile Include="Image Process\Size Calculator\IResize.cs" />
     <Compile Include="ImageProcessedEventArgs.cs" />
+    <Compile Include="Image Process\Size Calculator\ResizeByLongSize.cs" />
+    <Compile Include="Image Process\Size Calculator\ResizeByWidth.cs" />
+    <Compile Include="Image Process\Size Calculator\ResizeByHeight.cs" />
     <Compile Include="Save Image\ISaveImage.cs" />
     <Compile Include="Image File Name\ProcessedFileName.cs" />
     <Compile Include="Image File Name\ThumbnailFileName.cs" />
@@ -104,6 +108,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Image Process\Size Calculator\ResizeCalculator.cd" />
     <None Include="ProcessImage.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

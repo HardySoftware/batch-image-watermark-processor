@@ -104,12 +104,12 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 				// we need to use WaitAll to be notified all jobs from all threads are done,
 				// WaitAll will block the current thread, I don't want it happen to main thread,
 				// that is the reason we create another thread instead.
-				Thread controlThread = new Thread(new ParameterizedThreadStart(engineControl));
+				Thread controlThread = new Thread(new ParameterizedThreadStart(engineController));
 				controlThread.Start(e.ThreadNumber);
 			}
 		}
 
-		private void engineControl(object state) {
+		private void engineController(object state) {
 			uint threadNumber = (uint)state;
 			AutoResetEvent[] events = new AutoResetEvent[threadNumber];
 			for (int i = 0; i < events.Length; i++) {

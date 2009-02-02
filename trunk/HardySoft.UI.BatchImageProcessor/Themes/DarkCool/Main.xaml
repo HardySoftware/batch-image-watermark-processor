@@ -31,6 +31,12 @@
 		</ObjectDataProvider.MethodParameters>
 	</ObjectDataProvider>
 	
+	<ObjectDataProvider x:Key="ShrinkModeData" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
+		<ObjectDataProvider.MethodParameters>
+			<x:Type TypeName="enum:ShrinkImageMode" />
+		</ObjectDataProvider.MethodParameters>
+	</ObjectDataProvider>
+	
 	<ObjectDataProvider x:Key="OutputFileNameCaseData" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
 		<ObjectDataProvider.MethodParameters>
 			<x:Type TypeName="enum:OutputFileNameCase" />
@@ -95,7 +101,7 @@
 		<Setter Property="Control.Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="{x:Type Button}">
-					<Image Source="/HardySoft.UI.BatchImageProcessor;component/Themes/DarkCool/Images/HelpPopup/help_icon.gif"></Image>
+					<Image Source="/SeaTurtle;component/Themes/DarkCool/Images/HelpPopup/help_icon.gif"></Image>
 				</ControlTemplate>
 			</Setter.Value>
 		</Setter>
@@ -119,7 +125,7 @@
 		<Setter Property="Control.Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="{x:Type Button}">
-					<Image Source="/HardySoft.UI.BatchImageProcessor;component/Themes/DarkCool/Images/HelpPopup/close_icon.gif"></Image>
+					<Image Source="/SeaTurtle;component/Themes/DarkCool/Images/HelpPopup/close_icon.gif"></Image>
 				</ControlTemplate>
 			</Setter.Value>
 		</Setter>
@@ -658,7 +664,7 @@
 		<Setter Property="FontFamily" Value="Calibri, Tahoma, Arial" />
 		<Setter Property="FontSize" Value="12" />
 		<Setter Property="MinHeight" Value="25"/>
-		<Setter Property="MinWidth" Value="450"/>
+		<Setter Property="MinWidth" Value="250"/>
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="{x:Type TextBox}">
@@ -1189,4 +1195,315 @@
 	<!-- ================== -->
 	<!-- End of ProgressBar -->
 	<!-- ================== -->
+
+	<!-- ======================= -->
+	<!-- Begin of GroupBox Style -->
+	<!-- ======================= -->
+	<LinearGradientBrush x:Key="GroupBoxNormalBackground" EndPoint="0,1" StartPoint="0,0">
+		<GradientStop Color="#626262" Offset="1"/>
+		<GradientStop Color="#4c4c4c" Offset="0"/>
+	</LinearGradientBrush>
+
+	<LinearGradientBrush x:Key="GroupBoxHeaderBackground" EndPoint="0,1" StartPoint="0,0">
+		<GradientStop Color="#6c6a6b" Offset="0"/>
+		<GradientStop Color="#282828" Offset="1"/>
+	</LinearGradientBrush>
+
+	<SolidColorBrush x:Key="GroupBoxNormalOuterBorder" Color="#7a7a7a"/>
+
+	<LinearGradientBrush x:Key="GroupBoxGlassBrush" EndPoint="0,1" StartPoint="0,0">
+		<GradientStop Color="#96FFFFFF" Offset="0"/>
+		<GradientStop Color="#28FFFFFF" Offset="0.5"/>
+		<GradientStop Color="#00FFFFFF" Offset="0.5"/>
+	</LinearGradientBrush>
+
+	<LinearGradientBrush x:Key="GroupBoxDisabledBackground" EndPoint="0,1" StartPoint="0,0">
+		<GradientStop Color="#f4f4f4" Offset="1"/>
+		<GradientStop Color="#c2c2c2" Offset="0"/>
+	</LinearGradientBrush>
+
+	<LinearGradientBrush x:Key="GroupBoxDisabledHeaderBackground" EndPoint="0,1" StartPoint="0,0">
+		<GradientStop Color="#f4f4f4" Offset="0"/>
+		<GradientStop Color="#d7d7d7" Offset="0.7"/>
+		<GradientStop Color="#c2c2c2" Offset="1"/>
+	</LinearGradientBrush>
+
+	<SolidColorBrush x:Key="GroupBoxOuterBorderDisabled" Color="#cfcfcf"/>
+
+	<BorderGapMaskConverter x:Key="BorderGapMaskConverter"/>
+
+	<Style TargetType="{x:Type GroupBox}">
+		<Setter Property="BorderBrush" Value="#D5DFE5"/>
+		<Setter Property="BorderThickness" Value="1"/>
+		<Setter Property="Margin" Value="4"/>
+		<Setter Property="Foreground" Value="White"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type GroupBox}">
+					<Grid SnapsToDevicePixels="true">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition/>
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto"/>
+							<RowDefinition/>
+						</Grid.RowDefinitions>
+						<Border x:Name="Header" Grid.Column="0" Grid.Row="0"
+							Padding="3" Background="{StaticResource GroupBoxHeaderBackground}"
+							CornerRadius="4,4,0,0" BorderBrush="{StaticResource GroupBoxNormalOuterBorder}"
+							BorderThickness="1,1,1,0">
+							<ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+								ContentSource="Header" RecognizesAccessKey="True"/>
+						</Border>
+						<Border x:Name="Glass" Grid.Column="0" Grid.Row="0" Margin="2"
+							Background="{StaticResource GroupBoxGlassBrush}" CornerRadius="4,4,0,0"/>
+						<Border x:Name="Container" Grid.Column="0" Grid.Row="1" Padding="3"
+							CornerRadius="0,0,4,4" Background="{StaticResource GroupBoxNormalBackground}"
+							BorderBrush="{StaticResource GroupBoxNormalOuterBorder}" BorderThickness="1,1,1,1">
+							<ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+								Margin="{TemplateBinding Padding}"/>
+						</Border>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsEnabled" Value="false">
+							<Setter TargetName="Header" Property="Background"
+								Value="{StaticResource GroupBoxDisabledHeaderBackground}"/>
+							<Setter TargetName="Container" Property="Background"
+								Value="{StaticResource GroupBoxDisabledBackground}"/>
+							<Setter Property="Foreground" Value="{StaticResource GroupBoxNormalOuterBorder}"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<!-- ======================= -->
+	<!-- End of GroupBox Style -->
+	<!-- ======================= -->
+
+	<!-- ===================== -->
+	<!-- Begin of Slider Style -->
+	<!-- ===================== -->
+	<SolidColorBrush x:Key="SliderNormalBrush" Color="#FF595959" />
+	<SolidColorBrush x:Key="SliderNormalBorderBrush" Color="#FF333333" />
+	<SolidColorBrush x:Key="SliderHoverBrush" Color="#FF393939" />
+
+	<LinearGradientBrush x:Key="SliderPressedBrush" EndPoint="0.5,0.971" StartPoint="0.5,0.042">
+		<GradientStop Color="#4C000000" Offset="0" />
+		<GradientStop Color="#26FFFFFF" Offset="1" />
+		<GradientStop Color="#4C000000" Offset="0.467" />
+		<GradientStop Color="#26FFFFFF" Offset="0.479" />
+	</LinearGradientBrush>
+
+	<SolidColorBrush x:Key="SliderDisabledBackgroundBrush" Color="#FF787878" />
+
+	<LinearGradientBrush x:Key="SliderShineBrush" EndPoint="0.5,0.971" StartPoint="0.5,0.042">
+		<GradientStop Color="#59FFFFFF" Offset="0" />
+		<GradientStop Color="#00FFFFFF" Offset="1" />
+		<GradientStop Color="#26FFFFFF" Offset="0.467" />
+		<GradientStop Color="#00FFFFFF" Offset="0.475" />
+	</LinearGradientBrush>
+
+	<LinearGradientBrush x:Key="HoverShineBrush" EndPoint="0.5,0.971" StartPoint="0.5,0.042">
+		<GradientStop Color="#4CFFFFFF" Offset="0" />
+		<GradientStop Color="#26FFFFFF" Offset="1" />
+		<GradientStop Color="#26FFFFFF" Offset="0.467" />
+		<GradientStop Color="#00FFFFFF" Offset="0.475" />
+		<GradientStop Color="#00FFFFFF" Offset="0.856" />
+	</LinearGradientBrush>
+
+	<Style TargetType="Thumb">
+		<Setter Property="Background" Value="{StaticResource SliderNormalBrush}" />
+		<Setter Property="BorderThickness" Value="1" />
+		<Setter Property="IsTabStop" Value="False" />
+		<Setter Property="BorderBrush" Value="{StaticResource SliderNormalBorderBrush}" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="Thumb">
+					<Grid>
+						<Border x:Name="Background" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="3" />
+						<Border x:Name="HoverBorder" Opacity="0" Background="{StaticResource SliderHoverBrush}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="3" />
+						<Border x:Name="HoverShineBorder" Opacity="0" Background="{StaticResource HoverShineBrush}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="3" />
+						<Border x:Name="PressedBorder" Opacity="0" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="3" Background="{StaticResource SliderPressedBrush}" />
+						<Border x:Name="ShineBorder" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="3" Background="{StaticResource SliderShineBrush}" Opacity="1" />
+						<Border x:Name="DisabledVisualElement" IsHitTestVisible="false" Background="{StaticResource SliderDisabledBackgroundBrush}" CornerRadius="3.5,3.5,3.5,3.5" Opacity="0" />
+						<Border x:Name="FocusVisualElement" IsHitTestVisible="false" Visibility="Collapsed" BorderBrush="{StaticResource HoverShineBrush}" BorderThickness="1" CornerRadius="3,3,3,3" />
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<Style TargetType="Slider">
+		<Setter Property="BorderThickness" Value="1" />
+		<Setter Property="Maximum" Value="10" />
+		<Setter Property="Minimum" Value="0" />
+		<Setter Property="Value" Value="0" />
+		<Setter Property="BorderBrush">
+			<Setter.Value>
+				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+					<GradientStop Color="#FFA3AEB9" Offset="0" />
+					<GradientStop Color="#FF8399A9" Offset="0.375" />
+					<GradientStop Color="#FF718597" Offset="0.375" />
+					<GradientStop Color="#FF617584" Offset="1" />
+				</LinearGradientBrush>
+			</Setter.Value>
+		</Setter>
+		<Setter Property="IsTabStop" Value="False" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="Slider">
+					<Grid x:Name="Root">
+						<Grid.Resources>
+							<ControlTemplate x:Key="RepeatButtonTemplate">
+								<Grid x:Name="Root" Opacity="0" Background="Transparent" />
+							</ControlTemplate>
+						</Grid.Resources>
+						<Grid x:Name="HorizontalTemplate" Background="{TemplateBinding Background}">
+							<Rectangle Height="5" Margin="5,0,5,0" Fill="{StaticResource SliderNormalBorderBrush}" Stroke="{x:Null}" StrokeThickness="{TemplateBinding BorderThickness}" RadiusX="2" RadiusY="2" />
+
+							<Track x:Name="PART_Track">
+								<Track.Thumb>
+									<Thumb Height="16" x:Name="HorizontalThumb" Width="30" IsTabStop="True" />
+								</Track.Thumb>
+								<Track.IncreaseRepeatButton>
+									<RepeatButton IsTabStop="False" Template="{StaticResource RepeatButtonTemplate}" Command="Slider.IncreaseLarge" />
+								</Track.IncreaseRepeatButton>
+								<Track.DecreaseRepeatButton>
+									<RepeatButton IsTabStop="False" Template="{StaticResource RepeatButtonTemplate}" Command="Slider.DecreaseLarge" />
+								</Track.DecreaseRepeatButton>
+							</Track>
+						</Grid>
+						<Grid x:Name="VerticalTemplate" Visibility="Collapsed" Background="{TemplateBinding Background}">
+							<Grid.RowDefinitions>
+								<RowDefinition Height="*" />
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+							</Grid.RowDefinitions>
+							<Rectangle Margin="0,5,0,5" Width="5" Grid.Row="0" Grid.RowSpan="3" Fill="{StaticResource SliderNormalBorderBrush}" Stroke="{x:Null}" StrokeThickness="{TemplateBinding BorderThickness}" RadiusX="2" RadiusY="2" />
+
+							<RepeatButton x:Name="VerticalTrackLargeChangeDecreaseRepeatButton" IsTabStop="False" Template="{StaticResource RepeatButtonTemplate}" Grid.Row="2" />
+							<Thumb Height="30" x:Name="VerticalThumb" Width="16" IsTabStop="True" Grid.Row="1"/>
+							<!-- Style="{StaticResource System.Windows.Controls.Primitives.Thumb}" /> -->
+							<RepeatButton x:Name="VerticalTrackLargeChangeIncreaseRepeatButton" IsTabStop="False" Template="{StaticResource RepeatButtonTemplate}" Grid.Row="0" />
+						</Grid>
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<!-- =================== -->
+	<!-- End of Slider Style -->
+	<!-- =================== -->
+
+	<!-- ======================== -->
+	<!-- Begin of ScrollBar Style -->
+	<!-- ======================== -->
+	<SolidColorBrush x:Key="ScrollBarNormalBrush" Color="#FF595959" />
+	<SolidColorBrush x:Key="ScrollBarGlyphBrush" Color="#FFD1D1D1" />
+
+	<Style TargetType="ScrollBar">
+		<Setter Property="MinWidth" Value="17" />
+		<Setter Property="MinHeight" Value="17" />
+		<Setter Property="IsTabStop" Value="False" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="ScrollBar">
+					<Grid x:Name="Root">
+						<Grid.Resources>
+							<ControlTemplate x:Key="RepeatButtonTemplate" TargetType="RepeatButton">
+								<Grid x:Name="Root" Background="Transparent">
+								</Grid>
+							</ControlTemplate>
+							<ControlTemplate x:Key="HorizontalIncrementTemplate" TargetType="RepeatButton">
+								<Grid x:Name="Root">
+									<Path Height="10" Width="9" Stretch="Uniform" Data="F1 M 511.047,352.682L 511.047,342.252L 517.145,347.467L 511.047,352.682 Z " Fill="{StaticResource ScrollBarGlyphBrush}" x:Name="path" />
+								</Grid>
+							</ControlTemplate>
+							<ControlTemplate x:Key="HorizontalDecrementTemplate" TargetType="RepeatButton">
+								<Grid x:Name="Root">
+									<Path Height="10" Width="9" Stretch="Uniform" Data="F1 M 110.692,342.252L 110.692,352.682L 104.594,347.467L 110.692,342.252 Z " x:Name="path" Fill="{StaticResource ScrollBarGlyphBrush}" />
+								</Grid>
+							</ControlTemplate>
+							<ControlTemplate x:Key="VerticalIncrementTemplate" TargetType="RepeatButton">
+								<Grid x:Name="Root">
+									<Path x:Name="path" Height="10" Width="9" Stretch="Uniform" Data="F1 M 531.107,321.943L 541.537,321.943L 536.322,328.042L 531.107,321.943 Z " Fill="{StaticResource ScrollBarGlyphBrush}" />
+								</Grid>
+							</ControlTemplate>
+							<ControlTemplate x:Key="VerticalDecrementTemplate" TargetType="RepeatButton">
+								<Grid x:Name="Root">
+									<Path x:Name="path" Height="10" Width="9" Stretch="Uniform" Data="F1 M 541.537,173.589L 531.107,173.589L 536.322,167.49L 541.537,173.589 Z " Fill="{StaticResource ScrollBarGlyphBrush}" />
+								</Grid>
+							</ControlTemplate>
+							<ControlTemplate x:Key="VerticalThumbTemplate" TargetType="Thumb">
+								<Grid>
+									<Grid Margin="1,0,1,0" x:Name="ThumbVisual">
+										<Rectangle x:Name="Background" Fill="{StaticResource ScrollBarGlyphBrush}" StrokeThickness="1" RadiusX="3" RadiusY="4" Stroke="{x:Null}" Margin="4.5,-2,5,-2" />
+									</Grid>
+								</Grid>
+							</ControlTemplate>
+							<ControlTemplate x:Key="HorizontalThumbTemplate" TargetType="Thumb">
+								<Grid>
+									<Grid Margin="0,1,0,1" x:Name="ThumbVisual">
+										<Rectangle x:Name="Background" Fill="{StaticResource ScrollBarGlyphBrush}" StrokeThickness="1" RadiusX="2" RadiusY="2" Stroke="{x:Null}" Margin="-2,3.5,-2,4" />
+									</Grid>
+								</Grid>
+							</ControlTemplate>
+						</Grid.Resources>
+						<Grid x:Name="HorizontalRoot" Visibility="Collapsed" >
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="Auto" />
+								<ColumnDefinition Width="Auto" />
+								<ColumnDefinition Width="Auto" />
+								<ColumnDefinition Width="*" />
+								<ColumnDefinition Width="Auto" />
+							</Grid.ColumnDefinitions>
+							<Rectangle Grid.ColumnSpan="5" Stroke="#00000000" StrokeThickness="1" RadiusX="1" RadiusY="1" Fill="{StaticResource ScrollBarNormalBrush}" />
+							<RepeatButton Margin="1" x:Name="HorizontalSmallDecrease" Width="16" IsTabStop="False" Template="{StaticResource HorizontalDecrementTemplate}" Grid.Column="0" Interval="50" />
+							<RepeatButton x:Name="HorizontalLargeDecrease" Width="0" IsTabStop="False" Template="{StaticResource RepeatButtonTemplate}" Grid.Column="1" Interval="50" />
+							<Thumb MinWidth="18" x:Name="HorizontalThumb" Width="18" Background="{TemplateBinding Background}" Template="{StaticResource HorizontalThumbTemplate}" Grid.Column="2" />
+							<RepeatButton x:Name="HorizontalLargeIncrease" IsTabStop="False" Template="{StaticResource RepeatButtonTemplate}" Grid.Column="3" Interval="50" />
+							<RepeatButton Margin="1" x:Name="HorizontalSmallIncrease" Width="16" IsTabStop="False" Template="{StaticResource HorizontalIncrementTemplate}" Grid.Column="4" Interval="50" />
+						</Grid>
+						<Grid x:Name="VerticalRoot" Visibility="Visible">
+							<Grid.RowDefinitions>
+								<RowDefinition Height="16" />
+								<RowDefinition Height="*" />
+								<RowDefinition Height="16" />
+							</Grid.RowDefinitions>
+							<Rectangle Grid.RowSpan="5" Stroke="#00000000" StrokeThickness="1" RadiusX="1" RadiusY="1" Fill="{StaticResource ScrollBarNormalBrush}" />
+
+							<RepeatButton Height="16" Margin="1" x:Name="VerticalSmallDecrease" IsTabStop="False" Template="{StaticResource VerticalDecrementTemplate}" Grid.Row="0" Interval="50" Command="ScrollBar.LineUpCommand" />
+
+							<Track Grid.Row="1" x:Name="PART_Track" Orientation="Vertical" IsDirectionReversed="true">
+								<Track.Thumb>
+									<Thumb MinHeight="18" x:Name="VerticalThumb" Template="{StaticResource VerticalThumbTemplate}" />
+								</Track.Thumb>
+								<Track.IncreaseRepeatButton>
+									<RepeatButton IsTabStop="False" Template="{StaticResource RepeatButtonTemplate}" Command="ScrollBar.PageDownCommand" Interval="50" />
+								</Track.IncreaseRepeatButton>
+								<Track.DecreaseRepeatButton>
+									<RepeatButton IsTabStop="False" Template="{StaticResource RepeatButtonTemplate}" Command="ScrollBar.PageUpCommand" Interval="50" />
+								</Track.DecreaseRepeatButton>
+							</Track>
+
+							<RepeatButton Height="16" Margin="1" x:Name="VerticalSmallIncrease" IsTabStop="False" Template="{StaticResource VerticalIncrementTemplate}" Grid.Row="2" Interval="50" Command="ScrollBar.LineDownCommand" />
+						</Grid>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger Property="Orientation" Value="Horizontal">
+							<Setter Property="LayoutTransform" TargetName="Root">
+								<Setter.Value>
+									<RotateTransform Angle="-90"/>
+								</Setter.Value>
+							</Setter>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<!-- ====================== -->
+	<!-- End of ScrollBar Style -->
+	<!-- ====================== -->
 </ResourceDictionary>

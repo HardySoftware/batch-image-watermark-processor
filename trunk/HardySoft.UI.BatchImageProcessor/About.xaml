@@ -4,7 +4,7 @@
     xmlns:HSCtrl="clr-namespace:HardySoft.UI.BatchImageProcessor.Controls"
     Title="About" Height="450" Width="550"
     AllowsTransparency="True" Background="Transparent" ShowInTaskbar="False"
-    WindowStyle="None" Icon="/HardySoft.UI.BatchImageProcessor;component/Images/icon.ico">
+    WindowStyle="None" Icon="/SeaTurtle;component/Images/icon.ico">
 	<Border Width="Auto" Height="Auto" Name="windowFrame"
 		Style="{StaticResource WindowBackground}">
 		<Grid Margin="10,10,10,10">
@@ -36,7 +36,7 @@
 				<Image Grid.Column="0" Grid.Row="0" Grid.RowSpan="5"
 					Stretch="None" VerticalAlignment="Top"
 					Margin="10, 0, 10, 10"
-					Source="/HardySoft.UI.BatchImageProcessor;component/Images/icon.png"></Image>
+					Source="/SeaTurtle;component/Images/icon.png"></Image>
 					
 				<TextBlock Grid.Column="1" Grid.Row="0"
 					VerticalAlignment="Top"
