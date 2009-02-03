@@ -142,6 +142,7 @@
     <Compile Include="Classes\Converters\EnumToFriendlyNameConverter.cs" />
     <Compile Include="Classes\Converters\PathToImageConverter.cs" />
     <Compile Include="Classes\Converters\WatermarkImageSelectedConverter.cs" />
+    <Compile Include="Classes\ProjectNameEventArgs.cs" />
     <Compile Include="Controls\ColorPicker.cs" />
     <Compile Include="Controls\ColorPickerDialog.xaml.cs">
       <DependentUpon>ColorPickerDialog.xaml</DependentUpon>

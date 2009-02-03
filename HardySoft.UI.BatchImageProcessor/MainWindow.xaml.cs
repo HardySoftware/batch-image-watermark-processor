@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using Microsoft.Practices.Unity;
 
 using HardySoft.UI.BatchImageProcessor.Controls;
+using HardySoft.UI.BatchImageProcessor.Classes;
 
 namespace HardySoft.UI.BatchImageProcessor {
 	/// <summary>
@@ -24,13 +25,19 @@ namespace HardySoft.UI.BatchImageProcessor {
 		public MainWindow() {
 			InitializeComponent();
 
-			// Set an icon using code
-			//Uri iconUri = new Uri("pack://application:,,,/Images/icon.png", UriKind.RelativeOrAbsolute);
-			//this.Icon = BitmapFrame.Create(iconUri);
-
 			IUnityContainer container = new UnityContainer();
 			MainInterfaceControl mainControl = (MainInterfaceControl)container.Resolve<MainInterfaceControl>();
+			mainControl.ProjectFileNameObtained += new ProjectFileNameObtainedHandler(mainControl_ProjectFileNameObtained);
 			MainControlPlaceHolder.Children.Add(mainControl);
+		}
+
+		void mainControl_ProjectFileNameObtained(object sender, ProjectFileNameEventArgs args) {
+			string fileName = "";
+			if (args.IsDirty) {
+				fileName = "* ";
+			}
+			fileName += args.ProjectFileName;
+			tbFooter.Text = fileName;
 		}
 
 		bool isWiden = false;

@@ -87,6 +87,12 @@
 		</Setter>
 	</Style>
 	
+	<Style x:Key="WindowFooter" TargetType="TextBlock">
+		<Setter Property="Foreground" Value="AliceBlue"></Setter>
+		<Setter Property="FontSize" Value="12"></Setter>
+		<Setter Property="FontFamily" Value="Verdana"></Setter>
+	</Style>
+	
 	<!-- Help Popup window -->
 	<Style x:Key="HelpPopupStyle" TargetType="Border">
 	<Setter Property="BorderBrush" Value="#395984"></Setter>

@@ -1,27 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Windows.Forms;
 using System.Windows.Threading;
-using System.Drawing;
+using System.IO;
+using System.ComponentModel;
 
 using Microsoft.Practices.Unity;
-
-using HardySoft.CC;
 
 using HardySoft.UI.BatchImageProcessor.View;
 using HardySoft.UI.BatchImageProcessor.Presenter;
 using HardySoft.UI.BatchImageProcessor.Model;
+using HardySoft.UI.BatchImageProcessor.Classes;
 
 namespace HardySoft.UI.BatchImageProcessor.Controls {
 	/// <summary>
@@ -31,6 +23,7 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 		private MainControl_Presenter presenter;
 		private bool processing;
 		private DispatcherTimer dispatcherTimer;
+		private string currentProjectFile;
 
 		public MainInterfaceControl() {
 			IUnityContainer container = new UnityContainer();
@@ -43,7 +36,10 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 			dispatcherTimer = new DispatcherTimer();
 			dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
 			dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
+#if DEBUG
+#else
 			dispatcherTimer.Start();
+#endif
 		}
 
 		[Dependency]
@@ -57,6 +53,17 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 			}
 		}
 
+		public event ProjectFileNameObtainedHandler ProjectFileNameObtained;
+
+		protected void OnProjectFileNameObtained() {
+			if (ProjectFileNameObtained != null && !string.IsNullOrEmpty(this.currentProjectFile)) {
+				ProjectFileNameEventArgs args = new ProjectFileNameEventArgs(this.currentProjectFile,
+					this.ps.IsDirty);
+				ProjectFileNameObtained(this, args);
+			}
+		}
+
+		#region UI Event Handler
 		void dispatcherTimer_Tick(object sender, EventArgs e) {
 			// force commands to re-evaluate
 			CommandManager.InvalidateRequerySuggested();
@@ -70,8 +77,8 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 
 		private void btnSourceDirectory_Click(object sender, RoutedEventArgs e) {
 			FolderBrowserDialog dialog = new FolderBrowserDialog();
-			if (! string.IsNullOrEmpty(txtSourceDirectory.Text)) {
-				dialog.SelectedPath  = txtSourceDirectory.Text;
+			if (!string.IsNullOrEmpty(txtSourceDirectory.Text)) {
+				dialog.SelectedPath = txtSourceDirectory.Text;
 			}
 			dialog.Description = "Select Folder with Photos to Process";
 			dialog.ShowNewFolderButton = false;
@@ -158,6 +165,7 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 				ps.BorderSetting.BorderColor = cPicker.SelectedColor;
 			}
 		}
+		#endregion
 
 		#region View member
 		private ProjectSetting ps;
@@ -171,26 +179,16 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 
 				tabConfiguration.IsEnabled = ps.ProjectCreated;
 
-				ps.PropertyChanged += new System.ComponentModel.PropertyChangedEventHandler(ps_PropertyChanged);
-				ps.Watermark.PropertyChanged += new System.ComponentModel.PropertyChangedEventHandler(Watermark_PropertyChanged);
+				ps.PropertyChanged -= new PropertyChangedEventHandler(ps_PropertyChanged);
+				ps.PropertyChanged += new PropertyChangedEventHandler(ps_PropertyChanged);
 
 				tabConfiguration.DataContext = this.ps;
 			}
 		}
 
-		void Watermark_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e) {
-			/*if (e.PropertyName == "WatermarkImageFile") {
-				if (string.IsNullOrEmpty(ps.Watermark.WatermarkImageFile)) {
-					imgWatermarkImage.Source = null;
-				} else {
-					imgWatermarkImage.Source = new BitmapImage(new Uri(ps.Watermark.WatermarkImageFile, UriKind.RelativeOrAbsolute));
-				}
-			}*/
-		}
-
-		void ps_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e) {
+		void ps_PropertyChanged(object sender, PropertyChangedEventArgs e) {
 			// if any value of the object is changed.
-			//this.isDirty = ps.IsDirty;
+			OnProjectFileNameObtained();
 		}
 
 		public Exception ErrorMessage {
@@ -287,6 +285,9 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 			EventHandler handlers = NewProjectCreated;
 			if (handlers != null) {
 				handlers(this, EventArgs.Empty);
+
+				this.currentProjectFile = "Untitled.hsbip";
+				OnProjectFileNameObtained();
 			}
 		}
 		#endregion
@@ -313,6 +314,9 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 					if (handlers != null) {
 						handlers(this, args);
 					}
+
+					this.currentProjectFile = projectFileName;
+					OnProjectFileNameObtained();
 				}
 			}
 		}
@@ -329,18 +333,18 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 		}
 
 		private void SaveCommand_Executed(object sender, ExecutedRoutedEventArgs e) {
-			SaveFileDialog saveFile = new SaveFileDialog();
-			saveFile.Filter = "All Image Process Project Files (*.hsbip)|*.hsbip;";
-			if (saveFile.ShowDialog() == DialogResult.OK) {
-				string projectFileName = saveFile.FileName;
-				if (! string.IsNullOrEmpty(projectFileName)) {
-					ProjectWithFileNameEventArgs args = new ProjectWithFileNameEventArgs(projectFileName);
+			if (File.Exists(this.currentProjectFile)) {
+				// project file already created
+				ProjectWithFileNameEventArgs args = new ProjectWithFileNameEventArgs(this.currentProjectFile);
 
-					ProjectWithFileNameEventHandler handlers = SaveProject;
-					if (handlers != null) {
-						handlers(this, args);
-					}
+				ProjectWithFileNameEventHandler handlers = SaveProject;
+				if (handlers != null) {
+					handlers(this, args);
 				}
+
+				OnProjectFileNameObtained();
+			} else {
+				SaveAsCommand_Executed(sender, e);
 			}
 		}
 		#endregion
@@ -366,6 +370,9 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 					if (handlers != null) {
 						handlers(this, args);
 					}
+
+					this.currentProjectFile = projectFileName;
+					OnProjectFileNameObtained();
 				}
 			}
 		}
