@@ -16,7 +16,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 
 		public bool SaveImageToDisk(Image image, string fileName, ImageFormat format) {
 			ImageCodecInfo[] codecs = ImageCodecInfo.GetImageEncoders();
-			//find the encoder with the image/jpeg mime-type
+			// find the encoder with the image/jpeg mime-type
 			ImageCodecInfo imageCodec = null;
 			foreach (ImageCodecInfo codec in codecs) {
 				if (codec.MimeType == "image/jpeg") {
@@ -24,10 +24,10 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 				}
 			}
 
-			//Create a collection of encoder parameters (we only need one in the collection)
+			// Create a collection of encoder parameters (we only need one in the collection)
 			EncoderParameters encoder = new EncoderParameters();
 
-			//We'll save images with 25%, 50%, 75% and 100% quality as compared with the original
+			// We'll save images with 25%, 50%, 75% and 100% quality as compared with the original
 			encoder.Param[0] = new EncoderParameter(Encoder.Quality, CompressionRatio);
 
 			try {

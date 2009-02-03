@@ -56,7 +56,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			this.processType = ImageProcessType.None;
 			this.shrinkMode = ShrinkImageMode.LongSide;
 			this.shrinkPixelTo = 800;
-			this.jpgCompressionRatio = 100;
+			this.jpgCompressionRatio = 75;
 
 			this.watermark = new Watermark();
 			this.watermark.PropertyChanged += new PropertyChangedEventHandler(watermark_PropertyChanged);
@@ -76,22 +76,27 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 
 		void renamingSetting_PropertyChanged(object sender, PropertyChangedEventArgs e) {
 			this.isDirty = true;
+			notify(e.PropertyName);
 		}
 
 		void thumbnailSetting_PropertyChanged(object sender, PropertyChangedEventArgs e) {
 			this.isDirty = true;
+			notify(e.PropertyName);
 		}
 
 		void borderSetting_PropertyChanged(object sender, PropertyChangedEventArgs e) {
 			this.isDirty = true;
+			notify(e.PropertyName);
 		}
 
 		void dropShadowSetting_PropertyChanged(object sender, PropertyChangedEventArgs e) {
 			this.isDirty = true;
+			notify(e.PropertyName);
 		}
 
 		void watermark_PropertyChanged(object sender, PropertyChangedEventArgs e) {
 			this.isDirty = true;
+			notify(e.PropertyName);
 		}
 
 		/// <summary>
@@ -106,6 +111,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			this.SourceDirectory = @"C:\Temp\1";
 			this.outputDirectory = @"C:\Temp\2";
 #endif
+			this.isDirty = false;
 		}
 
 		/// <summary>
@@ -148,7 +154,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			}
 			set {
 				if (string.Compare(sourceDirectory, value, true) != 0) {
-					isDirty = true;
+					this.isDirty = true;
 					
 					photos.Clear();
 
@@ -163,11 +169,9 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 							});
 						}
 					}
-
+					this.sourceDirectory = value;
 					notify("SourceDirectory");
 				}
-
-				sourceDirectory = value;
 			}
 		}
 
@@ -179,11 +183,10 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			}
 			set {
 				if (string.Compare(outputDirectory, value, true) != 0) {
-					isDirty = true;
+					this.outputDirectory = value;
+					this.isDirty = true;
 					notify("OutputDirectory");
 				}
-
-				outputDirectory = value;
 			}
 		}
 
@@ -230,7 +233,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			}
 			set {
 				if (keepExif != value) {
-					keepExif = value;
+					this.keepExif = value;
 					this.isDirty = true;
 					notify("KeepExif");
 				}
@@ -246,7 +249,8 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			}
 			set {
 				if (this.jpgCompressionRatio != value) {
-					jpgCompressionRatio = value;
+					this.jpgCompressionRatio = value;
+					this.isDirty = true;
 					notify("JpgCompressionRatio");
 				}
 			}
@@ -277,7 +281,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			}
 			set {
 				if (this.shrinkImage != value) {
-					shrinkImage = value;
+					this.shrinkImage = value;
 					this.isDirty = true;
 					notify("ShrinkImage");
 				}
@@ -291,7 +295,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			}
 			set {
 				if (this.shrinkPixelTo != value) {
-					shrinkPixelTo = value;
+					this.shrinkPixelTo = value;
 					this.isDirty = true;
 					notify("ShrinkPixelTo");
 				}
@@ -305,7 +309,8 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			}
 			set {
 				if (this.shrinkMode != value) {
-					shrinkMode = value;
+					this.shrinkMode = value;
+					this.isDirty = true;
 					notify("ShrinkMode");
 				}
 			}

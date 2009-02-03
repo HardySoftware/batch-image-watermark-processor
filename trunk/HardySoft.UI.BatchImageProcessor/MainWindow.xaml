@@ -19,7 +19,7 @@
                 <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
             <TextBlock Text="Sea Turtle Image Processor" 
-				Style="{StaticResource WindowTitle}"
+				Style="{StaticResource WindowTitle}" Grid.Row="0"
 				MouseLeftButtonDown="titleBar_MouseLeftButtonDown"></TextBlock>
             <Grid Grid.Row="1">
                 <Grid.Background>
@@ -36,13 +36,16 @@
                 <Grid x:Name="MainControlPlaceHolder"></Grid>
             </Grid>
 
-            <TextBlock HorizontalAlignment="Center" Grid.Row="2" Text="Footer" Margin="1,10,1,1" Padding="5"></TextBlock>
+            <TextBlock x:Name="tbFooter" Grid.Row="2" Margin="1,10,1,1" Padding="5"
+				HorizontalAlignment="Center"
+				Style="{StaticResource WindowFooter}"></TextBlock>
 
-            <Rectangle Grid.RowSpan="3"
+            <Rectangle Grid.Row="2"
                 Cursor="SizeWE" Fill="Transparent" Width="5"
                 VerticalAlignment="Stretch" HorizontalAlignment="Right"
                 MouseLeftButtonDown="window_initiateWiden" MouseLeftButtonUp="window_endWiden"
-                MouseMove="window_Widen"></Rectangle>
+                MouseMove="window_Widen">
+			</Rectangle>
         </Grid>
     </Border>
 </Window>

@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows.Media;
 using System.ComponentModel;
+using System.Windows.Media;
 
 namespace HardySoft.UI.BatchImageProcessor.Model {
 	[Serializable]
@@ -55,13 +52,16 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			}
 		}
 
-		// for serialize purpose only, because System.Windows.Media.Color is not serializable
+		/// <summary>
+		/// for serialize purpose only, because System.Windows.Media.Color is not serializable
+		/// </summary>
 		public string BackgroundColorString {
 			get {
 				ColorConverter cnv = new ColorConverter();
 				return cnv.ConvertToString(this.backgroundColor);
 			}
 			set {
+				// TODO investigate ifthe value is correct when project is saved.
 				if (string.IsNullOrEmpty(value)) {
 					throw new ArgumentException("Color parameter cannot be null");
 				}
@@ -73,13 +73,15 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 		[NonSerialized]
 		private Color dropShadowColor;
 		public Color DropShadowColor {
-			get { return dropShadowColor; }
+			get {
+				return this.dropShadowColor;
+			}
 			set {
-				if (dropShadowColor.A != value.A
-					|| dropShadowColor.R != value.R
-					|| dropShadowColor.G != value.G
-					|| dropShadowColor.B != value.B) {
-					dropShadowColor = value;
+				if (this.dropShadowColor.A != value.A
+					|| this.dropShadowColor.R != value.R
+					|| this.dropShadowColor.G != value.G
+					|| this.dropShadowColor.B != value.B) {
+					this.dropShadowColor = value;
 					notify("DropShadowColor");
 				}
 			}
@@ -102,11 +104,11 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 		private int shadowDepth;
 		public int ShadowDepth {
 			get {
-				return shadowDepth;
+				return this.shadowDepth;
 			}
 			set {
 				if (this.shadowDepth != value) {
-					shadowDepth = value;
+					this.shadowDepth = value;
 					notify("ShadowDepth");
 				}
 			}
@@ -115,11 +117,11 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 		private DropShadowLocation shadowLocation;
 		public DropShadowLocation ShadowLocation {
 			get {
-				return shadowLocation;
+				return this.shadowLocation;
 			}
 			set {
 				if (this.shadowLocation != value) {
-					shadowLocation = value;
+					this.shadowLocation = value;
 					notify("ShadowLocation");
 				}
 			}

@@ -6,7 +6,7 @@
   WindowStyle="None" ResizeMode="NoResize" ShowInTaskbar="False"
   AllowsTransparency="True" Background="Transparent"
   Width="600" Height="400"
-  Icon="/HardySoft.UI.BatchImageProcessor;component/Images/icon.ico">
+  Icon="/SeaTurtle;component/Images/icon.ico">
 	<Border Width="Auto" Height="Auto" Name="windowFrame"
 		Style="{StaticResource WindowBackground}">
 		<Grid>

@@ -593,7 +593,7 @@
 									HorizontalAlignment="Stretch"
 									VerticalAlignment="Stretch"
 									ItemsSource="{Binding Source={StaticResource DropShadowLocationData}}"
-									SelectedItem="{Binding Path=DropShadowSetting.ShadowLocation, Mode=TwoWay}"
+									SelectedItem="{Binding Path=DropShadowSetting.ShadowLocation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 									Grid.Column="1" Grid.Row="3">
 								</ComboBox>
 							</Grid>
