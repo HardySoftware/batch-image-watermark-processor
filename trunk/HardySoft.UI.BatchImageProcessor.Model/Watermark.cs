@@ -5,8 +5,9 @@ using System.Drawing;
 namespace HardySoft.UI.BatchImageProcessor.Model {
 	[Serializable]
 	public class Watermark : INotifyPropertyChanged {
-		//public event PropertyChangedEventHandler PropertyChanged;
-		[NonSerialized]
+		[field: NonSerialized]
+		public event PropertyChangedEventHandler PropertyChanged;
+		/*[NonSerialized]
 		private PropertyChangedEventHandler propertyChanged;
 
 		public event PropertyChangedEventHandler PropertyChanged {
@@ -16,16 +17,16 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			remove {
 				propertyChanged -= value;
 			}
-		}
+		}*/
 
 		private void notify(string propName) {
-			/*if (PropertyChanged != null) {
+			if (PropertyChanged != null) {
 				PropertyChanged(this, new PropertyChangedEventArgs(propName));
-			}*/
-
-			if (propertyChanged != null) {
-				propertyChanged(this, new PropertyChangedEventArgs(propName));
 			}
+
+			/*if (propertyChanged != null) {
+				propertyChanged(this, new PropertyChangedEventArgs(propName));
+			}*/
 		}
 
 		private string watermarkImageFile;
@@ -62,7 +63,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			}
 			set {
 				if (string.Compare(this.watermarkText, value, false) != 0) {
-					watermarkText = value;
+					this.watermarkText = value;
 					notify("WatermarkText");
 				}
 			}
