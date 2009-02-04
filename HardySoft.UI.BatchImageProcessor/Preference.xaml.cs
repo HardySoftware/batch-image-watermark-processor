@@ -95,6 +95,7 @@ namespace HardySoft.UI.BatchImageProcessor {
 			// Mouse position
 			System.Windows.Point mousePoint = this.PointToScreen(Mouse.GetPosition(this));
 			//System.Windows.Point mousePoint = Mouse.GetPosition(this);
+			popup.Owner = this;
 			popup.ShowDialog(mousePoint.X, mousePoint.Y, (string)e.Parameter);
 		}
 	}

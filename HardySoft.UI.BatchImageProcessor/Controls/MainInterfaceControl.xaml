@@ -18,6 +18,10 @@
 		<CommandBinding x:Name="AboutCommand" Command="HSC:ApplicationCommand.About" Executed="AboutCommand_Executed" CanExecute="AboutCommand_CanExecute" />
 		<CommandBinding x:Name="HelpCommand" Command="ApplicationCommands.Help" Executed="HelpCommand_Executed" CanExecute="HelpCommand_CanExecute"/>
 	</Control.CommandBindings>
+	
+	<Control.InputBindings>
+		<KeyBinding Key="o" Modifiers="Control" Command="ApplicationCommands.Open" />
+	</Control.InputBindings>
 
 	<DockPanel LastChildFill="True" VerticalAlignment="Stretch">
 		<Grid DockPanel.Dock="Top" Height="25">
@@ -327,7 +331,7 @@
 									<TextBlock Style="{StaticResource ConfigSectionLabel}" VerticalAlignment="Top">
 										Watermark Image
 									</TextBlock>
-									<Button Style="{StaticResource HelpButton}"
+									<Button Style="{StaticResource HelpButton}" VerticalAlignment="Top"
 										CommandParameter="WatermarkImagePreview"
 										Command="ApplicationCommands.Help"></Button>
 								</StackPanel>
@@ -725,219 +729,223 @@
 				</ScrollViewer>
 			</TabItem>
 
-			<!-- Forth Tab, thumbnail output options -->
-			<TabItem Header="Generate Thumbnail">
-				<Grid ShowGridLines="False">
-					<Grid.ColumnDefinitions>
-						<ColumnDefinition Width="auto"></ColumnDefinition>
-						<ColumnDefinition Width="3*"></ColumnDefinition>
-					</Grid.ColumnDefinitions>
-					<Grid.RowDefinitions>
-						<RowDefinition Height="auto"></RowDefinition>
-						<RowDefinition Height="auto"></RowDefinition>
-						<RowDefinition Height="auto"></RowDefinition>
-						<RowDefinition Height="auto"></RowDefinition>
-					</Grid.RowDefinitions>
+			<!-- Forth Tab, thumbnail output options and batch rename output files-->
+			<TabItem Header="Output Settings">
+				<ScrollViewer VerticalScrollBarVisibility="Auto">
+					<StackPanel>
+						<GroupBox Header="Thumbnail">
+							<Grid ShowGridLines="False">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="auto"></ColumnDefinition>
+									<ColumnDefinition Width="3*"></ColumnDefinition>
+								</Grid.ColumnDefinitions>
+								<Grid.RowDefinitions>
+									<RowDefinition Height="auto"></RowDefinition>
+									<RowDefinition Height="auto"></RowDefinition>
+									<RowDefinition Height="auto"></RowDefinition>
+									<RowDefinition Height="auto"></RowDefinition>
+								</Grid.RowDefinitions>
 
-					<StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal">
-						<TextBlock Style="{StaticResource ConfigSectionLabel}">
-							Generate Thumbnail
-						</TextBlock>
-						<Button Style="{StaticResource HelpButton}"
-							CommandParameter="GenerateThumbnail"
-							Command="ApplicationCommands.Help"></Button>
+								<StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal">
+									<TextBlock Style="{StaticResource ConfigSectionLabel}">
+										Generate Thumbnail
+									</TextBlock>
+									<Button Style="{StaticResource HelpButton}"
+										CommandParameter="GenerateThumbnail"
+										Command="ApplicationCommands.Help"></Button>
+								</StackPanel>
+
+								<CheckBox x:Name="chkGenerateThumbnail"
+									Grid.Column="1" Grid.Row="0"
+									Margin="10,0,0,0"
+									IsChecked="{Binding Path=ThumbnailSetting.GenerateThumbnail, Mode=TwoWay}">
+								</CheckBox>
+
+								<StackPanel Grid.Column="0" Grid.Row="1" Orientation="Horizontal">
+									<TextBlock Style="{StaticResource ConfigSectionLabel}">
+										Thumbnail File Name Prefix
+									</TextBlock>
+									<Button Style="{StaticResource HelpButton}"
+										CommandParameter="ThumbnailFileNamePrefix"
+										Command="ApplicationCommands.Help"></Button>
+								</StackPanel>
+
+								<TextBox x:Name="txtThumbnailFileNamePrefix"
+									Grid.Column="1" Grid.Row="1"
+									Margin="10,5,0,5"
+									Style="{StaticResource cfgTextBox}"
+									HorizontalAlignment="Stretch"
+									Text="{Binding Path=ThumbnailSetting.ThumbnailFileNamePrefix, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+									IsEnabled="{Binding ElementName=chkGenerateThumbnail, Path=IsChecked}"/>
+
+								<StackPanel Grid.Column="0" Grid.Row="2" Orientation="Horizontal">
+									<TextBlock Style="{StaticResource ConfigSectionLabel}">
+										Thumbnail File Name Prefix
+									</TextBlock>
+									<Button Style="{StaticResource HelpButton}"
+										CommandParameter="ThumbnailFileNameSuffix"
+										Command="ApplicationCommands.Help"></Button>
+								</StackPanel>
+
+								<TextBox x:Name="txtThumbnailFileNameSuffix"
+									Grid.Column="1" Grid.Row="2"
+									Margin="10,5,0,5"
+									Style="{StaticResource cfgTextBox}"
+									HorizontalAlignment="Stretch"
+									Text="{Binding Path=ThumbnailSetting.ThumbnailFileNameSuffix, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+									IsEnabled="{Binding ElementName=chkGenerateThumbnail, Path=IsChecked}"/>
+
+								<StackPanel Grid.Column="0" Grid.Row="3" Orientation="Horizontal">
+									<TextBlock Style="{StaticResource ConfigSectionLabel}">
+										Thumbnail Size
+									</TextBlock>
+									<Button Style="{StaticResource HelpButton}"
+										CommandParameter="ThumbnailImageSize"
+										Command="ApplicationCommands.Help"></Button>
+								</StackPanel>
+
+								<StackPanel Grid.Column="1" Grid.Row="3" FlowDirection="LeftToRight" Orientation="Horizontal">
+									<Slider x:Name="sThumbSize" Margin="10,0,0,0"
+										Orientation="Horizontal" Width="200"
+										Minimum="0" Maximum="150"
+										Value="{Binding Path=ThumbnailSetting.ThumbnailSize, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+										IsSnapToTickEnabled="True"
+										TickFrequency="1"
+										IsEnabled="{Binding ElementName=chkGenerateThumbnail, Path=IsChecked}"/>
+									<TextBlock Text="{Binding Path=ThumbnailSetting.ThumbnailSize}" 
+										Margin="10,0,0,0" VerticalAlignment="Center" />
+
+									<TextBlock Text=" pixel(s)" VerticalAlignment="Center" />
+								</StackPanel>
+							</Grid>
+						</GroupBox>
+						
+						<GroupBox Header="Batch Rename">
+							<Grid ShowGridLines="False">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="*"></ColumnDefinition>
+									<ColumnDefinition Width="3*"></ColumnDefinition>
+								</Grid.ColumnDefinitions>
+								<Grid.RowDefinitions>
+									<RowDefinition Height="auto"></RowDefinition>
+									<RowDefinition Height="auto"></RowDefinition>
+									<RowDefinition Height="auto"></RowDefinition>
+									<RowDefinition Height="auto"></RowDefinition>
+									<RowDefinition Height="auto"></RowDefinition>
+									<RowDefinition Height="auto"></RowDefinition>
+									<RowDefinition Height="auto"></RowDefinition>
+								</Grid.RowDefinitions>
+
+								<StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal">
+									<TextBlock Style="{StaticResource ConfigSectionLabel}">
+										Enable Batch Rename
+									</TextBlock>
+									<Button Style="{StaticResource HelpButton}"
+										CommandParameter="BatchRename"
+										Command="ApplicationCommands.Help"></Button>
+								</StackPanel>
+
+								<CheckBox x:Name="chkEnableBatchRename"
+									Grid.Column="1" Grid.Row="0"
+									Margin="10,0,0,0"
+									IsChecked="{Binding Path=RenamingSetting.EnableBatchRename, Mode=TwoWay}">
+								</CheckBox>
+
+								<StackPanel Grid.Column="0" Grid.Row="1" Orientation="Horizontal">
+									<TextBlock Style="{StaticResource ConfigSectionLabel}">
+										Output File Name Prefix
+									</TextBlock>
+									<Button Style="{StaticResource HelpButton}"
+										CommandParameter="BatchRenamePrefix"
+										Command="ApplicationCommands.Help"></Button>
+								</StackPanel>
+
+								<TextBox x:Name="txtOutputFileNamePrefix"
+									Grid.Column="1" Grid.Row="1"
+									Margin="10,5,0,5"
+									Style="{StaticResource cfgTextBox}"
+									HorizontalAlignment="Stretch"
+									Text="{Binding Path=RenamingSetting.OutputFileNamePrefix, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+									IsEnabled="{Binding ElementName=chkEnableBatchRename, Path=IsChecked}"/>
+
+								<StackPanel Grid.Column="0" Grid.Row="2" Orientation="Horizontal">
+									<TextBlock Style="{StaticResource ConfigSectionLabel}">
+										Output File Name Suffix
+									</TextBlock>
+									<Button Style="{StaticResource HelpButton}"
+										CommandParameter="BatchRenameSuffix"
+										Command="ApplicationCommands.Help"></Button>
+								</StackPanel>
+
+								<TextBox x:Name="txtOutputFileNameSuffix"
+									Grid.Column="1" Grid.Row="2"
+									Margin="10,5,0,5"
+									Style="{StaticResource cfgTextBox}"
+									HorizontalAlignment="Stretch"
+									Text="{Binding Path=RenamingSetting.OutputFileNameSuffix, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+									IsEnabled="{Binding ElementName=chkEnableBatchRename, Path=IsChecked}"/>
+
+								<StackPanel Grid.Column="0" Grid.Row="3" Orientation="Horizontal">
+									<TextBlock Style="{StaticResource ConfigSectionLabel}">
+										Number Padding
+									</TextBlock>
+									<Button Style="{StaticResource HelpButton}"
+										CommandParameter="BatchRenameNumberPadding"
+										Command="ApplicationCommands.Help"></Button>
+								</StackPanel>
+
+								<StackPanel Grid.Column="1" Grid.Row="3" FlowDirection="LeftToRight" Orientation="Horizontal">
+									<Slider x:Name="sOutputFileNameNumberPadding" Margin="10,0,0,0"
+										Orientation="Horizontal" Width="200"
+										Minimum="0" Maximum="10"
+										Value="{Binding Path=RenamingSetting.NumberPadding, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+										IsSnapToTickEnabled="True"
+										TickFrequency="1"
+										IsEnabled="{Binding ElementName=chkEnableBatchRename, Path=IsChecked}"/>
+									<TextBlock Text="{Binding Path=RenamingSetting.NumberPadding}" 
+										Margin="10,0,0,0" VerticalAlignment="Center" />
+								</StackPanel>
+
+								<StackPanel Grid.Column="0" Grid.Row="4" Orientation="Horizontal">
+									<TextBlock Style="{StaticResource ConfigSectionLabel}">
+										Start with Number
+									</TextBlock>
+									<Button Style="{StaticResource HelpButton}"
+										CommandParameter="BatchRenameStartNumber"
+										Command="ApplicationCommands.Help"></Button>
+								</StackPanel>
+
+								<HSCtrl:IntegerTextBox x:Name="txtOutputFileNameStartNumber"
+									Grid.Column="1" Grid.Row="4"
+									Margin="10,5,0,5"
+									HorizontalAlignment="Stretch"
+									Style="{StaticResource cfgTextBox}"
+									Text="{Binding Path=RenamingSetting.StartNumber, Mode=TwoWay}"
+									IsEnabled="{Binding ElementName=chkEnableBatchRename, Path=IsChecked}">
+								</HSCtrl:IntegerTextBox>
+
+								<StackPanel Grid.Column="0" Grid.Row="5" Orientation="Horizontal">
+									<TextBlock Style="{StaticResource ConfigSectionLabel}">
+										Output File Name Case
+									</TextBlock>
+									<Button Style="{StaticResource HelpButton}"
+										CommandParameter="BatchRenameFileNameCase"
+										Command="ApplicationCommands.Help"></Button>
+								</StackPanel>
+
+								<ComboBox x:Name="cmbOutputFileNameCase"
+									Grid.Column="1" Grid.Row="5"
+									Margin="10,0,0,0"
+									HorizontalAlignment="Stretch"
+									VerticalAlignment="Stretch"
+									ItemsSource="{Binding Source={StaticResource OutputFileNameCaseData}}"
+									SelectedItem="{Binding Path=RenamingSetting.FileNameCase, Mode=TwoWay}"
+									IsEnabled="{Binding ElementName=chkEnableBatchRename, Path=IsChecked}">
+								</ComboBox>
+							</Grid>
+						</GroupBox>
 					</StackPanel>
-
-					<CheckBox x:Name="chkGenerateThumbnail"
-						Grid.Column="1" Grid.Row="0"
-						Margin="10,0,0,0"
-						IsChecked="{Binding Path=ThumbnailSetting.GenerateThumbnail, Mode=TwoWay}">
-					</CheckBox>
-					
-					<StackPanel Grid.Column="0" Grid.Row="1" Orientation="Horizontal">
-						<TextBlock Style="{StaticResource ConfigSectionLabel}">
-							Thumbnail File Name Prefix
-						</TextBlock>
-						<Button Style="{StaticResource HelpButton}"
-							CommandParameter="ThumbnailFileNamePrefix"
-							Command="ApplicationCommands.Help"></Button>
-					</StackPanel>
-					
-					<TextBox x:Name="txtThumbnailFileNamePrefix"
-						Grid.Column="1" Grid.Row="1"
-						Margin="10,5,0,5"
-						Style="{StaticResource cfgTextBox}"
-						HorizontalAlignment="Stretch"
-						Text="{Binding Path=ThumbnailSetting.ThumbnailFileNamePrefix, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-						IsEnabled="{Binding ElementName=chkGenerateThumbnail, Path=IsChecked}"/>
-
-					<StackPanel Grid.Column="0" Grid.Row="2" Orientation="Horizontal">
-						<TextBlock Style="{StaticResource ConfigSectionLabel}">
-							Thumbnail File Name Prefix
-						</TextBlock>
-						<Button Style="{StaticResource HelpButton}"
-							CommandParameter="ThumbnailFileNameSuffix"
-							Command="ApplicationCommands.Help"></Button>
-					</StackPanel>
-
-					<TextBox x:Name="txtThumbnailFileNameSuffix"
-						Grid.Column="1" Grid.Row="2"
-						Margin="10,5,0,5"
-						Style="{StaticResource cfgTextBox}"
-						HorizontalAlignment="Stretch"
-						Text="{Binding Path=ThumbnailSetting.ThumbnailFileNameSuffix, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-						IsEnabled="{Binding ElementName=chkGenerateThumbnail, Path=IsChecked}"/>
-
-					<StackPanel Grid.Column="0" Grid.Row="3" Orientation="Horizontal">
-						<TextBlock Style="{StaticResource ConfigSectionLabel}">
-							Thumbnail Size
-						</TextBlock>
-						<Button Style="{StaticResource HelpButton}"
-							CommandParameter="ThumbnailImageSize"
-							Command="ApplicationCommands.Help"></Button>
-					</StackPanel>
-
-					<StackPanel Grid.Column="1" Grid.Row="3" FlowDirection="LeftToRight" Orientation="Horizontal">
-						<Slider x:Name="sThumbSize" Margin="10,0,0,0"
-							Orientation="Horizontal" Width="200"
-							Minimum="0" Maximum="150"
-							Value="{Binding Path=ThumbnailSetting.ThumbnailSize, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-							IsSnapToTickEnabled="True"
-							TickFrequency="1"
-							IsEnabled="{Binding ElementName=chkGenerateThumbnail, Path=IsChecked}"/>
-						<TextBlock Text="{Binding Path=ThumbnailSetting.ThumbnailSize}" 
-							Margin="10,0,0,0" VerticalAlignment="Center" />
-
-						<TextBlock Text=" pixel(s)" VerticalAlignment="Center" />
-					</StackPanel>
-				</Grid>
-			</TabItem>
-
-			<!-- Fifth Tab, batch rename output file options -->
-			<TabItem Header="Rename Output Files">
-				<Grid ShowGridLines="False">
-					<Grid.ColumnDefinitions>
-						<ColumnDefinition Width="*"></ColumnDefinition>
-						<ColumnDefinition Width="3*"></ColumnDefinition>
-					</Grid.ColumnDefinitions>
-					<Grid.RowDefinitions>
-						<RowDefinition Height="auto"></RowDefinition>
-						<RowDefinition Height="auto"></RowDefinition>
-						<RowDefinition Height="auto"></RowDefinition>
-						<RowDefinition Height="auto"></RowDefinition>
-						<RowDefinition Height="auto"></RowDefinition>
-						<RowDefinition Height="auto"></RowDefinition>
-						<RowDefinition Height="auto"></RowDefinition>
-					</Grid.RowDefinitions>
-
-					<StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal">
-						<TextBlock Style="{StaticResource ConfigSectionLabel}">
-							Enable Batch Rename
-						</TextBlock>
-						<Button Style="{StaticResource HelpButton}"
-							CommandParameter="BatchRename"
-							Command="ApplicationCommands.Help"></Button>
-					</StackPanel>
-
-					<CheckBox x:Name="chkEnableBatchRename"
-						Grid.Column="1" Grid.Row="0"
-						Margin="10,0,0,0"
-						IsChecked="{Binding Path=RenamingSetting.EnableBatchRename, Mode=TwoWay}">
-					</CheckBox>
-					
-					<StackPanel Grid.Column="0" Grid.Row="1" Orientation="Horizontal">
-						<TextBlock Style="{StaticResource ConfigSectionLabel}">
-							Output File Name Prefix
-						</TextBlock>
-						<Button Style="{StaticResource HelpButton}"
-							CommandParameter="BatchRenamePrefix"
-							Command="ApplicationCommands.Help"></Button>
-					</StackPanel>
-					
-					<TextBox x:Name="txtOutputFileNamePrefix"
-						Grid.Column="1" Grid.Row="1"
-						Margin="10,5,0,5"
-						Style="{StaticResource cfgTextBox}"
-						HorizontalAlignment="Stretch"
-						Text="{Binding Path=RenamingSetting.OutputFileNamePrefix, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-						IsEnabled="{Binding ElementName=chkEnableBatchRename, Path=IsChecked}"/>
-
-					<StackPanel Grid.Column="0" Grid.Row="2" Orientation="Horizontal">
-						<TextBlock Style="{StaticResource ConfigSectionLabel}">
-							Output File Name Suffix
-						</TextBlock>
-						<Button Style="{StaticResource HelpButton}"
-							CommandParameter="BatchRenameSuffix"
-							Command="ApplicationCommands.Help"></Button>
-					</StackPanel>
-
-					<TextBox x:Name="txtOutputFileNameSuffix"
-						Grid.Column="1" Grid.Row="2"
-						Margin="10,5,0,5"
-						Style="{StaticResource cfgTextBox}"
-						HorizontalAlignment="Stretch"
-						Text="{Binding Path=RenamingSetting.OutputFileNameSuffix, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-						IsEnabled="{Binding ElementName=chkEnableBatchRename, Path=IsChecked}"/>
-
-					<StackPanel Grid.Column="0" Grid.Row="3" Orientation="Horizontal">
-						<TextBlock Style="{StaticResource ConfigSectionLabel}">
-							Number Padding
-						</TextBlock>
-						<Button Style="{StaticResource HelpButton}"
-							CommandParameter="BatchRenameNumberPadding"
-							Command="ApplicationCommands.Help"></Button>
-					</StackPanel>
-					
-					<StackPanel Grid.Column="1" Grid.Row="3" FlowDirection="LeftToRight" Orientation="Horizontal">
-						<Slider x:Name="sOutputFileNameNumberPadding" Margin="10,0,0,0"
-							Orientation="Horizontal" Width="200"
-							Minimum="0" Maximum="10"
-							Value="{Binding Path=RenamingSetting.NumberPadding, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-							IsSnapToTickEnabled="True"
-							TickFrequency="1"
-							IsEnabled="{Binding ElementName=chkEnableBatchRename, Path=IsChecked}"/>
-						<TextBlock Text="{Binding Path=RenamingSetting.NumberPadding}" 
-							Margin="10,0,0,0" VerticalAlignment="Center" />
-					</StackPanel>
-
-					<StackPanel Grid.Column="0" Grid.Row="4" Orientation="Horizontal">
-						<TextBlock Style="{StaticResource ConfigSectionLabel}">
-							Start with Number
-						</TextBlock>
-						<Button Style="{StaticResource HelpButton}"
-							CommandParameter="BatchRenameStartNumber"
-							Command="ApplicationCommands.Help"></Button>
-					</StackPanel>
-
-					<HSCtrl:IntegerTextBox x:Name="txtOutputFileNameStartNumber"
-						Grid.Column="1" Grid.Row="4"
-						Margin="10,5,0,5"
-						HorizontalAlignment="Stretch"
-						Style="{StaticResource cfgTextBox}"
-						Text="{Binding Path=RenamingSetting.StartNumber, Mode=TwoWay}"
-						IsEnabled="{Binding ElementName=chkEnableBatchRename, Path=IsChecked}">
-					</HSCtrl:IntegerTextBox>
-					
-					<StackPanel Grid.Column="0" Grid.Row="5" Orientation="Horizontal">
-						<TextBlock Style="{StaticResource ConfigSectionLabel}">
-							Output File Name Case
-						</TextBlock>
-						<Button Style="{StaticResource HelpButton}"
-							CommandParameter="BatchRenameFileNameCase"
-							Command="ApplicationCommands.Help"></Button>
-					</StackPanel>
-
-					<ComboBox x:Name="cmbOutputFileNameCase"
-						Grid.Column="1" Grid.Row="5"
-						Margin="10,0,0,0"
-						HorizontalAlignment="Stretch"
-						VerticalAlignment="Stretch"
-						ItemsSource="{Binding Source={StaticResource OutputFileNameCaseData}}"
-						SelectedItem="{Binding Path=RenamingSetting.FileNameCase, Mode=TwoWay}"
-						IsEnabled="{Binding ElementName=chkEnableBatchRename, Path=IsChecked}"
-						>
-					</ComboBox>
-				</Grid>
+				</ScrollViewer>
 			</TabItem>
 		</TabControl>
 	</DockPanel>

@@ -136,7 +136,7 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 		private void btnShadowBackgroundPicker_Click(object sender, RoutedEventArgs e) {
 			ColorPickerDialog cPicker = new ColorPickerDialog();
 			cPicker.StartingColor = ps.DropShadowSetting.BackgroundColor;
-			//cPicker.Owner = this.Parent;
+			cPicker.Owner = Window.GetWindow(this);
 
 			bool? dialogResult = cPicker.ShowDialog();
 			if (dialogResult != null && (bool)dialogResult == true) {
@@ -147,7 +147,7 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 		private void btnShadowColorPicker_Click(object sender, RoutedEventArgs e) {
 			ColorPickerDialog cPicker = new ColorPickerDialog();
 			cPicker.StartingColor = ps.DropShadowSetting.DropShadowColor;
-			//cPicker.Owner = this.Parent;
+			cPicker.Owner = Window.GetWindow(this);
 
 			bool? dialogResult = cPicker.ShowDialog();
 			if (dialogResult != null && (bool)dialogResult == true) {
@@ -158,7 +158,7 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 		private void btnImageBorderColorPicker_Click(object sender, RoutedEventArgs e) {
 			ColorPickerDialog cPicker = new ColorPickerDialog();
 			cPicker.StartingColor = ps.BorderSetting.BorderColor;
-			//cPicker.Owner = this.Parent;
+			cPicker.Owner = Window.GetWindow(this);
 
 			bool? dialogResult = cPicker.ShowDialog();
 			if (dialogResult != null && (bool)dialogResult == true) {
@@ -302,6 +302,28 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 		}
 		
 		private void OpenCommand_Executed(object sender, ExecutedRoutedEventArgs e) {
+			if (this.ps.IsDirty) {
+				MessageBoxResult result = System.Windows.MessageBox.Show("Do you want to save project setting first?",
+					"Unsaved Project", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
+
+				switch (result) {
+					case MessageBoxResult.Yes:
+						saveProject();
+						openProject();
+						break;
+					case MessageBoxResult.No:
+						openProject();
+						break;
+					default:
+						// "Cancel" do nothing
+						break;
+				}
+			} else {
+				openProject();
+			}
+		}
+
+		private void openProject() {
 			OpenFileDialog openFile = new OpenFileDialog();
 			openFile.Filter = "All Image Process Project Files (*.hsbip)|*.hsbip;";
 			openFile.Multiselect = false;
@@ -333,6 +355,10 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 		}
 
 		private void SaveCommand_Executed(object sender, ExecutedRoutedEventArgs e) {
+			saveProject();
+		}
+
+		private void saveProject() {
 			if (File.Exists(this.currentProjectFile)) {
 				// project file already created
 				ProjectWithFileNameEventArgs args = new ProjectWithFileNameEventArgs(this.currentProjectFile);
@@ -344,7 +370,7 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 
 				OnProjectFileNameObtained();
 			} else {
-				SaveAsCommand_Executed(sender, e);
+				saveProjectAs();
 			}
 		}
 		#endregion
@@ -359,6 +385,10 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 		}
 		
 		private void SaveAsCommand_Executed(object sender, ExecutedRoutedEventArgs e) {
+			saveProjectAs();
+		}
+
+		private void saveProjectAs() {
 			SaveFileDialog saveFile = new SaveFileDialog();
 			saveFile.Filter = "All Image Process Project Files (*.hsbip)|*.hsbip;";
 			if (saveFile.ShowDialog() == DialogResult.OK) {
@@ -442,6 +472,7 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 			IUnityContainer container = new UnityContainer();
 
 			Preference preferenceWindow = (Preference)container.Resolve<Preference>();
+			preferenceWindow.Owner = Window.GetWindow(this);
 			preferenceWindow.ShowDialog();
 		}
 		#endregion
@@ -453,6 +484,7 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 
 		private void AboutCommand_Executed(object sender, ExecutedRoutedEventArgs e) {
 			About about = new About();
+			about.Owner = Window.GetWindow(this);
 			about.ShowDialog();
 		}
 		#endregion
@@ -464,6 +496,7 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 			// Mouse position
 			System.Windows.Point mousePoint = this.PointToScreen(Mouse.GetPosition(this));
 			//System.Windows.Point mousePoint = Mouse.GetPosition(this);
+			popup.Owner = Window.GetWindow(this);
 			popup.ShowDialog(mousePoint.X, mousePoint.Y, (string)e.Parameter);
 		}
 

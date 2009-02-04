@@ -53,8 +53,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 				view.PS = ps;
 			} catch (Exception ex) {
 				SetErrorMessage(ex);
-			}
-			finally {
+			} finally {
 				stream.Close();
 			}
 		}
@@ -71,8 +70,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 			} catch (Exception ex) {
 				SetErrorMessage(ex);
 				return false;
-			}
-			finally {
+			} finally {
 				stream.Close();
 			}
 		}

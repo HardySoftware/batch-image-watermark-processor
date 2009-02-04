@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.ComponentModel;
 using System.IO;
+using System.Runtime.Serialization;
 
 using Microsoft.Practices.EnterpriseLibrary.Validation.Validators;
 
@@ -43,6 +44,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 
 		public ProjectSetting() {
 			Initialize();
+			wireEvents();
 		}
 
 		public void Initialize() {
@@ -59,42 +61,21 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			this.jpgCompressionRatio = 75;
 
 			this.watermark = new Watermark();
-			this.watermark.PropertyChanged += new PropertyChangedEventHandler(watermark_PropertyChanged);
-
 			this.dropShadowSetting = new DropShadow();
-			this.dropShadowSetting.PropertyChanged += new PropertyChangedEventHandler(dropShadowSetting_PropertyChanged);
-
 			this.borderSetting = new ImageBorder();
-			this.borderSetting.PropertyChanged += new PropertyChangedEventHandler(borderSetting_PropertyChanged);
-
 			this.thumbnailSetting = new Thumbnail();
-			this.thumbnailSetting.PropertyChanged += new PropertyChangedEventHandler(thumbnailSetting_PropertyChanged);
-
 			this.renamingSetting = new BatchRename();
-			this.renamingSetting.PropertyChanged += new PropertyChangedEventHandler(renamingSetting_PropertyChanged);
 		}
 
-		void renamingSetting_PropertyChanged(object sender, PropertyChangedEventArgs e) {
-			this.isDirty = true;
-			notify(e.PropertyName);
+		private void wireEvents() {
+			this.watermark.PropertyChanged += new PropertyChangedEventHandler(subSetting_PropertyChanged);
+			this.dropShadowSetting.PropertyChanged += new PropertyChangedEventHandler(subSetting_PropertyChanged);
+			this.borderSetting.PropertyChanged += new PropertyChangedEventHandler(subSetting_PropertyChanged);
+			this.thumbnailSetting.PropertyChanged += new PropertyChangedEventHandler(subSetting_PropertyChanged);
+			this.renamingSetting.PropertyChanged += new PropertyChangedEventHandler(subSetting_PropertyChanged);
 		}
 
-		void thumbnailSetting_PropertyChanged(object sender, PropertyChangedEventArgs e) {
-			this.isDirty = true;
-			notify(e.PropertyName);
-		}
-
-		void borderSetting_PropertyChanged(object sender, PropertyChangedEventArgs e) {
-			this.isDirty = true;
-			notify(e.PropertyName);
-		}
-
-		void dropShadowSetting_PropertyChanged(object sender, PropertyChangedEventArgs e) {
-			this.isDirty = true;
-			notify(e.PropertyName);
-		}
-
-		void watermark_PropertyChanged(object sender, PropertyChangedEventArgs e) {
+		void subSetting_PropertyChanged(object sender, PropertyChangedEventArgs e) {
 			this.isDirty = true;
 			notify(e.PropertyName);
 		}
@@ -104,6 +85,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 		/// </summary>
 		public void NewProject() {
 			Initialize();
+			wireEvents();
 
 			this.projectCreated = true;
 
@@ -205,10 +187,6 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			get {
 				return watermark;
 			}
-			/*set {
-				this.watermark = value;
-				notify("Watermark");
-			}*/
 		}
 
 		private ImageProcessType processType;
@@ -261,10 +239,6 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			get {
 				return dropShadowSetting;
 			}
-			/*set {
-				dropShadowSetting = value;
-				notify("DropShadowSetting");
-			}*/
 		}
 
 		private ImageBorder borderSetting;
@@ -328,6 +302,16 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			get {
 				return renamingSetting;
 			}
+		}
+
+		/// <summary>
+		/// When deserialize from save file, all the event handlers will be lost.
+		/// This solution is from http://www.codeproject.com/KB/cs/FixingBindingListDeserial.aspx
+		/// </summary>
+		/// <param name="context"></param>
+		[OnDeserialized]
+		private void OnDeserialized(StreamingContext context) {
+			wireEvents();
 		}
 	}
 }
