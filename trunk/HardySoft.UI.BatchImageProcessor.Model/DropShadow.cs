@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Windows.Media;
+using System.Runtime.Serialization;
 
 namespace HardySoft.UI.BatchImageProcessor.Model {
 	[Serializable]
@@ -29,50 +30,33 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 		}
 
 		public DropShadow() {
-			this.backgroundColor = Color.FromArgb(255, 255, 255, 255);
-			this.dropShadowColor = Color.FromArgb(255, 0, 0, 0);
+			this.backgroundColor = System.Drawing.Color.White;
+			this.dropShadowColor = System.Drawing.Color.Black;
 			this.shadowLocation = DropShadowLocation.BottomRight;
 		}
 
 		// System.Windows.Media.Color is not serializable, one workaround is to use other format to wrap around it.
-		[NonSerialized]
-		private Color backgroundColor;
-		public Color BackgroundColor {
+		// added investigation result:
+		//      System.Windows.Media.Color could be Xml serialized
+		//      try to use System.Drawing.Color + Converter to display color
+		private System.Drawing.Color backgroundColor;
+		public System.Drawing.Color BackgroundColor {
 			get {
 				return backgroundColor;
 			}
 			set {
-				if (backgroundColor.A != value.A
-					|| backgroundColor.R != value.R
-					|| backgroundColor.G != value.G
-					|| backgroundColor.B != value.B) {
-					backgroundColor = value;
+				if (this.backgroundColor.A != value.A
+					|| this.backgroundColor.R != value.R
+					|| this.backgroundColor.G != value.G
+					|| this.backgroundColor.B != value.B) {
+					this.backgroundColor = value;
 					notify("BackgroundColor");
 				}
 			}
 		}
 
-		/// <summary>
-		/// for serialize purpose only, because System.Windows.Media.Color is not serializable
-		/// </summary>
-		public string BackgroundColorString {
-			get {
-				ColorConverter cnv = new ColorConverter();
-				return cnv.ConvertToString(this.backgroundColor);
-			}
-			set {
-				// TODO investigate ifthe value is correct when project is saved.
-				if (string.IsNullOrEmpty(value)) {
-					throw new ArgumentException("Color parameter cannot be null");
-				}
-				this.backgroundColor = (Color)ColorConverter.ConvertFromString(value);
-			}
-		}
-
-		// System.Windows.Media.Color is not serializable, one workaround is to use other format to wrap around it.
-		[NonSerialized]
-		private Color dropShadowColor;
-		public Color DropShadowColor {
+		private System.Drawing.Color dropShadowColor;
+		public System.Drawing.Color DropShadowColor {
 			get {
 				return this.dropShadowColor;
 			}
@@ -84,20 +68,6 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 					this.dropShadowColor = value;
 					notify("DropShadowColor");
 				}
-			}
-		}
-
-		// for serialize purpose only, because System.Windows.Media.Color is not serializable
-		public string DropShadowColorString {
-			get {
-				ColorConverter cnv = new ColorConverter();
-				return cnv.ConvertToString(this.dropShadowColor);
-			}
-			set {
-				if (string.IsNullOrEmpty(value)) {
-					throw new ArgumentException("Color parameter cannot be null");
-				}
-				this.dropShadowColor = (Color)ColorConverter.ConvertFromString(value);
 			}
 		}
 

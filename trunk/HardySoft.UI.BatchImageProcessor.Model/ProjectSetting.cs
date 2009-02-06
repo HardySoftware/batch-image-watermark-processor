@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
 using System.ComponentModel;
@@ -68,11 +69,17 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 		}
 
 		private void wireEvents() {
+			this.photos.CollectionChanged += new NotifyCollectionChangedEventHandler(photos_CollectionChanged);
 			this.watermark.PropertyChanged += new PropertyChangedEventHandler(subSetting_PropertyChanged);
 			this.dropShadowSetting.PropertyChanged += new PropertyChangedEventHandler(subSetting_PropertyChanged);
 			this.borderSetting.PropertyChanged += new PropertyChangedEventHandler(subSetting_PropertyChanged);
 			this.thumbnailSetting.PropertyChanged += new PropertyChangedEventHandler(subSetting_PropertyChanged);
 			this.renamingSetting.PropertyChanged += new PropertyChangedEventHandler(subSetting_PropertyChanged);
+		}
+
+		void photos_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e) {
+			this.isDirty = true;
+			notify("Photos");
 		}
 
 		void subSetting_PropertyChanged(object sender, PropertyChangedEventArgs e) {
@@ -187,6 +194,10 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			get {
 				return watermark;
 			}
+			set {
+				// Xml Serialization requires a property to be public and can be set and read
+				// do nothing
+			}
 		}
 
 		private ImageProcessType processType;
@@ -235,6 +246,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 		}
 
 		private DropShadow dropShadowSetting;
+		[System.Xml.Serialization.XmlElement]
 		public DropShadow DropShadowSetting {
 			get {
 				return dropShadowSetting;

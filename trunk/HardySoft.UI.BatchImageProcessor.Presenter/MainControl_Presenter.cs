@@ -43,12 +43,27 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 		}
 
 		void view_OpenProject(object sender, ProjectWithFileNameEventArgs e) {
+			/*TextReader r = new StreamReader(e.ProjectFileName);
+			try {
+				System.Xml.Serialization.XmlSerializer s = new System.Xml.Serialization.XmlSerializer(typeof(ProjectSetting));
+				this.ps = (ProjectSetting)s.Deserialize(r);
+
+				// wire events again
+				ps.OpenProject();
+				view.PS = ps;
+			} catch (Exception ex) {
+				SetErrorMessage(ex);
+			} finally {
+				r.Close();
+			}*/
+
 			Stream stream = new FileStream(e.ProjectFileName, FileMode.Open, FileAccess.Read, FileShare.Read);
 			try {
 				IFormatter formatter = new BinaryFormatter();
 
 				ps = (ProjectSetting)formatter.Deserialize(stream);
 
+				// wire events again
 				ps.OpenProject();
 				view.PS = ps;
 			} catch (Exception ex) {
@@ -59,6 +74,22 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 		}
 
 		private bool saveProject(string projectFileName) {
+			/*TextWriter w = new StreamWriter(projectFileName);
+			try {
+				System.Xml.Serialization.XmlSerializer s = new System.Xml.Serialization.XmlSerializer(typeof(ProjectSetting));
+
+				s.Serialize(w, ps);
+
+				// reset is dirty flag
+				ps.SaveProject();
+				return true;
+			} catch (Exception ex) {
+				SetErrorMessage(ex);
+				return false;
+			} finally {
+				w.Close();
+			}*/
+
 			Stream stream = new FileStream(projectFileName, FileMode.Create, FileAccess.Write, FileShare.None);
 			try {
 				IFormatter formatter = new BinaryFormatter();
