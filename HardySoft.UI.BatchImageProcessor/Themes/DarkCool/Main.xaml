@@ -12,6 +12,7 @@
 	<cnv:EnumToFriendlyNameConverter x:Key="cnvFriendlyEnum"></cnv:EnumToFriendlyNameConverter>
 	<cnv:WatermarkImageSelectedConverter x:Key="cnvHasWatermarkImage"></cnv:WatermarkImageSelectedConverter>
 	<cnv:ColorDisplayNameConverter x:Key="cnvColorValue"></cnv:ColorDisplayNameConverter>
+	<cnv:ColorConverter x:Key="cnvColor"></cnv:ColorConverter>
 
 	<ObjectDataProvider x:Key="PositionData" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
 		<ObjectDataProvider.MethodParameters>

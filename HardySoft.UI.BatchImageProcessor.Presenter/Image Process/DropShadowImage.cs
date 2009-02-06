@@ -21,10 +21,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 			Rectangle rc = new Rectangle(0, 0, originalWidth + depth, originalHeight + depth);
 
 			//calculate the opacities 
-			Color darkShadow = Color.FromArgb(ps.DropShadowSetting.DropShadowColor.A,
-				ps.DropShadowSetting.DropShadowColor.R,
-				ps.DropShadowSetting.DropShadowColor.G,
-				ps.DropShadowSetting.DropShadowColor.B);
+			Color darkShadow = ps.DropShadowSetting.DropShadowColor;
 			Color lightShadow = Color.FromArgb(0,
 				ps.DropShadowSetting.DropShadowColor.R,
 				ps.DropShadowSetting.DropShadowColor.G,
@@ -44,10 +41,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 			g.Dispose();
 			pgb.Dispose();
 
-			SolidBrush sb = new SolidBrush(Color.FromArgb(ps.DropShadowSetting.BackgroundColor.A,
-				ps.DropShadowSetting.BackgroundColor.R,
-				ps.DropShadowSetting.BackgroundColor.G,
-				ps.DropShadowSetting.BackgroundColor.B));
+			SolidBrush sb = new SolidBrush(ps.DropShadowSetting.BackgroundColor);
 			graphic.FillRectangle(sb, rc);
 			sb.Dispose();
 

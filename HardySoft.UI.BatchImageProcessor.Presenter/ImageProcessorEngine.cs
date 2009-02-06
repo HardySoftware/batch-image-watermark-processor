@@ -159,7 +159,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 					ISaveImage imageSaver;
 
 					if (format == ImageFormat.Jpeg) {
-						imageSaver = container.Resolve<ISaveImage>("SaveCompressedJPGImage");
+						imageSaver = container.Resolve<ISaveImage>("SaveCompressedJpgImage");
 						imageSaver.CompressionRatio = (long)ps.JpgCompressionRatio;
 					} else {
 						imageSaver = container.Resolve<ISaveImage>("SaveNormalImage");

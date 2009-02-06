@@ -530,7 +530,7 @@
 										HorizontalAlignment="Left">
 										<Rectangle Width="30" Height="15" Stroke="Black" StrokeThickness="2">
 											<Rectangle.Fill>
-												<SolidColorBrush Color="{Binding Path=DropShadowSetting.BackgroundColor, Mode=OneWay}" />
+												<SolidColorBrush Color="{Binding Path=DropShadowSetting.BackgroundColor, Mode=OneWay, Converter={StaticResource cnvColor}}" />
 											</Rectangle.Fill>
 										</Rectangle>
 									</Button>
@@ -554,7 +554,7 @@
 										HorizontalAlignment="Left">
 										<Rectangle Width="30" Height="15" Stroke="Black" StrokeThickness="2">
 											<Rectangle.Fill>
-												<SolidColorBrush Color="{Binding Path=DropShadowSetting.DropShadowColor, Mode=OneWay}" />
+												<SolidColorBrush Color="{Binding Path=DropShadowSetting.DropShadowColor, Mode=OneWay, Converter={StaticResource cnvColor}}" />
 											</Rectangle.Fill>
 										</Rectangle>
 									</Button>
@@ -654,7 +654,7 @@
 										HorizontalAlignment="Left">
 										<Rectangle Width="30" Height="15" Stroke="Black" StrokeThickness="2">
 											<Rectangle.Fill>
-												<SolidColorBrush Color="{Binding Path=BorderSetting.BorderColor}" />
+												<SolidColorBrush Color="{Binding Path=BorderSetting.BorderColor, Converter={StaticResource cnvColor}}" />
 											</Rectangle.Fill>
 										</Rectangle>
 									</Button>

@@ -14,6 +14,7 @@ using HardySoft.UI.BatchImageProcessor.View;
 using HardySoft.UI.BatchImageProcessor.Presenter;
 using HardySoft.UI.BatchImageProcessor.Model;
 using HardySoft.UI.BatchImageProcessor.Classes;
+using HardySoft.CC.Converter;
 
 namespace HardySoft.UI.BatchImageProcessor.Controls {
 	/// <summary>
@@ -135,34 +136,34 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 
 		private void btnShadowBackgroundPicker_Click(object sender, RoutedEventArgs e) {
 			ColorPickerDialog cPicker = new ColorPickerDialog();
-			cPicker.StartingColor = ps.DropShadowSetting.BackgroundColor;
+			cPicker.StartingColor = ColorConverter.ConvertColor(ps.DropShadowSetting.BackgroundColor);
 			cPicker.Owner = Window.GetWindow(this);
 
 			bool? dialogResult = cPicker.ShowDialog();
 			if (dialogResult != null && (bool)dialogResult == true) {
-				ps.DropShadowSetting.BackgroundColor = cPicker.SelectedColor;
+				ps.DropShadowSetting.BackgroundColor = ColorConverter.ConvertColor(cPicker.SelectedColor);
 			}
 		}
 
 		private void btnShadowColorPicker_Click(object sender, RoutedEventArgs e) {
 			ColorPickerDialog cPicker = new ColorPickerDialog();
-			cPicker.StartingColor = ps.DropShadowSetting.DropShadowColor;
+			cPicker.StartingColor = ColorConverter.ConvertColor(ps.DropShadowSetting.DropShadowColor);
 			cPicker.Owner = Window.GetWindow(this);
 
 			bool? dialogResult = cPicker.ShowDialog();
 			if (dialogResult != null && (bool)dialogResult == true) {
-				ps.DropShadowSetting.DropShadowColor = cPicker.SelectedColor;
+				ps.DropShadowSetting.DropShadowColor = ColorConverter.ConvertColor(cPicker.SelectedColor);
 			}
 		}
 
 		private void btnImageBorderColorPicker_Click(object sender, RoutedEventArgs e) {
 			ColorPickerDialog cPicker = new ColorPickerDialog();
-			cPicker.StartingColor = ps.BorderSetting.BorderColor;
+			cPicker.StartingColor = ColorConverter.ConvertColor(ps.BorderSetting.BorderColor);
 			cPicker.Owner = Window.GetWindow(this);
 
 			bool? dialogResult = cPicker.ShowDialog();
 			if (dialogResult != null && (bool)dialogResult == true) {
-				ps.BorderSetting.BorderColor = cPicker.SelectedColor;
+				ps.BorderSetting.BorderColor = ColorConverter.ConvertColor(cPicker.SelectedColor);
 			}
 		}
 		#endregion

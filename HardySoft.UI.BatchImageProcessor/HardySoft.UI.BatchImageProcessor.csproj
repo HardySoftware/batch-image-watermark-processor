@@ -138,6 +138,7 @@
     </Compile>
     <Compile Include="Classes\AssembyInformation.cs" />
     <Compile Include="Classes\Commands\ApplicationCommand.cs" />
+    <Compile Include="Classes\Converters\ColorCodeConverter.cs" />
     <Compile Include="Classes\Converters\ColorDisplayNameConverter.cs" />
     <Compile Include="Classes\Converters\EnumToFriendlyNameConverter.cs" />
     <Compile Include="Classes\Converters\PathToImageConverter.cs" />

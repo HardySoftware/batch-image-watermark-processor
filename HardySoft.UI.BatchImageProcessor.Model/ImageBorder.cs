@@ -32,7 +32,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 		}
 
 		public ImageBorder() {
-			this.borderColor = Color.FromArgb(255, 0, 0, 0);
+			this.borderColor = System.Drawing.Color.Black;
 		}
 
 		private int borderWidth;
@@ -48,9 +48,8 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			}
 		}
 
-		[NonSerialized]
-		private Color borderColor;
-		public Color BorderColor {
+		private System.Drawing.Color borderColor;
+		public System.Drawing.Color BorderColor {
 			get {
 				return borderColor;
 			}
@@ -62,19 +61,6 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 					borderColor = value;
 					notify("BorderColor");
 				}
-			}
-		}
-
-		public string BorderColorString {
-			get {
-				ColorConverter cnv = new ColorConverter();
-				return cnv.ConvertToString(this.borderColor);
-			}
-			set {
-				if (string.IsNullOrEmpty(value)) {
-					throw new ArgumentException("Color parameter cannot be null");
-				}
-				this.borderColor = (Color)ColorConverter.ConvertFromString(value);
 			}
 		}
 	}
