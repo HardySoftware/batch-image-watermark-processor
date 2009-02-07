@@ -3,10 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
+using System.ComponentModel;
 
 namespace HardySoft.UI.BatchImageProcessor.Model {
 	[Serializable]
-	public class PhotoItem {
+	public class PhotoItem : INotifyPropertyChanged {
+		[field: NonSerialized]
+		public event PropertyChangedEventHandler PropertyChanged;
+
+		private void notifiy(string propertyName) {
+			if (PropertyChanged != null) {
+				PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+
 		public PhotoItem() {
 			this.selected = true;
 			this.processed = false;
@@ -18,7 +28,10 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 				return selected;
 			}
 			set {
-				selected = value;
+				if (this.selected != value) {
+					selected = value;
+					notifiy("Selected");
+				}
 			}
 		}
 
@@ -28,8 +41,9 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 				return photoPath;
 			}
 			set {
-				if (File.Exists(value)) {
+				if (File.Exists(value) && string.Compare(this.photoPath, value, true) != 0) {
 					photoPath = value;
+					notifiy("PhotoPath");
 				}
 			}
 		}

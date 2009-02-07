@@ -9,9 +9,10 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 	/// This class is used to save JPG image with certain compression ratio.
 	/// </summary>
 	class SaveCompressedJPGImage : ISaveImage {
-		public long CompressionRatio {
-			get;
-			set;
+		private long compressionRatio;
+
+		public SaveCompressedJPGImage(long compressionRatio) {
+			this.compressionRatio = compressionRatio;
 		}
 
 		public bool SaveImageToDisk(Image image, string fileName, ImageFormat format) {
@@ -28,7 +29,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 			EncoderParameters encoder = new EncoderParameters();
 
 			// We'll save images with 25%, 50%, 75% and 100% quality as compared with the original
-			encoder.Param[0] = new EncoderParameter(Encoder.Quality, CompressionRatio);
+			encoder.Param[0] = new EncoderParameter(Encoder.Quality, compressionRatio);
 
 			try {
 				image.Save(fileName, imageCodec, encoder);
