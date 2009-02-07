@@ -17,14 +17,5 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 				return false;
 			}
 		}
-
-		public long CompressionRatio {
-			get {
-				throw new NotImplementedException();
-			}
-			set {
-				throw new NotImplementedException();
-			}
-		}
 	}
 }

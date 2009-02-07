@@ -152,10 +152,13 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 						string[] photoFiles = Directory.GetFiles(value, supportedImageFormat[i]);
 
 						for (int j = 0; j < photoFiles.Length; j++) {
-							photos.Add(new PhotoItem()
-							{
+							PhotoItem photoItem = new PhotoItem() {
 								PhotoPath = photoFiles[j]
-							});
+							};
+
+							photoItem.PropertyChanged += new PropertyChangedEventHandler(subSetting_PropertyChanged);
+
+							photos.Add(photoItem);
 						}
 					}
 					this.sourceDirectory = value;
@@ -229,10 +232,10 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			}
 		}
 
-		private int jpgCompressionRatio;
-		[RangeValidator(0, RangeBoundaryType.Inclusive, 100, RangeBoundaryType.Inclusive,
+		private long jpgCompressionRatio;
+		[RangeValidator(0L, RangeBoundaryType.Inclusive, 100L, RangeBoundaryType.Inclusive,
 			MessageTemplate = "ValJpgCompressionRatio")]
-		public int JpgCompressionRatio {
+		public long JpgCompressionRatio {
 			get {
 				return jpgCompressionRatio;
 			}
@@ -324,6 +327,10 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 		[OnDeserialized]
 		private void OnDeserialized(StreamingContext context) {
 			wireEvents();
+
+			foreach (PhotoItem photoItem in this.photos) {
+				photoItem.PropertyChanged += new PropertyChangedEventHandler(subSetting_PropertyChanged);
+			}
 		}
 	}
 }

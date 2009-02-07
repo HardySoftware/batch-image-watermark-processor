@@ -67,7 +67,9 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 			container.RegisterType<IFilenameProvider, BatchRenamedFileName>("BatchRenamedFileName", new PerThreadLifetimeManager());
 			// register save image classes
 			container.RegisterType<ISaveImage, SaveNormalImage>("SaveNormalImage", new PerThreadLifetimeManager());
-			container.RegisterType<ISaveImage, SaveCompressedJPGImage>("SaveCompressedJpgImage", new PerThreadLifetimeManager());
+			container.RegisterType<ISaveImage, SaveCompressedJPGImage>("SaveCompressedJpgImage",
+				new PerThreadLifetimeManager(),
+				new InjectionConstructor(ps.JpgCompressionRatio));
 
 			string imagePath = string.Empty;
 			uint imageIndex = 0;
@@ -160,7 +162,6 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 
 					if (format == ImageFormat.Jpeg) {
 						imageSaver = container.Resolve<ISaveImage>("SaveCompressedJpgImage");
-						imageSaver.CompressionRatio = (long)ps.JpgCompressionRatio;
 					} else {
 						imageSaver = container.Resolve<ISaveImage>("SaveNormalImage");
 					}
