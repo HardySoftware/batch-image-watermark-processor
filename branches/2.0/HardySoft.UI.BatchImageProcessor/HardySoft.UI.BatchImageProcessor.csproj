@@ -1,0 +1,298 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D5B6B547-B5AE-4188-B7DE-8DB86D6B5362}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HardySoft.UI.BatchImageProcessor</RootNamespace>
+    <AssemblyName>SeaTurtle</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <ApplicationIcon>Images\icon.ico</ApplicationIcon>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Practices.ObjectBuilder2, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>E:\Program Files\Microsoft Unity Application Block 1.2\Bin\Microsoft.Practices.ObjectBuilder2.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>E:\Program Files\Microsoft Unity Application Block 1.2\Bin\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>E:\Program Files\Microsoft Unity Application Block 1.2\Bin\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.StaticFactory, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>E:\Program Files\Microsoft Unity Application Block 1.2\Bin\Microsoft.Practices.Unity.StaticFactory.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationCore">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="About.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ColorPickerDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\HelpPopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Preference.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Classical\Main.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\DarkCool\ColorPicker.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\MainInterfaceControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\DarkCool\Main.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="About.xaml.cs">
+      <DependentUpon>About.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\AssembyInformation.cs" />
+    <Compile Include="Classes\Commands\ApplicationCommand.cs" />
+    <Compile Include="Classes\Converters\ColorCodeConverter.cs" />
+    <Compile Include="Classes\Converters\ColorDisplayNameConverter.cs" />
+    <Compile Include="Classes\Converters\EnumToFriendlyNameConverter.cs" />
+    <Compile Include="Classes\Converters\PathToImageConverter.cs" />
+    <Compile Include="Classes\Converters\WatermarkImageSelectedConverter.cs" />
+    <Compile Include="Classes\ProjectNameEventArgs.cs" />
+    <Compile Include="Controls\ColorPicker.cs" />
+    <Compile Include="Controls\ColorPickerDialog.xaml.cs">
+      <DependentUpon>ColorPickerDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ColorThumb.cs" />
+    <Compile Include="Controls\ColorUtilities.cs" />
+    <Compile Include="Controls\HelpPopup.xaml.cs">
+      <DependentUpon>HelpPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\HsvColor.cs" />
+    <Compile Include="Controls\IntegerTextBox.cs" />
+    <Compile Include="Controls\MainInterfaceControl.xaml.cs">
+      <DependentUpon>MainInterfaceControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SortableGridViewColumn.cs" />
+    <Compile Include="Controls\SortableListView.cs" />
+    <Compile Include="Classes\Converters\DebugConvertor.cs" />
+    <Compile Include="Classes\Converters\ImagePathToExifConverter.cs" />
+    <Compile Include="Classes\Converters\PathToThumbConverter.cs" />
+    <Compile Include="Controls\SpectrumSlider.cs" />
+    <Compile Include="Preference.xaml.cs">
+      <DependentUpon>Preference.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Resources\EnumResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EnumResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\HelpContent.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HelpContent.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\EnumResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>EnumResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\HelpContent.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>HelpContent.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="App.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Themes\DarkCool\Images\Background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Themes\DarkCool\Images\Menu_Icons\new.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Themes\DarkCool\Images\Menu_Icons\open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Themes\DarkCool\Images\Menu_Icons\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Themes\DarkCool\Images\Menu_Icons\exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Themes\DarkCool\Images\Menu_Icons\help.png" />
+    <Resource Include="Themes\DarkCool\Images\Menu_Icons\information.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Themes\DarkCool\Images\Menu_Icons\saveas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Themes\DarkCool\Images\Menu_Icons\fire.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Themes\DarkCool\Images\Menu_Icons\stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HardySoft.CC\HardySoft.CC.csproj">
+      <Project>{D162A876-9517-4E74-89AF-C889FF5BFAD0}</Project>
+      <Name>HardySoft.CC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HardySoft.UI.BatchImageProcessor.Model\HardySoft.UI.BatchImageProcessor.Model.csproj">
+      <Project>{5AC6B983-70B4-4FC9-A3E2-5C95C74AEE08}</Project>
+      <Name>HardySoft.UI.BatchImageProcessor.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HardySoft.UI.BatchImageProcessor.Presenter\HardySoft.UI.BatchImageProcessor.Presenter.csproj">
+      <Project>{EDC5BEF6-F013-41D0-B812-D68B5ABB3B0A}</Project>
+      <Name>HardySoft.UI.BatchImageProcessor.Presenter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HardySoft.UI.BatchImageProcessor.View\HardySoft.UI.BatchImageProcessor.View.csproj">
+      <Project>{9C6D00B8-CD82-49FC-A857-44B3A57AF627}</Project>
+      <Name>HardySoft.UI.BatchImageProcessor.View</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Themes\DarkCool\Images\MessageBox\Error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Themes\DarkCool\Images\MessageBox\Information.png" />
+    <Resource Include="Themes\DarkCool\Images\MessageBox\Question.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Themes\DarkCool\Images\MessageBox\Security.png" />
+    <Resource Include="Themes\DarkCool\Images\MessageBox\SecurityError.png" />
+    <Resource Include="Themes\DarkCool\Images\MessageBox\SecurityQuestion.png" />
+    <Resource Include="Themes\DarkCool\Images\MessageBox\SecuritySuccess.png" />
+    <Resource Include="Themes\DarkCool\Images\MessageBox\SecurityWarning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Themes\DarkCool\Images\MessageBox\Warning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Themes\DarkCool\Images\Menu_Icons\preference.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Themes\DarkCool\Images\HelpPopup\help_icon.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Themes\DarkCool\Images\HelpPopup\close_icon.gif" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
