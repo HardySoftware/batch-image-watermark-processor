@@ -19,7 +19,7 @@
 			<x:Type TypeName="enum:WatermarkPositions" />
 		</ObjectDataProvider.MethodParameters>
 	</ObjectDataProvider>
-	
+
 	<ObjectDataProvider x:Key="ImageProcessTypeData" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
 		<ObjectDataProvider.MethodParameters>
 			<x:Type TypeName="enum:ImageProcessType" />
@@ -31,24 +31,41 @@
 			<x:Type TypeName="enum:DropShadowLocation" />
 		</ObjectDataProvider.MethodParameters>
 	</ObjectDataProvider>
-	
+
 	<ObjectDataProvider x:Key="ShrinkModeData" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
 		<ObjectDataProvider.MethodParameters>
 			<x:Type TypeName="enum:ShrinkImageMode" />
 		</ObjectDataProvider.MethodParameters>
 	</ObjectDataProvider>
-	
+
 	<ObjectDataProvider x:Key="OutputFileNameCaseData" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
 		<ObjectDataProvider.MethodParameters>
 			<x:Type TypeName="enum:OutputFileNameCase" />
 		</ObjectDataProvider.MethodParameters>
 	</ObjectDataProvider>
-	
+
 	<ObjectDataProvider x:Key="ApplicationSkinData" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
 		<ObjectDataProvider.MethodParameters>
 			<x:Type TypeName="enum:Skin" />
 		</ObjectDataProvider.MethodParameters>
 	</ObjectDataProvider>
+
+	<!-- Brush for menu bar and tool bar background -->
+	<LinearGradientBrush x:Key="ToolBarBackgroundBrush" StartPoint="0,0" EndPoint="0,1">
+		<LinearGradientBrush.GradientStops>
+			<GradientStop Offset="0" Color="#FF777777"/>
+			<GradientStop Offset="1" Color="#FF000000"/>
+		</LinearGradientBrush.GradientStops>
+	</LinearGradientBrush>
+	
+	<!-- Brush for menu / tool bar text foreground color-->
+	<SolidColorBrush x:Key="ToobarTextColorBrush" Color="#FFEBEBEB"></SolidColorBrush>
+	
+	<!-- Brush for disabled menu / tool bar text foreground color-->
+	<SolidColorBrush x:Key="ToobarDisabledTextColorBrush" Color="#888888"></SolidColorBrush>
+	
+	<!-- Brush for hilighted menu / tool bar item background color-->
+	<SolidColorBrush x:Key="ToobarHilightBackgroundBrush" Color="#FF5E5E5E"></SolidColorBrush>
 
 	<!-- Borderless window round corner background -->
 	<Style x:Key="WindowBackground" TargetType="Border">
@@ -68,7 +85,7 @@
 			</Setter.Value>
 		</Setter>
 	</Style>
-	
+
 	<!-- Borderless window title bar -->
 	<Style x:Key="WindowTitle" TargetType="TextBlock">
 		<Setter Property="Foreground" Value="AliceBlue"></Setter>
@@ -87,21 +104,21 @@
 			</Setter.Value>
 		</Setter>
 	</Style>
-	
+
 	<Style x:Key="WindowFooter" TargetType="TextBlock">
 		<Setter Property="Foreground" Value="AliceBlue"></Setter>
 		<Setter Property="FontSize" Value="12"></Setter>
 		<Setter Property="FontFamily" Value="Verdana"></Setter>
 	</Style>
-	
+
 	<!-- Help Popup window -->
 	<Style x:Key="HelpPopupStyle" TargetType="Border">
-	<Setter Property="BorderBrush" Value="#395984"></Setter>
+		<Setter Property="BorderBrush" Value="#395984"></Setter>
 		<Setter Property="BorderThickness" Value="3"></Setter>
 		<Setter Property="CornerRadius" Value="10,10,10,10"></Setter>
 		<Setter Property="Background" Value="#FFFBF8C7"></Setter>
 	</Style>
-	
+
 	<!-- Button to display help -->
 	<Style TargetType="Button" x:Key="HelpButton">
 		<Setter Property="Margin" Value="5,0,5,0"/>
@@ -113,16 +130,16 @@
 			</Setter.Value>
 		</Setter>
 		<Style.Triggers>
-		  <Trigger Property="IsEnabled" Value="False">
-        <Setter Property="BitmapEffect">
-          <Setter.Value>
-            <BlurBitmapEffect KernelType="Gaussian" Radius="4"></BlurBitmapEffect>
-          </Setter.Value>
-        </Setter>
-		  </Trigger>
+			<Trigger Property="IsEnabled" Value="False">
+				<Setter Property="BitmapEffect">
+					<Setter.Value>
+						<BlurBitmapEffect KernelType="Gaussian" Radius="4"></BlurBitmapEffect>
+					</Setter.Value>
+				</Setter>
+			</Trigger>
 		</Style.Triggers>
 	</Style>
-	
+
 	<!-- Close Button inside Help Popup -->
 	<Style TargetType="Button" x:Key="CloseHelpButton">
 		<Setter Property="Margin" Value="5,5,5,0"/>
@@ -137,7 +154,7 @@
 			</Setter.Value>
 		</Setter>
 	</Style>
-	
+
 	<!-- Hyperlink color -->
 	<Style x:Key="AboutWindowHyperlink" TargetType="Hyperlink">
 		<Setter Property="Foreground" Value="White"></Setter>
@@ -150,21 +167,13 @@
 	<Style x:Key="{x:Type Menu}" TargetType="{x:Type Menu}">
 		<Setter Property="OverridesDefaultStyle" Value="True"/>
 		<Setter Property="SnapsToDevicePixels" Value="True"/>
-		<Setter Property="Foreground" Value="#FFEBEBEB"/>
+		<Setter Property="Foreground" Value="{StaticResource ToobarTextColorBrush}"/>
 		<Setter Property="FontFamily" Value="Verdana"/>
 		<Setter Property="FontSize" Value="15"/>
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="{x:Type Menu}">
-					<Border BorderBrush="#404040" BorderThickness="1">
-						<Border.Background>
-							<LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-								<LinearGradientBrush.GradientStops>
-									<GradientStop Offset="0" Color="#FF777777"/>
-									<GradientStop Offset="1" Color="#FF000000"/>
-								</LinearGradientBrush.GradientStops>
-							</LinearGradientBrush>
-						</Border.Background>
+					<Border BorderBrush="#404040" BorderThickness="1" Background="{StaticResource ToolBarBackgroundBrush}" >
 						<StackPanel ClipToBounds="True" Orientation="Horizontal" IsItemsHost="True"/>
 					</Border>
 				</ControlTemplate>
@@ -172,7 +181,7 @@
 		</Setter>
 	</Style>
 
-	<!-- MenuItem -->
+	<!-- MenuItem Separator -->
 	<Style x:Key="{x:Static MenuItem.SeparatorStyleKey}" TargetType="{x:Type Separator}">
 		<Setter Property="Height" Value="1"/>
 		<Setter Property="Margin" Value="0,4,0,4"/>
@@ -196,7 +205,7 @@
 				<Popup Name="Popup" Placement="Bottom" IsOpen="{TemplateBinding IsSubmenuOpen}"
 						AllowsTransparency="True" Focusable="False" PopupAnimation="Fade">
 					<Border Name="SubmenuBorder" SnapsToDevicePixels="True" Background="#FF4F4F4F"
-							BorderBrush="#888888" BorderThickness="1" >
+						BorderBrush="#888888" BorderThickness="1" >
 						<StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Cycle" />
 					</Border>
 				</Popup>
@@ -207,7 +216,7 @@
 				<Setter TargetName="Popup" Property="PopupAnimation" Value="None"/>
 			</Trigger>
 			<Trigger Property="IsHighlighted" Value="true">
-				<Setter TargetName="Border" Property="Background" Value="#FF5E5E5E"/>
+				<Setter TargetName="Border" Property="Background" Value="{StaticResource ToobarHilightBackgroundBrush}"/>
 				<Setter TargetName="Border" Property="BorderBrush" Value="Transparent"/>
 			</Trigger>
 			<Trigger SourceName="Popup" Property="Popup.AllowsTransparency" Value="True">
@@ -215,7 +224,7 @@
 				<Setter TargetName="SubmenuBorder" Property="Padding" Value="0,0,0,3"/>
 			</Trigger>
 			<Trigger Property="IsEnabled" Value="False">
-				<Setter Property="Foreground" Value="#888888"/>
+				<Setter Property="Foreground" Value="{StaticResource ToobarDisabledTextColorBrush}"/>
 			</Trigger>
 		</ControlTemplate.Triggers>
 	</ControlTemplate>
@@ -344,13 +353,6 @@
 	<!-- End of Menu Style -->
 	<!--===================-->
 
-	<!-- Toolbar Text -->
-	<Style x:Key="ToolbarText" TargetType="{x:Type TextBlock}">
-		<Setter Property="TextBlock.FontFamily" Value="Verdana"></Setter>
-		<Setter Property="TextBlock.FontSize" Value="14"></Setter>
-		<Setter Property="VerticalAlignment" Value="Center"></Setter>
-	</Style>
-
 	<!-- Tab Control -->
 	<Style TargetType="{x:Type TabItem}">
 		<Setter Property="Template">
@@ -397,7 +399,7 @@
 			</Setter.Value>
 		</Setter>
 	</Style>
-    
+
 	<!-- Label for configuration area within tab control -->
 	<Style x:Key="ConfigSectionLabel" TargetType="{x:Type TextBlock}">
 		<Setter Property="TextBlock.FontFamily" Value="Verdana"></Setter>
@@ -411,7 +413,7 @@
 			</Setter.Value>
 		</Setter>
 	</Style>
-	
+
 	<!-- Label for about window -->
 	<Style x:Key="AboutWindowLabel" TargetType="{x:Type TextBlock}">
 		<Setter Property="TextBlock.FontFamily" Value="Calibri, Verdana"></Setter>
@@ -424,7 +426,7 @@
 			</Setter.Value>
 		</Setter>
 	</Style>
-	
+
 	<!-- Value for about window -->
 	<Style x:Key="AboutWindowText" TargetType="{x:Type TextBlock}">
 		<Setter Property="TextBlock.FontFamily" Value="Calibri, Verdana"></Setter>
@@ -545,7 +547,7 @@
 			</Setter.Value>
 		</Setter>
 	</Style>
-	
+
 	<Style TargetType="Button" x:Key="GlassButton">
 		<Setter Property="FrameworkElement.Width" Value="NaN"/>
 		<Setter Property="FrameworkElement.MinWidth" Value="60"/>
@@ -649,7 +651,7 @@
 					<ColumnDefinition></ColumnDefinition>
 					<ColumnDefinition Width="10*"></ColumnDefinition>
 				</Grid.ColumnDefinitions>
-                
+
 				<CheckBox Grid.Column="0" IsChecked="{Binding Path=FileSelected}"></CheckBox>
 
 				<TextBlock Grid.Column="1" Text="{Binding Path=FilePath}">
@@ -662,7 +664,7 @@
 			</Grid>
 		</Border>
 	</DataTemplate>
-    
+
 	<!-- Textboxes for configurations -->
 	<Style x:Key="cfgTextBox" TargetType="{x:Type TextBox}">
 		<!--
@@ -727,7 +729,7 @@
 				</LinearGradientBrush>
 			</Setter.Value>
 		</Setter>
-        
+
 		<Style.Triggers>
 			<Trigger Property="IsEnabled" Value="True">
 				<Setter Property="Foreground" Value="White"></Setter>
@@ -790,7 +792,7 @@
 		</Setter>
 		-->
 	</Style>
-	
+
 	<!-- ================= -->
 	<!-- Style of Combobox -->
 	<!-- ================= -->
@@ -1374,10 +1376,18 @@
 									<Thumb Height="16" x:Name="HorizontalThumb" Width="30" IsTabStop="True" />
 								</Track.Thumb>
 								<Track.IncreaseRepeatButton>
-									<RepeatButton IsTabStop="False" Template="{StaticResource RepeatButtonTemplate}" Command="Slider.IncreaseLarge" />
+									<RepeatButton IsTabStop="False" Template="{StaticResource RepeatButtonTemplate}">
+										<RepeatButton.Command>
+											<RoutedCommand />
+										</RepeatButton.Command>
+									</RepeatButton>
 								</Track.IncreaseRepeatButton>
 								<Track.DecreaseRepeatButton>
-									<RepeatButton IsTabStop="False" Template="{StaticResource RepeatButtonTemplate}" Command="Slider.DecreaseLarge" />
+									<RepeatButton IsTabStop="False" Template="{StaticResource RepeatButtonTemplate}">
+										<RepeatButton.Command>
+											<RoutedCommand />
+										</RepeatButton.Command>
+									</RepeatButton>
 								</Track.DecreaseRepeatButton>
 							</Track>
 						</Grid>
@@ -1512,5 +1522,67 @@
 	</Style>
 	<!-- ====================== -->
 	<!-- End of ScrollBar Style -->
+	<!-- ====================== -->
+
+	<!-- ====================== -->
+	<!-- Begin of ToolBar Style -->
+	<!-- ====================== -->
+	<Style TargetType="ToolBar">
+		<Setter Property="Background" Value="{StaticResource ToolBarBackgroundBrush}" />
+	</Style>
+
+	<Style x:Key="{x:Static ToolBar.ButtonStyleKey}" TargetType="Button">
+		<Setter Property="Background" Value="Transparent"/>
+		<Setter Property="Foreground" Value="{StaticResource ToobarTextColorBrush}"/>
+		<Setter Property="FontSize" Value="14"/>
+		<Setter Property="FontFamily" Value="Verdana" />
+		<Setter Property="VerticalAlignment" Value="Center" />
+		<Setter Property="HorizontalAlignment" Value="Center"/>
+		<Setter Property="VerticalAlignment" Value="Center"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="Button">
+					<Grid>
+						<Border x:Name="Background" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="3" />
+						<ContentPresenter x:Name="contentPresenter"
+							HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+							Margin="{TemplateBinding Padding}"
+							VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+							Content="{TemplateBinding Content}"
+							ContentTemplate="{TemplateBinding ContentTemplate}" />
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsEnabled" Value="false">
+							<Setter Property="Foreground" Value="{StaticResource ToobarDisabledTextColorBrush}"/>
+						</Trigger>
+						<Trigger Property="IsMouseOver" Value="true">
+							<Setter Property="Background" Value="{StaticResource ToobarHilightBackgroundBrush}"></Setter>
+							<Setter Property="BorderBrush" Value="#888888"></Setter>
+						</Trigger>
+						<Trigger Property="IsPressed" Value="true">
+							<Setter Property="Background" Value="#045B6E"></Setter>
+							<Setter Property="BorderBrush" Value="#888888"></Setter>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<Style x:Key="{x:Static ToolBar.CheckBoxStyleKey}" TargetType="CheckBox">
+		<Setter Property="Foreground" Value="DarkSlateBlue"/>
+		<Setter Property="FontSize" Value="14"/>
+		<Setter Property="HorizontalAlignment" Value="Center"/>
+		<Setter Property="VerticalAlignment" Value="Center"/>
+	</Style>
+
+	<Style x:Key="{x:Static ToolBar.MenuStyleKey}" TargetType="Menu">
+		<Setter Property="FontSize" Value="14"/>
+		<Setter Property="FontStyle" Value="Italic"/>
+		<Setter Property="FontWeight" Value="Bold"/>
+		<Setter Property="Background" Value="LightSteelBlue"/>
+	</Style>
+	<!-- ====================== -->
+	<!-- End of ToolBar Style -->
 	<!-- ====================== -->
 </ResourceDictionary>

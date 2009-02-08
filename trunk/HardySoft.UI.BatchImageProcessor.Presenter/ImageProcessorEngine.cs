@@ -50,27 +50,6 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 			int index = (int)threadIndex;
 			System.Diagnostics.Debug.WriteLine("Thread " + index + " is created.");
 
-			// TODO make registration in config file
-			IUnityContainer container = new UnityContainer();
-			// register all supported image process classes
-			container.RegisterType<IProcess, AddBorder>("AddBorder", new PerThreadLifetimeManager());
-			container.RegisterType<IProcess, ApplyWatermarkImage>("WatermarkImage", new PerThreadLifetimeManager());
-			container.RegisterType<IProcess, ApplyWatermarkText>("WatermarkText", new PerThreadLifetimeManager());
-			container.RegisterType<IProcess, DropShadowImage>("DropShadow", new PerThreadLifetimeManager());
-			container.RegisterType<IProcess, GenerateThumbnail>("ThumbImage", new PerThreadLifetimeManager());
-			container.RegisterType<IProcess, GrayScale>("GrayscaleEffect", new PerThreadLifetimeManager());
-			container.RegisterType<IProcess, NegativeImage>("NegativeEffect", new PerThreadLifetimeManager());
-			container.RegisterType<IProcess, ShrinkImage>("ShrinkImage", new PerThreadLifetimeManager());
-			// register generate file name classes
-			container.RegisterType<IFilenameProvider, ThumbnailFileName>("ThumbFileName", new PerThreadLifetimeManager());
-			container.RegisterType<IFilenameProvider, ProcessedFileName>("NormalFileName", new PerThreadLifetimeManager());
-			container.RegisterType<IFilenameProvider, BatchRenamedFileName>("BatchRenamedFileName", new PerThreadLifetimeManager());
-			// register save image classes
-			container.RegisterType<ISaveImage, SaveNormalImage>("SaveNormalImage", new PerThreadLifetimeManager());
-			container.RegisterType<ISaveImage, SaveCompressedJPGImage>("SaveCompressedJpgImage",
-				new PerThreadLifetimeManager(),
-				new InjectionConstructor(ps.JpgCompressionRatio));
-
 			string imagePath = string.Empty;
 			uint imageIndex = 0;
 
@@ -86,6 +65,29 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 					return;
 				}
 			}
+
+			// TODO make registration in config file
+			IUnityContainer container = new UnityContainer();
+			// register all supported image process classes
+			container.RegisterType<IProcess, AddBorder>("AddBorder", new PerThreadLifetimeManager());
+			container.RegisterType<IProcess, ApplyWatermarkImage>("WatermarkImage", new PerThreadLifetimeManager());
+			container.RegisterType<IProcess, ApplyWatermarkText>("WatermarkText", new PerThreadLifetimeManager());
+			container.RegisterType<IProcess, DropShadowImage>("DropShadow", new PerThreadLifetimeManager());
+			container.RegisterType<IProcess, GenerateThumbnail>("ThumbImage", new PerThreadLifetimeManager());
+			container.RegisterType<IProcess, GrayScale>("GrayscaleEffect", new PerThreadLifetimeManager());
+			container.RegisterType<IProcess, NegativeImage>("NegativeEffect", new PerThreadLifetimeManager());
+			container.RegisterType<IProcess, ShrinkImage>("ShrinkImage", new PerThreadLifetimeManager());
+			// register generate file name classes
+			container.RegisterType<IFilenameProvider, ThumbnailFileName>("ThumbFileName", new PerThreadLifetimeManager());
+			container.RegisterType<IFilenameProvider, ProcessedFileName>("NormalFileName", new PerThreadLifetimeManager());
+			container.RegisterType<IFilenameProvider, BatchRenamedFileName>("BatchRenamedFileName",
+				new PerThreadLifetimeManager(),
+				new InjectionConstructor(imageIndex));
+			// register save image classes
+			container.RegisterType<ISaveImage, SaveNormalImage>("SaveNormalImage", new PerThreadLifetimeManager());
+			container.RegisterType<ISaveImage, SaveCompressedJPGImage>("SaveCompressedJpgImage",
+				new PerThreadLifetimeManager(),
+				new InjectionConstructor(ps.JpgCompressionRatio));
 
 			if (stopFlag) {
 				// stop requested, signal
@@ -117,7 +119,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 						normalImage = process.ProcessImage(normalImage, this.ps);
 					}
 
-					// extra image effect
+					// image process effect
 					if (ps.ProcessType != ImageProcessType.None) {
 						switch (ps.ProcessType) {
 							case ImageProcessType.GrayScale:
@@ -141,7 +143,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 
 					// image watermark operation
 					if (!string.IsNullOrEmpty(ps.Watermark.WatermarkImageFile)
-						&& !string.IsNullOrEmpty(ps.Watermark.WatermarkImageFile)) {
+						&& File.Exists(ps.Watermark.WatermarkImageFile)) {
 						process = container.Resolve<IProcess>("WatermarkImage");
 						normalImage = process.ProcessImage(normalImage, this.ps);
 					}
@@ -177,7 +179,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 
 					// TODO think about applying thumb file name to batch renamed original file
 					fileNameProvider = container.Resolve<IFilenameProvider>("ThumbFileName");
-					fileNameProvider.ImageIndex = imageIndex;
+					//fileNameProvider.ImageIndex = imageIndex;
 					saveImage(imagePath, thumb, format, fileNameProvider, imageSaver);
 				} catch (Exception ex) {
 					// TODO add logic

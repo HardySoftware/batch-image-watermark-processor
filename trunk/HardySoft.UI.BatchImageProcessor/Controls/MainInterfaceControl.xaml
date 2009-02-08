@@ -91,31 +91,31 @@
 				<Button Command="ApplicationCommands.New">
 					<StackPanel Orientation="Horizontal">
 						<Image Source="/SeaTurtle;component/Themes/DarkCool/Images/Menu_Icons/new.png"></Image>
-						<TextBlock Style="{StaticResource ToolbarText}">New Project</TextBlock>
+						<TextBlock>New Project</TextBlock>
 					</StackPanel>
 				</Button>
 				<Button Command="ApplicationCommands.Open">
 					<StackPanel Orientation="Horizontal">
 						<Image Source="/SeaTurtle;component/Themes/DarkCool/Images/Menu_Icons/open.png"></Image>
-						<TextBlock Style="{StaticResource ToolbarText}">Open Project</TextBlock>
+						<TextBlock>Open Project</TextBlock>
 					</StackPanel>
 				</Button>
 				<Button Command="ApplicationCommands.Save">
 					<StackPanel Orientation="Horizontal">
 						<Image Source="/SeaTurtle;component/Themes/DarkCool/Images/Menu_Icons/save.png"></Image>
-						<TextBlock Style="{StaticResource ToolbarText}">Save Project</TextBlock>
+						<TextBlock>Save Project</TextBlock>
 					</StackPanel>
 				</Button>
 				<Button Command="HSC:ApplicationCommand.Make">
 					<StackPanel Orientation="Horizontal">
 						<Image Source="/SeaTurtle;component/Themes/DarkCool/Images/Menu_Icons/fire.png"></Image>
-						<TextBlock Style="{StaticResource ToolbarText}">Make</TextBlock>
+						<TextBlock>Make</TextBlock>
 					</StackPanel>
 				</Button>
 				<Button Command="ApplicationCommands.Stop">
 					<StackPanel Orientation="Horizontal">
 						<Image Source="/SeaTurtle;component/Themes/DarkCool/Images/Menu_Icons/stop.png"></Image>
-						<TextBlock Style="{StaticResource ToolbarText}">Stop</TextBlock>
+						<TextBlock>Stop</TextBlock>
 					</StackPanel>
 				</Button>
 			</ToolBar>
@@ -496,9 +496,6 @@
 							</Grid>
 						</GroupBox>
 
-						<!-- Blank line to add more spaces between group box -->
-						<TextBlock></TextBlock>
-
 						<GroupBox Header="Drop Shadow Option">
 							<Grid ShowGridLines="False">
 								<Grid.ColumnDefinitions>
@@ -603,9 +600,6 @@
 							</Grid>
 						</GroupBox>
 
-						<!-- Blank line to add more spaces between group box -->
-						<TextBlock></TextBlock>
-
 						<GroupBox Header="Border Option">
 							<Grid ShowGridLines="False">
 								<Grid.ColumnDefinitions>
@@ -663,9 +657,6 @@
 								</StackPanel>
 							</Grid>
 						</GroupBox>
-
-						<!-- Blank line to add more spaces between group box -->
-						<TextBlock></TextBlock>
 
 						<GroupBox Header="Shrink Option">
 							<Grid ShowGridLines="False">

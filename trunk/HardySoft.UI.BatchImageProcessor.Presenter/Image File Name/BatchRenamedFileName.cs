@@ -12,6 +12,12 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 	/// This class is used to generate regaular output file with batch rename enabled.
 	/// </summary>
 	class BatchRenamedFileName : IFilenameProvider {
+		private uint imageIndex;
+
+		public BatchRenamedFileName(uint imageIndex) {
+			this.imageIndex = imageIndex;
+		}
+
 		public string GetFileName(string sourceFile, ProjectSetting ps) {
 			string fileNameWithoutExtension, extension, newFileName;
 			FileInfo fi = new FileInfo(sourceFile);
@@ -40,12 +46,6 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 					break;
 			}
 			return newFileName;
-		}
-
-		private uint imageIndex;
-		public uint ImageIndex {
-			get { return imageIndex; }
-			set { imageIndex = value; }
 		}
 	}
 }
