@@ -98,14 +98,14 @@
 					Style="{StaticResource AboutWindowLabel}">Project URL</TextBlock>
 					
 				<StackPanel Grid.Column="2" Grid.Row="5">
-					<TextBlock>
+					<!--<TextBlock>
 						<Hyperlink x:Name="hMSDNCode"
 							Style="{StaticResource AboutWindowHyperlink}"
 							NavigateUri="http://code.msdn.microsoft.com/BatchImageProcessor/"
 							RequestNavigate="hyperlink_RequestNavigate">
 							http://code.msdn.microsoft.com/BatchImageProcessor
 						</Hyperlink>
-					</TextBlock>
+					</TextBlock>-->
 					<TextBlock>
 						<Hyperlink x:Name="hGoogleCode"
 							Style="{StaticResource AboutWindowHyperlink}"

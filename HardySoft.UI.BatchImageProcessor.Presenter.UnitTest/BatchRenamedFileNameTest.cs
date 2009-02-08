@@ -1,15 +1,15 @@
 ﻿using HardySoft.UI.BatchImageProcessor.Presenter;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using HardySoft.UI.BatchImageProcessor.Model;
+using System.Collections.Generic;
 
-namespace HardySoft.UI.BatchImageProcessor.Presenter.UnitTest
-{
-    
-    
-    /// <summary>
-    ///This is a test class for BatchRenamedFileNameTest and is intended
-    ///to contain all BatchRenamedFileNameTest Unit Tests
-    ///</summary>
+namespace HardySoft.UI.BatchImageProcessor.Presenter.UnitTest {
+
+
+	/// <summary>
+	///This is a test class for BatchRenamedFileNameTest and is intended
+	///to contain all BatchRenamedFileNameTest Unit Tests
+	///</summary>
 	[TestClass()]
 	public class BatchRenamedFileNameTest {
 
@@ -59,12 +59,32 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter.UnitTest
 		//
 		#endregion
 
+		[TestMethod()]
+		public void GetFileNameTest() {
+			List<string> files = new List<string>();
+			for (uint i = 0; i < 10; i++) {
+				BatchRenamedFileName target = new BatchRenamedFileName(i);
+				string sourceFile = @"C\photos\folder 1\123.jpg";
+
+				ProjectSetting ps = new ProjectSetting();
+				ps.OutputDirectory = @"C:\Out";
+				ps.RenamingSetting.OutputFileNamePrefix = "travel_";
+				ps.RenamingSetting.OutputFileNameSuffix = "_city";
+				ps.RenamingSetting.StartNumber = 0;
+				ps.RenamingSetting.FileNameCase = OutputFileNameCase.None;
+				string outputFileName = target.GetFileName(sourceFile, ps);
+				if (!files.Contains(outputFileName)) {
+					files.Add(outputFileName);
+				}
+			}
+
+			Assert.AreEqual(files.Count, 10);
+		}
 
 		[TestMethod()]
 		public void GetFileNameTest1() {
-			BatchRenamedFileName target = new BatchRenamedFileName();
+			BatchRenamedFileName target = new BatchRenamedFileName(10);
 			string sourceFile = @"C\photos\folder 1\123.jpg";
-			target.ImageIndex = 10;
 
 			ProjectSetting ps = new ProjectSetting();
 			ps.OutputDirectory = @"C:\Out";
@@ -80,9 +100,8 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter.UnitTest
 
 		[TestMethod()]
 		public void GetFileNameTest2() {
-			BatchRenamedFileName target = new BatchRenamedFileName();
+			BatchRenamedFileName target = new BatchRenamedFileName(10);
 			string sourceFile = @"C\photos\folder 1\123.jpg";
-			target.ImageIndex = 10;
 
 			ProjectSetting ps = new ProjectSetting();
 			ps.OutputDirectory = @"C:\Out";
@@ -98,9 +117,8 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter.UnitTest
 
 		[TestMethod()]
 		public void GetFileNameTest3() {
-			BatchRenamedFileName target = new BatchRenamedFileName();
+			BatchRenamedFileName target = new BatchRenamedFileName(10);
 			string sourceFile = @"C\photos\folder 1\123.jpg";
-			target.ImageIndex = 10;
 
 			ProjectSetting ps = new ProjectSetting();
 			ps.OutputDirectory = @"C:\Out";
@@ -117,9 +135,8 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter.UnitTest
 
 		[TestMethod()]
 		public void GetFileNameTest4() {
-			BatchRenamedFileName target = new BatchRenamedFileName();
+			BatchRenamedFileName target = new BatchRenamedFileName(10);
 			string sourceFile = @"C\photos\folder 1\DC001.jpg";
-			target.ImageIndex = 10;
 
 			ProjectSetting ps = new ProjectSetting();
 			ps.OutputDirectory = @"C:\Out";

@@ -32,41 +32,6 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 			// Load this Bitmap into a new Graphic Object
 			Graphics graphic = Graphics.FromImage(bmp);
 
-			// To achieve a transulcent watermark we will apply (2) color 
-			// manipulations by defineing a ImageAttributes object and 
-			// seting (2) of its properties.
-			ImageAttributes imageAttributes = new ImageAttributes();
-
-			// The first step in manipulating the watermark image is to replace 
-			// the backgroundColor color with one that is trasparent (Alpha=0, R=0, G=0, B=0)
-			// to do this we will use a Colormap and use this to define a RemapTable
-			ColorMap colorMap = new ColorMap();
-
-			// My watermark was defined with a backgroundColor of 100% Green this will
-			// be the color we search for and replace with transparency
-			colorMap.OldColor = Color.FromArgb(255, 0, 255, 0);
-			colorMap.NewColor = Color.FromArgb(0, 0, 0, 0);
-
-			ColorMap[] remapTable = { colorMap };
-
-			imageAttributes.SetRemapTable(remapTable, ColorAdjustType.Bitmap);
-
-			//The second color manipulation is used to change the opacity of the 
-			//watermark.  This is done by applying a 5x5 matrix that contains the 
-			//coordinates for the RGBA space.  By setting the 3rd row and 3rd column 
-			//to 0.3f we achive a level of opacity
-			float[][] colorMatrixElements = { 
-												new float[] {1.0f,  0.0f,  0.0f,  0.0f, 0.0f},       
-												new float[] {0.0f,  1.0f,  0.0f,  0.0f, 0.0f},        
-												new float[] {0.0f,  0.0f,  1.0f,  0.0f, 0.0f},        
-												new float[] {0.0f,  0.0f,  0.0f,  0.3f, 0.0f},        
-												new float[] {0.0f,  0.0f,  0.0f,  0.0f, 1.0f}
-											};
-			ColorMatrix colorMatrix = new ColorMatrix(colorMatrixElements);
-
-			imageAttributes.SetColorMatrix(colorMatrix, ColorMatrixFlag.Default,
-				ColorAdjustType.Bitmap);
-
 			int xPosOfWatermark = 0;
 			int yPosOfWatermark = 0;
 
@@ -111,7 +76,8 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 					yPosOfWatermark = 10;
 					break;
 			}
-
+			/* TODO for some reason semi-transparent watermark image stops working in this implementation.
+			 * if I use image attributes.
 			graphic.DrawImage(copyrightImage,
 				new Rectangle(xPosOfWatermark, yPosOfWatermark, watermarkWidth, watermarkHeight),  //Set the detination Position
 				0,                  // x-coordinate of the portion of the source image to draw. 
@@ -119,10 +85,56 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 				watermarkWidth,            // Watermark Width
 				watermarkHeight,		    // Watermark Height
 				GraphicsUnit.Pixel, // Unit of measurment
-				imageAttributes);   //ImageAttributes Object
+				getTranslucentImageAttribute());   //ImageAttributes Object*/
+			graphic.DrawImage(copyrightImage,
+				new Rectangle(xPosOfWatermark, yPosOfWatermark, watermarkWidth, watermarkHeight),  //Set the detination Position
+				0,                  // x-coordinate of the portion of the source image to draw. 
+				0,                  // y-coordinate of the portion of the source image to draw. 
+				watermarkWidth,            // Watermark Width
+				watermarkHeight,		    // Watermark Height
+				GraphicsUnit.Pixel); // Unit of measurment*/
 
 			graphic.Dispose();
 			return (Image)bmp;
+		}
+
+		private ImageAttributes getTranslucentImageAttribute() {
+			// To achieve a translucent watermark we will apply (2) color 
+			// manipulations by defineing a ImageAttributes object and 
+			// seting (2) of its properties.
+			ImageAttributes imageAttributes = new ImageAttributes();
+
+			// The first step in manipulating the watermark image is to replace 
+			// the backgroundColor color with one that is trasparent (Alpha=0, R=0, G=0, B=0)
+			// to do this we will use a Colormap and use this to define a RemapTable
+			ColorMap colorMap = new ColorMap();
+
+			// My watermark was defined with a backgroundColor of 100% Green this will
+			// be the color we search for and replace with transparency
+			colorMap.OldColor = Color.FromArgb(255, 0, 255, 0);
+			colorMap.NewColor = Color.FromArgb(0, 0, 0, 0);
+
+			ColorMap[] remapTable = { colorMap };
+
+			imageAttributes.SetRemapTable(remapTable, ColorAdjustType.Bitmap);
+
+			//The second color manipulation is used to change the opacity of the 
+			//watermark.  This is done by applying a 5x5 matrix that contains the 
+			//coordinates for the RGBA space.  By setting the 3rd row and 3rd column 
+			//to 0.3f we achive a level of opacity
+			float[][] colorMatrixElements = { 
+												new float[] {1.0f,  0.0f,  0.0f,  0.0f, 0.0f},       
+												new float[] {0.0f,  1.0f,  0.0f,  0.0f, 0.0f},        
+												new float[] {0.0f,  0.0f,  1.0f,  0.0f, 0.0f},        
+												new float[] {0.0f,  0.0f,  0.0f,  0.3f, 0.0f},        
+												new float[] {0.0f,  0.0f,  0.0f,  0.0f, 1.0f}
+											};
+			ColorMatrix colorMatrix = new ColorMatrix(colorMatrixElements);
+
+			imageAttributes.SetColorMatrix(colorMatrix, ColorMatrixFlag.Default,
+				ColorAdjustType.Bitmap);
+
+			return imageAttributes;
 		}
 	}
 }

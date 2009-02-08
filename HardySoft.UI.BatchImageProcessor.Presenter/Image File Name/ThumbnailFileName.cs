@@ -33,10 +33,10 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 			return thumbFileName;
 		}
 
-		private uint imageIndex;
+		/*private uint imageIndex;
 		public uint ImageIndex {
 			get { return imageIndex; }
 			set { imageIndex = value; }
-		}
+		}*/
 	}
 }
