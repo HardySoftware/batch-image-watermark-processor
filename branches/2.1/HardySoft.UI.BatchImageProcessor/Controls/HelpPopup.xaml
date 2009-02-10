@@ -1,0 +1,23 @@
+﻿<Window x:Class="HardySoft.UI.BatchImageProcessor.Controls.HelpPopup"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    WindowStyle="None" ResizeMode="NoResize" ShowInTaskbar="False"
+    AllowsTransparency="True" Background="Transparent"
+    Icon="/SeaTurtle;component/Images/icon.ico"
+    Title="Help" Height="150" Width="250">
+	<Border Width="Auto" Height="Auto" Name="windowFrame"
+		Style="{StaticResource HelpPopupStyle}">
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="15"></RowDefinition>
+				<RowDefinition></RowDefinition>
+			</Grid.RowDefinitions>
+			
+			<Button x:Name="btnClose" Click="btnClose_Click" Style="{StaticResource CloseHelpButton}"></Button>
+			<RichTextBox x:Name="HelpPopupContent" Grid.Row="1"
+				Background="Transparent" Margin="5,5,5,5"
+				VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"
+				IsReadOnly="True" IsUndoEnabled="False"></RichTextBox>
+		</Grid>
+	</Border>
+</Window>
