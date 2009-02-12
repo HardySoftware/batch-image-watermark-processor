@@ -276,13 +276,13 @@
 			<!-- Second Tab, watermark options -->
 			<TabItem Header="Watermark Setting">
 				<ScrollViewer VerticalScrollBarVisibility="Auto">
-					<StackPanel>
+					<StackPanel Grid.IsSharedSizeScope="True">
 						<GroupBox Header="Copyright Image">
 							<Grid ShowGridLines="False">
 								<Grid.ColumnDefinitions>
-									<ColumnDefinition Width="auto"></ColumnDefinition>
+									<ColumnDefinition Width="auto" SharedSizeGroup="TextLabel"></ColumnDefinition>
 									<ColumnDefinition Width="3*"></ColumnDefinition>
-									<ColumnDefinition Width="auto"></ColumnDefinition>
+									<ColumnDefinition Width="auto" SharedSizeGroup="Button"></ColumnDefinition>
 								</Grid.ColumnDefinitions>
 								<Grid.RowDefinitions>
 									<RowDefinition Height="*"></RowDefinition>
@@ -357,9 +357,9 @@
 						<GroupBox Header="Copyright Text">
 							<Grid ShowGridLines="False">
 								<Grid.ColumnDefinitions>
-									<ColumnDefinition Width="auto"></ColumnDefinition>
+									<ColumnDefinition Width="auto" SharedSizeGroup="TextLabel"></ColumnDefinition>
 									<ColumnDefinition Width="3*"></ColumnDefinition>
-									<ColumnDefinition Width="auto"></ColumnDefinition>
+									<ColumnDefinition Width="auto" SharedSizeGroup="Button"></ColumnDefinition>
 								</Grid.ColumnDefinitions>
 								<Grid.RowDefinitions>
 									<RowDefinition Height="*"></RowDefinition>
@@ -425,11 +425,11 @@
 			<!-- Third Tab, picture options -->
 			<TabItem Header="Process Settings">
 				<ScrollViewer VerticalScrollBarVisibility="Auto">
-					<StackPanel>
+					<StackPanel Grid.IsSharedSizeScope="True">
 						<GroupBox Header="Picture Settings">
 							<Grid>
 								<Grid.ColumnDefinitions>
-									<ColumnDefinition Width="*"></ColumnDefinition>
+									<ColumnDefinition Width="*" SharedSizeGroup="TextLabel"></ColumnDefinition>
 									<ColumnDefinition Width="3*"></ColumnDefinition>
 								</Grid.ColumnDefinitions>
 								<Grid.RowDefinitions>
@@ -499,7 +499,7 @@
 						<GroupBox Header="Drop Shadow Option">
 							<Grid ShowGridLines="False">
 								<Grid.ColumnDefinitions>
-									<ColumnDefinition Width="*"></ColumnDefinition>
+									<ColumnDefinition Width="*" SharedSizeGroup="TextLabel"></ColumnDefinition>
 									<ColumnDefinition Width="3*"></ColumnDefinition>
 								</Grid.ColumnDefinitions>
 								<Grid.RowDefinitions>
@@ -603,7 +603,7 @@
 						<GroupBox Header="Border Option">
 							<Grid ShowGridLines="False">
 								<Grid.ColumnDefinitions>
-									<ColumnDefinition Width="*"></ColumnDefinition>
+									<ColumnDefinition Width="*" SharedSizeGroup="TextLabel"></ColumnDefinition>
 									<ColumnDefinition Width="3*"></ColumnDefinition>
 								</Grid.ColumnDefinitions>
 								<Grid.RowDefinitions>
@@ -661,7 +661,7 @@
 						<GroupBox Header="Shrink Option">
 							<Grid ShowGridLines="False">
 								<Grid.ColumnDefinitions>
-									<ColumnDefinition Width="*"></ColumnDefinition>
+									<ColumnDefinition Width="*" SharedSizeGroup="TextLabel"></ColumnDefinition>
 									<ColumnDefinition Width="3*"></ColumnDefinition>
 								</Grid.ColumnDefinitions>
 								<Grid.RowDefinitions>
@@ -723,11 +723,11 @@
 			<!-- Forth Tab, thumbnail output options and batch rename output files-->
 			<TabItem Header="Output Settings">
 				<ScrollViewer VerticalScrollBarVisibility="Auto">
-					<StackPanel>
+					<StackPanel Grid.IsSharedSizeScope="True">
 						<GroupBox Header="Thumbnail">
 							<Grid ShowGridLines="False">
 								<Grid.ColumnDefinitions>
-									<ColumnDefinition Width="auto"></ColumnDefinition>
+									<ColumnDefinition Width="auto" SharedSizeGroup="TextLabel"></ColumnDefinition>
 									<ColumnDefinition Width="3*"></ColumnDefinition>
 								</Grid.ColumnDefinitions>
 								<Grid.RowDefinitions>
@@ -814,7 +814,7 @@
 						<GroupBox Header="Batch Rename">
 							<Grid ShowGridLines="False">
 								<Grid.ColumnDefinitions>
-									<ColumnDefinition Width="*"></ColumnDefinition>
+									<ColumnDefinition Width="*" SharedSizeGroup="TextLabel"></ColumnDefinition>
 									<ColumnDefinition Width="3*"></ColumnDefinition>
 								</Grid.ColumnDefinitions>
 								<Grid.RowDefinitions>

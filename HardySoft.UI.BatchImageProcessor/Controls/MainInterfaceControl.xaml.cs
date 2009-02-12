@@ -21,6 +21,9 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 	/// Interaction logic for MainInterfaceControl.xaml
 	/// </summary>
 	public partial class MainInterfaceControl : System.Windows.Controls.UserControl, IMainInterfaceControlView {
+		// TODO make watermark text multiple lines, and support text aligment.
+		// TODO try Expander instead of group box.
+		// TODO add drag-ndrop to open project file feature.
 		private MainControl_Presenter presenter;
 		private bool processing;
 		private DispatcherTimer dispatcherTimer;

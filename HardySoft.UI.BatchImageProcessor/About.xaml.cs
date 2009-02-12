@@ -41,7 +41,6 @@ namespace HardySoft.UI.BatchImageProcessor {
 		}
 
 		private void hyperlink_RequestNavigate(object sender, System.Windows.Navigation.RequestNavigateEventArgs e) {
-			// TODO update code MSDN URL whenever it is avaiable
 			string navigateUri = e.Uri.ToString();
 			// if the URI somehow came from an untrusted source, make sure to
 			// validate it before calling Process.Start(), e.g. check to see

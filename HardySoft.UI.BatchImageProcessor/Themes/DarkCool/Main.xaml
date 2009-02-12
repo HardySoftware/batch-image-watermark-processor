@@ -121,6 +121,7 @@
 
 	<!-- Button to display help -->
 	<Style TargetType="Button" x:Key="HelpButton">
+		<Setter Property="Cursor" Value="Help"/>
 		<Setter Property="Margin" Value="5,0,5,0"/>
 		<Setter Property="Control.Template">
 			<Setter.Value>
