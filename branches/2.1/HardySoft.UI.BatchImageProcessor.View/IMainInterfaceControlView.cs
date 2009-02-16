@@ -14,12 +14,12 @@ namespace HardySoft.UI.BatchImageProcessor.View {
 			set;
 		}
 
-		Exception ErrorMessage {
+		OneErrorMessage ErrorMessage {
 			//get;
 			set;
 		}
 
-		List<string> ErrorMessages {
+		ErrorMessages ErrorMessages {
 			set;
 		}
 
