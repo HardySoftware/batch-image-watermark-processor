@@ -13,7 +13,7 @@ using Microsoft.Practices.EnterpriseLibrary.Validation.Validators;
 namespace HardySoft.UI.BatchImageProcessor.Model {
 	[Serializable]
 	public class ProjectSetting : INotifyPropertyChanged {
-		// TODO check to see if more file formats are supported
+		// TODO check to see if more image formats are supported
 		private string[] supportedImageFormat = new string[] {
 			"*.jpg",
 			"*.jpeg",
@@ -97,8 +97,8 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			this.projectCreated = true;
 
 #if DEBUG
-			this.SourceDirectory = @"C:\Temp\1";
-			this.outputDirectory = @"C:\Temp\2";
+			//this.SourceDirectory = @"C:\Temp\1";
+			//this.outputDirectory = @"C:\Temp\2";
 #endif
 			this.isDirty = false;
 		}

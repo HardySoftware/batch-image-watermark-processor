@@ -49,6 +49,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ErrorMessage.cs" />
+    <Compile Include="ErrorMessages.cs" />
     <Compile Include="IMainInterfaceControlView.cs" />
     <Compile Include="IPreference.cs" />
     <Compile Include="ProcessThreadNumberEventArgs.cs" />

@@ -40,10 +40,10 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 			dispatcherTimer = new DispatcherTimer();
 			dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
 			dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
-#if DEBUG
-#else
+//#if DEBUG
+//#else
 			dispatcherTimer.Start();
-#endif
+//#endif
 		}
 
 		[Dependency]
@@ -195,28 +195,35 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 			OnProjectFileNameObtained();
 		}
 
-		public Exception ErrorMessage {
+		public OneErrorMessage ErrorMessage {
 			set {
-				string messageBoxText = value.ToString();
+				string messageBoxText = value.Error.ToString();
 				string caption = "Error";
 				MessageBoxButton button = MessageBoxButton.OK;
 				MessageBoxImage icon = MessageBoxImage.Error;
 
+				// TODO make a new dialog box to show brief error message and detailed information in a Expander
 				// Display message box
 				System.Windows.MessageBox.Show(messageBoxText, caption, button, icon);
 			}
 		}
 
-		public List<string> ErrorMessages {
+		public ErrorMessages ErrorMessages {
 			set {
+				if (value.FatalError) {
+					// if fatal error, stop processing
+					this.processing = false;
+				}
+
 				string messageBoxText = string.Empty;
-				foreach (string s in value) {
+				foreach (string s in value.ErrorMessageCollection) {
 					messageBoxText += Properties.Resources.ResourceManager.GetString(s) + "\r\n";
 				}
 				string caption = "Error";
 				MessageBoxButton button = MessageBoxButton.OK;
 				MessageBoxImage icon = MessageBoxImage.Error;
 
+				// TODO make a new dialog box with same look and feel as above.
 				// Display message box
 				System.Windows.MessageBox.Show(messageBoxText, caption, button, icon);
 			}

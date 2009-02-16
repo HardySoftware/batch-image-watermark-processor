@@ -34,12 +34,21 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 			view.PS = ps;
 		}
 
-		public void SetErrorMessage(Exception ex) {
-			this.view.ErrorMessage = ex;
+		public void SetErrorMessage(Exception ex, bool fatal) {
+			OneErrorMessage em = new OneErrorMessage() {
+				Error = ex,
+				FatalError = fatal
+			};
+			this.view.ErrorMessage = em;
 		}
 
-		public void SetErrorMessage(List<string> messages) {
-			this.view.ErrorMessages = messages;
+		public void SetErrorMessage(List<string> messages, bool fatal) {
+			ErrorMessages em = new ErrorMessages() {
+				ErrorMessageCollection = messages,
+				FatalError = fatal
+			};
+
+			this.view.ErrorMessages = em;
 		}
 
 		void view_OpenProject(object sender, ProjectWithFileNameEventArgs e) {
@@ -67,7 +76,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 				ps.OpenProject();
 				view.PS = ps;
 			} catch (Exception ex) {
-				SetErrorMessage(ex);
+				SetErrorMessage(ex, true);
 			} finally {
 				stream.Close();
 			}
@@ -99,7 +108,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 				ps.SaveProject();
 				return true;
 			} catch (Exception ex) {
-				SetErrorMessage(ex);
+				SetErrorMessage(ex, false);
 				return false;
 			} finally {
 				stream.Close();
@@ -128,7 +137,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 					exceptions.Add(vr.Message);
 				}
 
-				SetErrorMessage(exceptions);
+				SetErrorMessage(exceptions, true);
 			} else {
 				// we need to use WaitAll to be notified all jobs from all threads are done,
 				// WaitAll will block the current thread, I don't want it happen to main thread,
