@@ -198,7 +198,7 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 		public OneErrorMessage ErrorMessage {
 			set {
 				string messageBoxText = value.Error.ToString();
-				string caption = "Error";
+				string caption = HardySoft.UI.BatchImageProcessor.Resources.LanguageContent.Error;
 				MessageBoxButton button = MessageBoxButton.OK;
 				MessageBoxImage icon = MessageBoxImage.Error;
 
@@ -217,9 +217,9 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 
 				string messageBoxText = string.Empty;
 				foreach (string s in value.ErrorMessageCollection) {
-					messageBoxText += Properties.Resources.ResourceManager.GetString(s) + "\r\n";
+					messageBoxText += HardySoft.UI.BatchImageProcessor.Resources.LanguageContent.ResourceManager.GetString(s) + "\r\n";
 				}
-				string caption = "Error";
+				string caption = HardySoft.UI.BatchImageProcessor.Resources.LanguageContent.Error;
 				MessageBoxButton button = MessageBoxButton.OK;
 				MessageBoxImage icon = MessageBoxImage.Error;
 

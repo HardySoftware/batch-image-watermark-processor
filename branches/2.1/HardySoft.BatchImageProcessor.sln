@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HardySoft.UI.BatchImageProc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HardySoft.CC", "HardySoft.CC\HardySoft.CC.csproj", "{D162A876-9517-4E74-89AF-C889FF5BFAD0}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "External References", "External References", "{AF0B357C-7852-44C3-BBEF-5233B9339ECD}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Supporting Tools", "Supporting Tools", "{AF0B357C-7852-44C3-BBEF-5233B9339ECD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9A8F7E58-6A12-42E3-BB24-35D6862B3F97}"
 	ProjectSection(SolutionItems) = preProject
@@ -20,6 +20,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HardySoft.UI.BatchImageProcessor.Presenter.UnitTest", "HardySoft.UI.BatchImageProcessor.Presenter.UnitTest\HardySoft.UI.BatchImageProcessor.Presenter.UnitTest.csproj", "{05293D3E-2CF1-4914-8B4F-2648F3E4E598}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenXMLWriter", "OpenXMLWriter\OpenXMLWriter.csproj", "{DE9DB900-DA1D-4914-8E70-F4A3E1D6578C}"
 EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
@@ -58,8 +60,15 @@ Global
 		{05293D3E-2CF1-4914-8B4F-2648F3E4E598}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05293D3E-2CF1-4914-8B4F-2648F3E4E598}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05293D3E-2CF1-4914-8B4F-2648F3E4E598}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE9DB900-DA1D-4914-8E70-F4A3E1D6578C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE9DB900-DA1D-4914-8E70-F4A3E1D6578C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE9DB900-DA1D-4914-8E70-F4A3E1D6578C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE9DB900-DA1D-4914-8E70-F4A3E1D6578C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DE9DB900-DA1D-4914-8E70-F4A3E1D6578C} = {AF0B357C-7852-44C3-BBEF-5233B9339ECD}
 	EndGlobalSection
 EndGlobal

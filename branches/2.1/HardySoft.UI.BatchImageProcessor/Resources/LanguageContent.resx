@@ -117,13 +117,43 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ReqDestDirectory" xml:space="preserve">
+  <data name="EnumBottomCenter" xml:space="preserve">
+    <value>Bottom Center</value>
+  </data>
+  <data name="EnumBottomLeft" xml:space="preserve">
+    <value>Bottom Left</value>
+  </data>
+  <data name="EnumBottomRight" xml:space="preserve">
+    <value>Bottom Right</value>
+  </data>
+  <data name="EnumMiddleCenter" xml:space="preserve">
+    <value>Middle Center</value>
+  </data>
+  <data name="EnumMiddleLeft" xml:space="preserve">
+    <value>Middle Left</value>
+  </data>
+  <data name="EnumMiddleRight" xml:space="preserve">
+    <value>Middle Right</value>
+  </data>
+  <data name="EnumTopCenter" xml:space="preserve">
+    <value>Top Center</value>
+  </data>
+  <data name="EnumTopLeft" xml:space="preserve">
+    <value>Top Left</value>
+  </data>
+  <data name="EnumTopRight" xml:space="preserve">
+    <value>Top Right</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="ValidationJpgCompressionRatio" xml:space="preserve">
+    <value>Jpg compression ratio must be between 0 and 100.</value>
+  </data>
+  <data name="ValidationReqDestDirectory" xml:space="preserve">
     <value>Please select an output directory to proceed.</value>
   </data>
-  <data name="ReqSouceDirectory" xml:space="preserve">
+  <data name="ValidationReqSouceDirectory" xml:space="preserve">
     <value>Please select a source directory with image(s) to proceed.</value>
-  </data>
-  <data name="ValJpgCompressionRatio" xml:space="preserve">
-    <value>Jpg compression ratio must be between 0 and 100.</value>
   </data>
 </root>
