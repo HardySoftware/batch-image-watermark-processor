@@ -116,9 +116,9 @@
 					<TextBlock>
 						<Hyperlink x:Name="hGoogleCode"
 							Style="{StaticResource AboutWindowHyperlink}"
-							NavigateUri="http://code.google.com/p/batch-image-watermark-processor/"
+							NavigateUri="{Binding Path=ApplicationUrl, Mode=OneWay}"
 							RequestNavigate="hyperlink_RequestNavigate">
-							http://code.google.com/p/batch-image-watermark-processor/
+							<TextBlock Text="{Binding Path=ApplicationUrl, Mode=OneWay}"></TextBlock>
 						</Hyperlink>
 					</TextBlock>
 				</StackPanel>
@@ -164,6 +164,11 @@
 					Margin="0, 10, 10, 0"
 					Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="3"
 					Style="{StaticResource GlassButton}">OK</Button>
+				<Button x:Name="btnCheckNewVersion" HorizontalAlignment="Right"
+					Click="btnCheckNewVersion_Click"
+					Margin="0, 10, 10, 0"
+					Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="3"
+					Style="{StaticResource GlassButton}">Check New Version</Button>
 			</StackPanel>
 		</Grid>
 	</Border>

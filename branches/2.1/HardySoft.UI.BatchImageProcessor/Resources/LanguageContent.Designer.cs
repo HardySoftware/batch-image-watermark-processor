@@ -61,6 +61,15 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to http://code.google.com/p/batch-image-watermark-processor/.
+        /// </summary>
+        internal static string ApplicationUrl {
+            get {
+                return ResourceManager.GetString("ApplicationUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bottom Center.
         /// </summary>
         internal static string EnumBottomCenter {
@@ -147,6 +156,33 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         internal static string Error {
             get {
                 return ResourceManager.GetString("Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There is a new version {0} available, please visit application homepage to download..
+        /// </summary>
+        internal static string NewVersionAvailable {
+            get {
+                return ResourceManager.GetString("NewVersionAvailable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You have the latest version..
+        /// </summary>
+        internal static string NoNewVersion {
+            get {
+                return ResourceManager.GetString("NoNewVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unable to check new version at the moment, please make sure you have active Internet connection and try again later..
+        /// </summary>
+        internal static string UnableToCheckVersion {
+            get {
+                return ResourceManager.GetString("UnableToCheckVersion", resourceCulture);
             }
         }
         

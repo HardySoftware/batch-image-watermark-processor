@@ -196,22 +196,22 @@
 							Command="ApplicationCommands.Help"></Button>
 					</StackPanel>
 					<HSCtrl:SortableListView x:Name="lvFileList"
-							Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3"
-							IsSynchronizedWithCurrentItem="True"
-							SelectionChanged="FileList_SelectionChanged"
-							ColumnHeaderSortedAscendingTemplate="HeaderTemplateArrowUp"
-							ColumnHeaderSortedDescendingTemplate="HeaderTemplateArrowDown"
-							ColumnHeaderNotSortedTemplate="HeaderTemplateTransparent"
-							ItemContainerStyle="{StaticResource AlternatingListBoxItemStyle}"
-							AlternationCount="2" SnapsToDevicePixels="True"
-							ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-							ScrollViewer.VerticalScrollBarVisibility="Auto"
-							ItemsSource="{Binding Path=Photos}">
+						Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3"
+						IsSynchronizedWithCurrentItem="True"
+						SelectionChanged="FileList_SelectionChanged"
+						ColumnHeaderSortedAscendingTemplate="HeaderTemplateArrowUp"
+						ColumnHeaderSortedDescendingTemplate="HeaderTemplateArrowDown"
+						ColumnHeaderNotSortedTemplate="HeaderTemplateTransparent"
+						ItemContainerStyle="{StaticResource AlternatingListBoxItemStyle}"
+						AlternationCount="2" SnapsToDevicePixels="True"
+						ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+						ScrollViewer.VerticalScrollBarVisibility="Auto"
+						ItemsSource="{Binding Path=Photos}">
 						<ListView.View>
 							<GridView ColumnHeaderContainerStyle="{StaticResource GridViewHeaderStyle}"
-									ColumnHeaderTemplate="{StaticResource HeaderTemplateTransparent}">
+								ColumnHeaderTemplate="{StaticResource HeaderTemplateTransparent}">
 								<HSCtrl:SortableGridViewColumn Header="Selected" x:Name="colSelected"
-										SortPropertyName="Selected" Width="70" >
+									SortPropertyName="Selected" Width="70" >
 									<HSCtrl:SortableGridViewColumn.CellTemplate>
 										<DataTemplate>
 											<CheckBox Name="chk" IsChecked="{Binding Selected}" ToolTip="Select or unselect" />
@@ -219,52 +219,50 @@
 									</HSCtrl:SortableGridViewColumn.CellTemplate>
 								</HSCtrl:SortableGridViewColumn>
 								<HSCtrl:SortableGridViewColumn Header="Image File Name" x:Name="colImagePath"
-										SortPropertyName="PhotoPath" Width="500" IsDefaultSortColumn="True">
+									SortPropertyName="PhotoPath" Width="500" IsDefaultSortColumn="True">
 									<HSCtrl:SortableGridViewColumn.CellTemplate>
 										<DataTemplate>
 											<TextBlock Text="{Binding Path=PhotoPath}" ToolTipService.ShowDuration="60000">
-													<TextBlock.ToolTip>
-														<ToolTip StaysOpen="True">
-															<Grid ShowGridLines="False">
-																<Grid.ColumnDefinitions>
-																	<!-- thumb nail column -->
-																	<ColumnDefinition></ColumnDefinition>
-																	<!-- while line to separate image and exif -->
-																	<ColumnDefinition Width="10"></ColumnDefinition>
-																	<!-- EXIF column -->
-																	<ColumnDefinition></ColumnDefinition>
-																</Grid.ColumnDefinitions>
-
-																<Grid VerticalAlignment="Center" HorizontalAlignment="Center" Margin="6"
-																	Grid.Row="0" Grid.Column="0">
-																	<!-- Drop Shadow -->
-																	<Border HorizontalAlignment="Stretch" VerticalAlignment="Stretch" CornerRadius="4" Background="#44000000">
-																		<Border.RenderTransform>
-																			<TranslateTransform X="5" Y="5" />
-																		</Border.RenderTransform>
-																		<Border.BitmapEffect>
-																			<BlurBitmapEffect Radius="8" />
-																		</Border.BitmapEffect>
-																	</Border>
-																	<!-- Image Template -->
-																	<Border Padding="4" Background="White" BorderBrush="#22000000" BorderThickness="1">
-																		<Image Source="{Binding Path=PhotoPath, Converter={StaticResource cnvPath2Thumb}}" />
-																	</Border>
-																</Grid>
-																
-																<ListView x:Name="lvExifInfo" Grid.Column="2" Grid.Row="0"
-																	ItemsSource="{Binding Path=PhotoPath, Converter={StaticResource cnvExif}}">
-																	<ListView.View>
-																		<GridView ColumnHeaderContainerStyle="{StaticResource GridViewHeaderStyle}"
-																			ColumnHeaderTemplate="{StaticResource HeaderTemplateTransparent}">
-																			<GridViewColumn Header="Attribute" DisplayMemberBinding="{Binding Path=Attribute}"></GridViewColumn>
-																			<GridViewColumn Header="Value" DisplayMemberBinding="{Binding Path=Value}"></GridViewColumn>
-																		</GridView>
-																	</ListView.View>
-																</ListView>
+												<TextBlock.ToolTip>
+													<ToolTip StaysOpen="True">
+														<Grid ShowGridLines="False">
+															<Grid.ColumnDefinitions>
+																<!-- thumb nail column -->
+																<ColumnDefinition></ColumnDefinition>
+																<!-- blank line to separate image and exif -->
+																<ColumnDefinition Width="10"></ColumnDefinition>
+																<!-- EXIF column -->
+																<ColumnDefinition></ColumnDefinition>
+															</Grid.ColumnDefinitions>
+															<Grid VerticalAlignment="Center" HorizontalAlignment="Center" Margin="6"
+																Grid.Row="0" Grid.Column="0">
+																<!-- Drop Shadow -->
+																<Border HorizontalAlignment="Stretch" VerticalAlignment="Stretch" CornerRadius="4" Background="#44000000">
+																	<Border.RenderTransform>
+																		<TranslateTransform X="5" Y="5" />
+																	</Border.RenderTransform>
+																	<Border.BitmapEffect>
+																		<BlurBitmapEffect Radius="8" />
+																	</Border.BitmapEffect>
+																</Border>
+																<!-- Image Template -->
+																<Border Padding="4" Background="White" BorderBrush="#22000000" BorderThickness="1">
+																	<Image Source="{Binding Path=PhotoPath, Converter={StaticResource cnvPath2Thumb}}" />
+																</Border>
 															</Grid>
-														</ToolTip>
-													</TextBlock.ToolTip>
+															<ListView x:Name="lvExifInfo" Grid.Column="2" Grid.Row="0"
+																ItemsSource="{Binding Path=PhotoPath, Converter={StaticResource cnvExif}}">
+																<ListView.View>
+																	<GridView ColumnHeaderContainerStyle="{StaticResource GridViewHeaderStyle}"
+																		ColumnHeaderTemplate="{StaticResource HeaderTemplateTransparent}">
+																		<GridViewColumn Header="Attribute" DisplayMemberBinding="{Binding Path=Attribute}"></GridViewColumn>
+																		<GridViewColumn Header="Value" DisplayMemberBinding="{Binding Path=Value}"></GridViewColumn>
+																	</GridView>
+																</ListView.View>
+															</ListView>
+														</Grid>
+													</ToolTip>
+												</TextBlock.ToolTip>
 											</TextBlock>
 										</DataTemplate>
 									</HSCtrl:SortableGridViewColumn.CellTemplate>

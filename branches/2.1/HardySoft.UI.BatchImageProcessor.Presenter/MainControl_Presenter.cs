@@ -17,9 +17,13 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 		private IMainInterfaceControlView view;
 		private ProjectSetting ps;
 		private ImageProcessorEngine engine = null;
+		private bool processing;
+		private string currentProjectFile;
 
 		public MainControl_Presenter() {
 			ps = new ProjectSetting();
+
+			this.processing = false;
 		}
 
 		public void SetView(IMainInterfaceControlView view) {
@@ -34,38 +38,27 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 			view.PS = ps;
 		}
 
-		public void SetErrorMessage(Exception ex, bool fatal) {
-			OneErrorMessage em = new OneErrorMessage() {
-				Error = ex,
-				FatalError = fatal
-			};
-			this.view.ErrorMessage = em;
+		public bool Processing {
+			get {
+				return this.processing;
+			}
 		}
 
-		public void SetErrorMessage(List<string> messages, bool fatal) {
-			ErrorMessages em = new ErrorMessages() {
-				ErrorMessageCollection = messages,
-				FatalError = fatal
-			};
+		public string CurrentProjectFile {
+			get {
+				return this.currentProjectFile;
+			}
+		}
 
-			this.view.ErrorMessages = em;
+		public void SetErrorMessage(Exception ex) {
+			this.view.ErrorMessage = ex;
+		}
+
+		public void SetErrorMessage(string[] messages) {
+			this.view.ErrorMessages = messages;
 		}
 
 		void view_OpenProject(object sender, ProjectWithFileNameEventArgs e) {
-			/*TextReader r = new StreamReader(e.ProjectFileName);
-			try {
-				System.Xml.Serialization.XmlSerializer s = new System.Xml.Serialization.XmlSerializer(typeof(ProjectSetting));
-				this.ps = (ProjectSetting)s.Deserialize(r);
-
-				// wire events again
-				ps.OpenProject();
-				view.PS = ps;
-			} catch (Exception ex) {
-				SetErrorMessage(ex);
-			} finally {
-				r.Close();
-			}*/
-
 			Stream stream = new FileStream(e.ProjectFileName, FileMode.Open, FileAccess.Read, FileShare.Read);
 			try {
 				IFormatter formatter = new BinaryFormatter();
@@ -75,30 +68,17 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 				// wire events again
 				ps.OpenProject();
 				view.PS = ps;
+
+				this.currentProjectFile = e.ProjectFileName;
 			} catch (Exception ex) {
-				SetErrorMessage(ex, true);
+				SetErrorMessage(ex);
 			} finally {
 				stream.Close();
+				this.processing = false;
 			}
 		}
 
 		private bool saveProject(string projectFileName) {
-			/*TextWriter w = new StreamWriter(projectFileName);
-			try {
-				System.Xml.Serialization.XmlSerializer s = new System.Xml.Serialization.XmlSerializer(typeof(ProjectSetting));
-
-				s.Serialize(w, ps);
-
-				// reset is dirty flag
-				ps.SaveProject();
-				return true;
-			} catch (Exception ex) {
-				SetErrorMessage(ex);
-				return false;
-			} finally {
-				w.Close();
-			}*/
-
 			Stream stream = new FileStream(projectFileName, FileMode.Create, FileAccess.Write, FileShare.None);
 			try {
 				IFormatter formatter = new BinaryFormatter();
@@ -106,9 +86,12 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 
 				// reset is dirty flag
 				ps.SaveProject();
+
+				this.currentProjectFile = projectFileName;
+
 				return true;
 			} catch (Exception ex) {
-				SetErrorMessage(ex, false);
+				SetErrorMessage(ex);
 				return false;
 			} finally {
 				stream.Close();
@@ -127,6 +110,9 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 			ps = new ProjectSetting();
 			ps.NewProject();
 			view.PS = ps;
+
+			this.currentProjectFile = "Untitled.hsbip";
+			this.processing = false;
 		}
 
 		void view_ProcessImage(object sender, ProcessThreadNumberEventArgs e) {
@@ -137,8 +123,10 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 					exceptions.Add(vr.Message);
 				}
 
-				SetErrorMessage(exceptions, true);
+				SetErrorMessage(exceptions.ToArray());
 			} else {
+				this.processing = true;
+
 				// we need to use WaitAll to be notified all jobs from all threads are done,
 				// WaitAll will block the current thread, I don't want it happen to main thread,
 				// that is the reason we create another thread instead.
@@ -176,7 +164,8 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 
 			AutoResetEvent.WaitAll(events);
 
-			this.view.ProcessingStopped();
+			//this.view.ProcessingStopped();
+			this.processing = false;
 		}
 
 		void engine_ImageProcessed(ImageProcessedEventArgs args) {
