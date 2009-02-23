@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ApplicationUrl" xml:space="preserve">
+    <value>http://code.google.com/p/batch-image-watermark-processor/</value>
+  </data>
   <data name="EnumBottomCenter" xml:space="preserve">
     <value>Bottom Center</value>
   </data>
@@ -146,6 +149,15 @@
   </data>
   <data name="Error" xml:space="preserve">
     <value>Error</value>
+  </data>
+  <data name="NewVersionAvailable" xml:space="preserve">
+    <value>There is a new version {0} available, please visit application homepage to download.</value>
+  </data>
+  <data name="NoNewVersion" xml:space="preserve">
+    <value>You have the latest version.</value>
+  </data>
+  <data name="UnableToCheckVersion" xml:space="preserve">
+    <value>Unable to check new version at the moment, please make sure you have active Internet connection and try again later.</value>
   </data>
   <data name="ValidationJpgCompressionRatio" xml:space="preserve">
     <value>Jpg compression ratio must be between 0 and 100.</value>

@@ -23,27 +23,21 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 	public partial class MainInterfaceControl : System.Windows.Controls.UserControl, IMainInterfaceControlView {
 		// TODO make watermark text multiple lines, and support text aligment.
 		// TODO try Expander instead of group box.
-		// TODO add drag-ndrop to open project file feature.
+		// TODO add drag-n-drop to open project file feature.
+		// TODO change position selection drop down layout, P573
 		private MainControl_Presenter presenter;
-		private bool processing;
 		private DispatcherTimer dispatcherTimer;
-		private string currentProjectFile;
 
 		public MainInterfaceControl() {
 			IUnityContainer container = new UnityContainer();
 
 			InitializeComponent();
 
-			this.processing = false;
-
-			//  DispatcherTimer setup
+			//  DispatcherTimer setup to enforce commands to check can execute state
 			dispatcherTimer = new DispatcherTimer();
 			dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
 			dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
-//#if DEBUG
-//#else
 			dispatcherTimer.Start();
-//#endif
 		}
 
 		[Dependency]
@@ -60,8 +54,8 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 		public event ProjectFileNameObtainedHandler ProjectFileNameObtained;
 
 		protected void OnProjectFileNameObtained() {
-			if (ProjectFileNameObtained != null && !string.IsNullOrEmpty(this.currentProjectFile)) {
-				ProjectFileNameEventArgs args = new ProjectFileNameEventArgs(this.currentProjectFile,
+			if (ProjectFileNameObtained != null && !string.IsNullOrEmpty(this.presenter.CurrentProjectFile)) {
+				ProjectFileNameEventArgs args = new ProjectFileNameEventArgs(this.presenter.CurrentProjectFile,
 					this.ps.IsDirty);
 				ProjectFileNameObtained(this, args);
 			}
@@ -195,9 +189,9 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 			OnProjectFileNameObtained();
 		}
 
-		public OneErrorMessage ErrorMessage {
+		public Exception ErrorMessage {
 			set {
-				string messageBoxText = value.Error.ToString();
+				string messageBoxText = value.ToString();
 				string caption = HardySoft.UI.BatchImageProcessor.Resources.LanguageContent.Error;
 				MessageBoxButton button = MessageBoxButton.OK;
 				MessageBoxImage icon = MessageBoxImage.Error;
@@ -208,24 +202,21 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 			}
 		}
 
-		public ErrorMessages ErrorMessages {
+		public string[] ErrorMessages {
 			set {
-				if (value.FatalError) {
-					// if fatal error, stop processing
-					this.processing = false;
-				}
+				if (value != null) {
+					string messageBoxText = string.Empty;
+					for (int i = 0; i < value.Length; i++) {
+						messageBoxText += HardySoft.UI.BatchImageProcessor.Resources.LanguageContent.ResourceManager.GetString(value[i]) + "\r\n";
+					}
+					string caption = HardySoft.UI.BatchImageProcessor.Resources.LanguageContent.Error;
+					MessageBoxButton button = MessageBoxButton.OK;
+					MessageBoxImage icon = MessageBoxImage.Error;
 
-				string messageBoxText = string.Empty;
-				foreach (string s in value.ErrorMessageCollection) {
-					messageBoxText += HardySoft.UI.BatchImageProcessor.Resources.LanguageContent.ResourceManager.GetString(s) + "\r\n";
+					// TODO make a new dialog box with same look and feel as above.
+					// Display message box
+					System.Windows.MessageBox.Show(messageBoxText, caption, button, icon);
 				}
-				string caption = HardySoft.UI.BatchImageProcessor.Resources.LanguageContent.Error;
-				MessageBoxButton button = MessageBoxButton.OK;
-				MessageBoxImage icon = MessageBoxImage.Error;
-
-				// TODO make a new dialog box with same look and feel as above.
-				// Display message box
-				System.Windows.MessageBox.Show(messageBoxText, caption, button, icon);
 			}
 		}
 
@@ -258,7 +249,7 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 					}), null);
 		}
 
-		public void ProcessingStopped() {
+		/*public void ProcessingStopped() {
 			if (!this.Dispatcher.CheckAccess()) {
 				this.Dispatcher.Invoke(
 				  System.Windows.Threading.DispatcherPriority.Normal,
@@ -270,7 +261,7 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 			} else {
 				this.processing = false;
 			}
-		}
+		}*/
 		#endregion
 
 		#region View events
@@ -285,11 +276,16 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 		#region Commands
 		#region New Command
 		private void NewCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e) {
-			if (this.processing) {
+			if (this.presenter == null) {
+				e.CanExecute = false;
+			} else {
+				e.CanExecute = !this.presenter.Processing;
+			}
+			/*if (this.presenter.Processing) {
 				e.CanExecute = false;
 			} else {
 				e.CanExecute = true;
-			}
+			}*/
 		}
 
 		private void NewCommand_Executed(object sender, ExecutedRoutedEventArgs e) {
@@ -297,7 +293,7 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 			if (handlers != null) {
 				handlers(this, EventArgs.Empty);
 
-				this.currentProjectFile = "Untitled.hsbip";
+				//this.currentProjectFile = "Untitled.hsbip";
 				OnProjectFileNameObtained();
 			}
 		}
@@ -305,11 +301,16 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 
 		#region Open Command
 		private void OpenCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e) {
-			if (this.processing) {
+			if (this.presenter == null) {
+				e.CanExecute = false;
+			} else {
+				e.CanExecute = !this.presenter.Processing;
+			}
+			/*if (this.presenter.Processing) {
 				e.CanExecute = false;
 			} else {
 				e.CanExecute = true;
-			}
+			}*/
 		}
 		
 		private void OpenCommand_Executed(object sender, ExecutedRoutedEventArgs e) {
@@ -348,7 +349,7 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 						handlers(this, args);
 					}
 
-					this.currentProjectFile = projectFileName;
+					//this.currentProjectFile = projectFileName;
 					OnProjectFileNameObtained();
 				}
 			}
@@ -370,9 +371,9 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 		}
 
 		private void saveProject() {
-			if (File.Exists(this.currentProjectFile)) {
+			if (File.Exists(this.presenter.CurrentProjectFile)) {
 				// project file already created
-				ProjectWithFileNameEventArgs args = new ProjectWithFileNameEventArgs(this.currentProjectFile);
+				ProjectWithFileNameEventArgs args = new ProjectWithFileNameEventArgs(this.presenter.CurrentProjectFile);
 
 				ProjectWithFileNameEventHandler handlers = SaveProject;
 				if (handlers != null) {
@@ -412,7 +413,7 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 						handlers(this, args);
 					}
 
-					this.currentProjectFile = projectFileName;
+					//this.currentProjectFile = projectFileName;
 					OnProjectFileNameObtained();
 				}
 			}
@@ -422,12 +423,23 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 		#region Stop Command
 		private void StopCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e) {
 #if DEBUG
-			string message = string.Format("Processing status is {0} at {1}.",
-				this.processing,
-				DateTime.Now);
+			string message;
+			if (this.presenter == null) {
+				message = string.Format("Processing status is unknown at {0}.",
+					DateTime.Now);
+			} else {
+				message = string.Format("Processing status is {0} at {1}.",
+					this.presenter.Processing,
+					DateTime.Now);
+			}
 			System.Diagnostics.Debug.WriteLine(message);
 #endif
-			e.CanExecute = this.processing;
+			if (this.presenter == null) {
+				e.CanExecute = false;
+			} else {
+				e.CanExecute = this.presenter.Processing;
+			}
+			//e.CanExecute = this.presenter.Processing;
 		}
 		
 		private void StopCommand_Executed(object sender, ExecutedRoutedEventArgs e) {
@@ -444,7 +456,7 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 			if (ps == null) {
 				e.CanExecute = false;
 			} else {
-				if (this.processing) {
+				if (this.presenter.Processing) {
 					e.CanExecute = false;
 				} else {
 					e.CanExecute = ps.ProjectCreated;
@@ -455,7 +467,7 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 		private void MakeCommand_Executed(object sender, ExecutedRoutedEventArgs e) {
 			ProcessThreadNumberEventHandler handlers = ProcessImage;
 			if (handlers != null) {
-				this.processing = true;
+				//this.processing = true;
 				this.Progress.Value = 0;
 				ProcessThreadNumberEventArgs args = new ProcessThreadNumberEventArgs(Properties.Settings.Default.ThreadNumber);
 				handlers(this, args);

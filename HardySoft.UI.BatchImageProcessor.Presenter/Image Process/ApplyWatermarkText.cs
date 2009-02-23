@@ -7,9 +7,9 @@ using System.Drawing.Drawing2D;
 
 using HardySoft.UI.BatchImageProcessor.Model;
 
-
 namespace HardySoft.UI.BatchImageProcessor.Presenter {
 	public class ApplyWatermarkText : IProcess {
+		// TODO examine to add text to a transparent GIF image still works.
 		public Image ProcessImage(Image input, ProjectSetting ps) {
 			int imageWidth = input.Width;
 			int imageHeight = input.Height;

@@ -14,18 +14,18 @@ namespace HardySoft.UI.BatchImageProcessor.View {
 			set;
 		}
 
-		OneErrorMessage ErrorMessage {
+		Exception ErrorMessage {
 			//get;
 			set;
 		}
 
-		ErrorMessages ErrorMessages {
+		string[] ErrorMessages {
 			set;
 		}
 
 		void ResetJobSize(int jobSize);
 		void ReportProgress();
-		void ProcessingStopped();
+		//void ProcessingStopped();
 
 		event EventHandler NewProjectCreated;
 		event ProjectWithFileNameEventHandler SaveProject;

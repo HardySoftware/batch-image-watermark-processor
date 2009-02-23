@@ -99,6 +99,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ObjectResource.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Preference.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -120,6 +124,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Themes\DarkCool\Main.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VersionCheckingResult.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -184,6 +192,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>LanguageContent.resx</DependentUpon>
+    </Compile>
+    <Compile Include="VersionCheckingResult.xaml.cs">
+      <DependentUpon>VersionCheckingResult.xaml</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Resources\HelpContent.resx">
       <Generator>ResXFileCodeGenerator</Generator>

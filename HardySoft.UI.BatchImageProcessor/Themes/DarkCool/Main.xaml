@@ -1,55 +1,6 @@
 <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-	xmlns:sys="clr-namespace:System;assembly=mscorlib"
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-	xmlns:cnv="clr-namespace:HardySoft.UI.BatchImageProcessor.Classes.Converters"
-	xmlns:enum="clr-namespace:HardySoft.UI.BatchImageProcessor.Model;assembly=HardySoft.UI.BatchImageProcessor.Model"
 	>
-
-	<cnv:PathToThumbConverter x:Key="cnvPath2Thumb"></cnv:PathToThumbConverter>
-	<cnv:PathToImageConverter x:Key="cnvPath2Image"></cnv:PathToImageConverter>
-	<cnv:DebugConvertor x:Key="cnvDebug"></cnv:DebugConvertor>
-	<cnv:ImagePathToExifConverter x:Key="cnvExif"></cnv:ImagePathToExifConverter>
-	<cnv:EnumToFriendlyNameConverter x:Key="cnvFriendlyEnum"></cnv:EnumToFriendlyNameConverter>
-	<cnv:WatermarkImageSelectedConverter x:Key="cnvHasWatermarkImage"></cnv:WatermarkImageSelectedConverter>
-	<cnv:ColorDisplayNameConverter x:Key="cnvColorValue"></cnv:ColorDisplayNameConverter>
-	<cnv:ColorConverter x:Key="cnvColor"></cnv:ColorConverter>
-
-	<ObjectDataProvider x:Key="PositionData" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
-		<ObjectDataProvider.MethodParameters>
-			<x:Type TypeName="enum:WatermarkPositions" />
-		</ObjectDataProvider.MethodParameters>
-	</ObjectDataProvider>
-
-	<ObjectDataProvider x:Key="ImageProcessTypeData" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
-		<ObjectDataProvider.MethodParameters>
-			<x:Type TypeName="enum:ImageProcessType" />
-		</ObjectDataProvider.MethodParameters>
-	</ObjectDataProvider>
-
-	<ObjectDataProvider x:Key="DropShadowLocationData" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
-		<ObjectDataProvider.MethodParameters>
-			<x:Type TypeName="enum:DropShadowLocation" />
-		</ObjectDataProvider.MethodParameters>
-	</ObjectDataProvider>
-
-	<ObjectDataProvider x:Key="ShrinkModeData" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
-		<ObjectDataProvider.MethodParameters>
-			<x:Type TypeName="enum:ShrinkImageMode" />
-		</ObjectDataProvider.MethodParameters>
-	</ObjectDataProvider>
-
-	<ObjectDataProvider x:Key="OutputFileNameCaseData" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
-		<ObjectDataProvider.MethodParameters>
-			<x:Type TypeName="enum:OutputFileNameCase" />
-		</ObjectDataProvider.MethodParameters>
-	</ObjectDataProvider>
-
-	<ObjectDataProvider x:Key="ApplicationSkinData" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
-		<ObjectDataProvider.MethodParameters>
-			<x:Type TypeName="enum:Skin" />
-		</ObjectDataProvider.MethodParameters>
-	</ObjectDataProvider>
-
 	<!-- Brush for menu bar and tool bar background -->
 	<LinearGradientBrush x:Key="ToolBarBackgroundBrush" StartPoint="0,0" EndPoint="0,1">
 		<LinearGradientBrush.GradientStops>
@@ -57,13 +8,13 @@
 			<GradientStop Offset="1" Color="#FF000000"/>
 		</LinearGradientBrush.GradientStops>
 	</LinearGradientBrush>
-	
+
 	<!-- Brush for menu / tool bar text foreground color-->
 	<SolidColorBrush x:Key="ToobarTextColorBrush" Color="#FFEBEBEB"></SolidColorBrush>
-	
+
 	<!-- Brush for disabled menu / tool bar text foreground color-->
 	<SolidColorBrush x:Key="ToobarDisabledTextColorBrush" Color="#888888"></SolidColorBrush>
-	
+
 	<!-- Brush for hilighted menu / tool bar item background color-->
 	<SolidColorBrush x:Key="ToobarHilightBackgroundBrush" Color="#FF5E5E5E"></SolidColorBrush>
 
@@ -105,6 +56,7 @@
 		</Setter>
 	</Style>
 
+	<!-- Borderless window footer text, for project file name -->
 	<Style x:Key="WindowFooter" TargetType="TextBlock">
 		<Setter Property="Foreground" Value="AliceBlue"></Setter>
 		<Setter Property="FontSize" Value="12"></Setter>
@@ -260,13 +212,13 @@
 				</Grid.ColumnDefinitions>
 				<ContentPresenter Name="Icon" Margin="6,0,6,0" VerticalAlignment="Center" ContentSource="Icon"/>
 				<Border Name="Check" Width="13" Height="13" Visibility="Collapsed" Margin="6,0,6,0" 
-						Background="#FF4F4F4F" BorderThickness="1" BorderBrush="#404040">
+					Background="#FF4F4F4F" BorderThickness="1" BorderBrush="#404040">
 					<Path Name="CheckMark" Width="7" Height="7" Visibility="Hidden" SnapsToDevicePixels="False" 
-							Stroke="#404040" StrokeThickness="2" Data="M 0 0 L 7 7 M 0 7 L 7 0" />
+						Stroke="#404040" StrokeThickness="2" Data="M 0 0 L 7 7 M 0 7 L 7 0" />
 				</Border>
 				<ContentPresenter Name="HeaderHost" Grid.Column="1" ContentSource="Header" RecognizesAccessKey="True"/>
 				<TextBlock x:Name="InputGestureText" Grid.Column="2" Text="{TemplateBinding InputGestureText}"
-						Margin="5,2,0,2" DockPanel.Dock="Right" />
+					Margin="5,2,0,2" DockPanel.Dock="Right" />
 			</Grid>
 		</Border>
 		<ControlTemplate.Triggers>
