@@ -18,6 +18,49 @@
 	<!-- Brush for hilighted menu / tool bar item background color-->
 	<SolidColorBrush x:Key="ToobarHilightBackgroundBrush" Color="#FF5E5E5E"></SolidColorBrush>
 
+	<SolidColorBrush x:Key="NormalBorderBrush" Color="#FF333333" />
+	<SolidColorBrush x:Key="NormalBrush" Color="#FF595959" />
+	<LinearGradientBrush x:Key="PressedBrush" EndPoint="0.5,0.971" StartPoint="0.5,0.042">
+		<GradientStop Color="#4C000000" Offset="0" />
+		<GradientStop Color="#26FFFFFF" Offset="1" />
+		<GradientStop Color="#4C000000" Offset="0.467" />
+		<GradientStop Color="#26FFFFFF" Offset="0.479" />
+	</LinearGradientBrush>
+	<LinearGradientBrush x:Key="SelectedBackgroundBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+		<GradientStop Color="#FFFFFFFF"/>
+		<GradientStop Color="#FF737373" Offset="1"/>
+	</LinearGradientBrush>
+	<Color x:Key="TextColor">#FFFFFFFF</Color>
+	<SolidColorBrush x:Key="DisabledBackgroundBrush" Color="#FF787878" />
+	<LinearGradientBrush x:Key="HoverShineBrush" EndPoint="0.5,0.971" StartPoint="0.5,0.042">
+		<GradientStop Color="#4CFFFFFF" Offset="0" />
+		<GradientStop Color="#26FFFFFF" Offset="1" />
+		<GradientStop Color="#26FFFFFF" Offset="0.467" />
+		<GradientStop Color="#00FFFFFF" Offset="0.475" />
+		<GradientStop Color="#00FFFFFF" Offset="0.856" />
+	</LinearGradientBrush>
+	<SolidColorBrush x:Key="ControlBackgroundBrush" Color="#FF333333" />
+	
+	<SolidColorBrush x:Key="SliderNormalBrush" Color="#FF595959" />
+	<SolidColorBrush x:Key="SliderNormalBorderBrush" Color="#FF333333" />
+	<SolidColorBrush x:Key="SliderHoverBrush" Color="#FF393939" />
+
+	<LinearGradientBrush x:Key="SliderPressedBrush" EndPoint="0.5,0.971" StartPoint="0.5,0.042">
+		<GradientStop Color="#4C000000" Offset="0" />
+		<GradientStop Color="#26FFFFFF" Offset="1" />
+		<GradientStop Color="#4C000000" Offset="0.467" />
+		<GradientStop Color="#26FFFFFF" Offset="0.479" />
+	</LinearGradientBrush>
+
+	<SolidColorBrush x:Key="SliderDisabledBackgroundBrush" Color="#FF787878" />
+
+	<LinearGradientBrush x:Key="SliderShineBrush" EndPoint="0.5,0.971" StartPoint="0.5,0.042">
+		<GradientStop Color="#59FFFFFF" Offset="0" />
+		<GradientStop Color="#00FFFFFF" Offset="1" />
+		<GradientStop Color="#26FFFFFF" Offset="0.467" />
+		<GradientStop Color="#00FFFFFF" Offset="0.475" />
+	</LinearGradientBrush>
+
 	<!-- Borderless window round corner background -->
 	<Style x:Key="WindowBackground" TargetType="Border">
 		<Setter Property="BorderBrush" Value="#395984"></Setter>
@@ -156,7 +199,7 @@
 			<Grid>
 				<ContentPresenter Margin="6,3,6,3" ContentSource="Header" RecognizesAccessKey="True" />
 				<Popup Name="Popup" Placement="Bottom" IsOpen="{TemplateBinding IsSubmenuOpen}"
-						AllowsTransparency="True" Focusable="False" PopupAnimation="Fade">
+					AllowsTransparency="True" Focusable="False" PopupAnimation="Fade">
 					<Border Name="SubmenuBorder" SnapsToDevicePixels="True" Background="#FF4F4F4F"
 						BorderBrush="#888888" BorderThickness="1" >
 						<StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Cycle" />
@@ -1246,33 +1289,7 @@
 	<!-- ===================== -->
 	<!-- Begin of Slider Style -->
 	<!-- ===================== -->
-	<SolidColorBrush x:Key="SliderNormalBrush" Color="#FF595959" />
-	<SolidColorBrush x:Key="SliderNormalBorderBrush" Color="#FF333333" />
-	<SolidColorBrush x:Key="SliderHoverBrush" Color="#FF393939" />
-
-	<LinearGradientBrush x:Key="SliderPressedBrush" EndPoint="0.5,0.971" StartPoint="0.5,0.042">
-		<GradientStop Color="#4C000000" Offset="0" />
-		<GradientStop Color="#26FFFFFF" Offset="1" />
-		<GradientStop Color="#4C000000" Offset="0.467" />
-		<GradientStop Color="#26FFFFFF" Offset="0.479" />
-	</LinearGradientBrush>
-
-	<SolidColorBrush x:Key="SliderDisabledBackgroundBrush" Color="#FF787878" />
-
-	<LinearGradientBrush x:Key="SliderShineBrush" EndPoint="0.5,0.971" StartPoint="0.5,0.042">
-		<GradientStop Color="#59FFFFFF" Offset="0" />
-		<GradientStop Color="#00FFFFFF" Offset="1" />
-		<GradientStop Color="#26FFFFFF" Offset="0.467" />
-		<GradientStop Color="#00FFFFFF" Offset="0.475" />
-	</LinearGradientBrush>
-
-	<LinearGradientBrush x:Key="HoverShineBrush" EndPoint="0.5,0.971" StartPoint="0.5,0.042">
-		<GradientStop Color="#4CFFFFFF" Offset="0" />
-		<GradientStop Color="#26FFFFFF" Offset="1" />
-		<GradientStop Color="#26FFFFFF" Offset="0.467" />
-		<GradientStop Color="#00FFFFFF" Offset="0.475" />
-		<GradientStop Color="#00FFFFFF" Offset="0.856" />
-	</LinearGradientBrush>
+	
 
 	<Style TargetType="Thumb">
 		<Setter Property="Background" Value="{StaticResource SliderNormalBrush}" />
@@ -1535,7 +1552,289 @@
 		<Setter Property="FontWeight" Value="Bold"/>
 		<Setter Property="Background" Value="LightSteelBlue"/>
 	</Style>
-	<!-- ====================== -->
+	<!-- ==================== -->
 	<!-- End of ToolBar Style -->
-	<!-- ====================== -->
+	<!-- ==================== -->
+
+	<!-- ======================= -->
+	<!-- Begin of Expander Style -->
+	<!-- ======================= -->
+	<Style TargetType="Expander">
+		<Setter Property="Foreground" Value="#FFFFFFFF" />
+		<Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+		<Setter Property="VerticalContentAlignment" Value="Stretch"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="Expander">
+					<Grid Background="Transparent">
+						<Grid.Resources>
+
+							<Style x:Key="SLExpanderContentControl" TargetType="ContentControl">
+								<Setter Property="Foreground" Value="#FF000000"/>
+								<Setter Property="HorizontalContentAlignment" Value="Left"/>
+								<Setter Property="VerticalContentAlignment" Value="Top"/>
+								<Setter Property="Template">
+									<Setter.Value>
+										<ControlTemplate TargetType="ContentControl">
+										</ControlTemplate>
+									</Setter.Value>
+								</Setter>
+								<Setter Property="Background" Value="{StaticResource NormalBrush}"/>
+							</Style>
+
+							<LinearGradientBrush x:Key="ExpanderArrowFill" EndPoint="0,1" StartPoint="0,0">
+								<GradientStop Color="White" Offset="0"/>
+								<GradientStop Color="#FFBFBFBF" Offset="0.5"/>
+								<GradientStop Color="#FF878787" Offset="1"/>
+							</LinearGradientBrush>
+							<LinearGradientBrush x:Key="ExpanderArrowHoverFill" EndPoint="0,1" StartPoint="0,0">
+								<GradientStop Color="#FFF0F8FE" Offset="0"/>
+								<GradientStop Color="#FFE0F3FE" Offset="0.3"/>
+								<GradientStop Color="#FF6FA7C5" Offset="1"/>
+							</LinearGradientBrush>
+							<LinearGradientBrush x:Key="ExpanderArrowPressedFill" EndPoint="0,1" StartPoint="0,0">
+								<GradientStop Color="#FFDCF0FA" Offset="0"/>
+								<GradientStop Color="#FFC5E6F7" Offset="0.2"/>
+								<GradientStop Color="#FF5690D0" Offset="1"/>
+							</LinearGradientBrush>
+							<ControlTemplate x:Key="ExpanderDownHeaderTemplate" TargetType="ToggleButton">
+								<Grid Background="Transparent">
+									<Border Padding="{TemplateBinding Padding}" CornerRadius="3,3,3,3" BorderBrush="{StaticResource NormalBorderBrush}" BorderThickness="2,2,2,2" Background="{StaticResource NormalBrush}">
+										<Grid Background="Transparent">
+											<Grid.ColumnDefinitions>
+												<ColumnDefinition Width="19"/>
+												<ColumnDefinition Width="*"/>
+											</Grid.ColumnDefinitions>
+											<Grid HorizontalAlignment="Left" VerticalAlignment="Top">
+												<Border Height="19" Width="19" Background="{StaticResource PressedBrush}" BorderBrush="{StaticResource NormalBorderBrush}" BorderThickness="2,2,2,2" CornerRadius="3,3,3,3" x:Name="Background"/>
+												<Border Height="19" x:Name="HoverBorder" Width="19" Background="{StaticResource SelectedBackgroundBrush}" BorderBrush="{StaticResource NormalBorderBrush}" BorderThickness="2,2,2,2" CornerRadius="3,3,3,3" Opacity="0"/>
+												<Path HorizontalAlignment="Center" x:Name="arrow" VerticalAlignment="Center" StrokeThickness="2" Data="M 1,1.5 L 4.5,5 L 8,1.5">
+													<Path.Stroke>
+														<SolidColorBrush Color="{StaticResource TextColor}"/>
+													</Path.Stroke>
+												</Path>
+											</Grid>
+											<ContentPresenter HorizontalAlignment="Left" Margin="4,0,0,0" x:Name="header" VerticalAlignment="Center" Grid.Column="1" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}"/>
+										</Grid>
+									</Border>
+									<Border x:Name="FocusVisualElement" IsHitTestVisible="false" Visibility="Collapsed" BorderBrush="{StaticResource NormalBorderBrush}" BorderThickness="2,2,2,2" CornerRadius="3"/>
+									<Border x:Name="FullControlHover" IsHitTestVisible="false" Visibility="Visible" BorderBrush="{StaticResource NormalBorderBrush}" BorderThickness="2,2,2,2" CornerRadius="3" Opacity="0"/>
+								</Grid>
+								<ControlTemplate.Triggers>
+									<Trigger Property="IsChecked" Value="True">
+										<Setter Property="Data" TargetName="arrow" Value="M 1,4.5 L 4.5,1 L 8,4.5" />
+									</Trigger>
+								</ControlTemplate.Triggers>
+							</ControlTemplate>
+
+							<ControlTemplate x:Key="ExpanderUpHeaderTemplate" TargetType="ToggleButton">
+								<Grid Background="Transparent">
+									<Border Padding="{TemplateBinding Padding}" CornerRadius="3,3,3,3" BorderBrush="{StaticResource NormalBorderBrush}" BorderThickness="2,2,2,2" Background="{StaticResource NormalBrush}">
+										<Grid Background="Transparent">
+											<Grid.ColumnDefinitions>
+												<ColumnDefinition Width="19"/>
+												<ColumnDefinition Width="*"/>
+											</Grid.ColumnDefinitions>
+
+											<Grid HorizontalAlignment="Left" VerticalAlignment="Top">
+												<Grid.RenderTransform>
+													<TransformGroup>
+														<TransformGroup.Children>
+															<TransformCollection>
+																<RotateTransform Angle="180"  CenterX="9.5" CenterY="9.5"/>
+															</TransformCollection>
+														</TransformGroup.Children>
+													</TransformGroup>
+												</Grid.RenderTransform>
+												<Border Height="19" Width="19" Background="{StaticResource PressedBrush}" BorderBrush="{StaticResource NormalBorderBrush}" BorderThickness="2,2,2,2" CornerRadius="3,3,3,3" x:Name="Background">
+													<Border.RenderTransform>
+														<TransformGroup>
+															<ScaleTransform/>
+															<SkewTransform/>
+															<RotateTransform Angle="180"  CenterX="9.5" CenterY="9.5"/>
+															<TranslateTransform/>
+														</TransformGroup>
+													</Border.RenderTransform>
+												</Border>
+												<Border Height="19" x:Name="HoverBorder" Width="19" Background="{StaticResource SelectedBackgroundBrush}" BorderBrush="{StaticResource NormalBorderBrush}" BorderThickness="2,2,2,2" CornerRadius="3,3,3,3" Opacity="0">
+													<Border.RenderTransform>
+														<TransformGroup>
+															<ScaleTransform/>
+															<SkewTransform/>
+															<RotateTransform Angle="180"  CenterX="9.5" CenterY="9.5"/>
+															<TranslateTransform/>
+														</TransformGroup>
+													</Border.RenderTransform>
+												</Border>
+												<Path HorizontalAlignment="Center" x:Name="arrow" VerticalAlignment="Center" StrokeThickness="2" Data="M 1,1.5 L 4.5,5 L 8,1.5">
+													<Path.Stroke>
+														<SolidColorBrush Color="{StaticResource TextColor}"/>
+													</Path.Stroke>
+												</Path>
+											</Grid>
+											<ContentPresenter HorizontalAlignment="Left" Margin="4,0,0,0" x:Name="header" VerticalAlignment="Center" Grid.Column="1" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}"/>
+										</Grid>
+									</Border>
+									<Border x:Name="FocusVisualElement" IsHitTestVisible="false" Visibility="Collapsed" BorderBrush="{StaticResource NormalBorderBrush}" BorderThickness="2,2,2,2" CornerRadius="3"/>
+									<Border x:Name="FullControlHover" IsHitTestVisible="false" Visibility="Visible" BorderBrush="{StaticResource NormalBorderBrush}" BorderThickness="2,2,2,2" CornerRadius="3" Opacity="0"/>
+								</Grid>
+							</ControlTemplate>
+							<ControlTemplate x:Key="ExpanderLeftHeaderTemplate" TargetType="ToggleButton">
+								<Grid Background="Transparent">
+									<Border Padding="{TemplateBinding Padding}" CornerRadius="3,3,3,3" BorderBrush="{StaticResource NormalBorderBrush}" BorderThickness="2,2,2,2" Background="{StaticResource NormalBrush}">
+										<Grid Background="Transparent">
+											<Grid.ColumnDefinitions>
+												<ColumnDefinition Width="19"/>
+												<ColumnDefinition Width="*"/>
+											</Grid.ColumnDefinitions>
+
+											<Grid HorizontalAlignment="Left" VerticalAlignment="Top">
+												<Grid.RenderTransform>
+													<TransformGroup>
+														<TransformGroup.Children>
+															<TransformCollection>
+																<RotateTransform Angle="90"  CenterX="9.5" CenterY="9.5"/>
+															</TransformCollection>
+														</TransformGroup.Children>
+													</TransformGroup>
+												</Grid.RenderTransform>
+												<Border Height="19" Width="19" Background="{StaticResource PressedBrush}" BorderBrush="{StaticResource NormalBorderBrush}" BorderThickness="2,2,2,2" CornerRadius="3,3,3,3" x:Name="Background">
+													<Border.RenderTransform>
+														<TransformGroup>
+															<ScaleTransform/>
+															<SkewTransform/>
+															<RotateTransform Angle="-90"  CenterX="9.5" CenterY="9.5"/>
+															<TranslateTransform/>
+														</TransformGroup>
+													</Border.RenderTransform>
+												</Border>
+												<Border Height="19" x:Name="HoverBorder" Width="19" Background="{StaticResource SelectedBackgroundBrush}" BorderBrush="{StaticResource NormalBorderBrush}" BorderThickness="2,2,2,2" CornerRadius="3,3,3,3" Opacity="0">
+													<Border.RenderTransform>
+														<TransformGroup>
+															<ScaleTransform/>
+															<SkewTransform/>
+															<RotateTransform Angle="-90"  CenterX="9.5" CenterY="9.5"/>
+															<TranslateTransform/>
+														</TransformGroup>
+													</Border.RenderTransform>
+												</Border>
+												<Path HorizontalAlignment="Center" x:Name="arrow" VerticalAlignment="Center" StrokeThickness="2" Data="M 1,1.5 L 4.5,5 L 8,1.5">
+													<Path.Stroke>
+														<SolidColorBrush Color="{StaticResource TextColor}"/>
+													</Path.Stroke>
+												</Path>
+											</Grid>
+										</Grid>
+									</Border>
+									<Border x:Name="FocusVisualElement" IsHitTestVisible="false" Visibility="Collapsed" BorderBrush="{StaticResource NormalBorderBrush}" BorderThickness="2,2,2,2" CornerRadius="3"/>
+									<Border x:Name="FullControlHover" IsHitTestVisible="false" Visibility="Visible" BorderBrush="{StaticResource NormalBorderBrush}" BorderThickness="2,2,2,2" CornerRadius="3" Opacity="0"/>
+									<ContentPresenter x:Name="header" VerticalAlignment="Top" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" Margin="0,42,0,0" >
+										<ContentPresenter.RenderTransform>
+											<TransformGroup>
+												<ScaleTransform/>
+												<SkewTransform/>
+												<RotateTransform Angle="90"/>
+												<TranslateTransform/>
+											</TransformGroup>
+										</ContentPresenter.RenderTransform>
+									</ContentPresenter>
+								</Grid>
+							</ControlTemplate>
+							<ControlTemplate x:Key="ExpanderRightHeaderTemplate" TargetType="ToggleButton">
+								<Grid Background="Transparent">
+									<Border Padding="{TemplateBinding Padding}" CornerRadius="3,3,3,3" BorderBrush="{StaticResource NormalBorderBrush}" BorderThickness="2,2,2,2" Background="{StaticResource NormalBrush}">
+										<Grid Background="Transparent">
+											<Grid.ColumnDefinitions>
+												<ColumnDefinition Width="19"/>
+												<ColumnDefinition Width="*"/>
+											</Grid.ColumnDefinitions>
+
+											<Grid HorizontalAlignment="Left" VerticalAlignment="Top">
+												<Grid.RenderTransform>
+													<TransformGroup>
+														<TransformGroup.Children>
+															<TransformCollection>
+																<RotateTransform Angle="-90"  CenterX="9.5" CenterY="9.5"/>
+															</TransformCollection>
+														</TransformGroup.Children>
+													</TransformGroup>
+												</Grid.RenderTransform>
+												<Border Height="19" Width="19" Background="{StaticResource PressedBrush}" BorderBrush="{StaticResource NormalBorderBrush}" BorderThickness="2,2,2,2" CornerRadius="3,3,3,3" x:Name="Background">
+													<Border.RenderTransform>
+														<TransformGroup>
+															<ScaleTransform/>
+															<SkewTransform/>
+															<RotateTransform Angle="90"  CenterX="9.5" CenterY="9.5"/>
+															<TranslateTransform/>
+														</TransformGroup>
+													</Border.RenderTransform>
+												</Border>
+												<Border Height="19" x:Name="HoverBorder" Width="19" Background="{StaticResource SelectedBackgroundBrush}" BorderBrush="{StaticResource NormalBorderBrush}" BorderThickness="2,2,2,2" CornerRadius="3,3,3,3" Opacity="0">
+													<Border.RenderTransform>
+														<TransformGroup>
+															<ScaleTransform/>
+															<SkewTransform/>
+															<RotateTransform Angle="90"  CenterX="9.5" CenterY="9.5"/>
+															<TranslateTransform/>
+														</TransformGroup>
+													</Border.RenderTransform>
+												</Border>
+												<Path HorizontalAlignment="Center" x:Name="arrow" VerticalAlignment="Center" StrokeThickness="2" Data="M 1,1.5 L 4.5,5 L 8,1.5">
+													<Path.Stroke>
+														<SolidColorBrush Color="{StaticResource TextColor}"/>
+													</Path.Stroke>
+												</Path>
+											</Grid>
+										</Grid>
+									</Border>
+									<Border x:Name="FocusVisualElement" IsHitTestVisible="false" Visibility="Collapsed" BorderBrush="{StaticResource NormalBorderBrush}" BorderThickness="2,2,2,2" CornerRadius="3"/>
+									<Border x:Name="FullControlHover" IsHitTestVisible="false" Visibility="Visible" BorderBrush="{StaticResource NormalBorderBrush}" BorderThickness="2,2,2,2" CornerRadius="3" Opacity="0"/>
+									<ContentPresenter x:Name="header" VerticalAlignment="Top" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" Margin="0,42,0,0" >
+										<ContentPresenter.RenderTransform>
+											<TransformGroup>
+												<ScaleTransform/>
+												<SkewTransform/>
+												<RotateTransform Angle="-90"/>
+												<TranslateTransform/>
+											</TransformGroup>
+										</ContentPresenter.RenderTransform>
+									</ContentPresenter>
+								</Grid>
+							</ControlTemplate>
+						</Grid.Resources>
+						<Border x:Name="Background" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="3" Padding="{TemplateBinding Padding}">
+							<Grid>
+								<Grid.RowDefinitions>
+									<RowDefinition Height="Auto" x:Name="rd0"/>
+									<RowDefinition Height="*" x:Name="rd1"/>
+								</Grid.RowDefinitions>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="Auto" x:Name="cd0"/>
+									<ColumnDefinition Width="*" x:Name="cd1"/>
+								</Grid.ColumnDefinitions>
+
+
+								<ToggleButton HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="1" MinHeight="0" MinWidth="0" x:Name="ExpanderButton" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" FontFamily="{TemplateBinding FontFamily}" FontSize="{TemplateBinding FontSize}" FontStretch="{TemplateBinding FontStretch}" FontStyle="{TemplateBinding FontStyle}" FontWeight="{TemplateBinding FontWeight}" Foreground="{TemplateBinding Foreground}" Template="{StaticResource ExpanderDownHeaderTemplate}" Grid.Column="0" Grid.Row="0" Content="{TemplateBinding Header}" ContentTemplate="{TemplateBinding HeaderTemplate}" IsChecked="{Binding Path=IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Grid.ColumnSpan="2"/>
+								<Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" x:Name="ExpandSite" Visibility="Collapsed">
+									<Border Background="{StaticResource NormalBrush}" CornerRadius="3,3,3,3" BorderBrush="{StaticResource NormalBorderBrush}" BorderThickness="1,1,1,1"/>
+									<ContentPresenter Cursor="{TemplateBinding Cursor}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="4,4,4,4" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+								</Grid>
+							</Grid>
+						</Border>
+						<Border x:Name="DisabledVisualElement" IsHitTestVisible="false" Opacity="0" Background="{StaticResource DisabledBackgroundBrush}" CornerRadius="3"/>
+						<Border x:Name="FocusVisualElement" IsHitTestVisible="false" Visibility="Collapsed" BorderBrush="{StaticResource HoverShineBrush}" BorderThickness="1" CornerRadius="3"/>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsExpanded" Value="True">
+							<Setter Property="Visibility" Value="Visible" TargetName="ExpandSite"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+		<Setter Property="Background" Value="{StaticResource ControlBackgroundBrush}"/>
+	</Style>
+	<!-- ===================== -->
+	<!-- End of Expander Style -->
+	<!-- ===================== -->
 </ResourceDictionary>
