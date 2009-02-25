@@ -1,20 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.ComponentModel;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Input;
 using System.Windows.Forms;
+using System.Windows.Input;
 using System.Windows.Threading;
-using System.IO;
-using System.ComponentModel;
+
+using HardySoft.CC.Converter;
+using HardySoft.UI.BatchImageProcessor.Classes;
+using HardySoft.UI.BatchImageProcessor.Model;
+using HardySoft.UI.BatchImageProcessor.Presenter;
+using HardySoft.UI.BatchImageProcessor.View;
 
 using Microsoft.Practices.Unity;
-
-using HardySoft.UI.BatchImageProcessor.View;
-using HardySoft.UI.BatchImageProcessor.Presenter;
-using HardySoft.UI.BatchImageProcessor.Model;
-using HardySoft.UI.BatchImageProcessor.Classes;
-using HardySoft.CC.Converter;
 
 namespace HardySoft.UI.BatchImageProcessor.Controls {
 	/// <summary>
@@ -23,8 +22,9 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 	public partial class MainInterfaceControl : System.Windows.Controls.UserControl, IMainInterfaceControlView {
 		// TODO make watermark text to support text aligment selection.
 		// TODO change position selection drop down layout, P573
-		// TODO add water mark image/text rotate feature
-		// TODO add water mark text macro from EXIF feature
+		// TODO add watermark image/text rotate feature
+		// TODO add watermark text macro from EXIF feature
+		// TODO in image file list add a new column to include button to remove image from list
 		private MainControl_Presenter presenter;
 		private DispatcherTimer dispatcherTimer;
 
