@@ -40,8 +40,42 @@ namespace HardySoft.UI.BatchImageProcessor {
 			DialogResult = true;
 		}
 
+		private void btnCheckNewVersion_Click(object sender, RoutedEventArgs e) {
+			Version latestVersion = AssembyInformation.GetLatestVersion();
+			Version myVersion = AssembyInformation.GetApplicationVersion();
+
+			if (latestVersion != null && myVersion != null) {
+				compareVersion(latestVersion, myVersion);
+			} else {
+				string compareStatus = HardySoft.UI.BatchImageProcessor.Resources.LanguageContent.UnableToCheckVersion;
+				showNewVersionWindow(latestVersion, myVersion, compareStatus);
+			}
+		}
+
+		private void compareVersion(Version latestVersion, Version myVersion) {
+			string compareStatus = string.Format(HardySoft.UI.BatchImageProcessor.Resources.LanguageContent.NewVersionAvailable,
+				latestVersion.ToString());
+			if (latestVersion.Major > myVersion.Major) {
+			} else if (latestVersion.Minor > myVersion.Minor) {
+			} else if (latestVersion.Build > myVersion.Build) {
+			} else if (latestVersion.Revision > myVersion.Revision) {
+			} else {
+				compareStatus = HardySoft.UI.BatchImageProcessor.Resources.LanguageContent.NoNewVersion;
+			}
+
+			showNewVersionWindow(latestVersion, myVersion, compareStatus);
+		}
+
+		private void showNewVersionWindow(Version lastestVersion, Version myVersion, string compareStatus) {
+			VersionCheckingResult window = new VersionCheckingResult();
+			window.LatestVersion = lastestVersion;
+			window.MyVersion = myVersion;
+			window.VersionCompareStatus = compareStatus;
+			window.ApplicationURL = HardySoft.UI.BatchImageProcessor.Resources.LanguageContent.ApplicationUrl;
+			window.Show();
+		}
+
 		private void hyperlink_RequestNavigate(object sender, System.Windows.Navigation.RequestNavigateEventArgs e) {
-			// TODO update code MSDN URL whenever it is avaiable
 			string navigateUri = e.Uri.ToString();
 			// if the URI somehow came from an untrusted source, make sure to
 			// validate it before calling Process.Start(), e.g. check to see

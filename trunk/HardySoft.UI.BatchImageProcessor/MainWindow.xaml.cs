@@ -16,6 +16,7 @@ using Microsoft.Practices.Unity;
 
 using HardySoft.UI.BatchImageProcessor.Controls;
 using HardySoft.UI.BatchImageProcessor.Classes;
+using HardySoft.UI.BatchImageProcessor.Classes.Commands;
 
 namespace HardySoft.UI.BatchImageProcessor {
 	/// <summary>
@@ -29,6 +30,38 @@ namespace HardySoft.UI.BatchImageProcessor {
 			MainInterfaceControl mainControl = (MainInterfaceControl)container.Resolve<MainInterfaceControl>();
 			mainControl.ProjectFileNameObtained += new ProjectFileNameObtainedHandler(mainControl_ProjectFileNameObtained);
 			MainControlPlaceHolder.Children.Add(mainControl);
+
+			// command / focus issue
+			// see http://social.msdn.microsoft.com/Forums/en-US/wpf/thread/753c2a0b-753f-43d3-afb3-01d4d3c93787
+			KeyGesture keyO = new KeyGesture(Key.O, ModifierKeys.Control);
+			KeyBinding kbO = new KeyBinding(ApplicationCommands.Open, keyO);
+			kbO.CommandTarget = mainControl;
+			this.InputBindings.Add(kbO);
+
+			KeyGesture keyN = new KeyGesture(Key.N, ModifierKeys.Control);
+			KeyBinding kbN = new KeyBinding(ApplicationCommands.New, keyN);
+			kbN.CommandTarget = mainControl;
+			this.InputBindings.Add(kbN);
+
+			KeyGesture keyS = new KeyGesture(Key.S, ModifierKeys.Control);
+			KeyBinding kbS = new KeyBinding(ApplicationCommands.Save, keyS);
+			kbS.CommandTarget = mainControl;
+			this.InputBindings.Add(kbS);
+
+			KeyGesture keySA = new KeyGesture(Key.H, ModifierKeys.Control);
+			KeyBinding kbSA = new KeyBinding(ApplicationCommands.SaveAs, keySA);
+			kbSA.CommandTarget = mainControl;
+			this.InputBindings.Add(kbSA);
+
+			KeyGesture keyESC = new KeyGesture(Key.Escape, ModifierKeys.Control);
+			KeyBinding kbESC = new KeyBinding(ApplicationCommand.Exit, keyESC);
+			kbESC.CommandTarget = mainControl;
+			this.InputBindings.Add(kbESC);
+
+			KeyGesture keyM = new KeyGesture(Key.M, ModifierKeys.Control);
+			KeyBinding kbM = new KeyBinding(ApplicationCommand.Make, keyM);
+			kbM.CommandTarget = mainControl;
+			this.InputBindings.Add(kbM);
 		}
 
 		void mainControl_ProjectFileNameObtained(object sender, ProjectFileNameEventArgs args) {

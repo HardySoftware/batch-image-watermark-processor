@@ -32,7 +32,7 @@ namespace HardySoft.UI.BatchImageProcessor.Classes.Converters {
 				if (attributes.Length > 0) {
 					string description = attributes[0].Description;
 
-					Type enumResourceType = typeof(EnumResources);
+					Type enumResourceType = typeof(LanguageContent);
 
 					ResourceManager resMan = enumResourceType.InvokeMember(
 							 @"ResourceManager",
@@ -49,7 +49,7 @@ namespace HardySoft.UI.BatchImageProcessor.Classes.Converters {
 						 new object[] { }) as CultureInfo;
 
 					if (resMan != null) {
-						description = resMan.GetString(description, cul);
+						description = resMan.GetString("Enum" + description, cul);
 					}
 
 					return description;
