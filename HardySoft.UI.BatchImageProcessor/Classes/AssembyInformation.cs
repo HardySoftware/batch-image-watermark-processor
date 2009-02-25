@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Reflection;
+using System.Net;
+using System.IO;
 
 namespace HardySoft.UI.BatchImageProcessor.Classes {
 	public class AssembyInformation {
@@ -20,7 +22,11 @@ namespace HardySoft.UI.BatchImageProcessor.Classes {
 
 		public string AssemblyVersion {
 			get {
-				return Assembly.GetExecutingAssembly().GetName().Version.ToString();
+				try {
+					return GetApplicationVersion().ToString();
+				} catch {
+					return string.Empty;
+				}
 			}
 		}
 
@@ -80,6 +86,58 @@ namespace HardySoft.UI.BatchImageProcessor.Classes {
 
 				return referenced;
 			}
+		}
+
+		public string ApplicationUrl {
+			get {
+				return Resources.LanguageContent.ApplicationUrl;
+			}
+		}
+
+		/// <summary>
+		/// Get latest version available online.
+		/// </summary>
+		/// <returns>
+		/// Latest version number, or null if any exception happens.
+		/// </returns>
+		public static Version GetLatestVersion() {
+			try {
+				WebRequest request = WebRequest.Create("http://code.google.com/p/batch-image-watermark-processor/wiki/CurrentVersion");
+				HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+				Stream dataStream = response.GetResponseStream();
+				StreamReader reader = new StreamReader(dataStream);
+				string responseFromServer = reader.ReadToEnd();
+
+				Regex reg = new Regex(@"&gt;&gt;&gt;([\d]+\.[\d]+\.[\d]+\.[\d]+)?&lt;&lt;&lt;");
+				MatchCollection matches = reg.Matches(responseFromServer);
+
+				Version v = null;
+
+				if (matches != null) {
+					for (int i = 0; i < matches.Count; i++) {
+						Match m = matches[i];
+						string foundVersion = m.Value;
+						foundVersion = foundVersion.Replace("&gt;", "");
+						foundVersion = foundVersion.Replace(">", "");
+						foundVersion = foundVersion.Replace("&lt;", "");
+						foundVersion = foundVersion.Replace("<", "");
+
+						v = new Version(foundVersion);
+					}
+				}
+
+				return v;
+			} catch {
+				return null;
+			}
+		}
+
+		/// <summary>
+		/// Get current application's version number.
+		/// </summary>
+		/// <returns></returns>
+		public static Version GetApplicationVersion() {
+			return Assembly.GetExecutingAssembly().GetName().Version;
 		}
 	}
 

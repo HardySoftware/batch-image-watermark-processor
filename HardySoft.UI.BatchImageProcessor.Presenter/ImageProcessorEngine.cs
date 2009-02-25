@@ -182,7 +182,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 					//fileNameProvider.ImageIndex = imageIndex;
 					saveImage(imagePath, thumb, format, fileNameProvider, imageSaver);
 				} catch (Exception ex) {
-					// TODO add logic
+					// TODO add logic to handle exception
 				} finally {
 					normalImage.Dispose();
 					normalImage = null;
