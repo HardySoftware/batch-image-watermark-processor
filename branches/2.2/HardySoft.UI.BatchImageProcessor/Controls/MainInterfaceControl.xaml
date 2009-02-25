@@ -1,0 +1,982 @@
+﻿<UserControl x:Class="HardySoft.UI.BatchImageProcessor.Controls.MainInterfaceControl"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:HSC="clr-namespace:HardySoft.UI.BatchImageProcessor.Classes.Commands"
+	xmlns:HSCtrl="clr-namespace:HardySoft.UI.BatchImageProcessor.Controls"
+	xmlns:DataSource="clr-namespace:HardySoft.UI.BatchImageProcessor.Model;assembly=HardySoft.UI.BatchImageProcessor.Model"
+	>
+	<!-- Commands Associated with Menu and Toolbar -->
+	<Control.CommandBindings>
+		<CommandBinding x:Name="NewCommand" Command="ApplicationCommands.New" Executed="NewCommand_Executed" CanExecute="NewCommand_CanExecute"/>
+		<CommandBinding x:Name="OpenCommand" Command="ApplicationCommands.Open" Executed="OpenCommand_Executed" CanExecute="OpenCommand_CanExecute" />
+		<CommandBinding x:Name="SaveCommand" Command="ApplicationCommands.Save" Executed="SaveCommand_Executed" CanExecute="SaveCommand_CanExecute" />
+		<CommandBinding x:Name="SaveAsCommand" Command="ApplicationCommands.SaveAs" Executed="SaveAsCommand_Executed" CanExecute="SaveAsCommand_CanExecute" />
+		<CommandBinding x:Name="StopCommand" Command="ApplicationCommands.Stop" Executed="StopCommand_Executed" CanExecute="StopCommand_CanExecute" />
+		<CommandBinding x:Name="MakeCommand" Command="HSC:ApplicationCommand.Make" Executed="MakeCommand_Executed" CanExecute="MakeCommand_CanExecute" />
+		<CommandBinding x:Name="ExitCommand" Command="HSC:ApplicationCommand.Exit" Executed="ExitCommand_Executed" CanExecute="ExitCommand_CanExecute" />
+		<CommandBinding x:Name="PreferenceCommand" Command="HSC:ApplicationCommand.Preference" Executed="PreferenceCommand_Executed" CanExecute="PreferenceCommand_CanExecute"/>
+		<CommandBinding x:Name="AboutCommand" Command="HSC:ApplicationCommand.About" Executed="AboutCommand_Executed" CanExecute="AboutCommand_CanExecute" />
+		<CommandBinding x:Name="HelpCommand" Command="ApplicationCommands.Help" Executed="HelpCommand_Executed" CanExecute="HelpCommand_CanExecute"/>
+	</Control.CommandBindings>
+	
+	<Control.InputBindings>
+		<KeyBinding Key="o" Modifiers="Control" Command="ApplicationCommands.Open" />
+	</Control.InputBindings>
+
+	<DockPanel LastChildFill="True" VerticalAlignment="Stretch">
+		<Grid DockPanel.Dock="Top" Height="25">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition></ColumnDefinition>
+				<ColumnDefinition Width="Auto"></ColumnDefinition>
+			</Grid.ColumnDefinitions>
+
+			<!-- Menu Bar -->
+			<Menu Grid.Row="0" Grid.Column="0">
+				<MenuItem Header="_File">
+					<MenuItem Header="_New Project" Command="ApplicationCommands.New">
+						<MenuItem.Icon>
+							<Image Source="/SeaTurtle;component/Themes/DarkCool/Images/Menu_Icons/new.png"></Image>
+						</MenuItem.Icon>
+					</MenuItem>
+					<MenuItem Header="_Open Project" Command="ApplicationCommands.Open">
+						<MenuItem.Icon>
+							<Image Source="/SeaTurtle;component/Themes/DarkCool/Images/Menu_Icons/open.png"></Image>
+						</MenuItem.Icon>
+					</MenuItem>
+					<MenuItem Header="_Save Project" Command="ApplicationCommands.Save">
+						<MenuItem.Icon>
+							<Image Source="/SeaTurtle;component/Themes/DarkCool/Images/Menu_Icons/save.png"></Image>
+						</MenuItem.Icon>
+					</MenuItem>
+					<MenuItem Header="S_ave Project As" Command="ApplicationCommands.SaveAs">
+						<MenuItem.Icon>
+							<Image Source="/SeaTurtle;component/Themes/DarkCool/Images/Menu_Icons/saveas.png"></Image>
+						</MenuItem.Icon>
+					</MenuItem>
+					<Separator></Separator>
+					<MenuItem Header="E_xit" Command="HSC:ApplicationCommand.Exit">
+						<MenuItem.Icon>
+							<Image Source="/SeaTurtle;component/Themes/DarkCool/Images/Menu_Icons/exit.png"></Image>
+						</MenuItem.Icon>
+					</MenuItem>
+				</MenuItem>
+				<MenuItem Header="_Process">
+					<MenuItem Header="_Make" Command="HSC:ApplicationCommand.Make">
+						<MenuItem.Icon>
+							<Image Source="/SeaTurtle;component/Themes/DarkCool/Images/Menu_Icons/fire.png"></Image>
+						</MenuItem.Icon>
+					</MenuItem>
+					<MenuItem Header="_Stop" Command="ApplicationCommands.Stop">
+						<MenuItem.Icon>
+							<Image Source="/SeaTurtle;component/Themes/DarkCool/Images/Menu_Icons/stop.png"></Image>
+						</MenuItem.Icon>
+					</MenuItem>
+					<MenuItem Header="_Preference" Command="HSC:ApplicationCommand.Preference">
+						<MenuItem.Icon>
+							<Image Source="/SeaTurtle;component/Themes/DarkCool/Images/Menu_Icons/preference.png"></Image>
+						</MenuItem.Icon>
+					</MenuItem>
+				</MenuItem>
+				<MenuItem Header="_Help">
+					<MenuItem Header="_About" Command="HSC:ApplicationCommand.About">
+						<MenuItem.Icon>
+							<Image Source="/SeaTurtle;component/Themes/DarkCool/Images/Menu_Icons/information.png"></Image>
+						</MenuItem.Icon>
+					</MenuItem>
+				</MenuItem>
+			</Menu>
+
+			<!-- Toolbar -->
+			<ToolBar Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top">
+				<Button Command="ApplicationCommands.New">
+					<StackPanel Orientation="Horizontal">
+						<Image Source="/SeaTurtle;component/Themes/DarkCool/Images/Menu_Icons/new.png"></Image>
+						<TextBlock>New Project</TextBlock>
+					</StackPanel>
+				</Button>
+				<Button Command="ApplicationCommands.Open">
+					<StackPanel Orientation="Horizontal">
+						<Image Source="/SeaTurtle;component/Themes/DarkCool/Images/Menu_Icons/open.png"></Image>
+						<TextBlock>Open Project</TextBlock>
+					</StackPanel>
+				</Button>
+				<Button Command="ApplicationCommands.Save">
+					<StackPanel Orientation="Horizontal">
+						<Image Source="/SeaTurtle;component/Themes/DarkCool/Images/Menu_Icons/save.png"></Image>
+						<TextBlock>Save Project</TextBlock>
+					</StackPanel>
+				</Button>
+				<Button Command="HSC:ApplicationCommand.Make">
+					<StackPanel Orientation="Horizontal">
+						<Image Source="/SeaTurtle;component/Themes/DarkCool/Images/Menu_Icons/fire.png"></Image>
+						<TextBlock>Make</TextBlock>
+					</StackPanel>
+				</Button>
+				<Button Command="ApplicationCommands.Stop">
+					<StackPanel Orientation="Horizontal">
+						<Image Source="/SeaTurtle;component/Themes/DarkCool/Images/Menu_Icons/stop.png"></Image>
+						<TextBlock>Stop</TextBlock>
+					</StackPanel>
+				</Button>
+			</ToolBar>
+		</Grid>
+
+		<ProgressBar Name="Progress" DockPanel.Dock="Bottom" Minimum="0"
+			Background="Transparent" Height="20"/>
+
+		<!-- Configuration Areas -->
+		<TabControl x:Name="tabConfiguration" Margin="10, 5, 10, 5"
+			Background="Transparent" BorderThickness="1" VerticalAlignment="Stretch">
+
+			<!-- First Tab, file selection -->
+			<TabItem Header="Directory Selection">
+				<Grid ShowGridLines="False">
+					<Grid.RowDefinitions>
+						<!-- row for source directory -->
+						<RowDefinition Height="auto"></RowDefinition>
+						<!-- row for destination directory -->
+						<RowDefinition Height="auto"></RowDefinition>
+						<!-- row for blank line -->
+						<RowDefinition Height="*"></RowDefinition>
+						<!-- row for photo list title text -->
+						<RowDefinition Height="*"></RowDefinition>
+						<!-- row for photo list -->
+						<RowDefinition Height="15*"></RowDefinition>
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*"></ColumnDefinition>
+						<ColumnDefinition Width="3*"></ColumnDefinition>
+						<ColumnDefinition Width="60"></ColumnDefinition>
+					</Grid.ColumnDefinitions>
+
+					<StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
+						<TextBlock x:Name="lSourceDirectory" Style="{StaticResource ConfigSectionLabel}"
+							VerticalAlignment="Center">
+							Source Directory
+						</TextBlock>
+						<Button Style="{StaticResource HelpButton}"
+							CommandParameter="SourceDirectory"
+							Command="ApplicationCommands.Help"></Button>
+					</StackPanel>
+					<TextBox x:Name="txtSourceDirectory"
+						Grid.Row="0" Grid.Column="1" IsReadOnly="True"
+						VerticalAlignment="Center" HorizontalAlignment="Stretch"
+						MaxLines="1" Margin="0, 5, 5, 5"
+						Style="{StaticResource cfgTextBox}"
+						Text="{Binding Path=SourceDirectory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+					<Button x:Name="btnSourceDirectory" VerticalAlignment="Center"
+						Style="{StaticResource GlassButton}"
+						Height="{Binding ElementName=lSourceDirectory, Path=Height}"
+						Grid.Row="0" Grid.Column="2"
+						Click="btnSourceDirectory_Click">...</Button>
+
+					<StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal">
+						<TextBlock Style="{StaticResource ConfigSectionLabel}" VerticalAlignment="Center"
+							Grid.Row="1" Grid.Column="0">Ouput Directory</TextBlock>
+						<Button Style="{StaticResource HelpButton}"
+							CommandParameter="DestinationDirectory"
+							Command="ApplicationCommands.Help"></Button>
+					</StackPanel>
+					<TextBox x:Name="txtDestDirectory"
+						Grid.Row="1" Grid.Column="1" IsReadOnly="True"
+						Style="{StaticResource cfgTextBox}" Margin="0, 5, 5, 5"
+						VerticalAlignment="Center" HorizontalAlignment="Stretch"
+						MaxLines="1"
+						Text="{Binding Path=OutputDirectory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+					<Button x:Name="btnDestDirectory" VerticalAlignment="Center"
+						Style="{StaticResource GlassButton}"
+						Grid.Row="1" Grid.Column="2"
+						Click="btnDestDirectory_Click">...</Button>
+
+					<StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Orientation="Horizontal">
+						<TextBlock HorizontalAlignment="Center"
+							Style="{StaticResource ConfigSectionLabel}">Image File List</TextBlock>
+						<Button Style="{StaticResource HelpButton}"
+							CommandParameter="ImageFileList"
+							Command="ApplicationCommands.Help"></Button>
+					</StackPanel>
+					<HSCtrl:SortableListView x:Name="lvFileList"
+						Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3"
+						IsSynchronizedWithCurrentItem="True"
+						SelectionChanged="FileList_SelectionChanged"
+						ColumnHeaderSortedAscendingTemplate="HeaderTemplateArrowUp"
+						ColumnHeaderSortedDescendingTemplate="HeaderTemplateArrowDown"
+						ColumnHeaderNotSortedTemplate="HeaderTemplateTransparent"
+						ItemContainerStyle="{StaticResource AlternatingListBoxItemStyle}"
+						AlternationCount="2" SnapsToDevicePixels="True"
+						ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+						ScrollViewer.VerticalScrollBarVisibility="Auto"
+						ItemsSource="{Binding Path=Photos}">
+						<ListView.View>
+							<GridView ColumnHeaderContainerStyle="{StaticResource GridViewHeaderStyle}"
+								ColumnHeaderTemplate="{StaticResource HeaderTemplateTransparent}">
+								<HSCtrl:SortableGridViewColumn Header="Selected" x:Name="colSelected"
+									SortPropertyName="Selected" Width="70" >
+									<HSCtrl:SortableGridViewColumn.CellTemplate>
+										<DataTemplate>
+											<CheckBox Name="chk" IsChecked="{Binding Selected}" ToolTip="Select or unselect" />
+										</DataTemplate>
+									</HSCtrl:SortableGridViewColumn.CellTemplate>
+								</HSCtrl:SortableGridViewColumn>
+								<HSCtrl:SortableGridViewColumn Header="Image File Name" x:Name="colImagePath"
+									SortPropertyName="PhotoPath" Width="500" IsDefaultSortColumn="True">
+									<HSCtrl:SortableGridViewColumn.CellTemplate>
+										<DataTemplate>
+											<TextBlock Text="{Binding Path=PhotoPath}" ToolTipService.ShowDuration="60000">
+												<TextBlock.ToolTip>
+													<ToolTip StaysOpen="True">
+														<Grid ShowGridLines="False">
+															<Grid.ColumnDefinitions>
+																<!-- thumb nail column -->
+																<ColumnDefinition></ColumnDefinition>
+																<!-- blank line to separate image and exif -->
+																<ColumnDefinition Width="10"></ColumnDefinition>
+																<!-- EXIF column -->
+																<ColumnDefinition></ColumnDefinition>
+															</Grid.ColumnDefinitions>
+															<Grid VerticalAlignment="Center" HorizontalAlignment="Center" Margin="6"
+																Grid.Row="0" Grid.Column="0">
+																<!-- Drop Shadow -->
+																<Border HorizontalAlignment="Stretch" VerticalAlignment="Stretch" CornerRadius="4" Background="#44000000">
+																	<Border.RenderTransform>
+																		<TranslateTransform X="5" Y="5" />
+																	</Border.RenderTransform>
+																	<Border.BitmapEffect>
+																		<BlurBitmapEffect Radius="8" />
+																	</Border.BitmapEffect>
+																</Border>
+																<!-- Image Template -->
+																<Border Padding="4" Background="White" BorderBrush="#22000000" BorderThickness="1">
+																	<Image Source="{Binding Path=PhotoPath, Converter={StaticResource cnvPath2Thumb}}" />
+																</Border>
+															</Grid>
+															<ListView x:Name="lvExifInfo" Grid.Column="2" Grid.Row="0"
+																ItemsSource="{Binding Path=PhotoPath, Converter={StaticResource cnvExif}}">
+																<ListView.View>
+																	<GridView ColumnHeaderContainerStyle="{StaticResource GridViewHeaderStyle}"
+																		ColumnHeaderTemplate="{StaticResource HeaderTemplateTransparent}">
+																		<GridViewColumn Header="Attribute" DisplayMemberBinding="{Binding Path=Attribute}"></GridViewColumn>
+																		<GridViewColumn Header="Value" DisplayMemberBinding="{Binding Path=Value}"></GridViewColumn>
+																	</GridView>
+																</ListView.View>
+															</ListView>
+														</Grid>
+													</ToolTip>
+												</TextBlock.ToolTip>
+											</TextBlock>
+										</DataTemplate>
+									</HSCtrl:SortableGridViewColumn.CellTemplate>
+								</HSCtrl:SortableGridViewColumn>
+							</GridView>
+						</ListView.View>
+					</HSCtrl:SortableListView>
+				</Grid>
+			</TabItem>
+
+			<!-- Second Tab, watermark options -->
+			<TabItem Header="Watermark Setting">
+				<ScrollViewer VerticalScrollBarVisibility="Auto">
+					<StackPanel Grid.IsSharedSizeScope="True">
+						<Expander IsExpanded="True" Header="Copyright Image">
+							<Grid ShowGridLines="False">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="auto" SharedSizeGroup="TextLabel"></ColumnDefinition>
+									<ColumnDefinition Width="3*"></ColumnDefinition>
+									<ColumnDefinition Width="auto" SharedSizeGroup="Button"></ColumnDefinition>
+								</Grid.ColumnDefinitions>
+								<Grid.RowDefinitions>
+									<RowDefinition Height="*"></RowDefinition>
+									<RowDefinition Height="*"></RowDefinition>
+									<RowDefinition Height="auto"></RowDefinition>
+								</Grid.RowDefinitions>
+								<StackPanel Grid.Column="0" Grid.Row="0" Margin="0,5,0,0"
+									Orientation="Horizontal" VerticalAlignment="Top">
+									<TextBlock Style="{StaticResource ConfigSectionLabel}">
+										Choose Watermark Image
+									</TextBlock>
+									<Button Style="{StaticResource HelpButton}"
+										CommandParameter="WatermarkImage"
+										Command="ApplicationCommands.Help"></Button>
+								</StackPanel>
+								<TextBox x:Name="txtWatermarkImageUrl"
+									Margin="10,5,0,5"
+									Grid.Column="1" Grid.Row="0" 
+									HorizontalAlignment="Stretch" VerticalAlignment="Top"
+									Style="{StaticResource cfgTextBox}"
+									Text="{Binding Path=Watermark.WatermarkImageFile, Mode=OneWay}"
+									IsReadOnly="True" />
+								<Button x:Name="btnWatermarkImagePicker"
+									Margin="10,0,0,0"
+									Style="{StaticResource GlassButton}"
+									Grid.Column="2" Grid.Row="0"
+									Click="btnWatermarkImagePicker_Click">...</Button>
+
+								<StackPanel Grid.Column="0" Grid.Row="1" Margin="0,5,0,0"
+									Orientation="Horizontal" VerticalAlignment="Top">
+									<TextBlock Style="{StaticResource ConfigSectionLabel}">
+										Watermark Image Position
+									</TextBlock>
+									<Button Style="{StaticResource HelpButton}"
+										CommandParameter="WatermarkImagePosition"
+										Command="ApplicationCommands.Help"></Button>
+								</StackPanel>
+
+								<ComboBox x:Name="cmbWatermarkImagePosition"
+									Margin="10,5,0,0"
+									HorizontalAlignment="Stretch"
+									VerticalAlignment="Stretch"
+									ItemsSource="{Binding Source={StaticResource PositionData}}"
+									SelectedItem="{Binding Path=Watermark.WatermarkImagePosition, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+									Grid.Column="1" Grid.Row="1">
+								</ComboBox>
+
+								<StackPanel Grid.Column="0" Grid.Row="2" Margin="0,5,0,0"
+									Orientation="Horizontal" VerticalAlignment="Top">
+									<TextBlock Style="{StaticResource ConfigSectionLabel}" VerticalAlignment="Top">
+										Watermark Image
+									</TextBlock>
+									<Button Style="{StaticResource HelpButton}" VerticalAlignment="Top"
+										CommandParameter="WatermarkImagePreview"
+										Command="ApplicationCommands.Help"></Button>
+								</StackPanel>
+								<Image x:Name="imgWatermarkImage"
+									Margin="10,5,0,0"
+									HorizontalAlignment="Left"
+									Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2"
+									Source="{Binding Path=Watermark.WatermarkImageFile,
+										Mode=OneWay,
+										Converter={StaticResource cnvPath2Image}}"
+									MaxWidth="100" MaxHeight="100"></Image>
+								<Button x:Name="btnRemoveWatermarkImage"
+									Margin="10,5,0,0"
+									VerticalAlignment="Top"
+									Style="{StaticResource GlassButton}"
+									Grid.Column="2" Grid.Row="2"
+									IsEnabled="{Binding Path=Watermark.WatermarkImageFile,
+										Mode=OneWay,
+										Converter={StaticResource cnvHasWatermarkImage}}"
+									Click="btnRemoveWatermarkImage_Click">Remove</Button>
+							</Grid>
+						</Expander>
+						<Expander Header="Copyright Text">
+							<Grid ShowGridLines="False">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="auto" SharedSizeGroup="TextLabel"></ColumnDefinition>
+									<ColumnDefinition Width="3*"></ColumnDefinition>
+									<ColumnDefinition Width="auto" SharedSizeGroup="Button"></ColumnDefinition>
+								</Grid.ColumnDefinitions>
+								<Grid.RowDefinitions>
+									<RowDefinition Height="*"></RowDefinition>
+									<RowDefinition Height="*"></RowDefinition>
+									<RowDefinition Height="*"></RowDefinition>
+								</Grid.RowDefinitions>
+								<StackPanel Grid.Column="0" Grid.Row="0" Margin="0,5,0,0"
+									Orientation="Horizontal" VerticalAlignment="Top">
+									<TextBlock Style="{StaticResource ConfigSectionLabel}">
+										Watermark Text
+									</TextBlock>
+									<Button Style="{StaticResource HelpButton}"
+										CommandParameter="WatermarkText"
+										Command="ApplicationCommands.Help"></Button>
+								</StackPanel>
+								<TextBox x:Name="txtWatermarkText"
+									Margin="10,5,0,5" SpellCheck.IsEnabled="True"
+									Grid.Column="1" Grid.Row="0" 
+									HorizontalAlignment="Stretch" VerticalAlignment="Top"
+									AcceptsReturn="True"
+									Style="{StaticResource cfgTextBox}"
+									Text="{Binding Path=Watermark.WatermarkText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+								<StackPanel Grid.Column="0" Grid.Row="1" Margin="0,5,0,0" 
+									Orientation="Horizontal" VerticalAlignment="Top">
+									<TextBlock Style="{StaticResource ConfigSectionLabel}">
+										Watermark Text Font
+									</TextBlock>
+									<Button Style="{StaticResource HelpButton}"
+										CommandParameter="WatermarkTextFont"
+										Command="ApplicationCommands.Help"></Button>
+								</StackPanel>
+								<TextBox x:Name="txtWatermarkTextFont"
+									Margin="10,5,0,5"
+									Grid.Column="1" Grid.Row="1" 
+									HorizontalAlignment="Stretch" VerticalAlignment="Top"
+									Style="{StaticResource cfgTextBox}"
+									Text="{Binding Path=Watermark.WatermarkTextFontName, Mode=OneWay}"
+									IsReadOnly="True" />
+								<Button x:Name="btnWatermarkTextFontPicker"
+									Margin="10,5,0,0"
+									Style="{StaticResource GlassButton}"
+									Grid.Column="2" Grid.Row="1" Click="btnWatermarkTextFontPicker_Click">Font</Button>
+
+								<StackPanel Grid.Column="0" Grid.Row="2" Margin="0,5,0,0"
+									Orientation="Horizontal" VerticalAlignment="Top">
+									<TextBlock Style="{StaticResource ConfigSectionLabel}">
+										Watermark Text Position
+									</TextBlock>
+									<Button Style="{StaticResource HelpButton}"
+										CommandParameter="WatermarkTextPosition"
+										Command="ApplicationCommands.Help"></Button>
+								</StackPanel>
+
+								<ComboBox x:Name="cmbWatermarkTextPosition"
+									Margin="10,5,0,0"
+									HorizontalAlignment="Stretch" VerticalAlignment="Top"
+									ItemsSource="{Binding Source={StaticResource PositionData}}"
+									SelectedItem="{Binding Path=Watermark.WatermarkTextPosition, Mode=TwoWay}"
+									Grid.Column="1" Grid.Row="2">
+								</ComboBox>
+							</Grid>
+						</Expander>
+					</StackPanel>
+				</ScrollViewer>
+			</TabItem>
+
+			<!-- Third Tab, picture options -->
+			<TabItem Header="Process Settings">
+				<ScrollViewer VerticalScrollBarVisibility="Auto">
+					<StackPanel Grid.IsSharedSizeScope="True">
+						<Expander IsExpanded="True" Header="Picture Settings">
+							<Grid>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="*" SharedSizeGroup="TextLabel"></ColumnDefinition>
+									<ColumnDefinition Width="3*"></ColumnDefinition>
+								</Grid.ColumnDefinitions>
+								<Grid.RowDefinitions>
+									<RowDefinition></RowDefinition>
+									<RowDefinition></RowDefinition>
+									<RowDefinition></RowDefinition>
+								</Grid.RowDefinitions>
+
+								<StackPanel Grid.Column="0" Grid.Row="0" Margin="0,5,0,0"
+									Orientation="Horizontal" VerticalAlignment="Top">
+									<TextBlock Style="{StaticResource ConfigSectionLabel}">
+										Image Effect
+									</TextBlock>
+									<Button Style="{StaticResource HelpButton}"
+										CommandParameter="ImageEffect"
+										Command="ApplicationCommands.Help"></Button>
+								</StackPanel>
+
+								<ComboBox x:Name="cmbProcessType"
+									Margin="10,5,0,0"
+									HorizontalAlignment="Stretch"
+									VerticalAlignment="Stretch"
+									ItemsSource="{Binding Source={StaticResource ImageProcessTypeData}}"
+									SelectedItem="{Binding Path=ProcessType, Mode=TwoWay}"
+									Grid.Column="1" Grid.Row="0">
+								</ComboBox>
+
+								<StackPanel Grid.Column="0" Grid.Row="1" Margin="0,5,0,0"
+									Orientation="Horizontal" VerticalAlignment="Top">
+									<TextBlock Style="{StaticResource ConfigSectionLabel}">
+										Keep EXIF
+									</TextBlock>
+									<Button Style="{StaticResource HelpButton}"
+										CommandParameter="KeepExif"
+										Command="ApplicationCommands.Help"></Button>
+								</StackPanel>
+
+								<CheckBox x:Name="chkKeepExif"
+									Grid.Column="1" Grid.Row="1"
+									Margin="10,5,0,0"
+									IsChecked="{Binding Path=KeepExif, Mode=TwoWay}"
+									IsEnabled="False">
+								</CheckBox>
+
+								<StackPanel Grid.Column="0" Grid.Row="2" Margin="0,5,0,0"
+									Orientation="Horizontal" VerticalAlignment="Top">
+									<TextBlock Style="{StaticResource ConfigSectionLabel}">
+										JPG Compression Ratio
+									</TextBlock>
+									<Button Style="{StaticResource HelpButton}"
+										CommandParameter="JpgCompressionRatio"
+										Command="ApplicationCommands.Help"></Button>
+								</StackPanel>
+
+								<StackPanel Grid.Column="1" Grid.Row="2" FlowDirection="LeftToRight" Margin="0,5,0,0"
+									Orientation="Horizontal" VerticalAlignment="Top">
+									<Slider x:Name="sJpgCompressionRatio" Margin="10,0,0,0"
+										Orientation="Horizontal" Width="200"
+										Minimum="0" Maximum="100"
+										Value="{Binding Path=JpgCompressionRatio, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+										IsSnapToTickEnabled="True"
+										TickFrequency="1"/>
+									<TextBlock Text="{Binding Path=JpgCompressionRatio}" 
+										Margin="10,0,0,0" VerticalAlignment="Center" />
+
+									<TextBlock Text=" %" VerticalAlignment="Center" />
+								</StackPanel>
+							</Grid>
+						</Expander>
+
+						<Expander Header="Drop Shadow Option">
+							<Grid ShowGridLines="False">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="*" SharedSizeGroup="TextLabel"></ColumnDefinition>
+									<ColumnDefinition Width="3*"></ColumnDefinition>
+								</Grid.ColumnDefinitions>
+								<Grid.RowDefinitions>
+									<RowDefinition></RowDefinition>
+									<RowDefinition></RowDefinition>
+									<RowDefinition></RowDefinition>
+									<RowDefinition></RowDefinition>
+								</Grid.RowDefinitions>
+
+								<StackPanel Grid.Column="0" Grid.Row="0" Margin="0,5,0,0"
+									Orientation="Horizontal" VerticalAlignment="Top">
+									<TextBlock Style="{StaticResource ConfigSectionLabel}"
+										Grid.Column="0" Grid.Row="0"
+										VerticalAlignment="Top">
+										Background Color
+									</TextBlock>
+									<Button Style="{StaticResource HelpButton}"
+										CommandParameter="DropShadowBackgroundColor"
+										Command="ApplicationCommands.Help"></Button>
+								</StackPanel>
+
+								<StackPanel Grid.Column="1" Grid.Row="0" FlowDirection="LeftToRight" Margin="0,5,0,0"
+									Orientation="Horizontal" VerticalAlignment="Top">
+									<Button x:Name="btnShadowBackgroundPicker" Background="Transparent"
+										Click="btnShadowBackgroundPicker_Click"
+										Width="40" Height="20" Margin="10,0,0,0"
+										HorizontalAlignment="Left">
+										<Rectangle Width="30" Height="15" Stroke="Black" StrokeThickness="2">
+											<Rectangle.Fill>
+												<SolidColorBrush Color="{Binding Path=DropShadowSetting.BackgroundColor, Mode=OneWay, Converter={StaticResource cnvColor}}" />
+											</Rectangle.Fill>
+										</Rectangle>
+									</Button>
+									<TextBlock x:Name="BackgroundColor" Margin="10,0,0,0"
+										Text="{Binding Path=DropShadowSetting.BackgroundColor, Mode=OneWay, Converter={StaticResource cnvColorValue}}"></TextBlock>
+								</StackPanel>
+
+								<StackPanel Grid.Column="0" Grid.Row="1" Margin="0,5,0,0"
+									Orientation="Horizontal" VerticalAlignment="Top">
+									<TextBlock Style="{StaticResource ConfigSectionLabel}">
+										Drop Shadow Color
+									</TextBlock>
+									<Button Style="{StaticResource HelpButton}"
+										CommandParameter="DropShadowColor"
+										Command="ApplicationCommands.Help"></Button>
+								</StackPanel>
+								
+								<StackPanel Grid.Column="1" Grid.Row="1" FlowDirection="LeftToRight" Margin="0,5,0,0"
+									Orientation="Horizontal" VerticalAlignment="Top">
+									<Button x:Name="btnShadowColorPicker" Background="Transparent"
+										Click="btnShadowColorPicker_Click"
+										Width="40" Height="20" Margin="10,0,0,0"
+										HorizontalAlignment="Left">
+										<Rectangle Width="30" Height="15" Stroke="Black" StrokeThickness="2">
+											<Rectangle.Fill>
+												<SolidColorBrush Color="{Binding Path=DropShadowSetting.DropShadowColor, Mode=OneWay, Converter={StaticResource cnvColor}}" />
+											</Rectangle.Fill>
+										</Rectangle>
+									</Button>
+									<TextBlock x:Name="DropShadowColor" Margin="10,0,0,0"
+										Text="{Binding Path=DropShadowSetting.DropShadowColor, Mode=OneWay, Converter={StaticResource cnvColorValue}}"></TextBlock>
+								</StackPanel>
+
+								<StackPanel Grid.Column="0" Grid.Row="2" Margin="0,5,0,0"
+									Orientation="Horizontal" VerticalAlignment="Top">
+									<TextBlock Style="{StaticResource ConfigSectionLabel}">
+										Shadow Depth
+									</TextBlock>
+									<Button Style="{StaticResource HelpButton}"
+										CommandParameter="DropShadowDepth"
+										Command="ApplicationCommands.Help"></Button>
+								</StackPanel>
+								
+								<StackPanel Grid.Column="1" Grid.Row="2" FlowDirection="LeftToRight" Margin="0,5,0,0"
+									Orientation="Horizontal" VerticalAlignment="Top">
+									<Slider x:Name="sShadowDepth" Margin="10,0,0,0"
+										Orientation="Horizontal" Width="200"
+										Minimum="0" Maximum="50"
+										Value="{Binding Path=DropShadowSetting.ShadowDepth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+										IsSnapToTickEnabled="True"
+										TickFrequency="1"/>
+									<TextBlock Text="{Binding Path=DropShadowSetting.ShadowDepth}" 
+										Margin="10,0,0,0" VerticalAlignment="Center" />
+									<TextBlock Text=" pixel(s)" VerticalAlignment="Center" />
+								</StackPanel>
+								
+								<StackPanel Grid.Column="0" Grid.Row="3" Margin="0,5,0,0"
+									Orientation="Horizontal" VerticalAlignment="Top">
+									<TextBlock Style="{StaticResource ConfigSectionLabel}">
+										Shadow Location
+									</TextBlock>
+									<Button Style="{StaticResource HelpButton}"
+										CommandParameter="DropShadowLocation"
+										Command="ApplicationCommands.Help"></Button>
+								</StackPanel>
+								
+								<ComboBox x:Name="cmbDropShadowLocation"
+									Margin="10,5,0,0"
+									HorizontalAlignment="Stretch"
+									VerticalAlignment="Stretch"
+									ItemsSource="{Binding Source={StaticResource DropShadowLocationData}}"
+									SelectedItem="{Binding Path=DropShadowSetting.ShadowLocation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+									Grid.Column="1" Grid.Row="3">
+								</ComboBox>
+							</Grid>
+						</Expander>
+
+						<Expander Header="Border Option">
+							<Grid ShowGridLines="False">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="*" SharedSizeGroup="TextLabel"></ColumnDefinition>
+									<ColumnDefinition Width="3*"></ColumnDefinition>
+								</Grid.ColumnDefinitions>
+								<Grid.RowDefinitions>
+									<RowDefinition></RowDefinition>
+									<RowDefinition></RowDefinition>
+								</Grid.RowDefinitions>
+
+								<StackPanel Grid.Column="0" Grid.Row="0" Margin="0,5,0,0"
+									Orientation="Horizontal" VerticalAlignment="Top">
+									<TextBlock Style="{StaticResource ConfigSectionLabel}">
+										Image Border Width
+									</TextBlock>
+									<Button Style="{StaticResource HelpButton}"
+										CommandParameter="ImageBorderWidth"
+										Command="ApplicationCommands.Help"></Button>
+								</StackPanel>
+
+								<StackPanel Grid.Column="1" Grid.Row="0" FlowDirection="LeftToRight" Margin="0,5,0,0"
+									Orientation="Horizontal" VerticalAlignment="Top">
+									<Slider x:Name="sImageBorderWidth" Margin="10,0,0,0"
+										Orientation="Horizontal" Width="200"
+										Minimum="0" Maximum="50"
+										Value="{Binding Path=BorderSetting.BorderWidth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+										IsSnapToTickEnabled="True"
+										TickFrequency="1"/>
+									<TextBlock Text="{Binding Path=BorderSetting.BorderWidth}" 
+										Margin="10,0,0,0" VerticalAlignment="Center" />
+									<TextBlock Text=" pixel(s)" VerticalAlignment="Center" />
+								</StackPanel>
+
+								<StackPanel Grid.Column="0" Grid.Row="1" Margin="0,5,0,0"
+									Orientation="Horizontal" VerticalAlignment="Top">
+									<TextBlock Style="{StaticResource ConfigSectionLabel}">
+										Image Border Color
+									</TextBlock>
+									<Button Style="{StaticResource HelpButton}"
+										CommandParameter="ImageBorderColor"
+										Command="ApplicationCommands.Help"></Button>
+								</StackPanel>
+								
+								<StackPanel Grid.Column="1" Grid.Row="1" FlowDirection="LeftToRight" Margin="0,5,0,0"
+									Orientation="Horizontal" VerticalAlignment="Top">
+									<Button x:Name="btnImageBorderColorPicker" Background="Transparent"
+										Width="40" Height="20" Margin="10,0,0,0"
+										Click="btnImageBorderColorPicker_Click"
+										HorizontalAlignment="Left">
+										<Rectangle Width="30" Height="15" Stroke="Black" StrokeThickness="2">
+											<Rectangle.Fill>
+												<SolidColorBrush Color="{Binding Path=BorderSetting.BorderColor, Converter={StaticResource cnvColor}}" />
+											</Rectangle.Fill>
+										</Rectangle>
+									</Button>
+									<TextBlock x:Name="ImageBorderColor" Margin="10,0,0,0"
+										Text="{Binding Path=BorderSetting.BorderColor, Converter={StaticResource cnvColorValue}}"></TextBlock>
+								</StackPanel>
+							</Grid>
+						</Expander>
+
+						<Expander Header="Shrink Option">
+							<Grid ShowGridLines="False">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="*" SharedSizeGroup="TextLabel"></ColumnDefinition>
+									<ColumnDefinition Width="3*"></ColumnDefinition>
+								</Grid.ColumnDefinitions>
+								<Grid.RowDefinitions>
+									<RowDefinition Height="auto"></RowDefinition>
+									<RowDefinition Height="auto"></RowDefinition>
+								</Grid.RowDefinitions>
+
+								<StackPanel Grid.Column="0" Grid.Row="0" Margin="0,5,0,0"
+									Orientation="Horizontal" VerticalAlignment="Top">
+									<TextBlock Style="{StaticResource ConfigSectionLabel}">
+										Shrink Image
+									</TextBlock>
+									<Button Style="{StaticResource HelpButton}"
+										CommandParameter="ShrinkImage"
+										Command="ApplicationCommands.Help"></Button>
+								</StackPanel>
+								
+								<CheckBox x:Name="chkShrinkImage"
+									Grid.Column="1" Grid.Row="0"
+									Margin="10,5,0,0"
+									IsChecked="{Binding Path=ShrinkImage, Mode=TwoWay}">
+								</CheckBox>
+								
+								<StackPanel Grid.Column="0" Grid.Row="1" Margin="0,5,0,0"
+									Orientation="Horizontal" VerticalAlignment="Top">
+									<TextBlock Style="{StaticResource ConfigSectionLabel}"
+										Grid.Column="0" Grid.Row="1">
+										Shrink Image To
+									</TextBlock>
+									<Button Style="{StaticResource HelpButton}"
+										CommandParameter="ShrinkImageSize"
+										Command="ApplicationCommands.Help"></Button>
+								</StackPanel>
+								
+								<StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" Margin="0,5,0,0"
+									HorizontalAlignment="Stretch" VerticalAlignment="Top">
+									<ComboBox x:Name="cmbShrinkMode"
+										Margin="10,0,0,0"
+										MinWidth="75"
+										ItemsSource="{Binding Source={StaticResource ShrinkModeData}}"
+										SelectedItem="{Binding Path=ShrinkMode, Mode=TwoWay}"
+										IsEnabled="{Binding ElementName=chkShrinkImage, Path=IsChecked}">
+									</ComboBox>
+
+									<HSCtrl:IntegerTextBox x:Name="txtShrinkTo"
+										Margin="5,0,0,0"
+										HorizontalAlignment="Stretch"
+										Style="{StaticResource cfgTextBox}"
+										Text="{Binding Path=ShrinkPixelTo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+										IsEnabled="{Binding ElementName=chkShrinkImage, Path=IsChecked}">
+									</HSCtrl:IntegerTextBox>
+
+									<TextBlock VerticalAlignment="Center"
+										Margin="5,0,0,0"> Pixel(s)</TextBlock>
+								</StackPanel>
+							</Grid>
+						</Expander>
+					</StackPanel>
+				</ScrollViewer>
+			</TabItem>
+
+			<!-- Forth Tab, thumbnail output options and batch rename output files-->
+			<TabItem Header="Output Settings">
+				<ScrollViewer VerticalScrollBarVisibility="Auto">
+					<StackPanel Grid.IsSharedSizeScope="True">
+						<Expander IsExpanded="True"  Header="Thumbnail">
+							<Grid ShowGridLines="False">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="auto" SharedSizeGroup="TextLabel"></ColumnDefinition>
+									<ColumnDefinition Width="3*"></ColumnDefinition>
+								</Grid.ColumnDefinitions>
+								<Grid.RowDefinitions>
+									<RowDefinition Height="auto"></RowDefinition>
+									<RowDefinition Height="auto"></RowDefinition>
+									<RowDefinition Height="auto"></RowDefinition>
+									<RowDefinition Height="auto"></RowDefinition>
+								</Grid.RowDefinitions>
+
+								<StackPanel Grid.Column="0" Grid.Row="0" Margin="0,5,0,0"
+									Orientation="Horizontal" VerticalAlignment="Top">
+									<TextBlock Style="{StaticResource ConfigSectionLabel}">
+										Generate Thumbnail
+									</TextBlock>
+									<Button Style="{StaticResource HelpButton}"
+										CommandParameter="GenerateThumbnail"
+										Command="ApplicationCommands.Help"></Button>
+								</StackPanel>
+
+								<CheckBox x:Name="chkGenerateThumbnail"
+									Grid.Column="1" Grid.Row="0"
+									Margin="10,5,0,0"
+									IsChecked="{Binding Path=ThumbnailSetting.GenerateThumbnail, Mode=TwoWay}">
+								</CheckBox>
+
+								<StackPanel Grid.Column="0" Grid.Row="1" Margin="0,5,0,0"
+									Orientation="Horizontal" VerticalAlignment="Top">
+									<TextBlock Style="{StaticResource ConfigSectionLabel}">
+										Thumbnail File Name Prefix
+									</TextBlock>
+									<Button Style="{StaticResource HelpButton}"
+										CommandParameter="ThumbnailFileNamePrefix"
+										Command="ApplicationCommands.Help"></Button>
+								</StackPanel>
+
+								<TextBox x:Name="txtThumbnailFileNamePrefix"
+									Grid.Column="1" Grid.Row="1"
+									Margin="10,5,0,5"
+									Style="{StaticResource cfgTextBox}"
+									HorizontalAlignment="Stretch"
+									Text="{Binding Path=ThumbnailSetting.ThumbnailFileNamePrefix, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+									IsEnabled="{Binding ElementName=chkGenerateThumbnail, Path=IsChecked}"/>
+
+								<StackPanel Grid.Column="0" Grid.Row="2" Margin="0,5,0,0"
+									Orientation="Horizontal" VerticalAlignment="Top">
+									<TextBlock Style="{StaticResource ConfigSectionLabel}">
+										Thumbnail File Name Prefix
+									</TextBlock>
+									<Button Style="{StaticResource HelpButton}"
+										CommandParameter="ThumbnailFileNameSuffix"
+										Command="ApplicationCommands.Help"></Button>
+								</StackPanel>
+
+								<TextBox x:Name="txtThumbnailFileNameSuffix"
+									Grid.Column="1" Grid.Row="2"
+									Margin="10,5,0,5"
+									Style="{StaticResource cfgTextBox}"
+									HorizontalAlignment="Stretch"
+									Text="{Binding Path=ThumbnailSetting.ThumbnailFileNameSuffix, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+									IsEnabled="{Binding ElementName=chkGenerateThumbnail, Path=IsChecked}"/>
+
+								<StackPanel Grid.Column="0" Grid.Row="3" Margin="0,5,0,0"
+									Orientation="Horizontal" VerticalAlignment="Top">
+									<TextBlock Style="{StaticResource ConfigSectionLabel}">
+										Thumbnail Size
+									</TextBlock>
+									<Button Style="{StaticResource HelpButton}"
+										CommandParameter="ThumbnailImageSize"
+										Command="ApplicationCommands.Help"></Button>
+								</StackPanel>
+
+								<StackPanel Grid.Column="1" Grid.Row="3" FlowDirection="LeftToRight" Margin="0,5,0,0"
+									Orientation="Horizontal" VerticalAlignment="Top">
+									<Slider x:Name="sThumbSize" Margin="10,0,0,0"
+										Orientation="Horizontal" Width="200"
+										Minimum="0" Maximum="150"
+										Value="{Binding Path=ThumbnailSetting.ThumbnailSize, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+										IsSnapToTickEnabled="True"
+										TickFrequency="1"
+										IsEnabled="{Binding ElementName=chkGenerateThumbnail, Path=IsChecked}"/>
+									<TextBlock Text="{Binding Path=ThumbnailSetting.ThumbnailSize}" 
+										Margin="10,0,0,0" VerticalAlignment="Center" />
+
+									<TextBlock Text=" pixel(s)" VerticalAlignment="Center" />
+								</StackPanel>
+							</Grid>
+						</Expander>
+						
+						<Expander Header="Batch Rename">
+							<Grid ShowGridLines="False">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="*" SharedSizeGroup="TextLabel"></ColumnDefinition>
+									<ColumnDefinition Width="3*"></ColumnDefinition>
+								</Grid.ColumnDefinitions>
+								<Grid.RowDefinitions>
+									<RowDefinition Height="auto"></RowDefinition>
+									<RowDefinition Height="auto"></RowDefinition>
+									<RowDefinition Height="auto"></RowDefinition>
+									<RowDefinition Height="auto"></RowDefinition>
+									<RowDefinition Height="auto"></RowDefinition>
+									<RowDefinition Height="auto"></RowDefinition>
+									<RowDefinition Height="auto"></RowDefinition>
+								</Grid.RowDefinitions>
+
+								<StackPanel Grid.Column="0" Grid.Row="0" Margin="0,5,0,0"
+									Orientation="Horizontal" VerticalAlignment="Top">
+									<TextBlock Style="{StaticResource ConfigSectionLabel}">
+										Enable Batch Rename
+									</TextBlock>
+									<Button Style="{StaticResource HelpButton}"
+										CommandParameter="BatchRename"
+										Command="ApplicationCommands.Help"></Button>
+								</StackPanel>
+
+								<CheckBox x:Name="chkEnableBatchRename"
+									Grid.Column="1" Grid.Row="0"
+									Margin="10,5,0,0"
+									IsChecked="{Binding Path=RenamingSetting.EnableBatchRename, Mode=TwoWay}">
+								</CheckBox>
+
+								<StackPanel Grid.Column="0" Grid.Row="1" Margin="0,5,0,0"
+									Orientation="Horizontal" VerticalAlignment="Top">
+									<TextBlock Style="{StaticResource ConfigSectionLabel}">
+										Output File Name Prefix
+									</TextBlock>
+									<Button Style="{StaticResource HelpButton}"
+										CommandParameter="BatchRenamePrefix"
+										Command="ApplicationCommands.Help"></Button>
+								</StackPanel>
+
+								<TextBox x:Name="txtOutputFileNamePrefix"
+									Grid.Column="1" Grid.Row="1"
+									Margin="10,5,0,5"
+									Style="{StaticResource cfgTextBox}"
+									HorizontalAlignment="Stretch"
+									Text="{Binding Path=RenamingSetting.OutputFileNamePrefix, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+									IsEnabled="{Binding ElementName=chkEnableBatchRename, Path=IsChecked}"/>
+
+								<StackPanel Grid.Column="0" Grid.Row="2" Margin="0,5,0,0"
+									Orientation="Horizontal" VerticalAlignment="Top">
+									<TextBlock Style="{StaticResource ConfigSectionLabel}">
+										Output File Name Suffix
+									</TextBlock>
+									<Button Style="{StaticResource HelpButton}"
+										CommandParameter="BatchRenameSuffix"
+										Command="ApplicationCommands.Help"></Button>
+								</StackPanel>
+
+								<TextBox x:Name="txtOutputFileNameSuffix"
+									Grid.Column="1" Grid.Row="2"
+									Margin="10,5,0,5"
+									Style="{StaticResource cfgTextBox}"
+									HorizontalAlignment="Stretch"
+									Text="{Binding Path=RenamingSetting.OutputFileNameSuffix, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+									IsEnabled="{Binding ElementName=chkEnableBatchRename, Path=IsChecked}"/>
+
+								<StackPanel Grid.Column="0" Grid.Row="3" Margin="0,5,0,0"
+									Orientation="Horizontal" VerticalAlignment="Top">
+									<TextBlock Style="{StaticResource ConfigSectionLabel}">
+										Number Padding
+									</TextBlock>
+									<Button Style="{StaticResource HelpButton}"
+										CommandParameter="BatchRenameNumberPadding"
+										Command="ApplicationCommands.Help"></Button>
+								</StackPanel>
+
+								<StackPanel Grid.Column="1" Grid.Row="3" FlowDirection="LeftToRight" Margin="0,5,0,0"
+									Orientation="Horizontal" VerticalAlignment="Top">
+									<Slider x:Name="sOutputFileNameNumberPadding" Margin="10,0,0,0"
+										Orientation="Horizontal" Width="200"
+										Minimum="0" Maximum="10"
+										Value="{Binding Path=RenamingSetting.NumberPadding, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+										IsSnapToTickEnabled="True"
+										TickFrequency="1"
+										IsEnabled="{Binding ElementName=chkEnableBatchRename, Path=IsChecked}"/>
+									<TextBlock Text="{Binding Path=RenamingSetting.NumberPadding}" 
+										Margin="10,0,0,0" VerticalAlignment="Center" />
+								</StackPanel>
+
+								<StackPanel Grid.Column="0" Grid.Row="4" Margin="0,5,0,0"
+									Orientation="Horizontal" VerticalAlignment="Top">
+									<TextBlock Style="{StaticResource ConfigSectionLabel}">
+										Start with Number
+									</TextBlock>
+									<Button Style="{StaticResource HelpButton}"
+										CommandParameter="BatchRenameStartNumber"
+										Command="ApplicationCommands.Help"></Button>
+								</StackPanel>
+
+								<HSCtrl:IntegerTextBox x:Name="txtOutputFileNameStartNumber"
+									Grid.Column="1" Grid.Row="4"
+									Margin="10,5,0,5"
+									HorizontalAlignment="Stretch"
+									Style="{StaticResource cfgTextBox}"
+									Text="{Binding Path=RenamingSetting.StartNumber, Mode=TwoWay}"
+									IsEnabled="{Binding ElementName=chkEnableBatchRename, Path=IsChecked}">
+								</HSCtrl:IntegerTextBox>
+
+								<StackPanel Grid.Column="0" Grid.Row="5" Margin="0,5,0,0"
+									Orientation="Horizontal" VerticalAlignment="Top">
+									<TextBlock Style="{StaticResource ConfigSectionLabel}">
+										Output File Name Case
+									</TextBlock>
+									<Button Style="{StaticResource HelpButton}"
+										CommandParameter="BatchRenameFileNameCase"
+										Command="ApplicationCommands.Help"></Button>
+								</StackPanel>
+
+								<ComboBox x:Name="cmbOutputFileNameCase"
+									Grid.Column="1" Grid.Row="5"
+									Margin="10,5,0,0"
+									HorizontalAlignment="Stretch"
+									VerticalAlignment="Stretch"
+									ItemsSource="{Binding Source={StaticResource OutputFileNameCaseData}}"
+									SelectedItem="{Binding Path=RenamingSetting.FileNameCase, Mode=TwoWay}"
+									IsEnabled="{Binding ElementName=chkEnableBatchRename, Path=IsChecked}">
+								</ComboBox>
+							</Grid>
+						</Expander>
+					</StackPanel>
+				</ScrollViewer>
+			</TabItem>
+		</TabControl>
+	</DockPanel>
+</UserControl>
