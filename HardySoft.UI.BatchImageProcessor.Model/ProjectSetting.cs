@@ -114,6 +114,13 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 		/// After project is opened, reset some flags of the project.
 		/// </summary>
 		public void OpenProject() {
+			// traverse through image files in the project to make sure they are still available.
+			foreach (PhotoItem photo in photos) {
+				if (!File.Exists(photo.PhotoPath)) {
+					// TODO think about how to handle, remove from list or just uncheck
+					photo.Selected = false;
+				}
+			}
 			this.isDirty = false;
 			this.projectCreated = true;
 		}

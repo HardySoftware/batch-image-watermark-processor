@@ -1,7 +1,8 @@
 ﻿using System;
+using System.Globalization;
+using System.IO;
 using System.Windows.Data;
 using System.Windows.Media.Imaging;
-using System.Globalization;
 
 namespace HardySoft.UI.BatchImageProcessor.Classes.Converters {
 	public class PathToThumbConverter : IValueConverter {
@@ -12,7 +13,7 @@ namespace HardySoft.UI.BatchImageProcessor.Classes.Converters {
 
 			if (value is string) {
 				string path = (string)value;
-				if (string.IsNullOrEmpty(path)) {
+				if (string.IsNullOrEmpty(path) || ! File.Exists(path)) {
 					return null;
 				}
 
@@ -20,12 +21,16 @@ namespace HardySoft.UI.BatchImageProcessor.Classes.Converters {
 			}
 
 			if (value is Uri) {
+				Uri imageUri = (Uri)value;
+				if (!File.Exists(imageUri.AbsolutePath)) {
+					return null;
+				}
 				BitmapImage bi = new BitmapImage();
 				bi.BeginInit();
 				bi.CacheOption = BitmapCacheOption.OnDemand;
 				bi.DecodePixelWidth = 200;
 				//bi.DecodePixelHeight = 60;
-				bi.UriSource = (Uri)value;
+				bi.UriSource = imageUri;
 				bi.EndInit();
 				return bi;
 			}
