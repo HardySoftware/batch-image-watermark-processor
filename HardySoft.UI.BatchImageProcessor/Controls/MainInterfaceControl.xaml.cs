@@ -166,6 +166,78 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 				ps.BorderSetting.BorderColor = ColorConverter.ConvertColor(cPicker.SelectedColor);
 			}
 		}
+
+		#region Drag-Drop event handlers
+		protected override void OnPreviewDragOver(System.Windows.DragEventArgs e) {
+			// we only want to deal with a single file.
+			if (isSingleFile(e) != null) {
+				e.Effects = System.Windows.DragDropEffects.Copy;
+			} else {
+				e.Effects = System.Windows.DragDropEffects.None;
+			}
+
+			// Mark the event as handled
+			e.Handled = true;
+
+			base.OnPreviewDragOver(e);
+		}
+
+		protected override void OnPreviewDrop(System.Windows.DragEventArgs e) {
+			// Mark the event as handled, so TextBox's native Drop handler is not called.
+			e.Handled = true;
+
+			string fileName = isSingleFile(e);
+			if (fileName == null) {
+				return;
+			}
+
+			//System.Windows.MessageBox.Show(fileName);
+			FileInfo fi = new FileInfo(fileName);
+			if (string.Compare(fi.Extension, ".hsbip", true) == 0) {
+				// TODO add support to drag-n-drop supported image files into projects.
+				// only handle supported format
+				if (this.ps.IsDirty) {
+					MessageBoxResult result = System.Windows.MessageBox.Show("Do you want to save project setting first?",
+						"Unsaved Project", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
+
+					switch (result) {
+						case MessageBoxResult.Yes:
+							saveProject();
+							openProject(fileName);
+							break;
+						case MessageBoxResult.No:
+							openProject(fileName);
+							break;
+						default:
+							// "Cancel" do nothing
+							break;
+					}
+				} else {
+					openProject(fileName);
+				}
+			}
+
+			base.OnPreviewDrop(e);
+		}
+
+		// If the data object in args is a single file, this method will return the filename.
+		// Otherwise, it returns null.
+		private string isSingleFile(System.Windows.DragEventArgs args) {
+			// Check for files in the hovering data object.
+			if (args.Data.GetDataPresent(System.Windows.DataFormats.FileDrop, true)) {
+				string[] fileNames = args.Data.GetData(System.Windows.DataFormats.FileDrop, true) as string[];
+				// Check fo a single file or folder.
+				if (fileNames.Length == 1) {
+					// Check for a file (a directory will return false).
+					if (File.Exists(fileNames[0])) {
+						// At this point we know there is a single file.
+						return fileNames[0];
+					}
+				}
+			}
+			return null;
+		}
+		#endregion
 		#endregion
 
 		#region View member
@@ -535,74 +607,5 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 		}
 		#endregion
 		#endregion
-
-		protected override void OnPreviewDragOver(System.Windows.DragEventArgs e) {
-			// we only want to deal with a single file.
-			if (isSingleFile(e) != null) {
-				e.Effects = System.Windows.DragDropEffects.Copy;
-			} else {
-				e.Effects = System.Windows.DragDropEffects.None;
-			}
-
-			// Mark the event as handled
-			e.Handled = true;
-
-			base.OnPreviewDragOver(e);
-		}
-
-		protected override void OnPreviewDrop(System.Windows.DragEventArgs e) {
-			// Mark the event as handled, so TextBox's native Drop handler is not called.
-			e.Handled = true;
-
-			string fileName = isSingleFile(e);
-			if (fileName == null) {
-				return;
-			}
-
-			//System.Windows.MessageBox.Show(fileName);
-			FileInfo fi = new FileInfo(fileName);
-			if (string.Compare(fi.Extension, ".hsbip", true) == 0) {
-				// only handle supported format
-				if (this.ps.IsDirty) {
-					MessageBoxResult result = System.Windows.MessageBox.Show("Do you want to save project setting first?",
-						"Unsaved Project", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
-
-					switch (result) {
-						case MessageBoxResult.Yes:
-							saveProject();
-							openProject(fileName);
-							break;
-						case MessageBoxResult.No:
-							openProject(fileName);
-							break;
-						default:
-							// "Cancel" do nothing
-							break;
-					}
-				} else {
-					openProject(fileName);
-				}
-			}
-
-			base.OnPreviewDrop(e);
-		}
-
-		// If the data object in args is a single file, this method will return the filename.
-		// Otherwise, it returns null.
-		private string isSingleFile(System.Windows.DragEventArgs args) {
-			// Check for files in the hovering data object.
-			if (args.Data.GetDataPresent(System.Windows.DataFormats.FileDrop, true)) {
-				string[] fileNames = args.Data.GetData(System.Windows.DataFormats.FileDrop, true) as string[];
-				// Check fo a single file or folder.
-				if (fileNames.Length == 1) {
-					// Check for a file (a directory will return false).
-					if (File.Exists(fileNames[0])) {
-						// At this point we know there is a single file.
-						return fileNames[0];
-					}
-				}
-			}
-			return null;
-		}
 	}
 }
