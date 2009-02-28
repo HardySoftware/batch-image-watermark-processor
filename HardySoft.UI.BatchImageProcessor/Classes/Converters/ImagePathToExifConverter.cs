@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
+using System.Threading;
 using System.Windows.Data;
 using System.Windows.Media.Imaging;
-using System.IO;
-using System.Reflection;
-using System.Data;
 
 using HardySoft.UI.BatchImageProcessor.Model;
 
@@ -32,7 +33,7 @@ namespace HardySoft.UI.BatchImageProcessor.Classes.Converters {
 			throw new NotImplementedException("The method or operation is not implemented.");
 		}
 		
-		private Dictionary<string, object> getExifMeta(string imagePath) {
+		/*private Dictionary<string, object> getExifMeta(string imagePath) {
 			Uri source = new Uri(imagePath);
 			
 			ExifMetadata meta = new ExifMetadata(source);
@@ -49,7 +50,9 @@ namespace HardySoft.UI.BatchImageProcessor.Classes.Converters {
 					if (attr[j] is ExifDisplayAttribute) {
 						ExifDisplayAttribute exifAttri = (ExifDisplayAttribute)attr[j];
 
-						string displayName = exifAttri.DisplayName;
+						//string displayName = exifAttri.DisplayName;
+						string displayName = Resources.LanguageContent.ResourceManager.GetString(exifAttri.DisplayName,
+							Thread.CurrentThread.CurrentCulture);
 						object propertyValue = pi[i].GetValue(meta, null);
 
 						metaInfo.Add(displayName, propertyValue);
@@ -58,7 +61,7 @@ namespace HardySoft.UI.BatchImageProcessor.Classes.Converters {
 			}
 
 			return metaInfo;
-		}
+		}*/
 
 		private DataTable getExifMetaData(string imagePath) {
 			DataTable dt = new DataTable();
@@ -79,7 +82,9 @@ namespace HardySoft.UI.BatchImageProcessor.Classes.Converters {
 					if (attr[j] is ExifDisplayAttribute) {
 						ExifDisplayAttribute exifAttri = (ExifDisplayAttribute)attr[j];
 
-						string displayName = exifAttri.DisplayName;
+						//string displayName = exifAttri.DisplayName;
+						string displayName = Resources.LanguageContent.ResourceManager.GetString(exifAttri.DisplayName,
+							Thread.CurrentThread.CurrentCulture);
 						object propertyValue = pi[i].GetValue(meta, null);
 
 						//metaInfo.Add(displayName, propertyValue);

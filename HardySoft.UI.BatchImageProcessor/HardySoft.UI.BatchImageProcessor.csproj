@@ -151,7 +151,9 @@
     <Compile Include="Classes\Converters\EnumToFriendlyNameConverter.cs" />
     <Compile Include="Classes\Converters\PathToImageConverter.cs" />
     <Compile Include="Classes\Converters\WatermarkImageSelectedConverter.cs" />
+    <Compile Include="Classes\MarkExtensions\ResourceFontExtension.cs" />
     <Compile Include="Classes\ProjectNameEventArgs.cs" />
+    <Compile Include="Classes\MarkExtensions\ResourceExtension.cs" />
     <Compile Include="Controls\ColorPicker.cs" />
     <Compile Include="Controls\ColorPickerDialog.xaml.cs">
       <DependentUpon>ColorPickerDialog.xaml</DependentUpon>
@@ -183,6 +185,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Resources\LanguageContent.zh-CN.Designer.cs">
+      <DependentUpon>LanguageContent.zh-CN.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Resources\HelpContent.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -196,6 +203,10 @@
     <Compile Include="VersionCheckingResult.xaml.cs">
       <DependentUpon>VersionCheckingResult.xaml</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Resources\LanguageContent.zh-CN.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>LanguageContent.zh-CN.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\HelpContent.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>HelpContent.Designer.cs</LastGenOutput>

@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows.Data;
-using System.Reflection;
-using System.Globalization;
 using System.ComponentModel;
+using System.Globalization;
+using System.Reflection;
 using System.Resources;
+using System.Threading;
+using System.Windows.Data;
 
 using HardySoft.UI.BatchImageProcessor.Resources;
 
@@ -32,7 +30,7 @@ namespace HardySoft.UI.BatchImageProcessor.Classes.Converters {
 				if (attributes.Length > 0) {
 					string description = attributes[0].Description;
 
-					Type enumResourceType = typeof(LanguageContent);
+					/*Type enumResourceType = typeof(LanguageContent);
 
 					ResourceManager resMan = enumResourceType.InvokeMember(
 							 @"ResourceManager",
@@ -40,8 +38,8 @@ namespace HardySoft.UI.BatchImageProcessor.Classes.Converters {
 							 null,
 							 null,
 							 new object[] { }) as ResourceManager;
-
-					CultureInfo cul = enumResourceType.InvokeMember(
+					
+					 CultureInfo cul = enumResourceType.InvokeMember(
 						 @"Culture",
 						 BindingFlags.GetProperty | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic,
 						 null,
@@ -49,10 +47,15 @@ namespace HardySoft.UI.BatchImageProcessor.Classes.Converters {
 						 new object[] { }) as CultureInfo;
 
 					if (resMan != null) {
-						description = resMan.GetString("Enum" + description, cul);
-					}
+						description = resMan.GetString(description, cul);
+					}*/
 
-					return description;
+					if (!string.IsNullOrEmpty(description)) {
+						description = Resources.LanguageContent.ResourceManager.GetString(description);
+						return description;
+					} else {
+						return value.ToString();
+					}
 				} else {
 					return value.ToString();
 				}

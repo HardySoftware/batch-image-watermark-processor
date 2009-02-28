@@ -84,7 +84,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			}
 		}
 
-		[ExifDisplay("Width")]
+		[ExifDisplay("Label_Width")]
 		public uint? Width {
 			get {
 				object val = queryMetadata("/app1/ifd/exif/subifd:{uint=40962}");
@@ -100,7 +100,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			}
 		}
 
-		[ExifDisplay("Height")]
+		[ExifDisplay("Label_Height")]
 		public uint? Height {
 			get {
 				object val = queryMetadata("/app1/ifd/exif/subifd:{uint=40963}");
@@ -116,7 +116,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			}
 		}
 
-		[ExifDisplay("Horizontal Resolution")]
+		[ExifDisplay("Label_HorizontalResolution")]
 		public decimal? HorizontalResolution {
 			get {
 				object val = queryMetadata("/app1/ifd/exif:{uint=282}");
@@ -128,7 +128,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			}
 		}
 
-		[ExifDisplay("Vertical Resolution")]
+		[ExifDisplay("Label_VerticalResolution")]
 		public decimal? VerticalResolution {
 			get {
 				object val = queryMetadata("/app1/ifd/exif:{uint=283}");
@@ -140,7 +140,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			}
 		}
 
-		[ExifDisplay("Manufacturer")]
+		[ExifDisplay("Label_Manufacturer")]
 		public string EquipmentManufacturer {
 			get {
 				object val = queryMetadata("/app1/ifd/exif:{uint=271}");
@@ -148,7 +148,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			}
 		}
 
-		[ExifDisplay("Camera")]
+		[ExifDisplay("Label_Camera")]
 		public string CameraModel {
 			get {
 				object val = queryMetadata("/app1/ifd/exif:{uint=272}");
@@ -156,7 +156,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			}
 		}
 
-		[ExifDisplay("CreationSoftware")]
+		[ExifDisplay("Label_CreationSoftware")]
 		public string CreationSoftware {
 			get {
 				object val = queryMetadata("/app1/ifd/exif:{uint=305}");
@@ -164,7 +164,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			}
 		}
 
-		[ExifDisplay("Color Representation")]
+		[ExifDisplay("Label_ColorRepresentation")]
 		public ColorRepresentation ColorRepresentation {
 			get {
 				object o = queryMetadata("/app1/ifd/exif/subifd:{uint=40961}");
@@ -180,9 +180,10 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			}
 		}
 
-		[ExifDisplay("Exposure Time")]
+		[ExifDisplay("Label_ExposureTime")]
 		public decimal? ExposureTime {
 			get {
+				// TODO find a logic to display with fraction
 				object val = queryMetadata("/app1/ifd/exif/subifd:{uint=33434}");
 				if (val != null) {
 					return parseUnsignedRational((ulong)val);
@@ -192,7 +193,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			}
 		}
 
-		[ExifDisplay("Exposure Compensation")]
+		[ExifDisplay("Label_ExposureCompensation")]
 		public decimal? ExposureCompensation {
 			get {
 				object val = queryMetadata("/app1/ifd/exif/subifd:{uint=37380}");
@@ -204,7 +205,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			}
 		}
 
-		[ExifDisplay("Aperture")]
+		[ExifDisplay("Label_Aperture")]
 		public decimal? LensAperture {
 			get {
 				object val = queryMetadata("/app1/ifd/exif/subifd:{uint=33437}");
@@ -216,7 +217,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			}
 		}
 
-		[ExifDisplay("Focal Length")]
+		[ExifDisplay("Label_FocalLength")]
 		public decimal? FocalLength {
 			get {
 				object val = queryMetadata("/app1/ifd/exif/subifd:{uint=37386}");
@@ -228,14 +229,14 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			}
 		}
 
-		[ExifDisplay("ISO Speed")]
+		[ExifDisplay("Label_ISOSpeed")]
 		public ushort? IsoSpeed {
 			get {
 				return (ushort?)queryMetadata("/app1/ifd/exif/subifd:{uint=34855}");
 			}
 		}
 
-		[ExifDisplay("Flash Mode")]
+		[ExifDisplay("Label_FlashMode")]
 		public FlashMode FlashMode {
 			get {
 				object o = queryMetadata("/app1/ifd/exif/subifd:{uint=37385}");
@@ -251,7 +252,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			}
 		}
 
-		[ExifDisplay("Exposure Mode")]
+		[ExifDisplay("Label_ExposureMode")]
 		public ExposureMode ExposureMode {
 			get {
 				ushort? mode = (ushort?)queryMetadata("/app1/ifd/exif/subifd:{uint=34850}");
@@ -283,7 +284,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			}
 		}
 
-		[ExifDisplay("White Balance Mode")]
+		[ExifDisplay("Label_WhiteBalanceMode")]
 		public WhiteBalanceMode WhiteBalanceMode {
 			get {
 				ushort? mode = (ushort?)queryMetadata("/app1/ifd/exif/subifd:{uint=37384}");
@@ -321,7 +322,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			}
 		}
 
-		[ExifDisplay("Date Taken")]
+		[ExifDisplay("Label_DateTaken")]
 		public DateTime? DateImageTaken {
 			get {
 				object val = queryMetadata("/app1/ifd/exif/subifd:{uint=36867}");
