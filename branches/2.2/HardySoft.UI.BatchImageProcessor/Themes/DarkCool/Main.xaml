@@ -1,5 +1,6 @@
 <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:marks="clr-namespace:HardySoft.UI.BatchImageProcessor.Classes.MarkExtensions"
 	>
 	<!-- Brush for menu bar and tool bar background -->
 	<LinearGradientBrush x:Key="ToolBarBackgroundBrush" StartPoint="0,0" EndPoint="0,1">
@@ -164,7 +165,7 @@
 		<Setter Property="OverridesDefaultStyle" Value="True"/>
 		<Setter Property="SnapsToDevicePixels" Value="True"/>
 		<Setter Property="Foreground" Value="{StaticResource ToobarTextColorBrush}"/>
-		<Setter Property="FontFamily" Value="Verdana"/>
+		<Setter Property="FontFamily" Value="{marks:ResourceFontExtension FontMenu}"/>
 		<Setter Property="FontSize" Value="15"/>
 		<Setter Property="Template">
 			<Setter.Value>

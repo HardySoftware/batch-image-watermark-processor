@@ -120,6 +120,39 @@
   <data name="ApplicationUrl" xml:space="preserve">
     <value>http://code.google.com/p/batch-image-watermark-processor/</value>
   </data>
+  <data name="Button_Font" xml:space="preserve">
+    <value>Font</value>
+  </data>
+  <data name="Button_Remove" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="Command_About" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="Command_Exit" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="Command_Make" xml:space="preserve">
+    <value>Make</value>
+  </data>
+  <data name="Command_NewProject" xml:space="preserve">
+    <value>New Project</value>
+  </data>
+  <data name="Command_OpenProject" xml:space="preserve">
+    <value>Open Project</value>
+  </data>
+  <data name="Command_Preference" xml:space="preserve">
+    <value>Preference</value>
+  </data>
+  <data name="Command_SaveAs" xml:space="preserve">
+    <value>Save Project As</value>
+  </data>
+  <data name="Command_SaveProject" xml:space="preserve">
+    <value>Save Project</value>
+  </data>
+  <data name="Command_Stop" xml:space="preserve">
+    <value>Stop</value>
+  </data>
   <data name="EnumBottomCenter" xml:space="preserve">
     <value>Bottom Center</value>
   </data>
@@ -150,11 +183,156 @@
   <data name="Error" xml:space="preserve">
     <value>Error</value>
   </data>
+  <data name="FontMenu" xml:space="preserve">
+    <value>Verdana</value>
+    <comment>Font used by menu. It is used in Resource Dictionary to hold styles.</comment>
+  </data>
+  <data name="Label_Aperture" xml:space="preserve">
+    <value>Aperture</value>
+  </data>
+  <data name="Label_BackgroundColor" xml:space="preserve">
+    <value>Background Color</value>
+  </data>
+  <data name="Label_BorderColor" xml:space="preserve">
+    <value>Image Border Color</value>
+  </data>
+  <data name="Label_BorderWidth" xml:space="preserve">
+    <value>Image Border Width</value>
+  </data>
+  <data name="Label_Camera" xml:space="preserve">
+    <value>Camera</value>
+  </data>
+  <data name="Label_ColorRepresentation" xml:space="preserve">
+    <value>Color Representation</value>
+  </data>
+  <data name="Label_CreationSoftware" xml:space="preserve">
+    <value>Creation Software</value>
+  </data>
+  <data name="Label_DateTaken" xml:space="preserve">
+    <value>Date Taken</value>
+  </data>
+  <data name="Label_DropShadowColor" xml:space="preserve">
+    <value>Drop Shadow Color</value>
+  </data>
+  <data name="Label_ExposureCompensation" xml:space="preserve">
+    <value>Exposure Compensation</value>
+  </data>
+  <data name="Label_ExposureMode" xml:space="preserve">
+    <value>Exposure Mode</value>
+  </data>
+  <data name="Label_ExposureTime" xml:space="preserve">
+    <value>Exposure Time</value>
+  </data>
+  <data name="Label_FlashMode" xml:space="preserve">
+    <value>Flash Mode</value>
+  </data>
+  <data name="Label_FocalLength" xml:space="preserve">
+    <value>Focal Length</value>
+  </data>
+  <data name="Label_Height" xml:space="preserve">
+    <value>Height</value>
+  </data>
+  <data name="Label_HorizontalResolution" xml:space="preserve">
+    <value>Horizontal Resolution</value>
+  </data>
+  <data name="Label_ImageEffect" xml:space="preserve">
+    <value>Image Effect</value>
+  </data>
+  <data name="Label_ImageFileList" xml:space="preserve">
+    <value>Image File List</value>
+  </data>
+  <data name="Label_ImageFileName" xml:space="preserve">
+    <value>Image File Name</value>
+  </data>
+  <data name="Label_ISOSpeed" xml:space="preserve">
+    <value>ISO Speed</value>
+  </data>
+  <data name="Label_JPGCompressionRatio" xml:space="preserve">
+    <value>JPG Compression Ratio</value>
+  </data>
+  <data name="Label_KeepEXIF" xml:space="preserve">
+    <value>Keep EXIF</value>
+  </data>
+  <data name="Label_Manufacturer" xml:space="preserve">
+    <value>Manufacturer</value>
+  </data>
+  <data name="Label_OuputDirectory" xml:space="preserve">
+    <value>Ouput Directory</value>
+  </data>
+  <data name="Label_Pixel" xml:space="preserve">
+    <value> pixel(s)</value>
+  </data>
+  <data name="Label_Selected" xml:space="preserve">
+    <value>Selected</value>
+  </data>
+  <data name="Label_ShadowDepth" xml:space="preserve">
+    <value>Shadow Depth</value>
+  </data>
+  <data name="Label_ShadowLocation" xml:space="preserve">
+    <value>Shadow Location</value>
+  </data>
+  <data name="Label_ShrinkImage" xml:space="preserve">
+    <value>Shrink Image</value>
+  </data>
+  <data name="Label_ShrinkImageTo" xml:space="preserve">
+    <value>Shrink Image To</value>
+  </data>
+  <data name="Label_SourceDirectory" xml:space="preserve">
+    <value>Source Directory</value>
+  </data>
+  <data name="Label_VerticalResolution" xml:space="preserve">
+    <value>Vertical Resolution</value>
+  </data>
+  <data name="Label_ChooseWatermarkImage" xml:space="preserve">
+    <value>Choose Watermark Image</value>
+  </data>
+  <data name="Label_WatermarkImagePosition" xml:space="preserve">
+    <value>Watermark Image Position</value>
+  </data>
+  <data name="Label_WatermarkImagePreview" xml:space="preserve">
+    <value>Watermark Image</value>
+  </data>
+  <data name="Label_WatermarkText" xml:space="preserve">
+    <value>Watermark Text</value>
+  </data>
+  <data name="Label_WatermarkTextFont" xml:space="preserve">
+    <value>Watermark Text Font</value>
+  </data>
+  <data name="Label_WatermarkTextPosition" xml:space="preserve">
+    <value>Watermark Text Position</value>
+  </data>
+  <data name="Label_WhiteBalanceMode" xml:space="preserve">
+    <value>White Balance Mode</value>
+  </data>
+  <data name="Label_Width" xml:space="preserve">
+    <value>Width</value>
+  </data>
+  <data name="Menu_File" xml:space="preserve">
+    <value>_File</value>
+  </data>
+  <data name="Menu_Help" xml:space="preserve">
+    <value>_Help</value>
+  </data>
+  <data name="Menu_Process" xml:space="preserve">
+    <value>_Process</value>
+  </data>
   <data name="NewVersionAvailable" xml:space="preserve">
     <value>There is a new version {0} available, please visit application homepage to download.</value>
   </data>
   <data name="NoNewVersion" xml:space="preserve">
     <value>You have the latest version.</value>
+  </data>
+  <data name="TabHeader_DirectorySelection" xml:space="preserve">
+    <value>Directory Selection</value>
+  </data>
+  <data name="TabHeader_OutputSettings" xml:space="preserve">
+    <value>Output Settings</value>
+  </data>
+  <data name="TabHeader_ProcessSettings" xml:space="preserve">
+    <value>Process Settings</value>
+  </data>
+  <data name="TabHeader_WatermarkSetting" xml:space="preserve">
+    <value>Watermark Setting</value>
   </data>
   <data name="UnableToCheckVersion" xml:space="preserve">
     <value>Unable to check new version at the moment, please make sure you have active Internet connection and try again later.</value>
@@ -167,5 +345,95 @@
   </data>
   <data name="ValidationReqSouceDirectory" xml:space="preserve">
     <value>Please select a source directory with image(s) to proceed.</value>
+  </data>
+  <data name="Enum_Height" xml:space="preserve">
+    <value>Height</value>
+  </data>
+  <data name="Enum_LongSide" xml:space="preserve">
+    <value>Long Side</value>
+  </data>
+  <data name="Enum_LowerCase" xml:space="preserve">
+    <value>Lower Case</value>
+  </data>
+  <data name="Enum_None" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="Enum_UpperCase" xml:space="preserve">
+    <value>Upper Case</value>
+  </data>
+  <data name="Enum_Width" xml:space="preserve">
+    <value>Width</value>
+  </data>
+  <data name="Label_AllProjects" xml:space="preserve">
+    <value>All Image Process Project Files</value>
+  </data>
+  <data name="Label_AllSupportedImagesFiles" xml:space="preserve">
+    <value>All Supported Images Files</value>
+  </data>
+  <data name="Label_BatchRename" xml:space="preserve">
+    <value>Batch Rename</value>
+  </data>
+  <data name="Label_BorderSettings" xml:space="preserve">
+    <value>Border Settings</value>
+  </data>
+  <data name="Label_DestFolder" xml:space="preserve">
+    <value>Select Destination Folder to Save Processed Images</value>
+  </data>
+  <data name="Label_DropShadowSettings" xml:space="preserve">
+    <value>Drop Shadow Settings</value>
+  </data>
+  <data name="Label_EnableBatchRename" xml:space="preserve">
+    <value>Enable Batch Rename</value>
+  </data>
+  <data name="Label_GenerateThumbnail" xml:space="preserve">
+    <value>Generate Thumbnail</value>
+  </data>
+  <data name="Label_NumberPadding" xml:space="preserve">
+    <value>Number Padding</value>
+  </data>
+  <data name="Label_OpenWatermarkImage" xml:space="preserve">
+    <value>Open Watermark Image</value>
+  </data>
+  <data name="Label_OutputFileNameCase" xml:space="preserve">
+    <value>Output File Name Case</value>
+  </data>
+  <data name="Label_OutputFileNamePrefix" xml:space="preserve">
+    <value>Output File Name Prefix</value>
+  </data>
+  <data name="Label_OutputFileNameSuffix" xml:space="preserve">
+    <value>Output File Name Suffix</value>
+  </data>
+  <data name="Label_PictureSettings" xml:space="preserve">
+    <value>Picture Settings</value>
+  </data>
+  <data name="Label_ShrinkOption" xml:space="preserve">
+    <value>Shrink Option</value>
+  </data>
+  <data name="Label_SourceFolder" xml:space="preserve">
+    <value>Select Folder with Images to Process</value>
+  </data>
+  <data name="Label_StartNumber" xml:space="preserve">
+    <value>Start Number</value>
+  </data>
+  <data name="Label_Thumbnail" xml:space="preserve">
+    <value>Thumbnail</value>
+  </data>
+  <data name="Label_ThumbnailFileNamePrefix" xml:space="preserve">
+    <value>Thumbnail File Name Prefix</value>
+  </data>
+  <data name="Label_ThumbnailFileNameSuffix" xml:space="preserve">
+    <value>Thumbnail File Name Suffix</value>
+  </data>
+  <data name="Label_ThumbnailSize" xml:space="preserve">
+    <value>Thumbnail Size</value>
+  </data>
+  <data name="Label_UnsavedProject" xml:space="preserve">
+    <value>Unsaved Project</value>
+  </data>
+  <data name="Label_WatermarkImage" xml:space="preserve">
+    <value>Watermark Image</value>
+  </data>
+  <data name="Message_SavePrompt" xml:space="preserve">
+    <value>Do you want to save project setting first?</value>
   </data>
 </root>
