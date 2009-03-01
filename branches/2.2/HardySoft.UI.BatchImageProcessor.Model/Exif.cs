@@ -119,6 +119,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 		[ExifDisplay("Label_HorizontalResolution")]
 		public decimal? HorizontalResolution {
 			get {
+				// TODO add feature to support display value like "72 DPI" and so on.
 				object val = queryMetadata("/app1/ifd/exif:{uint=282}");
 				if (val != null) {
 					return parseUnsignedRational((ulong)val);

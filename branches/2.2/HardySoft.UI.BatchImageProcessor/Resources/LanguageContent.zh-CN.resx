@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -120,59 +120,395 @@
   <data name="ApplicationUrl" xml:space="preserve">
     <value>http://code.google.com/p/batch-image-watermark-processor/</value>
   </data>
-  <data name="CommandNewProject" xml:space="preserve">
-    <value>新项目</value>
+  <data name="Menu_File" xml:space="preserve">
+    <value>文件(_F)</value>
   </data>
-  <data name="EnumBottomCenter" xml:space="preserve">
-    <value>Bottom Center</value>
-  </data>
-  <data name="EnumBottomLeft" xml:space="preserve">
-    <value>Bottom Left</value>
-  </data>
-  <data name="EnumBottomRight" xml:space="preserve">
-    <value>Bottom Right</value>
-  </data>
-  <data name="EnumMiddleCenter" xml:space="preserve">
-    <value>Middle Center</value>
-  </data>
-  <data name="EnumMiddleLeft" xml:space="preserve">
-    <value>Middle Left</value>
-  </data>
-  <data name="EnumMiddleRight" xml:space="preserve">
-    <value>Middle Right</value>
-  </data>
-  <data name="EnumTopCenter" xml:space="preserve">
-    <value>Top Center</value>
-  </data>
-  <data name="EnumTopLeft" xml:space="preserve">
-    <value>Top Left</value>
-  </data>
-  <data name="EnumTopRight" xml:space="preserve">
-    <value>Top Right</value>
-  </data>
-  <data name="Error" xml:space="preserve">
-    <value>Error</value>
-  </data>
-  <data name="FontMenu" xml:space="preserve">
+  <data name="Style_MenuFont" xml:space="preserve">
     <value>宋体, SimSun, SimSun-ExtB</value>
     <comment>Font used by menu. It is used in Resource Dictionary to hold styles.</comment>
   </data>
-  <data name="NewVersionAvailable" xml:space="preserve">
-    <value>There is a new version {0} available, please visit application homepage to download.</value>
+  <data name="WindowTitle_Preference" xml:space="preserve">
+    <value>首选项</value>
   </data>
-  <data name="NoNewVersion" xml:space="preserve">
-    <value>You have the latest version.</value>
+  <data name="Button_Font" xml:space="preserve">
+    <value>字体</value>
   </data>
-  <data name="UnableToCheckVersion" xml:space="preserve">
-    <value>Unable to check new version at the moment, please make sure you have active Internet connection and try again later.</value>
+  <data name="Button_Remove" xml:space="preserve">
+    <value>移除</value>
   </data>
-  <data name="ValidationJpgCompressionRatio" xml:space="preserve">
-    <value>Jpg compression ratio must be between 0 and 100.</value>
+  <data name="Command_About" xml:space="preserve">
+    <value>关于</value>
   </data>
-  <data name="ValidationReqDestDirectory" xml:space="preserve">
-    <value>Please select an output directory to proceed.</value>
+  <data name="Command_Exit" xml:space="preserve">
+    <value>退出</value>
   </data>
-  <data name="ValidationReqSouceDirectory" xml:space="preserve">
-    <value>Please select a source directory with image(s) to proceed.</value>
+  <data name="Command_Make" xml:space="preserve">
+    <value>制作</value>
+  </data>
+  <data name="Command_NewProject" xml:space="preserve">
+    <value>新项目</value>
+  </data>
+  <data name="Command_OpenProject" xml:space="preserve">
+    <value>打开项目</value>
+  </data>
+  <data name="Command_Preference" xml:space="preserve">
+    <value>首选项</value>
+  </data>
+  <data name="Command_SaveAs" xml:space="preserve">
+    <value>另存项目为</value>
+  </data>
+  <data name="Command_SaveProject" xml:space="preserve">
+    <value>保存项目</value>
+  </data>
+  <data name="Button_Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="Button_CheckVersion" xml:space="preserve">
+    <value>检查新版本</value>
+  </data>
+  <data name="Button_OK" xml:space="preserve">
+    <value>确定</value>
+  </data>
+  <data name="Button_Save" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="Command_Stop" xml:space="preserve">
+    <value>停止</value>
+  </data>
+  <data name="Label_Aperture" xml:space="preserve">
+    <value>光圈</value>
+  </data>
+  <data name="Enum_Height" xml:space="preserve">
+    <value>高度</value>
+  </data>
+  <data name="Enum_LongSide" xml:space="preserve">
+    <value>长边</value>
+  </data>
+  <data name="Enum_LowerCase" xml:space="preserve">
+    <value>小写</value>
+  </data>
+  <data name="Enum_None" xml:space="preserve">
+    <value>没有</value>
+  </data>
+  <data name="Enum_UpperCase" xml:space="preserve">
+    <value>大写</value>
+  </data>
+  <data name="Enum_Width" xml:space="preserve">
+    <value>宽度</value>
+  </data>
+  <data name="Label_AllProjects" xml:space="preserve">
+    <value>所有支持的项目文件</value>
+  </data>
+  <data name="Label_AllSupportedImagesFiles" xml:space="preserve">
+    <value>所有支持的图形文件</value>
+  </data>
+  <data name="Label_ApplicationSkin" xml:space="preserve">
+    <value>程序皮肤</value>
+  </data>
+  <data name="Label_BackgroundColor" xml:space="preserve">
+    <value>背景色</value>
+  </data>
+  <data name="Label_BorderColor" xml:space="preserve">
+    <value>边框色</value>
+  </data>
+  <data name="Label_BorderWidth" xml:space="preserve">
+    <value>边框宽度</value>
+  </data>
+  <data name="Label_Camera" xml:space="preserve">
+    <value>相机</value>
+  </data>
+  <data name="Label_ChooseWatermarkImage" xml:space="preserve">
+    <value>选择水印图形</value>
+  </data>
+  <data name="Label_BatchRename" xml:space="preserve">
+    <value>批量重命名</value>
+  </data>
+  <data name="Label_BorderSettings" xml:space="preserve">
+    <value>边框设置</value>
+  </data>
+  <data name="Label_Assembly" xml:space="preserve">
+    <value>程序集</value>
+  </data>
+  <data name="Label_Author" xml:space="preserve">
+    <value>作者</value>
+  </data>
+  <data name="Label_Error" xml:space="preserve">
+    <value>错误</value>
+  </data>
+  <data name="Label_ColorRepresentation" xml:space="preserve">
+    <value>颜色表示</value>
+  </data>
+  <data name="Label_CreationSoftware" xml:space="preserve">
+    <value>创建软件</value>
+  </data>
+  <data name="Label_DateTaken" xml:space="preserve">
+    <value>拍摄日期</value>
+  </data>
+  <data name="Label_DropShadowColor" xml:space="preserve">
+    <value>阴影色</value>
+  </data>
+  <data name="Label_ExposureCompensation" xml:space="preserve">
+    <value>曝光补偿</value>
+  </data>
+  <data name="Label_ExposureMode" xml:space="preserve">
+    <value>曝光模式</value>
+  </data>
+  <data name="Label_ExposureTime" xml:space="preserve">
+    <value>曝光时间</value>
+  </data>
+  <data name="Label_FlashMode" xml:space="preserve">
+    <value>闪光灯模式</value>
+  </data>
+  <data name="Label_DestFolder" xml:space="preserve">
+    <value>选择目标目录用来保存输出文件</value>
+  </data>
+  <data name="Label_DropShadowSettings" xml:space="preserve">
+    <value>阴影设置</value>
+  </data>
+  <data name="Label_EnableBatchRename" xml:space="preserve">
+    <value>启动批量重命名</value>
+  </data>
+  <data name="Label_Copyright" xml:space="preserve">
+    <value>版权</value>
+  </data>
+  <data name="Label_Email" xml:space="preserve">
+    <value>电子邮件</value>
+  </data>
+  <data name="Label_FocalLength" xml:space="preserve">
+    <value>焦距</value>
+  </data>
+  <data name="Label_Height" xml:space="preserve">
+    <value>高度</value>
+  </data>
+  <data name="Label_GenerateThumbnail" xml:space="preserve">
+    <value>生成小图片</value>
+  </data>
+  <data name="Label_Hex" xml:space="preserve">
+    <value>16进制表示</value>
+  </data>
+  <data name="Label_HorizontalResolution" xml:space="preserve">
+    <value>水平分辨率</value>
+  </data>
+  <data name="Label_ImageEffect" xml:space="preserve">
+    <value>图像效果</value>
+  </data>
+  <data name="Label_ImageFileList" xml:space="preserve">
+    <value>图形文件列表</value>
+  </data>
+  <data name="Label_ImageFileName" xml:space="preserve">
+    <value>图形文件名</value>
+  </data>
+  <data name="Label_ISOSpeed" xml:space="preserve">
+    <value>ISO 速度</value>
+  </data>
+  <data name="Label_JPGCompressionRatio" xml:space="preserve">
+    <value>JPG压缩率</value>
+  </data>
+  <data name="Label_KeepEXIF" xml:space="preserve">
+    <value>保存EXIF信息</value>
+  </data>
+  <data name="Label_Manufacturer" xml:space="preserve">
+    <value>设备制造商</value>
+  </data>
+  <data name="Label_OuputDirectory" xml:space="preserve">
+    <value>输出目录</value>
+  </data>
+  <data name="Label_Pixel" xml:space="preserve">
+    <value>像素</value>
+  </data>
+  <data name="Label_Selected" xml:space="preserve">
+    <value>已选中</value>
+  </data>
+  <data name="Label_ShadowDepth" xml:space="preserve">
+    <value>阴影深度</value>
+  </data>
+  <data name="Label_ShadowLocation" xml:space="preserve">
+    <value>阴影位置</value>
+  </data>
+  <data name="Label_ShrinkImage" xml:space="preserve">
+    <value>缩小图片</value>
+  </data>
+  <data name="Label_ShrinkImageTo" xml:space="preserve">
+    <value>缩小图片到</value>
+  </data>
+  <data name="Label_SourceDirectory" xml:space="preserve">
+    <value>源目录</value>
+  </data>
+  <data name="Label_VerticalResolution" xml:space="preserve">
+    <value>垂直分辨率</value>
+  </data>
+  <data name="Label_WatermarkImagePosition" xml:space="preserve">
+    <value>水印位置</value>
+  </data>
+  <data name="Label_WatermarkImagePreview" xml:space="preserve">
+    <value>水印图形</value>
+  </data>
+  <data name="Label_WatermarkText" xml:space="preserve">
+    <value>水印文字</value>
+  </data>
+  <data name="Label_WatermarkTextFont" xml:space="preserve">
+    <value>水印文字字体</value>
+  </data>
+  <data name="Label_WatermarkTextPosition" xml:space="preserve">
+    <value>水印文字位置</value>
+  </data>
+  <data name="Label_WhiteBalanceMode" xml:space="preserve">
+    <value>白平衡模式</value>
+  </data>
+  <data name="Label_Width" xml:space="preserve">
+    <value>宽度</value>
+  </data>
+  <data name="Menu_Help" xml:space="preserve">
+    <value>帮助(_H)</value>
+  </data>
+  <data name="Menu_Process" xml:space="preserve">
+    <value>处理(_P)</value>
+  </data>
+  <data name="Message_NewVersionAvailable" xml:space="preserve">
+    <value>已经有新版本 {0} 可供下载，请访问产品主页。</value>
+  </data>
+  <data name="Message_NoNewVersion" xml:space="preserve">
+    <value>您已经拥有最新版本。</value>
+  </data>
+  <data name="Message_UnableToCheckVersion" xml:space="preserve">
+    <value>无法检查新版本，请确定您现在有可用的互联网连接并且稍后再试。</value>
+  </data>
+  <data name="Label_NumberPadding" xml:space="preserve">
+    <value>数字位数</value>
+  </data>
+  <data name="Label_OpenWatermarkImage" xml:space="preserve">
+    <value>打开水印图形</value>
+  </data>
+  <data name="Label_OutputFileNameCase" xml:space="preserve">
+    <value>输出文件名大小写</value>
+  </data>
+  <data name="Label_OutputFileNamePrefix" xml:space="preserve">
+    <value>输出文件名前缀</value>
+  </data>
+  <data name="Label_OutputFileNameSuffix" xml:space="preserve">
+    <value>输出文件名后缀</value>
+  </data>
+  <data name="Label_PictureSettings" xml:space="preserve">
+    <value>图形设置</value>
+  </data>
+  <data name="Label_ShrinkOption" xml:space="preserve">
+    <value>缩小选项</value>
+  </data>
+  <data name="Label_SourceFolder" xml:space="preserve">
+    <value>选择需要处理的图片目录</value>
+  </data>
+  <data name="Label_StartNumber" xml:space="preserve">
+    <value>起始数字</value>
+  </data>
+  <data name="Label_Thumbnail" xml:space="preserve">
+    <value>缩图</value>
+  </data>
+  <data name="Label_ThumbnailFileNamePrefix" xml:space="preserve">
+    <value>缩图文件名前缀</value>
+  </data>
+  <data name="Label_ThumbnailFileNameSuffix" xml:space="preserve">
+    <value>缩图文件名后缀</value>
+  </data>
+  <data name="Label_ThumbnailSize" xml:space="preserve">
+    <value>缩图尺寸</value>
+  </data>
+  <data name="Label_UnsavedProject" xml:space="preserve">
+    <value>未保存的项目</value>
+  </data>
+  <data name="Label_WatermarkImage" xml:space="preserve">
+    <value>水印图形</value>
+  </data>
+  <data name="Message_SavePrompt" xml:space="preserve">
+    <value>是否先保存项目设置？</value>
+  </data>
+  <data name="Label_LatestVersion" xml:space="preserve">
+    <value>最新版本</value>
+  </data>
+  <data name="Label_MyVersion" xml:space="preserve">
+    <value>我的版本</value>
+  </data>
+  <data name="Label_Opacity" xml:space="preserve">
+    <value>透明度</value>
+  </data>
+  <data name="Label_ProductName" xml:space="preserve">
+    <value>产品名称</value>
+  </data>
+  <data name="Label_ProductURL" xml:space="preserve">
+    <value>产品网站</value>
+  </data>
+  <data name="Label_SelectedColor" xml:space="preserve">
+    <value>选中颜色</value>
+  </data>
+  <data name="Label_SysInfo" xml:space="preserve">
+    <value>系统信息</value>
+  </data>
+  <data name="Label_ThreadNumber" xml:space="preserve">
+    <value>处理线程数量</value>
+  </data>
+  <data name="Label_UntitledProjectName" xml:space="preserve">
+    <value>未命名.hsbip</value>
+  </data>
+  <data name="Label_Version" xml:space="preserve">
+    <value>版本</value>
+  </data>
+  <data name="TabHeader_DirectorySelection" xml:space="preserve">
+    <value>目录选择</value>
+  </data>
+  <data name="TabHeader_OutputSettings" xml:space="preserve">
+    <value>输出设置</value>
+  </data>
+  <data name="TabHeader_ProcessSettings" xml:space="preserve">
+    <value>处理设置</value>
+  </data>
+  <data name="TabHeader_WatermarkSetting" xml:space="preserve">
+    <value>水印设置</value>
+  </data>
+  <data name="Validation_JpgCompressionRatio" xml:space="preserve">
+    <value>JPG压缩率必须在0和100之间。</value>
+  </data>
+  <data name="Validation_ReqDestDirectory" xml:space="preserve">
+    <value>请选择一个输出目录。</value>
+  </data>
+  <data name="Validation_ReqSouceDirectory" xml:space="preserve">
+    <value>请选择一个有待处理图形的输入目录。</value>
+  </data>
+  <data name="WindowTitle_About" xml:space="preserve">
+    <value>关于</value>
+  </data>
+  <data name="WindowTitle_ApplicationVersion" xml:space="preserve">
+    <value>程序版本</value>
+  </data>
+  <data name="WindowTitle_ColorPicker" xml:space="preserve">
+    <value>颜色选择</value>
+  </data>
+  <data name="WindowTitle_Main" xml:space="preserve">
+    <value>海龟图形处理</value>
+  </data>
+  <data name="Style_AboutLabel" xml:space="preserve">
+    <value>黑体, SimHei, Microsoft YaHei</value>
+  </data>
+  <data name="Style_AboutText" xml:space="preserve">
+    <value>楷体, 楷体_GB2312, SimSun</value>
+  </data>
+  <data name="Style_ButtonFont" xml:space="preserve">
+    <value>宋体, SimSun, SimSun-ExtB</value>
+  </data>
+  <data name="Style_ConfigLabel" xml:space="preserve">
+    <value>宋体, SimSun, SimSun-ExtB</value>
+  </data>
+  <data name="Style_ConfigTextBox" xml:space="preserve">
+    <value>楷体, 楷体_GB2312, SimSun</value>
+  </data>
+  <data name="Style_ToolbarText" xml:space="preserve">
+    <value>宋体, SimSun, SimSun-ExtB</value>
+  </data>
+  <data name="Style_WindowFooterFont" xml:space="preserve">
+    <value>宋体, SimSun, SimSun-ExtB</value>
+  </data>
+  <data name="Style_WindowTitleFont" xml:space="preserve">
+    <value>宋体, SimSun, SimSun-ExtB</value>
+  </data>
+  <data name="Label_ColorCode" xml:space="preserve">
+    <value>色彩代码：</value>
   </data>
 </root>

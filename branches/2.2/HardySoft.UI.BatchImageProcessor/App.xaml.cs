@@ -57,7 +57,7 @@ namespace HardySoft.UI.BatchImageProcessor {
 		}
 
 		private void showNewVersionWindow(Version latestVersion, Version myVersion) {
-			string compareStatus = string.Format(HardySoft.UI.BatchImageProcessor.Resources.LanguageContent.NewVersionAvailable,
+			string compareStatus = string.Format(HardySoft.UI.BatchImageProcessor.Resources.LanguageContent.Message_NewVersionAvailable,
 				latestVersion.ToString());
 
 			VersionCheckingResult window = new VersionCheckingResult();

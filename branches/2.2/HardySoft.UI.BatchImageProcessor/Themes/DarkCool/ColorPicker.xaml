@@ -3,6 +3,7 @@
   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
   xmlns:PresentationOptions="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options" 
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  xmlns:marks="clr-namespace:HardySoft.UI.BatchImageProcessor.Classes.MarkExtensions"
   mc:Ignorable="PresentationOptions"  
   xmlns:customControls="clr-namespace:HardySoft.UI.BatchImageProcessor.Controls">
 
@@ -146,9 +147,8 @@
 							StrokeThickness="1.0"
 							Data="M 1.5 5.5 L 1.5 6 L 5.5 9.5 L 19.5 9.5 L 19.5 1.0 "/>
 						<!-- Fill Inner Area -->
-						<Path Fill="{TemplateBinding Foreground}"
-							Opacity="0.5"
-								Data="M 19 9 L 19 2 L 6 2 L 2 5.5 L 6 9 z"/>
+						<Path Fill="{TemplateBinding Foreground}" Opacity="0.5"
+							Data="M 19 9 L 19 2 L 6 2 L 2 5.5 L 6 9 z"/>
 					</Canvas>
 					<ControlTemplate.Triggers>
 						<Trigger Property="IsDragging" Value="true">
@@ -220,7 +220,7 @@
 	</Style>
 
 	<Style x:Key="{x:Type customControls:SpectrumSlider}"
-             TargetType="{x:Type customControls:SpectrumSlider}">
+		TargetType="{x:Type customControls:SpectrumSlider}">
 		<Setter Property="Orientation" Value="Vertical"/>
 		<Setter Property="Stylus.IsPressAndHoldEnabled" Value="false"/>
 		<Setter Property="Background" Value="Transparent"/>
@@ -295,9 +295,12 @@
 				</ControlTemplate>
 			</Setter.Value>
 		</Setter>
-
 	</Style>
 	<!-- End Spectrum Slider -->
+	
+	<Style x:Key="{x:Type TextBox}" TargetType="{x:Type TextBox}">
+		<Setter Property="MaxHeight" Value="20"></Setter>
+	</Style>
 
 	<!-- ColorPicker  Styles-->
 	<Style x:Key="{x:Type customControls:ColorPicker}"
@@ -415,9 +418,8 @@
 										<RowDefinition />
 									</Grid.RowDefinitions>
 
-									<TextBlock Grid.Row="0">
-										<Bold>Selected Color</Bold>
-									</TextBlock>
+									<TextBlock Grid.Row="0" FontWeight="Bold"
+										Text="{marks:ResourceExtension Label_SelectedColor}" />
 									<Border Grid.Row="1"
 										BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}"
 										BorderThickness="2" Background="{StaticResource CheckerBrush}"
@@ -435,9 +437,8 @@
 										</Rectangle>
 									</Border>
 
-									<TextBlock Grid.Row="2">
-										<Bold>Opacity</Bold>
-									</TextBlock>
+									<TextBlock Grid.Row="2" FontWeight="Bold"
+										Text="{marks:ResourceExtension Label_Opacity}" />
 									<Border BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}"
 										BorderThickness="2,2,2,2"
 										Background="{StaticResource CheckerBrush}"
@@ -445,15 +446,14 @@
 										Grid.Row="3"
 										Margin="0,2,0,5">
 
-										<Slider
-                      x:Name="opacitySlider"
-                      Orientation="Horizontal"
-                      Minimum="0" Maximum="1"
-                      TickFrequency="0.01" 
-                      SmallChange="0.01"
-                      LargeChange="0.02"
-                      IsDirectionReversed="True"
-                      Value="{Binding ScA, RelativeSource={RelativeSource TemplatedParent}}">
+										<Slider x:Name="opacitySlider"
+											  Orientation="Horizontal"
+											  Minimum="0" Maximum="1"
+											  TickFrequency="0.01" 
+											  SmallChange="0.01"
+											  LargeChange="0.02"
+											  IsDirectionReversed="True"
+											  Value="{Binding ScA, RelativeSource={RelativeSource TemplatedParent}}">
 											<Slider.Background>
 												<LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
 													<GradientStop Offset="0.0" Color="Black" />
@@ -492,8 +492,7 @@
 										FontSize="{TemplateBinding FontSize}"
 										Foreground="{TemplateBinding Background}"
 										Text="{Binding ScA, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" 
-										MinWidth="75"
-                       />
+										MinWidth="75" />
 									<Label Grid.Column="0" Grid.Row="2"
 										FontFamily="{TemplateBinding FontFamily}"
 										FontSize="{TemplateBinding FontSize}"
@@ -600,9 +599,9 @@
 									<Label Grid.Column="0" Grid.Row="0"
 										FontFamily="{TemplateBinding FontFamily}"
 										FontSize="{TemplateBinding FontSize}"
-										Foreground="{TemplateBinding Foreground}">
-										<Bold>Hexadecimal Notation</Bold>
-									</Label>
+										Foreground="{TemplateBinding Foreground}"
+										FontWeight="Bold"
+										Content="{marks:ResourceExtension Label_Hex}" />
 									<TextBox Grid.Column="1" Grid.Row="1"
 										MaxLength="9"
 										FontFamily="{TemplateBinding FontFamily}"

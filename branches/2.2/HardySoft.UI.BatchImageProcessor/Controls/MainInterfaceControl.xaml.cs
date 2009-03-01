@@ -1,18 +1,19 @@
 ﻿using System;
 using System.ComponentModel;
 using System.IO;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Threading;
+using res = HardySoft.UI.BatchImageProcessor.Resources;
 
 using HardySoft.CC.Converter;
 using HardySoft.UI.BatchImageProcessor.Classes;
 using HardySoft.UI.BatchImageProcessor.Model;
 using HardySoft.UI.BatchImageProcessor.Presenter;
 using HardySoft.UI.BatchImageProcessor.View;
-using res = HardySoft.UI.BatchImageProcessor.Resources;
 
 using Microsoft.Practices.Unity;
 
@@ -44,6 +45,8 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 			dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
 			dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
 			dispatcherTimer.Start();
+
+			res.LanguageContent.Culture = Thread.CurrentThread.CurrentCulture;
 		}
 
 		[Dependency]
@@ -271,7 +274,7 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 		public Exception ErrorMessage {
 			set {
 				string messageBoxText = value.ToString();
-				string caption = HardySoft.UI.BatchImageProcessor.Resources.LanguageContent.Error;
+				string caption = res.LanguageContent.Label_Error;
 				MessageBoxButton button = MessageBoxButton.OK;
 				MessageBoxImage icon = MessageBoxImage.Error;
 
@@ -286,9 +289,10 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 				if (value != null) {
 					string messageBoxText = string.Empty;
 					for (int i = 0; i < value.Length; i++) {
-						messageBoxText += HardySoft.UI.BatchImageProcessor.Resources.LanguageContent.ResourceManager.GetString(value[i]) + "\r\n";
+						messageBoxText += res.LanguageContent.ResourceManager.GetString(value[i], 
+							Thread.CurrentThread.CurrentCulture) + "\r\n";
 					}
-					string caption = HardySoft.UI.BatchImageProcessor.Resources.LanguageContent.Error;
+					string caption = HardySoft.UI.BatchImageProcessor.Resources.LanguageContent.Label_Error;
 					MessageBoxButton button = MessageBoxButton.OK;
 					MessageBoxImage icon = MessageBoxImage.Error;
 
@@ -344,7 +348,7 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 		#endregion
 
 		#region View events
-		public event EventHandler NewProjectCreated;
+		public event ProjectWithFileNameEventHandler NewProjectCreated;
 		public event ProjectWithFileNameEventHandler SaveProject;
 		public event ProjectWithFileNameEventHandler SaveProjectAs;
 		public event ProjectWithFileNameEventHandler OpenProject;
@@ -368,9 +372,10 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 		}
 
 		private void NewCommand_Executed(object sender, ExecutedRoutedEventArgs e) {
-			EventHandler handlers = NewProjectCreated;
+			ProjectWithFileNameEventHandler handlers = NewProjectCreated;
 			if (handlers != null) {
-				handlers(this, EventArgs.Empty);
+				ProjectWithFileNameEventArgs args = new ProjectWithFileNameEventArgs(res.LanguageContent.Label_UntitledProjectName);
+				handlers(this, args);
 
 				//this.currentProjectFile = "Untitled.hsbip";
 				OnProjectFileNameObtained();

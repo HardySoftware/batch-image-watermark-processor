@@ -70,6 +70,24 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        internal static string Button_Cancel {
+            get {
+                return ResourceManager.GetString("Button_Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Check New Version.
+        /// </summary>
+        internal static string Button_CheckVersion {
+            get {
+                return ResourceManager.GetString("Button_CheckVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Font.
         /// </summary>
         internal static string Button_Font {
@@ -79,11 +97,29 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to OK.
+        /// </summary>
+        internal static string Button_OK {
+            get {
+                return ResourceManager.GetString("Button_OK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Remove.
         /// </summary>
         internal static string Button_Remove {
             get {
                 return ResourceManager.GetString("Button_Remove", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        internal static string Button_Save {
+            get {
+                return ResourceManager.GetString("Button_Save", resourceCulture);
             }
         }
         
@@ -223,105 +259,6 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bottom Center.
-        /// </summary>
-        internal static string EnumBottomCenter {
-            get {
-                return ResourceManager.GetString("EnumBottomCenter", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Bottom Left.
-        /// </summary>
-        internal static string EnumBottomLeft {
-            get {
-                return ResourceManager.GetString("EnumBottomLeft", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Bottom Right.
-        /// </summary>
-        internal static string EnumBottomRight {
-            get {
-                return ResourceManager.GetString("EnumBottomRight", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Middle Center.
-        /// </summary>
-        internal static string EnumMiddleCenter {
-            get {
-                return ResourceManager.GetString("EnumMiddleCenter", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Middle Left.
-        /// </summary>
-        internal static string EnumMiddleLeft {
-            get {
-                return ResourceManager.GetString("EnumMiddleLeft", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Middle Right.
-        /// </summary>
-        internal static string EnumMiddleRight {
-            get {
-                return ResourceManager.GetString("EnumMiddleRight", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Top Center.
-        /// </summary>
-        internal static string EnumTopCenter {
-            get {
-                return ResourceManager.GetString("EnumTopCenter", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Top Left.
-        /// </summary>
-        internal static string EnumTopLeft {
-            get {
-                return ResourceManager.GetString("EnumTopLeft", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Top Right.
-        /// </summary>
-        internal static string EnumTopRight {
-            get {
-                return ResourceManager.GetString("EnumTopRight", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Error.
-        /// </summary>
-        internal static string Error {
-            get {
-                return ResourceManager.GetString("Error", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Verdana.
-        /// </summary>
-        internal static string FontMenu {
-            get {
-                return ResourceManager.GetString("FontMenu", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to All Image Process Project Files.
         /// </summary>
         internal static string Label_AllProjects {
@@ -345,6 +282,33 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         internal static string Label_Aperture {
             get {
                 return ResourceManager.GetString("Label_Aperture", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Application Skin.
+        /// </summary>
+        internal static string Label_ApplicationSkin {
+            get {
+                return ResourceManager.GetString("Label_ApplicationSkin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Assembly.
+        /// </summary>
+        internal static string Label_Assembly {
+            get {
+                return ResourceManager.GetString("Label_Assembly", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Author.
+        /// </summary>
+        internal static string Label_Author {
+            get {
+                return ResourceManager.GetString("Label_Author", resourceCulture);
             }
         }
         
@@ -412,11 +376,29 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Color Code:.
+        /// </summary>
+        internal static string Label_ColorCode {
+            get {
+                return ResourceManager.GetString("Label_ColorCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Color Representation.
         /// </summary>
         internal static string Label_ColorRepresentation {
             get {
                 return ResourceManager.GetString("Label_ColorRepresentation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Copyright.
+        /// </summary>
+        internal static string Label_Copyright {
+            get {
+                return ResourceManager.GetString("Label_Copyright", resourceCulture);
             }
         }
         
@@ -466,11 +448,29 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Email.
+        /// </summary>
+        internal static string Label_Email {
+            get {
+                return ResourceManager.GetString("Label_Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enable Batch Rename.
         /// </summary>
         internal static string Label_EnableBatchRename {
             get {
                 return ResourceManager.GetString("Label_EnableBatchRename", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error.
+        /// </summary>
+        internal static string Label_Error {
+            get {
+                return ResourceManager.GetString("Label_Error", resourceCulture);
             }
         }
         
@@ -538,6 +538,15 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hexadecimal Notation.
+        /// </summary>
+        internal static string Label_Hex {
+            get {
+                return ResourceManager.GetString("Label_Hex", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Horizontal Resolution.
         /// </summary>
         internal static string Label_HorizontalResolution {
@@ -601,6 +610,15 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Latest Version.
+        /// </summary>
+        internal static string Label_LatestVersion {
+            get {
+                return ResourceManager.GetString("Label_LatestVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Manufacturer.
         /// </summary>
         internal static string Label_Manufacturer {
@@ -610,11 +628,29 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to My Version.
+        /// </summary>
+        internal static string Label_MyVersion {
+            get {
+                return ResourceManager.GetString("Label_MyVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Number Padding.
         /// </summary>
         internal static string Label_NumberPadding {
             get {
                 return ResourceManager.GetString("Label_NumberPadding", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Opacity.
+        /// </summary>
+        internal static string Label_Opacity {
+            get {
+                return ResourceManager.GetString("Label_Opacity", resourceCulture);
             }
         }
         
@@ -664,7 +700,7 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Picture Settings.
+        ///   Looks up a localized string similar to Image Settings.
         /// </summary>
         internal static string Label_PictureSettings {
             get {
@@ -682,11 +718,38 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Product Name.
+        /// </summary>
+        internal static string Label_ProductName {
+            get {
+                return ResourceManager.GetString("Label_ProductName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Product URL.
+        /// </summary>
+        internal static string Label_ProductURL {
+            get {
+                return ResourceManager.GetString("Label_ProductURL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Selected.
         /// </summary>
         internal static string Label_Selected {
             get {
                 return ResourceManager.GetString("Label_Selected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Selected Color.
+        /// </summary>
+        internal static string Label_SelectedColor {
+            get {
+                return ResourceManager.GetString("Label_SelectedColor", resourceCulture);
             }
         }
         
@@ -763,6 +826,24 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to System Information.
+        /// </summary>
+        internal static string Label_SysInfo {
+            get {
+                return ResourceManager.GetString("Label_SysInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Process Thread Number.
+        /// </summary>
+        internal static string Label_ThreadNumber {
+            get {
+                return ResourceManager.GetString("Label_ThreadNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Thumbnail.
         /// </summary>
         internal static string Label_Thumbnail {
@@ -804,6 +885,24 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         internal static string Label_UnsavedProject {
             get {
                 return ResourceManager.GetString("Label_UnsavedProject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Untitled.hsbip.
+        /// </summary>
+        internal static string Label_UntitledProjectName {
+            get {
+                return ResourceManager.GetString("Label_UntitledProjectName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Version.
+        /// </summary>
+        internal static string Label_Version {
+            get {
+                return ResourceManager.GetString("Label_Version", resourceCulture);
             }
         }
         
@@ -916,6 +1015,24 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to There is a new version {0} available, please visit application homepage to download..
+        /// </summary>
+        internal static string Message_NewVersionAvailable {
+            get {
+                return ResourceManager.GetString("Message_NewVersionAvailable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You have the latest version..
+        /// </summary>
+        internal static string Message_NoNewVersion {
+            get {
+                return ResourceManager.GetString("Message_NoNewVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Do you want to save project setting first?.
         /// </summary>
         internal static string Message_SavePrompt {
@@ -925,20 +1042,92 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to There is a new version {0} available, please visit application homepage to download..
+        ///   Looks up a localized string similar to Unable to check new version at the moment, please make sure you have active Internet connection and try again later..
         /// </summary>
-        internal static string NewVersionAvailable {
+        internal static string Message_UnableToCheckVersion {
             get {
-                return ResourceManager.GetString("NewVersionAvailable", resourceCulture);
+                return ResourceManager.GetString("Message_UnableToCheckVersion", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You have the latest version..
+        ///   Looks up a localized string similar to Calibri, Verdana.
         /// </summary>
-        internal static string NoNewVersion {
+        internal static string Style_AboutLabel {
             get {
-                return ResourceManager.GetString("NoNewVersion", resourceCulture);
+                return ResourceManager.GetString("Style_AboutLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Calibri, Verdana.
+        /// </summary>
+        internal static string Style_AboutText {
+            get {
+                return ResourceManager.GetString("Style_AboutText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Verdana.
+        /// </summary>
+        internal static string Style_ButtonFont {
+            get {
+                return ResourceManager.GetString("Style_ButtonFont", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Verdana.
+        /// </summary>
+        internal static string Style_ConfigLabel {
+            get {
+                return ResourceManager.GetString("Style_ConfigLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Calibri, Tahoma, Arial.
+        /// </summary>
+        internal static string Style_ConfigTextBox {
+            get {
+                return ResourceManager.GetString("Style_ConfigTextBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Verdana.
+        /// </summary>
+        internal static string Style_MenuFont {
+            get {
+                return ResourceManager.GetString("Style_MenuFont", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Verdana.
+        /// </summary>
+        internal static string Style_ToolbarText {
+            get {
+                return ResourceManager.GetString("Style_ToolbarText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Verdana.
+        /// </summary>
+        internal static string Style_WindowFooterFont {
+            get {
+                return ResourceManager.GetString("Style_WindowFooterFont", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Verdana.
+        /// </summary>
+        internal static string Style_WindowTitleFont {
+            get {
+                return ResourceManager.GetString("Style_WindowTitleFont", resourceCulture);
             }
         }
         
@@ -970,7 +1159,7 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Watermark Setting.
+        ///   Looks up a localized string similar to Watermark Settings.
         /// </summary>
         internal static string TabHeader_WatermarkSetting {
             get {
@@ -979,38 +1168,74 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Unable to check new version at the moment, please make sure you have active Internet connection and try again later..
-        /// </summary>
-        internal static string UnableToCheckVersion {
-            get {
-                return ResourceManager.GetString("UnableToCheckVersion", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Jpg compression ratio must be between 0 and 100..
         /// </summary>
-        internal static string ValidationJpgCompressionRatio {
+        internal static string Validation_JpgCompressionRatio {
             get {
-                return ResourceManager.GetString("ValidationJpgCompressionRatio", resourceCulture);
+                return ResourceManager.GetString("Validation_JpgCompressionRatio", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Please select an output directory to proceed..
         /// </summary>
-        internal static string ValidationReqDestDirectory {
+        internal static string Validation_ReqDestDirectory {
             get {
-                return ResourceManager.GetString("ValidationReqDestDirectory", resourceCulture);
+                return ResourceManager.GetString("Validation_ReqDestDirectory", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Please select a source directory with image(s) to proceed..
         /// </summary>
-        internal static string ValidationReqSouceDirectory {
+        internal static string Validation_ReqSouceDirectory {
             get {
-                return ResourceManager.GetString("ValidationReqSouceDirectory", resourceCulture);
+                return ResourceManager.GetString("Validation_ReqSouceDirectory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to About.
+        /// </summary>
+        internal static string WindowTitle_About {
+            get {
+                return ResourceManager.GetString("WindowTitle_About", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Application Version.
+        /// </summary>
+        internal static string WindowTitle_ApplicationVersion {
+            get {
+                return ResourceManager.GetString("WindowTitle_ApplicationVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose Color.
+        /// </summary>
+        internal static string WindowTitle_ColorPicker {
+            get {
+                return ResourceManager.GetString("WindowTitle_ColorPicker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sea Turtle Image Processor.
+        /// </summary>
+        internal static string WindowTitle_Main {
+            get {
+                return ResourceManager.GetString("WindowTitle_Main", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Preference.
+        /// </summary>
+        internal static string WindowTitle_Preference {
+            get {
+                return ResourceManager.GetString("WindowTitle_Preference", resourceCulture);
             }
         }
     }
