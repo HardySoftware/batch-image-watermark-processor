@@ -51,7 +51,8 @@ namespace HardySoft.UI.BatchImageProcessor.Classes.Converters {
 					}*/
 
 					if (!string.IsNullOrEmpty(description)) {
-						description = Resources.LanguageContent.ResourceManager.GetString(description);
+						description = Resources.LanguageContent.ResourceManager.GetString(description, 
+							Thread.CurrentThread.CurrentCulture);
 						return description;
 					} else {
 						return value.ToString();

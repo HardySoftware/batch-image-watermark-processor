@@ -89,7 +89,7 @@
 		<Setter Property="TextAlignment" Value="Left"></Setter>
 		<Setter Property="FontSize" Value="15"></Setter>
 		<Setter Property="FontWeight" Value="Bold"></Setter>
-		<Setter Property="FontFamily" Value="Verdana"></Setter>
+		<Setter Property="FontFamily" Value="{marks:ResourceFontExtension Style_WindowTitleFont}"></Setter>
 		<Setter Property="TextTrimming" Value="None"></Setter>
 		<Setter Property="TextDecorations" Value="None"></Setter>
 		<Setter Property="BitmapEffect">
@@ -104,7 +104,7 @@
 	<Style x:Key="WindowFooter" TargetType="TextBlock">
 		<Setter Property="Foreground" Value="AliceBlue"></Setter>
 		<Setter Property="FontSize" Value="12"></Setter>
-		<Setter Property="FontFamily" Value="Verdana"></Setter>
+		<Setter Property="FontFamily" Value="{marks:ResourceFontExtension Style_WindowFooterFont}"></Setter>
 	</Style>
 
 	<!-- Help Popup window -->
@@ -165,7 +165,7 @@
 		<Setter Property="OverridesDefaultStyle" Value="True"/>
 		<Setter Property="SnapsToDevicePixels" Value="True"/>
 		<Setter Property="Foreground" Value="{StaticResource ToobarTextColorBrush}"/>
-		<Setter Property="FontFamily" Value="{marks:ResourceFontExtension FontMenu}"/>
+		<Setter Property="FontFamily" Value="{marks:ResourceFontExtension Style_MenuFont}"/>
 		<Setter Property="FontSize" Value="15"/>
 		<Setter Property="Template">
 			<Setter.Value>
@@ -399,7 +399,7 @@
 
 	<!-- Label for configuration area within tab control -->
 	<Style x:Key="ConfigSectionLabel" TargetType="{x:Type TextBlock}">
-		<Setter Property="TextBlock.FontFamily" Value="Verdana"></Setter>
+		<Setter Property="TextBlock.FontFamily" Value="{marks:ResourceFontExtension Style_ConfigLabel}"></Setter>
 		<Setter Property="TextBlock.FontSize" Value="12"></Setter>
 		<Setter Property="TextBlock.FontWeight" Value="Semibold"></Setter>
 		<Setter Property="TextBlock.Foreground" Value="White"></Setter>
@@ -413,7 +413,7 @@
 
 	<!-- Label for about window -->
 	<Style x:Key="AboutWindowLabel" TargetType="{x:Type TextBlock}">
-		<Setter Property="TextBlock.FontFamily" Value="Calibri, Verdana"></Setter>
+		<Setter Property="TextBlock.FontFamily" Value="{marks:ResourceFontExtension Style_AboutLabel}"></Setter>
 		<Setter Property="TextBlock.FontSize" Value="14"></Setter>
 		<Setter Property="TextBlock.FontWeight" Value="Semibold"></Setter>
 		<Setter Property="TextBlock.Foreground" Value="White"></Setter>
@@ -426,12 +426,13 @@
 
 	<!-- Value for about window -->
 	<Style x:Key="AboutWindowText" TargetType="{x:Type TextBlock}">
-		<Setter Property="TextBlock.FontFamily" Value="Calibri, Verdana"></Setter>
+		<Setter Property="TextBlock.FontFamily" Value="{marks:ResourceFontExtension Style_AboutText}"></Setter>
 		<Setter Property="TextBlock.FontSize" Value="14"></Setter>
 		<Setter Property="TextBlock.Foreground" Value="White"></Setter>
 	</Style>
 
 	<!-- Button for configuration area within tab control -->
+	<!--
 	<Style TargetType="Button" x:Key="FunctionButton">
 		<Setter Property="FrameworkElement.Width" Value="NaN"/>
 		<Setter Property="FrameworkElement.MinWidth" Value="40"/>
@@ -446,7 +447,7 @@
 		</Setter>
 		<Setter Property="TextElement.FontSize" Value="12"/>
 		<Setter Property="TextElement.FontWeight" Value="SemiBold"/>
-		<Setter Property="TextElement.FontFamily" Value="Verdana"/>
+		<Setter Property="TextElement.FontFamily" Value="{marks:ResourceFontExtension Style_ButtonFont}"/>
 		<Setter Property="Control.Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="Button">
@@ -544,6 +545,7 @@
 			</Setter.Value>
 		</Setter>
 	</Style>
+	-->
 
 	<Style TargetType="Button" x:Key="GlassButton">
 		<Setter Property="FrameworkElement.Width" Value="NaN"/>
@@ -559,7 +561,7 @@
 		</Setter>
 		<Setter Property="TextElement.FontSize" Value="10"/>
 		<Setter Property="TextElement.FontWeight" Value="SemiBold"/>
-		<Setter Property="TextElement.FontFamily" Value="Verdana"/>
+		<Setter Property="TextElement.FontFamily" Value="{marks:ResourceFontExtension Style_ButtonFont}"/>
 		<Setter Property="Control.Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="{x:Type Button}">
@@ -667,7 +669,7 @@
 		<!--
 		<Setter Property="Foreground" Value="#FF000000" />
 		-->
-		<Setter Property="FontFamily" Value="Calibri, Tahoma, Arial" />
+		<Setter Property="FontFamily" Value="{marks:ResourceFontExtension Style_ConfigTextBox}" />
 		<Setter Property="FontSize" Value="12" />
 		<Setter Property="MinHeight" Value="25"/>
 		<Setter Property="MinWidth" Value="250"/>
@@ -1506,7 +1508,7 @@
 		<Setter Property="Background" Value="Transparent"/>
 		<Setter Property="Foreground" Value="{StaticResource ToobarTextColorBrush}"/>
 		<Setter Property="FontSize" Value="14"/>
-		<Setter Property="FontFamily" Value="Verdana" />
+		<Setter Property="FontFamily" Value="{marks:ResourceFontExtension Style_ToolbarText}" />
 		<Setter Property="VerticalAlignment" Value="Center" />
 		<Setter Property="HorizontalAlignment" Value="Center"/>
 		<Setter Property="VerticalAlignment" Value="Center"/>
@@ -1815,10 +1817,27 @@
 								</Grid.ColumnDefinitions>
 
 
-								<ToggleButton HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="1" MinHeight="0" MinWidth="0" x:Name="ExpanderButton" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" FontFamily="{TemplateBinding FontFamily}" FontSize="{TemplateBinding FontSize}" FontStretch="{TemplateBinding FontStretch}" FontStyle="{TemplateBinding FontStyle}" FontWeight="{TemplateBinding FontWeight}" Foreground="{TemplateBinding Foreground}" Template="{StaticResource ExpanderDownHeaderTemplate}" Grid.Column="0" Grid.Row="0" Content="{TemplateBinding Header}" ContentTemplate="{TemplateBinding HeaderTemplate}" IsChecked="{Binding Path=IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Grid.ColumnSpan="2"/>
-								<Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" x:Name="ExpandSite" Visibility="Collapsed">
-									<Border Background="{StaticResource NormalBrush}" CornerRadius="3,3,3,3" BorderBrush="{StaticResource NormalBorderBrush}" BorderThickness="1,1,1,1"/>
-									<ContentPresenter Cursor="{TemplateBinding Cursor}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="4,4,4,4" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+								<ToggleButton HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+									Margin="1" MinHeight="0" MinWidth="0" x:Name="ExpanderButton" 
+									VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
+									FontFamily="{TemplateBinding FontFamily}" 
+									FontSize="{TemplateBinding FontSize}" 
+									FontStretch="{TemplateBinding FontStretch}" 
+									FontStyle="{TemplateBinding FontStyle}" 
+									FontWeight="{TemplateBinding FontWeight}" 
+									Foreground="{TemplateBinding Foreground}" 
+									Template="{StaticResource ExpanderDownHeaderTemplate}" 
+									Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"
+									Content="{TemplateBinding Header}" ContentTemplate="{TemplateBinding HeaderTemplate}"
+									IsChecked="{Binding Path=IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" 
+									/>
+								<Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" x:Name="ExpandSite" 
+									Visibility="Collapsed">
+									<Border Background="{StaticResource NormalBrush}" CornerRadius="3,3,3,3" 
+										BorderBrush="{StaticResource NormalBorderBrush}" BorderThickness="1,1,1,1"/>
+									<ContentPresenter Cursor="{TemplateBinding Cursor}" 
+										HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+										Margin="4,4,4,4" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
 								</Grid>
 							</Grid>
 						</Border>

@@ -185,6 +185,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Resources\HelpContent.zh-CN.Designer.cs">
+      <DependentUpon>HelpContent.zh-CN.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Resources\LanguageContent.zh-CN.Designer.cs">
       <DependentUpon>LanguageContent.zh-CN.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -203,6 +208,10 @@
     <Compile Include="VersionCheckingResult.xaml.cs">
       <DependentUpon>VersionCheckingResult.xaml</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Resources\HelpContent.zh-CN.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>HelpContent.zh-CN.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\LanguageContent.zh-CN.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>LanguageContent.zh-CN.Designer.cs</LastGenOutput>

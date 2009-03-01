@@ -3,6 +3,8 @@ using System.Windows.Data;
 using System.Drawing;
 using System.Globalization;
 
+using res = HardySoft.UI.BatchImageProcessor.Resources;
+
 namespace HardySoft.UI.BatchImageProcessor.Classes.Converters {
 	public class ColorDisplayNameConverter : IValueConverter {
 		public object Convert(object value, Type targetType, object parameter, CultureInfo culture) {
@@ -24,7 +26,7 @@ namespace HardySoft.UI.BatchImageProcessor.Classes.Converters {
 				}
 				string hexCode = new string(chars);
 
-				return "Color Code: #" + hexCode;
+				return res.LanguageContent.Label_ColorCode + " #" + hexCode;
 			} else {
 				return string.Empty;
 			}

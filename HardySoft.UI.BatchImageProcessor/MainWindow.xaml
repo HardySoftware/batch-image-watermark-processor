@@ -4,7 +4,8 @@
     xmlns:HSC="clr-namespace:HardySoft.UI.BatchImageProcessor.Controls"
     xmlns:sys="clr-namespace:System;assembly=mscorlib"
     xmlns:enum="clr-namespace:HardySoft.UI.BatchImageProcessor.Model;assembly=HardySoft.UI.BatchImageProcessor.Model"
-    Title="Sea Turtle Image Processor" Height="500" Width="800"
+    xmlns:marks="clr-namespace:HardySoft.UI.BatchImageProcessor.Classes.MarkExtensions"
+    Title="{marks:ResourceExtension WindowTitle_Main}" Height="500" Width="800"
     AllowsTransparency="True" Background="Transparent"
     WindowStyle="None" ResizeMode="CanResizeWithGrip" Icon="/SeaTurtle;component/Images/icon.ico">
 	<Window.Resources>
@@ -18,7 +19,7 @@
                 <RowDefinition></RowDefinition>
                 <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
-            <TextBlock Text="Sea Turtle Image Processor" 
+            <TextBlock Text="{marks:ResourceExtension WindowTitle_Main}" 
 				Style="{StaticResource WindowTitle}" Grid.Row="0"
 				MouseLeftButtonDown="titleBar_MouseLeftButtonDown"></TextBlock>
             <Grid Grid.Row="1">
