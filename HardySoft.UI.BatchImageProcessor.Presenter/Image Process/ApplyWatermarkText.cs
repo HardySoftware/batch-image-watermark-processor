@@ -38,7 +38,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 			float xCenterOfImg = 0;
 
 			switch (ps.Watermark.WatermarkTextPosition) {
-				case WatermarkPositions.BottomCenter:
+				case ContentAlignment.BottomCenter:
 					//Since all photographs will have varying heights, determine a 
 					//position 5% from the bottom of the image
 					yPixlesFromBottom = (int)(imageHeight * .05);
@@ -51,49 +51,49 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 					xCenterOfImg = (imageWidth / 2);
 					break;
 
-				case WatermarkPositions.BottomLeft:
+				case ContentAlignment.BottomLeft:
 					yPixlesFromBottom = (int)(imageHeight * .05);
 					yPosFromBottom = ((imageHeight - yPixlesFromBottom) - (fontSize.Height / 2));
 					xCenterOfImg = (fontSize.Width / 2) + 10;
 					break;
 
-				case WatermarkPositions.BottomRight:
+				case ContentAlignment.BottomRight:
 					yPixlesFromBottom = (int)(imageHeight * .05);
 					yPosFromBottom = ((imageHeight - yPixlesFromBottom) - (fontSize.Height / 2));
 					xCenterOfImg = (imageWidth - (fontSize.Width / 2)) - 10;
 					break;
 
-				case WatermarkPositions.MiddleCenter:
+				case ContentAlignment.MiddleCenter:
 					yPixlesFromBottom = (int)(imageHeight * .50);
 					yPosFromBottom = ((imageHeight - yPixlesFromBottom) - (fontSize.Height / 2));
 					xCenterOfImg = (imageWidth / 2);
 					break;
 
-				case WatermarkPositions.MiddleLeft:
+				case ContentAlignment.MiddleLeft:
 					yPixlesFromBottom = (int)(imageHeight * .50);
 					yPosFromBottom = ((imageHeight - yPixlesFromBottom) - (fontSize.Height / 2));
 					xCenterOfImg = (fontSize.Width / 2) + 10;
 					break;
 
-				case WatermarkPositions.MiddleRight:
+				case ContentAlignment.MiddleRight:
 					yPixlesFromBottom = (int)(imageHeight * .50);
 					yPosFromBottom = ((imageHeight - yPixlesFromBottom) - (fontSize.Height / 2));
 					xCenterOfImg = (imageWidth - (fontSize.Width / 2)) - 10;
 					break;
 
-				case WatermarkPositions.TopCenter:
+				case ContentAlignment.TopCenter:
 					yPixlesFromBottom = (int)(imageHeight * .95);
 					yPosFromBottom = ((imageHeight - yPixlesFromBottom) - (fontSize.Height / 2));
 					xCenterOfImg = (imageWidth / 2);
 					break;
 
-				case WatermarkPositions.TopLeft:
+				case ContentAlignment.TopLeft:
 					yPixlesFromBottom = (int)(imageHeight * .95);
 					yPosFromBottom = ((imageHeight - yPixlesFromBottom) - (fontSize.Height / 2));
 					xCenterOfImg = (fontSize.Width / 2) + 10;
 					break;
 
-				case WatermarkPositions.TopRight:
+				case ContentAlignment.TopRight:
 					yPixlesFromBottom = (int)(imageHeight * .95);
 					yPosFromBottom = ((imageHeight - yPixlesFromBottom) - (fontSize.Height / 2));
 					xCenterOfImg = (imageWidth - (fontSize.Width / 2)) - 10;

@@ -1,7 +1,8 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Windows.Media;
+using System.Drawing;
 using System.Runtime.Serialization;
+using System.Windows.Media;
 
 namespace HardySoft.UI.BatchImageProcessor.Model {
 	[Serializable]
@@ -32,7 +33,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 		public DropShadow() {
 			this.backgroundColor = System.Drawing.Color.White;
 			this.dropShadowColor = System.Drawing.Color.Black;
-			this.shadowLocation = DropShadowLocation.BottomRight;
+			this.shadowLocation = ContentAlignment.BottomRight;
 		}
 
 		// System.Windows.Media.Color is not serializable, one workaround is to use other format to wrap around it.
@@ -84,8 +85,8 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			}
 		}
 
-		private DropShadowLocation shadowLocation;
-		public DropShadowLocation ShadowLocation {
+		private ContentAlignment shadowLocation;
+		public ContentAlignment ShadowLocation {
 			get {
 				return this.shadowLocation;
 			}

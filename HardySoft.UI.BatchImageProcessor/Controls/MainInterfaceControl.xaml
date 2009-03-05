@@ -320,14 +320,19 @@
 										Command="ApplicationCommands.Help" />
 								</StackPanel>
 
-								<ComboBox x:Name="cmbWatermarkImagePosition"
+								<!--<ComboBox x:Name="cmbWatermarkImagePosition"
 									Margin="10,5,0,0"
 									HorizontalAlignment="Stretch"
 									VerticalAlignment="Stretch"
 									ItemsSource="{Binding Source={StaticResource PositionData}}"
 									SelectedItem="{Binding Path=Watermark.WatermarkImagePosition, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 									Grid.Column="1" Grid.Row="1">
-								</ComboBox>
+								</ComboBox>-->
+								
+								<HSCtrl:PositionPicker Margin="10,5,0,0" Grid.Column="1" Grid.Row="1"
+									HorizontalAlignment="Left" Height="50" Width="100"
+									SelectedPosition="{Binding Path=Watermark.WatermarkImagePosition, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+								</HSCtrl:PositionPicker>
 
 								<StackPanel Grid.Column="0" Grid.Row="2" Margin="0,5,0,0"
 									Orientation="Horizontal" VerticalAlignment="Top">
@@ -414,13 +419,19 @@
 										Command="ApplicationCommands.Help" />
 								</StackPanel>
 
-								<ComboBox x:Name="cmbWatermarkTextPosition"
+								<!--<ComboBox x:Name="cmbWatermarkTextPosition"
 									Margin="10,5,0,0"
 									HorizontalAlignment="Stretch" VerticalAlignment="Top"
 									ItemsSource="{Binding Source={StaticResource PositionData}}"
 									SelectedItem="{Binding Path=Watermark.WatermarkTextPosition, Mode=TwoWay}"
 									Grid.Column="1" Grid.Row="2">
-								</ComboBox>
+								</ComboBox>-->
+								
+								<HSCtrl:PositionPicker Margin="10,5,0,0" Grid.Column="1" Grid.Row="2"
+									HorizontalAlignment="Left" Height="50" Width="100"
+									SelectedPosition="{Binding Path=Watermark.WatermarkTextPosition, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+									CornerOnly="False">
+								</HSCtrl:PositionPicker>
 							</Grid>
 						</Expander>
 					</StackPanel>
@@ -595,14 +606,20 @@
 										Command="ApplicationCommands.Help" />
 								</StackPanel>
 								
-								<ComboBox x:Name="cmbDropShadowLocation"
+								<!--<ComboBox x:Name="cmbDropShadowLocation"
 									Margin="10,5,0,0"
 									HorizontalAlignment="Stretch"
 									VerticalAlignment="Stretch"
 									ItemsSource="{Binding Source={StaticResource DropShadowLocationData}}"
 									SelectedItem="{Binding Path=DropShadowSetting.ShadowLocation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 									Grid.Column="1" Grid.Row="3">
-								</ComboBox>
+								</ComboBox>-->
+								
+								<HSCtrl:PositionPicker Margin="10,5,0,0" Grid.Column="1" Grid.Row="3"
+									HorizontalAlignment="Left" Height="50" Width="100"
+									SelectedPosition="{Binding Path=DropShadowSetting.ShadowLocation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+									CornerOnly="True">
+								</HSCtrl:PositionPicker>
 							</Grid>
 						</Expander>
 

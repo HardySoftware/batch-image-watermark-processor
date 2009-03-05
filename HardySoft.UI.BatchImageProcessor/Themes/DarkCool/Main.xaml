@@ -31,6 +31,7 @@
 		<GradientStop Color="#FFFFFFFF"/>
 		<GradientStop Color="#FF737373" Offset="1"/>
 	</LinearGradientBrush>
+	<SolidColorBrush x:Key="TextBrush" Color="#FFFFFFFF" />
 	<Color x:Key="TextColor">#FFFFFFFF</Color>
 	<SolidColorBrush x:Key="DisabledBackgroundBrush" Color="#FF787878" />
 	<LinearGradientBrush x:Key="HoverShineBrush" EndPoint="0.5,0.971" StartPoint="0.5,0.042">
@@ -40,8 +41,12 @@
 		<GradientStop Color="#00FFFFFF" Offset="0.475" />
 		<GradientStop Color="#00FFFFFF" Offset="0.856" />
 	</LinearGradientBrush>
+	<LinearGradientBrush x:Key="PressedBorderBrush" EndPoint="0,1" StartPoint="0,0">
+		<GradientStop Color="#444" Offset="0.0" />
+		<GradientStop Color="#888" Offset="1.0" />
+	</LinearGradientBrush>
 	<SolidColorBrush x:Key="ControlBackgroundBrush" Color="#FF333333" />
-	
+
 	<SolidColorBrush x:Key="SliderNormalBrush" Color="#FF595959" />
 	<SolidColorBrush x:Key="SliderNormalBorderBrush" Color="#FF333333" />
 	<SolidColorBrush x:Key="SliderHoverBrush" Color="#FF393939" />
@@ -1292,7 +1297,7 @@
 	<!-- ===================== -->
 	<!-- Begin of Slider Style -->
 	<!-- ===================== -->
-	
+
 
 	<Style TargetType="Thumb">
 		<Setter Property="Background" Value="{StaticResource SliderNormalBrush}" />
@@ -1854,7 +1859,83 @@
 		</Setter>
 		<Setter Property="Background" Value="{StaticResource ControlBackgroundBrush}"/>
 	</Style>
+
+	<Style BasedOn="{StaticResource {x:Type ToggleButton}}" TargetType="{x:Type RadioButton}">
+		<Setter Property="Panel.Background" Value="{StaticResource SelectedBackgroundBrush}" />
+		<Setter Property="TextElement.Foreground" Value="{StaticResource TextBrush}" />
+		<Setter Property="Control.Padding" Value="3" />
+		<Setter Property="Border.BorderThickness" Value="2" />
+		<Setter Property="Border.BorderBrush" Value="{StaticResource NormalBorderBrush}" />
+		<Setter Property="Control.Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="ToggleButton">
+					<Grid>
+						<Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="3,3,3,3" Name="border" />
+						<ContentPresenter HorizontalAlignment="{TemplateBinding Control.HorizontalContentAlignment}" Name="contentPresenter" VerticalAlignment="{TemplateBinding Control.VerticalContentAlignment}" />
+						<Border Background="Transparent" CornerRadius="3,3,3,3" IsHitTestVisible="False" Name="checked" />
+						<Border Background="Transparent" CornerRadius="3,3,3,3" IsHitTestVisible="False" Name="shine" />
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="True">
+							<Setter Property="Background" TargetName="shine" Value="{StaticResource HoverShineBrush}" />
+						</Trigger>
+						<Trigger Property="IsChecked" Value="True">
+							<Setter Property="Background" Value="{StaticResource PressedBorderBrush}" />
+							<Setter Property="Background" TargetName="shine" Value="{StaticResource HoverShineBrush}" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
 	<!-- ===================== -->
 	<!-- End of Expander Style -->
 	<!-- ===================== -->
+
+	<!-- ====================================== -->
+	<!-- Begin of Position Picker's RadioButton -->
+	<!-- ====================================== -->
+	<Style x:Key="PositionSelectionItem" TargetType="{x:Type RadioButton}" BasedOn="{StaticResource {x:Type ToggleButton}}">
+		<Setter Property="Background" Value="{StaticResource SelectedBackgroundBrush}" />
+		<Setter Property="Foreground" Value="{StaticResource TextBrush}" />
+		<Setter Property="Padding" Value="3" />
+		<Setter Property="BorderThickness" Value="2" />
+		<Setter Property="BorderBrush" Value="{StaticResource NormalBorderBrush}" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="ToggleButton">
+					<Grid>
+						<Border x:Name="border"    
+                      Background="{TemplateBinding Background}"  
+                      BorderBrush="{TemplateBinding BorderBrush}"    
+                      BorderThickness="{TemplateBinding BorderThickness}"    
+                      CornerRadius="3" />
+						<ContentPresenter x:Name="contentPresenter"    
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"  
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+						<Border x:Name="checked"    
+                      IsHitTestVisible="False"
+                      Background="Transparent"
+                      CornerRadius="3" />
+						<Border x:Name="shine"
+                      IsHitTestVisible="False"
+                      Background="Transparent"
+                      CornerRadius="3" />
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="True">
+							<Setter TargetName="shine" Property="Background" Value="{StaticResource HoverShineBrush}"/>
+						</Trigger>
+						<Trigger Property="IsChecked" Value="True">
+							<Setter Property="Background" Value="{StaticResource PressedBorderBrush}"/>
+							<Setter TargetName="shine" Property="Background" Value="{StaticResource HoverShineBrush}"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<!-- ==================================== -->
+	<!-- End of Position Picker's RadioButton -->
+	<!-- ==================================== -->
 </ResourceDictionary>
