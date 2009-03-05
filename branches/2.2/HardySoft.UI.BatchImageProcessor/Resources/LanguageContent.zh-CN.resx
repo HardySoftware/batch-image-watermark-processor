@@ -511,4 +511,31 @@
   <data name="Label_ColorCode" xml:space="preserve">
     <value>色彩代码：</value>
   </data>
+  <data name="Enum_BottomCenter" xml:space="preserve">
+    <value>下中部</value>
+  </data>
+  <data name="Enum_BottomLeft" xml:space="preserve">
+    <value>左下角</value>
+  </data>
+  <data name="Enum_BottomRight" xml:space="preserve">
+    <value>右下角</value>
+  </data>
+  <data name="Enum_MiddleCenter" xml:space="preserve">
+    <value>正中</value>
+  </data>
+  <data name="Enum_MiddleLeft" xml:space="preserve">
+    <value>左中部</value>
+  </data>
+  <data name="Enum_MiddleRight" xml:space="preserve">
+    <value>右中部</value>
+  </data>
+  <data name="Enum_TopCenter" xml:space="preserve">
+    <value>上中部</value>
+  </data>
+  <data name="Enum_TopLeft" xml:space="preserve">
+    <value>左上角</value>
+  </data>
+  <data name="Enum_TopRight" xml:space="preserve">
+    <value>右上角</value>
+  </data>
 </root>

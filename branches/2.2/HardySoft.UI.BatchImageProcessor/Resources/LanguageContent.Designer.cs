@@ -205,6 +205,33 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Bottom Center.
+        /// </summary>
+        internal static string Enum_BottomCenter {
+            get {
+                return ResourceManager.GetString("Enum_BottomCenter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bottom Left.
+        /// </summary>
+        internal static string Enum_BottomLeft {
+            get {
+                return ResourceManager.GetString("Enum_BottomLeft", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bottom Right.
+        /// </summary>
+        internal static string Enum_BottomRight {
+            get {
+                return ResourceManager.GetString("Enum_BottomRight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Height.
         /// </summary>
         internal static string Enum_Height {
@@ -232,11 +259,65 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Middle Center.
+        /// </summary>
+        internal static string Enum_MiddleCenter {
+            get {
+                return ResourceManager.GetString("Enum_MiddleCenter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Middle Left.
+        /// </summary>
+        internal static string Enum_MiddleLeft {
+            get {
+                return ResourceManager.GetString("Enum_MiddleLeft", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Middle Right.
+        /// </summary>
+        internal static string Enum_MiddleRight {
+            get {
+                return ResourceManager.GetString("Enum_MiddleRight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to None.
         /// </summary>
         internal static string Enum_None {
             get {
                 return ResourceManager.GetString("Enum_None", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Top Center.
+        /// </summary>
+        internal static string Enum_TopCenter {
+            get {
+                return ResourceManager.GetString("Enum_TopCenter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Top Left.
+        /// </summary>
+        internal static string Enum_TopLeft {
+            get {
+                return ResourceManager.GetString("Enum_TopLeft", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Top Right.
+        /// </summary>
+        internal static string Enum_TopRight {
+            get {
+                return ResourceManager.GetString("Enum_TopRight", resourceCulture);
             }
         }
         

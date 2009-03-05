@@ -5,6 +5,11 @@ using System.Drawing;
 namespace HardySoft.UI.BatchImageProcessor.Model {
 	[Serializable]
 	public class Watermark : INotifyPropertyChanged {
+		public Watermark() {
+			this.watermarkImagePosition = ContentAlignment.TopRight;
+			this.watermarkTextPosition = ContentAlignment.BottomRight;
+		}
+
 		[field: NonSerialized]
 		public event PropertyChangedEventHandler PropertyChanged;
 		/*[NonSerialized]
@@ -42,8 +47,8 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			}
 		}
 
-		private WatermarkPositions watermarkImagePosition;
-		public WatermarkPositions WatermarkImagePosition {
+		private ContentAlignment watermarkImagePosition;
+		public ContentAlignment WatermarkImagePosition {
 			get {
 				return this.watermarkImagePosition;
 			}
@@ -91,8 +96,8 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			}
 		}
 
-		private WatermarkPositions watermarkTextPosition;
-		public WatermarkPositions WatermarkTextPosition {
+		private ContentAlignment watermarkTextPosition;
+		public ContentAlignment WatermarkTextPosition {
 			get {
 				return this.watermarkTextPosition;
 			}
