@@ -7,7 +7,7 @@ using System.Drawing;
 using HardySoft.UI.BatchImageProcessor.Model;
 
 namespace HardySoft.UI.BatchImageProcessor.Presenter {
-	interface IProcess {
+	public interface IProcess {
 		/// <summary>
 		/// Process image in memory.
 		/// </summary>

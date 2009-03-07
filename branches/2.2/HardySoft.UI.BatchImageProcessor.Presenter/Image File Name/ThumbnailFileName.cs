@@ -12,7 +12,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 	/// This class is used to generate thumbnail image file name.
 	/// </summary>
 	class ThumbnailFileName : IFilenameProvider {
-		public string GetFileName(string sourceFile, ProjectSetting ps) {
+		public string GetFileName(string sourceFile, ProjectSetting ps, uint? imageIndex) {
 			string prefix = ps.ThumbnailSetting.ThumbnailFileNamePrefix;
 			string suffix = ps.ThumbnailSetting.ThumbnailFileNameSuffix;
 

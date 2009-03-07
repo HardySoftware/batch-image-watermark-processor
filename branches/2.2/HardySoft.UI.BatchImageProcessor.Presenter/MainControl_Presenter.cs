@@ -143,25 +143,12 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 				events[i] = new AutoResetEvent(false);
 			}
 
-			// add all selected images to job queue.
-			Queue<JobItem> jobQueue = new Queue<JobItem>();
-			uint index = 0;
-			foreach (PhotoItem item in ps.Photos) {
-				if (item.Selected) {
-					jobQueue.Enqueue(new JobItem() {
-						FileName = item.PhotoPath,
-						Index = index
-					});
+			engine = new ImageProcessorEngine(this.ps, threadNumber, events);
 
-					index++;
-				}
-			}
+			view.ResetJobSize(engine.JobSize);
 
-			view.ResetJobSize(jobQueue.Count);
-
-			engine = new ImageProcessorEngine(threadNumber, events);
 			engine.ImageProcessed += new ImageProcessedDelegate(engine_ImageProcessed);
-			engine.StartProcess(this.ps, jobQueue);
+			engine.StartProcess();
 
 			AutoResetEvent.WaitAll(events);
 

@@ -205,6 +205,15 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Aperture Priority.
+        /// </summary>
+        internal static string Enum_AperturePriority {
+            get {
+                return ResourceManager.GetString("Enum_AperturePriority", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bottom Center.
         /// </summary>
         internal static string Enum_BottomCenter {
@@ -232,11 +241,128 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cloudy Weather.
+        /// </summary>
+        internal static string Enum_CloudyWeather {
+            get {
+                return ResourceManager.GetString("Enum_CloudyWeather", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cool White Fluorescent.
+        /// </summary>
+        internal static string Enum_CoolWhiteFluorescent {
+            get {
+                return ResourceManager.GetString("Enum_CoolWhiteFluorescent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Daylight.
+        /// </summary>
+        internal static string Enum_Daylight {
+            get {
+                return ResourceManager.GetString("Enum_Daylight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Daylight Fluorescent.
+        /// </summary>
+        internal static string Enum_DaylightFluorescent {
+            get {
+                return ResourceManager.GetString("Enum_DaylightFluorescent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Day White Fluorescent.
+        /// </summary>
+        internal static string Enum_DayWhiteFluorescent {
+            get {
+                return ResourceManager.GetString("Enum_DayWhiteFluorescent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fine Weather.
+        /// </summary>
+        internal static string Enum_FineWeather {
+            get {
+                return ResourceManager.GetString("Enum_FineWeather", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Flash.
+        /// </summary>
+        internal static string Enum_Flash {
+            get {
+                return ResourceManager.GetString("Enum_Flash", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Flash Did Not Fire.
+        /// </summary>
+        internal static string Enum_FlashDidNotFire {
+            get {
+                return ResourceManager.GetString("Enum_FlashDidNotFire", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Flash Fired.
+        /// </summary>
+        internal static string Enum_FlashFired {
+            get {
+                return ResourceManager.GetString("Enum_FlashFired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fluorescent.
+        /// </summary>
+        internal static string Enum_Fluorescent {
+            get {
+                return ResourceManager.GetString("Enum_Fluorescent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Height.
         /// </summary>
         internal static string Enum_Height {
             get {
                 return ResourceManager.GetString("Enum_Height", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to High Speed Mode.
+        /// </summary>
+        internal static string Enum_HighSpeedMode {
+            get {
+                return ResourceManager.GetString("Enum_HighSpeedMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ISO Studio Tungsten.
+        /// </summary>
+        internal static string Enum_ISOStudioTungsten {
+            get {
+                return ResourceManager.GetString("Enum_ISOStudioTungsten", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Landscape Mode.
+        /// </summary>
+        internal static string Enum_LandscapeMode {
+            get {
+                return ResourceManager.GetString("Enum_LandscapeMode", resourceCulture);
             }
         }
         
@@ -255,6 +381,24 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         internal static string Enum_LowerCase {
             get {
                 return ResourceManager.GetString("Enum_LowerCase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Low Speed Mode.
+        /// </summary>
+        internal static string Enum_LowSpeedMode {
+            get {
+                return ResourceManager.GetString("Enum_LowSpeedMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Manual.
+        /// </summary>
+        internal static string Enum_Manual {
+            get {
+                return ResourceManager.GetString("Enum_Manual", resourceCulture);
             }
         }
         
@@ -295,6 +439,78 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Normal Program.
+        /// </summary>
+        internal static string Enum_NormalProgram {
+            get {
+                return ResourceManager.GetString("Enum_NormalProgram", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Other.
+        /// </summary>
+        internal static string Enum_Other {
+            get {
+                return ResourceManager.GetString("Enum_Other", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Portrait Mode.
+        /// </summary>
+        internal static string Enum_PortraitMode {
+            get {
+                return ResourceManager.GetString("Enum_PortraitMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Shade.
+        /// </summary>
+        internal static string Enum_Shade {
+            get {
+                return ResourceManager.GetString("Enum_Shade", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Shutter Priority.
+        /// </summary>
+        internal static string Enum_ShutterPriority {
+            get {
+                return ResourceManager.GetString("Enum_ShutterPriority", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Standard Light A.
+        /// </summary>
+        internal static string Enum_StandardLightA {
+            get {
+                return ResourceManager.GetString("Enum_StandardLightA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Standard Light B.
+        /// </summary>
+        internal static string Enum_StandardLightB {
+            get {
+                return ResourceManager.GetString("Enum_StandardLightB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Standard Light C.
+        /// </summary>
+        internal static string Enum_StandardLightC {
+            get {
+                return ResourceManager.GetString("Enum_StandardLightC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Top Center.
         /// </summary>
         internal static string Enum_TopCenter {
@@ -322,11 +538,56 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tungsten.
+        /// </summary>
+        internal static string Enum_Tungsten {
+            get {
+                return ResourceManager.GetString("Enum_Tungsten", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Uncalibrated.
+        /// </summary>
+        internal static string Enum_Uncalibrated {
+            get {
+                return ResourceManager.GetString("Enum_Uncalibrated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unknown.
+        /// </summary>
+        internal static string Enum_Unknown {
+            get {
+                return ResourceManager.GetString("Enum_Unknown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unkown.
+        /// </summary>
+        internal static string Enum_Unkown {
+            get {
+                return ResourceManager.GetString("Enum_Unkown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Upper Case.
         /// </summary>
         internal static string Enum_UpperCase {
             get {
                 return ResourceManager.GetString("Enum_UpperCase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to White Fluorescent.
+        /// </summary>
+        internal static string Enum_WhiteFluorescent {
+            get {
+                return ResourceManager.GetString("Enum_WhiteFluorescent", resourceCulture);
             }
         }
         

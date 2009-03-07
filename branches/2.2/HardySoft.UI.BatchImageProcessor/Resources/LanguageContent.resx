@@ -546,4 +546,91 @@
   <data name="Enum_TopRight" xml:space="preserve">
     <value>Top Right</value>
   </data>
+  <data name="Enum_AperturePriority" xml:space="preserve">
+    <value>Aperture Priority</value>
+  </data>
+  <data name="Enum_CloudyWeather" xml:space="preserve">
+    <value>Cloudy Weather</value>
+  </data>
+  <data name="Enum_CoolWhiteFluorescent" xml:space="preserve">
+    <value>Cool White Fluorescent</value>
+  </data>
+  <data name="Enum_Daylight" xml:space="preserve">
+    <value>Daylight</value>
+  </data>
+  <data name="Enum_DaylightFluorescent" xml:space="preserve">
+    <value>Daylight Fluorescent</value>
+  </data>
+  <data name="Enum_DayWhiteFluorescent" xml:space="preserve">
+    <value>Day White Fluorescent</value>
+  </data>
+  <data name="Enum_FineWeather" xml:space="preserve">
+    <value>Fine Weather</value>
+  </data>
+  <data name="Enum_Flash" xml:space="preserve">
+    <value>Flash</value>
+  </data>
+  <data name="Enum_FlashDidNotFire" xml:space="preserve">
+    <value>Flash Did Not Fire</value>
+  </data>
+  <data name="Enum_FlashFired" xml:space="preserve">
+    <value>Flash Fired</value>
+  </data>
+  <data name="Enum_Fluorescent" xml:space="preserve">
+    <value>Fluorescent</value>
+  </data>
+  <data name="Enum_HighSpeedMode" xml:space="preserve">
+    <value>High Speed Mode</value>
+  </data>
+  <data name="Enum_ISOStudioTungsten" xml:space="preserve">
+    <value>ISO Studio Tungsten</value>
+  </data>
+  <data name="Enum_LandscapeMode" xml:space="preserve">
+    <value>Landscape Mode</value>
+  </data>
+  <data name="Enum_LowSpeedMode" xml:space="preserve">
+    <value>Low Speed Mode</value>
+  </data>
+  <data name="Enum_Manual" xml:space="preserve">
+    <value>Manual</value>
+  </data>
+  <data name="Enum_NormalProgram" xml:space="preserve">
+    <value>Normal Program</value>
+  </data>
+  <data name="Enum_Other" xml:space="preserve">
+    <value>Other</value>
+  </data>
+  <data name="Enum_PortraitMode" xml:space="preserve">
+    <value>Portrait Mode</value>
+  </data>
+  <data name="Enum_Shade" xml:space="preserve">
+    <value>Shade</value>
+  </data>
+  <data name="Enum_ShutterPriority" xml:space="preserve">
+    <value>Shutter Priority</value>
+  </data>
+  <data name="Enum_StandardLightA" xml:space="preserve">
+    <value>Standard Light A</value>
+  </data>
+  <data name="Enum_StandardLightB" xml:space="preserve">
+    <value>Standard Light B</value>
+  </data>
+  <data name="Enum_StandardLightC" xml:space="preserve">
+    <value>Standard Light C</value>
+  </data>
+  <data name="Enum_Tungsten" xml:space="preserve">
+    <value>Tungsten</value>
+  </data>
+  <data name="Enum_Uncalibrated" xml:space="preserve">
+    <value>Uncalibrated</value>
+  </data>
+  <data name="Enum_Unkown" xml:space="preserve">
+    <value>Unkown</value>
+  </data>
+  <data name="Enum_WhiteFluorescent" xml:space="preserve">
+    <value>White Fluorescent</value>
+  </data>
+  <data name="Enum_Unknown" xml:space="preserve">
+    <value>Unknown</value>
+  </data>
 </root>

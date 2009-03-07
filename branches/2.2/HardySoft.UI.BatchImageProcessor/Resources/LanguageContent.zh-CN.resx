@@ -538,4 +538,91 @@
   <data name="Enum_TopRight" xml:space="preserve">
     <value>右上角</value>
   </data>
+  <data name="Enum_AperturePriority" xml:space="preserve">
+    <value>光圈优先</value>
+  </data>
+  <data name="Enum_CloudyWeather" xml:space="preserve">
+    <value>多云天气</value>
+  </data>
+  <data name="Enum_CoolWhiteFluorescent" xml:space="preserve">
+    <value>冷白荧光灯</value>
+  </data>
+  <data name="Enum_Daylight" xml:space="preserve">
+    <value>日光</value>
+  </data>
+  <data name="Enum_DaylightFluorescent" xml:space="preserve">
+    <value>日光白炽灯</value>
+  </data>
+  <data name="Enum_DayWhiteFluorescent" xml:space="preserve">
+    <value>日温白色白炽灯</value>
+  </data>
+  <data name="Enum_FineWeather" xml:space="preserve">
+    <value>晴天</value>
+  </data>
+  <data name="Enum_Flash" xml:space="preserve">
+    <value>闪光灯</value>
+  </data>
+  <data name="Enum_FlashDidNotFire" xml:space="preserve">
+    <value>闪光灯未闪</value>
+  </data>
+  <data name="Enum_FlashFired" xml:space="preserve">
+    <value>闪光灯闪</value>
+  </data>
+  <data name="Enum_Fluorescent" xml:space="preserve">
+    <value>荧光灯</value>
+  </data>
+  <data name="Enum_HighSpeedMode" xml:space="preserve">
+    <value>高速模式</value>
+  </data>
+  <data name="Enum_ISOStudioTungsten" xml:space="preserve">
+    <value>ISO摄影棚钨灯</value>
+  </data>
+  <data name="Enum_LandscapeMode" xml:space="preserve">
+    <value>风景模式</value>
+  </data>
+  <data name="Enum_LowSpeedMode" xml:space="preserve">
+    <value>低俗模式</value>
+  </data>
+  <data name="Enum_Manual" xml:space="preserve">
+    <value>手动</value>
+  </data>
+  <data name="Enum_NormalProgram" xml:space="preserve">
+    <value>正常</value>
+  </data>
+  <data name="Enum_Other" xml:space="preserve">
+    <value>其他</value>
+  </data>
+  <data name="Enum_PortraitMode" xml:space="preserve">
+    <value>肖像模式</value>
+  </data>
+  <data name="Enum_Shade" xml:space="preserve">
+    <value>阴影</value>
+  </data>
+  <data name="Enum_ShutterPriority" xml:space="preserve">
+    <value>快门优先</value>
+  </data>
+  <data name="Enum_StandardLightA" xml:space="preserve">
+    <value>标准光 A</value>
+  </data>
+  <data name="Enum_StandardLightB" xml:space="preserve">
+    <value>标准光 B</value>
+  </data>
+  <data name="Enum_StandardLightC" xml:space="preserve">
+    <value>标准光 C</value>
+  </data>
+  <data name="Enum_Tungsten" xml:space="preserve">
+    <value>钨灯</value>
+  </data>
+  <data name="Enum_Uncalibrated" xml:space="preserve">
+    <value>未校准</value>
+  </data>
+  <data name="Enum_Unkown" xml:space="preserve">
+    <value>未知</value>
+  </data>
+  <data name="Enum_WhiteFluorescent" xml:space="preserve">
+    <value>白炽灯</value>
+  </data>
+  <data name="Enum_Unknown" xml:space="preserve">
+    <value>未知</value>
+  </data>
 </root>
