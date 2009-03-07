@@ -21,7 +21,7 @@ namespace OpenXMLWriter {
 
 	public partial class Window1 : System.Windows.Window {
 		private int updatingUI = 0;
-		private Boolean spellcheck = false;
+		private Boolean spellcheck = true;
 		private string fileName = string.Empty;
 		private bool isDirty = false;
 		private static double[] AvailableFontSizes = new double[] {
@@ -107,6 +107,8 @@ namespace OpenXMLWriter {
 			mainRichTextBox.Focus();
 
 			mainRichTextBox_SelectionChanged(null, null);
+
+			setSpellCheck();
 		}
 
 		private void OpenCommand_Executed(object sender, ExecutedRoutedEventArgs e) {
@@ -401,6 +403,10 @@ namespace OpenXMLWriter {
 				spellcheck = true;
 			}
 
+			setSpellCheck();
+		}
+
+		private void setSpellCheck() {
 			mainRichTextBox.SpellCheck.IsEnabled = spellcheck;
 			SpellCheckMenuItem.IsChecked = spellcheck;
 		}

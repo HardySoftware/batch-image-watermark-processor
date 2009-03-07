@@ -46,7 +46,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 			sb.Dispose();
 
 			switch (ps.DropShadowSetting.ShadowLocation) {
-				case DropShadowLocation.BottomLeft:
+				case ContentAlignment.BottomLeft:
 					//bottom side 
 					graphic.DrawImage(patternBmp, new Rectangle(rc.Left + depth, rc.Bottom - depth, rc.Width - (2 * depth), depth),
 						depth, depth, 1, depth, GraphicsUnit.Pixel);
@@ -63,7 +63,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 					graphic.DrawImage(input, depth, 0, originalWidth, originalHeight);
 
 					break;
-				case DropShadowLocation.BottomRight:
+				case ContentAlignment.BottomRight:
 					//right side 
 					graphic.DrawImage(patternBmp, new Rectangle(rc.Right - depth, rc.Top + depth,
 						depth, rc.Height - (2 * depth)), depth, depth, depth, 1,
@@ -81,7 +81,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 					graphic.DrawImage(input, 0, 0, originalWidth, originalHeight);
 
 					break;
-				case DropShadowLocation.TopLeft:
+				case ContentAlignment.TopLeft:
 					//top left corner 
 					graphic.DrawImage(patternBmp, new Rectangle(rc.Left, rc.Top, depth, depth), 0, 0, depth, depth,
 						GraphicsUnit.Pixel);
@@ -98,7 +98,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 					graphic.DrawImage(input, depth, depth, originalWidth, originalHeight);
 
 					break;
-				case DropShadowLocation.TopRight:
+				case ContentAlignment.TopRight:
 					//top side 
 					graphic.DrawImage(patternBmp, new Rectangle(rc.Left + depth, rc.Top, rc.Width - (2 * depth), depth),
 						depth, 0, 1, depth, GraphicsUnit.Pixel);

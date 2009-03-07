@@ -14,6 +14,17 @@ namespace HardySoft.UI.BatchImageProcessor {
 		IUnityContainer container = new UnityContainer();
 
 		private void Application_Startup(object sender, StartupEventArgs e) {
+			CommandArgument commands = new CommandArgument(e.Args);
+			if (commands["L"] != null) {
+				// force language selection
+				try {
+					Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo(commands["L"]);
+				} catch (ArgumentException) {
+					string text = string.Format("{0} is not a valid culture code.",
+						commands["L"]);
+					System.Windows.MessageBox.Show(text, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+				}
+			}
 			MainWindow mainWindow = (MainWindow)container.Resolve<MainWindow>();
 			mainWindow.Show();
 
@@ -25,38 +36,36 @@ namespace HardySoft.UI.BatchImageProcessor {
 		}
 
 		private void checkVersion() {
-			this.Dispatcher.BeginInvoke(
-				  new Action(
-					delegate() {
-						Version latestVersion = AssembyInformation.GetLatestVersion();
-						Version myVersion = AssembyInformation.GetApplicationVersion();
+			/*this.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal,
+				(ThreadStart)delegate() {
+				}
+			);*/
 
-						if (latestVersion != null && myVersion != null) {
+			Version latestVersion = AssembyInformation.GetLatestVersion();
+			Version myVersion = AssembyInformation.GetApplicationVersion();
+			if (latestVersion != null && myVersion != null) {
+				this.Dispatcher.BeginInvoke(
+					  new Action(
+						delegate() {
 							compareVersion(latestVersion, myVersion);
 						}
-					}
-				)
-			);
+					)
+				);
+			}
 		}
 
 		private void compareVersion(Version latestVersion, Version myVersion) {
-			if (latestVersion.Major > myVersion.Major) {
-				showNewVersionWindow(latestVersion, myVersion);
-			} else if (latestVersion.Minor > myVersion.Minor) {
-				showNewVersionWindow(latestVersion, myVersion);
-			} else if (latestVersion.Build > myVersion.Build) {
-				showNewVersionWindow(latestVersion, myVersion);
-			} else if (latestVersion.Revision > myVersion.Revision) {
+			if (latestVersion > myVersion) {
 				showNewVersionWindow(latestVersion, myVersion);
 			}
 
 #if DEBUG
-			showNewVersionWindow(latestVersion, myVersion);
+			//showNewVersionWindow(latestVersion, myVersion);
 #endif
 		}
 
 		private void showNewVersionWindow(Version latestVersion, Version myVersion) {
-			string compareStatus = string.Format(HardySoft.UI.BatchImageProcessor.Resources.LanguageContent.NewVersionAvailable,
+			string compareStatus = string.Format(HardySoft.UI.BatchImageProcessor.Resources.LanguageContent.Message_NewVersionAvailable,
 				latestVersion.ToString());
 
 			VersionCheckingResult window = new VersionCheckingResult();

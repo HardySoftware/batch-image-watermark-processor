@@ -143,7 +143,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 		}
 
 		private string sourceDirectory;
-		[StringLengthValidator(3, 500, MessageTemplate = "ValidationReqSouceDirectory")]
+		[StringLengthValidator(3, 500, MessageTemplate = "Validation_ReqSouceDirectory")]
 		public string SourceDirectory {
 			get {
 				return sourceDirectory;
@@ -175,7 +175,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 		}
 
 		private string outputDirectory;
-		[StringLengthValidator(3, 500, MessageTemplate = "ValidationReqDestDirectory")]
+		[StringLengthValidator(3, 500, MessageTemplate = "Validation_ReqDestDirectory")]
 		public string OutputDirectory {
 			get {
 				return outputDirectory;
@@ -241,7 +241,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 
 		private long jpgCompressionRatio;
 		[RangeValidator(0L, RangeBoundaryType.Inclusive, 100L, RangeBoundaryType.Inclusive,
-			MessageTemplate = "ValidationJpgCompressionRatio")]
+			MessageTemplate = "Validation_JpgCompressionRatio")]
 		public long JpgCompressionRatio {
 			get {
 				return jpgCompressionRatio;

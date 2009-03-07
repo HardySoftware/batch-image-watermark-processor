@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows.Data;
-using System.Reflection;
-using System.Globalization;
 using System.ComponentModel;
+using System.Globalization;
+using System.Reflection;
 using System.Resources;
+using System.Threading;
+using System.Windows.Data;
 
 using HardySoft.UI.BatchImageProcessor.Resources;
 
@@ -24,7 +22,7 @@ namespace HardySoft.UI.BatchImageProcessor.Classes.Converters {
 		/// </summary>
 		public object Convert(object value, Type targetType, object parameter, CultureInfo culture) {
 			if (value != null) {
-				FieldInfo fi = value.GetType().GetField(value.ToString());
+				/*FieldInfo fi = value.GetType().GetField(value.ToString());
 
 				DescriptionAttribute[] attributes =
 					(DescriptionAttribute[])fi.GetCustomAttributes(typeof(DescriptionAttribute), false);
@@ -32,30 +30,18 @@ namespace HardySoft.UI.BatchImageProcessor.Classes.Converters {
 				if (attributes.Length > 0) {
 					string description = attributes[0].Description;
 
-					Type enumResourceType = typeof(LanguageContent);
-
-					ResourceManager resMan = enumResourceType.InvokeMember(
-							 @"ResourceManager",
-							 BindingFlags.GetProperty | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic,
-							 null,
-							 null,
-							 new object[] { }) as ResourceManager;
-
-					CultureInfo cul = enumResourceType.InvokeMember(
-						 @"Culture",
-						 BindingFlags.GetProperty | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic,
-						 null,
-						 null,
-						 new object[] { }) as CultureInfo;
-
-					if (resMan != null) {
-						description = resMan.GetString("Enum" + description, cul);
+					if (!string.IsNullOrEmpty(description)) {
+						description = Resources.LanguageContent.ResourceManager.GetString(description, 
+							Thread.CurrentThread.CurrentCulture);
+						return description;
+					} else {
+						return value.ToString();
 					}
-
-					return description;
 				} else {
 					return value.ToString();
-				}
+				}*/
+
+				return Utilities.GetObjectDisplayValue(value);
 			} else {
 				return null;
 			}

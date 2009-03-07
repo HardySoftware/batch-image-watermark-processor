@@ -28,7 +28,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 
 		public void SetView(IMainInterfaceControlView view) {
 			this.view = view;
-			this.view.NewProjectCreated += new EventHandler(view_NewProjectCreated);
+			this.view.NewProjectCreated += new ProjectWithFileNameEventHandler(view_NewProjectCreated);
 			this.view.SaveProject += new ProjectWithFileNameEventHandler(view_SaveProject);
 			this.view.SaveProjectAs += new ProjectWithFileNameEventHandler(view_SaveProjectAs);
 			this.view.OpenProject += new ProjectWithFileNameEventHandler(view_OpenProject);
@@ -106,12 +106,13 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 			saveProject(e.ProjectFileName);
 		}
 
-		void view_NewProjectCreated(object sender, EventArgs e) {
+		void view_NewProjectCreated(object sender, ProjectWithFileNameEventArgs e) {
 			ps = new ProjectSetting();
 			ps.NewProject();
 			view.PS = ps;
 
-			this.currentProjectFile = "Untitled.hsbip";
+			//this.currentProjectFile = "Untitled.hsbip";
+			this.currentProjectFile = e.ProjectFileName;
 			this.processing = false;
 		}
 
@@ -142,25 +143,12 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 				events[i] = new AutoResetEvent(false);
 			}
 
-			// add all selected images to job queue.
-			Queue<JobItem> jobQueue = new Queue<JobItem>();
-			uint index = 0;
-			foreach (PhotoItem item in ps.Photos) {
-				if (item.Selected) {
-					jobQueue.Enqueue(new JobItem() {
-						FileName = item.PhotoPath,
-						Index = index
-					});
+			engine = new ImageProcessorEngine(this.ps, threadNumber, events);
 
-					index++;
-				}
-			}
+			view.ResetJobSize(engine.JobSize);
 
-			view.ResetJobSize(jobQueue.Count);
-
-			engine = new ImageProcessorEngine(threadNumber, events);
 			engine.ImageProcessed += new ImageProcessedDelegate(engine_ImageProcessed);
-			engine.StartProcess(this.ps, jobQueue);
+			engine.StartProcess();
 
 			AutoResetEvent.WaitAll(events);
 

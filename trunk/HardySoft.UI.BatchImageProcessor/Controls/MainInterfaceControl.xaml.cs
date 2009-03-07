@@ -1,11 +1,13 @@
 ﻿using System;
 using System.ComponentModel;
 using System.IO;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Threading;
+using res = HardySoft.UI.BatchImageProcessor.Resources;
 
 using HardySoft.CC.Converter;
 using HardySoft.UI.BatchImageProcessor.Classes;
@@ -25,6 +27,8 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 		// TODO add watermark image/text rotate feature
 		// TODO add watermark text macro from EXIF feature
 		// TODO in image file list add a new column to include button to remove image from list
+		// TODO add enterprise library logging to enable exception log.
+		// TODO convert "image effect" into add-ins and open programming interface
 		private MainControl_Presenter presenter;
 		private DispatcherTimer dispatcherTimer;
 
@@ -41,6 +45,8 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 			dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
 			dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
 			dispatcherTimer.Start();
+
+			res.LanguageContent.Culture = Thread.CurrentThread.CurrentCulture;
 		}
 
 		[Dependency]
@@ -81,7 +87,7 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 			if (!string.IsNullOrEmpty(txtSourceDirectory.Text)) {
 				dialog.SelectedPath = txtSourceDirectory.Text;
 			}
-			dialog.Description = "Select Folder with Photos to Process";
+			dialog.Description = res.LanguageContent.Label_SourceFolder;
 			dialog.ShowNewFolderButton = false;
 			if (dialog.ShowDialog() == DialogResult.OK) {
 				txtSourceDirectory.Text = dialog.SelectedPath;
@@ -93,7 +99,7 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 			if (!string.IsNullOrEmpty(txtDestDirectory.Text)) {
 				dialog.SelectedPath = txtDestDirectory.Text;
 			}
-			dialog.Description = "Select Destination Folder";
+			dialog.Description = res.LanguageContent.Label_DestFolder;
 			dialog.ShowNewFolderButton = false;
 			if (dialog.ShowDialog() == DialogResult.OK) {
 				txtDestDirectory.Text = dialog.SelectedPath;
@@ -117,8 +123,8 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 			// Configure open file dialog box
 			Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
 			//dlg.DefaultExt = ".txt"; // Default file extension
-			dlg.Filter = "All Supported Images Files (*.jpg; *.jpeg; *.bmp; *.gif) |*.jpg;*.jpeg;*.bmp;*.gif"; // Filter files by extension
-			dlg.Title = "Open Watermark Image";
+			dlg.Filter = res.LanguageContent.Label_AllSupportedImagesFiles + " (*.jpg; *.jpeg; *.bmp; *.gif; *.png) |*.jpg;*.jpeg;*.bmp;*.gif;*.png"; // Filter files by extension
+			dlg.Title = res.LanguageContent.Label_OpenWatermarkImage;
 
 			// Show open file dialog box
 			Nullable<bool> result = dlg.ShowDialog();
@@ -197,8 +203,9 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 				// TODO add support to drag-n-drop supported image files into projects.
 				// only handle supported format
 				if (this.ps.IsDirty) {
-					MessageBoxResult result = System.Windows.MessageBox.Show("Do you want to save project setting first?",
-						"Unsaved Project", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
+					MessageBoxResult result = System.Windows.MessageBox.Show(res.LanguageContent.Message_SavePrompt,
+						res.LanguageContent.Label_UnsavedProject,
+						MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
 
 					switch (result) {
 						case MessageBoxResult.Yes:
@@ -267,7 +274,7 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 		public Exception ErrorMessage {
 			set {
 				string messageBoxText = value.ToString();
-				string caption = HardySoft.UI.BatchImageProcessor.Resources.LanguageContent.Error;
+				string caption = res.LanguageContent.Label_Error;
 				MessageBoxButton button = MessageBoxButton.OK;
 				MessageBoxImage icon = MessageBoxImage.Error;
 
@@ -282,9 +289,10 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 				if (value != null) {
 					string messageBoxText = string.Empty;
 					for (int i = 0; i < value.Length; i++) {
-						messageBoxText += HardySoft.UI.BatchImageProcessor.Resources.LanguageContent.ResourceManager.GetString(value[i]) + "\r\n";
+						messageBoxText += res.LanguageContent.ResourceManager.GetString(value[i], 
+							Thread.CurrentThread.CurrentCulture) + "\r\n";
 					}
-					string caption = HardySoft.UI.BatchImageProcessor.Resources.LanguageContent.Error;
+					string caption = HardySoft.UI.BatchImageProcessor.Resources.LanguageContent.Label_Error;
 					MessageBoxButton button = MessageBoxButton.OK;
 					MessageBoxImage icon = MessageBoxImage.Error;
 
@@ -340,7 +348,7 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 		#endregion
 
 		#region View events
-		public event EventHandler NewProjectCreated;
+		public event ProjectWithFileNameEventHandler NewProjectCreated;
 		public event ProjectWithFileNameEventHandler SaveProject;
 		public event ProjectWithFileNameEventHandler SaveProjectAs;
 		public event ProjectWithFileNameEventHandler OpenProject;
@@ -364,9 +372,10 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 		}
 
 		private void NewCommand_Executed(object sender, ExecutedRoutedEventArgs e) {
-			EventHandler handlers = NewProjectCreated;
+			ProjectWithFileNameEventHandler handlers = NewProjectCreated;
 			if (handlers != null) {
-				handlers(this, EventArgs.Empty);
+				ProjectWithFileNameEventArgs args = new ProjectWithFileNameEventArgs(res.LanguageContent.Label_UntitledProjectName);
+				handlers(this, args);
 
 				//this.currentProjectFile = "Untitled.hsbip";
 				OnProjectFileNameObtained();
@@ -390,8 +399,9 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 		
 		private void OpenCommand_Executed(object sender, ExecutedRoutedEventArgs e) {
 			if (this.ps.IsDirty) {
-				MessageBoxResult result = System.Windows.MessageBox.Show("Do you want to save project setting first?",
-					"Unsaved Project", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
+				MessageBoxResult result = System.Windows.MessageBox.Show(res.LanguageContent.Message_SavePrompt,
+					res.LanguageContent.Label_UnsavedProject,
+					MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
 
 				switch (result) {
 					case MessageBoxResult.Yes:
@@ -412,7 +422,7 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 
 		private void openProject() {
 			OpenFileDialog openFile = new OpenFileDialog();
-			openFile.Filter = "All Image Process Project Files (*.hsbip)|*.hsbip;";
+			openFile.Filter = res.LanguageContent.Label_AllProjects + " (*.hsbip)|*.hsbip;";
 			openFile.Multiselect = false;
 			if (openFile.ShowDialog() == DialogResult.OK) {
 				string projectFileName = openFile.FileName;
@@ -481,7 +491,7 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 
 		private void saveProjectAs() {
 			SaveFileDialog saveFile = new SaveFileDialog();
-			saveFile.Filter = "All Image Process Project Files (*.hsbip)|*.hsbip;";
+			saveFile.Filter = res.LanguageContent.Label_AllProjects + " (*.hsbip)|*.hsbip;";
 			if (saveFile.ShowDialog() == DialogResult.OK) {
 				string projectFileName = saveFile.FileName;
 				if (!string.IsNullOrEmpty(projectFileName)) {

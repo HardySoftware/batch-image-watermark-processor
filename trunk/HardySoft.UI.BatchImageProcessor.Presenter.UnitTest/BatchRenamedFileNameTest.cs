@@ -63,7 +63,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter.UnitTest {
 		public void GetFileNameTest() {
 			List<string> files = new List<string>();
 			for (uint i = 0; i < 10; i++) {
-				BatchRenamedFileName target = new BatchRenamedFileName(i);
+				BatchRenamedFileName target = new BatchRenamedFileName();
 				string sourceFile = @"C\photos\folder 1\123.jpg";
 
 				ProjectSetting ps = new ProjectSetting();
@@ -72,7 +72,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter.UnitTest {
 				ps.RenamingSetting.OutputFileNameSuffix = "_city";
 				ps.RenamingSetting.StartNumber = 0;
 				ps.RenamingSetting.FileNameCase = OutputFileNameCase.None;
-				string outputFileName = target.GetFileName(sourceFile, ps);
+				string outputFileName = target.GetFileName(sourceFile, ps, i);
 				if (!files.Contains(outputFileName)) {
 					files.Add(outputFileName);
 				}
@@ -83,7 +83,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter.UnitTest {
 
 		[TestMethod()]
 		public void GetFileNameTest1() {
-			BatchRenamedFileName target = new BatchRenamedFileName(10);
+			BatchRenamedFileName target = new BatchRenamedFileName();
 			string sourceFile = @"C\photos\folder 1\123.jpg";
 
 			ProjectSetting ps = new ProjectSetting();
@@ -94,13 +94,13 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter.UnitTest {
 			ps.RenamingSetting.FileNameCase = OutputFileNameCase.None;
 
 			string expected = @"C:\Out\travel_010_city.jpg";
-			string actual = target.GetFileName(sourceFile, ps);
+			string actual = target.GetFileName(sourceFile, ps, 10);
 			Assert.AreEqual(expected, actual);
 		}
 
 		[TestMethod()]
 		public void GetFileNameTest2() {
-			BatchRenamedFileName target = new BatchRenamedFileName(10);
+			BatchRenamedFileName target = new BatchRenamedFileName();
 			string sourceFile = @"C\photos\folder 1\123.jpg";
 
 			ProjectSetting ps = new ProjectSetting();
@@ -111,13 +111,13 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter.UnitTest {
 			ps.RenamingSetting.FileNameCase = OutputFileNameCase.None;
 
 			string expected = @"C:\Out\travel_015_city.jpg";
-			string actual = target.GetFileName(sourceFile, ps);
+			string actual = target.GetFileName(sourceFile, ps, 10);
 			Assert.AreEqual(expected, actual);
 		}
 
 		[TestMethod()]
 		public void GetFileNameTest3() {
-			BatchRenamedFileName target = new BatchRenamedFileName(10);
+			BatchRenamedFileName target = new BatchRenamedFileName();
 			string sourceFile = @"C\photos\folder 1\123.jpg";
 
 			ProjectSetting ps = new ProjectSetting();
@@ -129,13 +129,13 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter.UnitTest {
 			ps.RenamingSetting.FileNameCase = OutputFileNameCase.None;
 
 			string expected = @"C:\Out\travel_000015_city.jpg";
-			string actual = target.GetFileName(sourceFile, ps);
+			string actual = target.GetFileName(sourceFile, ps, 10);
 			Assert.AreEqual(expected, actual);
 		}
 
 		[TestMethod()]
 		public void GetFileNameTest4() {
-			BatchRenamedFileName target = new BatchRenamedFileName(10);
+			BatchRenamedFileName target = new BatchRenamedFileName();
 			string sourceFile = @"C\photos\folder 1\DC001.jpg";
 
 			ProjectSetting ps = new ProjectSetting();
@@ -147,7 +147,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter.UnitTest {
 			ps.RenamingSetting.FileNameCase = OutputFileNameCase.None;
 
 			string expected = @"C:\Out\DC001_000015.jpg";
-			string actual = target.GetFileName(sourceFile, ps);
+			string actual = target.GetFileName(sourceFile, ps, 10);
 			Assert.AreEqual(expected, actual);
 		}
 	}

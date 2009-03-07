@@ -68,7 +68,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter.UnitTest {
 
 			string expected = @"C:\Temp\MyPrefix_abc_MySuffix.jpg";
 			string actual;
-			actual = target.GetFileName(sourceFile, ps);
+			actual = target.GetFileName(sourceFile, ps, null);
 			Assert.AreEqual(expected, actual);
 		}
 
@@ -86,7 +86,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter.UnitTest {
 
 			string expected = @"C:\Temp\abc_thumb.jpg";
 			string actual;
-			actual = target.GetFileName(sourceFile, ps);
+			actual = target.GetFileName(sourceFile, ps, null);
 			Assert.AreEqual(expected, actual);
 		}
 	}

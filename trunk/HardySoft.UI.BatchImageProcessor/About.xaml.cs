@@ -1,18 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using System.Diagnostics;
 
 using HardySoft.UI.BatchImageProcessor.Classes;
+using res = HardySoft.UI.BatchImageProcessor.Resources;
 
 namespace HardySoft.UI.BatchImageProcessor {
 	/// <summary>
@@ -47,20 +40,16 @@ namespace HardySoft.UI.BatchImageProcessor {
 			if (latestVersion != null && myVersion != null) {
 				compareVersion(latestVersion, myVersion);
 			} else {
-				string compareStatus = HardySoft.UI.BatchImageProcessor.Resources.LanguageContent.UnableToCheckVersion;
+				string compareStatus = res.LanguageContent.Message_UnableToCheckVersion;
 				showNewVersionWindow(latestVersion, myVersion, compareStatus);
 			}
 		}
 
 		private void compareVersion(Version latestVersion, Version myVersion) {
-			string compareStatus = string.Format(HardySoft.UI.BatchImageProcessor.Resources.LanguageContent.NewVersionAvailable,
+			string compareStatus = string.Format(res.LanguageContent.Message_NewVersionAvailable,
 				latestVersion.ToString());
-			if (latestVersion.Major > myVersion.Major) {
-			} else if (latestVersion.Minor > myVersion.Minor) {
-			} else if (latestVersion.Build > myVersion.Build) {
-			} else if (latestVersion.Revision > myVersion.Revision) {
-			} else {
-				compareStatus = HardySoft.UI.BatchImageProcessor.Resources.LanguageContent.NoNewVersion;
+			if (latestVersion <= myVersion) {
+				compareStatus = HardySoft.UI.BatchImageProcessor.Resources.LanguageContent.Message_NoNewVersion;
 			}
 
 			showNewVersionWindow(latestVersion, myVersion, compareStatus);
@@ -71,7 +60,7 @@ namespace HardySoft.UI.BatchImageProcessor {
 			window.LatestVersion = lastestVersion;
 			window.MyVersion = myVersion;
 			window.VersionCompareStatus = compareStatus;
-			window.ApplicationURL = HardySoft.UI.BatchImageProcessor.Resources.LanguageContent.ApplicationUrl;
+			window.ApplicationURL = res.LanguageContent.ApplicationUrl;
 			window.Show();
 		}
 

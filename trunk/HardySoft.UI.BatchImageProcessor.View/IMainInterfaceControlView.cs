@@ -27,7 +27,7 @@ namespace HardySoft.UI.BatchImageProcessor.View {
 		void ReportProgress();
 		//void ProcessingStopped();
 
-		event EventHandler NewProjectCreated;
+		event ProjectWithFileNameEventHandler NewProjectCreated;
 		event ProjectWithFileNameEventHandler SaveProject;
 		event ProjectWithFileNameEventHandler SaveProjectAs;
 		event ProjectWithFileNameEventHandler OpenProject;

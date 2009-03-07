@@ -36,39 +36,39 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 			int yPosOfWatermark = 0;
 
 			switch (ps.Watermark.WatermarkImagePosition) {
-				case WatermarkPositions.BottomCenter:
+				case ContentAlignment.BottomCenter:
 					xPosOfWatermark = (imageWidth / 2) - (watermarkWidth / 2);
 					yPosOfWatermark = (imageHeight - watermarkHeight) - 10;
 					break;
-				case WatermarkPositions.BottomLeft:
+				case ContentAlignment.BottomLeft:
 					xPosOfWatermark = 10;
 					yPosOfWatermark = (imageHeight - watermarkHeight) - 10;
 					break;
-				case WatermarkPositions.BottomRight:
+				case ContentAlignment.BottomRight:
 					xPosOfWatermark = ((imageWidth - watermarkWidth) - 10);
 					yPosOfWatermark = (imageHeight - watermarkHeight) - 10;
 					break;
-				case WatermarkPositions.MiddleCenter:
+				case ContentAlignment.MiddleCenter:
 					xPosOfWatermark = (imageWidth / 2) - (watermarkWidth / 2);
 					yPosOfWatermark = (imageHeight / 2) - (watermarkHeight / 2);
 					break;
-				case WatermarkPositions.MiddleLeft:
+				case ContentAlignment.MiddleLeft:
 					xPosOfWatermark = 10;
 					yPosOfWatermark = (imageHeight / 2) - (watermarkHeight / 2);
 					break;
-				case WatermarkPositions.MiddleRight:
+				case ContentAlignment.MiddleRight:
 					xPosOfWatermark = ((imageWidth - watermarkWidth) - 10);
 					yPosOfWatermark = (imageHeight / 2) - (watermarkHeight / 2);
 					break;
-				case WatermarkPositions.TopCenter:
+				case ContentAlignment.TopCenter:
 					xPosOfWatermark = (imageWidth / 2) - (watermarkWidth / 2);
 					yPosOfWatermark = 10;
 					break;
-				case WatermarkPositions.TopLeft:
+				case ContentAlignment.TopLeft:
 					xPosOfWatermark = 10;
 					yPosOfWatermark = 10;
 					break;
-				case WatermarkPositions.TopRight:
+				case ContentAlignment.TopRight:
 					//For this example we will place the watermark in the upper right
 					//hand corner of the photograph. offset down 10 pixels and to the 
 					//left 10 pixles

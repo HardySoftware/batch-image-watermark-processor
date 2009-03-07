@@ -70,7 +70,7 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;FlowDocument PagePadding=&quot;5,0,5,0&quot; AllowDrop=&quot;True&quot; NumberSubstitution.CultureSource=&quot;User&quot; xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Verdana&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;Batch Renaming File Name Case&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Calibri&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;It indicates the way to handle case of file name.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;.
+        ///   Looks up a localized string similar to &lt;FlowDocument PagePadding=&quot;5,0,5,0&quot; AllowDrop=&quot;True&quot; NumberSubstitution.CultureSource=&quot;User&quot; xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot; xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Verdana&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;Batch Renaming File Name Case&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Calibri&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;It indicates the way&lt;/Run&gt;&lt;Run FontFamily=&quot;Calibri&quot; FontSize=&quot;13.3333 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string BatchRenameFileNameCase {
             get {
@@ -97,7 +97,7 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;FlowDocument PagePadding=&quot;5,0,5,0&quot; AllowDrop=&quot;True&quot; NumberSubstitution.CultureSource=&quot;User&quot; xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Verdana&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;Batch Renaming File Name Starting Number&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Calibri&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;It indicates the starting number as auto increment number of the file name.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;.
+        ///   Looks up a localized string similar to &lt;FlowDocument PagePadding=&quot;5,0,5,0&quot; AllowDrop=&quot;True&quot; NumberSubstitution.CultureSource=&quot;User&quot; xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Verdana&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;Batch Renaming File Name Starting Number&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Calibri&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;It indicates the starting number as auto increment number as part of the batch renamed file name.&lt;/Run&gt;&lt;/Paragrap [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string BatchRenameStartNumber {
             get {
@@ -151,7 +151,7 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;FlowDocument PagePadding=&quot;5,0,5,0&quot; AllowDrop=&quot;True&quot; NumberSubstitution.CultureSource=&quot;User&quot; xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Verdana&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;Drop Shadow Location&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Calibri&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;It indicates the location of drop shadow.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;.
+        ///   Looks up a localized string similar to &lt;FlowDocument PagePadding=&quot;5,0,5,0&quot; AllowDrop=&quot;True&quot; NumberSubstitution.CultureSource=&quot;User&quot; xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Verdana&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;Drop Shadow Location&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Calibri&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;It indicates the location (direction) of drop shadow.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;.
         /// </summary>
         internal static string DropShadowLocation {
             get {
