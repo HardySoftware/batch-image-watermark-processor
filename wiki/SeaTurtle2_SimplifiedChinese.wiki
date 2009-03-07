@@ -48,7 +48,7 @@ HardySoft Batch Image Watermark Processor
 ==下载文件之后==
 执行代码文件是由[http://www.7-zip.org/ 7-Zip]压缩而得，这是一个免费的开放源代码的软件。
 ==开始运行之前==
-请确保你的系统安装了Microsoft .Net Framework 3.5 Runtime （下载地址  http://www.microsoft.com/downloads/details.aspx?FamilyId=333325FD-AE52-4E35-B531-508D977D32A6）以及Microsoft .Net Framework 3.5 Service Pack 1（下载地址  http://www.microsoft.com/downloads/details.aspx?familyid=ab99342f-5d1a-413d-8319-81da479ab0d7）。
+请确保你的系统安装了Microsoft .Net Framework 3.5 Runtime （下载地址  http://www.microsoft.com/downloads/details.aspx?FamilyId=333325FD-AE52-4E35-B531-508D977D32A6 ）以及Microsoft .Net Framework 3.5 Service Pack 1（下载地址  http://www.microsoft.com/downloads/details.aspx?familyid=ab99342f-5d1a-413d-8319-81da479ab0d7 ）。
 
 =工具截图=
 ==用户界面==
