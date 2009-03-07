@@ -10,6 +10,7 @@ using System.Windows.Data;
 using System.Windows.Media.Imaging;
 
 using HardySoft.UI.BatchImageProcessor.Model;
+using System.ComponentModel;
 
 namespace HardySoft.UI.BatchImageProcessor.Classes.Converters {
 	public class ImagePathToExifConverter : IValueConverter {
@@ -87,14 +88,27 @@ namespace HardySoft.UI.BatchImageProcessor.Classes.Converters {
 							Thread.CurrentThread.CurrentCulture);
 						object propertyValue = pi[i].GetValue(meta, null);
 
-						//metaInfo.Add(displayName, propertyValue);
-						dt.Rows.Add(new object[] {displayName,
-							propertyValue == null ? string.Empty : propertyValue.ToString()});
+						string localizedValue;
+						if (pi[i].PropertyType.IsEnum) {
+							localizedValue = getValueDisplayName(propertyValue);
+						} else {
+							localizedValue = propertyValue == null ? string.Empty : propertyValue.ToString();
+						}
+
+						dt.Rows.Add(new object[] { displayName, localizedValue });
 					}
 				}
 			}
 
 			return dt;
+		}
+
+		private string getValueDisplayName(object propertyValue) {
+			if (propertyValue == null) {
+				return string.Empty;
+			} else {
+				return Utilities.GetObjectDisplayValue(propertyValue);
+			}
 		}
 	}
 }

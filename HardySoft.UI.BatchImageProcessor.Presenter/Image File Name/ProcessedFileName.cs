@@ -12,7 +12,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 	/// This class is used to generate regular output file name.
 	/// </summary>
 	class ProcessedFileName : IFilenameProvider {
-		public string GetFileName(string sourceFile, ProjectSetting ps) {
+		public string GetFileName(string sourceFile, ProjectSetting ps, uint? imageIndex) {
 			FileInfo fi = new FileInfo(sourceFile);
 			return Formatter.FormalizeFolderName(ps.OutputDirectory) + fi.Name;
 		}

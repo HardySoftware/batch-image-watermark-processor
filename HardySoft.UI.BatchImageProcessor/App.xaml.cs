@@ -14,9 +14,17 @@ namespace HardySoft.UI.BatchImageProcessor {
 		IUnityContainer container = new UnityContainer();
 
 		private void Application_Startup(object sender, StartupEventArgs e) {
-#if DEBUG
-			//Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("zh-CN");
-#endif
+			CommandArgument commands = new CommandArgument(e.Args);
+			if (commands["L"] != null) {
+				// force language selection
+				try {
+					Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo(commands["L"]);
+				} catch (ArgumentException) {
+					string text = string.Format("{0} is not a valid culture code.",
+						commands["L"]);
+					System.Windows.MessageBox.Show(text, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+				}
+			}
 			MainWindow mainWindow = (MainWindow)container.Resolve<MainWindow>();
 			mainWindow.Show();
 

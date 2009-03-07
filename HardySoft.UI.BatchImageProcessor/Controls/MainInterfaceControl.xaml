@@ -594,7 +594,8 @@
 										TickFrequency="1"/>
 									<TextBlock Text="{Binding Path=DropShadowSetting.ShadowDepth}" 
 										Margin="10,0,0,0" VerticalAlignment="Center" />
-									<TextBlock Text="{marks:ResourceExtension Label_Pixel}" VerticalAlignment="Center" />
+									<TextBlock Text="{marks:ResourceExtension Label_Pixel}" 
+										Margin="5,0,0,0" VerticalAlignment="Center" />
 								</StackPanel>
 								
 								<StackPanel Grid.Column="0" Grid.Row="3" Margin="0,5,0,0"
@@ -653,7 +654,8 @@
 										TickFrequency="1"/>
 									<TextBlock Text="{Binding Path=BorderSetting.BorderWidth}" 
 										Margin="10,0,0,0" VerticalAlignment="Center" />
-									<TextBlock Text=" pixel(s)" VerticalAlignment="Center" />
+									<TextBlock Text="{marks:ResourceExtension Label_Pixel}" 
+										Margin="5,0,0,0" VerticalAlignment="Center" />
 								</StackPanel>
 
 								<StackPanel Grid.Column="0" Grid.Row="1" Margin="0,5,0,0"
@@ -835,8 +837,8 @@
 										IsEnabled="{Binding ElementName=chkGenerateThumbnail, Path=IsChecked}" />
 									<TextBlock Text="{Binding Path=ThumbnailSetting.ThumbnailSize}" 
 										Margin="10,0,0,0" VerticalAlignment="Center" />
-
-									<TextBlock Text=" pixel(s)" VerticalAlignment="Center" />
+									<TextBlock Text="{marks:ResourceExtension Label_Pixel}"
+										Margin="5,0,0,0" VerticalAlignment="Center" />
 								</StackPanel>
 							</Grid>
 						</Expander>

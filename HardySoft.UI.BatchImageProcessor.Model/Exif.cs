@@ -1,45 +1,110 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.ComponentModel;
 using System.Windows.Media.Imaging;
 
 namespace HardySoft.UI.BatchImageProcessor.Model {
 	public enum ColorRepresentation {
 		sRGB,
+
+		[Description(@"Enum_Uncalibrated")]
 		Uncalibrated
 	}
 
 	public enum FlashMode {
+		[Description(@"Enum_FlashFired")]
 		FlashFired,
+
+		[Description(@"Enum_FlashDidNotFire")]
 		FlashDidNotFire,
+
+		[Description(@"Enum_Unkown")]
 		Unkown
 	}
 
 	public enum ExposureMode {
+		[Description(@"Enum_Manual")]
 		Manual,
+
+		[Description(@"Enum_NormalProgram")]
 		NormalProgram,
+
+		[Description(@"Enum_AperturePriority")]
 		AperturePriority,
+
+		[Description(@"Enum_ShutterPriority")]
 		ShutterPriority,
+
+		[Description(@"Enum_LowSpeedMode")]
 		LowSpeedMode,
+
+		[Description(@"Enum_HighSpeedMode")]
 		HighSpeedMode,
+
+		[Description(@"Enum_PortraitMode")]
 		PortraitMode,
+
+		[Description(@"Enum_LandscapeMode")]
 		LandscapeMode,
+
+		[Description(@"Enum_Unknown")]
 		Unknown
 	}
 
 	public enum WhiteBalanceMode {
+		[Description(@"Enum_Daylight")]
 		Daylight,
+
+		[Description(@"Enum_Fluorescent")]
 		Fluorescent,
+
+		[Description(@"Enum_Tungsten")]
 		Tungsten,
+
+		[Description(@"Enum_FineWeather")]
+		FineWeather,
+
+		[Description(@"Enum_CloudyWeather")]
+		CloudyWeather,
+
+		[Description(@"Enum_Shade")]
+		Shade,
+
+		[Description(@"Enum_DaylightFluorescent")]
+		DaylightFluorescent,
+
+		[Description(@"Enum_DayWhiteFluorescent")]
+		DayWhiteFluorescent,
+
+		[Description(@"Enum_CoolWhiteFluorescent")]
+		CoolWhiteFluorescent,
+
+		[Description(@"Enum_WhiteFluorescent")]
+		WhiteFluorescent,
+
+		[Description(@"Enum_Flash")]
 		Flash,
+
+		[Description(@"Enum_StandardLightA")]
 		StandardLightA,
+
+		[Description(@"Enum_StandardLightB")]
 		StandardLightB,
+
+		[Description(@"Enum_StandardLightC")]
 		StandardLightC,
+
 		D55,
 		D65,
 		D75,
+		D50,
+
+		[Description(@"Enum_Other")]
 		Other,
+
+		[Description(@"Enum_ISOStudioTungsten")]
+		ISOStudioTungsten,
+
+		[Description(@"Enum_Unknown")]
 		Unknown
 	}
 
@@ -300,8 +365,22 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 							return WhiteBalanceMode.Fluorescent;
 						case 3:
 							return WhiteBalanceMode.Tungsten;
-						case 10:
+						case 4:
 							return WhiteBalanceMode.Flash;
+						case 9:
+							return WhiteBalanceMode.FineWeather;
+						case 10:
+							return WhiteBalanceMode.CloudyWeather;
+						case 11:
+							return WhiteBalanceMode.Shade;
+						case 12:
+							return WhiteBalanceMode.DaylightFluorescent;
+						case 13:
+							return WhiteBalanceMode.DayWhiteFluorescent;
+						case 14:
+							return WhiteBalanceMode.CoolWhiteFluorescent;
+						case 15:
+							return WhiteBalanceMode.WhiteFluorescent;
 						case 17:
 							return WhiteBalanceMode.StandardLightA;
 						case 18:
@@ -314,6 +393,10 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 							return WhiteBalanceMode.D65;
 						case 22:
 							return WhiteBalanceMode.D75;
+						case 23:
+							return WhiteBalanceMode.D50;
+						case 24:
+							return WhiteBalanceMode.ISOStudioTungsten;
 						case 255:
 							return WhiteBalanceMode.Other;
 						default:

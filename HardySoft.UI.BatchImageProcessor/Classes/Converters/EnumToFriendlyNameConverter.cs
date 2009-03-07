@@ -22,33 +22,13 @@ namespace HardySoft.UI.BatchImageProcessor.Classes.Converters {
 		/// </summary>
 		public object Convert(object value, Type targetType, object parameter, CultureInfo culture) {
 			if (value != null) {
-				FieldInfo fi = value.GetType().GetField(value.ToString());
+				/*FieldInfo fi = value.GetType().GetField(value.ToString());
 
 				DescriptionAttribute[] attributes =
 					(DescriptionAttribute[])fi.GetCustomAttributes(typeof(DescriptionAttribute), false);
 
 				if (attributes.Length > 0) {
 					string description = attributes[0].Description;
-
-					/*Type enumResourceType = typeof(LanguageContent);
-
-					ResourceManager resMan = enumResourceType.InvokeMember(
-							 @"ResourceManager",
-							 BindingFlags.GetProperty | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic,
-							 null,
-							 null,
-							 new object[] { }) as ResourceManager;
-					
-					 CultureInfo cul = enumResourceType.InvokeMember(
-						 @"Culture",
-						 BindingFlags.GetProperty | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic,
-						 null,
-						 null,
-						 new object[] { }) as CultureInfo;
-
-					if (resMan != null) {
-						description = resMan.GetString(description, cul);
-					}*/
 
 					if (!string.IsNullOrEmpty(description)) {
 						description = Resources.LanguageContent.ResourceManager.GetString(description, 
@@ -59,7 +39,9 @@ namespace HardySoft.UI.BatchImageProcessor.Classes.Converters {
 					}
 				} else {
 					return value.ToString();
-				}
+				}*/
+
+				return Utilities.GetObjectDisplayValue(value);
 			} else {
 				return null;
 			}
