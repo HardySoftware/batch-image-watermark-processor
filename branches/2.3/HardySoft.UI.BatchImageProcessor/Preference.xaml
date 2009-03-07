@@ -1,0 +1,94 @@
+﻿<Window x:Class="HardySoft.UI.BatchImageProcessor.Preference"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:HSC="clr-namespace:HardySoft.UI.BatchImageProcessor.Classes.Commands"
+    xmlns:marks="clr-namespace:HardySoft.UI.BatchImageProcessor.Classes.MarkExtensions"
+    Title="{marks:ResourceExtension WindowTitle_Preference}" Height="300" Width="500"
+    AllowsTransparency="True" Background="Transparent" ShowInTaskbar="False"
+    WindowStyle="None" Icon="/SeaTurtle;component/Images/icon.ico">
+
+    <Control.CommandBindings>
+		<CommandBinding x:Name="HelpCommand" Command="ApplicationCommands.Help" CanExecute="HelpCommand_CanExecute" Executed="HelpCommand_Executed"/>
+	</Control.CommandBindings>
+	
+	<Border Width="Auto" Height="Auto" Name="windowFrame"
+		Style="{StaticResource WindowBackground}">
+		<Grid Margin="10,10,10,10">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto" />
+				<RowDefinition />
+				<RowDefinition Height="Auto" />
+			</Grid.RowDefinitions>
+			<TextBlock Text="{marks:ResourceExtension WindowTitle_Preference}" 
+				Style="{StaticResource WindowTitle}"
+				MouseLeftButtonDown="titleBar_MouseLeftButtonDown" />
+			<Grid x:Name="InformationSection"
+				Grid.Row="1" ShowGridLines="False">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="auto" />
+					<ColumnDefinition Width="2*" />
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="auto" />
+					<RowDefinition Height="auto" />
+				</Grid.RowDefinitions>
+
+				<StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal">
+					<TextBlock Margin="10, 0, 10, 0" Style="{StaticResource AboutWindowLabel}"
+						Text="{marks:ResourceExtension Label_ApplicationSkin}" />
+					<Button Style="{StaticResource HelpButton}"
+						CommandParameter="PreferenceApplicationSkin"
+						Command="ApplicationCommands.Help" />
+				</StackPanel>
+
+				<ComboBox x:Name="cmbAppSkin"
+					Margin="10,0,0,0"
+					HorizontalAlignment="Stretch"
+					VerticalAlignment="Stretch"
+					ItemsSource="{Binding Source={StaticResource ApplicationSkinData}}"
+					SelectedItem="{Binding Path=ApplicationSkin, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+					Grid.Column="1" Grid.Row="0" />
+
+				<StackPanel Grid.Column="0" Grid.Row="2" Orientation="Horizontal">
+					<TextBlock VerticalAlignment="Top"
+						Margin="10, 0, 10, 0"
+						Style="{StaticResource AboutWindowLabel}"
+						Text="{marks:ResourceExtension Label_ThreadNumber}" />
+					<Button Style="{StaticResource HelpButton}"
+						CommandParameter="PreferenceThreadNumber"
+						Command="ApplicationCommands.Help" />
+				</StackPanel>
+
+				<StackPanel Grid.Column="1" Grid.Row="1" FlowDirection="LeftToRight" Orientation="Horizontal">
+					<Slider x:Name="sThreadNumber" Margin="10,0,0,0"
+						Orientation="Horizontal" Width="200"
+						Minimum="1" Maximum="50"
+						Value="{Binding Path=ThreadNumber, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+						IsSnapToTickEnabled="True"
+						TickFrequency="1"/>
+					<TextBlock x:Name="tbThreadNumber"
+						Text="{Binding ElementName=sThreadNumber, Path=Value}" 
+						Style="{StaticResource AboutWindowText}"
+						Margin="10,0,0,0" VerticalAlignment="Center" />
+				</StackPanel>
+			</Grid>
+
+			<StackPanel Grid.Row="2"
+				Orientation="Horizontal"
+				HorizontalAlignment="Right" Margin="10">
+				<Button x:Name="btnSave" HorizontalAlignment="Right"
+					Margin="0, 10, 10, 0"
+					Click="btnSave_Click"
+					Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="3"
+					Style="{StaticResource GlassButton}"
+					Content="{marks:ResourceExtension Button_Save}" />
+				<Button x:Name="btnCancel" HorizontalAlignment="Right"
+					Margin="0, 10, 10, 0"
+					Click="btnCancel_Click"
+					Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="3"
+					Style="{StaticResource GlassButton}"
+					Content="{marks:ResourceExtension Button_Cancel}" />
+			</StackPanel>
+		</Grid>
+	</Border>
+</Window>
