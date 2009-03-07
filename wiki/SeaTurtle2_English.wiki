@@ -1,0 +1,83 @@
+=Introduction=
+==Sumamry==
+This is a tool to add watermark (image or text) to existing images at designated position. 
+
+Tool also provides following features:
+  * Batch rename files while they are being processed.
+  * Batch add drop shadow to pictures.
+  * Batch add border to pictures.
+  * Batch resize original pictures.
+  * Generate thumbnail images.
+  * Apply additional processing, such as grey scale, negative colour.
+  * Multi-lingual support; currently supported languages: English, Simplified Chinese
+==Project Name==
+HardySoft Batch Image Watermark Processor
+==Code Name==
+Sea Turtle
+==Version Number==
+2.0 Beta 2 (File# 2.2.0.0, Build# 2.2.3352.40045)
+=Change History=
+==Version History==
+  * 2009-03-06: 2.0 Beta 2 (file 2.2.0.0) added.
+  * 2009-02-24: 2.0 Beta 1 (file 2.1.0.0) added.
+  * 2009-02-08: Version 2.0 Beta (file 2.0.0.0) added.
+  * 2008-02: Version 1.0 added.
+==Change History==
+==Version 2.0 Beta 2, bug fixes and multi-lingual support==
+  * Added multi-lingual support by operation system’s language setting. Currently supported language: English, Simplified Chinese.
+  * Changed watermark text/image position picker.
+  * Changed drop shadow position picker.
+  * And some bug fixes.
+===Version 2.0 Beta 1, bug fixes and some user experience change===
+  * Added drag-n-drop from Windows Explorer to open project file.
+  * Changed watermark text box to have multiple lines.
+  * Changed control/option sections to wrap within Expanders instead of Group Boxes.
+  * Added background latest version checking feature.
+  * And various bugs fixing.
+===Version 2.0 Beta, a total rewrite of the UI===
+  * Total rewrite the UI with WPF 3.5;
+  * Most of the processing logic is kept and unchanged or with minor improvement.
+===Version 1, Initial release to include following features===
+  * Batch adding image/text watermark;
+  * Batch resizing;
+  * Batch renaming;
+  * Batch thumbnail generating;
+  * And more.
+You still can access older version of homepage at http://code.google.com/p/batch-image-watermark-processor/wiki/Summary_for_Version_1
+=System Requirement=
+==After You Download the Package==
+The binary package is compressed by [http://www.7-zip.org/ 7-Zip], which is an open-source software under GNU license.
+==Before You Run It==
+Please make sure you have Microsoft .Net Framework 3.5 Runtime installed (download at http://www.microsoft.com/downloads/details.aspx?FamilyId=333325FD-AE52-4E35-B531-508D977D32A6) AND Microsoft .Net Framework 3.5 Service Pack 1 ( download at http://www.microsoft.com/downloads/details.aspx?familyid=ab99342f-5d1a-413d-8319-81da479ab0d7)
+
+=Screenshots=
+==User Interface==
+http://i22.photobucket.com/albums/b335/hardywang/Batch%20Image%20Process/Version%202/PhotoDetails.png
+
+==Processed Result: Text watermark only==
+http://i22.photobucket.com/albums/b335/hardywang/Batch%20Image%20Process/Version%202/TextWatermark.jpg
+
+==Processed Result: Image watermark only==
+http://i22.photobucket.com/albums/b335/hardywang/Batch%20Image%20Process/Version%202/ImageWatermark.jpg
+
+=About This Project=
+==Techinical Hilite==
+  * The project is created with Microsoft .Net Framework 3.5 in C# language.
+  * Windows Presentation Foundation (WPF) is used to create User Interfrace (UI) layer.
+  * Model View Presenter (MVP) pattern supported by Microsoft Unity Framework is used.
+==Future Feature Consideration==
+  * Add theme feature.
+  * To publish to online image host service from the tool, for example Flickr, SkyDrive, Pisaca Web and so on, upon availability of API from the providers.
+  * Enhance border, drop shadow feature. There are some good and free tools to provide very cool border and shadow feature, such as http://www.neoimaging.cn/
+  * More ideas, welcome to talk with me.
+==Join the Development Team==
+I welcome anybody who can provide help from following areas:
+  * Strong user interface (WPF) designer.
+  * Developers with strong GDI background.
+  * Translators to localize the product into your own languages.
+If you have the interest to help to make this project better, feel free to contact with me.
+=Contact Author=
+Please feel free to send me comments, bugs, feature requests and so on to my email address hardy.yin.wang(at)gmail.com (please replace (at) with @ when you send email).
+
+=Visitor Map=
+[http://www2.clustrmaps.com/counter/maps.php?url=http://code.google.com/p/batch-image-watermark-processor/ http://www2.clustrmaps.com/stats/maps-no_clusters/code.google.com-p-batch-image-watermark-processor--thumb.jpg]
