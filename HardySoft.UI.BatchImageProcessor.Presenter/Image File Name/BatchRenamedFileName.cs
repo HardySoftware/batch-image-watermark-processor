@@ -12,13 +12,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 	/// This class is used to generate regaular output file with batch rename enabled.
 	/// </summary>
 	class BatchRenamedFileName : IFilenameProvider {
-		private uint imageIndex;
-
-		public BatchRenamedFileName(uint imageIndex) {
-			this.imageIndex = imageIndex;
-		}
-
-		public string GetFileName(string sourceFile, ProjectSetting ps) {
+		public string GetFileName(string sourceFile, ProjectSetting ps, uint? imageIndex) {
 			string fileNameWithoutExtension, extension, newFileName;
 			FileInfo fi = new FileInfo(sourceFile);
 			string fileName = fi.Name;
@@ -28,11 +22,11 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 			if (! string.IsNullOrEmpty(ps.RenamingSetting.OutputFileNamePrefix)
 				|| ! string.IsNullOrEmpty(ps.RenamingSetting.OutputFileNameSuffix)) {
 				newFileName = ps.RenamingSetting.OutputFileNamePrefix 
-					+ (this.imageIndex + ps.RenamingSetting.StartNumber).ToString("D" + ps.RenamingSetting.NumberPadding) 
+					+ ((imageIndex.HasValue ? imageIndex.Value : 0) + ps.RenamingSetting.StartNumber).ToString("D" + ps.RenamingSetting.NumberPadding) 
 					+ ps.RenamingSetting.OutputFileNameSuffix;
 			} else {
 				newFileName = fileNameWithoutExtension + "_"
-					+ (this.imageIndex + ps.RenamingSetting.StartNumber).ToString("D" + ps.RenamingSetting.NumberPadding);
+					+ ((imageIndex.HasValue ? imageIndex.Value : 0) + ps.RenamingSetting.StartNumber).ToString("D" + ps.RenamingSetting.NumberPadding);
 			}
 			newFileName = newFileName + extension;
 			newFileName = Formatter.FormalizeFolderName(ps.OutputDirectory) + newFileName;

@@ -1,5 +1,6 @@
 <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:marks="clr-namespace:HardySoft.UI.BatchImageProcessor.Classes.MarkExtensions"
 	>
 	<!-- Brush for menu bar and tool bar background -->
 	<LinearGradientBrush x:Key="ToolBarBackgroundBrush" StartPoint="0,0" EndPoint="0,1">
@@ -30,6 +31,7 @@
 		<GradientStop Color="#FFFFFFFF"/>
 		<GradientStop Color="#FF737373" Offset="1"/>
 	</LinearGradientBrush>
+	<SolidColorBrush x:Key="TextBrush" Color="#FFFFFFFF" />
 	<Color x:Key="TextColor">#FFFFFFFF</Color>
 	<SolidColorBrush x:Key="DisabledBackgroundBrush" Color="#FF787878" />
 	<LinearGradientBrush x:Key="HoverShineBrush" EndPoint="0.5,0.971" StartPoint="0.5,0.042">
@@ -39,8 +41,12 @@
 		<GradientStop Color="#00FFFFFF" Offset="0.475" />
 		<GradientStop Color="#00FFFFFF" Offset="0.856" />
 	</LinearGradientBrush>
+	<LinearGradientBrush x:Key="PressedBorderBrush" EndPoint="0,1" StartPoint="0,0">
+		<GradientStop Color="#444" Offset="0.0" />
+		<GradientStop Color="#888" Offset="1.0" />
+	</LinearGradientBrush>
 	<SolidColorBrush x:Key="ControlBackgroundBrush" Color="#FF333333" />
-	
+
 	<SolidColorBrush x:Key="SliderNormalBrush" Color="#FF595959" />
 	<SolidColorBrush x:Key="SliderNormalBorderBrush" Color="#FF333333" />
 	<SolidColorBrush x:Key="SliderHoverBrush" Color="#FF393939" />
@@ -88,7 +94,7 @@
 		<Setter Property="TextAlignment" Value="Left"></Setter>
 		<Setter Property="FontSize" Value="15"></Setter>
 		<Setter Property="FontWeight" Value="Bold"></Setter>
-		<Setter Property="FontFamily" Value="Verdana"></Setter>
+		<Setter Property="FontFamily" Value="{marks:ResourceFontExtension Style_WindowTitleFont}"></Setter>
 		<Setter Property="TextTrimming" Value="None"></Setter>
 		<Setter Property="TextDecorations" Value="None"></Setter>
 		<Setter Property="BitmapEffect">
@@ -103,7 +109,7 @@
 	<Style x:Key="WindowFooter" TargetType="TextBlock">
 		<Setter Property="Foreground" Value="AliceBlue"></Setter>
 		<Setter Property="FontSize" Value="12"></Setter>
-		<Setter Property="FontFamily" Value="Verdana"></Setter>
+		<Setter Property="FontFamily" Value="{marks:ResourceFontExtension Style_WindowFooterFont}"></Setter>
 	</Style>
 
 	<!-- Help Popup window -->
@@ -164,7 +170,7 @@
 		<Setter Property="OverridesDefaultStyle" Value="True"/>
 		<Setter Property="SnapsToDevicePixels" Value="True"/>
 		<Setter Property="Foreground" Value="{StaticResource ToobarTextColorBrush}"/>
-		<Setter Property="FontFamily" Value="Verdana"/>
+		<Setter Property="FontFamily" Value="{marks:ResourceFontExtension Style_MenuFont}"/>
 		<Setter Property="FontSize" Value="15"/>
 		<Setter Property="Template">
 			<Setter.Value>
@@ -398,7 +404,7 @@
 
 	<!-- Label for configuration area within tab control -->
 	<Style x:Key="ConfigSectionLabel" TargetType="{x:Type TextBlock}">
-		<Setter Property="TextBlock.FontFamily" Value="Verdana"></Setter>
+		<Setter Property="TextBlock.FontFamily" Value="{marks:ResourceFontExtension Style_ConfigLabel}"></Setter>
 		<Setter Property="TextBlock.FontSize" Value="12"></Setter>
 		<Setter Property="TextBlock.FontWeight" Value="Semibold"></Setter>
 		<Setter Property="TextBlock.Foreground" Value="White"></Setter>
@@ -412,7 +418,7 @@
 
 	<!-- Label for about window -->
 	<Style x:Key="AboutWindowLabel" TargetType="{x:Type TextBlock}">
-		<Setter Property="TextBlock.FontFamily" Value="Calibri, Verdana"></Setter>
+		<Setter Property="TextBlock.FontFamily" Value="{marks:ResourceFontExtension Style_AboutLabel}"></Setter>
 		<Setter Property="TextBlock.FontSize" Value="14"></Setter>
 		<Setter Property="TextBlock.FontWeight" Value="Semibold"></Setter>
 		<Setter Property="TextBlock.Foreground" Value="White"></Setter>
@@ -425,12 +431,13 @@
 
 	<!-- Value for about window -->
 	<Style x:Key="AboutWindowText" TargetType="{x:Type TextBlock}">
-		<Setter Property="TextBlock.FontFamily" Value="Calibri, Verdana"></Setter>
+		<Setter Property="TextBlock.FontFamily" Value="{marks:ResourceFontExtension Style_AboutText}"></Setter>
 		<Setter Property="TextBlock.FontSize" Value="14"></Setter>
 		<Setter Property="TextBlock.Foreground" Value="White"></Setter>
 	</Style>
 
 	<!-- Button for configuration area within tab control -->
+	<!--
 	<Style TargetType="Button" x:Key="FunctionButton">
 		<Setter Property="FrameworkElement.Width" Value="NaN"/>
 		<Setter Property="FrameworkElement.MinWidth" Value="40"/>
@@ -445,7 +452,7 @@
 		</Setter>
 		<Setter Property="TextElement.FontSize" Value="12"/>
 		<Setter Property="TextElement.FontWeight" Value="SemiBold"/>
-		<Setter Property="TextElement.FontFamily" Value="Verdana"/>
+		<Setter Property="TextElement.FontFamily" Value="{marks:ResourceFontExtension Style_ButtonFont}"/>
 		<Setter Property="Control.Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="Button">
@@ -543,6 +550,7 @@
 			</Setter.Value>
 		</Setter>
 	</Style>
+	-->
 
 	<Style TargetType="Button" x:Key="GlassButton">
 		<Setter Property="FrameworkElement.Width" Value="NaN"/>
@@ -558,7 +566,7 @@
 		</Setter>
 		<Setter Property="TextElement.FontSize" Value="10"/>
 		<Setter Property="TextElement.FontWeight" Value="SemiBold"/>
-		<Setter Property="TextElement.FontFamily" Value="Verdana"/>
+		<Setter Property="TextElement.FontFamily" Value="{marks:ResourceFontExtension Style_ButtonFont}"/>
 		<Setter Property="Control.Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="{x:Type Button}">
@@ -666,7 +674,7 @@
 		<!--
 		<Setter Property="Foreground" Value="#FF000000" />
 		-->
-		<Setter Property="FontFamily" Value="Calibri, Tahoma, Arial" />
+		<Setter Property="FontFamily" Value="{marks:ResourceFontExtension Style_ConfigTextBox}" />
 		<Setter Property="FontSize" Value="12" />
 		<Setter Property="MinHeight" Value="25"/>
 		<Setter Property="MinWidth" Value="250"/>
@@ -1289,7 +1297,7 @@
 	<!-- ===================== -->
 	<!-- Begin of Slider Style -->
 	<!-- ===================== -->
-	
+
 
 	<Style TargetType="Thumb">
 		<Setter Property="Background" Value="{StaticResource SliderNormalBrush}" />
@@ -1505,7 +1513,7 @@
 		<Setter Property="Background" Value="Transparent"/>
 		<Setter Property="Foreground" Value="{StaticResource ToobarTextColorBrush}"/>
 		<Setter Property="FontSize" Value="14"/>
-		<Setter Property="FontFamily" Value="Verdana" />
+		<Setter Property="FontFamily" Value="{marks:ResourceFontExtension Style_ToolbarText}" />
 		<Setter Property="VerticalAlignment" Value="Center" />
 		<Setter Property="HorizontalAlignment" Value="Center"/>
 		<Setter Property="VerticalAlignment" Value="Center"/>
@@ -1814,10 +1822,27 @@
 								</Grid.ColumnDefinitions>
 
 
-								<ToggleButton HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="1" MinHeight="0" MinWidth="0" x:Name="ExpanderButton" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" FontFamily="{TemplateBinding FontFamily}" FontSize="{TemplateBinding FontSize}" FontStretch="{TemplateBinding FontStretch}" FontStyle="{TemplateBinding FontStyle}" FontWeight="{TemplateBinding FontWeight}" Foreground="{TemplateBinding Foreground}" Template="{StaticResource ExpanderDownHeaderTemplate}" Grid.Column="0" Grid.Row="0" Content="{TemplateBinding Header}" ContentTemplate="{TemplateBinding HeaderTemplate}" IsChecked="{Binding Path=IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Grid.ColumnSpan="2"/>
-								<Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" x:Name="ExpandSite" Visibility="Collapsed">
-									<Border Background="{StaticResource NormalBrush}" CornerRadius="3,3,3,3" BorderBrush="{StaticResource NormalBorderBrush}" BorderThickness="1,1,1,1"/>
-									<ContentPresenter Cursor="{TemplateBinding Cursor}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="4,4,4,4" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+								<ToggleButton HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+									Margin="1" MinHeight="0" MinWidth="0" x:Name="ExpanderButton" 
+									VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
+									FontFamily="{TemplateBinding FontFamily}" 
+									FontSize="{TemplateBinding FontSize}" 
+									FontStretch="{TemplateBinding FontStretch}" 
+									FontStyle="{TemplateBinding FontStyle}" 
+									FontWeight="{TemplateBinding FontWeight}" 
+									Foreground="{TemplateBinding Foreground}" 
+									Template="{StaticResource ExpanderDownHeaderTemplate}" 
+									Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"
+									Content="{TemplateBinding Header}" ContentTemplate="{TemplateBinding HeaderTemplate}"
+									IsChecked="{Binding Path=IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" 
+									/>
+								<Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" x:Name="ExpandSite" 
+									Visibility="Collapsed">
+									<Border Background="{StaticResource NormalBrush}" CornerRadius="3,3,3,3" 
+										BorderBrush="{StaticResource NormalBorderBrush}" BorderThickness="1,1,1,1"/>
+									<ContentPresenter Cursor="{TemplateBinding Cursor}" 
+										HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+										Margin="4,4,4,4" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
 								</Grid>
 							</Grid>
 						</Border>
@@ -1834,7 +1859,83 @@
 		</Setter>
 		<Setter Property="Background" Value="{StaticResource ControlBackgroundBrush}"/>
 	</Style>
+
+	<Style BasedOn="{StaticResource {x:Type ToggleButton}}" TargetType="{x:Type RadioButton}">
+		<Setter Property="Panel.Background" Value="{StaticResource SelectedBackgroundBrush}" />
+		<Setter Property="TextElement.Foreground" Value="{StaticResource TextBrush}" />
+		<Setter Property="Control.Padding" Value="3" />
+		<Setter Property="Border.BorderThickness" Value="2" />
+		<Setter Property="Border.BorderBrush" Value="{StaticResource NormalBorderBrush}" />
+		<Setter Property="Control.Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="ToggleButton">
+					<Grid>
+						<Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="3,3,3,3" Name="border" />
+						<ContentPresenter HorizontalAlignment="{TemplateBinding Control.HorizontalContentAlignment}" Name="contentPresenter" VerticalAlignment="{TemplateBinding Control.VerticalContentAlignment}" />
+						<Border Background="Transparent" CornerRadius="3,3,3,3" IsHitTestVisible="False" Name="checked" />
+						<Border Background="Transparent" CornerRadius="3,3,3,3" IsHitTestVisible="False" Name="shine" />
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="True">
+							<Setter Property="Background" TargetName="shine" Value="{StaticResource HoverShineBrush}" />
+						</Trigger>
+						<Trigger Property="IsChecked" Value="True">
+							<Setter Property="Background" Value="{StaticResource PressedBorderBrush}" />
+							<Setter Property="Background" TargetName="shine" Value="{StaticResource HoverShineBrush}" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
 	<!-- ===================== -->
 	<!-- End of Expander Style -->
 	<!-- ===================== -->
+
+	<!-- ====================================== -->
+	<!-- Begin of Position Picker's RadioButton -->
+	<!-- ====================================== -->
+	<Style x:Key="PositionSelectionItem" TargetType="{x:Type RadioButton}" BasedOn="{StaticResource {x:Type ToggleButton}}">
+		<Setter Property="Background" Value="{StaticResource SelectedBackgroundBrush}" />
+		<Setter Property="Foreground" Value="{StaticResource TextBrush}" />
+		<Setter Property="Padding" Value="3" />
+		<Setter Property="BorderThickness" Value="2" />
+		<Setter Property="BorderBrush" Value="{StaticResource NormalBorderBrush}" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="ToggleButton">
+					<Grid>
+						<Border x:Name="border"    
+                      Background="{TemplateBinding Background}"  
+                      BorderBrush="{TemplateBinding BorderBrush}"    
+                      BorderThickness="{TemplateBinding BorderThickness}"    
+                      CornerRadius="3" />
+						<ContentPresenter x:Name="contentPresenter"    
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"  
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+						<Border x:Name="checked"    
+                      IsHitTestVisible="False"
+                      Background="Transparent"
+                      CornerRadius="3" />
+						<Border x:Name="shine"
+                      IsHitTestVisible="False"
+                      Background="Transparent"
+                      CornerRadius="3" />
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="True">
+							<Setter TargetName="shine" Property="Background" Value="{StaticResource HoverShineBrush}"/>
+						</Trigger>
+						<Trigger Property="IsChecked" Value="True">
+							<Setter Property="Background" Value="{StaticResource PressedBorderBrush}"/>
+							<Setter TargetName="shine" Property="Background" Value="{StaticResource HoverShineBrush}"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<!-- ==================================== -->
+	<!-- End of Position Picker's RadioButton -->
+	<!-- ==================================== -->
 </ResourceDictionary>
