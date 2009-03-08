@@ -64,6 +64,7 @@
     <Compile Include="ColorConverter.cs" />
     <Compile Include="FontConverter.cs" />
     <Compile Include="Formatter.cs" />
+    <Compile Include="Fraction.cs" />
     <Compile Include="RecursiveFileExplorer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

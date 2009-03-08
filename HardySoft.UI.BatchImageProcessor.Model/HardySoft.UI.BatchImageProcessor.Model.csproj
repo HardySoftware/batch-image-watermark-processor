@@ -87,6 +87,12 @@
     <Compile Include="Thumbnail.cs" />
     <Compile Include="Watermark.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HardySoft.CC\HardySoft.CC.csproj">
+      <Project>{D162A876-9517-4E74-89AF-C889FF5BFAD0}</Project>
+      <Name>HardySoft.CC</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
