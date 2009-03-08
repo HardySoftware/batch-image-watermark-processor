@@ -28,6 +28,8 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 						break;
 				}
 
+				container.Dispose();
+
 				if (resize != null) {
 					System.Windows.Size currentSize = new System.Windows.Size((double)input.Width, (double)input.Height);
 					System.Windows.Size newSize = resize.CalculateNewSize(currentSize, (double)ps.ShrinkPixelTo);

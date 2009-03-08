@@ -633,4 +633,19 @@
   <data name="Enum_Unknown" xml:space="preserve">
     <value>Unknown</value>
   </data>
+  <data name="Label_ExifValue_Aperture" xml:space="preserve">
+    <value>f/{0}</value>
+  </data>
+  <data name="Label_ExifValue_DPI" xml:space="preserve">
+    <value>{0} dpi</value>
+  </data>
+  <data name="Label_ExifValue_MM" xml:space="preserve">
+    <value>{0} mm</value>
+  </data>
+  <data name="Label_ExifValue_Pixel" xml:space="preserve">
+    <value>{0} pixels</value>
+  </data>
+  <data name="Label_ExifValue_Second" xml:space="preserve">
+    <value>{0} sec.</value>
+  </data>
 </root>

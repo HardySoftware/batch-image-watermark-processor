@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Windows.Media.Imaging;
+using HardySoft.CC.Mathematics;
 
 namespace HardySoft.UI.BatchImageProcessor.Model {
 	public enum ColorRepresentation {
@@ -149,7 +150,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			}
 		}
 
-		[ExifDisplay("Label_Width")]
+		[ExifDisplay("Label_Width", "Label_ExifValue_Pixel")]
 		public uint? Width {
 			get {
 				object val = queryMetadata("/app1/ifd/exif/subifd:{uint=40962}");
@@ -165,7 +166,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			}
 		}
 
-		[ExifDisplay("Label_Height")]
+		[ExifDisplay("Label_Height", "Label_ExifValue_Pixel")]
 		public uint? Height {
 			get {
 				object val = queryMetadata("/app1/ifd/exif/subifd:{uint=40963}");
@@ -181,10 +182,9 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			}
 		}
 
-		[ExifDisplay("Label_HorizontalResolution")]
+		[ExifDisplay("Label_HorizontalResolution", "Label_ExifValue_DPI")]
 		public decimal? HorizontalResolution {
 			get {
-				// TODO add feature to support display value like "72 DPI" and so on.
 				object val = queryMetadata("/app1/ifd/exif:{uint=282}");
 				if (val != null) {
 					return parseUnsignedRational((ulong)val);
@@ -194,7 +194,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			}
 		}
 
-		[ExifDisplay("Label_VerticalResolution")]
+		[ExifDisplay("Label_VerticalResolution", "Label_ExifValue_DPI")]
 		public decimal? VerticalResolution {
 			get {
 				object val = queryMetadata("/app1/ifd/exif:{uint=283}");
@@ -246,7 +246,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			}
 		}
 
-		[ExifDisplay("Label_ExposureTime")]
+		/*[ExifDisplay("Label_ExposureTime")]
 		public decimal? ExposureTime {
 			get {
 				// TODO find a logic to display with fraction
@@ -255,6 +255,22 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 					return parseUnsignedRational((ulong)val);
 				} else {
 					return null;
+				}
+			}
+		}*/
+		[ExifDisplay("Label_ExposureTime", "Label_ExifValue_Second")]
+		public string ExposureTime {
+			get {
+				// TODO find a logic to display with fraction
+				object val = queryMetadata("/app1/ifd/exif/subifd:{uint=33434}");
+				if (val != null) {
+					decimal time = parseUnsignedRational((ulong)val);
+					// TODO investigate if all the EXIF decimal or float value has no localized number information.
+					System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("en-us");
+					Fraction f = new Fraction(time.ToString(), culture.NumberFormat);
+					return f.ToString();
+				} else {
+					return string.Empty;
 				}
 			}
 		}
@@ -271,7 +287,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			}
 		}
 
-		[ExifDisplay("Label_Aperture")]
+		[ExifDisplay("Label_Aperture", "Label_ExifValue_Aperture")]
 		public decimal? LensAperture {
 			get {
 				object val = queryMetadata("/app1/ifd/exif/subifd:{uint=33437}");
@@ -283,7 +299,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			}
 		}
 
-		[ExifDisplay("Label_FocalLength")]
+		[ExifDisplay("Label_FocalLength", "Label_ExifValue_MM")]
 		public decimal? FocalLength {
 			get {
 				object val = queryMetadata("/app1/ifd/exif/subifd:{uint=37386}");
@@ -439,22 +455,22 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 
 	[AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
 	public class ExifDisplayAttribute : Attribute {
-		private string displayGroup;
+		private string valueFormat;
 		private string displayName;
 
 		public ExifDisplayAttribute(string displayName) {
 			this.displayName = displayName;
-			this.displayGroup = "";
+			this.valueFormat = "";
 		}
 
-		public ExifDisplayAttribute(string displayName, string displayGroup) {
+		public ExifDisplayAttribute(string displayName, string valueFormat) {
 			this.displayName = displayName;
-			this.displayGroup = displayGroup;
+			this.valueFormat = valueFormat;
 		}
 
-		public string DisplayGroup {
+		public string ValueFormat {
 			get {
-				return this.displayGroup;
+				return this.valueFormat;
 			}
 		}
 

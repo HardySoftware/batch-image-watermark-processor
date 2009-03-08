@@ -817,6 +817,51 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to f/{0}.
+        /// </summary>
+        internal static string Label_ExifValue_Aperture {
+            get {
+                return ResourceManager.GetString("Label_ExifValue_Aperture", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} dpi.
+        /// </summary>
+        internal static string Label_ExifValue_DPI {
+            get {
+                return ResourceManager.GetString("Label_ExifValue_DPI", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} mm.
+        /// </summary>
+        internal static string Label_ExifValue_MM {
+            get {
+                return ResourceManager.GetString("Label_ExifValue_MM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} pixels.
+        /// </summary>
+        internal static string Label_ExifValue_Pixel {
+            get {
+                return ResourceManager.GetString("Label_ExifValue_Pixel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} sec..
+        /// </summary>
+        internal static string Label_ExifValue_Second {
+            get {
+                return ResourceManager.GetString("Label_ExifValue_Second", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Exposure Compensation.
         /// </summary>
         internal static string Label_ExposureCompensation {
