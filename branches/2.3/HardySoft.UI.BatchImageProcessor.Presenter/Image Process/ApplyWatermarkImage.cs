@@ -1,101 +1,117 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
+
+using HardySoft.CC;
+using HardySoft.CC.ExceptionLog;
+using HardySoft.CC.Transformer;
 
 using HardySoft.UI.BatchImageProcessor.Model;
 
 namespace HardySoft.UI.BatchImageProcessor.Presenter {
 	public class ApplyWatermarkImage : IProcess {
+		public bool EnableDebug {
+			get;
+			set;
+		}
+
 		public Image ProcessImage(Image input, ProjectSetting ps) {
-			// image used as watermark
-			Image copyrightImage;
-			using (Stream stream = File.OpenRead(ps.Watermark.WatermarkImageFile)) {
-				copyrightImage = Image.FromStream(stream);
+			try {
+				// image used as watermark
+				Image copyrightImage;
+				using (Stream stream = File.OpenRead(ps.Watermark.WatermarkImageFile)) {
+					copyrightImage = Image.FromStream(stream);
+				}
+
+				// copyrightImage = Bitmap.FromFile(ps.Watermark.WatermarkImageFile);
+
+				int watermarkWidth = copyrightImage.Width;
+				int watermarkHeight = copyrightImage.Height;
+
+				int imageWidth = input.Width;
+				int imageHeight = input.Height;
+
+				// Create a Bitmap based on the previously modified photograph Bitmap
+				Bitmap bmp = new Bitmap(input);
+				bmp.SetResolution(input.HorizontalResolution, input.VerticalResolution);
+
+				// Load this Bitmap into a new Graphic Object
+				Graphics graphic = Graphics.FromImage(bmp);
+
+				int xPosOfWatermark = 0;
+				int yPosOfWatermark = 0;
+
+				switch (ps.Watermark.WatermarkImagePosition) {
+					case ContentAlignment.BottomCenter:
+						xPosOfWatermark = (imageWidth / 2) - (watermarkWidth / 2);
+						yPosOfWatermark = (imageHeight - watermarkHeight) - 10;
+						break;
+					case ContentAlignment.BottomLeft:
+						xPosOfWatermark = 10;
+						yPosOfWatermark = (imageHeight - watermarkHeight) - 10;
+						break;
+					case ContentAlignment.BottomRight:
+						xPosOfWatermark = ((imageWidth - watermarkWidth) - 10);
+						yPosOfWatermark = (imageHeight - watermarkHeight) - 10;
+						break;
+					case ContentAlignment.MiddleCenter:
+						xPosOfWatermark = (imageWidth / 2) - (watermarkWidth / 2);
+						yPosOfWatermark = (imageHeight / 2) - (watermarkHeight / 2);
+						break;
+					case ContentAlignment.MiddleLeft:
+						xPosOfWatermark = 10;
+						yPosOfWatermark = (imageHeight / 2) - (watermarkHeight / 2);
+						break;
+					case ContentAlignment.MiddleRight:
+						xPosOfWatermark = ((imageWidth - watermarkWidth) - 10);
+						yPosOfWatermark = (imageHeight / 2) - (watermarkHeight / 2);
+						break;
+					case ContentAlignment.TopCenter:
+						xPosOfWatermark = (imageWidth / 2) - (watermarkWidth / 2);
+						yPosOfWatermark = 10;
+						break;
+					case ContentAlignment.TopLeft:
+						xPosOfWatermark = 10;
+						yPosOfWatermark = 10;
+						break;
+					case ContentAlignment.TopRight:
+						//For this example we will place the watermark in the upper right
+						//hand corner of the photograph. offset down 10 pixels and to the 
+						//left 10 pixles
+						xPosOfWatermark = ((imageWidth - watermarkWidth) - 10);
+						yPosOfWatermark = 10;
+						break;
+				}
+				/* TODO for some reason semi-transparent watermark image stops working in this implementation.
+				 * if I use image attributes.
+				graphic.DrawImage(copyrightImage,
+					new Rectangle(xPosOfWatermark, yPosOfWatermark, watermarkWidth, watermarkHeight),  //Set the detination Position
+					0,                  // x-coordinate of the portion of the source image to draw. 
+					0,                  // y-coordinate of the portion of the source image to draw. 
+					watermarkWidth,            // Watermark Width
+					watermarkHeight,		    // Watermark Height
+					GraphicsUnit.Pixel, // Unit of measurment
+					getTranslucentImageAttribute());   //ImageAttributes Object*/
+				graphic.DrawImage(copyrightImage,
+					new Rectangle(xPosOfWatermark, yPosOfWatermark, watermarkWidth, watermarkHeight),  //Set the detination Position
+					0,                  // x-coordinate of the portion of the source image to draw. 
+					0,                  // y-coordinate of the portion of the source image to draw. 
+					watermarkWidth,            // Watermark Width
+					watermarkHeight,		    // Watermark Height
+					GraphicsUnit.Pixel); // Unit of measurment*/
+
+				graphic.Dispose();
+				return (Image)bmp;
+			} catch (Exception ex) {
+				if (this.EnableDebug) {
+					string logFile = Formatter.FormalizeFolderName(Directory.GetCurrentDirectory()) + @"logs\SeaTurtle_Error.log";
+					string logXml = Serializer.Serialize<ExceptionContainer>(ExceptionLogger.GetException(ex));
+
+					HardySoft.CC.File.FileAccess.AppendFile(logFile, logXml);
+				}
+				return input;
 			}
-
-			// copyrightImage = Bitmap.FromFile(ps.Watermark.WatermarkImageFile);
-
-			int watermarkWidth = copyrightImage.Width;
-			int watermarkHeight = copyrightImage.Height;
-
-			int imageWidth = input.Width;
-			int imageHeight = input.Height;
-
-			// Create a Bitmap based on the previously modified photograph Bitmap
-			Bitmap bmp = new Bitmap(input);
-			bmp.SetResolution(input.HorizontalResolution, input.VerticalResolution);
-
-			// Load this Bitmap into a new Graphic Object
-			Graphics graphic = Graphics.FromImage(bmp);
-
-			int xPosOfWatermark = 0;
-			int yPosOfWatermark = 0;
-
-			switch (ps.Watermark.WatermarkImagePosition) {
-				case ContentAlignment.BottomCenter:
-					xPosOfWatermark = (imageWidth / 2) - (watermarkWidth / 2);
-					yPosOfWatermark = (imageHeight - watermarkHeight) - 10;
-					break;
-				case ContentAlignment.BottomLeft:
-					xPosOfWatermark = 10;
-					yPosOfWatermark = (imageHeight - watermarkHeight) - 10;
-					break;
-				case ContentAlignment.BottomRight:
-					xPosOfWatermark = ((imageWidth - watermarkWidth) - 10);
-					yPosOfWatermark = (imageHeight - watermarkHeight) - 10;
-					break;
-				case ContentAlignment.MiddleCenter:
-					xPosOfWatermark = (imageWidth / 2) - (watermarkWidth / 2);
-					yPosOfWatermark = (imageHeight / 2) - (watermarkHeight / 2);
-					break;
-				case ContentAlignment.MiddleLeft:
-					xPosOfWatermark = 10;
-					yPosOfWatermark = (imageHeight / 2) - (watermarkHeight / 2);
-					break;
-				case ContentAlignment.MiddleRight:
-					xPosOfWatermark = ((imageWidth - watermarkWidth) - 10);
-					yPosOfWatermark = (imageHeight / 2) - (watermarkHeight / 2);
-					break;
-				case ContentAlignment.TopCenter:
-					xPosOfWatermark = (imageWidth / 2) - (watermarkWidth / 2);
-					yPosOfWatermark = 10;
-					break;
-				case ContentAlignment.TopLeft:
-					xPosOfWatermark = 10;
-					yPosOfWatermark = 10;
-					break;
-				case ContentAlignment.TopRight:
-					//For this example we will place the watermark in the upper right
-					//hand corner of the photograph. offset down 10 pixels and to the 
-					//left 10 pixles
-					xPosOfWatermark = ((imageWidth - watermarkWidth) - 10);
-					yPosOfWatermark = 10;
-					break;
-			}
-			/* TODO for some reason semi-transparent watermark image stops working in this implementation.
-			 * if I use image attributes.
-			graphic.DrawImage(copyrightImage,
-				new Rectangle(xPosOfWatermark, yPosOfWatermark, watermarkWidth, watermarkHeight),  //Set the detination Position
-				0,                  // x-coordinate of the portion of the source image to draw. 
-				0,                  // y-coordinate of the portion of the source image to draw. 
-				watermarkWidth,            // Watermark Width
-				watermarkHeight,		    // Watermark Height
-				GraphicsUnit.Pixel, // Unit of measurment
-				getTranslucentImageAttribute());   //ImageAttributes Object*/
-			graphic.DrawImage(copyrightImage,
-				new Rectangle(xPosOfWatermark, yPosOfWatermark, watermarkWidth, watermarkHeight),  //Set the detination Position
-				0,                  // x-coordinate of the portion of the source image to draw. 
-				0,                  // y-coordinate of the portion of the source image to draw. 
-				watermarkWidth,            // Watermark Width
-				watermarkHeight,		    // Watermark Height
-				GraphicsUnit.Pixel); // Unit of measurment*/
-
-			graphic.Dispose();
-			return (Image)bmp;
 		}
 
 		private ImageAttributes getTranslucentImageAttribute() {

@@ -17,7 +17,9 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 		private string[] supportedImageFormat = new string[] {
 			"*.jpg",
 			"*.jpeg",
-			"*.bmp"
+			"*.bmp",
+			"*.gif",
+			"*.png"
 		};
 
 		//public event PropertyChangedEventHandler PropertyChanged;

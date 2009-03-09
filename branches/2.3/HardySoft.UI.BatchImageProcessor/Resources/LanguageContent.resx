@@ -648,4 +648,7 @@
   <data name="Label_ExifValue_Second" xml:space="preserve">
     <value>{0} sec.</value>
   </data>
+  <data name="Validation_ImageBorderWidth" xml:space="preserve">
+    <value>Please select a positive integer as border width.</value>
+  </data>
 </root>

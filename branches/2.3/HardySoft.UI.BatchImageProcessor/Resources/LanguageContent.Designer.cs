@@ -1555,6 +1555,15 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please select a positive integer as border width..
+        /// </summary>
+        internal static string Validation_ImageBorderWidth {
+            get {
+                return ResourceManager.GetString("Validation_ImageBorderWidth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Jpg compression ratio must be between 0 and 100..
         /// </summary>
         internal static string Validation_JpgCompressionRatio {

@@ -17,5 +17,10 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 		/// but each proceesing module may have interest in only 1 or limited section(s).</param>
 		/// <returns></returns>
 		Image ProcessImage(Image input, ProjectSetting ps);
+
+		bool EnableDebug {
+			get;
+			set;
+		}
 	}
 }

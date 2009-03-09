@@ -3,7 +3,7 @@
 using HardySoft.UI.BatchImageProcessor.Model;
 
 namespace HardySoft.UI.BatchImageProcessor.View {
-	public interface IPreference {
+	public interface IPreferenceView : IView {
 		uint ThreadNumber {
 			get;
 			set;

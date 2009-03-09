@@ -23,11 +23,10 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 	/// </summary>
 	public partial class MainInterfaceControl : System.Windows.Controls.UserControl, IMainInterfaceControlView {
 		// TODO make watermark text to support text aligment selection.
-		// TODO change position selection drop down layout, P573
 		// TODO add watermark image/text rotate feature
 		// TODO add watermark text macro from EXIF feature
+		// TODO add more option to "Output" tab to select file format for processed files. Something like batch convert.
 		// TODO in image file list add a new column to include button to remove image from list
-		// TODO add enterprise library logging to enable exception log.
 		// TODO convert "image effect" into add-ins and open programming interface
 		private MainControl_Presenter presenter;
 		private DispatcherTimer dispatcherTimer;
@@ -58,6 +57,11 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 				presenter = value;
 				presenter.SetView(this);
 			}
+		}
+
+		public ExtraConfiguration HiddenConfig {
+			get;
+			set;
 		}
 
 		public event ProjectFileNameObtainedHandler ProjectFileNameObtained;

@@ -8,7 +8,7 @@ namespace HardySoft.UI.BatchImageProcessor.View {
 	public delegate void ProjectWithFileNameEventHandler(object sender, ProjectWithFileNameEventArgs e);
 	public delegate void ProcessThreadNumberEventHandler(object sender, ProcessThreadNumberEventArgs e);
 
-	public interface IMainInterfaceControlView {
+	public interface IMainInterfaceControlView : IView {
 		ProjectSetting PS {
 			get;
 			set;
@@ -33,5 +33,10 @@ namespace HardySoft.UI.BatchImageProcessor.View {
 		event ProjectWithFileNameEventHandler OpenProject;
 		event ProcessThreadNumberEventHandler ProcessImage;
 		event EventHandler StopProcessing;
+
+		ExtraConfiguration HiddenConfig {
+			get;
+			set;
+		}
 	}
 }
