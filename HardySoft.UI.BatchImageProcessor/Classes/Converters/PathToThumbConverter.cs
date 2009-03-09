@@ -22,7 +22,11 @@ namespace HardySoft.UI.BatchImageProcessor.Classes.Converters {
 
 			if (value is Uri) {
 				Uri imageUri = (Uri)value;
-				if (!File.Exists(imageUri.AbsolutePath)) {
+				// if file name has space(s) in file name AbsolutePath quits working for File.Exists
+				// if (!File.Exists(imageUri.AbsolutePath)) {
+				//	return null;
+				// }
+				if (!File.Exists(imageUri.LocalPath)) {
 					return null;
 				}
 				BitmapImage bi = new BitmapImage();

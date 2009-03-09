@@ -625,4 +625,7 @@
   <data name="Enum_Unknown" xml:space="preserve">
     <value>未知</value>
   </data>
+  <data name="Validation_ImageBorderWidth" xml:space="preserve">
+    <value>请用一个正整数作为边框宽度。</value>
+  </data>
 </root>

@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.ComponentModel;
-using System.Windows.Media;
+
+using Microsoft.Practices.EnterpriseLibrary.Validation.Validators;
 
 namespace HardySoft.UI.BatchImageProcessor.Model {
 	[Serializable]
@@ -36,6 +34,8 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 		}
 
 		private int borderWidth;
+		[RangeValidator(0, RangeBoundaryType.Inclusive, Int32.MaxValue, RangeBoundaryType.Inclusive,
+			MessageTemplate = "Validation_ImageBorderWidth")]
 		public int BorderWidth {
 			get {
 				return borderWidth;

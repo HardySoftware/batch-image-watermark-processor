@@ -88,13 +88,14 @@
     <Compile Include="Image Process\Size Calculator\ResizeByLongSize.cs" />
     <Compile Include="Image Process\Size Calculator\ResizeByWidth.cs" />
     <Compile Include="Image Process\Size Calculator\ResizeByHeight.cs" />
+    <Compile Include="Presenter.cs" />
     <Compile Include="Save Image\ISaveImage.cs" />
     <Compile Include="Image File Name\ProcessedFileName.cs" />
     <Compile Include="Image File Name\ThumbnailFileName.cs" />
     <Compile Include="Image Process\GrayScale.cs" />
     <Compile Include="Image File Name\IFilenameProvider.cs" />
     <Compile Include="ImageProcessorEngine.cs" />
-    <Compile Include="IProcess.cs" />
+    <Compile Include="Image Process\IProcess.cs" />
     <Compile Include="PreferenceWindow_Presenter.cs" />
     <Compile Include="MainControl_Presenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -120,7 +121,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Image Process\Size Calculator\ResizeCalculator.cd" />
-    <None Include="ProcessImage.cd" />
+    <None Include="Image Process\ProcessImage.cd" />
+    <None Include="PresenterClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -58,8 +58,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ErrorMessage.cs" />
+    <Compile Include="ExtraConfiguration.cs" />
     <Compile Include="IMainInterfaceControlView.cs" />
-    <Compile Include="IPreference.cs" />
+    <Compile Include="IPreferenceView.cs" />
+    <Compile Include="IView.cs" />
     <Compile Include="ProcessThreadNumberEventArgs.cs" />
     <Compile Include="ProjectWithFileNameEventArgs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -69,6 +71,9 @@
       <Project>{5AC6B983-70B4-4FC9-A3E2-5C95C74AEE08}</Project>
       <Name>HardySoft.UI.BatchImageProcessor.Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

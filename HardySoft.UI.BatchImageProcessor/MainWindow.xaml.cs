@@ -17,17 +17,20 @@ using Microsoft.Practices.Unity;
 using HardySoft.UI.BatchImageProcessor.Controls;
 using HardySoft.UI.BatchImageProcessor.Classes;
 using HardySoft.UI.BatchImageProcessor.Classes.Commands;
+using HardySoft.UI.BatchImageProcessor.View;
 
 namespace HardySoft.UI.BatchImageProcessor {
 	/// <summary>
 	/// Interaction logic for MainWindow.xaml
 	/// </summary>
 	public partial class MainWindow : Window {
+		MainInterfaceControl mainControl;
+
 		public MainWindow() {
 			InitializeComponent();
 
 			IUnityContainer container = new UnityContainer();
-			MainInterfaceControl mainControl = (MainInterfaceControl)container.Resolve<MainInterfaceControl>();
+			mainControl = (MainInterfaceControl)container.Resolve<MainInterfaceControl>();
 			mainControl.ProjectFileNameObtained += new ProjectFileNameObtainedHandler(mainControl_ProjectFileNameObtained);
 			MainControlPlaceHolder.Children.Add(mainControl);
 
@@ -98,6 +101,17 @@ namespace HardySoft.UI.BatchImageProcessor {
 
 		private void titleBar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e) {
 			this.DragMove();
+		}
+
+		private ExtraConfiguration hiddenConfig;
+		public ExtraConfiguration HiddenConfig {
+			get {
+				return this.hiddenConfig;
+			}
+			set {
+				this.hiddenConfig = value;
+				mainControl.HiddenConfig = value;
+			}
 		}
 	}
 }

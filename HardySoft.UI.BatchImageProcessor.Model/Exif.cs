@@ -249,7 +249,6 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 		/*[ExifDisplay("Label_ExposureTime")]
 		public decimal? ExposureTime {
 			get {
-				// TODO find a logic to display with fraction
 				object val = queryMetadata("/app1/ifd/exif/subifd:{uint=33434}");
 				if (val != null) {
 					return parseUnsignedRational((ulong)val);
@@ -261,7 +260,6 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 		[ExifDisplay("Label_ExposureTime", "Label_ExifValue_Second")]
 		public string ExposureTime {
 			get {
-				// TODO find a logic to display with fraction
 				object val = queryMetadata("/app1/ifd/exif/subifd:{uint=33434}");
 				if (val != null) {
 					decimal time = parseUnsignedRational((ulong)val);
