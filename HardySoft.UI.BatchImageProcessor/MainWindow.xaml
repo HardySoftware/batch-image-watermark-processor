@@ -4,8 +4,8 @@
     xmlns:HSC="clr-namespace:HardySoft.UI.BatchImageProcessor.Controls"
     xmlns:sys="clr-namespace:System;assembly=mscorlib"
     xmlns:enum="clr-namespace:HardySoft.UI.BatchImageProcessor.Model;assembly=HardySoft.UI.BatchImageProcessor.Model"
-    xmlns:marks="clr-namespace:HardySoft.UI.BatchImageProcessor.Classes.MarkExtensions"
-    Title="{marks:ResourceExtension WindowTitle_Main}" Height="500" Width="800"
+    xmlns:HSMarks="clr-namespace:HardySoft.UI.BatchImageProcessor.Classes.MarkExtensions"
+    Title="{HSMarks:ResourceExtension WindowTitle_Main}" Height="500" Width="800"
     AllowsTransparency="True" Background="Transparent"
     WindowStyle="None" ResizeMode="CanResizeWithGrip" Icon="/SeaTurtle;component/Images/icon.ico">
 	<Window.Resources>
@@ -19,7 +19,7 @@
                 <RowDefinition></RowDefinition>
                 <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
-            <TextBlock Text="{marks:ResourceExtension WindowTitle_Main}" 
+            <TextBlock Text="{HSMarks:ResourceExtension WindowTitle_Main}" 
 				Style="{StaticResource WindowTitle}" Grid.Row="0"
 				MouseLeftButtonDown="titleBar_MouseLeftButtonDown"></TextBlock>
             <Grid Grid.Row="1">

@@ -213,4 +213,19 @@
 	<data name="WatermarkTextPosition" xml:space="preserve">
     <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimHei" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;水印文字位置&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;用来指定水印文字在被处理图片中的位置。&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
   </data>
+	<data name="WatermarkImageRotationAngle" xml:space="preserve">
+		<value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimHei" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;水印图形旋转&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;如果您想吧一个水印图形旋转一个角度然后再加入您想要处理的图片之中，那么您可以在这里通过拉动下面的滑动条来实现。&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
+	</data>
+	<data name="WatermarkTextAlignment" xml:space="preserve">
+		<value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimHei" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;水印文字对齐方式&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;如果你有多行文字需要当作水印加入被处理的图形中，那么可以选择对齐方式。如果只有一行文字的话您也可以选择对齐方式，但是并不会有任何影响。&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
+	</data>
+	<data name="WatermarkTextColor" xml:space="preserve">
+		<value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimHei" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;水印文字颜色&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;在这里您可以选择喜欢的颜色来用做水印文字。默认颜色是半透明的白色。在颜色选择同时您也可以在颜色选择对话框中选择透明度。&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
+	</data>
+	<data name="WatermarkTextPreview" xml:space="preserve">
+		<value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimHei" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;水印文字预览&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;在这里您可以预览在前面所有参数（除了位置）设定的水印文字的效果。&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
+	</data>
+	<data name="WatermarkTextRotationAngle" xml:space="preserve">
+		<value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimHei" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;水印文字旋转角度&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;如果您想把水印文字旋转一个角度以后再放入被处理的图形中的话，那么您可以通过拖拉下面的滑动条来实现。&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
+	</data>
 </root>

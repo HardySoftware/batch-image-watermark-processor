@@ -1,7 +1,7 @@
 ﻿<UserControl x:Class="HardySoft.UI.BatchImageProcessor.Controls.PositionPicker"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:marks="clr-namespace:HardySoft.UI.BatchImageProcessor.Classes.MarkExtensions"
+    xmlns:HSMarks="clr-namespace:HardySoft.UI.BatchImageProcessor.Classes.MarkExtensions"
     Name="positionPicker">
 	<Grid>
 		<Grid.ColumnDefinitions>
@@ -16,46 +16,46 @@
 		</Grid.RowDefinitions>
 
 		<RadioButton x:Name="TopLeft" Grid.Column="0" Grid.Row="0"
-			ToolTip="{marks:ResourceExtension Enum_TopLeft}"
+			ToolTip="{HSMarks:ResourceExtension Enum_TopLeft}"
 			IsChecked="{Binding ElementName=positionPicker, Path=SelectedPosition, Converter={StaticResource cnvPositionSelection}, ConverterParameter=TopLeft}"
 			Style="{StaticResource PositionSelectionItem}" />
 		<RadioButton x:Name="TopCenter" Grid.Column="1" Grid.Row="0"
-			ToolTip="{marks:ResourceExtension Enum_TopCenter}"
+			ToolTip="{HSMarks:ResourceExtension Enum_TopCenter}"
 			IsChecked="{Binding ElementName=positionPicker, Path=SelectedPosition, Converter={StaticResource cnvPositionSelection}, ConverterParameter=TopCenter}"
 			Visibility="{Binding ElementName=positionPicker, Path=CornerOnly, Converter={StaticResource cnvCornerOnlyVisibility}}"
 			Style="{StaticResource PositionSelectionItem}" />
 		<RadioButton x:Name="TopRight" Grid.Column="2" Grid.Row="0"
-			ToolTip="{marks:ResourceExtension Enum_TopRight}"
+			ToolTip="{HSMarks:ResourceExtension Enum_TopRight}"
 			IsChecked="{Binding ElementName=positionPicker, Path=SelectedPosition, Converter={StaticResource cnvPositionSelection}, ConverterParameter=TopRight}"
 			Style="{StaticResource PositionSelectionItem}" />
 
 		<RadioButton x:Name="MiddleLeft" Grid.Column="0" Grid.Row="1"
-			ToolTip="{marks:ResourceExtension Enum_MiddleLeft}"
+			ToolTip="{HSMarks:ResourceExtension Enum_MiddleLeft}"
 			IsChecked="{Binding ElementName=positionPicker, Path=SelectedPosition, Converter={StaticResource cnvPositionSelection}, ConverterParameter=MiddleLeft}"
 			Visibility="{Binding ElementName=positionPicker, Path=CornerOnly, Converter={StaticResource cnvCornerOnlyVisibility}}"
 			Style="{StaticResource PositionSelectionItem}" />
 		<RadioButton x:Name="MiddleCenter" Grid.Column="1" Grid.Row="1"
-			ToolTip="{marks:ResourceExtension Enum_MiddleCenter}"
+			ToolTip="{HSMarks:ResourceExtension Enum_MiddleCenter}"
 			IsChecked="{Binding ElementName=positionPicker, Path=SelectedPosition, Converter={StaticResource cnvPositionSelection}, ConverterParameter=MiddleCenter}"
 			Visibility="{Binding ElementName=positionPicker, Path=CornerOnly, Converter={StaticResource cnvCornerOnlyVisibility}}"
 			Style="{StaticResource PositionSelectionItem}" />
 		<RadioButton x:Name="MiddleRight" Grid.Column="2" Grid.Row="1"
-			ToolTip="{marks:ResourceExtension Enum_MiddleRight}"
+			ToolTip="{HSMarks:ResourceExtension Enum_MiddleRight}"
 			IsChecked="{Binding ElementName=positionPicker, Path=SelectedPosition, Converter={StaticResource cnvPositionSelection}, ConverterParameter=MiddleRight}"
 			Visibility="{Binding ElementName=positionPicker, Path=CornerOnly, Converter={StaticResource cnvCornerOnlyVisibility}}"
 			Style="{StaticResource PositionSelectionItem}" />
 
 		<RadioButton x:Name="BottomLeft" Grid.Column="0" Grid.Row="2"
-			ToolTip="{marks:ResourceExtension Enum_BottomLeft}"
+			ToolTip="{HSMarks:ResourceExtension Enum_BottomLeft}"
 			IsChecked="{Binding ElementName=positionPicker, Path=SelectedPosition, Converter={StaticResource cnvPositionSelection}, ConverterParameter=BottomLeft}"
 			Style="{StaticResource PositionSelectionItem}" />
 		<RadioButton x:Name="BottomCenter" Grid.Column="1" Grid.Row="2"
-			ToolTip="{marks:ResourceExtension Enum_BottomCenter}"
+			ToolTip="{HSMarks:ResourceExtension Enum_BottomCenter}"
 			IsChecked="{Binding ElementName=positionPicker, Path=SelectedPosition, Converter={StaticResource cnvPositionSelection}, ConverterParameter=BottomCenter}"
 			Visibility="{Binding ElementName=positionPicker, Path=CornerOnly, Converter={StaticResource cnvCornerOnlyVisibility}}"
 			Style="{StaticResource PositionSelectionItem}" />
 		<RadioButton x:Name="BottomRight" Grid.Column="2" Grid.Row="2"
-			ToolTip="{marks:ResourceExtension Enum_BottomRight}"
+			ToolTip="{HSMarks:ResourceExtension Enum_BottomRight}"
 			IsChecked="{Binding ElementName=positionPicker, Path=SelectedPosition, Converter={StaticResource cnvPositionSelection}, ConverterParameter=BottomRight}"
 			Style="{StaticResource PositionSelectionItem}" />
 	</Grid>

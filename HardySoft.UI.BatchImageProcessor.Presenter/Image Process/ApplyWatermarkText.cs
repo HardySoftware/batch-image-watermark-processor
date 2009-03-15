@@ -108,7 +108,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 						break;
 				}
 
-				//Define the text layout by setting the text alignment to centered
+				//Define the text layout by setting the text watermarkTextAlignment to centered
 				StringFormat stringFormat = new StringFormat();
 				stringFormat.Alignment = StringAlignment.Center;
 
@@ -131,7 +131,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 					font,                                   //font
 					semiTransparentBrushWhite,                           //Brush
 					new PointF(xCenterOfImg, yPosFromBottom),  //Position
-					stringFormat);                               //Text alignment
+					stringFormat);                               //Text watermarkTextAlignment
 
 				return (Image)bmp;
 			} catch (Exception ex) {
