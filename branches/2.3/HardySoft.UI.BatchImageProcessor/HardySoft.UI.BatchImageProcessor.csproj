@@ -170,17 +170,23 @@
     <Compile Include="Classes\AssembyInformation.cs" />
     <Compile Include="Classes\CommandArgument.cs" />
     <Compile Include="Classes\Commands\ApplicationCommand.cs" />
+    <Compile Include="Classes\Converters\AlignmentConverter.cs" />
+    <Compile Include="Classes\Converters\CalculatorConverter.cs" />
     <Compile Include="Classes\Converters\CornerOnlyToVisibilityConverter.cs" />
     <Compile Include="Classes\Converters\ColorCodeConverter.cs" />
     <Compile Include="Classes\Converters\ColorDisplayNameConverter.cs" />
     <Compile Include="Classes\Converters\EnumToFriendlyNameConverter.cs" />
+    <Compile Include="Classes\Converters\NotOperationConverter.cs" />
     <Compile Include="Classes\Converters\PathToImageConverter.cs" />
     <Compile Include="Classes\Converters\PositionSelectionConverter.cs" />
+    <Compile Include="Classes\Converters\TextSettingToRichtextConverter.cs" />
     <Compile Include="Classes\Converters\WatermarkImageSelectedConverter.cs" />
     <Compile Include="Classes\MarkExtensions\ResourceFontExtension.cs" />
     <Compile Include="Classes\ProjectNameEventArgs.cs" />
     <Compile Include="Classes\MarkExtensions\ResourceExtension.cs" />
     <Compile Include="Classes\Utilities.cs" />
+    <Compile Include="Controls\BindableRichTextBox.cs">
+    </Compile>
     <Compile Include="Controls\ColorPicker.cs" />
     <Compile Include="Controls\ColorPickerDialog.xaml.cs">
       <DependentUpon>ColorPickerDialog.xaml</DependentUpon>
@@ -370,6 +376,11 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ParagraphCenterJustify.png" />
+    <Resource Include="Images\ParagraphLeftJustify.png" />
+    <Resource Include="Images\ParagraphRightJustify.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

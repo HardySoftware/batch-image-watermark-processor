@@ -1312,7 +1312,16 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Watermark Image Position.
+        ///   Looks up a localized string similar to Watermark Image Layout.
+        /// </summary>
+        internal static string Label_WatermarkImageLayout {
+            get {
+                return ResourceManager.GetString("Label_WatermarkImageLayout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Image Position.
         /// </summary>
         internal static string Label_WatermarkImagePosition {
             get {
@@ -1330,11 +1339,38 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Rotation Angle.
+        /// </summary>
+        internal static string Label_WatermarkImageRotationAngle {
+            get {
+                return ResourceManager.GetString("Label_WatermarkImageRotationAngle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Watermark Text.
         /// </summary>
         internal static string Label_WatermarkText {
             get {
                 return ResourceManager.GetString("Label_WatermarkText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Text Alignment.
+        /// </summary>
+        internal static string Label_WatermarkTextAlignment {
+            get {
+                return ResourceManager.GetString("Label_WatermarkTextAlignment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Watermark Text Color.
+        /// </summary>
+        internal static string Label_WatermarkTextColor {
+            get {
+                return ResourceManager.GetString("Label_WatermarkTextColor", resourceCulture);
             }
         }
         
@@ -1348,11 +1384,38 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Watermark Text Position.
+        ///   Looks up a localized string similar to Watermark Text Layout.
+        /// </summary>
+        internal static string Label_WatermarkTextLayout {
+            get {
+                return ResourceManager.GetString("Label_WatermarkTextLayout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Text Position.
         /// </summary>
         internal static string Label_WatermarkTextPosition {
             get {
                 return ResourceManager.GetString("Label_WatermarkTextPosition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Preview.
+        /// </summary>
+        internal static string Label_WatermarkTextPreview {
+            get {
+                return ResourceManager.GetString("Label_WatermarkTextPreview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rotation Angle.
+        /// </summary>
+        internal static string Label_WatermarkTextRotationAngle {
+            get {
+                return ResourceManager.GetString("Label_WatermarkTextRotationAngle", resourceCulture);
             }
         }
         
@@ -1587,6 +1650,15 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         internal static string Validation_ReqSouceDirectory {
             get {
                 return ResourceManager.GetString("Validation_ReqSouceDirectory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rotation angle must be an integer between 0 and 360..
+        /// </summary>
+        internal static string Validation_RotationAngle {
+            get {
+                return ResourceManager.GetString("Validation_RotationAngle", resourceCulture);
             }
         }
         

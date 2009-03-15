@@ -123,10 +123,20 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 			}
 		}
 
+		private void btnWatermarkTextColorPicker_Click(object sender, RoutedEventArgs e) {
+			ColorPickerDialog cPicker = new ColorPickerDialog();
+			cPicker.StartingColor = ColorConverter.ConvertColor(ps.Watermark.WatermarkTextColor);
+			cPicker.Owner = Window.GetWindow(this);
+
+			bool? dialogResult = cPicker.ShowDialog();
+			if (dialogResult != null && (bool)dialogResult == true) {
+				ps.Watermark.WatermarkTextColor = ColorConverter.ConvertColor(cPicker.SelectedColor);
+			}
+		}
+
 		private void btnWatermarkImagePicker_Click(object sender, RoutedEventArgs e) {
 			// Configure open file dialog box
 			Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
-			//dlg.DefaultExt = ".txt"; // Default file extension
 			dlg.Filter = res.LanguageContent.Label_AllSupportedImagesFiles + " (*.jpg; *.jpeg; *.bmp; *.gif; *.png) |*.jpg;*.jpeg;*.bmp;*.gif;*.png"; // Filter files by extension
 			dlg.Title = res.LanguageContent.Label_OpenWatermarkImage;
 

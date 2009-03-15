@@ -14,12 +14,16 @@
 	<cnv:ColorConverter x:Key="cnvColor"></cnv:ColorConverter>
 	<cnv:PositionSelectionConverter x:Key="cnvPositionSelection"></cnv:PositionSelectionConverter>
 	<cnv:CornerOnlyToVisibilityConverter x:Key="cnvCornerOnlyVisibility"></cnv:CornerOnlyToVisibilityConverter>
+	<cnv:TextSettingToRichtextConverter x:Key="cnvRichTextDisplay"></cnv:TextSettingToRichtextConverter>
+	<cnv:CalculatorConverter x:Key="cnvCalculator"></cnv:CalculatorConverter>
+	<cnv:AlignmentConverter x:Key="cnvAlignment"></cnv:AlignmentConverter>
+	<cnv:NotOperationConverter x:Key="cnvNot"></cnv:NotOperationConverter>
 
-	<ObjectDataProvider x:Key="PositionData" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
+	<!--<ObjectDataProvider x:Key="PositionData" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
 		<ObjectDataProvider.MethodParameters>
 			<x:Type TypeName="enum:WatermarkPositions" />
 		</ObjectDataProvider.MethodParameters>
-	</ObjectDataProvider>
+	</ObjectDataProvider>-->
 
 	<ObjectDataProvider x:Key="ImageProcessTypeData" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
 		<ObjectDataProvider.MethodParameters>
@@ -27,11 +31,11 @@
 		</ObjectDataProvider.MethodParameters>
 	</ObjectDataProvider>
 
-	<ObjectDataProvider x:Key="DropShadowLocationData" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
+	<!--<ObjectDataProvider x:Key="DropShadowLocationData" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
 		<ObjectDataProvider.MethodParameters>
 			<x:Type TypeName="enum:DropShadowLocation" />
 		</ObjectDataProvider.MethodParameters>
-	</ObjectDataProvider>
+	</ObjectDataProvider>-->
 
 	<ObjectDataProvider x:Key="ShrinkModeData" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
 		<ObjectDataProvider.MethodParameters>
