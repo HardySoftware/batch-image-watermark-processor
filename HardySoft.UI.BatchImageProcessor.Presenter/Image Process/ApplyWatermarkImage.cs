@@ -10,24 +10,28 @@ using HardySoft.CC.Transformer;
 using HardySoft.UI.BatchImageProcessor.Model;
 
 namespace HardySoft.UI.BatchImageProcessor.Presenter {
-	public class ApplyWatermarkImage : IProcess {
-		public bool EnableDebug {
-			get;
-			set;
-		}
-
-		public Image ProcessImage(Image input, ProjectSetting ps) {
+	public class ApplyWatermarkImage : Watermark {
+		public override Image ProcessImage(Image input, ProjectSetting ps) {
 			try {
 				// image used as watermark
-				Image copyrightImage;
+				Image watermarkImage;
 				using (Stream stream = File.OpenRead(ps.Watermark.WatermarkImageFile)) {
-					copyrightImage = Image.FromStream(stream);
+					watermarkImage = Image.FromStream(stream);
 				}
 
-				// copyrightImage = Bitmap.FromFile(ps.Watermark.WatermarkImageFile);
+				Bitmap rotatedWatermarkImage;
+				if (ps.Watermark.WatermarkImageRotateAngle > 0 && ps.Watermark.WatermarkImageRotateAngle < 360) {
+					rotatedWatermarkImage = RotateImage(watermarkImage, ps.Watermark.WatermarkImageRotateAngle);
+				} else {
+					rotatedWatermarkImage = (Bitmap)watermarkImage;
+				}
 
-				int watermarkWidth = copyrightImage.Width;
-				int watermarkHeight = copyrightImage.Height;
+				rotatedWatermarkImage = setImageOpacity(rotatedWatermarkImage, (float)ps.Watermark.WatermarkImageOpacity);
+
+				//int watermarkWidth = watermarkImage.Width;
+				//int watermarkHeight = watermarkImage.Height;
+				int watermarkWidth = rotatedWatermarkImage.Width;
+				int watermarkHeight = rotatedWatermarkImage.Height;
 
 				int imageWidth = input.Width;
 				int imageHeight = input.Height;
@@ -45,55 +49,46 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 				switch (ps.Watermark.WatermarkImagePosition) {
 					case ContentAlignment.BottomCenter:
 						xPosOfWatermark = (imageWidth / 2) - (watermarkWidth / 2);
-						yPosOfWatermark = (imageHeight - watermarkHeight) - 10;
+						yPosOfWatermark = (imageHeight - watermarkHeight) - Padding;
 						break;
 					case ContentAlignment.BottomLeft:
 						xPosOfWatermark = 10;
-						yPosOfWatermark = (imageHeight - watermarkHeight) - 10;
+						yPosOfWatermark = (imageHeight - watermarkHeight) - Padding;
 						break;
 					case ContentAlignment.BottomRight:
-						xPosOfWatermark = ((imageWidth - watermarkWidth) - 10);
-						yPosOfWatermark = (imageHeight - watermarkHeight) - 10;
+						xPosOfWatermark = (imageWidth - watermarkWidth) - Padding;
+						yPosOfWatermark = (imageHeight - watermarkHeight) - Padding;
 						break;
 					case ContentAlignment.MiddleCenter:
 						xPosOfWatermark = (imageWidth / 2) - (watermarkWidth / 2);
 						yPosOfWatermark = (imageHeight / 2) - (watermarkHeight / 2);
 						break;
 					case ContentAlignment.MiddleLeft:
-						xPosOfWatermark = 10;
+						xPosOfWatermark = Padding;
 						yPosOfWatermark = (imageHeight / 2) - (watermarkHeight / 2);
 						break;
 					case ContentAlignment.MiddleRight:
-						xPosOfWatermark = ((imageWidth - watermarkWidth) - 10);
+						xPosOfWatermark = (imageWidth - watermarkWidth) - Padding;
 						yPosOfWatermark = (imageHeight / 2) - (watermarkHeight / 2);
 						break;
 					case ContentAlignment.TopCenter:
 						xPosOfWatermark = (imageWidth / 2) - (watermarkWidth / 2);
-						yPosOfWatermark = 10;
+						yPosOfWatermark = Padding;
 						break;
 					case ContentAlignment.TopLeft:
-						xPosOfWatermark = 10;
-						yPosOfWatermark = 10;
+						xPosOfWatermark = Padding;
+						yPosOfWatermark = Padding;
 						break;
 					case ContentAlignment.TopRight:
 						//For this example we will place the watermark in the upper right
 						//hand corner of the photograph. offset down 10 pixels and to the 
 						//left 10 pixles
-						xPosOfWatermark = ((imageWidth - watermarkWidth) - 10);
-						yPosOfWatermark = 10;
+						xPosOfWatermark = (imageWidth - watermarkWidth) - Padding;
+						yPosOfWatermark = Padding;
 						break;
 				}
-				/* TODO for some reason semi-transparent watermark image stops working in this implementation.
-				 * if I use image attributes.
-				graphic.DrawImage(copyrightImage,
-					new Rectangle(xPosOfWatermark, yPosOfWatermark, watermarkWidth, watermarkHeight),  //Set the detination Position
-					0,                  // x-coordinate of the portion of the source image to draw. 
-					0,                  // y-coordinate of the portion of the source image to draw. 
-					watermarkWidth,            // Watermark Width
-					watermarkHeight,		    // Watermark Height
-					GraphicsUnit.Pixel, // Unit of measurment
-					getTranslucentImageAttribute());   //ImageAttributes Object*/
-				graphic.DrawImage(copyrightImage,
+
+				graphic.DrawImage(rotatedWatermarkImage,
 					new Rectangle(xPosOfWatermark, yPosOfWatermark, watermarkWidth, watermarkHeight),  //Set the detination Position
 					0,                  // x-coordinate of the portion of the source image to draw. 
 					0,                  // y-coordinate of the portion of the source image to draw. 
@@ -114,7 +109,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 			}
 		}
 
-		private ImageAttributes getTranslucentImageAttribute() {
+		/*private ImageAttributes getTranslucentImageAttribute() {
 			// To achieve a translucent watermark we will apply (2) color 
 			// manipulations by defineing a ImageAttributes object and 
 			// seting (2) of its properties.
@@ -151,6 +146,38 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 				ColorAdjustType.Bitmap);
 
 			return imageAttributes;
+		}*/
+
+		/// <summary>
+		/// method for changing the opacity of an image
+		/// </summary>
+		/// <param name="image">image to set opacity on</param>
+		/// <param name="opacity">percentage of opacity</param>
+		/// <returns></returns>
+		private Bitmap setImageOpacity(Bitmap image, float opacity) {
+			//create a Bitmap the size of the image provided
+			Bitmap bmp = new Bitmap(image.Width, image.Height);
+
+			//create a graphics object from the image
+			Graphics gfx = Graphics.FromImage(bmp);
+
+			//create a color matrix object
+			ColorMatrix matrix = new ColorMatrix();
+
+			//set the opacity
+			matrix.Matrix33 = opacity;
+
+			//create image attributes
+			ImageAttributes attributes = new ImageAttributes();
+
+			//set the color(opacity) of the image
+			attributes.SetColorMatrix(matrix, ColorMatrixFlag.Default, ColorAdjustType.Bitmap);
+
+			//now draw the image
+			gfx.DrawImage(image, new Rectangle(0, 0, bmp.Width, bmp.Height),
+				0, 0, image.Width, image.Height, GraphicsUnit.Pixel, attributes);
+			gfx.Dispose();
+			return bmp;
 		}
 	}
 }

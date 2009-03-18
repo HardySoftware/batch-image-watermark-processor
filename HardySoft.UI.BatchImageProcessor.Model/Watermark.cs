@@ -9,6 +9,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 	public class Watermark : INotifyPropertyChanged {
 		public Watermark() {
 			this.watermarkImagePosition = ContentAlignment.TopRight;
+			this.watermarkImageOpacity = 1.0;
 			this.watermarkTextPosition = ContentAlignment.BottomRight;
 			this.watermarkTextColor = System.Drawing.Color.FromArgb(153, 255, 255, 255);
 			this.watermarkTextAlignment = StringAlignment.Center;
@@ -75,6 +76,21 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 				if (this.watermarkImageRotateAngle != value) {
 					this.watermarkImageRotateAngle = value;
 					notify("WatermarkImageRotateAngle");
+				}
+			}
+		}
+
+		private double watermarkImageOpacity;
+		[RangeValidator(0.0, RangeBoundaryType.Inclusive, 1.0, RangeBoundaryType.Inclusive,
+			MessageTemplate = "Validation_Opacity")]
+		public double WatermarkImageOpacity {
+			get {
+				return watermarkImageOpacity;
+			}
+			set {
+				if (this.watermarkImageOpacity != value) {
+					this.watermarkImageOpacity = value;
+					notify("WatermarkImageOpacity");
 				}
 			}
 		}

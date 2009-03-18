@@ -763,6 +763,15 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to degree(s).
+        /// </summary>
+        internal static string Label_Degree {
+            get {
+                return ResourceManager.GetString("Label_Degree", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Select Destination Folder to Save Processed Images.
         /// </summary>
         internal static string Label_DestFolder {
@@ -1321,6 +1330,15 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Opacity.
+        /// </summary>
+        internal static string Label_WatermarkImageOpacity {
+            get {
+                return ResourceManager.GetString("Label_WatermarkImageOpacity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Image Position.
         /// </summary>
         internal static string Label_WatermarkImagePosition {
@@ -1632,6 +1650,15 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         internal static string Validation_JpgCompressionRatio {
             get {
                 return ResourceManager.GetString("Validation_JpgCompressionRatio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Opacity value must be between 0.0 and 1.0..
+        /// </summary>
+        internal static string Validation_Opacity {
+            get {
+                return ResourceManager.GetString("Validation_Opacity", resourceCulture);
             }
         }
         

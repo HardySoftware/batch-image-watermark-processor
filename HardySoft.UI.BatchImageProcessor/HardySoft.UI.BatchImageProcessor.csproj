@@ -130,6 +130,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <None Include="Resources\WatermarkImage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </None>
     <Page Include="Themes\Classical\Main.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
