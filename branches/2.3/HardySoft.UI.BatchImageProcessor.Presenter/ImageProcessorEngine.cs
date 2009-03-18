@@ -205,14 +205,16 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 					}
 
 					// text watermark operation
-					if (!string.IsNullOrEmpty(ps.Watermark.WatermarkText)) {
+					if (!string.IsNullOrEmpty(ps.Watermark.WatermarkText)
+						&& ps.Watermark.WatermarkTextColor.A > 0) {
 						process = container.Resolve<IProcess>("WatermarkText");
 						normalImage = process.ProcessImage(normalImage, this.ps);
 					}
 
 					// image watermark operation
 					if (!string.IsNullOrEmpty(ps.Watermark.WatermarkImageFile)
-						&& File.Exists(ps.Watermark.WatermarkImageFile)) {
+						&& File.Exists(ps.Watermark.WatermarkImageFile)
+						&& ps.Watermark.WatermarkImageOpacity > 0) {
 						process = container.Resolve<IProcess>("WatermarkImage");
 						normalImage = process.ProcessImage(normalImage, this.ps);
 						normalImage = process.ProcessImage(normalImage, this.ps);

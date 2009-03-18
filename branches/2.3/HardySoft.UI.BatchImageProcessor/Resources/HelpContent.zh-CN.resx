@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-	<!-- 
+  <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,173 +59,176 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-		<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-		<xsd:element name="root" msdata:IsDataSet="true">
-			<xsd:complexType>
-				<xsd:choice maxOccurs="unbounded">
-					<xsd:element name="metadata">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" />
-							</xsd:sequence>
-							<xsd:attribute name="name" use="required" type="xsd:string" />
-							<xsd:attribute name="type" type="xsd:string" />
-							<xsd:attribute name="mimetype" type="xsd:string" />
-							<xsd:attribute ref="xml:space" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="assembly">
-						<xsd:complexType>
-							<xsd:attribute name="alias" type="xsd:string" />
-							<xsd:attribute name="name" type="xsd:string" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="data">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-							</xsd:sequence>
-							<xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-							<xsd:attribute ref="xml:space" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="resheader">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-							</xsd:sequence>
-							<xsd:attribute name="name" type="xsd:string" use="required" />
-						</xsd:complexType>
-					</xsd:element>
-				</xsd:choice>
-			</xsd:complexType>
-		</xsd:element>
-	</xsd:schema>
-	<resheader name="resmimetype">
-		<value>text/microsoft-resx</value>
-	</resheader>
-	<resheader name="version">
-		<value>2.0</value>
-	</resheader>
-	<resheader name="reader">
-		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</resheader>
-	<resheader name="writer">
-		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</resheader>
-	<data name="BatchRename" xml:space="preserve">
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BatchRename" xml:space="preserve">
     <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimHei" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;启动批量重命名输出文件&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;如果不想保持原始文件名，您也可以定义自己的命名规则来生成输出文件名。&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;简单来说如下规则将被用来生成文件名：&lt;/Run&gt;&lt;/Paragraph&gt;&lt;List MarkerStyle="Disc"&gt;&lt;ListItem&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;如果你输入了&lt;/Run&gt;&lt;Run FontFamily="SimSun" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;前缀&lt;/Run&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;或者&lt;/Run&gt;&lt;Run FontFamily="SimSun" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;后缀&lt;/Run&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;，文件名将是“前缀 + 自动增量数字 + 后缀 + 扩展名”。&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/ListItem&gt;&lt;ListItem&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;如果前缀和后缀都没有输入的话，文件名将是“原始文件名 + 自动增量数字 + 扩展名”。&lt;/Run&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="en-ca" xml:space="preserve" /&gt;&lt;/Paragraph&gt;&lt;/ListItem&gt;&lt;/List&gt;&lt;/FlowDocument&gt;</value>
   </data>
-	<data name="BatchRenameFileNameCase" xml:space="preserve">
+  <data name="BatchRenameFileNameCase" xml:space="preserve">
     <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimSun" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;批量重命名文件名大小写&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;这个选项定义程序如何处理文件名的大小写。&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
   </data>
-	<data name="BatchRenameNumberPadding" xml:space="preserve">
+  <data name="BatchRenameNumberPadding" xml:space="preserve">
     <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimHei" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;批量重命名文件名数字位数&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;这个输入结果指定用于批量重命名文件名中自动增量数字的位数。比如输入了3的话那么生成的数字部分将是001、002、003等等。&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
   </data>
-	<data name="BatchRenamePrefix" xml:space="preserve">
+  <data name="BatchRenamePrefix" xml:space="preserve">
     <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimHei" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;批量自动重命名文件名前缀&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;文件名前缀。&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
   </data>
-	<data name="BatchRenameStartNumber" xml:space="preserve">
+  <data name="BatchRenameStartNumber" xml:space="preserve">
     <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimHei" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;批量自动重命名文件名自动增量起始数字&lt;/Run&gt;&lt;Run FontFamily="SimHei" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="en-ca" xml:space="preserve" /&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;设置起始数字用于批量重命名文件名之中的自动增量数字。&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
   </data>
-	<data name="BatchRenameSuffix" xml:space="preserve">
+  <data name="BatchRenameSuffix" xml:space="preserve">
     <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimHei" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;批量重命名输出文件名后缀&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;文件名后缀。&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
   </data>
-	<data name="DestinationDirectory" xml:space="preserve">
+  <data name="DestinationDirectory" xml:space="preserve">
     <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimHei" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;输出目录&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;这个目录将用来保存最终被处理好的图形文件。&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
   </data>
-	<data name="DropShadowBackgroundColor" xml:space="preserve">
+  <data name="DropShadowBackgroundColor" xml:space="preserve">
     <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimHei" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;图形阴影背景颜色&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;如果您决定给图形加上阴影的话，会有一小个区域位于图形本身以及阴影部分之外，这个颜色将用于填充这部分的空白。&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
   </data>
-	<data name="DropShadowColor" xml:space="preserve">
+  <data name="DropShadowColor" xml:space="preserve">
     <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimHei" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;阴影颜色&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;图形阴影的颜色。&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
   </data>
-	<data name="DropShadowDepth" xml:space="preserve">
+  <data name="DropShadowDepth" xml:space="preserve">
     <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimHei" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;阴影深度&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;用来指定阴影的深度，深度越大那么阴影宽度越大。如果这个深度被设置为0的话程序将不会添加任何阴影并且忽略其他阴影相关设置。&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
   </data>
-	<data name="DropShadowLocation" xml:space="preserve">
+  <data name="DropShadowLocation" xml:space="preserve">
     <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimHei" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;阴影方向&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;用来指定阴影方向。&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
   </data>
-	<data name="GenerateThumbnail" xml:space="preserve">
+  <data name="GenerateThumbnail" xml:space="preserve">
     <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimHei" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;生成缩图&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimHei" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;如果这个选项框被选中的话程序会为每个图形生成一个缩图。&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
   </data>
-	<data name="ImageBorderColor" xml:space="preserve">
+  <data name="ImageBorderColor" xml:space="preserve">
     <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimHei" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;边框颜色&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;用来指定加在图形周围的边框颜色。&lt;/Run&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="en-ca" xml:space="preserve" /&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
   </data>
-	<data name="ImageBorderWidth" xml:space="preserve">
+  <data name="ImageBorderWidth" xml:space="preserve">
     <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimHei" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;边框宽度&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;指定加在图形周围的边框宽度。如果这个数值被设为0的话程序将不会添加任何边框并且忽略其他一切边框相关设置。&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
   </data>
-	<data name="ImageEffect" xml:space="preserve">
+  <data name="ImageEffect" xml:space="preserve">
     <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimHei" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;图形效果&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;用来给选中的图形添加其他效果。&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
   </data>
-	<data name="ImageFileList" xml:space="preserve">
+  <data name="ImageFileList" xml:space="preserve">
     <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimHei" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;图形文件列表&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph Margin="0,0,0,13.33" TextAlignment="Left" FontFamily="Times New Roman" FontSize="14.6666666666667"&gt;&lt;Run FontFamily="SimSun" FontSize="12.6666666666667" xml:lang="zh-cn"&gt;当您选择了源目录之后这个列表将显示在这个目录中所有支持的图形文件。在这个列表中您可以选择、不选择每个文件来决定是否处理。&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
   </data>
-	<data name="JpgCompressionRatio" xml:space="preserve">
+  <data name="JpgCompressionRatio" xml:space="preserve">
     <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimHei" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;JPG文件压缩率&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;如果被保存的处理好的文件是JPG格式的话您可以指定最终处理好的文件的压缩率。压缩率越高输出的图形质量越好但是文件也会相应越大。&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
   </data>
-	<data name="KeepExif" xml:space="preserve">
+  <data name="KeepExif" xml:space="preserve">
     <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimHei" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;保留EXIF信息&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;如果这个选项框被选中的话程序将在输出图形文件中保留原始EXIF信息。注意：这个功能只对JPG文件有效。&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
   </data>
-	<data name="PreferenceApplicationSkin" xml:space="preserve">
+  <data name="PreferenceApplicationSkin" xml:space="preserve">
     <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimHei" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;程序皮肤&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;选择程序皮肤。&lt;/Run&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="en-ca" xml:space="preserve" /&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
   </data>
-	<data name="PreferenceThreadNumber" xml:space="preserve">
+  <data name="PreferenceThreadNumber" xml:space="preserve">
     <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimHei" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;线程数量&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimHei" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;这是用来定义同时有多少个并发线程用来处理所有被选中的图形文件。如果你有一个多核处理器以及大量内存的话，建议增加线程数量来提高性能。&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
   </data>
-	<data name="ShrinkImage" xml:space="preserve">
+  <data name="ShrinkImage" xml:space="preserve">
     <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimHei" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;缩小图形&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;如果这个选项框被选中的话程序将按照指定尺寸缩小被处理的图形。&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
   </data>
-	<data name="ShrinkImageSize" xml:space="preserve">
+  <data name="ShrinkImageSize" xml:space="preserve">
     <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimHei" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;缩小图形尺寸&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;在这里您能够指定所期待的输出文件尺寸和计算方法。这里有三种模式可供选择：&lt;/Run&gt;&lt;/Paragraph&gt;&lt;List MarkerStyle="Disc"&gt;&lt;ListItem&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimSun" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;长边&lt;/Run&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="en-ca" xml:space="preserve"&gt; - &lt;/Run&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;程序将用您输入的尺寸来作为新图形的长边尺寸。比如原始图形的尺寸是800 * 600（相对较宽的图形）而您指定的长边尺寸是400，那么输出的图形是400 * 300；如果原始图形是600 * 800尺寸（相对较高的图形）而指定的长边尺寸是400，那么输出图形将是300 * 400。无论如何图形比例尺将被保留。&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/ListItem&gt;&lt;ListItem&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimSun" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;宽度&lt;/Run&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="en-ca" xml:space="preserve"&gt; - &lt;/Run&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;程序将把您输入的尺寸用来作为输出图形的新宽度。图形的比例尺将被保留。&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/ListItem&gt;&lt;ListItem&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimSun" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;高度&lt;/Run&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="en-ca" xml:space="preserve"&gt; - &lt;/Run&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;程序将把您输入的尺寸用来作为输出图形的新高度。图形的比例尺将被保留。&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/ListItem&gt;&lt;/List&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;注意：&lt;/Run&gt;&lt;/Paragraph&gt;&lt;List MarkerStyle="Disc"&gt;&lt;ListItem&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;如果您输入的新尺寸在用任何一种计算模式下将导致增大图形，那么程序将保留原始尺寸。&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/ListItem&gt;&lt;ListItem&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;如果您输入的新尺寸是0的话那么程序将保留原始尺寸。&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/ListItem&gt;&lt;/List&gt;&lt;/FlowDocument&gt;</value>
   </data>
-	<data name="SourceDirectory" xml:space="preserve">
+  <data name="SourceDirectory" xml:space="preserve">
     <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimHei" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;源目录&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;这个目录是有您将处理的图形的原始目录。&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
   </data>
-	<data name="ThumbnailFileNamePrefix" xml:space="preserve">
+  <data name="ThumbnailFileNamePrefix" xml:space="preserve">
     <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimHei" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;缩图文件名前缀&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;将被用来作为缩图文件名的前缀。&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
   </data>
-	<data name="ThumbnailFileNameSuffix" xml:space="preserve">
+  <data name="ThumbnailFileNameSuffix" xml:space="preserve">
     <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimHei" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;缩图文件名后缀&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;将被用来作为缩图文件名的后缀。&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
   </data>
-	<data name="ThumbnailImageSize" xml:space="preserve">
+  <data name="ThumbnailImageSize" xml:space="preserve">
     <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimHei" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;缩图文件尺寸&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;用来定义缩图文件的尺寸，程序将用“按照长边缩小”的算法来计算缩图的实际尺寸。注意：如果缩图尺寸被设定为0的话那么程序将不生成任何缩图，即便&lt;/Run&gt;&lt;Run FontFamily="SimSun" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;生成缩图&lt;/Run&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;的选项框被选中也不会起效。&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
   </data>
-	<data name="WatermarkImage" xml:space="preserve">
-    <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimHei" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;水印图形&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;如果您想吧一个图形作为水印加到您想要处理的图片之中，那么您可以在这里选择喜欢的水印图形。&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
+  <data name="WatermarkImage" xml:space="preserve">
+    <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimHei" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;水印图形&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;如果您想把一个图形作为水印加到您想要处理的图片之中，那么您可以在这里选择喜欢的水印图形。&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
   </data>
-	<data name="WatermarkImagePosition" xml:space="preserve">
+  <data name="WatermarkImagePosition" xml:space="preserve">
     <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimHei" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;图形水印位置&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;用来指定图形水印在被处理图形里的位置。&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
   </data>
-	<data name="WatermarkImagePreview" xml:space="preserve">
+  <data name="WatermarkImagePreview" xml:space="preserve">
     <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimHei" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;图形水印预览&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;这各区域是用来预览您选中的图形水印。如果您对所选图形不满意的话，您可以点右边的“&lt;/Run&gt;&lt;Run FontFamily="SimSun" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;移除&lt;/Run&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;”按钮。注意：如果你移除了图形水印程序将不会再添加水印到被处理图形上，除非您再次选择新的图形水印。&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
   </data>
-	<data name="WatermarkText" xml:space="preserve">
+  <data name="WatermarkText" xml:space="preserve">
     <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimHei" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;水印文字&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;如果您想把文字作为水印添加到图片上的话，在此可以输入想要的文字。如果没有任何内容输入的滑程序将忽略添加文字水印的步骤。&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;如果您想输入多行文字作为水印的话只要在需要的地方按下回车键，文字输入框会自动变大来显示你的多行文字。&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
   </data>
-	<data name="WatermarkTextFont" xml:space="preserve">
+  <data name="WatermarkTextFont" xml:space="preserve">
     <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimHei" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;文字水印字体&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;指定字体用来修饰文字水印。&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
   </data>
-	<data name="WatermarkTextPosition" xml:space="preserve">
+  <data name="WatermarkTextPosition" xml:space="preserve">
     <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimHei" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;水印文字位置&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;用来指定水印文字在被处理图片中的位置。&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
   </data>
-	<data name="WatermarkImageRotationAngle" xml:space="preserve">
-		<value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimHei" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;水印图形旋转&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;如果您想吧一个水印图形旋转一个角度然后再加入您想要处理的图片之中，那么您可以在这里通过拉动下面的滑动条来实现。&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
-	</data>
-	<data name="WatermarkTextAlignment" xml:space="preserve">
-		<value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimHei" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;水印文字对齐方式&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;如果你有多行文字需要当作水印加入被处理的图形中，那么可以选择对齐方式。如果只有一行文字的话您也可以选择对齐方式，但是并不会有任何影响。&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
-	</data>
-	<data name="WatermarkTextColor" xml:space="preserve">
-		<value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimHei" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;水印文字颜色&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;在这里您可以选择喜欢的颜色来用做水印文字。默认颜色是半透明的白色。在颜色选择同时您也可以在颜色选择对话框中选择透明度。&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
-	</data>
-	<data name="WatermarkTextPreview" xml:space="preserve">
-		<value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimHei" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;水印文字预览&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;在这里您可以预览在前面所有参数（除了位置）设定的水印文字的效果。&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
-	</data>
-	<data name="WatermarkTextRotationAngle" xml:space="preserve">
-		<value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimHei" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;水印文字旋转角度&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;如果您想把水印文字旋转一个角度以后再放入被处理的图形中的话，那么您可以通过拖拉下面的滑动条来实现。&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
-	</data>
+  <data name="WatermarkImageRotationAngle" xml:space="preserve">
+    <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimHei" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;水印图形旋转&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;如果您想把一个水印图形旋转一个角度然后再加入您想要处理的图片之中，那么您可以在这里通过拉动下面的滑动条来实现。&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
+  </data>
+  <data name="WatermarkTextAlignment" xml:space="preserve">
+    <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimHei" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;水印文字对齐方式&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;如果你有多行文字需要当作水印加入被处理的图形中，那么可以选择对齐方式。如果只有一行文字的话您也可以选择对齐方式，但是并不会有任何影响。&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
+  </data>
+  <data name="WatermarkTextColor" xml:space="preserve">
+    <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimHei" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;水印文字颜色&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;在这里您可以选择喜欢的颜色来用做水印文字。默认颜色是半透明的白色。在颜色选择同时您也可以在颜色选择对话框中选择透明度。&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
+  </data>
+  <data name="WatermarkTextPreview" xml:space="preserve">
+    <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimHei" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;水印文字预览&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;在这里您可以预览在前面所有参数（除了位置）设定的水印文字的效果。&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
+  </data>
+  <data name="WatermarkTextRotationAngle" xml:space="preserve">
+    <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimHei" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;水印文字旋转角度&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;如果您想把水印文字旋转一个角度以后再放入被处理的图形中的话，那么您可以通过拖拉下面的滑动条来实现。&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
+  </data>
+  <data name="WatermarkImageOpacity" xml:space="preserve">
+    <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimHei" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;水印图形透明度&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;如果您想把水印图形作为半透明状态放置到被处理图形中，那么您可以在这里设置透明度数值。透明度最大是1.0表明完全不透明，最小是0.0表明彻底透明。&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;如果透明度被设定为0.0的话，程序将忽略添加水印图片的步骤。&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
+  </data>
 </root>

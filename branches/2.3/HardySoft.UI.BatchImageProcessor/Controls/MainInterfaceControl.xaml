@@ -290,6 +290,8 @@
 									<RowDefinition Height="*"></RowDefinition>
 									<RowDefinition Height="*"></RowDefinition>
 									<RowDefinition Height="*"></RowDefinition>
+									<RowDefinition></RowDefinition>
+									<RowDefinition></RowDefinition>
 									<RowDefinition Height="auto" />
 								</Grid.RowDefinitions>
 								<StackPanel Grid.Column="0" Grid.Row="0" Margin="0,5,0,0"
@@ -347,20 +349,50 @@
 								</ComboBox>-->
 								
 								<HSCtrl:PositionPicker Margin="10,5,0,0"
-									Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2"
+									Grid.Column="1" Grid.Row="2" Grid.RowSpan="3"
 									HorizontalAlignment="Left" Height="50" Width="100"
 									SelectedPosition="{Binding Path=Watermark.WatermarkImagePosition, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
 								</HSCtrl:PositionPicker>
 								
-								<Slider x:Name="ImageRotateAngleSlider"
-									Grid.Column="2" Grid.Row="2" Margin="10,5,0,0"
-									Value="{Binding Path=Watermark.WatermarkImageRotateAngle,
-										Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-									VerticalAlignment="Top"
-									Minimum="0" Maximum="360">
-								</Slider>
+								<StackPanel Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="2" Margin="10,5,0,0"
+									Orientation="Horizontal">
+									<Slider x:Name="ImageRotateAngleSlider"
+										Value="{Binding Path=Watermark.WatermarkImageRotateAngle,
+											Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+										VerticalAlignment="Top"
+										Minimum="0" Maximum="360"
+										IsSnapToTickEnabled="True">
+									</Slider>
+									<TextBlock Text="{Binding Path=Value, ElementName=ImageRotateAngleSlider}"
+										Margin="10,0,0,0" />
+									<TextBlock Text="{HSMarks:ResourceExtension Label_Degree}"
+										Margin="10,0,0,0" />
+								</StackPanel>
+								
+								<StackPanel Grid.Column="2" Grid.Row="3" Margin="10,5,0,0"
+									Orientation="Horizontal" VerticalAlignment="Top">
+									<TextBlock Style="{StaticResource ConfigSectionLabel}"
+										Text="{HSMarks:ResourceExtension Label_WatermarkImageOpacity}" />
+									<Button Style="{StaticResource HelpButton}"
+										CommandParameter="WatermarkImageOpacity"
+										Command="ApplicationCommands.Help" />
+								</StackPanel>
+								
+								<StackPanel Grid.Column="2" Grid.Row="4" Grid.ColumnSpan="2" Margin="10,5,0,0"
+									Orientation="Horizontal">
+									<Slider x:Name="ImageOpacitySlider"
+										Value="{Binding Path=Watermark.WatermarkImageOpacity,
+											Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+										VerticalAlignment="Top"
+										Minimum="0.0" Maximum="1.0"
+										IsSnapToTickEnabled="True"
+										TickFrequency="0.1">
+									</Slider>
+									<TextBlock Text="{Binding Path=Value, ElementName=ImageOpacitySlider}"
+										Margin="10,0,0,0" />
+								</StackPanel>
 
-								<StackPanel Grid.Column="0" Grid.Row="3" Margin="0,5,0,0"
+								<StackPanel Grid.Column="0" Grid.Row="5" Margin="0,5,0,0"
 									Orientation="Horizontal" VerticalAlignment="Top">
 									<TextBlock Style="{StaticResource ConfigSectionLabel}" VerticalAlignment="Top"
 										Text="{HSMarks:ResourceExtension Label_WatermarkImagePreview}" />
@@ -371,10 +403,11 @@
 								<Image x:Name="imgWatermarkImage"
 									Margin="10,5,0,0"
 									HorizontalAlignment="Left"
-									Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2"
+									Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="2"
 									Source="{Binding Path=Watermark.WatermarkImageFile,
 										Mode=OneWay,
 										Converter={StaticResource cnvPath2Image}}"
+									Opacity="{Binding Path=Value, ElementName=ImageOpacitySlider}"
 									MaxWidth="100" MaxHeight="100">
 									<Image.LayoutTransform>
 										<RotateTransform Angle="{Binding ElementName=ImageRotateAngleSlider, Path=Value}"
@@ -392,11 +425,12 @@
 									Margin="10,5,0,0"
 									VerticalAlignment="Top"
 									Style="{StaticResource GlassButton}"
-									Grid.Column="3" Grid.Row="3"
+									Grid.Column="3" Grid.Row="5"
 									IsEnabled="{Binding Path=Watermark.WatermarkImageFile,
 										Mode=OneWay,
 										Converter={StaticResource cnvHasWatermarkImage}}"
-									Click="btnRemoveWatermarkImage_Click" Content="{HSMarks:ResourceExtension Button_Remove}" />
+									Click="btnRemoveWatermarkImage_Click"
+									Content="{HSMarks:ResourceExtension Button_Remove}" />
 							</Grid>
 						</Expander>
 						<Expander Header="{HSMarks:ResourceExtension Label_WatermarkText}">
@@ -518,13 +552,21 @@
 									CornerOnly="False">
 								</HSCtrl:PositionPicker>
 								
-								<Slider x:Name="TextRotateAngleSlider"
-									Grid.Column="2" Grid.Row="4" Margin="10,5,0,0"
-									Value="{Binding Path=Watermark.WatermarkTextRotateAngle,
-										Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-									VerticalAlignment="Top"
-									Minimum="0" Maximum="360">
-								</Slider>
+								<StackPanel Grid.Column="2" Grid.Row="4" Grid.ColumnSpan="2" Margin="10,5,0,0"
+									Orientation="Horizontal">
+									<Slider x:Name="TextRotateAngleSlider"
+										Value="{Binding Path=Watermark.WatermarkTextRotateAngle,
+											Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+										VerticalAlignment="Top"
+										Minimum="0" Maximum="360"
+										IsSnapToTickEnabled="True" />
+									<TextBlock Text="{Binding Path=Value, ElementName=TextRotateAngleSlider}"
+										Margin="10,0,0,0" />
+									<TextBlock Text="{HSMarks:ResourceExtension Label_Degree}"
+										Margin="10,0,0,0" />
+								</StackPanel>
+								
+								
 								
 								<StackPanel Grid.Column="2" Grid.Row="5" Margin="10,5,0,0"
 									Orientation="Horizontal" VerticalAlignment="Top">
@@ -582,6 +624,7 @@
 								
 								<HSCtrl:BindableRichTextBox IsReadOnly="True"
 									Grid.Column="1" Grid.Row="7" Grid.ColumnSpan="2" Margin="10,5,0,0"
+									HorizontalAlignment="Left"
 									Background="Transparent" MinWidth="1">
 									<HSCtrl:BindableRichTextBox.Document>
 										<MultiBinding Converter="{StaticResource cnvRichTextDisplay}">
@@ -669,7 +712,7 @@
 								<StackPanel Grid.Column="1" Grid.Row="2" FlowDirection="LeftToRight" Margin="0,5,0,0"
 									Orientation="Horizontal" VerticalAlignment="Top">
 									<Slider x:Name="sJpgCompressionRatio" Margin="10,0,0,0"
-										Orientation="Horizontal" Width="200"
+										Orientation="Horizontal"
 										Minimum="0" Maximum="100"
 										Value="{Binding Path=JpgCompressionRatio, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 										IsSnapToTickEnabled="True"
