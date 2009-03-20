@@ -625,4 +625,55 @@
   <data name="Enum_Unknown" xml:space="preserve">
     <value>未知</value>
   </data>
+  <data name="Validation_ImageBorderWidth" xml:space="preserve">
+    <value>请用一个正整数作为边框宽度。</value>
+  </data>
+  <data name="Label_ExifValue_Aperture" xml:space="preserve">
+    <value>f/{0}</value>
+  </data>
+  <data name="Label_ExifValue_DPI" xml:space="preserve">
+    <value>{0} dpi</value>
+  </data>
+  <data name="Label_ExifValue_MM" xml:space="preserve">
+    <value>{0} 毫米</value>
+  </data>
+  <data name="Label_ExifValue_Pixel" xml:space="preserve">
+    <value>{0} 像素</value>
+  </data>
+  <data name="Label_ExifValue_Second" xml:space="preserve">
+    <value>{0} 秒</value>
+  </data>
+  <data name="Label_WatermarkTextLayout" xml:space="preserve">
+    <value>水印文字布局</value>
+  </data>
+  <data name="Label_WatermarkTextAlignment" xml:space="preserve">
+    <value>文字对齐</value>
+  </data>
+  <data name="Label_WatermarkTextColor" xml:space="preserve">
+    <value>水印文字颜色</value>
+  </data>
+  <data name="Label_WatermarkImageLayout" xml:space="preserve">
+    <value>水印图形布局</value>
+  </data>
+  <data name="Label_WatermarkImageRotationAngle" xml:space="preserve">
+    <value>旋转角度</value>
+  </data>
+  <data name="Label_WatermarkTextPreview" xml:space="preserve">
+    <value>预览</value>
+  </data>
+  <data name="Label_WatermarkTextRotationAngle" xml:space="preserve">
+    <value>旋转角度</value>
+  </data>
+  <data name="Validation_RotationAngle" xml:space="preserve">
+    <value>旋转角度必须是介于0和360之间的整数。</value>
+  </data>
+  <data name="Label_WatermarkImageOpacity" xml:space="preserve">
+    <value>透明度</value>
+  </data>
+  <data name="Validation_Opacity" xml:space="preserve">
+    <value>透明度数值必须是介于0.0和1.0之间。</value>
+  </data>
+  <data name="Label_Degree" xml:space="preserve">
+    <value>度</value>
+  </data>
 </root>

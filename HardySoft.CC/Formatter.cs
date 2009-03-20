@@ -18,7 +18,7 @@ namespace HardySoft.CC {
 		/// <description>If name begins with "http", "ftp", "nntp", "telnet" or "www",
 		/// then it is URL name.</description></item>
 		/// <item><term>Detect folder name header</term>
-		/// <description>If name begins with "\\" or 2 characters beginning from
+		/// <description>If name begins with "\\" or 2 byteArray beginning from
 		/// second one are ":\", it is folder name</description></item>
 		/// <item><term>Compare occurrences of "\" and "/"</term>
 		/// <description>If there are more "/" than "\", it is URL name; otherwise

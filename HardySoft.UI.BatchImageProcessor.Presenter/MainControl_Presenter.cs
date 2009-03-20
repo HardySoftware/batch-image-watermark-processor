@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 /*using System.Linq;
 using System.Text;*/
@@ -13,8 +13,7 @@ using HardySoft.UI.BatchImageProcessor.View;
 using HardySoft.UI.BatchImageProcessor.Model;
 
 namespace HardySoft.UI.BatchImageProcessor.Presenter {
-	public class MainControl_Presenter {
-		private IMainInterfaceControlView view;
+	public class MainControl_Presenter : Presenter<IMainInterfaceControlView> {
 		private ProjectSetting ps;
 		private ImageProcessorEngine engine = null;
 		private bool processing;
@@ -26,16 +25,16 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 			this.processing = false;
 		}
 
-		public void SetView(IMainInterfaceControlView view) {
-			this.view = view;
-			this.view.NewProjectCreated += new ProjectWithFileNameEventHandler(view_NewProjectCreated);
-			this.view.SaveProject += new ProjectWithFileNameEventHandler(view_SaveProject);
-			this.view.SaveProjectAs += new ProjectWithFileNameEventHandler(view_SaveProjectAs);
-			this.view.OpenProject += new ProjectWithFileNameEventHandler(view_OpenProject);
-			this.view.ProcessImage += new ProcessThreadNumberEventHandler(view_ProcessImage);
-			this.view.StopProcessing += new EventHandler(view_StopProcessing);
+		public override void SetView(IMainInterfaceControlView view) {
+			this.View = view;
+			this.View.NewProjectCreated += new ProjectWithFileNameEventHandler(view_NewProjectCreated);
+			this.View.SaveProject += new ProjectWithFileNameEventHandler(view_SaveProject);
+			this.View.SaveProjectAs += new ProjectWithFileNameEventHandler(view_SaveProjectAs);
+			this.View.OpenProject += new ProjectWithFileNameEventHandler(view_OpenProject);
+			this.View.ProcessImage += new ProcessThreadNumberEventHandler(view_ProcessImage);
+			this.View.StopProcessing += new EventHandler(view_StopProcessing);
 
-			view.PS = ps;
+			this.View.PS = ps;
 		}
 
 		public bool Processing {
@@ -51,11 +50,11 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 		}
 
 		public void SetErrorMessage(Exception ex) {
-			this.view.ErrorMessage = ex;
+			this.View.ErrorMessage = ex;
 		}
 
 		public void SetErrorMessage(string[] messages) {
-			this.view.ErrorMessages = messages;
+			this.View.ErrorMessages = messages;
 		}
 
 		void view_OpenProject(object sender, ProjectWithFileNameEventArgs e) {
@@ -67,7 +66,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 
 				// wire events again
 				ps.OpenProject();
-				view.PS = ps;
+				View.PS = ps;
 
 				this.currentProjectFile = e.ProjectFileName;
 			} catch (Exception ex) {
@@ -109,7 +108,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 		void view_NewProjectCreated(object sender, ProjectWithFileNameEventArgs e) {
 			ps = new ProjectSetting();
 			ps.NewProject();
-			view.PS = ps;
+			View.PS = ps;
 
 			//this.currentProjectFile = "Untitled.hsbip";
 			this.currentProjectFile = e.ProjectFileName;
@@ -143,9 +142,10 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 				events[i] = new AutoResetEvent(false);
 			}
 
-			engine = new ImageProcessorEngine(this.ps, threadNumber, events);
+			engine = new ImageProcessorEngine(this.ps, threadNumber, events,
+				View.HiddenConfig.EnableDebug);
 
-			view.ResetJobSize(engine.JobSize);
+			View.ResetJobSize(engine.JobSize);
 
 			engine.ImageProcessed += new ImageProcessedDelegate(engine_ImageProcessed);
 			engine.StartProcess();
@@ -157,7 +157,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 		}
 
 		void engine_ImageProcessed(ImageProcessedEventArgs args) {
-			view.ReportProgress();
+			View.ReportProgress();
 		}
 
 		void view_StopProcessing(object sender, EventArgs e) {

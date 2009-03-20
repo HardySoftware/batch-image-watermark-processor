@@ -1,8 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.IO;
+
+using HardySoft.CC;
+using HardySoft.CC.ExceptionLog;
+using HardySoft.CC.Transformer;
 
 namespace HardySoft.UI.BatchImageProcessor.Presenter {
 	/// <summary>
@@ -13,6 +16,11 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 
 		public SaveCompressedJPGImage(long compressionRatio) {
 			this.compressionRatio = compressionRatio;
+		}
+
+		public bool EnableDebug {
+			get;
+			set;
 		}
 
 		public bool SaveImageToDisk(Image image, string fileName, ImageFormat format) {
@@ -34,8 +42,13 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 			try {
 				image.Save(fileName, imageCodec, encoder);
 				return true;
-			} catch {
-				// TODO add error handling logic here
+			} catch (Exception ex) {
+				if (this.EnableDebug) {
+					string logFile = Formatter.FormalizeFolderName(Directory.GetCurrentDirectory()) + @"logs\SeaTurtle_Error.log";
+					string logXml = Serializer.Serialize<ExceptionContainer>(ExceptionLogger.GetException(ex));
+
+					HardySoft.CC.File.FileAccess.AppendFile(logFile, logXml);
+				}
 				return false;
 			}
 		}

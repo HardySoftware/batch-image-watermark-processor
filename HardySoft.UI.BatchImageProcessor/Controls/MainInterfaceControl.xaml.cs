@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.ComponentModel;
 using System.IO;
 using System.Threading;
@@ -22,12 +22,9 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 	/// Interaction logic for MainInterfaceControl.xaml
 	/// </summary>
 	public partial class MainInterfaceControl : System.Windows.Controls.UserControl, IMainInterfaceControlView {
-		// TODO make watermark text to support text aligment selection.
-		// TODO change position selection drop down layout, P573
-		// TODO add watermark image/text rotate feature
 		// TODO add watermark text macro from EXIF feature
+		// TODO add more option to "Output" tab to select file format for processed files. Something like batch convert.
 		// TODO in image file list add a new column to include button to remove image from list
-		// TODO add enterprise library logging to enable exception log.
 		// TODO convert "image effect" into add-ins and open programming interface
 		private MainControl_Presenter presenter;
 		private DispatcherTimer dispatcherTimer;
@@ -58,6 +55,11 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 				presenter = value;
 				presenter.SetView(this);
 			}
+		}
+
+		public ExtraConfiguration HiddenConfig {
+			get;
+			set;
 		}
 
 		public event ProjectFileNameObtainedHandler ProjectFileNameObtained;
@@ -119,10 +121,20 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 			}
 		}
 
+		private void btnWatermarkTextColorPicker_Click(object sender, RoutedEventArgs e) {
+			ColorPickerDialog cPicker = new ColorPickerDialog();
+			cPicker.StartingColor = ColorConverter.ConvertColor(ps.Watermark.WatermarkTextColor);
+			cPicker.Owner = Window.GetWindow(this);
+
+			bool? dialogResult = cPicker.ShowDialog();
+			if (dialogResult != null && (bool)dialogResult == true) {
+				ps.Watermark.WatermarkTextColor = ColorConverter.ConvertColor(cPicker.SelectedColor);
+			}
+		}
+
 		private void btnWatermarkImagePicker_Click(object sender, RoutedEventArgs e) {
 			// Configure open file dialog box
 			Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
-			//dlg.DefaultExt = ".txt"; // Default file extension
 			dlg.Filter = res.LanguageContent.Label_AllSupportedImagesFiles + " (*.jpg; *.jpeg; *.bmp; *.gif; *.png) |*.jpg;*.jpeg;*.bmp;*.gif;*.png"; // Filter files by extension
 			dlg.Title = res.LanguageContent.Label_OpenWatermarkImage;
 

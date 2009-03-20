@@ -1,15 +1,16 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using System.Configuration;
-using System.Threading;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
+using System.Threading;
+
+using HardySoft.CC;
+using HardySoft.CC.ExceptionLog;
+using HardySoft.CC.Transformer;
+using HardySoft.UI.BatchImageProcessor.Model;
 
 using Microsoft.Practices.Unity;
-//using Microsoft.Practices.Unity.Configuration;
-
-using HardySoft.UI.BatchImageProcessor.Model;
 
 namespace HardySoft.UI.BatchImageProcessor.Presenter {
 	class ImageProcessorEngine {
@@ -20,16 +21,18 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 		private AutoResetEvent[] events;
 		private ProjectSetting ps = null;
 		private Thread[] threads;
-		IUnityContainer container = new UnityContainer();
+		private IUnityContainer container = new UnityContainer();
+		private bool enableDebug;
 
 		public event ImageProcessedDelegate ImageProcessed;
 
-		public ImageProcessorEngine(ProjectSetting ps, uint threadNumber, AutoResetEvent[] events) {
+		public ImageProcessorEngine(ProjectSetting ps, uint threadNumber, AutoResetEvent[] events, bool enableDebug) {
 			this.ps = ps;
 			this.threadNumber = threadNumber;
 			this.jobQueue = new Queue<JobItem>();
 			this.events = events;
 			this.threads = new Thread[this.threadNumber];
+			this.enableDebug = enableDebug;
 
 			// add all selected images to job queue.
 			jobQueue = new Queue<JobItem>();
@@ -49,14 +52,30 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 			//section.Containers.Default.Configure(container);
 
 			// register all supported image process classes
-			container.RegisterType<IProcess, AddBorder>("AddBorder", new PerThreadLifetimeManager());
-			container.RegisterType<IProcess, ApplyWatermarkImage>("WatermarkImage", new PerThreadLifetimeManager());
-			container.RegisterType<IProcess, ApplyWatermarkText>("WatermarkText", new PerThreadLifetimeManager());
-			container.RegisterType<IProcess, DropShadowImage>("DropShadow", new PerThreadLifetimeManager());
-			container.RegisterType<IProcess, GenerateThumbnail>("ThumbImage", new PerThreadLifetimeManager());
-			container.RegisterType<IProcess, GrayScale>("GrayscaleEffect", new PerThreadLifetimeManager());
-			container.RegisterType<IProcess, NegativeImage>("NegativeEffect", new PerThreadLifetimeManager());
-			container.RegisterType<IProcess, ShrinkImage>("ShrinkImage", new PerThreadLifetimeManager());
+			container.RegisterType<IProcess, AddBorder>("AddBorder",
+				new PerThreadLifetimeManager(),
+				new InjectionProperty("EnableDebug", this.enableDebug));
+			container.RegisterType<IProcess, ApplyWatermarkImage>("WatermarkImage",
+				new PerThreadLifetimeManager(),
+				new InjectionProperty("EnableDebug", this.enableDebug));
+			container.RegisterType<IProcess, ApplyWatermarkText>("WatermarkText",
+				new PerThreadLifetimeManager(),
+				new InjectionProperty("EnableDebug", this.enableDebug));
+			container.RegisterType<IProcess, DropShadowImage>("DropShadow",
+				new PerThreadLifetimeManager(),
+				new InjectionProperty("EnableDebug", this.enableDebug));
+			container.RegisterType<IProcess, GenerateThumbnail>("ThumbImage",
+				new PerThreadLifetimeManager(),
+				new InjectionProperty("EnableDebug", this.enableDebug));
+			container.RegisterType<IProcess, GrayScale>("GrayscaleEffect",
+				new PerThreadLifetimeManager(),
+				new InjectionProperty("EnableDebug", this.enableDebug));
+			container.RegisterType<IProcess, NegativeImage>("NegativeEffect",
+				new PerThreadLifetimeManager(),
+				new InjectionProperty("EnableDebug", this.enableDebug));
+			container.RegisterType<IProcess, ShrinkImage>("ShrinkImage",
+				new PerThreadLifetimeManager(),
+				new InjectionProperty("EnableDebug", this.enableDebug));
 			// register generate file name classes
 			container.RegisterType<IFilenameProvider, ThumbnailFileName>("ThumbFileName", new PerThreadLifetimeManager());
 			container.RegisterType<IFilenameProvider, ProcessedFileName>("NormalFileName", new PerThreadLifetimeManager());
@@ -64,10 +83,13 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 				new PerThreadLifetimeManager());
 
 			// register save image classes
-			container.RegisterType<ISaveImage, SaveNormalImage>("SaveNormalImage", new PerThreadLifetimeManager());
+			container.RegisterType<ISaveImage, SaveNormalImage>("SaveNormalImage",
+				new PerThreadLifetimeManager(),
+				new InjectionProperty("EnableDebug", this.enableDebug));
 			container.RegisterType<ISaveImage, SaveCompressedJPGImage>("SaveCompressedJpgImage",
 				new PerThreadLifetimeManager(),
-				new InjectionConstructor(ps.JpgCompressionRatio));
+				new InjectionConstructor(ps.JpgCompressionRatio),
+				new InjectionProperty("EnableDebug", this.enableDebug));
 		}
 
 		public void StartProcess() {
@@ -112,7 +134,6 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 				}
 			}
 
-			// TODO make registration in config file
 			/*IUnityContainer container = new UnityContainer();
 			// register all supported image process classes
 			container.RegisterType<IProcess, AddBorder>("AddBorder", new PerThreadLifetimeManager());
@@ -183,14 +204,16 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 					}
 
 					// text watermark operation
-					if (!string.IsNullOrEmpty(ps.Watermark.WatermarkText)) {
+					if (!string.IsNullOrEmpty(ps.Watermark.WatermarkText)
+						&& ps.Watermark.WatermarkTextColor.A > 0) {
 						process = container.Resolve<IProcess>("WatermarkText");
 						normalImage = process.ProcessImage(normalImage, this.ps);
 					}
 
 					// image watermark operation
 					if (!string.IsNullOrEmpty(ps.Watermark.WatermarkImageFile)
-						&& File.Exists(ps.Watermark.WatermarkImageFile)) {
+						&& File.Exists(ps.Watermark.WatermarkImageFile)
+						&& ps.Watermark.WatermarkImageOpacity > 0) {
 						process = container.Resolve<IProcess>("WatermarkImage");
 						normalImage = process.ProcessImage(normalImage, this.ps);
 						normalImage = process.ProcessImage(normalImage, this.ps);
@@ -230,7 +253,12 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 					//fileNameProvider.ImageIndex = imageIndex;
 					saveImage(imagePath, thumb, format, fileNameProvider, imageSaver, imageIndex);
 				} catch (Exception ex) {
-					// TODO add logic to handle exception
+					if (this.enableDebug) {
+						string logFile = Formatter.FormalizeFolderName(Directory.GetCurrentDirectory()) + @"logs\SeaTurtle_Error.log";
+						string logXml = Serializer.Serialize<ExceptionContainer>(ExceptionLogger.GetException(ex));
+
+						HardySoft.CC.File.FileAccess.AppendFile(logFile, logXml);
+					}
 				} finally {
 					normalImage.Dispose();
 					normalImage = null;

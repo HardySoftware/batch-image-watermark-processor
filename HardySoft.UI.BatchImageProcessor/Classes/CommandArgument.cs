@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -61,7 +61,7 @@ namespace HardySoft.UI.BatchImageProcessor.Classes {
 							}
 						}
 						parameter = parts[1];
-						// Remove possible enclosing characters (",')
+						// Remove possible enclosing byteArray (",')
 						if (!parameters.ContainsKey(parameter)) {
 							parts[2] = remover.Replace(parts[2], "$1");
 							parameters.Add(parameter, parts[2]);
