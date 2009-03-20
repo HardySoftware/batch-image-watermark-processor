@@ -53,7 +53,7 @@ HardySoft Batch Image Watermark Processor
   * 批量重命名。
   * 批量生成缩图。
   * 以及其他功能。
-你还能在 http://code.google.com/p/batch-image-watermark-processor/wiki/Summary_for_Version_1 看到关于第一版的信息。
+你还能在 [Summary_for_Version_1 这里] 看到关于第一版的信息。
 =系统要求=
 ==下载文件之后==
 执行代码文件是由[http://www.7-zip.org/ 7-Zip]压缩后上载，这是一个免费的开放源代码的软件。
