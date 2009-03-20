@@ -62,7 +62,7 @@ HardySoft Batch Image Watermark Processor
 
 =工具截图=
 ==用户界面==
-http://batch-image-watermark-processor.googlecode.com/svn/wiki/screenshots/ImageWatermark_zh-cn.jpg
+http://batch-image-watermark-processor.googlecode.com/svn/wiki/screenshots/MainInterface_zh-cn.jpg
 
 ==文字水印==
 http://batch-image-watermark-processor.googlecode.com/svn/wiki/screenshots/TextWatermark_zh-cn.jpg
