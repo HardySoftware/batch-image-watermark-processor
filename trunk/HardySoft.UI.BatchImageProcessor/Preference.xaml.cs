@@ -13,7 +13,7 @@ namespace HardySoft.UI.BatchImageProcessor {
 	/// <summary>
 	/// Interaction logic for Preference.xaml
 	/// </summary>
-	public partial class Preference : Window, IPreference {
+	public partial class Preference : Window, IPreferenceView {
 		private PreferenceWindow_Presenter presenter;
 
 		public Preference() {

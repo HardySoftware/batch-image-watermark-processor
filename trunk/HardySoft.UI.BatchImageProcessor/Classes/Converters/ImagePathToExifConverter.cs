@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
@@ -95,7 +95,23 @@ namespace HardySoft.UI.BatchImageProcessor.Classes.Converters {
 							localizedValue = propertyValue == null ? string.Empty : propertyValue.ToString();
 						}
 
-						dt.Rows.Add(new object[] { displayName, localizedValue });
+						string valueFormat = exifAttri.ValueFormat;
+						if (!string.IsNullOrEmpty(valueFormat)) {
+							// value format is specified, read from resource then
+							valueFormat = Resources.LanguageContent.ResourceManager.GetString(valueFormat,
+								Thread.CurrentThread.CurrentCulture);
+
+							if (!string.IsNullOrEmpty(valueFormat)) {
+								// make sure the value format could be loaded from resource
+								valueFormat = string.Format(valueFormat, localizedValue);
+
+								dt.Rows.Add(new object[] { displayName, valueFormat });
+							} else {
+								dt.Rows.Add(new object[] { displayName, localizedValue });
+							}
+						} else {
+							dt.Rows.Add(new object[] { displayName, localizedValue });
+						}
 					}
 				}
 			}

@@ -304,6 +304,15 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;FlowDocument PagePadding=&quot;5,0,5,0&quot; AllowDrop=&quot;True&quot; NumberSubstitution.CultureSource=&quot;User&quot; xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Verdana&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;Watermark Image Opacity&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Calibri&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;If you like to have semi-transparent watermark image to add to your main image, you can specify the opacity (alpha) value here. 1  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string WatermarkImageOpacity {
+            get {
+                return ResourceManager.GetString("WatermarkImageOpacity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;FlowDocument PagePadding=&quot;5,0,5,0&quot; AllowDrop=&quot;True&quot; NumberSubstitution.CultureSource=&quot;User&quot; xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Verdana&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;Watermark Image Position&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Calibri&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;It indicates where to put image watermark on your main image. If no watermark image is not picked above, program will ignore the  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string WatermarkImagePosition {
@@ -322,11 +331,38 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;FlowDocument PagePadding=&quot;5,0,5,0&quot; AllowDrop=&quot;True&quot; NumberSubstitution.CultureSource=&quot;User&quot; xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Verdana&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;Watermark Image Rotation Angle&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Calibri&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;If you need to rotate your watermark image and then put it into your main image, please specify the angle here by dragging  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string WatermarkImageRotationAngle {
+            get {
+                return ResourceManager.GetString("WatermarkImageRotationAngle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;FlowDocument PagePadding=&quot;5,0,5,0&quot; AllowDrop=&quot;True&quot; NumberSubstitution.CultureSource=&quot;User&quot; xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Verdana&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;Watermark Text&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Calibri&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;If you like to add text as watermark to your images, please enter your desired text here. If nothing is entered, the program will ignore th [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string WatermarkText {
             get {
                 return ResourceManager.GetString("WatermarkText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;FlowDocument PagePadding=&quot;5,0,5,0&quot; AllowDrop=&quot;True&quot; NumberSubstitution.CultureSource=&quot;User&quot; xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Verdana&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;Watermark Text Alignment&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Calibri&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;If you have multiple lines of watermark text to put into your main image, you can specify the alignment here. For single line of  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string WatermarkTextAlignment {
+            get {
+                return ResourceManager.GetString("WatermarkTextAlignment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;FlowDocument PagePadding=&quot;5,0,5,0&quot; AllowDrop=&quot;True&quot; NumberSubstitution.CultureSource=&quot;User&quot; xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Verdana&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;Watermark Text Color&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Calibri&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;You can specify the color of your watermark here. The default value is semi transparent white. You can control the color and transpar [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string WatermarkTextColor {
+            get {
+                return ResourceManager.GetString("WatermarkTextColor", resourceCulture);
             }
         }
         
@@ -345,6 +381,24 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         internal static string WatermarkTextPosition {
             get {
                 return ResourceManager.GetString("WatermarkTextPosition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;FlowDocument PagePadding=&quot;5,0,5,0&quot; AllowDrop=&quot;True&quot; NumberSubstitution.CultureSource=&quot;User&quot; xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Verdana&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;Watermark Text Preview&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Calibri&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;Here you can preview the watermark text with combination of all the parameters (except for position) above.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/Flow [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string WatermarkTextPreview {
+            get {
+                return ResourceManager.GetString("WatermarkTextPreview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;FlowDocument PagePadding=&quot;5,0,5,0&quot; AllowDrop=&quot;True&quot; NumberSubstitution.CultureSource=&quot;User&quot; xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Verdana&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;Watermark Text Rotation Angle&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Calibri&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;If you like to rotate your watermark text and then put it into your main image, you can do it by dragging the slider.&lt;/Run&gt;&lt; [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string WatermarkTextRotationAngle {
+            get {
+                return ResourceManager.GetString("WatermarkTextRotationAngle", resourceCulture);
             }
         }
     }

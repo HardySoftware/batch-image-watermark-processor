@@ -260,7 +260,7 @@
     <value>Choose Watermark Image</value>
   </data>
   <data name="Label_WatermarkImagePosition" xml:space="preserve">
-    <value>Watermark Image Position</value>
+    <value>Image Position</value>
   </data>
   <data name="Label_WatermarkImagePreview" xml:space="preserve">
     <value>Watermark Image</value>
@@ -272,7 +272,7 @@
     <value>Watermark Text Font</value>
   </data>
   <data name="Label_WatermarkTextPosition" xml:space="preserve">
-    <value>Watermark Text Position</value>
+    <value>Text Position</value>
   </data>
   <data name="Label_WhiteBalanceMode" xml:space="preserve">
     <value>White Balance Mode</value>
@@ -632,5 +632,56 @@
   </data>
   <data name="Enum_Unknown" xml:space="preserve">
     <value>Unknown</value>
+  </data>
+  <data name="Label_ExifValue_Aperture" xml:space="preserve">
+    <value>f/{0}</value>
+  </data>
+  <data name="Label_ExifValue_DPI" xml:space="preserve">
+    <value>{0} dpi</value>
+  </data>
+  <data name="Label_ExifValue_MM" xml:space="preserve">
+    <value>{0} mm</value>
+  </data>
+  <data name="Label_ExifValue_Pixel" xml:space="preserve">
+    <value>{0} pixels</value>
+  </data>
+  <data name="Label_ExifValue_Second" xml:space="preserve">
+    <value>{0} sec.</value>
+  </data>
+  <data name="Validation_ImageBorderWidth" xml:space="preserve">
+    <value>Please select a positive integer as border width.</value>
+  </data>
+  <data name="Label_WatermarkTextLayout" xml:space="preserve">
+    <value>Watermark Text Layout</value>
+  </data>
+  <data name="Label_WatermarkTextPreview" xml:space="preserve">
+    <value>Preview</value>
+  </data>
+  <data name="Label_WatermarkTextRotationAngle" xml:space="preserve">
+    <value>Rotation Angle</value>
+  </data>
+  <data name="Label_WatermarkTextAlignment" xml:space="preserve">
+    <value>Text Alignment</value>
+  </data>
+  <data name="Label_WatermarkTextColor" xml:space="preserve">
+    <value>Watermark Text Color</value>
+  </data>
+  <data name="Label_WatermarkImageLayout" xml:space="preserve">
+    <value>Watermark Image Layout</value>
+  </data>
+  <data name="Label_WatermarkImageRotationAngle" xml:space="preserve">
+    <value>Rotation Angle</value>
+  </data>
+  <data name="Validation_RotationAngle" xml:space="preserve">
+    <value>Rotation angle must be an integer between 0 and 360.</value>
+  </data>
+  <data name="Label_WatermarkImageOpacity" xml:space="preserve">
+    <value>Opacity</value>
+  </data>
+  <data name="Validation_Opacity" xml:space="preserve">
+    <value>Opacity value must be between 0.0 and 1.0.</value>
+  </data>
+  <data name="Label_Degree" xml:space="preserve">
+    <value>degree(s)</value>
   </data>
 </root>

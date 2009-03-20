@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -130,6 +130,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <None Include="Resources\WatermarkImage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </None>
     <Page Include="Themes\Classical\Main.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -170,17 +174,23 @@
     <Compile Include="Classes\AssembyInformation.cs" />
     <Compile Include="Classes\CommandArgument.cs" />
     <Compile Include="Classes\Commands\ApplicationCommand.cs" />
+    <Compile Include="Classes\Converters\AlignmentConverter.cs" />
+    <Compile Include="Classes\Converters\CalculatorConverter.cs" />
     <Compile Include="Classes\Converters\CornerOnlyToVisibilityConverter.cs" />
     <Compile Include="Classes\Converters\ColorCodeConverter.cs" />
     <Compile Include="Classes\Converters\ColorDisplayNameConverter.cs" />
     <Compile Include="Classes\Converters\EnumToFriendlyNameConverter.cs" />
+    <Compile Include="Classes\Converters\NotOperationConverter.cs" />
     <Compile Include="Classes\Converters\PathToImageConverter.cs" />
     <Compile Include="Classes\Converters\PositionSelectionConverter.cs" />
+    <Compile Include="Classes\Converters\TextSettingToRichtextConverter.cs" />
     <Compile Include="Classes\Converters\WatermarkImageSelectedConverter.cs" />
     <Compile Include="Classes\MarkExtensions\ResourceFontExtension.cs" />
     <Compile Include="Classes\ProjectNameEventArgs.cs" />
     <Compile Include="Classes\MarkExtensions\ResourceExtension.cs" />
     <Compile Include="Classes\Utilities.cs" />
+    <Compile Include="Controls\BindableRichTextBox.cs">
+    </Compile>
     <Compile Include="Controls\ColorPicker.cs" />
     <Compile Include="Controls\ColorPickerDialog.xaml.cs">
       <DependentUpon>ColorPickerDialog.xaml</DependentUpon>
@@ -370,6 +380,11 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ParagraphCenterJustify.png" />
+    <Resource Include="Images\ParagraphLeftJustify.png" />
+    <Resource Include="Images\ParagraphRightJustify.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

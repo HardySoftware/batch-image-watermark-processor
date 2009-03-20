@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -53,6 +53,16 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 
 			ContentAlignment oldPosition = (ContentAlignment)e.OldValue;
 			ContentAlignment newPosition = (ContentAlignment)e.NewValue;
+
+			pp.TopLeft.IsChecked = false;
+			pp.TopCenter.IsChecked = false;
+			pp.TopRight.IsChecked = false;
+			pp.MiddleLeft.IsChecked = false;
+			pp.MiddleCenter.IsChecked = false;
+			pp.MiddleRight.IsChecked = false;
+			pp.BottomLeft.IsChecked = false;
+			pp.BottomCenter.IsChecked = false;
+			pp.BottomRight.IsChecked = false;
 
 			if (newPosition == ContentAlignment.TopLeft) {
 				pp.TopLeft.IsChecked = true;
