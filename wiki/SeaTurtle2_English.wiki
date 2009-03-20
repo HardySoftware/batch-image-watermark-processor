@@ -1,6 +1,10 @@
 =Introduction=
 ==Sumamry==
-This is a tool to add watermark (image or text) to existing images at designated position. 
+This is a tool to add watermark (image or text) to existing images at designated position. The tool can:
+  * Rotate watermark image;
+  * Choose opacity level of watermark image;
+  * Rotate watermark text;
+  * Choose color and opacity of watermark text.        
 
 Tool also provides following features:
   * Batch rename files while they are being processed.
@@ -9,20 +13,26 @@ Tool also provides following features:
   * Batch resize original pictures.
   * Generate thumbnail images.
   * Apply additional processing, such as grey scale, negative colour.
-  * Multi-lingual support; currently supported languages: English, Simplified Chinese
+  * Multi-lingual support; currently supported languages: English, Simplified Chinese.
 ==Project Name==
 HardySoft Batch Image Watermark Processor
 ==Code Name==
 Sea Turtle
 ==Version Number==
-2.0 Beta 2 (File# 2.2.0.0, Build# 2.2.3352.40045)
+2.0 Beta 3 (File# 2.3.0.0, Build# 2.3.3365.35018)
 =Change History=
 ==Version History==
+  * 2009-03-19: 2.0 Beta 3 (file 2.3.0.0) added.
   * 2009-03-06: 2.0 Beta 2 (file 2.2.0.0) added.
   * 2009-02-24: 2.0 Beta 1 (file 2.1.0.0) added.
   * 2009-02-08: Version 2.0 Beta (file 2.0.0.0) added.
   * 2008-02: Version 1.0 added.
 ==Change History==
+==Version 2.0 Beta 3, enhanced watermark image/text layout control==
+  * Enhanced EXIF information display in image list tooltip.
+  * Added feature to support multiple watermark image layout attributes: Rotation, Opacity.
+  * Added feature to support multiple watermark text layout attributes: Rotation, Alignment for multiple lines text, Color (which includes opacity).
+  * Some bug fixes.
 ==Version 2.0 Beta 2, bug fixes and multi-lingual support==
   * Added multi-lingual support by operation system’s language setting. Currently supported language: English, Simplified Chinese.
   * Changed watermark text/image position picker.
@@ -52,13 +62,16 @@ Please make sure you have Microsoft .Net Framework 3.5 Runtime installed (downlo
 
 =Screenshots=
 ==User Interface==
-http://i22.photobucket.com/albums/b335/hardywang/Batch%20Image%20Process/Version%202/PhotoDetails.png
+http://batch-image-watermark-processor.googlecode.com/svn/wiki/screenshots/MainInterface.jpg
 
-==Processed Result: Text watermark only==
-http://i22.photobucket.com/albums/b335/hardywang/Batch%20Image%20Process/Version%202/TextWatermark.jpg
+==Processed Result: Text watermark==
+http://batch-image-watermark-processor.googlecode.com/svn/wiki/screenshots/TextWatermark.jpg
 
-==Processed Result: Image watermark only==
-http://i22.photobucket.com/albums/b335/hardywang/Batch%20Image%20Process/Version%202/ImageWatermark.jpg
+==Processed Result: Image watermark==
+http://batch-image-watermark-processor.googlecode.com/svn/wiki/screenshots/ImageWatermark.jpg
+
+==Processed Result: Drop Shadow==
+http://batch-image-watermark-processor.googlecode.com/svn/wiki/screenshots/DropShadow.jpg
 
 =About This Project=
 ==Techinical Hilite==

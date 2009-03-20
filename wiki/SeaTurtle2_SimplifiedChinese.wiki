@@ -1,6 +1,10 @@
 =简介=
 ==摘要==
-只是一个能够批量把文字或者图形加到照片上指定位置的工具软件。
+只是一个能够批量把文字或者图形加到照片上指定位置的工具软件。工具能：
+  * 旋转水印图形；
+  * 设定水印图形透明度；
+  * 旋转水印文字；
+  * 设定水印文字颜色和透明度。
 
 工具同时还提供如下功能：
   * 当文件被处理时批量重命名。
@@ -15,14 +19,20 @@ HardySoft Batch Image Watermark Processor
 ==代码名称==
 海龟（Sea Turtle）
 ==最新版本==
-2.0 Beta 2 (File# 2.2.0.0, Build# 2.2.3352.40045)
+2.0 Beta 3 (File# 2.3.0.0, Build# 2.3.3365.35018)
 =更改历史=
 ==版本历史==
+  * 2009-03-19: 版本 2.0 Beta 3 (file 2.3.0.0)
   * 2009-03-06: 版本 2.0 Beta 2 (file 2.2.0.0)
   * 2009-02-24: 版本 2.0 Beta 1 (file 2.1.0.0)
   * 2009-02-08: 版本 2.0 Beta (file 2.0.0.0)
   * 2008-02: 版本 1.0
 ==详细更改历史==
+==版本 2.0 Beta 3，增强水印图形、文字布局控制==
+  * 增强在图形列表中图形预览的EXIF信息显示。
+  * 增加多种水印图形功能：旋转、透明度。
+  * 增加多种水印文字功能：旋转、多行文字的对齐、颜色（包括透明度）。
+  * 以及其他一些缺陷修复。
 ==版本 2.0 Beta 2，修正程序缺陷以及增加多语言功能==
   * 增加更具造作系统语言自动选择语言功能。目前支持语言：简体中文、英语。
   * 更改了水印文字、图形位置选择控件。
@@ -52,13 +62,16 @@ HardySoft Batch Image Watermark Processor
 
 =工具截图=
 ==用户界面==
-http://i22.photobucket.com/albums/b335/hardywang/Batch%20Image%20Process/Version%202/MainInterfaceSimplifiedChinese.png
+http://batch-image-watermark-processor.googlecode.com/svn/wiki/screenshots/ImageWatermark_zh-cn.jpg
 
 ==文字水印==
-http://i22.photobucket.com/albums/b335/hardywang/Batch%20Image%20Process/Version%202/TextWatermarkSimplifiedChinese.jpg
+http://batch-image-watermark-processor.googlecode.com/svn/wiki/screenshots/TextWatermark_zh-cn.jpg
 
 ==图形水印==
-http://i22.photobucket.com/albums/b335/hardywang/Batch%20Image%20Process/Version%202/ImageWatermarkSimplyfiedChinese.jpg
+http://batch-image-watermark-processor.googlecode.com/svn/wiki/screenshots/ImageWatermark_zh-cn.jpg
+
+==阴影效果==
+http://batch-image-watermark-processor.googlecode.com/svn/wiki/screenshots/DropShadow_zh-cn.jpg
 
 =关于此项目=
 ==技术重点==
