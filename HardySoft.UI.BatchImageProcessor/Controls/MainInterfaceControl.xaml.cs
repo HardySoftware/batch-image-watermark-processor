@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Threading;
@@ -7,9 +8,10 @@ using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Threading;
-using res = HardySoft.UI.BatchImageProcessor.Resources;
 
 using HardySoft.CC.Converter;
+
+using res = HardySoft.UI.BatchImageProcessor.Resources;
 using HardySoft.UI.BatchImageProcessor.Classes;
 using HardySoft.UI.BatchImageProcessor.Model;
 using HardySoft.UI.BatchImageProcessor.Presenter;
@@ -185,6 +187,10 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 			}
 		}
 
+		private void btnInsertExifTag_Click(object sender, RoutedEventArgs e) {
+
+		}
+
 		#region Drag-Drop event handlers
 		protected override void OnPreviewDragOver(System.Windows.DragEventArgs e) {
 			// we only want to deal with a single file.
@@ -275,6 +281,22 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 				ps.PropertyChanged += new PropertyChangedEventHandler(ps_PropertyChanged);
 
 				tabConfiguration.DataContext = this.ps;
+			}
+		}
+
+		public Dictionary<string, string> ExifTag {
+			set {
+				Dictionary<string, string> translatedTags = new Dictionary<string, string>();
+				translatedTags.Add("", res.LanguageContent.Enum_None);
+				foreach (KeyValuePair<string, string> item in value) {
+					//item.Value = 
+					string displayName = res.LanguageContent.ResourceManager.GetString(item.Value,
+						Thread.CurrentThread.CurrentCulture);
+					translatedTags.Add(item.Key, displayName);
+				}
+
+				cmbExifTag.ItemsSource = translatedTags;
+				cmbExifTag.SelectedIndex = 0;
 			}
 		}
 

@@ -79,13 +79,11 @@
 				<Button x:Name="btnSave" HorizontalAlignment="Right"
 					Margin="0, 10, 10, 0"
 					Click="btnSave_Click"
-					Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="3"
 					Style="{StaticResource GlassButton}"
 					Content="{HSMarks:ResourceExtension Button_Save}" />
 				<Button x:Name="btnCancel" HorizontalAlignment="Right"
 					Margin="0, 10, 10, 0"
 					Click="btnCancel_Click"
-					Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="3"
 					Style="{StaticResource GlassButton}"
 					Content="{HSMarks:ResourceExtension Button_Cancel}" />
 			</StackPanel>

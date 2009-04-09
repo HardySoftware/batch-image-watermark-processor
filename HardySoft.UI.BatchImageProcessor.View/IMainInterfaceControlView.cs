@@ -14,6 +14,10 @@ namespace HardySoft.UI.BatchImageProcessor.View {
 			set;
 		}
 
+		Dictionary<string, string> ExifTag {
+			set;
+		}
+
 		Exception ErrorMessage {
 			//get;
 			set;
