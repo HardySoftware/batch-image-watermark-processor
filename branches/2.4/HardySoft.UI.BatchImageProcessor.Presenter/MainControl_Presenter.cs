@@ -1,16 +1,15 @@
 using System;
 using System.Collections.Generic;
-/*using System.Linq;
-using System.Text;*/
+using System.IO;
+using System.Reflection;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.IO;
 using System.Threading;
 
-using Microsoft.Practices.EnterpriseLibrary.Validation;
-
-using HardySoft.UI.BatchImageProcessor.View;
 using HardySoft.UI.BatchImageProcessor.Model;
+using HardySoft.UI.BatchImageProcessor.View;
+
+using Microsoft.Practices.EnterpriseLibrary.Validation;
 
 namespace HardySoft.UI.BatchImageProcessor.Presenter {
 	public class MainControl_Presenter : Presenter<IMainInterfaceControlView> {
@@ -34,6 +33,8 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 			this.View.ProcessImage += new ProcessThreadNumberEventHandler(view_ProcessImage);
 			this.View.StopProcessing += new EventHandler(view_StopProcessing);
 
+			this.View.ExifTag = getExifTags();
+
 			this.View.PS = ps;
 		}
 
@@ -55,6 +56,26 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 
 		public void SetErrorMessage(string[] messages) {
 			this.View.ErrorMessages = messages;
+		}
+
+		private Dictionary<string, string> getExifTags() {
+			Dictionary<string, string> tags = new Dictionary<string, string>();
+			PropertyInfo[] pi = typeof(ExifMetadata).GetProperties();
+			for (int i = 0; i < pi.Length; i++) {
+				object[] attr = pi[i].GetCustomAttributes(true);
+
+				for (int j = 0; j < attr.Length; j++) {
+					if (attr[j] is ExifDisplayAttribute) {
+						ExifDisplayAttribute exifAttri = (ExifDisplayAttribute)attr[j];
+
+						string displayName = exifAttri.DisplayName;
+						string propertyName = pi[i].Name;
+						tags.Add(propertyName, displayName);
+					}
+				}
+			}
+
+			return tags;
 		}
 
 		void view_OpenProject(object sender, ProjectWithFileNameEventArgs e) {
