@@ -434,7 +434,7 @@
 							</Grid>
 						</Expander>
 						<Expander Header="{HSMarks:ResourceExtension Label_WatermarkText}">
-							<Grid ShowGridLines="False">
+							<Grid ShowGridLines="True">
 								<Grid.ColumnDefinitions>
 									<ColumnDefinition Width="auto" SharedSizeGroup="TextLabel"></ColumnDefinition>
 									<ColumnDefinition Width="*"></ColumnDefinition>
@@ -460,23 +460,29 @@
 										CommandParameter="WatermarkText"
 										Command="ApplicationCommands.Help" />
 								</StackPanel>
-								<TextBlock Grid.Column="1" Grid.Row="0" Margin="10,5,0,0"
-									HorizontalAlignment="Right"
+
+								<ToolBar HorizontalAlignment="Stretch"
+									Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="0" Margin="10,5,0,0">
+									<TextBlock
+									HorizontalAlignment="Left"
 									Style="{StaticResource ConfigSectionLabel}"
 									Text="{HSMarks:ResourceExtension Label_ExifMacro}" />
-								<ComboBox x:Name="cmbExifTag" Grid.Column="2" Grid.Row="0" Margin="10,5,0,0">
-									<ComboBox.ItemTemplate>
-										<DataTemplate>
-											<TextBlock Text="{Binding Path=Value}"/>
-										</DataTemplate>
-									</ComboBox.ItemTemplate>
-								</ComboBox>
-								<Button x:Name="btnInsertExifTag"
-									Click="btnInsertExifTag_Click"
-									Grid.Column="3" Grid.Row="0" Margin="10,5,0,0"
-									Style="{StaticResource GlassButton}"
-									Content="{HSMarks:ResourceExtension Button_InsertExifTag}"
-									IsEnabled="{Binding ElementName=txtWatermarkText, Path=IsFocused}" />
+
+									<ComboBox x:Name="cmbExifTag" HorizontalContentAlignment="Stretch"
+										IsEnabled="{Binding ElementName=txtWatermarkText, Path=IsFocused}">
+										<ComboBox.ItemTemplate>
+											<DataTemplate>
+												<TextBlock Text="{Binding Path=Value}"/>
+											</DataTemplate>
+										</ComboBox.ItemTemplate>
+									</ComboBox>
+
+									<Button x:Name="btnInsertExifTag"
+										Click="btnInsertExifTag_Click"
+										Style="{StaticResource GlassButton}"
+										Content="{HSMarks:ResourceExtension Button_InsertExifTag}"
+										IsEnabled="{Binding ElementName=txtWatermarkText, Path=IsFocused}" />
+								</ToolBar>
 
 								<TextBox x:Name="txtWatermarkText"
 									Margin="10,5,0,5" SpellCheck.IsEnabled="True"

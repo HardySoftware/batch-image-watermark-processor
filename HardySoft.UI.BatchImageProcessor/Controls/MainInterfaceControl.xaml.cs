@@ -188,7 +188,19 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 		}
 
 		private void btnInsertExifTag_Click(object sender, RoutedEventArgs e) {
+			if (cmbExifTag.SelectedIndex <= 0) {
+				return;
+			}
 
+			KeyValuePair<string, string> selectedItem = (KeyValuePair<string, string>)cmbExifTag.SelectedValue;
+			string tag = "<<" + selectedItem.Key + ">>";
+
+			int insertPosition = txtWatermarkText.CaretIndex;
+			string firstPart = txtWatermarkText.Text.Substring(0, insertPosition);
+			string secondPart = txtWatermarkText.Text.Substring(insertPosition);
+
+			txtWatermarkText.Text = firstPart + tag + secondPart;
+			txtWatermarkText.CaretIndex = firstPart.Length + tag.Length;
 		}
 
 		#region Drag-Drop event handlers
