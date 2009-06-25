@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
-using System.Linq;
-using System.Text;
 using System.ComponentModel;
 using System.IO;
 using System.Runtime.Serialization;
+
+using HardySoft.CC.Validators;
 
 using Microsoft.Practices.EnterpriseLibrary.Validation.Validators;
 
@@ -202,6 +201,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 		}
 
 		private Watermark watermark;
+		[MacroTagValidator(null, MessageTemplate="", Tag="Warning")]
 		public Watermark Watermark {
 			get {
 				return watermark;
