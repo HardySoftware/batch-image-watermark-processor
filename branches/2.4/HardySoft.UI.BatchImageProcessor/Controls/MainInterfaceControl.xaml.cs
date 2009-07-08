@@ -193,7 +193,7 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 			}
 
 			KeyValuePair<string, string> selectedItem = (KeyValuePair<string, string>)cmbExifTag.SelectedValue;
-			string tag = "<<" + selectedItem.Key + ">>";
+			string tag = "[[" + selectedItem.Key + "]]";
 
 			int insertPosition = txtWatermarkText.CaretIndex;
 			string firstPart = txtWatermarkText.Text.Substring(0, insertPosition);

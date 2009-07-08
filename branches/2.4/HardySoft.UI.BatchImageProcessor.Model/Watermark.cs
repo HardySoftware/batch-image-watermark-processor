@@ -95,8 +95,8 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			}
 		}
 
-		// TODO add feature to use EXIF information as watermark text
 		private string watermarkText;
+		[MacroTagValidator(typeof(ExifMetadata), MessageTemplate = "Validation_ExifMacroError {0}", Tag = "Warning")]
 		public string WatermarkText {
 			get {
 				return this.watermarkText;
