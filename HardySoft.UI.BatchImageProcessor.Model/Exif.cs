@@ -452,17 +452,16 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 	}
 
 	[AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
-	public class ExifDisplayAttribute : Attribute {
+	public class ExifDisplayAttribute : DisplayAttribute {
 		private string valueFormat;
-		private string displayName;
 
-		public ExifDisplayAttribute(string displayName) {
-			this.displayName = displayName;
+		public ExifDisplayAttribute(string displayName)
+			: base(displayName) {
 			this.valueFormat = "";
 		}
 
-		public ExifDisplayAttribute(string displayName, string valueFormat) {
-			this.displayName = displayName;
+		public ExifDisplayAttribute(string displayName, string valueFormat)
+			: base(displayName) {
 			this.valueFormat = valueFormat;
 		}
 
@@ -471,11 +470,20 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 				return this.valueFormat;
 			}
 		}
+	}
+
+	public class DisplayAttribute : Attribute {
+		protected string displayName;
 
 		public string DisplayName {
 			get {
 				return displayName;
 			}
+		}
+
+		public DisplayAttribute(string displayName)
+			: base() {
+			this.displayName = displayName;
 		}
 	}
 }
