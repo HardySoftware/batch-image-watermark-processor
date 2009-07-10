@@ -138,13 +138,23 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 
 		void view_ProcessImage(object sender, ProcessThreadNumberEventArgs e) {
 			ValidationResults results = Validation.Validate<ProjectSetting>(ps);
+			results.AddAllResults(Validation.Validate<ImageBorder>(ps.BorderSetting));
+			results.AddAllResults(Validation.Validate<HardySoft.UI.BatchImageProcessor.Model.Watermark>(ps.Watermark));
+			List<string> validationMessages = new List<string>();
 			if (!results.IsValid) {
-				List<string> exceptions = new List<string>();
 				foreach (ValidationResult vr in results) {
-					exceptions.Add(vr.Message);
+					if (vr.Tag == "Warning") {
+						if (!View.DisplayWarning(vr.Message)) {
+							validationMessages.Add(vr.Message);
+						}
+					} else {
+						validationMessages.Add(vr.Message);
+					}
 				}
+			}
 
-				SetErrorMessage(exceptions.ToArray());
+			if (validationMessages.Count > 0) {
+				SetErrorMessage(validationMessages.ToArray());
 			} else {
 				this.processing = true;
 

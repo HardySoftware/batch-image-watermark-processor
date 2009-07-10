@@ -696,4 +696,13 @@
   <data name="Label_ExifMacro" xml:space="preserve">
     <value>Exif Macro</value>
   </data>
+  <data name="Label_Warning" xml:space="preserve">
+    <value>Warning</value>
+  </data>
+  <data name="Validation_ExifMacroError" xml:space="preserve">
+    <value>{0} is not a valid Exif tag. Do you want to proceed?</value>
+  </data>
+  <data name="Validation_SourceDestFolderSame" xml:space="preserve">
+    <value>Source directory and output directory cannot be same.</value>
+  </data>
 </root>

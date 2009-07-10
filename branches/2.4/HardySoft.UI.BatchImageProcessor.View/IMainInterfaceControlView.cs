@@ -42,5 +42,7 @@ namespace HardySoft.UI.BatchImageProcessor.View {
 			get;
 			set;
 		}
+
+		bool DisplayWarning(string warningMessage);
 	}
 }
