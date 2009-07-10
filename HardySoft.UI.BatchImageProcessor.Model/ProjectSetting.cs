@@ -175,6 +175,8 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 
 		private string outputDirectory;
 		[StringLengthValidator(3, 500, MessageTemplate = "Validation_ReqDestDirectory")]
+		[PropertyComparisonValidator("SourceDirectory", ComparisonOperator.NotEqual,
+			MessageTemplate = "Validation_SourceDestFolderSame")]
 		public string OutputDirectory {
 			get {
 				return outputDirectory;

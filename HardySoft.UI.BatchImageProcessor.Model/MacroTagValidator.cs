@@ -1,6 +1,9 @@
-﻿using Microsoft.Practices.EnterpriseLibrary.Validation;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+
+using HardySoft.CC;
+
+using Microsoft.Practices.EnterpriseLibrary.Validation;
 
 namespace HardySoft.UI.BatchImageProcessor.Model {
 	public class MacroTagValidator : Validator<string> {
@@ -26,53 +29,23 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 				this.LogValidationResult(validationResults, message, currentTarget, key);
 			}*/
 
-			string watermarkText = objectToValidate.ToString();
+			if (! string.IsNullOrEmpty(objectToValidate)) {
+				string watermarkText = objectToValidate.ToString();
 
-			// parse all tags in text
-			List<string> tags = getAllTags(watermarkText);
-		}
+				// parse all tags in text
+				string[] tags = getAllTags(watermarkText);
 
-		private List<string> getAllTags(string input) {
-			Stack<char> stack = new Stack<char>();
-			List<string> tags = new List<string>();
+				IEnumerable<string> invalidTags = tags.Except(this.validMacros);
 
-			bool prefixFound = false, suffixFound = false;
-			for (int i = 0; i < input.Length; i++) {
-
-				if (i < input.Length - 1) {
-					string tagDelimiter = input.Substring(i, 2);
-
-					if (string.Compare(tagDelimiter, "[[", false) == 0) {
-						// found a opening tag
-						prefixFound = true;
-						suffixFound = false;
-					}
-
-					if (string.Compare(tagDelimiter, "]]", false) == 0) {
-						// found a closing tag
-						suffixFound = true;
-					}
-				}
-
-				if (prefixFound && !suffixFound) {
-					stack.Push(input[i]);
-				}
-
-				if (prefixFound && suffixFound) {
-					// prepare to find next tag
-					prefixFound = false;
-					suffixFound = false;
-
-					string tag = new string(stack.Reverse<char>().ToArray());
-					// remove tag prefix
-					tag = tag.Substring(2).Trim();
-					tags.Add(tag);
-
-					stack.Clear();
+				foreach (string invalidTag in invalidTags) {
+					string message = string.Format(this.MessageTemplate, objectToValidate, invalidTag);
+					this.LogValidationResult(validationResults, message, currentTarget, key);
 				}
 			}
+		}
 
-			return tags;
+		private string[] getAllTags(string input) {
+			return Parser.TagParser(input, "[[", "]]");
 		}
 
 		protected override string DefaultMessageTemplate {

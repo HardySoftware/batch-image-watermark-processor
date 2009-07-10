@@ -402,6 +402,26 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 		public event EventHandler StopProcessing;
 		#endregion
 
+		/// <summary>
+		/// Display warning message and collect user action.
+		/// </summary>
+		/// <param name="warningMessageResourceKey">Warning message resource key.</param>
+		/// <returns>
+		/// True if user clicks "Yes", otherwise False.
+		/// </returns>
+		public bool DisplayWarning(string warningMessageResourceKey) {
+			string caption = HardySoft.UI.BatchImageProcessor.Resources.LanguageContent.Label_Warning;
+			string message = res.LanguageContent.ResourceManager.GetString(warningMessageResourceKey,
+							Thread.CurrentThread.CurrentCulture);
+			MessageBoxButton button = MessageBoxButton.YesNo;
+			MessageBoxImage icon = MessageBoxImage.Warning;
+			if (System.Windows.MessageBox.Show(message, caption, button, icon) == MessageBoxResult.Yes) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+
 		#region Commands
 		#region New Command
 		private void NewCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e) {

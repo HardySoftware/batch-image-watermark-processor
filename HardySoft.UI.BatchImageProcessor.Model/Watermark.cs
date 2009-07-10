@@ -96,7 +96,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 		}
 
 		private string watermarkText;
-		[MacroTagValidator(typeof(ExifMetadata), MessageTemplate = "Validation_ExifMacroError {0}", Tag = "Warning")]
+		[MacroTagValidator(typeof(ExifMetadata), MessageTemplate = "Validation_ExifMacroError", Tag = "Warning")]
 		public string WatermarkText {
 			get {
 				return this.watermarkText;

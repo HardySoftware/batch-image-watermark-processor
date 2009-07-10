@@ -1339,6 +1339,15 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Warning.
+        /// </summary>
+        internal static string Label_Warning {
+            get {
+                return ResourceManager.GetString("Label_Warning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Watermark Image.
         /// </summary>
         internal static string Label_WatermarkImage {
@@ -1663,6 +1672,15 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} is not a valid Exif tag. Do you want to proceed?.
+        /// </summary>
+        internal static string Validation_ExifMacroError {
+            get {
+                return ResourceManager.GetString("Validation_ExifMacroError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please select a positive integer as border width..
         /// </summary>
         internal static string Validation_ImageBorderWidth {
@@ -1713,6 +1731,15 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         internal static string Validation_RotationAngle {
             get {
                 return ResourceManager.GetString("Validation_RotationAngle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Source directory and output directory cannot be same..
+        /// </summary>
+        internal static string Validation_SourceDestFolderSame {
+            get {
+                return ResourceManager.GetString("Validation_SourceDestFolderSame", resourceCulture);
             }
         }
         

@@ -1,6 +1,8 @@
 ﻿using HardySoft.UI.BatchImageProcessor.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
+using Microsoft.Practices.EnterpriseLibrary.Validation;
+
 namespace HardySoft.UI.BatchImageProcessor.Model.UnitTest
 {
     
@@ -67,8 +69,8 @@ namespace HardySoft.UI.BatchImageProcessor.Model.UnitTest
 			string input = "sajfkh [[klfjks]] jflkj";
 			List<string> expected = new List<string>();
 			expected.Add("klfjks");
-			List<string> actual = target.getAllTags(input);
-			Assert.AreEqual(expected.Count, actual.Count);
+			string[] actual = target.getAllTags(input);
+			Assert.AreEqual(expected.Count, actual.Length);
 			for (int i = 0; i < expected.Count; i++) {
 				Assert.AreEqual(expected[i], actual[i]);
 			}
@@ -84,8 +86,8 @@ namespace HardySoft.UI.BatchImageProcessor.Model.UnitTest
 			List<string> expected = new List<string>();
 			expected.Add("klfjks");
 			expected.Add("jflkj");
-			List<string> actual = target.getAllTags(input);
-			Assert.AreEqual(expected.Count, actual.Count);
+			string[] actual = target.getAllTags(input);
+			Assert.AreEqual(expected.Count, actual.Length);
 			for (int i = 0; i < expected.Count; i++) {
 				Assert.AreEqual(expected[i], actual[i]);
 			}
@@ -100,8 +102,8 @@ namespace HardySoft.UI.BatchImageProcessor.Model.UnitTest
 			string input = "sajfkh [[klfjks [[jflkj]]";
 			List<string> expected = new List<string>();
 			expected.Add("klfjks [[jflkj");
-			List<string> actual = target.getAllTags(input);
-			Assert.AreEqual(expected.Count, actual.Count);
+			string[] actual = target.getAllTags(input);
+			Assert.AreEqual(expected.Count, actual.Length);
 			for (int i = 0; i < expected.Count; i++) {
 				Assert.AreEqual(expected[i], actual[i]);
 			}
@@ -116,8 +118,8 @@ namespace HardySoft.UI.BatchImageProcessor.Model.UnitTest
 			string input = "sajfkh [[klfjks ]]jflkj]]";
 			List<string> expected = new List<string>();
 			expected.Add("klfjks");
-			List<string> actual = target.getAllTags(input);
-			Assert.AreEqual(expected.Count, actual.Count);
+			string[] actual = target.getAllTags(input);
+			Assert.AreEqual(expected.Count, actual.Length);
 			for (int i = 0; i < expected.Count; i++) {
 				Assert.AreEqual(expected[i], actual[i]);
 			}
@@ -133,8 +135,8 @@ namespace HardySoft.UI.BatchImageProcessor.Model.UnitTest
 			List<string> expected = new List<string>();
 			expected.Add("klfjks");
 			expected.Add("gdsfg");
-			List<string> actual = target.getAllTags(input);
-			Assert.AreEqual(expected.Count, actual.Count);
+			string[] actual = target.getAllTags(input);
+			Assert.AreEqual(expected.Count, actual.Length);
 			for (int i = 0; i < expected.Count; i++) {
 				Assert.AreEqual(expected[i], actual[i]);
 			}
@@ -150,11 +152,26 @@ namespace HardySoft.UI.BatchImageProcessor.Model.UnitTest
 			List<string> expected = new List<string>();
 			expected.Add("klfjks [[jflkj");
 			expected.Add("gdsfg");
-			List<string> actual = target.getAllTags(input);
-			Assert.AreEqual(expected.Count, actual.Count);
+			string[] actual = target.getAllTags(input);
+			Assert.AreEqual(expected.Count, actual.Length);
 			for (int i = 0; i < expected.Count; i++) {
 				Assert.AreEqual(expected[i], actual[i]);
 			}
+		}
+
+		/// <summary>
+		///A test for DoValidate
+		///</summary>
+		[TestMethod()]
+		[DeploymentItem("HardySoft.UI.BatchImageProcessor.Model.dll")]
+		public void DoValidateTest() {
+			MacroTagValidator_Accessor target = new MacroTagValidator_Accessor(new string[2] { "DateTime", "ISO" });
+			string objectToValidate = "sajfkh [[klfjks jflkj]] safsdf  [[ISO]] ds";
+			object currentTarget = null;
+			string key = string.Empty;
+			ValidationResults validationResults = new ValidationResults();
+			target.DoValidate(objectToValidate, currentTarget, key, validationResults);
+			Assert.AreEqual<int>(validationResults.Count, 1);
 		}
 	}
 }
