@@ -13,6 +13,12 @@ using System.Drawing.Text;
 
 namespace HardySoft.UI.BatchImageProcessor.Presenter {
 	public class ApplyWatermarkText : Watermark {
+		private ExifContainerItem exifItem;
+
+		public ApplyWatermarkText(ExifContainerItem exifItem) {
+			this.exifItem = exifItem;
+		}
+
 		// TODO examine to add text to a transparent GIF image still works.
 		public override Image ProcessImage(Image input, ProjectSetting ps) {
 			try {
@@ -29,6 +35,10 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 				int xAfterOffset = 0;
 				int yAfterOffset = 0;
 
+				string textToDraw = ps.Watermark.WatermarkText;
+				if (hasExifTags(textToDraw)) {
+				}
+
 				// create a bitmap we can use to work out the size of the text,
 				// we will then create a new bitmap that is the right size.
 				// we also use this to record the default resolution
@@ -38,7 +48,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 				Graphics g = Graphics.FromImage(bmp);
 				StringFormat format = new StringFormat();
 				format.Alignment = ps.Watermark.WatermarkTextAlignment;
-				SizeF sf = g.MeasureString(ps.Watermark.WatermarkText, ps.Watermark.WatermarkTextFont,
+				SizeF sf = g.MeasureString(textToDraw, ps.Watermark.WatermarkTextFont,
 					Int32.MaxValue, format);
 				g.Dispose();
 				bmp.Dispose();
@@ -123,11 +133,11 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 				g.SmoothingMode = SmoothingMode.HighQuality;
 				g.TextRenderingHint = TextRenderingHint.AntiAlias;
 				// draw a shadow with semi transparent black
-				g.DrawString(ps.Watermark.WatermarkText,
+				g.DrawString(textToDraw,
 					ps.Watermark.WatermarkTextFont,
 					new SolidBrush(Color.FromArgb(153, 0, 0, 0)), 1, 1, format);
 				// draw the sctual text
-				g.DrawString(ps.Watermark.WatermarkText,
+				g.DrawString(textToDraw,
 					ps.Watermark.WatermarkTextFont,
 					new SolidBrush(ps.Watermark.WatermarkTextColor), 0, 0, format);
 				g.Transform = matrix;
@@ -143,6 +153,15 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 				}
 				return input;
 			}
+		}
+
+		/// <summary>
+		/// To determine if the watermark text contains Exif tag(s) or not.
+		/// </summary>
+		/// <param name="textToDraw"></param>
+		/// <returns></returns>
+		private bool hasExifTags(string textToDraw) {
+			return false;
 		}
 	}
 }

@@ -26,7 +26,8 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 
 		public event ImageProcessedDelegate ImageProcessed;
 
-		public ImageProcessorEngine(ProjectSetting ps, uint threadNumber, AutoResetEvent[] events, bool enableDebug) {
+		public ImageProcessorEngine(ProjectSetting ps, uint threadNumber, AutoResetEvent[] events,
+			bool enableDebug, List<ExifContainerItem> exifContainer) {
 			this.ps = ps;
 			this.threadNumber = threadNumber;
 			this.jobQueue = new Queue<JobItem>();
@@ -60,7 +61,8 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 				new InjectionProperty("EnableDebug", this.enableDebug));
 			container.RegisterType<IProcess, ApplyWatermarkText>("WatermarkText",
 				new PerThreadLifetimeManager(),
-				new InjectionProperty("EnableDebug", this.enableDebug));
+				new InjectionProperty("EnableDebug", this.enableDebug),
+				new InjectionConstructor(exifContainer));
 			container.RegisterType<IProcess, DropShadowImage>("DropShadow",
 				new PerThreadLifetimeManager(),
 				new InjectionProperty("EnableDebug", this.enableDebug));

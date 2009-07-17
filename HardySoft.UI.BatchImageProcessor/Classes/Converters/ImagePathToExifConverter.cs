@@ -35,6 +35,7 @@ namespace HardySoft.UI.BatchImageProcessor.Classes.Converters {
 		}
 		
 		/*private Dictionary<string, object> getExifMeta(string imagePath) {
+			// non-localized version
 			Uri source = new Uri(imagePath);
 			
 			ExifMetadata meta = new ExifMetadata(source);
@@ -64,6 +65,7 @@ namespace HardySoft.UI.BatchImageProcessor.Classes.Converters {
 			return metaInfo;
 		}*/
 
+		/*
 		private DataTable getExifMetaData(string imagePath) {
 			DataTable dt = new DataTable();
 			dt.Columns.Add(new DataColumn("Attribute", typeof(string)));
@@ -113,6 +115,45 @@ namespace HardySoft.UI.BatchImageProcessor.Classes.Converters {
 							dt.Rows.Add(new object[] { displayName, localizedValue });
 						}
 					}
+				}
+			}
+
+			return dt;
+		}*/
+
+		private DataTable getExifMetaData(string imagePath) {
+			DataTable dt = new DataTable();
+			dt.Columns.Add(new DataColumn("Attribute", typeof(string)));
+			dt.Columns.Add(new DataColumn("Value", typeof(string)));
+
+			Uri source = new Uri(imagePath);
+
+			ExifMetadata meta = new ExifMetadata(source);
+
+			List<ExifContainerItem> exifContainer = Utilities.GetExifContainer();
+
+			foreach (ExifContainerItem item in exifContainer) {
+				object propertyValue = item.Property.GetValue(meta, null);
+
+				string localizedValue;
+				if (item.Property.PropertyType.IsEnum) {
+					localizedValue = getValueDisplayName(propertyValue);
+				} else {
+					localizedValue = propertyValue == null ? string.Empty : propertyValue.ToString();
+				}
+
+				if (!string.IsNullOrEmpty(item.ValueFormat) && ! string.IsNullOrEmpty(localizedValue)) {
+					// value format is specified, read from resource then
+					if (!string.IsNullOrEmpty(item.ValueFormat)) {
+						// make sure the value format could be loaded from resource
+						string displayValue = string.Format(item.ValueFormat, localizedValue);
+
+						dt.Rows.Add(new object[] { item.DisplayLabel, displayValue });
+					} else {
+						dt.Rows.Add(new object[] { item.DisplayLabel, localizedValue });
+					}
+				} else {
+					dt.Rows.Add(new object[] { item.DisplayLabel, localizedValue });
 				}
 			}
 

@@ -14,8 +14,12 @@ namespace HardySoft.UI.BatchImageProcessor.View {
 			set;
 		}
 
-		Dictionary<string, string> ExifTag {
+		/*Dictionary<string, string> ExifTag {
 			set;
+		}*/
+
+		List<ExifContainerItem> ExifContainer {
+			get;
 		}
 
 		Exception ErrorMessage {

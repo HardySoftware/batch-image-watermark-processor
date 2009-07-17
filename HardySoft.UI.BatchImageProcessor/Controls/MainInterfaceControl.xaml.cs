@@ -296,7 +296,7 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 			}
 		}
 
-		public Dictionary<string, string> ExifTag {
+		/*public Dictionary<string, string> ExifTag {
 			set {
 				Dictionary<string, string> translatedTags = new Dictionary<string, string>();
 				translatedTags.Add("", res.LanguageContent.Enum_None);
@@ -309,6 +309,12 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 
 				cmbExifTag.ItemsSource = translatedTags;
 				cmbExifTag.SelectedIndex = 0;
+			}
+		}*/
+
+		public List<ExifContainerItem> ExifContainer {
+			get {
+				return Utilities.GetExifContainer();
 			}
 		}
 

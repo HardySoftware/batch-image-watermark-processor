@@ -33,7 +33,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 			this.View.ProcessImage += new ProcessThreadNumberEventHandler(view_ProcessImage);
 			this.View.StopProcessing += new EventHandler(view_StopProcessing);
 
-			this.View.ExifTag = getExifTags();
+			//this.View.ExifTag = getExifTags();
 
 			this.View.PS = ps;
 		}
@@ -174,7 +174,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 			}
 
 			engine = new ImageProcessorEngine(this.ps, threadNumber, events,
-				View.HiddenConfig.EnableDebug);
+				View.HiddenConfig.EnableDebug, View.ExifContainer);
 
 			View.ResetJobSize(engine.JobSize);
 
