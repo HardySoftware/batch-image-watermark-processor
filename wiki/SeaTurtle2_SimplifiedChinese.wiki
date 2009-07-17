@@ -90,7 +90,10 @@ http://batch-image-watermark-processor.googlecode.com/svn/wiki/screenshots/DropS
   * 懂其他语言的翻译人员。
 如果您有意图帮助、参与这个项目请一定与我联系。
 =联系作者=
+==直接联系==
 有任何建议、报告缺陷、功能要求等，请写信到 hardy.yin.wang(at)gmail.com （将(at)替换成@）。
+==网上讨论==
+[http://groups.google.ca/group/sea-turtle-batch-image-processor]
 
 =Visitor Map=
 [http://www2.clustrmaps.com/counter/maps.php?url=http://code.google.com/p/batch-image-watermark-processor/ http://www2.clustrmaps.com/stats/maps-no_clusters/code.google.com-p-batch-image-watermark-processor--thumb.jpg]
