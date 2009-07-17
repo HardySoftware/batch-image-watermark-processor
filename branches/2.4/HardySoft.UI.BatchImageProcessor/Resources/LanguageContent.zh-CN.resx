@@ -688,4 +688,10 @@
   <data name="Label_ExifMacro" xml:space="preserve">
     <value>Exif宏</value>
   </data>
+  <data name="Validation_ExifMacroError" xml:space="preserve">
+    <value>{0} 不是合法的Exif宏。确定要继续么？</value>
+  </data>
+  <data name="Validation_SourceDestFolderSame" xml:space="preserve">
+    <value>源文件夹不能和目标文件夹相同。</value>
+  </data>
 </root>

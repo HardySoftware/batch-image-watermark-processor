@@ -257,6 +257,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 				}
 			}
 		}*/
+		
 		[ExifDisplay("Label_ExposureTime", "Label_ExifValue_Second")]
 		public string ExposureTime {
 			get {
@@ -272,6 +273,21 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 				}
 			}
 		}
+
+		/*[ExifDisplay("Label_ExposureTime", "Label_ExifValue_Second")]
+		public Fraction ExposureTime {
+			get {
+				object val = queryMetadata("/app1/ifd/exif/subifd:{uint=33434}");
+				if (val != null) {
+					decimal time = parseUnsignedRational((ulong)val);
+					// TODO investigate if all the EXIF decimal or float value has no localized number information.
+					System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("en-us");
+					return new Fraction(time.ToString(), culture.NumberFormat);
+				} else {
+					return null;
+				}
+			}
+		}*/
 
 		[ExifDisplay("Label_ExposureCompensation")]
 		public decimal? ExposureCompensation {

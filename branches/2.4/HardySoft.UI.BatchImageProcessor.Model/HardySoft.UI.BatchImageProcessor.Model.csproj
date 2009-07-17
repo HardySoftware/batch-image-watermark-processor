@@ -80,6 +80,7 @@
     <Compile Include="DropShadow.cs" />
     <Compile Include="EnumValues.cs" />
     <Compile Include="Exif.cs" />
+    <Compile Include="ExifContainerItem.cs" />
     <Compile Include="ImageBorder.cs" />
     <Compile Include="MacroTagValidator.cs" />
     <Compile Include="MacroTagValidatorAttribute.cs" />
