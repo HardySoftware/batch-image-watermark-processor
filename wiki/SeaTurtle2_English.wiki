@@ -90,7 +90,9 @@ I welcome anybody who can provide help from following areas:
   * Translators to localize the product into your own languages.
 If you have the interest to help to make this project better, feel free to contact with me.
 =Contact Author=
+==Direct Contact==
 Please feel free to send me comments, bugs, feature requests and so on to my email address hardy.yin.wang(at)gmail.com (please replace (at) with @ when you send email).
-
+==Online Discussion Group==
+[http://groups.google.ca/group/sea-turtle-batch-image-processor]
 =Visitor Map=
 [http://www2.clustrmaps.com/counter/maps.php?url=http://code.google.com/p/batch-image-watermark-processor/ http://www2.clustrmaps.com/stats/maps-no_clusters/code.google.com-p-batch-image-watermark-processor--thumb.jpg]
