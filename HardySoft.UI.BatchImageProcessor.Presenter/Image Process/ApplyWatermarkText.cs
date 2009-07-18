@@ -1,6 +1,9 @@
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
+using System.Drawing.Text;
 using System.IO;
 
 using HardySoft.CC;
@@ -8,15 +11,13 @@ using HardySoft.CC.ExceptionLog;
 using HardySoft.CC.Transformer;
 
 using HardySoft.UI.BatchImageProcessor.Model;
-using System.Drawing.Imaging;
-using System.Drawing.Text;
 
 namespace HardySoft.UI.BatchImageProcessor.Presenter {
 	public class ApplyWatermarkText : Watermark {
-		private ExifContainerItem exifItem;
+		private List<ExifContainerItem> exifContainer;
 
-		public ApplyWatermarkText(ExifContainerItem exifItem) {
-			this.exifItem = exifItem;
+		public ApplyWatermarkText(List<ExifContainerItem> exifContainer) {
+			this.exifContainer = exifContainer;
 		}
 
 		// TODO examine to add text to a transparent GIF image still works.
@@ -36,7 +37,39 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 				int yAfterOffset = 0;
 
 				string textToDraw = ps.Watermark.WatermarkText;
-				if (hasExifTags(textToDraw)) {
+				List<ExifContainerItem> tagsFound = foundExifTags(textToDraw);
+
+				if (tagsFound != null && tagsFound.Count > 0 && !string.IsNullOrEmpty(this.ImageFileName)) {
+					// at least one Exif tag is found
+					ExifMetadata meta = new ExifMetadata(new Uri(this.ImageFileName));
+
+					foreach (ExifContainerItem tagFound in tagsFound) {
+						// replace actual value from Exif in watermark text
+						string tag = "[[" + tagFound.ExifTag + "]]";
+						object propertyValue = tagFound.Property.GetValue(meta, null);
+						string localizedValue;
+						if (propertyValue == null) {
+							localizedValue = string.Empty;
+						} else {
+							if (tagFound.Property.PropertyType.IsEnum && tagFound.EnumValueTranslation != null) {
+								localizedValue = propertyValue.ToString();
+
+								foreach (KeyValuePair<string, string> enumItem in tagFound.EnumValueTranslation) {
+									if (localizedValue == enumItem.Key) {
+										localizedValue = enumItem.Value;
+										break;
+									}
+								}
+							} else {
+								localizedValue = propertyValue.ToString();
+							}
+
+							if (!string.IsNullOrEmpty(tagFound.ValueFormat)) {
+								localizedValue = string.Format(tagFound.ValueFormat, localizedValue);
+							}
+						}
+						textToDraw = textToDraw.Replace(tag, localizedValue);
+					}
 				}
 
 				// create a bitmap we can use to work out the size of the text,
@@ -156,12 +189,27 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 		}
 
 		/// <summary>
-		/// To determine if the watermark text contains Exif tag(s) or not.
+		/// Get all valid image tags in watermark text.
 		/// </summary>
 		/// <param name="textToDraw"></param>
 		/// <returns></returns>
-		private bool hasExifTags(string textToDraw) {
-			return false;
+		private List<ExifContainerItem> foundExifTags(string textToDraw) {
+			string[] tagsFound = Parser.TagParser(textToDraw, "[[", "]]");
+			if (tagsFound == null || tagsFound.Length == 0) {
+				return null;
+			} else {
+				List<ExifContainerItem> tags = new List<ExifContainerItem>();
+				foreach (ExifContainerItem exifItem in this.exifContainer) {
+					for (int i = 0; i < tagsFound.Length; i++) {
+						if (string.Compare(exifItem.ExifTag, tagsFound[i], false) == 0) {
+							// found at least one tage match
+							tags.Add(exifItem);
+						}
+					}
+				}
+
+				return tags;
+			}
 		}
 	}
 }

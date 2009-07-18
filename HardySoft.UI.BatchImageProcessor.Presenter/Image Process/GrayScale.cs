@@ -16,6 +16,11 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 			set;
 		}
 
+		public string ImageFileName {
+			get;
+			set;
+		}
+
 		public Image ProcessImage(Image input, ProjectSetting ps) {
 			try {
 				Bitmap bmp = new Bitmap(input.Width, input.Height);
