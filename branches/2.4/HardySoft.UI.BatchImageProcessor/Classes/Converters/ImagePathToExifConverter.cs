@@ -119,6 +119,14 @@ namespace HardySoft.UI.BatchImageProcessor.Classes.Converters {
 			}
 
 			return dt;
+		}
+		 
+		private string getValueDisplayName(object propertyValue) {
+			if (propertyValue == null) {
+				return string.Empty;
+			} else {
+				return Utilities.GetEnumItemDisplayValue(propertyValue);
+			}
 		}*/
 
 		private DataTable getExifMetaData(string imagePath) {
@@ -136,36 +144,29 @@ namespace HardySoft.UI.BatchImageProcessor.Classes.Converters {
 				object propertyValue = item.Property.GetValue(meta, null);
 
 				string localizedValue;
-				if (item.Property.PropertyType.IsEnum) {
-					localizedValue = getValueDisplayName(propertyValue);
+				if (propertyValue == null) {
+					localizedValue = string.Empty;
 				} else {
-					localizedValue = propertyValue == null ? string.Empty : propertyValue.ToString();
+					if (item.Property.PropertyType.IsEnum) {
+						// if this is a Enum, then get (localized) display name of the enum
+						localizedValue = Utilities.GetEnumItemDisplayValue(propertyValue);
+					} else {
+						// otherwise use the property value
+						localizedValue = propertyValue.ToString();
+					}
 				}
 
-				if (!string.IsNullOrEmpty(item.ValueFormat) && ! string.IsNullOrEmpty(localizedValue)) {
+				if (!string.IsNullOrEmpty(item.ValueFormat) && !string.IsNullOrEmpty(localizedValue)) {
 					// value format is specified, read from resource then
-					if (!string.IsNullOrEmpty(item.ValueFormat)) {
-						// make sure the value format could be loaded from resource
-						string displayValue = string.Format(item.ValueFormat, localizedValue);
+					string displayValue = string.Format(item.ValueFormat, localizedValue);
 
-						dt.Rows.Add(new object[] { item.DisplayLabel, displayValue });
-					} else {
-						dt.Rows.Add(new object[] { item.DisplayLabel, localizedValue });
-					}
+					dt.Rows.Add(new object[] { item.DisplayLabel, displayValue });
 				} else {
 					dt.Rows.Add(new object[] { item.DisplayLabel, localizedValue });
 				}
 			}
 
 			return dt;
-		}
-
-		private string getValueDisplayName(object propertyValue) {
-			if (propertyValue == null) {
-				return string.Empty;
-			} else {
-				return Utilities.GetObjectDisplayValue(propertyValue);
-			}
 		}
 	}
 }

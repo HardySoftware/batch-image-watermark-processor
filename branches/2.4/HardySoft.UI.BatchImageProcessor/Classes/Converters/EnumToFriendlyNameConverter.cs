@@ -41,7 +41,7 @@ namespace HardySoft.UI.BatchImageProcessor.Classes.Converters {
 					return value.ToString();
 				}*/
 
-				return Utilities.GetObjectDisplayValue(value);
+				return Utilities.GetEnumItemDisplayValue(value);
 			} else {
 				return null;
 			}

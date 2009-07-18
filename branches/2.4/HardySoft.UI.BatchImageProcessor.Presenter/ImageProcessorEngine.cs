@@ -79,8 +79,10 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 				new PerThreadLifetimeManager(),
 				new InjectionProperty("EnableDebug", this.enableDebug));
 			// register generate file name classes
-			container.RegisterType<IFilenameProvider, ThumbnailFileName>("ThumbFileName", new PerThreadLifetimeManager());
-			container.RegisterType<IFilenameProvider, ProcessedFileName>("NormalFileName", new PerThreadLifetimeManager());
+			container.RegisterType<IFilenameProvider, ThumbnailFileName>("ThumbFileName",
+				new PerThreadLifetimeManager());
+			container.RegisterType<IFilenameProvider, ProcessedFileName>("NormalFileName",
+				new PerThreadLifetimeManager());
 			container.RegisterType<IFilenameProvider, BatchRenamedFileName>("BatchRenamedFileName",
 				new PerThreadLifetimeManager());
 
@@ -106,7 +108,9 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 
 		public int JobSize {
 			get {
-				return jobQueue.Count;
+				lock (syncRoot) {
+					return jobQueue.Count;
+				}
 			}
 		}
 
@@ -119,6 +123,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 		private void processImage(object threadIndex) {
 			int index = (int)threadIndex;
 			System.Diagnostics.Debug.WriteLine("Thread " + index + " is created.");
+			System.Diagnostics.Debug.WriteLine("Current Thread Culture " + Thread.CurrentThread.CurrentCulture.ToString() + " during processing.");
 
 			string imagePath = string.Empty;
 			uint imageIndex = 0;
@@ -136,28 +141,6 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 				}
 			}
 
-			/*IUnityContainer container = new UnityContainer();
-			// register all supported image process classes
-			container.RegisterType<IProcess, AddBorder>("AddBorder", new PerThreadLifetimeManager());
-			container.RegisterType<IProcess, ApplyWatermarkImage>("WatermarkImage", new PerThreadLifetimeManager());
-			container.RegisterType<IProcess, ApplyWatermarkText>("WatermarkText", new PerThreadLifetimeManager());
-			container.RegisterType<IProcess, DropShadowImage>("DropShadow", new PerThreadLifetimeManager());
-			container.RegisterType<IProcess, GenerateThumbnail>("ThumbImage", new PerThreadLifetimeManager());
-			container.RegisterType<IProcess, GrayScale>("GrayscaleEffect", new PerThreadLifetimeManager());
-			container.RegisterType<IProcess, NegativeImage>("NegativeEffect", new PerThreadLifetimeManager());
-			container.RegisterType<IProcess, ShrinkImage>("ShrinkImage", new PerThreadLifetimeManager());
-			// register generate file name classes
-			container.RegisterType<IFilenameProvider, ThumbnailFileName>("ThumbFileName", new PerThreadLifetimeManager());
-			container.RegisterType<IFilenameProvider, ProcessedFileName>("NormalFileName", new PerThreadLifetimeManager());
-			container.RegisterType<IFilenameProvider, BatchRenamedFileName>("BatchRenamedFileName",
-				new PerThreadLifetimeManager(),
-				new InjectionConstructor(imageIndex));
-			// register save image classes
-			container.RegisterType<ISaveImage, SaveNormalImage>("SaveNormalImage", new PerThreadLifetimeManager());
-			container.RegisterType<ISaveImage, SaveCompressedJPGImage>("SaveCompressedJpgImage",
-				new PerThreadLifetimeManager(),
-				new InjectionConstructor(ps.JpgCompressionRatio));*/
-
 			if (stopFlag) {
 				// stop requested, signal
 				System.Diagnostics.Debug.WriteLine("Thread " + index + " is set because stop requested.");
@@ -165,7 +148,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 				return;
 			} else {
 				Image normalImage = null;
-				Image thumb = null;
+				Image thumbImage = null;
 				try {
 					using (Stream stream = File.OpenRead(imagePath)) {
 						normalImage = Image.FromStream(stream);
@@ -179,7 +162,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 					// thumbnail operation
 					if (ps.ThumbnailSetting.GenerateThumbnail && ps.ThumbnailSetting.ThumbnailSize > 0) {
 						process = container.Resolve<IProcess>("ThumbImage");
-						thumb = process.ProcessImage(normalImage, ps);
+						thumbImage = process.ProcessImage(normalImage, ps);
 					}
 
 					// shrink image operation
@@ -192,7 +175,6 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 					if (ps.ProcessType != ImageProcessType.None) {
 						switch (ps.ProcessType) {
 							case ImageProcessType.GrayScale:
-								
 								process = container.Resolve<IProcess>("GrayscaleEffect");
 								normalImage = process.ProcessImage(normalImage, null);
 								break;
@@ -209,6 +191,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 					if (!string.IsNullOrEmpty(ps.Watermark.WatermarkText)
 						&& ps.Watermark.WatermarkTextColor.A > 0) {
 						process = container.Resolve<IProcess>("WatermarkText");
+						process.ImageFileName = imagePath;
 						normalImage = process.ProcessImage(normalImage, this.ps);
 					}
 
@@ -218,7 +201,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 						&& ps.Watermark.WatermarkImageOpacity > 0) {
 						process = container.Resolve<IProcess>("WatermarkImage");
 						normalImage = process.ProcessImage(normalImage, this.ps);
-						normalImage = process.ProcessImage(normalImage, this.ps);
+						//normalImage = process.ProcessImage(normalImage, this.ps);
 					}
 
 					// border operation
@@ -250,10 +233,10 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 					}
 					saveImage(imagePath, normalImage, format, fileNameProvider, imageSaver, imageIndex);
 
-					// TODO think about applying thumb file name to batch renamed original file
+					// TODO think about applying thumbImage file name to batch renamed original file
 					fileNameProvider = container.Resolve<IFilenameProvider>("ThumbFileName");
 					//fileNameProvider.ImageIndex = imageIndex;
-					saveImage(imagePath, thumb, format, fileNameProvider, imageSaver, imageIndex);
+					saveImage(imagePath, thumbImage, format, fileNameProvider, imageSaver, imageIndex);
 				} catch (Exception ex) {
 					if (this.enableDebug) {
 						string logFile = Formatter.FormalizeFolderName(Directory.GetCurrentDirectory()) + @"logs\SeaTurtle_Error.log";
@@ -265,9 +248,9 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 					normalImage.Dispose();
 					normalImage = null;
 
-					if (thumb != null) {
-						thumb.Dispose();
-						thumb = null;
+					if (thumbImage != null) {
+						thumbImage.Dispose();
+						thumbImage = null;
 					}
 
 					ImageProcessedEventArgs args = new ImageProcessedEventArgs(imagePath);

@@ -33,7 +33,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 			this.View.ProcessImage += new ProcessThreadNumberEventHandler(view_ProcessImage);
 			this.View.StopProcessing += new EventHandler(view_StopProcessing);
 
-			//this.View.ExifTag = getExifTags();
+			this.View.ExifTag = getExifTagDisplayNames();
 
 			this.View.PS = ps;
 		}
@@ -58,7 +58,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 			this.View.ErrorMessages = messages;
 		}
 
-		private Dictionary<string, string> getExifTags() {
+		private Dictionary<string, string> getExifTagDisplayNames() {
 			Dictionary<string, string> tags = new Dictionary<string, string>();
 			PropertyInfo[] pi = typeof(ExifMetadata).GetProperties();
 			for (int i = 0; i < pi.Length; i++) {
@@ -158,10 +158,19 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 			} else {
 				this.processing = true;
 
+				System.Diagnostics.Debug.WriteLine("Current Thread: "
+					+ Thread.CurrentThread.ManagedThreadId
+					+ " Culture: "
+					+ Thread.CurrentThread.CurrentCulture.ToString()
+					+ " before processing.");
+
 				// we need to use WaitAll to be notified all jobs from all threads are done,
 				// WaitAll will block the current thread, I don't want it happen to main thread,
 				// that is the reason we create another thread instead.
 				Thread controlThread = new Thread(new ParameterizedThreadStart(engineController));
+				// in the situation to use command line to load different culture other than OS' current one,
+				// the default culture of new thread will be from OS. We should overwrite it from main thread.
+				controlThread.CurrentCulture = Thread.CurrentThread.CurrentCulture;
 				controlThread.Start(e.ThreadNumber);
 			}
 		}

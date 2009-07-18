@@ -10,7 +10,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 	/// </summary>
 	public class ExifContainerItem {
 		/// <summary>
-		/// Label of the Exif item.
+		/// Display/Localized Label of the Exif item.
 		/// </summary>
 		public string DisplayLabel {
 			get;
@@ -38,6 +38,22 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 		/// Display value of Exif item.
 		/// </summary>
 		public string DisplayValue {
+			get;
+			set;
+		}
+
+		/// <summary>
+		/// Exif tag value.
+		/// </summary>
+		public string ExifTag {
+			get;
+			set;
+		}
+
+		/// <summary>
+		/// If the Exif item is an Enum value, get all the resource key to display value translation.
+		/// </summary>
+		public Dictionary<string, string> EnumValueTranslation {
 			get;
 			set;
 		}

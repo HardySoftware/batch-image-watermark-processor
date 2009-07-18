@@ -24,7 +24,6 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 	/// Interaction logic for MainInterfaceControl.xaml
 	/// </summary>
 	public partial class MainInterfaceControl : System.Windows.Controls.UserControl, IMainInterfaceControlView {
-		// TODO add watermark text macro from EXIF feature
 		// TODO add more option to "Output" tab to select file format for processed files. Something like batch convert.
 		// TODO in image file list add a new column to include button to remove image from list
 		// TODO convert "image effect" into add-ins and open programming interface
@@ -296,7 +295,7 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 			}
 		}
 
-		/*public Dictionary<string, string> ExifTag {
+		public Dictionary<string, string> ExifTag {
 			set {
 				Dictionary<string, string> translatedTags = new Dictionary<string, string>();
 				translatedTags.Add("", res.LanguageContent.Enum_None);
@@ -310,11 +309,16 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 				cmbExifTag.ItemsSource = translatedTags;
 				cmbExifTag.SelectedIndex = 0;
 			}
-		}*/
+		}
 
 		public List<ExifContainerItem> ExifContainer {
 			get {
-				return Utilities.GetExifContainer();
+				System.Diagnostics.Debug.WriteLine("Current Thread: "
+					+ Thread.CurrentThread.ManagedThreadId
+					+ " Culture: "
+					+ Thread.CurrentThread.CurrentCulture.ToString()
+					+ " in main UI.");
+				return Utilities.GetExifContainer(true);
 			}
 		}
 

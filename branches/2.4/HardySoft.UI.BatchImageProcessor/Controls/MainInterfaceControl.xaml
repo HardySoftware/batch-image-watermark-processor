@@ -227,8 +227,14 @@
 												<TextBlock.ToolTip>
 													<ToolTip StaysOpen="True">
 														<Grid ShowGridLines="False">
+															<Grid.RowDefinitions>
+																<!-- thumbnail and Exif information -->
+																<RowDefinition></RowDefinition>
+																<!-- Complete file name -->
+																<RowDefinition></RowDefinition>
+															</Grid.RowDefinitions>
 															<Grid.ColumnDefinitions>
-																<!-- thumb nail column -->
+																<!-- thumbnail column -->
 																<ColumnDefinition></ColumnDefinition>
 																<!-- blank line to separate image and exif -->
 																<ColumnDefinition Width="10"></ColumnDefinition>
@@ -251,6 +257,7 @@
 																	<Image Source="{Binding Path=PhotoPath, Converter={StaticResource cnvPath2Thumb}}" />
 																</Border>
 															</Grid>
+
 															<ListView x:Name="lvExifInfo" Grid.Column="2" Grid.Row="0"
 																ItemsSource="{Binding Path=PhotoPath, Converter={StaticResource cnvExif}}">
 																<ListView.View>
@@ -261,6 +268,10 @@
 																	</GridView>
 																</ListView.View>
 															</ListView>
+															
+															<TextBlock x:Name="tbFullImagePath" TextAlignment="Left" 
+																Text="{Binding Path=PhotoPath}" TextWrapping="WrapWithOverflow" MaxWidth="300"
+																Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3"></TextBlock>
 														</Grid>
 													</ToolTip>
 												</TextBlock.ToolTip>
