@@ -763,11 +763,110 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Full Date/time pattern (long time).
+        /// </summary>
+        internal static string Label_DatePattern_FullDatetimeLongTimePattern {
+            get {
+                return ResourceManager.GetString("Label_DatePattern_FullDatetimeLongTimePattern", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Full Date/time pattern (short time).
+        /// </summary>
+        internal static string Label_DatePattern_FullDatetimeShortTimePattern {
+            get {
+                return ResourceManager.GetString("Label_DatePattern_FullDatetimeShortTimePattern", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to General Date/time pattern (long time).
+        /// </summary>
+        internal static string Label_DatePattern_GeneralDatetimeLongTimePattern {
+            get {
+                return ResourceManager.GetString("Label_DatePattern_GeneralDatetimeLongTimePattern", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to General Date/time pattern (short time).
+        /// </summary>
+        internal static string Label_DatePattern_GeneralDatetimeShortTimePattern {
+            get {
+                return ResourceManager.GetString("Label_DatePattern_GeneralDatetimeShortTimePattern", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Long date pattern.
+        /// </summary>
+        internal static string Label_DatePattern_LongDatePattern {
+            get {
+                return ResourceManager.GetString("Label_DatePattern_LongDatePattern", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Long time pattern.
+        /// </summary>
+        internal static string Label_DatePattern_LongTimePattern {
+            get {
+                return ResourceManager.GetString("Label_DatePattern_LongTimePattern", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Month day pattern.
+        /// </summary>
+        internal static string Label_DatePattern_MonthDayPattern {
+            get {
+                return ResourceManager.GetString("Label_DatePattern_MonthDayPattern", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Short date pattern.
+        /// </summary>
+        internal static string Label_DatePattern_ShortDatePattern {
+            get {
+                return ResourceManager.GetString("Label_DatePattern_ShortDatePattern", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Short time pattern.
+        /// </summary>
+        internal static string Label_DatePattern_ShortTimePattern {
+            get {
+                return ResourceManager.GetString("Label_DatePattern_ShortTimePattern", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Year month pattern.
+        /// </summary>
+        internal static string Label_DatePattern_YearMonthPattern {
+            get {
+                return ResourceManager.GetString("Label_DatePattern_YearMonthPattern", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Date Taken.
         /// </summary>
         internal static string Label_DateTaken {
             get {
                 return ResourceManager.GetString("Label_DateTaken", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date Time Format.
+        /// </summary>
+        internal static string Label_DateTimeFormat {
+            get {
+                return ResourceManager.GetString("Label_DateTimeFormat", resourceCulture);
             }
         }
         

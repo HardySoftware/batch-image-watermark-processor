@@ -231,4 +231,7 @@
   <data name="WatermarkImageOpacity" xml:space="preserve">
     <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimHei" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;水印图形透明度&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;如果您想把水印图形作为半透明状态放置到被处理图形中，那么您可以在这里设置透明度数值。透明度最大是1.0表明完全不透明，最小是0.0表明彻底透明。&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;如果透明度被设定为0.0的话，程序将忽略添加水印图片的步骤。&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
   </data>
+  <data name="PreferenceDateTimeFormat" xml:space="preserve">
+    <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimHei" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;时间日期格式&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimHei" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;如果打算将Exif宏内的时间日期内容（比如照片拍摄日期等）从输出到水印文字中的话这是用来定义Exif宏内的时间日期格式。&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
+  </data>
 </root>
