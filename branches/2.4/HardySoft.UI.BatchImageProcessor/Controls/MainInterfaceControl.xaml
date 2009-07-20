@@ -445,7 +445,7 @@
 							</Grid>
 						</Expander>
 						<Expander Header="{HSMarks:ResourceExtension Label_WatermarkText}">
-							<Grid ShowGridLines="True">
+							<Grid ShowGridLines="False">
 								<Grid.ColumnDefinitions>
 									<ColumnDefinition Width="auto" SharedSizeGroup="TextLabel"></ColumnDefinition>
 									<ColumnDefinition Width="*"></ColumnDefinition>
@@ -480,7 +480,8 @@
 									Text="{HSMarks:ResourceExtension Label_ExifMacro}" />
 
 									<ComboBox x:Name="cmbExifTag" HorizontalContentAlignment="Stretch"
-										IsEnabled="{Binding ElementName=txtWatermarkText, Path=IsFocused}">
+										IsEnabled="{Binding ElementName=txtWatermarkText, Path=IsFocused}"
+										Margin="10,0,0,0">
 										<ComboBox.ItemTemplate>
 											<DataTemplate>
 												<TextBlock Text="{Binding Path=Value}"/>
@@ -492,6 +493,7 @@
 										Click="btnInsertExifTag_Click"
 										Style="{StaticResource GlassButton}"
 										Content="{HSMarks:ResourceExtension Button_InsertExifTag}"
+										Margin="10,0,0,0"
 										IsEnabled="{Binding ElementName=txtWatermarkText, Path=IsFocused}" />
 								</ToolBar>
 

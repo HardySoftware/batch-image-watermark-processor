@@ -694,4 +694,37 @@
   <data name="Validation_SourceDestFolderSame" xml:space="preserve">
     <value>源文件夹不能和目标文件夹相同。</value>
   </data>
+  <data name="Label_DateTimeFormat" xml:space="preserve">
+    <value>时间日期格式</value>
+  </data>
+  <data name="Label_DatePattern_FullDatetimeLongTimePattern" xml:space="preserve">
+    <value>完整日期和时间（长日期和长时间）</value>
+  </data>
+  <data name="Label_DatePattern_FullDatetimeShortTimePattern" xml:space="preserve">
+    <value>完整日期和时间（长日期和短时间）</value>
+  </data>
+  <data name="Label_DatePattern_GeneralDatetimeLongTimePattern" xml:space="preserve">
+    <value>常规（短日期和长时间）</value>
+  </data>
+  <data name="Label_DatePattern_GeneralDatetimeShortTimePattern" xml:space="preserve">
+    <value>常规（短日期和短时间）</value>
+  </data>
+  <data name="Label_DatePattern_LongDatePattern" xml:space="preserve">
+    <value>长日期格式</value>
+  </data>
+  <data name="Label_DatePattern_LongTimePattern" xml:space="preserve">
+    <value>长时间格式</value>
+  </data>
+  <data name="Label_DatePattern_MonthDayPattern" xml:space="preserve">
+    <value>月份、日期格式</value>
+  </data>
+  <data name="Label_DatePattern_ShortDatePattern" xml:space="preserve">
+    <value>短日期格式</value>
+  </data>
+  <data name="Label_DatePattern_ShortTimePattern" xml:space="preserve">
+    <value>短时间格式</value>
+  </data>
+  <data name="Label_DatePattern_YearMonthPattern" xml:space="preserve">
+    <value>年、月格式</value>
+  </data>
 </root>

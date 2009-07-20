@@ -705,4 +705,37 @@
   <data name="Validation_SourceDestFolderSame" xml:space="preserve">
     <value>Source directory and output directory cannot be same.</value>
   </data>
+  <data name="Label_DateTimeFormat" xml:space="preserve">
+    <value>Date Time Format</value>
+  </data>
+  <data name="Label_DatePattern_FullDatetimeLongTimePattern" xml:space="preserve">
+    <value>Full Date/time pattern (long time)</value>
+  </data>
+  <data name="Label_DatePattern_FullDatetimeShortTimePattern" xml:space="preserve">
+    <value>Full Date/time pattern (short time)</value>
+  </data>
+  <data name="Label_DatePattern_GeneralDatetimeLongTimePattern" xml:space="preserve">
+    <value>General Date/time pattern (long time)</value>
+  </data>
+  <data name="Label_DatePattern_GeneralDatetimeShortTimePattern" xml:space="preserve">
+    <value>General Date/time pattern (short time)</value>
+  </data>
+  <data name="Label_DatePattern_LongDatePattern" xml:space="preserve">
+    <value>Long date pattern</value>
+  </data>
+  <data name="Label_DatePattern_LongTimePattern" xml:space="preserve">
+    <value>Long time pattern</value>
+  </data>
+  <data name="Label_DatePattern_MonthDayPattern" xml:space="preserve">
+    <value>Month day pattern</value>
+  </data>
+  <data name="Label_DatePattern_ShortDatePattern" xml:space="preserve">
+    <value>Short date pattern</value>
+  </data>
+  <data name="Label_DatePattern_ShortTimePattern" xml:space="preserve">
+    <value>Short time pattern</value>
+  </data>
+  <data name="Label_DatePattern_YearMonthPattern" xml:space="preserve">
+    <value>Year month pattern</value>
+  </data>
 </root>

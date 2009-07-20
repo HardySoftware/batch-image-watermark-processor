@@ -77,6 +77,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BatchRename.cs" />
+    <Compile Include="DateTimeFormatItem.cs" />
     <Compile Include="DropShadow.cs" />
     <Compile Include="EnumValues.cs" />
     <Compile Include="Exif.cs" />
