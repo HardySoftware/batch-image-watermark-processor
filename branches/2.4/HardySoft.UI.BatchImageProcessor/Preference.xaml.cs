@@ -92,16 +92,13 @@ namespace HardySoft.UI.BatchImageProcessor {
 				this.validDateTimeFormatStrings = value;
 				DateTime d = DateTime.Now;
 
-				List<DateTimeFormatItem> items = new List<DateTimeFormatItem>();
+				Dictionary<string, string> items = new Dictionary<string, string>();
 				foreach (KeyValuePair<string, string> formatString in value) {
 					string displayValue = HardySoft.UI.BatchImageProcessor.Resources.LanguageContent.ResourceManager.GetString(formatString.Value,
 							Thread.CurrentThread.CurrentCulture);
 					displayValue = displayValue + " (" + d.ToString(formatString.Key) + ")";
 					//this.validDateTimeFormatStrings.Add(formatString.Key, displayValue);
-					items.Add(new DateTimeFormatItem() {
-						DateTimeFormatString = formatString.Key,
-						DateTimeFormatDisplay = displayValue
-					});
+					items.Add(formatString.Key, displayValue);
 				}
 
 				//cmbDateTimeFormat.ItemsSource = this.validDateTimeFormatStrings;

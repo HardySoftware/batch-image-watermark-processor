@@ -26,8 +26,10 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 
 		public event ImageProcessedDelegate ImageProcessed;
 
-		public ImageProcessorEngine(ProjectSetting ps, uint threadNumber, AutoResetEvent[] events,
-			bool enableDebug, List<ExifContainerItem> exifContainer) {
+		public ImageProcessorEngine(ProjectSetting ps,
+			uint threadNumber, string dateTimeStringFormat,
+			AutoResetEvent[] events, bool enableDebug,
+			List<ExifContainerItem> exifContainer) {
 			this.ps = ps;
 			this.threadNumber = threadNumber;
 			this.jobQueue = new Queue<JobItem>();
@@ -62,7 +64,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 			container.RegisterType<IProcess, ApplyWatermarkText>("WatermarkText",
 				new PerThreadLifetimeManager(),
 				new InjectionProperty("EnableDebug", this.enableDebug),
-				new InjectionConstructor(exifContainer));
+				new InjectionConstructor(exifContainer, dateTimeStringFormat));
 			container.RegisterType<IProcess, DropShadowImage>("DropShadow",
 				new PerThreadLifetimeManager(),
 				new InjectionProperty("EnableDebug", this.enableDebug));
@@ -101,6 +103,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 
 			for (int i = 0; i < this.threadNumber; i++) {
 				threads[i] = new Thread(new ParameterizedThreadStart(processImage));
+				threads[i].CurrentCulture = Thread.CurrentThread.CurrentCulture;
 				threads[i].Name = i.ToString();
 				threads[i].Start(i);
 			}
@@ -190,6 +193,10 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 					// text watermark operation
 					if (!string.IsNullOrEmpty(ps.Watermark.WatermarkText)
 						&& ps.Watermark.WatermarkTextColor.A > 0) {
+						System.Diagnostics.Debug.WriteLine("Current Thread "
+									+ System.Threading.Thread.CurrentThread.ManagedThreadId + " Culture "
+									+ System.Threading.Thread.CurrentThread.CurrentCulture.ToString()
+									+ " before ApplyWatermarkText.");
 						process = container.Resolve<IProcess>("WatermarkText");
 						process.ImageFileName = imagePath;
 						normalImage = process.ProcessImage(normalImage, this.ps);

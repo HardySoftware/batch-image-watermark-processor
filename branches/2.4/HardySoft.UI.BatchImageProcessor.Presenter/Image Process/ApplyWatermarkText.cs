@@ -15,9 +15,11 @@ using HardySoft.UI.BatchImageProcessor.Model;
 namespace HardySoft.UI.BatchImageProcessor.Presenter {
 	public class ApplyWatermarkText : Watermark {
 		private List<ExifContainerItem> exifContainer;
+		private string dateTimeStringFormat;
 
-		public ApplyWatermarkText(List<ExifContainerItem> exifContainer) {
+		public ApplyWatermarkText(List<ExifContainerItem> exifContainer, string dateTimeStringFormat) {
 			this.exifContainer = exifContainer;
+			this.dateTimeStringFormat = dateTimeStringFormat;
 		}
 
 		// TODO examine to add text to a transparent GIF image still works.
@@ -59,6 +61,19 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 										localizedValue = enumItem.Value;
 										break;
 									}
+								}
+							} else if (tagFound.Property.PropertyType == typeof(DateTime?)) {
+								System.Diagnostics.Debug.WriteLine("Current Thread " 
+									+ System.Threading.Thread.CurrentThread.ManagedThreadId + " Culture "
+									+ System.Threading.Thread.CurrentThread.CurrentCulture.ToString()
+									+ " in ApplyWatermarkText.");
+
+								// date time value, use format string defined in preference window to overwrite
+								DateTime? d = (DateTime?)propertyValue;
+								if (d.HasValue) {
+									localizedValue = d.Value.ToString(this.dateTimeStringFormat);
+								} else {
+									localizedValue = string.Empty;
 								}
 							} else {
 								localizedValue = propertyValue.ToString();

@@ -164,6 +164,12 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 					+ Thread.CurrentThread.CurrentCulture.ToString()
 					+ " before processing.");
 
+				//e.DateTimeFormat = checkDateTimeFormatString(e.DateTimeFormat
+				BehaviorSetting bs = new BehaviorSetting() {
+					ThreadNumber = e.ThreadNumber,
+					DateTimeFormatString = checkDateTimeFormatString(e.DateTimeFormat, getDateTimeFormatStrings())
+				};
+
 				// we need to use WaitAll to be notified all jobs from all threads are done,
 				// WaitAll will block the current thread, I don't want it happen to main thread,
 				// that is the reason we create another thread instead.
@@ -171,19 +177,31 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 				// in the situation to use command line to load different culture other than OS' current one,
 				// the default culture of new thread will be from OS. We should overwrite it from main thread.
 				controlThread.CurrentCulture = Thread.CurrentThread.CurrentCulture;
-				controlThread.Start(e.ThreadNumber);
+				controlThread.Start(bs);
 			}
 		}
 
+		private string checkDateTimeFormatString(string format, Dictionary<string, string> validDateTimeFormatStrings) {
+			foreach (KeyValuePair<string, string> validDateTimeFormatString in validDateTimeFormatStrings) {
+				if (string.Compare(format, validDateTimeFormatString.Key, false) == 0) {
+					return format;
+				}
+			}
+
+			// this is the default value.
+			return "d";
+		}
+
 		private void engineController(object state) {
-			uint threadNumber = (uint)state;
+			BehaviorSetting bs = (BehaviorSetting)state;
+			uint threadNumber = bs.ThreadNumber;
 			AutoResetEvent[] events = new AutoResetEvent[threadNumber];
 			for (int i = 0; i < events.Length; i++) {
 				events[i] = new AutoResetEvent(false);
 			}
 
-			engine = new ImageProcessorEngine(this.ps, threadNumber, events,
-				View.HiddenConfig.EnableDebug, View.ExifContainer);
+			engine = new ImageProcessorEngine(this.ps, threadNumber, bs.DateTimeFormatString,
+				events, View.HiddenConfig.EnableDebug, View.ExifContainer);
 
 			View.ResetJobSize(engine.JobSize);
 
