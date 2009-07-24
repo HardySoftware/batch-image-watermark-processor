@@ -581,7 +581,7 @@
     <value>风景模式</value>
   </data>
   <data name="Enum_LowSpeedMode" xml:space="preserve">
-    <value>低俗模式</value>
+    <value>低速模式</value>
   </data>
   <data name="Enum_Manual" xml:space="preserve">
     <value>手动</value>
