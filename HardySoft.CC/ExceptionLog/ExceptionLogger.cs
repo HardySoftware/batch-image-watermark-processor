@@ -22,6 +22,7 @@ namespace HardySoft.CC.ExceptionLog {
 
 			int counter = 0;
 
+			// TODO nest inner exception checking
 			foreach (PropertyInfo p in publicProperties) {
 				KeyValuePairItem item = new KeyValuePairItem();
 				if (p.Name == null) {

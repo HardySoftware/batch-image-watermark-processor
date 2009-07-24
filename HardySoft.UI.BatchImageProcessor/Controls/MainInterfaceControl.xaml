@@ -227,8 +227,14 @@
 												<TextBlock.ToolTip>
 													<ToolTip StaysOpen="True">
 														<Grid ShowGridLines="False">
+															<Grid.RowDefinitions>
+																<!-- thumbnail and Exif information -->
+																<RowDefinition></RowDefinition>
+																<!-- Complete file name -->
+																<RowDefinition></RowDefinition>
+															</Grid.RowDefinitions>
 															<Grid.ColumnDefinitions>
-																<!-- thumb nail column -->
+																<!-- thumbnail column -->
 																<ColumnDefinition></ColumnDefinition>
 																<!-- blank line to separate image and exif -->
 																<ColumnDefinition Width="10"></ColumnDefinition>
@@ -251,6 +257,7 @@
 																	<Image Source="{Binding Path=PhotoPath, Converter={StaticResource cnvPath2Thumb}}" />
 																</Border>
 															</Grid>
+
 															<ListView x:Name="lvExifInfo" Grid.Column="2" Grid.Row="0"
 																ItemsSource="{Binding Path=PhotoPath, Converter={StaticResource cnvExif}}">
 																<ListView.View>
@@ -261,6 +268,10 @@
 																	</GridView>
 																</ListView.View>
 															</ListView>
+															
+															<TextBlock x:Name="tbFullImagePath" TextAlignment="Left" 
+																Text="{Binding Path=PhotoPath}" TextWrapping="WrapWithOverflow" MaxWidth="300"
+																Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3"></TextBlock>
 														</Grid>
 													</ToolTip>
 												</TextBlock.ToolTip>
@@ -450,6 +461,7 @@
 									<RowDefinition Height="*"></RowDefinition>
 									<RowDefinition Height="*"></RowDefinition>
 									<RowDefinition Height="*"></RowDefinition>
+									<RowDefinition Height="*"></RowDefinition>
 								</Grid.RowDefinitions>
 								<StackPanel Grid.Column="0" Grid.Row="0" Margin="0,5,0,0"
 									Orientation="Horizontal" VerticalAlignment="Top">
@@ -459,15 +471,41 @@
 										CommandParameter="WatermarkText"
 										Command="ApplicationCommands.Help" />
 								</StackPanel>
+
+								<ToolBar HorizontalAlignment="Stretch"
+									Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="0" Margin="10,5,0,0">
+									<TextBlock
+									HorizontalAlignment="Left"
+									Style="{StaticResource ConfigSectionLabel}"
+									Text="{HSMarks:ResourceExtension Label_ExifMacro}" />
+
+									<ComboBox x:Name="cmbExifTag" HorizontalContentAlignment="Stretch"
+										IsEnabled="{Binding ElementName=txtWatermarkText, Path=IsFocused}"
+										Margin="10,0,0,0">
+										<ComboBox.ItemTemplate>
+											<DataTemplate>
+												<TextBlock Text="{Binding Path=Value}"/>
+											</DataTemplate>
+										</ComboBox.ItemTemplate>
+									</ComboBox>
+
+									<Button x:Name="btnInsertExifTag"
+										Click="btnInsertExifTag_Click"
+										Style="{StaticResource GlassButton}"
+										Content="{HSMarks:ResourceExtension Button_InsertExifTag}"
+										Margin="10,0,0,0"
+										IsEnabled="{Binding ElementName=txtWatermarkText, Path=IsFocused}" />
+								</ToolBar>
+
 								<TextBox x:Name="txtWatermarkText"
 									Margin="10,5,0,5" SpellCheck.IsEnabled="True"
-									Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2"
+									Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"
 									HorizontalAlignment="Stretch" VerticalAlignment="Top"
 									AcceptsReturn="True"
 									Style="{StaticResource cfgTextBox}"
 									Text="{Binding Path=Watermark.WatermarkText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
-								<StackPanel Grid.Column="0" Grid.Row="1" Margin="0,5,0,0" 
+								<StackPanel Grid.Column="0" Grid.Row="2" Margin="0,5,0,0" 
 									Orientation="Horizontal" VerticalAlignment="Top">
 									<TextBlock Style="{StaticResource ConfigSectionLabel}"
 										Text="{HSMarks:ResourceExtension Label_WatermarkTextFont}" />
@@ -477,7 +515,7 @@
 								</StackPanel>
 								<TextBox x:Name="txtWatermarkTextFont"
 									Margin="10,5,0,5"
-									Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"
+									Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2"
 									HorizontalAlignment="Stretch" VerticalAlignment="Top"
 									Style="{StaticResource cfgTextBox}"
 									Text="{Binding Path=Watermark.WatermarkTextFontName, Mode=OneWay}"
@@ -485,10 +523,10 @@
 								<Button x:Name="btnWatermarkTextFontPicker"
 									Margin="10,5,0,0"
 									Style="{StaticResource GlassButton}"
-									Grid.Column="3" Grid.Row="1" Click="btnWatermarkTextFontPicker_Click"
+									Grid.Column="3" Grid.Row="2" Click="btnWatermarkTextFontPicker_Click"
 									Content="{HSMarks:ResourceExtension Button_Font}" />
 
-								<StackPanel Grid.Column="0" Grid.Row="2" Margin="0,5,0,0" 
+								<StackPanel Grid.Column="0" Grid.Row="3" Margin="0,5,0,0" 
 									Orientation="Horizontal" VerticalAlignment="Top">
 									<TextBlock Style="{StaticResource ConfigSectionLabel}"
 										Text="{HSMarks:ResourceExtension Label_WatermarkTextColor}" />
@@ -496,7 +534,7 @@
 										CommandParameter="WatermarkTextColor"
 										Command="ApplicationCommands.Help" />
 								</StackPanel>
-								<StackPanel Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2"
+								<StackPanel Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2"
 									Margin="10,5,0,0"
 									Orientation="Horizontal" VerticalAlignment="Top">
 									<Button x:Name="btnWatermarkTextColorPicker" Background="Transparent"
@@ -512,8 +550,8 @@
 									<TextBlock x:Name="WatermarkTextColor" Margin="10,0,0,0"
 										Text="{Binding Path=Watermark.WatermarkTextColor, Mode=OneWay, Converter={StaticResource cnvColorValue}}" />
 								</StackPanel>
-								
-								<StackPanel Grid.Column="0" Grid.Row="3" Margin="0,5,0,0"
+
+								<StackPanel Grid.Column="0" Grid.Row="4" Margin="0,5,0,0"
 									Orientation="Horizontal" VerticalAlignment="Top">
 									<TextBlock Style="{StaticResource ConfigSectionLabel}"
 										Text="{HSMarks:ResourceExtension Label_WatermarkTextLayout}" />
@@ -527,7 +565,7 @@
 									Grid.Column="1" Grid.Row="2">
 								</ComboBox>-->
 								
-								<StackPanel Grid.Column="1" Grid.Row="3" Margin="10,5,0,0"
+								<StackPanel Grid.Column="1" Grid.Row="4" Margin="10,5,0,0"
 									Orientation="Horizontal" VerticalAlignment="Top">
 									<TextBlock Style="{StaticResource ConfigSectionLabel}"
 										Text="{HSMarks:ResourceExtension Label_WatermarkTextPosition}" />
@@ -536,7 +574,7 @@
 										Command="ApplicationCommands.Help" />
 								</StackPanel>
 								
-								<StackPanel Grid.Column="2" Grid.Row="3" Margin="10,5,0,0"
+								<StackPanel Grid.Column="2" Grid.Row="4" Margin="10,5,0,0"
 									Orientation="Horizontal" VerticalAlignment="Top">
 									<TextBlock Style="{StaticResource ConfigSectionLabel}"
 										Text="{HSMarks:ResourceExtension Label_WatermarkTextRotationAngle}" />
@@ -546,13 +584,13 @@
 								</StackPanel>
 								
 								<HSCtrl:PositionPicker Margin="10,5,0,0" VerticalAlignment="Top"
-									Grid.Column="1" Grid.Row="4" Grid.RowSpan="3"
+									Grid.Column="1" Grid.Row="5" Grid.RowSpan="3"
 									HorizontalAlignment="Left" Height="50" Width="100"
 									SelectedPosition="{Binding Path=Watermark.WatermarkTextPosition, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 									CornerOnly="False">
 								</HSCtrl:PositionPicker>
-								
-								<StackPanel Grid.Column="2" Grid.Row="4" Grid.ColumnSpan="2" Margin="10,5,0,0"
+
+								<StackPanel Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="2" Margin="10,5,0,0"
 									Orientation="Horizontal">
 									<Slider x:Name="TextRotateAngleSlider"
 										Value="{Binding Path=Watermark.WatermarkTextRotateAngle,
@@ -565,10 +603,8 @@
 									<TextBlock Text="{HSMarks:ResourceExtension Label_Degree}"
 										Margin="10,0,0,0" />
 								</StackPanel>
-								
-								
-								
-								<StackPanel Grid.Column="2" Grid.Row="5" Margin="10,5,0,0"
+
+								<StackPanel Grid.Column="2" Grid.Row="6" Margin="10,5,0,0"
 									Orientation="Horizontal" VerticalAlignment="Top">
 									<TextBlock Style="{StaticResource ConfigSectionLabel}"
 										Text="{HSMarks:ResourceExtension Label_WatermarkTextAlignment}" />
@@ -576,8 +612,8 @@
 										CommandParameter="WatermarkTextAlignment"
 										Command="ApplicationCommands.Help" />
 								</StackPanel>
-								
-								<StackPanel Grid.Column="2" Grid.Row="6" Margin="10,5,0,0" Orientation="Horizontal">
+
+								<StackPanel Grid.Column="2" Grid.Row="7" Margin="10,5,0,0" Orientation="Horizontal">
 									<ToggleButton Style="{StaticResource NormalToggleButton}"
 										IsChecked="{Binding Path=Watermark.WatermarkTextAlignment, Mode=TwoWay,
 										UpdateSourceTrigger=PropertyChanged, Converter={StaticResource cnvAlignment},
@@ -612,8 +648,8 @@
 										</ToggleButton.Content>
 									</ToggleButton>
 								</StackPanel>
-								
-								<StackPanel Grid.Column="0" Grid.Row="7" Margin="0,5,0,0"
+
+								<StackPanel Grid.Column="0" Grid.Row="8" Margin="0,5,0,0"
 									Orientation="Horizontal" VerticalAlignment="Top">
 									<TextBlock Style="{StaticResource ConfigSectionLabel}"
 										Text="{HSMarks:ResourceExtension Label_WatermarkTextPreview}" />
@@ -621,9 +657,9 @@
 										CommandParameter="WatermarkTextPreview"
 										Command="ApplicationCommands.Help" />
 								</StackPanel>
-								
+
 								<HSCtrl:BindableRichTextBox IsReadOnly="True"
-									Grid.Column="1" Grid.Row="7" Grid.ColumnSpan="2" Margin="10,5,0,0"
+									Grid.Column="1" Grid.Row="8" Grid.ColumnSpan="2" Margin="10,5,0,0"
 									HorizontalAlignment="Left"
 									Background="Transparent" MinWidth="1">
 									<HSCtrl:BindableRichTextBox.Document>

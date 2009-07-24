@@ -1,16 +1,15 @@
 using System;
 using System.Collections.Generic;
-/*using System.Linq;
-using System.Text;*/
+using System.IO;
+using System.Reflection;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.IO;
 using System.Threading;
 
-using Microsoft.Practices.EnterpriseLibrary.Validation;
-
-using HardySoft.UI.BatchImageProcessor.View;
 using HardySoft.UI.BatchImageProcessor.Model;
+using HardySoft.UI.BatchImageProcessor.View;
+
+using Microsoft.Practices.EnterpriseLibrary.Validation;
 
 namespace HardySoft.UI.BatchImageProcessor.Presenter {
 	public class MainControl_Presenter : Presenter<IMainInterfaceControlView> {
@@ -34,6 +33,8 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 			this.View.ProcessImage += new ProcessThreadNumberEventHandler(view_ProcessImage);
 			this.View.StopProcessing += new EventHandler(view_StopProcessing);
 
+			this.View.ExifTag = getExifTagDisplayNames();
+
 			this.View.PS = ps;
 		}
 
@@ -55,6 +56,26 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 
 		public void SetErrorMessage(string[] messages) {
 			this.View.ErrorMessages = messages;
+		}
+
+		private Dictionary<string, string> getExifTagDisplayNames() {
+			Dictionary<string, string> tags = new Dictionary<string, string>();
+			PropertyInfo[] pi = typeof(ExifMetadata).GetProperties();
+			for (int i = 0; i < pi.Length; i++) {
+				object[] attr = pi[i].GetCustomAttributes(true);
+
+				for (int j = 0; j < attr.Length; j++) {
+					if (attr[j] is ExifDisplayAttribute) {
+						ExifDisplayAttribute exifAttri = (ExifDisplayAttribute)attr[j];
+
+						string displayName = exifAttri.DisplayName;
+						string propertyName = pi[i].Name;
+						tags.Add(propertyName, displayName);
+					}
+				}
+			}
+
+			return tags;
 		}
 
 		void view_OpenProject(object sender, ProjectWithFileNameEventArgs e) {
@@ -117,33 +138,70 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 
 		void view_ProcessImage(object sender, ProcessThreadNumberEventArgs e) {
 			ValidationResults results = Validation.Validate<ProjectSetting>(ps);
+			results.AddAllResults(Validation.Validate<ImageBorder>(ps.BorderSetting));
+			results.AddAllResults(Validation.Validate<HardySoft.UI.BatchImageProcessor.Model.Watermark>(ps.Watermark));
+			List<string> validationMessages = new List<string>();
 			if (!results.IsValid) {
-				List<string> exceptions = new List<string>();
 				foreach (ValidationResult vr in results) {
-					exceptions.Add(vr.Message);
+					if (vr.Tag == "Warning") {
+						if (!View.DisplayWarning(vr.Message)) {
+							validationMessages.Add(vr.Message);
+						}
+					} else {
+						validationMessages.Add(vr.Message);
+					}
 				}
+			}
 
-				SetErrorMessage(exceptions.ToArray());
+			if (validationMessages.Count > 0) {
+				SetErrorMessage(validationMessages.ToArray());
 			} else {
 				this.processing = true;
+
+				System.Diagnostics.Debug.WriteLine("Current Thread: "
+					+ Thread.CurrentThread.ManagedThreadId
+					+ " Culture: "
+					+ Thread.CurrentThread.CurrentCulture.ToString()
+					+ " before processing.");
+
+				//e.DateTimeFormat = checkDateTimeFormatString(e.DateTimeFormat
+				BehaviorSetting bs = new BehaviorSetting() {
+					ThreadNumber = e.ThreadNumber,
+					DateTimeFormatString = checkDateTimeFormatString(e.DateTimeFormat, getDateTimeFormatStrings())
+				};
 
 				// we need to use WaitAll to be notified all jobs from all threads are done,
 				// WaitAll will block the current thread, I don't want it happen to main thread,
 				// that is the reason we create another thread instead.
 				Thread controlThread = new Thread(new ParameterizedThreadStart(engineController));
-				controlThread.Start(e.ThreadNumber);
+				// in the situation to use command line to load different culture other than OS' current one,
+				// the default culture of new thread will be from OS. We should overwrite it from main thread.
+				controlThread.CurrentCulture = Thread.CurrentThread.CurrentCulture;
+				controlThread.Start(bs);
 			}
 		}
 
+		private string checkDateTimeFormatString(string format, Dictionary<string, string> validDateTimeFormatStrings) {
+			foreach (KeyValuePair<string, string> validDateTimeFormatString in validDateTimeFormatStrings) {
+				if (string.Compare(format, validDateTimeFormatString.Key, false) == 0) {
+					return format;
+				}
+			}
+
+			// this is the default value.
+			return "d";
+		}
+
 		private void engineController(object state) {
-			uint threadNumber = (uint)state;
+			BehaviorSetting bs = (BehaviorSetting)state;
+			uint threadNumber = bs.ThreadNumber;
 			AutoResetEvent[] events = new AutoResetEvent[threadNumber];
 			for (int i = 0; i < events.Length; i++) {
 				events[i] = new AutoResetEvent(false);
 			}
 
-			engine = new ImageProcessorEngine(this.ps, threadNumber, events,
-				View.HiddenConfig.EnableDebug);
+			engine = new ImageProcessorEngine(this.ps, threadNumber, bs.DateTimeFormatString,
+				events, View.HiddenConfig.EnableDebug, View.ExifContainer);
 
 			View.ResetJobSize(engine.JobSize);
 

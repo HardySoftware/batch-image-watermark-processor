@@ -29,8 +29,9 @@
 					<ColumnDefinition Width="2*" />
 				</Grid.ColumnDefinitions>
 				<Grid.RowDefinitions>
-					<RowDefinition Height="auto" />
-					<RowDefinition Height="auto" />
+					<RowDefinition Height="auto" MinHeight="22" />
+					<RowDefinition Height="auto" MinHeight="17" />
+					<RowDefinition Height="auto" MinHeight="17" />
 				</Grid.RowDefinitions>
 
 				<StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal">
@@ -42,14 +43,12 @@
 				</StackPanel>
 
 				<ComboBox x:Name="cmbAppSkin"
-					Margin="10,0,0,0"
-					HorizontalAlignment="Stretch"
-					VerticalAlignment="Stretch"
+					Margin="9,0,1,0" VerticalAlignment="Top"
 					ItemsSource="{Binding Source={StaticResource ApplicationSkinData}}"
 					SelectedItem="{Binding Path=ApplicationSkin, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-					Grid.Column="1" Grid.Row="0" />
+					Grid.Column="1" Height="22" />
 
-				<StackPanel Grid.Column="0" Grid.Row="2" Orientation="Horizontal">
+				<StackPanel Grid.Column="0" Grid.Row="1" Orientation="Horizontal">
 					<TextBlock VerticalAlignment="Top"
 						Margin="10, 0, 10, 0"
 						Style="{StaticResource AboutWindowLabel}"
@@ -71,6 +70,22 @@
 						Style="{StaticResource AboutWindowText}"
 						Margin="10,0,0,0" VerticalAlignment="Center" />
 				</StackPanel>
+				
+				<StackPanel Grid.Column="0" Grid.Row="2" Orientation="Horizontal">
+					<TextBlock VerticalAlignment="Top"
+						Margin="10, 0, 10, 0"
+						Style="{StaticResource AboutWindowLabel}"
+						Text="{HSMarks:ResourceExtension Label_DateTimeFormat}" />
+					<Button Style="{StaticResource HelpButton}"
+						CommandParameter="PreferenceDateTimeFormat"
+						Command="ApplicationCommands.Help" />
+				</StackPanel>
+				
+				<ComboBox x:Name="cmbDateTimeFormat"
+					Margin="9,0,1,0" VerticalAlignment="Top"
+					SelectedValue="{Binding Path=DateTimeFormatString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+					Grid.Column="1" Grid.Row="2" Height="22"
+					SelectedValuePath="Key" DisplayMemberPath="Value" />
 			</Grid>
 
 			<StackPanel Grid.Row="2"
@@ -79,13 +94,11 @@
 				<Button x:Name="btnSave" HorizontalAlignment="Right"
 					Margin="0, 10, 10, 0"
 					Click="btnSave_Click"
-					Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="3"
 					Style="{StaticResource GlassButton}"
 					Content="{HSMarks:ResourceExtension Button_Save}" />
 				<Button x:Name="btnCancel" HorizontalAlignment="Right"
 					Margin="0, 10, 10, 0"
 					Click="btnCancel_Click"
-					Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="3"
 					Style="{StaticResource GlassButton}"
 					Content="{HSMarks:ResourceExtension Button_Cancel}" />
 			</StackPanel>

@@ -10,19 +10,19 @@
   <Interface Name="HardySoft.UI.BatchImageProcessor.View.IMainInterfaceControlView">
     <Position X="0.5" Y="2" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>CQABAAAACAAEAAAARAACAAAAAgAAAAAAAgABAAAAAAA=</HashCode>
+      <HashCode>CQABAAAECAAEAAAARAACAAAAAgAAAgQAAgABAAAAAAA=</HashCode>
       <FileName>IMainInterfaceControlView.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="HardySoft.UI.BatchImageProcessor.View.IPreference">
+  <Interface Name="HardySoft.UI.BatchImageProcessor.View.IPreferenceView">
     <Position X="3" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAABAAAAEAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>IPreference.cs</FileName>
+      <FileName>IPreferenceView.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Delegate Name="HardySoft.UI.BatchImageProcessor.View.ProjectWithFileNameEventHandler">
-    <Position X="2.75" Y="0.5" Width="2.5" />
+    <Position X="5.5" Y="1.75" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAgAAAAAAAAAAAAAA=</HashCode>
       <FileName>IMainInterfaceControlView.cs</FileName>

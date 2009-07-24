@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Reflection;
 using System.ComponentModel;
+using System.Reflection;
 using System.Threading;
+
+using HardySoft.UI.BatchImageProcessor.Model;
 
 namespace HardySoft.UI.BatchImageProcessor.Classes {
 	class Utilities {
@@ -22,9 +22,10 @@ namespace HardySoft.UI.BatchImageProcessor.Classes {
 		/// <remarks>
 		/// This function is especially useful to display user friendly Enum values.
 		/// </remarks>
-		public static string GetObjectDisplayValue(object objectValue) {
+		public static string GetEnumItemDisplayValue(object objectValue) {
 			FieldInfo fi = objectValue.GetType().GetField(objectValue.ToString());
 
+			// look for Enum member description(resource key) attribute
 			DescriptionAttribute[] attributes =
 				(DescriptionAttribute[])fi.GetCustomAttributes(typeof(DescriptionAttribute), false);
 
@@ -45,6 +46,54 @@ namespace HardySoft.UI.BatchImageProcessor.Classes {
 			} else {
 				return objectValue.ToString();
 			}
+		}
+
+		public static List<ExifContainerItem> GetExifContainer() {
+			return GetExifContainer(false);
+		}
+
+		public static List<ExifContainerItem> GetExifContainer(bool includeEnumValueTranslation) {
+			List<ExifContainerItem> container = new List<ExifContainerItem>();
+
+			Type t = typeof(ExifMetadata);
+			PropertyInfo[] pi = t.GetProperties();
+
+			for (int i = 0; i < pi.Length; i++) {
+				ExifContainerItem containerItem = new ExifContainerItem();
+
+				object[] attr = pi[i].GetCustomAttributes(true);
+
+				for (int j = 0; j < attr.Length; j++) {
+					if (attr[j] is ExifDisplayAttribute) {
+						ExifDisplayAttribute exifAttri = (ExifDisplayAttribute)attr[j];
+
+						string displayName = Resources.LanguageContent.ResourceManager.GetString(exifAttri.DisplayName,
+							Thread.CurrentThread.CurrentCulture);
+						containerItem.DisplayLabel = displayName;
+						containerItem.ValueFormat = Resources.LanguageContent.ResourceManager.GetString(exifAttri.ValueFormat,
+							Thread.CurrentThread.CurrentCulture);
+						containerItem.Property = pi[i];
+						containerItem.ExifTag = pi[i].Name;
+
+						if (includeEnumValueTranslation) {
+							if (pi[i].PropertyType.IsEnum) {
+								containerItem.EnumValueTranslation = new Dictionary<string, string>();
+
+								Array enumValues = Enum.GetValues(pi[i].PropertyType);
+
+								for (int k = 0; k < enumValues.Length; k++) {
+									containerItem.EnumValueTranslation.Add(enumValues.GetValue(k).ToString(),
+										GetEnumItemDisplayValue(enumValues.GetValue(k)));
+								}
+							}
+						}
+
+						container.Add(containerItem);
+					}
+				}
+			}
+
+			return container;
 		}
 	}
 }
