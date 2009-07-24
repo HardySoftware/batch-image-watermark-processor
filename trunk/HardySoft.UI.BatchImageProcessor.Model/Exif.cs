@@ -257,6 +257,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 				}
 			}
 		}*/
+		
 		[ExifDisplay("Label_ExposureTime", "Label_ExifValue_Second")]
 		public string ExposureTime {
 			get {
@@ -272,6 +273,21 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 				}
 			}
 		}
+
+		/*[ExifDisplay("Label_ExposureTime", "Label_ExifValue_Second")]
+		public Fraction ExposureTime {
+			get {
+				object val = queryMetadata("/app1/ifd/exif/subifd:{uint=33434}");
+				if (val != null) {
+					decimal time = parseUnsignedRational((ulong)val);
+					// TODO investigate if all the EXIF decimal or float value has no localized number information.
+					System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("en-us");
+					return new Fraction(time.ToString(), culture.NumberFormat);
+				} else {
+					return null;
+				}
+			}
+		}*/
 
 		[ExifDisplay("Label_ExposureCompensation")]
 		public decimal? ExposureCompensation {
@@ -452,17 +468,16 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 	}
 
 	[AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
-	public class ExifDisplayAttribute : Attribute {
+	public class ExifDisplayAttribute : DisplayAttribute {
 		private string valueFormat;
-		private string displayName;
 
-		public ExifDisplayAttribute(string displayName) {
-			this.displayName = displayName;
+		public ExifDisplayAttribute(string displayName)
+			: base(displayName) {
 			this.valueFormat = "";
 		}
 
-		public ExifDisplayAttribute(string displayName, string valueFormat) {
-			this.displayName = displayName;
+		public ExifDisplayAttribute(string displayName, string valueFormat)
+			: base(displayName) {
 			this.valueFormat = valueFormat;
 		}
 
@@ -471,11 +486,20 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 				return this.valueFormat;
 			}
 		}
+	}
+
+	public class DisplayAttribute : Attribute {
+		protected string displayName;
 
 		public string DisplayName {
 			get {
 				return displayName;
 			}
+		}
+
+		public DisplayAttribute(string displayName)
+			: base() {
+			this.displayName = displayName;
 		}
 	}
 }

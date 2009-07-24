@@ -13,6 +13,11 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 			set;
 		}
 
+		public string ImageFileName {
+			get;
+			set;
+		}
+
 		public abstract Image ProcessImage(Image input, ProjectSetting ps);
 
 		/// <summary>

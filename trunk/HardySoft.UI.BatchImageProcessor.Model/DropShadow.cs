@@ -31,7 +31,8 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 		}
 
 		public DropShadow() {
-			this.backgroundColor = System.Drawing.Color.White;
+			//this.backgroundColor = System.Drawing.Color.White;
+			this.backgroundColor = System.Drawing.Color.FromArgb(255, 200, 200, 200);
 			this.dropShadowColor = System.Drawing.Color.Black;
 			this.shadowLocation = ContentAlignment.BottomRight;
 		}

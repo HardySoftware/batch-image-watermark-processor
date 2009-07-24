@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
-using System.Linq;
-using System.Text;
 using System.ComponentModel;
 using System.IO;
 using System.Runtime.Serialization;
@@ -178,6 +175,8 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 
 		private string outputDirectory;
 		[StringLengthValidator(3, 500, MessageTemplate = "Validation_ReqDestDirectory")]
+		[PropertyComparisonValidator("SourceDirectory", ComparisonOperator.NotEqual,
+			MessageTemplate = "Validation_SourceDestFolderSame")]
 		public string OutputDirectory {
 			get {
 				return outputDirectory;

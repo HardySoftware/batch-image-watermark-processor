@@ -35,6 +35,7 @@ namespace HardySoft.UI.BatchImageProcessor.Classes.Converters {
 		}
 		
 		/*private Dictionary<string, object> getExifMeta(string imagePath) {
+			// non-localized version
 			Uri source = new Uri(imagePath);
 			
 			ExifMetadata meta = new ExifMetadata(source);
@@ -64,6 +65,7 @@ namespace HardySoft.UI.BatchImageProcessor.Classes.Converters {
 			return metaInfo;
 		}*/
 
+		/*
 		private DataTable getExifMetaData(string imagePath) {
 			DataTable dt = new DataTable();
 			dt.Columns.Add(new DataColumn("Attribute", typeof(string)));
@@ -118,13 +120,53 @@ namespace HardySoft.UI.BatchImageProcessor.Classes.Converters {
 
 			return dt;
 		}
-
+		 
 		private string getValueDisplayName(object propertyValue) {
 			if (propertyValue == null) {
 				return string.Empty;
 			} else {
-				return Utilities.GetObjectDisplayValue(propertyValue);
+				return Utilities.GetEnumItemDisplayValue(propertyValue);
 			}
+		}*/
+
+		private DataTable getExifMetaData(string imagePath) {
+			DataTable dt = new DataTable();
+			dt.Columns.Add(new DataColumn("Attribute", typeof(string)));
+			dt.Columns.Add(new DataColumn("Value", typeof(string)));
+
+			Uri source = new Uri(imagePath);
+
+			ExifMetadata meta = new ExifMetadata(source);
+
+			List<ExifContainerItem> exifContainer = Utilities.GetExifContainer();
+
+			foreach (ExifContainerItem item in exifContainer) {
+				object propertyValue = item.Property.GetValue(meta, null);
+
+				string localizedValue;
+				if (propertyValue == null) {
+					localizedValue = string.Empty;
+				} else {
+					if (item.Property.PropertyType.IsEnum) {
+						// if this is a Enum, then get (localized) display name of the enum
+						localizedValue = Utilities.GetEnumItemDisplayValue(propertyValue);
+					} else {
+						// otherwise use the property value
+						localizedValue = propertyValue.ToString();
+					}
+				}
+
+				if (!string.IsNullOrEmpty(item.ValueFormat) && !string.IsNullOrEmpty(localizedValue)) {
+					// value format is specified, read from resource then
+					string displayValue = string.Format(item.ValueFormat, localizedValue);
+
+					dt.Rows.Add(new object[] { item.DisplayLabel, displayValue });
+				} else {
+					dt.Rows.Add(new object[] { item.DisplayLabel, localizedValue });
+				}
+			}
+
+			return dt;
 		}
 	}
 }

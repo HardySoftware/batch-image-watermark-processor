@@ -1,6 +1,9 @@
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
+using System.Drawing.Text;
 using System.IO;
 
 using HardySoft.CC;
@@ -8,11 +11,17 @@ using HardySoft.CC.ExceptionLog;
 using HardySoft.CC.Transformer;
 
 using HardySoft.UI.BatchImageProcessor.Model;
-using System.Drawing.Imaging;
-using System.Drawing.Text;
 
 namespace HardySoft.UI.BatchImageProcessor.Presenter {
 	public class ApplyWatermarkText : Watermark {
+		private List<ExifContainerItem> exifContainer;
+		private string dateTimeStringFormat;
+
+		public ApplyWatermarkText(List<ExifContainerItem> exifContainer, string dateTimeStringFormat) {
+			this.exifContainer = exifContainer;
+			this.dateTimeStringFormat = dateTimeStringFormat;
+		}
+
 		// TODO examine to add text to a transparent GIF image still works.
 		public override Image ProcessImage(Image input, ProjectSetting ps) {
 			try {
@@ -29,6 +38,55 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 				int xAfterOffset = 0;
 				int yAfterOffset = 0;
 
+				string textToDraw = ps.Watermark.WatermarkText;
+				List<ExifContainerItem> tagsFound = foundExifTags(textToDraw);
+
+				if (tagsFound != null && tagsFound.Count > 0 && !string.IsNullOrEmpty(this.ImageFileName)) {
+					// at least one Exif tag is found
+					ExifMetadata meta = new ExifMetadata(new Uri(this.ImageFileName));
+
+					foreach (ExifContainerItem tagFound in tagsFound) {
+						// replace actual value from Exif in watermark text
+						string tag = "[[" + tagFound.ExifTag + "]]";
+						object propertyValue = tagFound.Property.GetValue(meta, null);
+						string localizedValue;
+						if (propertyValue == null) {
+							localizedValue = string.Empty;
+						} else {
+							if (tagFound.Property.PropertyType.IsEnum && tagFound.EnumValueTranslation != null) {
+								localizedValue = propertyValue.ToString();
+
+								foreach (KeyValuePair<string, string> enumItem in tagFound.EnumValueTranslation) {
+									if (localizedValue == enumItem.Key) {
+										localizedValue = enumItem.Value;
+										break;
+									}
+								}
+							} else if (tagFound.Property.PropertyType == typeof(DateTime?)) {
+								System.Diagnostics.Debug.WriteLine("Current Thread " 
+									+ System.Threading.Thread.CurrentThread.ManagedThreadId + " Culture "
+									+ System.Threading.Thread.CurrentThread.CurrentCulture.ToString()
+									+ " in ApplyWatermarkText.");
+
+								// date time value, use format string defined in preference window to overwrite
+								DateTime? d = (DateTime?)propertyValue;
+								if (d.HasValue) {
+									localizedValue = d.Value.ToString(this.dateTimeStringFormat);
+								} else {
+									localizedValue = string.Empty;
+								}
+							} else {
+								localizedValue = propertyValue.ToString();
+							}
+
+							if (!string.IsNullOrEmpty(tagFound.ValueFormat)) {
+								localizedValue = string.Format(tagFound.ValueFormat, localizedValue);
+							}
+						}
+						textToDraw = textToDraw.Replace(tag, localizedValue);
+					}
+				}
+
 				// create a bitmap we can use to work out the size of the text,
 				// we will then create a new bitmap that is the right size.
 				// we also use this to record the default resolution
@@ -38,7 +96,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 				Graphics g = Graphics.FromImage(bmp);
 				StringFormat format = new StringFormat();
 				format.Alignment = ps.Watermark.WatermarkTextAlignment;
-				SizeF sf = g.MeasureString(ps.Watermark.WatermarkText, ps.Watermark.WatermarkTextFont,
+				SizeF sf = g.MeasureString(textToDraw, ps.Watermark.WatermarkTextFont,
 					Int32.MaxValue, format);
 				g.Dispose();
 				bmp.Dispose();
@@ -123,11 +181,11 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 				g.SmoothingMode = SmoothingMode.HighQuality;
 				g.TextRenderingHint = TextRenderingHint.AntiAlias;
 				// draw a shadow with semi transparent black
-				g.DrawString(ps.Watermark.WatermarkText,
+				g.DrawString(textToDraw,
 					ps.Watermark.WatermarkTextFont,
 					new SolidBrush(Color.FromArgb(153, 0, 0, 0)), 1, 1, format);
 				// draw the sctual text
-				g.DrawString(ps.Watermark.WatermarkText,
+				g.DrawString(textToDraw,
 					ps.Watermark.WatermarkTextFont,
 					new SolidBrush(ps.Watermark.WatermarkTextColor), 0, 0, format);
 				g.Transform = matrix;
@@ -142,6 +200,30 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 					HardySoft.CC.File.FileAccess.AppendFile(logFile, logXml);
 				}
 				return input;
+			}
+		}
+
+		/// <summary>
+		/// Get all valid image tags in watermark text.
+		/// </summary>
+		/// <param name="textToDraw"></param>
+		/// <returns></returns>
+		private List<ExifContainerItem> foundExifTags(string textToDraw) {
+			string[] tagsFound = Parser.TagParser(textToDraw, "[[", "]]");
+			if (tagsFound == null || tagsFound.Length == 0) {
+				return null;
+			} else {
+				List<ExifContainerItem> tags = new List<ExifContainerItem>();
+				foreach (ExifContainerItem exifItem in this.exifContainer) {
+					for (int i = 0; i < tagsFound.Length; i++) {
+						if (string.Compare(exifItem.ExifTag, tagsFound[i], false) == 0) {
+							// found at least one tage match
+							tags.Add(exifItem);
+						}
+					}
+				}
+
+				return tags;
 			}
 		}
 	}

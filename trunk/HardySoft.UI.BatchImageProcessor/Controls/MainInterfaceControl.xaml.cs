@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Threading;
@@ -7,9 +8,10 @@ using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Threading;
-using res = HardySoft.UI.BatchImageProcessor.Resources;
 
 using HardySoft.CC.Converter;
+
+using res = HardySoft.UI.BatchImageProcessor.Resources;
 using HardySoft.UI.BatchImageProcessor.Classes;
 using HardySoft.UI.BatchImageProcessor.Model;
 using HardySoft.UI.BatchImageProcessor.Presenter;
@@ -22,7 +24,6 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 	/// Interaction logic for MainInterfaceControl.xaml
 	/// </summary>
 	public partial class MainInterfaceControl : System.Windows.Controls.UserControl, IMainInterfaceControlView {
-		// TODO add watermark text macro from EXIF feature
 		// TODO add more option to "Output" tab to select file format for processed files. Something like batch convert.
 		// TODO in image file list add a new column to include button to remove image from list
 		// TODO convert "image effect" into add-ins and open programming interface
@@ -185,6 +186,22 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 			}
 		}
 
+		private void btnInsertExifTag_Click(object sender, RoutedEventArgs e) {
+			if (cmbExifTag.SelectedIndex <= 0) {
+				return;
+			}
+
+			KeyValuePair<string, string> selectedItem = (KeyValuePair<string, string>)cmbExifTag.SelectedValue;
+			string tag = "[[" + selectedItem.Key + "]]";
+
+			int insertPosition = txtWatermarkText.CaretIndex;
+			string firstPart = txtWatermarkText.Text.Substring(0, insertPosition);
+			string secondPart = txtWatermarkText.Text.Substring(insertPosition);
+
+			txtWatermarkText.Text = firstPart + tag + secondPart;
+			txtWatermarkText.CaretIndex = firstPart.Length + tag.Length;
+		}
+
 		#region Drag-Drop event handlers
 		protected override void OnPreviewDragOver(System.Windows.DragEventArgs e) {
 			// we only want to deal with a single file.
@@ -278,6 +295,33 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 			}
 		}
 
+		public Dictionary<string, string> ExifTag {
+			set {
+				Dictionary<string, string> translatedTags = new Dictionary<string, string>();
+				translatedTags.Add("", res.LanguageContent.Enum_None);
+				foreach (KeyValuePair<string, string> item in value) {
+					//item.Value = 
+					string displayName = res.LanguageContent.ResourceManager.GetString(item.Value,
+						Thread.CurrentThread.CurrentCulture);
+					translatedTags.Add(item.Key, displayName);
+				}
+
+				cmbExifTag.ItemsSource = translatedTags;
+				cmbExifTag.SelectedIndex = 0;
+			}
+		}
+
+		public List<ExifContainerItem> ExifContainer {
+			get {
+				System.Diagnostics.Debug.WriteLine("Current Thread: "
+					+ Thread.CurrentThread.ManagedThreadId
+					+ " Culture: "
+					+ Thread.CurrentThread.CurrentCulture.ToString()
+					+ " in main UI.");
+				return Utilities.GetExifContainer(true);
+			}
+		}
+
 		void ps_PropertyChanged(object sender, PropertyChangedEventArgs e) {
 			// if any value of the object is changed.
 			OnProjectFileNameObtained();
@@ -367,6 +411,26 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 		public event ProcessThreadNumberEventHandler ProcessImage;
 		public event EventHandler StopProcessing;
 		#endregion
+
+		/// <summary>
+		/// Display warning message and collect user action.
+		/// </summary>
+		/// <param name="warningMessageResourceKey">Warning message resource key.</param>
+		/// <returns>
+		/// True if user clicks "Yes", otherwise False.
+		/// </returns>
+		public bool DisplayWarning(string warningMessageResourceKey) {
+			string caption = HardySoft.UI.BatchImageProcessor.Resources.LanguageContent.Label_Warning;
+			string message = res.LanguageContent.ResourceManager.GetString(warningMessageResourceKey,
+							Thread.CurrentThread.CurrentCulture);
+			MessageBoxButton button = MessageBoxButton.YesNo;
+			MessageBoxImage icon = MessageBoxImage.Warning;
+			if (System.Windows.MessageBox.Show(message, caption, button, icon) == MessageBoxResult.Yes) {
+				return true;
+			} else {
+				return false;
+			}
+		}
 
 		#region Commands
 		#region New Command
@@ -570,7 +634,8 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 			if (handlers != null) {
 				//this.processing = true;
 				this.Progress.Value = 0;
-				ProcessThreadNumberEventArgs args = new ProcessThreadNumberEventArgs(Properties.Settings.Default.ThreadNumber);
+				ProcessThreadNumberEventArgs args = new ProcessThreadNumberEventArgs(Properties.Settings.Default.ThreadNumber,
+					Properties.Settings.Default.DateTimeFormatString);
 				handlers(this, args);
 			}
 		}
