@@ -5,6 +5,7 @@ From main user interface, you can choose to open an existing project to or creat
 http://batch-image-watermark-processor.googlecode.com/svn/wiki/screenshots/FAQ_Begin01_en.jpg
 
 == Choose source and output directory ==
+All the supported image files under source directory is loaded in the list.
 
 http://batch-image-watermark-processor.googlecode.com/svn/wiki/screenshots/FAQ_Begin02_en.jpg
 
