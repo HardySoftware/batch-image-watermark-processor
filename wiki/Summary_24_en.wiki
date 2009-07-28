@@ -1,0 +1,3 @@
+= Major Change from Last Version =
+  * Added EXIF Macro in watermark text support.
+  * Some bug fixes.
