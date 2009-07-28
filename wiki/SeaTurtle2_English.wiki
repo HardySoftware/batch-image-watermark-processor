@@ -27,16 +27,6 @@ Sea Turtle
   * 2009-02-24: [Summary_21_en 2.1 (file 2.1.0.0)]
   * 2009-02-08: [Summary_20_en 2.0 (file 2.0.0.0)]
   * 2008-02: [Summary_for_Version_1 Version 1.0]
-==Change History==
-
-
-===Version 1, Initial release to include following features===
-  * Batch adding image/text watermark;
-  * Batch resizing;
-  * Batch renaming;
-  * Batch thumbnail generating;
-  * And more.
-You still can access older version of homepage [Summary_for_Version_1 here].
 =System Requirement=
 ==After You Download the Package==
 The binary package is compressed by [http://www.7-zip.org/ 7-Zip], which is an open-source software under GNU license.
