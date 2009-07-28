@@ -727,4 +727,7 @@
   <data name="Label_DatePattern_YearMonthPattern" xml:space="preserve">
     <value>年、月格式</value>
   </data>
+  <data name="Label_Warning" xml:space="preserve">
+    <value>警告</value>
+  </data>
 </root>
