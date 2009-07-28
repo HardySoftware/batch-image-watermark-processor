@@ -1,4 +1,8 @@
 = FAQ: How do I begin? =
 From main user interface, you can choose to open an existing project to or create a new project.
 
-http://batch-image-watermark-processor.googlecode.com/svn/wiki/screenshots/FAQ_Begin_en.jpg
+http://batch-image-watermark-processor.googlecode.com/svn/wiki/screenshots/FAQ_Begin01_en.jpg
+
+Choose source and output directory
+
+http://batch-image-watermark-processor.googlecode.com/svn/wiki/screenshots/FAQ_Begin02_en.jpg
