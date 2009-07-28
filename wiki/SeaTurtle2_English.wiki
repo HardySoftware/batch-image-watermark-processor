@@ -29,11 +29,7 @@ Sea Turtle
   * 2009-02-08: [Summary_20_en 2.0 (file 2.0.0.0)]
   * 2008-02: [Summary_for_Version_1 Version 1.0]
 ==Change History==
-==Version 2.0 Beta 3, enhanced watermark image/text layout control==
-  * Enhanced EXIF information display in image list tooltip.
-  * Added feature to support multiple watermark image layout attributes: Rotation, Opacity.
-  * Added feature to support multiple watermark text layout attributes: Rotation, Alignment for multiple lines text, Color (which includes opacity).
-  * Some bug fixes.
+
 ==Version 2.0 Beta 2, bug fixes and multi-lingual support==
   * Added multi-lingual support by operation system’s language setting. Currently supported language: English, Simplified Chinese.
   * Changed watermark text/image position picker.
