@@ -1,0 +1,5 @@
+= FAQ: How do I add image watermark? =
+== Choose Your Watermark Image ==
+From main user interface, select "Watermark Settings" tab and broswe your desired image as watermark.
+
+http://batch-image-watermark-processor.googlecode.com/svn/wiki/screenshots/FAQ_Image_Watermark01_en.jpg
