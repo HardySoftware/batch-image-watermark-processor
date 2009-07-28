@@ -34,7 +34,8 @@ The binary package is compressed by [http://www.7-zip.org/ 7-Zip], which is an o
 Please make sure you have Microsoft .Net Framework 3.5 Runtime installed (download at http://www.microsoft.com/downloads/details.aspx?FamilyId=333325FD-AE52-4E35-B531-508D977D32A6) AND Microsoft .Net Framework 3.5 Service Pack 1 ( download at http://www.microsoft.com/downloads/details.aspx?familyid=ab99342f-5d1a-413d-8319-81da479ab0d7)
 =Screenshots=
 Some screenshots of the applciation could be found [Screenshot_en here].
-
+= FAQ =
+ * I downloaded the application, [FAQ_Begin_en how do I begin with]?
 =About This Project=
 ==Techinical Hilite==
   * The project is created with Microsoft .Net Framework 3.5 in C# language.
