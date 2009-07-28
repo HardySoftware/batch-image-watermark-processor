@@ -30,11 +30,6 @@ Sea Turtle
   * 2008-02: [Summary_for_Version_1 Version 1.0]
 ==Change History==
 
-==Version 2.0 Beta 2, bug fixes and multi-lingual support==
-  * Added multi-lingual support by operation system’s language setting. Currently supported language: English, Simplified Chinese.
-  * Changed watermark text/image position picker.
-  * Changed drop shadow position picker.
-  * And some bug fixes.
 ===Version 2.0 Beta 1, bug fixes and some user experience change===
   * Added drag-n-drop from Windows Explorer to open project file.
   * Changed watermark text box to have multiple lines.
