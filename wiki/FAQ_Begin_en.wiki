@@ -10,7 +10,8 @@ All the supported image files under source directory are loaded in the list.
 http://batch-image-watermark-processor.googlecode.com/svn/wiki/screenshots/FAQ_Begin02_en.jpg
 
 == Preview Image ==
-Move Your Mouse over the Item in the List to Preview Image
+Move your mouse over the item in the list to preview.
 
 http://batch-image-watermark-processor.googlecode.com/svn/wiki/screenshots/FAQ_Begin03_en.jpg
+
 Note: the Exif information is only available for Jpg file format.
