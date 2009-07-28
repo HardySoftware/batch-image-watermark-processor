@@ -6,3 +6,8 @@ http://batch-image-watermark-processor.googlecode.com/svn/wiki/screenshots/FAQ_B
 Choose source and output directory
 
 http://batch-image-watermark-processor.googlecode.com/svn/wiki/screenshots/FAQ_Begin02_en.jpg
+
+Move Your Mouse over the Item in the List to Preview Image
+
+http://batch-image-watermark-processor.googlecode.com/svn/wiki/screenshots/FAQ_Begin03_en.jpg
+Note: the Exif information is only available for Jpg file format.
