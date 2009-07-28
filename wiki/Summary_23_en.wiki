@@ -1,0 +1,6 @@
+= Sea Turtle Batch Image Processor 2.3=
+== Release Date ==
+March 19, 2009
+== Major Changes from Last Version ==
+  * Added EXIF Macro in watermark text support.
+  * Some bug fixes.
