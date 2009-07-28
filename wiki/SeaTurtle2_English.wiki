@@ -32,19 +32,8 @@ Sea Turtle
 The binary package is compressed by [http://www.7-zip.org/ 7-Zip], which is an open-source software under GNU license.
 ==Before You Run It==
 Please make sure you have Microsoft .Net Framework 3.5 Runtime installed (download at http://www.microsoft.com/downloads/details.aspx?FamilyId=333325FD-AE52-4E35-B531-508D977D32A6) AND Microsoft .Net Framework 3.5 Service Pack 1 ( download at http://www.microsoft.com/downloads/details.aspx?familyid=ab99342f-5d1a-413d-8319-81da479ab0d7)
-
 =Screenshots=
-==User Interface==
-http://batch-image-watermark-processor.googlecode.com/svn/wiki/screenshots/MainInterface.jpg
-
-==Processed Result: Text watermark==
-http://batch-image-watermark-processor.googlecode.com/svn/wiki/screenshots/TextWatermark.jpg
-
-==Processed Result: Image watermark==
-http://batch-image-watermark-processor.googlecode.com/svn/wiki/screenshots/ImageWatermark.jpg
-
-==Processed Result: Drop Shadow==
-http://batch-image-watermark-processor.googlecode.com/svn/wiki/screenshots/DropShadow.jpg
+Some screenshots of the applciation could be found [Screenshot_en here].
 
 =About This Project=
 ==Techinical Hilite==
