@@ -35,7 +35,7 @@ Please make sure you have Microsoft .Net Framework 3.5 Runtime installed (downlo
 =Screenshots=
 Some screenshots of the applciation could be found [Screenshot_en here].
 = FAQ =
- * I downloaded the application, [FAQ_Begin_en how do I begin with]?
+ * I downloaded the application, [FAQ_Begin_en how do I begin]?
 =About This Project=
 ==Techinical Hilite==
   * The project is created with Microsoft .Net Framework 3.5 in C# language.
