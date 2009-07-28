@@ -30,9 +30,6 @@ Sea Turtle
 ==Change History==
 
 
-===Version 2.0 Beta, a total rewrite of the UI===
-  * Total rewrite the UI with WPF 3.5;
-  * Most of the processing logic is kept and unchanged or with minor improvement.
 ===Version 1, Initial release to include following features===
   * Batch adding image/text watermark;
   * Batch resizing;
