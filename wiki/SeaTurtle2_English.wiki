@@ -13,7 +13,7 @@ Tool also provides following features:
   * Batch resize original pictures.
   * Generate thumbnail images.
   * Apply additional processing, such as grey scale, negative colour.
-  * Multi-lingual support; currently supported languages: English, Simplified Chinese.
+  * Multi-lingual support; currently supported languages: English, Simplified Chinese. Do you know more languages, welcome to help translation.
 ==Project Name==
 HardySoft Batch Image Watermark Processor
 ==Code Name==
@@ -39,6 +39,7 @@ Some screenshots of the applciation could be found [Screenshot_en here].
  * I want to add image as watermark to my pictures, [FAQ_Image_Watermark_en how do I do it]?
  * I want to add static text as watermark to my pictures, [FAQ_StaticText_Watermark_en how do I do it]?
  * I want to add dynamic Exif as watermark text to my pictures, [FAQ_ExifText_Watermark_en how do I do it]?
+ * I want to add drop shadow to my output images, [FAQ_DropShadow_en how do I do it]?
 =About This Project=
 ==Techinical Hilite==
   * The project is created with Microsoft .Net Framework 3.5 in C# language.
