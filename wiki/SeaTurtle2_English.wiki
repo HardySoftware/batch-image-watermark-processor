@@ -40,6 +40,7 @@ Some screenshots of the applciation could be found [Screenshot_en here].
  * I want to add static text as watermark to my pictures, [FAQ_StaticText_Watermark_en how do I do it]?
  * I want to add dynamic Exif as watermark text to my pictures, [FAQ_ExifText_Watermark_en how do I do it]?
  * I want to add drop shadow to my output images, [FAQ_DropShadow_en how do I do it]?
+ * I want to add border to my output images, [FAQ_Border_en how do I do it]?
 =About This Project=
 ==Techinical Hilite==
   * The project is created with Microsoft .Net Framework 3.5 in C# language.
