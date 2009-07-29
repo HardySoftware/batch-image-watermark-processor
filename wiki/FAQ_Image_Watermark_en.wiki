@@ -3,3 +3,8 @@
 From main user interface, select "Watermark Settings" tab and broswe your desired image as watermark.
 
 http://batch-image-watermark-processor.googlecode.com/svn/wiki/screenshots/FAQ_Image_Watermark01_en.jpg
+
+== Adjust Settings ==
+You can adjust settings of watermark image.
+
+http://batch-image-watermark-processor.googlecode.com/svn/wiki/screenshots/FAQ_Image_Watermark02_en.jpg
