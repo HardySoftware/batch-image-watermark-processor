@@ -2,6 +2,6 @@
 == Choose Your Watermark Image ==
 Other than adding [FAQ_StaticText_Watermark_en static text], you can also add Exif information as part of your watermark text.
 
-http://batch-image-watermark-processor.googlecode.com/svn/wiki/screenshots/FAQ_StaticText_Watermark01_en.jpg
+http://batch-image-watermark-processor.googlecode.com/svn/wiki/screenshots/FAQ_ExifText_Watermark01_en.jpg
 
 Please note, if your picture in not in JPG format then all the Exif macros defined in the watermark text will be replaced as empty string in final output. If you removed Exif information from your pictures, samething will happen.
