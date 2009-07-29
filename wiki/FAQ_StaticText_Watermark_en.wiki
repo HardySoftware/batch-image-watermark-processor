@@ -1,5 +1,5 @@
 = FAQ: How do I add static text watermark? =
-== Choose Your Watermark Image ==
+== Set Your Watermark Text ==
 From main user interface, select "Watermark Settings" tab and expand "Watermark Text".
 
 http://batch-image-watermark-processor.googlecode.com/svn/wiki/screenshots/FAQ_StaticText_Watermark01_en.jpg
