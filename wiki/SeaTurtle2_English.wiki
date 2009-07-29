@@ -43,6 +43,7 @@ Some screenshots of the applciation could be found [Screenshot_en here].
  * I want to add border to all my output images, [FAQ_Border_en how do I do it]?
  * I want to shrink all output images, [FAQ_Shrink_en how do I do it]?
  * I want to generate thumbnail or batch rename output files, [FAQ_Output_en how do I do it]?
+ * I finished all settings, [FAQ_Output_en how do I generate output images]?
 =About This Project=
 ==Techinical Hilite==
   * The project is created with Microsoft .Net Framework 3.5 in C# language.
