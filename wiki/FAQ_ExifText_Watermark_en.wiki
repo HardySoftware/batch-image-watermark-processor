@@ -1,0 +1,5 @@
+= FAQ: How do I add dynamic Exif watermark text? =
+== Choose Your Watermark Image ==
+Other than adding [FAQ_StaticText_Watermark_en static text], you can also add Exif information as part of your watermark text.
+
+http://batch-image-watermark-processor.googlecode.com/svn/wiki/screenshots/FAQ_StaticText_Watermark01_en.jpg
