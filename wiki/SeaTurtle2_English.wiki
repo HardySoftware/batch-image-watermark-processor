@@ -15,9 +15,7 @@ Tool also provides following features:
   * Apply additional processing, such as grey scale, negative colour.
   * Multi-lingual support; currently supported languages: English, Simplified Chinese. Do you know more languages, welcome to help translation.
 ==Project Name==
-HardySoft Batch Image Watermark Processor
-==Code Name==
-Sea Turtle
+Sea Turtle Batch Image Watermark Processor
 ==Version Number==
 2.4 (File# 2.4.0.0, Build# 2.4.3495.35206)
 =System Requirement=
