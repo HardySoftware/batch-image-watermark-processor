@@ -730,4 +730,10 @@
   <data name="Label_Warning" xml:space="preserve">
     <value>警告</value>
   </data>
+  <data name="Label_Attribute" xml:space="preserve">
+    <value>属性</value>
+  </data>
+  <data name="Label_Value" xml:space="preserve">
+    <value>数值</value>
+  </data>
 </root>

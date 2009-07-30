@@ -263,8 +263,8 @@
 																<ListView.View>
 																	<GridView ColumnHeaderContainerStyle="{StaticResource GridViewHeaderStyle}"
 																		ColumnHeaderTemplate="{StaticResource HeaderTemplateTransparent}">
-																		<GridViewColumn Header="Attribute" DisplayMemberBinding="{Binding Path=Attribute}"></GridViewColumn>
-																		<GridViewColumn Header="Value" DisplayMemberBinding="{Binding Path=Value}"></GridViewColumn>
+																		<GridViewColumn Header="{HSMarks:ResourceExtension Label_Attribute}" DisplayMemberBinding="{Binding Path=Attribute}"></GridViewColumn>
+																		<GridViewColumn Header="{HSMarks:ResourceExtension Label_Value}" DisplayMemberBinding="{Binding Path=Value}"></GridViewColumn>
 																	</GridView>
 																</ListView.View>
 															</ListView>
