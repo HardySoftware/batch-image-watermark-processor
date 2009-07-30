@@ -1,4 +1,4 @@
-= 海龟批量图形处理 =
+= 海龟批量图形处理部分截图 =
 ==用户界面==
 http://batch-image-watermark-processor.googlecode.com/svn/wiki/screenshots/MainInterface_zh-cn.jpg
 
