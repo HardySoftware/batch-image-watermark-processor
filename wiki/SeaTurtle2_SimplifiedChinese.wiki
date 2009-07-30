@@ -24,7 +24,7 @@
 ==开始运行之前==
 请确保你的系统安装了Microsoft .Net Framework 3.5 Runtime （下载地址  http://www.microsoft.com/downloads/details.aspx?FamilyId=333325FD-AE52-4E35-B531-508D977D32A6 ）以及Microsoft .Net Framework 3.5 Service Pack 1（下载地址  http://www.microsoft.com/downloads/details.aspx?familyid=ab99342f-5d1a-413d-8319-81da479ab0d7 ）。
 =工具截图=
-在[Screenshot_zh-cn 这里]可能到关于此工具的一些截图。
+在[Screenshot_zh_cn 这里]可能到关于此工具的一些截图。
 ==用户界面==
 http://batch-image-watermark-processor.googlecode.com/svn/wiki/screenshots/MainInterface_zh-cn.jpg
 
