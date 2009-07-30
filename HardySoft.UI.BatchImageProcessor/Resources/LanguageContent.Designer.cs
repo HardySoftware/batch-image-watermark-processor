@@ -655,6 +655,15 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Attribute.
+        /// </summary>
+        internal static string Label_Attribute {
+            get {
+                return ResourceManager.GetString("Label_Attribute", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Author.
         /// </summary>
         internal static string Label_Author {
@@ -1416,6 +1425,15 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         internal static string Label_UntitledProjectName {
             get {
                 return ResourceManager.GetString("Label_UntitledProjectName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Value.
+        /// </summary>
+        internal static string Label_Value {
+            get {
+                return ResourceManager.GetString("Label_Value", resourceCulture);
             }
         }
         
