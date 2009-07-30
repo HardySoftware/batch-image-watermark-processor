@@ -13,13 +13,29 @@
   * 批量缩小原始文件。
   * 批量生成缩图
   * 加上其他效果，例如：黑白画、反转色等。
-  * 多语言支持；目前支持语言：简体中文、英语。
+  * 多语言支持；目前支持语言：简体中文、英语。如果您会其他语言非常欢迎帮助翻译。
 ==项目名称==
-HardySoft Batch Image Watermark Processor
-==代码名称==
-海龟（Sea Turtle）
+海龟图片批量处理
 ==最新版本==
-2.0 Beta 3 (File# 2.3.0.0, Build# 2.3.3365.35018)
+2.4 (File# 2.4.0.0, Build# 2.4.3495.35206)
+=系统要求=
+==下载文件之后==
+执行代码文件是由[http://www.7-zip.org/ 7-Zip]压缩后上载，这是一个免费的开放源代码的软件。
+==开始运行之前==
+请确保你的系统安装了Microsoft .Net Framework 3.5 Runtime （下载地址  http://www.microsoft.com/downloads/details.aspx?FamilyId=333325FD-AE52-4E35-B531-508D977D32A6 ）以及Microsoft .Net Framework 3.5 Service Pack 1（下载地址  http://www.microsoft.com/downloads/details.aspx?familyid=ab99342f-5d1a-413d-8319-81da479ab0d7 ）。
+=工具截图=
+在[Screenshot_zh-cn 这里]可能到关于此工具的一些截图。
+==用户界面==
+http://batch-image-watermark-processor.googlecode.com/svn/wiki/screenshots/MainInterface_zh-cn.jpg
+
+==文字水印==
+http://batch-image-watermark-processor.googlecode.com/svn/wiki/screenshots/TextWatermark_zh-cn.jpg
+
+==图形水印==
+http://batch-image-watermark-processor.googlecode.com/svn/wiki/screenshots/ImageWatermark_zh-cn.jpg
+
+==阴影效果==
+http://batch-image-watermark-processor.googlecode.com/svn/wiki/screenshots/DropShadow_zh-cn.jpg
 =更改历史=
 ==版本历史==
   * 2009-03-19: 版本 2.0 Beta 3 (file 2.3.0.0)
@@ -54,24 +70,9 @@ HardySoft Batch Image Watermark Processor
   * 批量生成缩图。
   * 以及其他功能。
 你还能在 [Summary_for_Version_1 这里] 看到关于第一版的信息。
-=系统要求=
-==下载文件之后==
-执行代码文件是由[http://www.7-zip.org/ 7-Zip]压缩后上载，这是一个免费的开放源代码的软件。
-==开始运行之前==
-请确保你的系统安装了Microsoft .Net Framework 3.5 Runtime （下载地址  http://www.microsoft.com/downloads/details.aspx?FamilyId=333325FD-AE52-4E35-B531-508D977D32A6 ）以及Microsoft .Net Framework 3.5 Service Pack 1（下载地址  http://www.microsoft.com/downloads/details.aspx?familyid=ab99342f-5d1a-413d-8319-81da479ab0d7 ）。
 
-=工具截图=
-==用户界面==
-http://batch-image-watermark-processor.googlecode.com/svn/wiki/screenshots/MainInterface_zh-cn.jpg
 
-==文字水印==
-http://batch-image-watermark-processor.googlecode.com/svn/wiki/screenshots/TextWatermark_zh-cn.jpg
 
-==图形水印==
-http://batch-image-watermark-processor.googlecode.com/svn/wiki/screenshots/ImageWatermark_zh-cn.jpg
-
-==阴影效果==
-http://batch-image-watermark-processor.googlecode.com/svn/wiki/screenshots/DropShadow_zh-cn.jpg
 
 =关于此项目=
 ==技术重点==
