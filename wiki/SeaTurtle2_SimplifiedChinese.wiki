@@ -25,6 +25,16 @@
 请确保你的系统安装了Microsoft .Net Framework 3.5 Runtime （下载地址  http://www.microsoft.com/downloads/details.aspx?FamilyId=333325FD-AE52-4E35-B531-508D977D32A6 ）以及Microsoft .Net Framework 3.5 Service Pack 1（下载地址  http://www.microsoft.com/downloads/details.aspx?familyid=ab99342f-5d1a-413d-8319-81da479ab0d7 ）。
 =工具截图=
 在[Screenshot_zh_cn 这里]可能到关于此工具的一些截图。
+= 常见疑问 =
+ * 我下载了程序，[FAQ_Begin_zh-ch 然后该怎么做]？
+ * 我想把图片作为水印假如我的照片，[FAQ_Image_Watermark_zh_cn 我该怎么做]？
+ * 我想把静态文字就作为水印加入我的照片，[FAQ_StaticText_Watermark_zh_cn 我该怎么做]？
+ * 我想把Exif里面的动态内容作为水印加入我的照片，[FAQ_ExifText_Watermark_en 我该怎么做]？
+ * 我想把我的照片加上阴影，[FAQ_DropShadow_zh_cn 我该怎么做]？
+ * 我想把我的照片加上边框，[FAQ_Border_zh_cn 我该怎么做]？
+ * 我想把输出图形缩小尺寸，[FAQ_Shrink_zh_cn 我该怎么做]？
+ * 我想同时输出缩图以及批量重命名，[FAQ_Output_zh_cn 我该怎么做]？
+ * I finished all settings, [FAQ_Make_zh_cn 然后我该怎么做来生成我的图片]？
 =更改历史=
 ==版本历史==
   * 2009-07-29: [Summary_24_zh_cn 版本 2.4 (file 2.4.0.0)]
