@@ -36,7 +36,7 @@
  * 我想把我的照片加上边框，[FAQ_Border_zh_cn 我该怎么做]？
  * 我想把输出图形缩小尺寸，[FAQ_Shrink_zh_cn 我该怎么做]？
  * 我想同时输出缩图以及批量重命名，[FAQ_Output_zh_cn 我该怎么做]？
- * I finished all settings, [FAQ_Make_zh_cn 然后我该怎么做来生成我的图片]？
+ * 我所有设置都完成了，[FAQ_Make_zh_cn 然后我该怎么做来生成我的图片]？
 =更改历史=
 ==版本历史==
   * 2009-07-29: [Summary_24_zh_cn 版本 2.4 (file 2.4.0.0)]
