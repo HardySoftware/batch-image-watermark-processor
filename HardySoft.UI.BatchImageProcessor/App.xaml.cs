@@ -92,5 +92,9 @@ namespace HardySoft.UI.BatchImageProcessor {
 			window.ApplicationURL = HardySoft.UI.BatchImageProcessor.Resources.LanguageContent.ApplicationUrl;
 			window.Show();
 		}
+
+		private void Application_DispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e) {
+
+		}
 	}
 }
