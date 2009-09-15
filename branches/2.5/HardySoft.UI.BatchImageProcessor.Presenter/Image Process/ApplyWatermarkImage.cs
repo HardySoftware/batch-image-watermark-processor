@@ -1,11 +1,8 @@
 using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
-
-using HardySoft.CC;
-using HardySoft.CC.ExceptionLog;
-using HardySoft.CC.Transformer;
 
 using HardySoft.UI.BatchImageProcessor.Model;
 
@@ -99,12 +96,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 				graphic.Dispose();
 				return (Image)bmp;
 			} catch (Exception ex) {
-				if (this.EnableDebug) {
-					string logFile = Formatter.FormalizeFolderName(Directory.GetCurrentDirectory()) + @"logs\SeaTurtle_Error.log";
-					string logXml = Serializer.Serialize<ExceptionContainer>(ExceptionLogger.GetException(ex));
-
-					HardySoft.CC.File.FileAccess.AppendFile(logFile, logXml);
-				}
+				Trace.TraceError(ex.ToString());
 				return input;
 			}
 		}

@@ -136,7 +136,7 @@ namespace HardySoft.UI.BatchImageProcessor.Classes.Converters {
 
 			Uri source = new Uri(imagePath);
 
-			ExifMetadata meta = new ExifMetadata(source);
+			ExifMetadata meta = new ExifMetadata(source, true);
 
 			List<ExifContainerItem> exifContainer = Utilities.GetExifContainer();
 

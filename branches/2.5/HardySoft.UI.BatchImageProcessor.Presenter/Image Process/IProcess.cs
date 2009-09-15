@@ -19,14 +19,6 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 		Image ProcessImage(Image input, ProjectSetting ps);
 
 		/// <summary>
-		/// A flag to indicate whether to add debug information when exception captured.
-		/// </summary>
-		bool EnableDebug {
-			get;
-			set;
-		}
-
-		/// <summary>
 		/// The file name of the image to be processed.
 		/// </summary>
 		string ImageFileName {

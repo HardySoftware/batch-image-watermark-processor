@@ -14,9 +14,9 @@ namespace HardySoft.UI.BatchImageProcessor.View {
 			set;
 		}
 
-		public bool EnableDebug {
+		/*public bool EnableDebug {
 			get;
 			set;
-		}
+		}*/
 	}
 }

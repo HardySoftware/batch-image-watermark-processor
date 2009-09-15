@@ -82,8 +82,11 @@ namespace HardySoft.UI.BatchImageProcessor.Classes {
 								Array enumValues = Enum.GetValues(pi[i].PropertyType);
 
 								for (int k = 0; k < enumValues.Length; k++) {
-									containerItem.EnumValueTranslation.Add(enumValues.GetValue(k).ToString(),
-										GetEnumItemDisplayValue(enumValues.GetValue(k)));
+									// TODO think about how to handle same enum value in different enum with different display.
+									if (! containerItem.EnumValueTranslation.ContainsKey(enumValues.GetValue(k).ToString())) {
+										containerItem.EnumValueTranslation.Add(enumValues.GetValue(k).ToString(),
+											GetEnumItemDisplayValue(enumValues.GetValue(k)));
+									}
 								}
 							}
 						}
