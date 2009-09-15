@@ -570,17 +570,17 @@
   <data name="Enum_Flash" xml:space="preserve">
     <value>Flash</value>
   </data>
-  <data name="Enum_FlashDidNotFire" xml:space="preserve">
+  <data name="Enum_FlashMode00" xml:space="preserve">
     <value>Flash Did Not Fire</value>
   </data>
-  <data name="Enum_FlashFired" xml:space="preserve">
+  <data name="Enum_FlashMode01" xml:space="preserve">
     <value>Flash Fired</value>
   </data>
   <data name="Enum_Fluorescent" xml:space="preserve">
     <value>Fluorescent</value>
   </data>
-  <data name="Enum_HighSpeedMode" xml:space="preserve">
-    <value>High Speed Mode</value>
+  <data name="Enum_ActionMode" xml:space="preserve">
+    <value>Action Mode</value>
   </data>
   <data name="Enum_ISOStudioTungsten" xml:space="preserve">
     <value>ISO Studio Tungsten</value>
@@ -588,8 +588,8 @@
   <data name="Enum_LandscapeMode" xml:space="preserve">
     <value>Landscape Mode</value>
   </data>
-  <data name="Enum_LowSpeedMode" xml:space="preserve">
-    <value>Low Speed Mode</value>
+  <data name="Enum_Creative" xml:space="preserve">
+    <value>Creative Mode</value>
   </data>
   <data name="Enum_Manual" xml:space="preserve">
     <value>Manual</value>
@@ -624,14 +624,11 @@
   <data name="Enum_Uncalibrated" xml:space="preserve">
     <value>Uncalibrated</value>
   </data>
-  <data name="Enum_Unkown" xml:space="preserve">
-    <value>Unkown</value>
+  <data name="Enum_Unknown" xml:space="preserve">
+    <value>Unknown</value>
   </data>
   <data name="Enum_WhiteFluorescent" xml:space="preserve">
     <value>White Fluorescent</value>
-  </data>
-  <data name="Enum_Unknown" xml:space="preserve">
-    <value>Unknown</value>
   </data>
   <data name="Label_ExifValue_Aperture" xml:space="preserve">
     <value>f/{0}</value>
@@ -743,5 +740,95 @@
   </data>
   <data name="Label_Value" xml:space="preserve">
     <value>Value</value>
+  </data>
+  <data name="Enum_Auto" xml:space="preserve">
+    <value>Auto</value>
+  </data>
+  <data name="Enum_Average" xml:space="preserve">
+    <value>Average</value>
+  </data>
+  <data name="Enum_Center" xml:space="preserve">
+    <value>Center</value>
+  </data>
+  <data name="Enum_MultiSegment" xml:space="preserve">
+    <value>Multi Segment</value>
+  </data>
+  <data name="Enum_MultiSpot" xml:space="preserve">
+    <value>Multi Spot</value>
+  </data>
+  <data name="Enum_Partial" xml:space="preserve">
+    <value>Partial</value>
+  </data>
+  <data name="Enum_Spot" xml:space="preserve">
+    <value>Spot</value>
+  </data>
+  <data name="Label_MeteringMode" xml:space="preserve">
+    <value>Metering Mode</value>
+  </data>
+  <data name="Label_Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="Enum_FlashMode05" xml:space="preserve">
+    <value>Flash, no Strobe Return</value>
+  </data>
+  <data name="Enum_FlashMode07" xml:space="preserve">
+    <value>Flash, Strobe Return</value>
+  </data>
+  <data name="Enum_FlashMode09" xml:space="preserve">
+    <value>Flash fired; Compulsory flash mode</value>
+  </data>
+  <data name="Enum_FlashMode13" xml:space="preserve">
+    <value>Flash fired; Compulsory flash mode, Strobe Return light not detected</value>
+  </data>
+  <data name="Enum_FlashMode15" xml:space="preserve">
+    <value>Flash fired; Compulsory flash mode; Strobe Return light detected</value>
+  </data>
+  <data name="Enum_FlashMode16" xml:space="preserve">
+    <value>Flash not fired; Compulsory flash mode</value>
+  </data>
+  <data name="Enum_FlashMode24" xml:space="preserve">
+    <value>No flash, Auto</value>
+  </data>
+  <data name="Enum_FlashMode25" xml:space="preserve">
+    <value>Flash fired, Auto Mode</value>
+  </data>
+  <data name="Enum_FlashMode29" xml:space="preserve">
+    <value>Flash fired, Auto Mode, no Strobe Return</value>
+  </data>
+  <data name="Enum_FlashMode31" xml:space="preserve">
+    <value>Flash fired, Auto Mode, Strobe Return</value>
+  </data>
+  <data name="Enum_FlashMode32" xml:space="preserve">
+    <value>No Flash Function</value>
+  </data>
+  <data name="Enum_FlashMode65" xml:space="preserve">
+    <value>Flash fired, Red-eye Reduction Mode</value>
+  </data>
+  <data name="Enum_FlashMode69" xml:space="preserve">
+    <value>Flash fired, Red-eye Reduction Mode, Strobe Return Light not Detected</value>
+  </data>
+  <data name="Enum_FlashMode71" xml:space="preserve">
+    <value>Flash fired, Red-eye Reduction Mode, Strobe Return Light Detected</value>
+  </data>
+  <data name="Enum_FlashMode73" xml:space="preserve">
+    <value>Flash fired, Compulsory Flash Mode, Red-eye Reduction Mode</value>
+  </data>
+  <data name="Enum_FlashMode77" xml:space="preserve">
+    <value>Flash fired, Compulsory Flash Mode, Red-eye Reduction Mode, Strobe Return Light not Detected</value>
+  </data>
+  <data name="Enum_FlashMode79" xml:space="preserve">
+    <value>Flash fired, Compulsory Flash Mode, Red-eye Reduction Mode, Strobe Return Light Detected</value>
+  </data>
+  <data name="Enum_FlashMode89" xml:space="preserve">
+    <value>Flash fired, Auto Mode, Red-eye Reduction Mode</value>
+  </data>
+  <data name="Enum_FlashMode93" xml:space="preserve">
+    <value>Flash fired, Auto Mode, Strobe Return Light not Detected, Red-eye Reduction Mode</value>
+  </data>
+  <data name="Enum_FlashMode95" xml:space="preserve">
+    <value>Flash fired, Auto Mode, Strobe Return Light Detected, Red-eye Reduction Mode</value>
+  </data>
+  <data name="Label_LightSource" xml:space="preserve">
+    <value>Light Source</value>
   </data>
 </root>

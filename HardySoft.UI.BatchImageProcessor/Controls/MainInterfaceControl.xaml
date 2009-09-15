@@ -238,7 +238,7 @@
 																<ColumnDefinition></ColumnDefinition>
 																<!-- blank line to separate image and exif -->
 																<ColumnDefinition Width="10"></ColumnDefinition>
-																<!-- EXIF column -->
+																<!-- Exif column -->
 																<ColumnDefinition></ColumnDefinition>
 															</Grid.ColumnDefinitions>
 															<Grid VerticalAlignment="Center" HorizontalAlignment="Center" Margin="6"
@@ -733,8 +733,7 @@
 								<CheckBox x:Name="chkKeepExif"
 									Grid.Column="1" Grid.Row="1"
 									Margin="10,5,0,0"
-									IsChecked="{Binding Path=KeepExif, Mode=TwoWay}"
-									IsEnabled="False" />
+									IsChecked="{Binding Path=KeepExif, Mode=TwoWay}" />
 
 								<StackPanel Grid.Column="0" Grid.Row="2" Margin="0,5,0,0"
 									Orientation="Horizontal" VerticalAlignment="Top">

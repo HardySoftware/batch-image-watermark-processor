@@ -201,7 +201,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 			}
 
 			engine = new ImageProcessorEngine(this.ps, threadNumber, bs.DateTimeFormatString,
-				events, View.HiddenConfig.EnableDebug, View.ExifContainer);
+				events, View.ExifContainer);
 
 			View.ResetJobSize(engine.JobSize);
 

@@ -8,11 +8,6 @@ using HardySoft.UI.BatchImageProcessor.Model;
 
 namespace HardySoft.UI.BatchImageProcessor.Presenter {
 	public abstract class Watermark : IProcess {
-		public bool EnableDebug {
-			get;
-			set;
-		}
-
 		public string ImageFileName {
 			get;
 			set;

@@ -6,6 +6,9 @@ using HardySoft.UI.BatchImageProcessor.Classes;
 using HardySoft.UI.BatchImageProcessor.View;
 
 using Microsoft.Practices.Unity;
+using System.Diagnostics;
+using System.IO;
+using HardySoft.CC;
 
 namespace HardySoft.UI.BatchImageProcessor {
 	/// <summary>
@@ -14,9 +17,9 @@ namespace HardySoft.UI.BatchImageProcessor {
 	public partial class App : Application {
 		IUnityContainer container = new UnityContainer();
 
-		private void Application_Startup(object sender, StartupEventArgs e) {
-			ExtraConfiguration extraConfig = new ExtraConfiguration();
+		ExtraConfiguration extraConfig = new ExtraConfiguration();
 
+		private void Application_Startup(object sender, StartupEventArgs e) {
 			#region Command line arguments
 			CommandArgument commands = new CommandArgument(e.Args);
 			// additional command line arguments to control some behaviors of application
@@ -34,11 +37,26 @@ namespace HardySoft.UI.BatchImageProcessor {
 				}
 			}
 
+#if DEBUG
+#else
 			if (commands["debug"] != null) {
 				if (string.Compare(commands["debug"], "true", true) == 0) {
-					extraConfig.EnableDebug = true;
+#endif
+					string logDir = Formatter.FormalizeFolderName(Environment.CurrentDirectory) + @"Log\";
+					if (!Directory.Exists(logDir)) {
+						Directory.CreateDirectory(logDir);
+					}
+
+					TextWriterTraceListener listener = new TextWriterTraceListener(logDir + "exception.log");
+					Trace.Listeners.RemoveAt(0);
+					Trace.Listeners.Add(listener);
+					Trace.AutoFlush = true;
+					Trace.UseGlobalLock = true;
+#if DEBUG
+#else
 				}
 			}
+#endif
 			#endregion
 
 			MainWindow mainWindow = (MainWindow)container.Resolve<MainWindow>();

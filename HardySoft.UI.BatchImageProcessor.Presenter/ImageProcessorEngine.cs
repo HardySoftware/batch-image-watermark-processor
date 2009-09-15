@@ -1,13 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Threading;
 
-using HardySoft.CC;
-using HardySoft.CC.ExceptionLog;
-using HardySoft.CC.Transformer;
 using HardySoft.UI.BatchImageProcessor.Model;
 
 using Microsoft.Practices.Unity;
@@ -22,20 +20,17 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 		private ProjectSetting ps = null;
 		private Thread[] threads;
 		private IUnityContainer container = new UnityContainer();
-		private bool enableDebug;
 
 		public event ImageProcessedDelegate ImageProcessed;
 
 		public ImageProcessorEngine(ProjectSetting ps,
 			uint threadNumber, string dateTimeStringFormat,
-			AutoResetEvent[] events, bool enableDebug,
-			List<ExifContainerItem> exifContainer) {
+			AutoResetEvent[] events, List<ExifContainerItem> exifContainer) {
 			this.ps = ps;
 			this.threadNumber = threadNumber;
 			this.jobQueue = new Queue<JobItem>();
 			this.events = events;
 			this.threads = new Thread[this.threadNumber];
-			this.enableDebug = enableDebug;
 
 			// add all selected images to job queue.
 			jobQueue = new Queue<JobItem>();
@@ -56,30 +51,30 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 
 			// register all supported image process classes
 			container.RegisterType<IProcess, AddBorder>("AddBorder",
-				new PerThreadLifetimeManager(),
-				new InjectionProperty("EnableDebug", this.enableDebug));
+				new PerThreadLifetimeManager()/*,
+				new InjectionProperty("EnableDebug")*/);
 			container.RegisterType<IProcess, ApplyWatermarkImage>("WatermarkImage",
-				new PerThreadLifetimeManager(),
-				new InjectionProperty("EnableDebug", this.enableDebug));
+				new PerThreadLifetimeManager()/*,
+				new InjectionProperty("EnableDebug")*/);
 			container.RegisterType<IProcess, ApplyWatermarkText>("WatermarkText",
 				new PerThreadLifetimeManager(),
-				new InjectionProperty("EnableDebug", this.enableDebug),
+				/*new InjectionProperty("EnableDebug"),*/
 				new InjectionConstructor(exifContainer, dateTimeStringFormat));
 			container.RegisterType<IProcess, DropShadowImage>("DropShadow",
-				new PerThreadLifetimeManager(),
-				new InjectionProperty("EnableDebug", this.enableDebug));
+				new PerThreadLifetimeManager()/*,
+				new InjectionProperty("EnableDebug")*/);
 			container.RegisterType<IProcess, GenerateThumbnail>("ThumbImage",
-				new PerThreadLifetimeManager(),
-				new InjectionProperty("EnableDebug", this.enableDebug));
+				new PerThreadLifetimeManager()/*,
+				new InjectionProperty("EnableDebug")*/);
 			container.RegisterType<IProcess, GrayScale>("GrayscaleEffect",
-				new PerThreadLifetimeManager(),
-				new InjectionProperty("EnableDebug", this.enableDebug));
+				new PerThreadLifetimeManager()/*,
+				new InjectionProperty("EnableDebug")*/);
 			container.RegisterType<IProcess, NegativeImage>("NegativeEffect",
-				new PerThreadLifetimeManager(),
-				new InjectionProperty("EnableDebug", this.enableDebug));
+				new PerThreadLifetimeManager()/*,
+				new InjectionProperty("EnableDebug")*/);
 			container.RegisterType<IProcess, ShrinkImage>("ShrinkImage",
-				new PerThreadLifetimeManager(),
-				new InjectionProperty("EnableDebug", this.enableDebug));
+				new PerThreadLifetimeManager()/*,
+				new InjectionProperty("EnableDebug")*/);
 			// register generate file name classes
 			container.RegisterType<IFilenameProvider, ThumbnailFileName>("ThumbFileName",
 				new PerThreadLifetimeManager());
@@ -90,12 +85,12 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 
 			// register save image classes
 			container.RegisterType<ISaveImage, SaveNormalImage>("SaveNormalImage",
-				new PerThreadLifetimeManager(),
-				new InjectionProperty("EnableDebug", this.enableDebug));
+				new PerThreadLifetimeManager()/*,
+				new InjectionProperty("EnableDebug")*/);
 			container.RegisterType<ISaveImage, SaveCompressedJPGImage>("SaveCompressedJpgImage",
 				new PerThreadLifetimeManager(),
-				new InjectionConstructor(ps.JpgCompressionRatio),
-				new InjectionProperty("EnableDebug", this.enableDebug));
+				new InjectionConstructor(ps.JpgCompressionRatio)/*,
+				new InjectionProperty("EnableDebug")*/);
 		}
 
 		public void StartProcess() {
@@ -150,9 +145,16 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 				events[index].Set();
 				return;
 			} else {
+				ExifMetadata exif = null;
+
 				Image normalImage = null;
 				Image thumbImage = null;
 				try {
+					if (ps.KeepExif) {
+						// keep exif information from original file
+						exif = new ExifMetadata(new Uri(imagePath), true);
+					}
+
 					using (Stream stream = File.OpenRead(imagePath)) {
 						normalImage = Image.FromStream(stream);
 					}
@@ -227,6 +229,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 
 					if (format == ImageFormat.Jpeg) {
 						imageSaver = container.Resolve<ISaveImage>("SaveCompressedJpgImage");
+						imageSaver.Exif = exif;
 					} else {
 						imageSaver = container.Resolve<ISaveImage>("SaveNormalImage");
 					}
@@ -245,12 +248,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 					//fileNameProvider.ImageIndex = imageIndex;
 					saveImage(imagePath, thumbImage, format, fileNameProvider, imageSaver, imageIndex);
 				} catch (Exception ex) {
-					if (this.enableDebug) {
-						string logFile = Formatter.FormalizeFolderName(Directory.GetCurrentDirectory()) + @"logs\SeaTurtle_Error.log";
-						string logXml = Serializer.Serialize<ExceptionContainer>(ExceptionLogger.GetException(ex));
-
-						HardySoft.CC.File.FileAccess.AppendFile(logFile, logXml);
-					}
+					Trace.TraceError(ex.ToString());
 				} finally {
 					normalImage.Dispose();
 					normalImage = null;

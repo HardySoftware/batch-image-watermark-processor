@@ -1,21 +1,12 @@
 using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.IO;
-
-using HardySoft.CC;
-using HardySoft.CC.ExceptionLog;
-using HardySoft.CC.Transformer;
 
 using HardySoft.UI.BatchImageProcessor.Model;
 
 namespace HardySoft.UI.BatchImageProcessor.Presenter {
 	public class DropShadowImage : IProcess {
-		public bool EnableDebug {
-			get;
-			set;
-		}
-
 		public string ImageFileName {
 			get;
 			set;
@@ -171,12 +162,8 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 				graphic.Dispose();
 				return (Image)bmp;
 			} catch (Exception ex) {
-				if (this.EnableDebug) {
-					string logFile = Formatter.FormalizeFolderName(Directory.GetCurrentDirectory()) + @"logs\SeaTurtle_Error.log";
-					string logXml = Serializer.Serialize<ExceptionContainer>(ExceptionLogger.GetException(ex));
+				Trace.TraceError(ex.ToString());
 
-					HardySoft.CC.File.FileAccess.AppendFile(logFile, logXml);
-				}
 				return input;
 			}
 		}

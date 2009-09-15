@@ -1,14 +1,12 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.Drawing.Text;
-using System.IO;
 
 using HardySoft.CC;
-using HardySoft.CC.ExceptionLog;
-using HardySoft.CC.Transformer;
 
 using HardySoft.UI.BatchImageProcessor.Model;
 
@@ -43,7 +41,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 
 				if (tagsFound != null && tagsFound.Count > 0 && !string.IsNullOrEmpty(this.ImageFileName)) {
 					// at least one Exif tag is found
-					ExifMetadata meta = new ExifMetadata(new Uri(this.ImageFileName));
+					ExifMetadata meta = new ExifMetadata(new Uri(this.ImageFileName), true);
 
 					foreach (ExifContainerItem tagFound in tagsFound) {
 						// replace actual value from Exif in watermark text
@@ -193,12 +191,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 
 				return bmp;
 			} catch (Exception ex) {
-				if (this.EnableDebug) {
-					string logFile = Formatter.FormalizeFolderName(Directory.GetCurrentDirectory()) + @"logs\SeaTurtle_Error.log";
-					string logXml = Serializer.Serialize<ExceptionContainer>(ExceptionLogger.GetException(ex));
-
-					HardySoft.CC.File.FileAccess.AppendFile(logFile, logXml);
-				}
+				Trace.TraceError(ex.ToString());
 				return input;
 			}
 		}
