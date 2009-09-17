@@ -103,8 +103,9 @@ namespace HardySoft.UI.BatchImageProcessor {
 			this.DragMove();
 		}
 
-		private ExtraConfiguration hiddenConfig;
-		public ExtraConfiguration HiddenConfig {
+		private IConfiguration hiddenConfig;
+		[Dependency]
+		public IConfiguration HiddenConfig {
 			get {
 				return this.hiddenConfig;
 			}

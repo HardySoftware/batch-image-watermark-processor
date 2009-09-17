@@ -234,6 +234,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 						imageSaver = container.Resolve<ISaveImage>("SaveNormalImage");
 					}
 
+					// TODO change to setter injection
 					IFilenameProvider fileNameProvider;
 
 					if (ps.RenamingSetting.EnableBatchRename) {

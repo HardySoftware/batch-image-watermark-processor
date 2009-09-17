@@ -8,7 +8,7 @@ namespace HardySoft.UI.BatchImageProcessor.View {
 	/// <summary>
 	/// A container for extra configuration (e.g. from command line and so on).
 	/// </summary>
-	public class ExtraConfiguration {
+	public class ExtraConfiguration : IConfiguration {
 		public CultureInfo ApplicationLanguage {
 			get;
 			set;
