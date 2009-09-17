@@ -1,23 +1,31 @@
 using System;
+using System.Diagnostics;
+using System.IO;
 using System.Threading;
 using System.Windows;
+using System.Windows.Threading;
+
+using HardySoft.CC;
 
 using HardySoft.UI.BatchImageProcessor.Classes;
 using HardySoft.UI.BatchImageProcessor.View;
 
 using Microsoft.Practices.Unity;
-using System.Diagnostics;
-using System.IO;
-using HardySoft.CC;
 
 namespace HardySoft.UI.BatchImageProcessor {
 	/// <summary>
 	/// Interaction logic for App.xaml
 	/// </summary>
 	public partial class App : Application {
-		IUnityContainer container = new UnityContainer();
+		private IUnityContainer container = new UnityContainer();
+		private IConfiguration extraConfig;
+		private MainWindow mainWindow;
 
-		ExtraConfiguration extraConfig = new ExtraConfiguration();
+		public App() {
+			container.RegisterType<IConfiguration, ExtraConfiguration>();
+			// depedency injection
+			extraConfig = container.Resolve<ExtraConfiguration>();
+		}
 
 		private void Application_Startup(object sender, StartupEventArgs e) {
 			#region Command line arguments
@@ -59,8 +67,7 @@ namespace HardySoft.UI.BatchImageProcessor {
 #endif
 			#endregion
 
-			MainWindow mainWindow = (MainWindow)container.Resolve<MainWindow>();
-			mainWindow.HiddenConfig = extraConfig;
+			mainWindow = (MainWindow)container.Resolve<MainWindow>();
 			mainWindow.Show();
 
 			// TODO create a resource library to separate UI resource from main project, P345
@@ -71,11 +78,6 @@ namespace HardySoft.UI.BatchImageProcessor {
 		}
 
 		private void checkVersion() {
-			/*this.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal,
-				(ThreadStart)delegate() {
-				}
-			);*/
-
 			Version latestVersion = AssembyInformation.GetLatestVersion();
 			Version myVersion = AssembyInformation.GetApplicationVersion();
 			if (latestVersion != null && myVersion != null) {
@@ -93,10 +95,6 @@ namespace HardySoft.UI.BatchImageProcessor {
 			if (latestVersion > myVersion) {
 				showNewVersionWindow(latestVersion, myVersion);
 			}
-
-#if DEBUG
-			//showNewVersionWindow(latestVersion, myVersion);
-#endif
 		}
 
 		private void showNewVersionWindow(Version latestVersion, Version myVersion) {
@@ -111,8 +109,12 @@ namespace HardySoft.UI.BatchImageProcessor {
 			window.Show();
 		}
 
-		private void Application_DispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e) {
+		private void Application_DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e) {
+			Trace.TraceError(e.Exception.ToString());
+		}
 
+		private void Application_Exit(object sender, ExitEventArgs e) {
+			return;
 		}
 	}
 }

@@ -805,7 +805,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 
 				return true;
 			} catch (Exception ex) {
-				Trace.WriteLine(ex.ToString());
+				Trace.TraceError(ex.ToString());
 				return false;
 			}
 		}
