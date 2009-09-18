@@ -372,11 +372,11 @@ namespace HardySoft.CC.Mathematics {
 					// the string is not in the form of a fraction
 					// hopefully it is double or integer, do we see a decimal point?
 					int decimalPos = inValue.IndexOf(info.CurrencyDecimalSeparator);
+
+					// TODO this piece looks week, it should consider CurrencyGroupSeparator and so on.
 					if (decimalPos > -1) {
-						// TODO this piece looks week, it should consider CurrencyGroupSeparator and so on.
 						return new Fraction(Convert.ToDouble(inValue));
 					} else {
-						// TODO this piece looks week, it should consider CurrencyGroupSeparator and so on.
 						return new Fraction(Convert.ToInt64(inValue));
 					}
 				}
