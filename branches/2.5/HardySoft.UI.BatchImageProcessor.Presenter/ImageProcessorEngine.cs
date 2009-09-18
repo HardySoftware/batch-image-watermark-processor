@@ -225,16 +225,6 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 						normalImage = process.ProcessImage(normalImage, this.ps);
 					}
 
-					ISaveImage imageSaver;
-
-					if (format == ImageFormat.Jpeg) {
-						imageSaver = container.Resolve<ISaveImage>("SaveCompressedJpgImage");
-						imageSaver.Exif = exif;
-					} else {
-						imageSaver = container.Resolve<ISaveImage>("SaveNormalImage");
-					}
-
-					// TODO change to setter injection
 					IFilenameProvider fileNameProvider;
 
 					if (ps.RenamingSetting.EnableBatchRename) {
@@ -242,12 +232,26 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 					} else {
 						fileNameProvider = container.Resolve<IFilenameProvider>("NormalFileName");
 					}
-					saveImage(imagePath, normalImage, format, fileNameProvider, imageSaver, imageIndex);
+					fileNameProvider.PS = ps;
+					fileNameProvider.ImageIndex = imageIndex;
+					fileNameProvider.SourceFileName = imagePath;
+
+					ISaveImage imageSaver;
+					if (format == ImageFormat.Jpeg) {
+						imageSaver = container.Resolve<ISaveImage>("SaveCompressedJpgImage");
+						imageSaver.Exif = exif;
+					} else {
+						imageSaver = container.Resolve<ISaveImage>("SaveNormalImage");
+					}
+					imageSaver.SaveImageToDisk(normalImage, format, fileNameProvider);
 
 					// TODO think about applying thumbImage file name to batch renamed original file
 					fileNameProvider = container.Resolve<IFilenameProvider>("ThumbFileName");
-					//fileNameProvider.ImageIndex = imageIndex;
-					saveImage(imagePath, thumbImage, format, fileNameProvider, imageSaver, imageIndex);
+					fileNameProvider.PS = ps;
+					fileNameProvider.ImageIndex = imageIndex;
+					fileNameProvider.SourceFileName = imagePath;
+					//saveImage(imagePath, thumbImage, format, fileNameProvider, imageSaver, imageIndex);
+					imageSaver.SaveImageToDisk(thumbImage, format, fileNameProvider);
 				} catch (Exception ex) {
 					Trace.TraceError(ex.ToString());
 				} finally {
@@ -293,7 +297,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 			}
 		}
 
-		private bool saveImage(string originalFilename, Image image, ImageFormat format,
+		/*private bool saveImage(string originalFilename, Image image, ImageFormat format,
 			IFilenameProvider fileNameProvider, ISaveImage save, uint imageIndex) {
 			if (image == null) {
 				// nothing to save
@@ -302,7 +306,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 
 			string filename = fileNameProvider.GetFileName(originalFilename, ps, imageIndex);
 			return save.SaveImageToDisk(image, filename, format);
-		}
+		}*/
 	}
 
 	class JobItem {

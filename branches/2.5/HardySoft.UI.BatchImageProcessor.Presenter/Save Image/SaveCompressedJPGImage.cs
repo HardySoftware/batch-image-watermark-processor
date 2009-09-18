@@ -28,7 +28,9 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 			}
 		}
 
-		public bool SaveImageToDisk(Image image, string fileName, ImageFormat format) {
+		public bool SaveImageToDisk(Image image, ImageFormat format, IFilenameProvider fileNameProvider) {
+			string fileName = fileNameProvider.GetFileName();
+
 			ImageCodecInfo[] codecs = ImageCodecInfo.GetImageEncoders();
 			// find the encoder with the image/jpeg mime-type
 			ImageCodecInfo imageCodec = null;

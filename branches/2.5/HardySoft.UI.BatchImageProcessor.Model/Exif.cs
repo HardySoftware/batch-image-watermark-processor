@@ -531,7 +531,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 				object val = queryMetadata("/app1/ifd/exif/subifd:{uint=33434}");
 				if (val != null) {
 					decimal time = parseUnsignedRational((ulong)val);
-					// TODO investigate if all the EXIF decimal or float value has no localized number information.
+					// investigate if all the EXIF decimal or float value has no localized number information.
 					System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("en-us");
 					Fraction f = new Fraction(time.ToString(), culture.NumberFormat);
 					return f.ToString();
@@ -547,7 +547,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 				object val = queryMetadata("/app1/ifd/exif/subifd:{uint=33434}");
 				if (val != null) {
 					decimal time = parseUnsignedRational((ulong)val);
-					// TODO investigate if all the EXIF decimal or float value has no localized number information.
+					// investigate if all the EXIF decimal or float value has no localized number information.
 					System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("en-us");
 					return new Fraction(time.ToString(), culture.NumberFormat);
 				} else {
