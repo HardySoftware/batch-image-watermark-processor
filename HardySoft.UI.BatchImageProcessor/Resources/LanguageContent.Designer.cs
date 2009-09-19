@@ -2167,7 +2167,7 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sea Turtle Image Processor.
+        ///   Looks up a localized string similar to Sea Turtle Batch Image Processor.
         /// </summary>
         internal static string WindowTitle_Main {
             get {
