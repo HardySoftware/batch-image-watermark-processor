@@ -22,6 +22,7 @@ namespace HardySoft.UI.BatchImageProcessor {
 
 		private void lvAssemblyList_SelectionChanged(object sender, SelectionChangedEventArgs e) {
 			// To get rid of selected item from the list
+
 			lvAssemblyList.SelectedIndex = -1;
 			e.Handled = true;
 		}
