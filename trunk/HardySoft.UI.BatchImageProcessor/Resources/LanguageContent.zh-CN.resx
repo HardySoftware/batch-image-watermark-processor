@@ -482,7 +482,7 @@
     <value>颜色选择</value>
   </data>
   <data name="WindowTitle_Main" xml:space="preserve">
-    <value>海龟图形处理</value>
+    <value>海龟批量图形处理</value>
   </data>
   <data name="Style_AboutLabel" xml:space="preserve">
     <value>黑体, SimHei, Microsoft YaHei</value>

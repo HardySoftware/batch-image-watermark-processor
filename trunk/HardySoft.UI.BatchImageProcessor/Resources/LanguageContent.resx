@@ -479,7 +479,7 @@
     <value>Choose Color</value>
   </data>
   <data name="WindowTitle_Main" xml:space="preserve">
-    <value>Sea Turtle Image Processor</value>
+    <value>Sea Turtle Batch Image Processor</value>
   </data>
   <data name="WindowTitle_Preference" xml:space="preserve">
     <value>Preference</value>

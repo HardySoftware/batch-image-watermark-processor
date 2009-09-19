@@ -63,6 +63,7 @@ namespace HardySoft.UI.BatchImageProcessor {
 #if DEBUG
 #else
 				}
+			}
 #endif
 			#endregion
 
