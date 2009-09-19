@@ -744,4 +744,7 @@
   <data name="Label_Value" xml:space="preserve">
     <value>Value</value>
   </data>
+  <data name="Command_Discuss" xml:space="preserve">
+    <value>Online Discuss</value>
+  </data>
 </root>

@@ -18,6 +18,7 @@
 		<CommandBinding x:Name="PreferenceCommand" Command="HSC:ApplicationCommand.Preference" Executed="PreferenceCommand_Executed" CanExecute="PreferenceCommand_CanExecute"/>
 		<CommandBinding x:Name="AboutCommand" Command="HSC:ApplicationCommand.About" Executed="AboutCommand_Executed" CanExecute="AboutCommand_CanExecute" />
 		<CommandBinding x:Name="HelpCommand" Command="ApplicationCommands.Help" Executed="HelpCommand_Executed" CanExecute="HelpCommand_CanExecute"/>
+		<CommandBinding x:Name="DiscussCommand" Command="HSC:ApplicationCommand.Discuss" Executed="DiscussCommand_Executed"/>
 	</Control.CommandBindings>
 	
 	<Control.InputBindings>
@@ -82,6 +83,11 @@
 					<MenuItem Header="{HSMarks:ResourceExtension Command_About}" Command="HSC:ApplicationCommand.About">
 						<MenuItem.Icon>
 							<Image Source="/SeaTurtle;component/Themes/DarkCool/Images/Menu_Icons/information.png"></Image>
+						</MenuItem.Icon>
+					</MenuItem>
+					<MenuItem Header="{HSMarks:ResourceExtension Command_Discuss}" Command="HSC:ApplicationCommand.Discuss">
+						<MenuItem.Icon>
+							<Image Source="/SeaTurtle;component/Themes/DarkCool/Images/Menu_Icons/discuss.png"></Image>
 						</MenuItem.Icon>
 					</MenuItem>
 				</MenuItem>

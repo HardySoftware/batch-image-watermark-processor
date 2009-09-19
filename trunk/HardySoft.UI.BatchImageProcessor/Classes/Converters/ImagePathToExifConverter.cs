@@ -16,7 +16,7 @@ namespace HardySoft.UI.BatchImageProcessor.Classes.Converters {
 	public class ImagePathToExifConverter : IValueConverter {
 		public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture) {
 			string imagePath = (string)value;
-			
+
 			if (File.Exists(imagePath)) {
 				FileInfo fi = new FileInfo(imagePath);
 
@@ -26,14 +26,14 @@ namespace HardySoft.UI.BatchImageProcessor.Classes.Converters {
 					return getExifMetaData(imagePath);
 				}
 			}
-			
+
 			return null;
 		}
 
 		public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture) {
 			throw new NotImplementedException("The method or operation is not implemented.");
 		}
-		
+
 		/*private Dictionary<string, object> getExifMeta(string imagePath) {
 			// non-localized version
 			Uri source = new Uri(imagePath);
@@ -136,7 +136,7 @@ namespace HardySoft.UI.BatchImageProcessor.Classes.Converters {
 
 			Uri source = new Uri(imagePath);
 
-			ExifMetadata meta = new ExifMetadata(source);
+			ExifMetadata meta = new ExifMetadata(source, true);
 
 			List<ExifContainerItem> exifContainer = Utilities.GetExifContainer();
 

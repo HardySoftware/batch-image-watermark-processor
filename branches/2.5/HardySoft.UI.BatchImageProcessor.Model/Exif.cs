@@ -34,7 +34,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 		StrobeReturnDetected = 7,
 
 		[Description(@"Enum_FlashMode09")]
-		CompulsoryFlashMode  = 9,
+		CompulsoryFlashMode = 9,
 
 		[Description(@"Enum_FlashMode13")]
 		CompulsoryFlashModeReturnLightNotDetected = 13,
@@ -474,7 +474,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 				return (val != null ? (string)val : String.Empty);
 			}
 			set {
-				if (! string.IsNullOrEmpty(value)) {
+				if (!string.IsNullOrEmpty(value)) {
 					writeMetatadata("/app1/ifd/exif:{uint=271}", value);
 				}
 			}

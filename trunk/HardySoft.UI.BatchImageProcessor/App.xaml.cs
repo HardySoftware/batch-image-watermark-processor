@@ -1,6 +1,10 @@
 using System;
+using System.Diagnostics;
+using System.IO;
 using System.Threading;
 using System.Windows;
+
+using HardySoft.CC;
 
 using HardySoft.UI.BatchImageProcessor.Classes;
 using HardySoft.UI.BatchImageProcessor.View;
@@ -34,14 +38,29 @@ namespace HardySoft.UI.BatchImageProcessor {
 				}
 			}
 
+#if DEBUG
+#else
 			if (commands["debug"] != null) {
 				if (string.Compare(commands["debug"], "true", true) == 0) {
-					extraConfig.EnableDebug = true;
-				}
+#endif
+					string logDir = Formatter.FormalizeFolderName(Environment.CurrentDirectory) + @"Log\";
+					if (!Directory.Exists(logDir)) {
+						Directory.CreateDirectory(logDir);
+					}
+
+					TextWriterTraceListener listener = new TextWriterTraceListener(logDir + "exception.log");
+					Trace.Listeners.RemoveAt(0);
+					Trace.Listeners.Add(listener);
+					Trace.AutoFlush = true;
+					Trace.UseGlobalLock = true;
+#if DEBUG
+#else
+							}
 			}
+#endif
 			#endregion
 
-			MainWindow mainWindow = (MainWindow)container.Resolve<MainWindow>();
+					MainWindow mainWindow = (MainWindow)container.Resolve<MainWindow>();
 			mainWindow.HiddenConfig = extraConfig;
 			mainWindow.Show();
 
