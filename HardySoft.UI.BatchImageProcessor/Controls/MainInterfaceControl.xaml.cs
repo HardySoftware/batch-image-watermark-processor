@@ -31,7 +31,7 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 		private DispatcherTimer dispatcherTimer;
 
 		public MainInterfaceControl() {
-			IUnityContainer container = new UnityContainer();
+			//IUnityContainer container = new UnityContainer();
 
 			InitializeComponent();
 
@@ -448,6 +448,29 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 		}
 
 		private void NewCommand_Executed(object sender, ExecutedRoutedEventArgs e) {
+			if (this.ps.IsDirty) {
+				MessageBoxResult result = System.Windows.MessageBox.Show(res.LanguageContent.Message_SavePrompt,
+					res.LanguageContent.Label_UnsavedProject,
+					MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
+
+				switch (result) {
+					case MessageBoxResult.Yes:
+						saveProject();
+						newProject();
+						break;
+					case MessageBoxResult.No:
+						newProject();
+						break;
+					default:
+						// "Cancel" do nothing
+						break;
+				}
+			} else {
+				newProject();
+			}
+		}
+
+		private void newProject() {
 			ProjectWithFileNameEventHandler handlers = NewProjectCreated;
 			if (handlers != null) {
 				ProjectWithFileNameEventArgs args = new ProjectWithFileNameEventArgs(res.LanguageContent.Label_UntitledProjectName);
@@ -648,7 +671,26 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 		
 		private void ExitCommand_Executed(object sender, ExecutedRoutedEventArgs e) {
 			// TODO detect working threads status and gracefully shut them down
-			System.Windows.Application.Current.Shutdown();
+			if (this.ps.IsDirty) {
+				MessageBoxResult result = System.Windows.MessageBox.Show(res.LanguageContent.Message_SavePrompt,
+					res.LanguageContent.Label_UnsavedProject,
+					MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
+
+				switch (result) {
+					case MessageBoxResult.Yes:
+						saveProject();
+						System.Windows.Application.Current.Shutdown();
+						break;
+					case MessageBoxResult.No:
+						System.Windows.Application.Current.Shutdown();
+						break;
+					default:
+						// "Cancel" do nothing
+						break;
+				}
+			} else {
+				System.Windows.Application.Current.Shutdown();
+			}
 		}
 		#endregion
 

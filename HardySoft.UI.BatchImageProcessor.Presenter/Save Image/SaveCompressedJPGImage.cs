@@ -1,11 +1,11 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
-using System.IO;
 
-using HardySoft.CC;
-using HardySoft.CC.ExceptionLog;
-using HardySoft.CC.Transformer;
+using HardySoft.UI.BatchImageProcessor.Model;
+using System.Windows.Media.Imaging;
+using System.IO;
 
 namespace HardySoft.UI.BatchImageProcessor.Presenter {
 	/// <summary>
@@ -13,17 +13,24 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 	/// </summary>
 	class SaveCompressedJPGImage : ISaveImage {
 		private long compressionRatio;
+		private ExifMetadata exif;
 
 		public SaveCompressedJPGImage(long compressionRatio) {
 			this.compressionRatio = compressionRatio;
 		}
 
-		public bool EnableDebug {
-			get;
-			set;
+		public ExifMetadata Exif {
+			get {
+				return this.exif;
+			}
+			set {
+				this.exif = value;
+			}
 		}
 
-		public bool SaveImageToDisk(Image image, string fileName, ImageFormat format) {
+		public bool SaveImageToDisk(Image image, ImageFormat format, IFilenameProvider fileNameProvider) {
+			string fileName = fileNameProvider.GetFileName();
+
 			ImageCodecInfo[] codecs = ImageCodecInfo.GetImageEncoders();
 			// find the encoder with the image/jpeg mime-type
 			ImageCodecInfo imageCodec = null;
@@ -41,16 +48,43 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 
 			try {
 				image.Save(fileName, imageCodec, encoder);
+
+				addExif(fileName, (uint)image.Width, (uint)image.Height);
+
 				return true;
 			} catch (Exception ex) {
-				if (this.EnableDebug) {
-					string logFile = Formatter.FormalizeFolderName(Directory.GetCurrentDirectory()) + @"logs\SeaTurtle_Error.log";
-					string logXml = Serializer.Serialize<ExceptionContainer>(ExceptionLogger.GetException(ex));
-
-					HardySoft.CC.File.FileAccess.AppendFile(logFile, logXml);
-				}
+				Trace.TraceError(ex.ToString());
 				return false;
 			}
+		}
+
+		private void addExif(string fileName, uint width, uint height) {
+			if (this.exif == null) {
+				return;
+			}
+
+			ExifMetadata targetExif = new ExifMetadata(new Uri(fileName, UriKind.Absolute), false);
+			targetExif.CameraModel = this.exif.CameraModel;
+			targetExif.ColorRepresentation = this.exif.ColorRepresentation;
+			targetExif.CreationSoftware = "Sea Turtle Batch Image Processor";
+			targetExif.DateImageTaken = this.exif.DateImageTaken;
+			targetExif.EquipmentManufacturer = this.exif.EquipmentManufacturer;
+			targetExif.ExifVersion = "2.2";
+			targetExif.ExposureCompensation = this.exif.ExposureCompensation;
+			targetExif.ExposureMode = this.exif.ExposureMode;
+			targetExif.ExposureTime = this.exif.ExposureTime;
+			targetExif.FlashMode = this.exif.FlashMode;
+			targetExif.FocalLength = this.exif.FocalLength;
+			targetExif.Height = height;
+			targetExif.HorizontalResolution = this.exif.HorizontalResolution;
+			targetExif.IsoSpeed = this.exif.IsoSpeed;
+			targetExif.LensAperture = this.exif.LensAperture;
+			targetExif.LightSource = this.exif.LightSource;
+			targetExif.MeteringMode = this.exif.MeteringMode;
+			targetExif.VerticalResolution = this.exif.VerticalResolution;
+			targetExif.Width = width;
+
+			targetExif.SaveExif();
 		}
 	}
 }

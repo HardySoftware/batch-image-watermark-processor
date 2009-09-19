@@ -59,6 +59,7 @@
   <ItemGroup>
     <Compile Include="ErrorMessage.cs" />
     <Compile Include="ExtraConfiguration.cs" />
+    <Compile Include="IConfiguration.cs" />
     <Compile Include="IMainInterfaceControlView.cs" />
     <Compile Include="IPreferenceView.cs" />
     <Compile Include="IView.cs" />

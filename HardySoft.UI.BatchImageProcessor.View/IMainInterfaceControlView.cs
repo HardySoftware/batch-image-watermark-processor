@@ -42,7 +42,7 @@ namespace HardySoft.UI.BatchImageProcessor.View {
 		event ProcessThreadNumberEventHandler ProcessImage;
 		event EventHandler StopProcessing;
 
-		ExtraConfiguration HiddenConfig {
+		IConfiguration HiddenConfig {
 			get;
 			set;
 		}

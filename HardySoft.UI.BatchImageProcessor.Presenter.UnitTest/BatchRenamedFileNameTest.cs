@@ -72,7 +72,12 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter.UnitTest {
 				ps.RenamingSetting.OutputFileNameSuffix = "_city";
 				ps.RenamingSetting.StartNumber = 0;
 				ps.RenamingSetting.FileNameCase = OutputFileNameCase.None;
-				string outputFileName = target.GetFileName(sourceFile, ps, i);
+
+				target.PS = ps;
+				target.ImageIndex = i;
+				target.SourceFileName = sourceFile;
+
+				string outputFileName = target.GetFileName();
 				if (!files.Contains(outputFileName)) {
 					files.Add(outputFileName);
 				}
@@ -93,8 +98,12 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter.UnitTest {
 			ps.RenamingSetting.StartNumber = 0;
 			ps.RenamingSetting.FileNameCase = OutputFileNameCase.None;
 
+			target.PS = ps;
+			target.ImageIndex = 10;
+			target.SourceFileName = sourceFile;
+
 			string expected = @"C:\Out\travel_010_city.jpg";
-			string actual = target.GetFileName(sourceFile, ps, 10);
+			string actual = target.GetFileName();
 			Assert.AreEqual(expected, actual);
 		}
 
@@ -110,8 +119,12 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter.UnitTest {
 			ps.RenamingSetting.StartNumber = 5;
 			ps.RenamingSetting.FileNameCase = OutputFileNameCase.None;
 
+			target.PS = ps;
+			target.ImageIndex = 10;
+			target.SourceFileName = sourceFile;
+
 			string expected = @"C:\Out\travel_015_city.jpg";
-			string actual = target.GetFileName(sourceFile, ps, 10);
+			string actual = target.GetFileName();
 			Assert.AreEqual(expected, actual);
 		}
 
@@ -128,8 +141,12 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter.UnitTest {
 			ps.RenamingSetting.NumberPadding = 6;
 			ps.RenamingSetting.FileNameCase = OutputFileNameCase.None;
 
+			target.PS = ps;
+			target.ImageIndex = 10;
+			target.SourceFileName = sourceFile;
+
 			string expected = @"C:\Out\travel_000015_city.jpg";
-			string actual = target.GetFileName(sourceFile, ps, 10);
+			string actual = target.GetFileName();
 			Assert.AreEqual(expected, actual);
 		}
 
@@ -146,8 +163,12 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter.UnitTest {
 			ps.RenamingSetting.NumberPadding = 6;
 			ps.RenamingSetting.FileNameCase = OutputFileNameCase.None;
 
+			target.PS = ps;
+			target.ImageIndex = 10;
+			target.SourceFileName = sourceFile;
+
 			string expected = @"C:\Out\DC001_000015.jpg";
-			string actual = target.GetFileName(sourceFile, ps, 10);
+			string actual = target.GetFileName();
 			Assert.AreEqual(expected, actual);
 		}
 	}

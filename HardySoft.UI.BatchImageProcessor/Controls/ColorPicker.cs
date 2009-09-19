@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
 using System.Windows.Input;
+using System.Windows.Media;
 using System.Windows.Shapes;
 
 namespace HardySoft.UI.BatchImageProcessor.Controls {
@@ -417,7 +415,8 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 				if (shouldFindPoint && !isAlphaChange && templateApplied) {
 					updateMarkerPosition(m_color);
 				}
-			} catch (FormatException fException) {
+			} catch (FormatException ex) {
+				Trace.TraceError(ex.ToString());
 				SetValue(HexadecimalStringProperty, oldValue);
 			}
 		}
