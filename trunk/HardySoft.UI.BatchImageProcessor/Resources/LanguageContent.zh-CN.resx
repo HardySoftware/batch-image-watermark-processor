@@ -562,16 +562,16 @@
   <data name="Enum_Flash" xml:space="preserve">
     <value>闪光灯</value>
   </data>
-  <data name="Enum_FlashDidNotFire" xml:space="preserve">
+  <data name="Enum_FlashMode00" xml:space="preserve">
     <value>闪光灯未闪</value>
   </data>
-  <data name="Enum_FlashFired" xml:space="preserve">
+  <data name="Enum_FlashMode01" xml:space="preserve">
     <value>闪光灯闪</value>
   </data>
   <data name="Enum_Fluorescent" xml:space="preserve">
     <value>荧光灯</value>
   </data>
-  <data name="Enum_HighSpeedMode" xml:space="preserve">
+  <data name="Enum_ActionMode" xml:space="preserve">
     <value>高速模式</value>
   </data>
   <data name="Enum_ISOStudioTungsten" xml:space="preserve">
@@ -580,8 +580,8 @@
   <data name="Enum_LandscapeMode" xml:space="preserve">
     <value>风景模式</value>
   </data>
-  <data name="Enum_LowSpeedMode" xml:space="preserve">
-    <value>低速模式</value>
+  <data name="Enum_Creative" xml:space="preserve">
+    <value>创意模式</value>
   </data>
   <data name="Enum_Manual" xml:space="preserve">
     <value>手动</value>
@@ -616,14 +616,11 @@
   <data name="Enum_Uncalibrated" xml:space="preserve">
     <value>未校准</value>
   </data>
-  <data name="Enum_Unkown" xml:space="preserve">
+  <data name="Enum_Unknown" xml:space="preserve">
     <value>未知</value>
   </data>
   <data name="Enum_WhiteFluorescent" xml:space="preserve">
     <value>白炽灯</value>
-  </data>
-  <data name="Enum_Unknown" xml:space="preserve">
-    <value>未知</value>
   </data>
   <data name="Validation_ImageBorderWidth" xml:space="preserve">
     <value>请用一个正整数作为边框宽度。</value>
@@ -735,6 +732,96 @@
   </data>
   <data name="Label_Value" xml:space="preserve">
     <value>数值</value>
+  </data>
+  <data name="Enum_Auto" xml:space="preserve">
+    <value>自动</value>
+  </data>
+  <data name="Enum_Average" xml:space="preserve">
+    <value>平均</value>
+  </data>
+  <data name="Enum_Center" xml:space="preserve">
+    <value>中心</value>
+  </data>
+  <data name="Enum_MultiSegment" xml:space="preserve">
+    <value>多段测光</value>
+  </data>
+  <data name="Enum_MultiSpot" xml:space="preserve">
+    <value>多点测光</value>
+  </data>
+  <data name="Enum_Partial" xml:space="preserve">
+    <value>部分测光</value>
+  </data>
+  <data name="Enum_Spot" xml:space="preserve">
+    <value>点测光</value>
+  </data>
+  <data name="Label_MeteringMode" xml:space="preserve">
+    <value>测光模式</value>
+  </data>
+  <data name="Label_Title" xml:space="preserve">
+    <value>标题</value>
+  </data>
+  <data name="Enum_FlashMode05" xml:space="preserve">
+    <value>闪光灯闪，无频闪灯检测到</value>
+  </data>
+  <data name="Enum_FlashMode07" xml:space="preserve">
+    <value>闪光灯闪，频闪灯检测到</value>
+  </data>
+  <data name="Enum_FlashMode09" xml:space="preserve">
+    <value>闪光灯闪，强制闪光模式</value>
+  </data>
+  <data name="Enum_FlashMode13" xml:space="preserve">
+    <value>闪光灯闪，强制闪光模式，无频闪灯检测到</value>
+  </data>
+  <data name="Enum_FlashMode15" xml:space="preserve">
+    <value>闪光灯闪，强制闪光模式，频闪灯检测到</value>
+  </data>
+  <data name="Enum_FlashMode16" xml:space="preserve">
+    <value>闪光灯强制关闭</value>
+  </data>
+  <data name="Enum_FlashMode24" xml:space="preserve">
+    <value>自动模式无闪光灯</value>
+  </data>
+  <data name="Enum_FlashMode25" xml:space="preserve">
+    <value>自动模式闪光灯闪</value>
+  </data>
+  <data name="Enum_FlashMode29" xml:space="preserve">
+    <value>自动模式闪光灯闪，无频闪灯检测到</value>
+  </data>
+  <data name="Enum_FlashMode31" xml:space="preserve">
+    <value>自动模式闪光灯闪，频闪灯检测到</value>
+  </data>
+  <data name="Enum_FlashMode32" xml:space="preserve">
+    <value>无闪光功能</value>
+  </data>
+  <data name="Enum_FlashMode65" xml:space="preserve">
+    <value>闪光灯闪，防红眼模式打开</value>
+  </data>
+  <data name="Enum_FlashMode69" xml:space="preserve">
+    <value>闪光灯闪，防红眼模式打开，无频闪灯检测到</value>
+  </data>
+  <data name="Enum_FlashMode71" xml:space="preserve">
+    <value>闪光灯闪，防红眼模式打开，频闪灯检测到</value>
+  </data>
+  <data name="Enum_FlashMode73" xml:space="preserve">
+    <value>闪光灯闪，强制闪光模式，防红眼模式打开</value>
+  </data>
+  <data name="Enum_FlashMode77" xml:space="preserve">
+    <value>闪光灯闪，强制闪光模式，防红眼模式打开，无频闪灯检测到</value>
+  </data>
+  <data name="Enum_FlashMode79" xml:space="preserve">
+    <value>闪光灯闪，强制闪光模式，防红眼模式打开，频闪灯检测到</value>
+  </data>
+  <data name="Enum_FlashMode89" xml:space="preserve">
+    <value>自动模式闪光灯闪，防红眼模式打开</value>
+  </data>
+  <data name="Enum_FlashMode93" xml:space="preserve">
+    <value>自动模式闪光灯闪，无频闪灯检测到，防红眼模式打开</value>
+  </data>
+  <data name="Enum_FlashMode95" xml:space="preserve">
+    <value>自动模式闪光灯闪，频闪灯检测到，防红眼模式打开</value>
+  </data>
+  <data name="Label_LightSource" xml:space="preserve">
+    <value>光源</value>
   </data>
   <data name="Command_Discuss" xml:space="preserve">
     <value>在线讨论</value>

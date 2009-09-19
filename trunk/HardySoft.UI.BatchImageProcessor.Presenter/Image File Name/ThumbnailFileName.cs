@@ -12,9 +12,9 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 	/// This class is used to generate thumbnail image file name.
 	/// </summary>
 	class ThumbnailFileName : IFilenameProvider {
-		public string GetFileName(string sourceFile, ProjectSetting ps, uint? imageIndex) {
-			string prefix = ps.ThumbnailSetting.ThumbnailFileNamePrefix;
-			string suffix = ps.ThumbnailSetting.ThumbnailFileNameSuffix;
+		public string GetFileName() {
+			string prefix = PS.ThumbnailSetting.ThumbnailFileNamePrefix;
+			string suffix = PS.ThumbnailSetting.ThumbnailFileNameSuffix;
 
 			if (string.IsNullOrEmpty(prefix) && string.IsNullOrEmpty(suffix)) {
 				// default thumbnail file name part
@@ -22,21 +22,30 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 			}
 
 			string fileName, fileNameWithoutExtension, extension, thumbFileName;
-			FileInfo fi = new FileInfo(sourceFile);
+			FileInfo fi = new FileInfo(SourceFileName);
 			fileName = fi.Name;
 			fileNameWithoutExtension = fileName.Remove(fileName.IndexOf(fi.Extension));
 			extension = fi.Extension;
 
 			thumbFileName = prefix + fileNameWithoutExtension + suffix + extension;
-			thumbFileName = Formatter.FormalizeFolderName(ps.OutputDirectory) + thumbFileName;
+			thumbFileName = Formatter.FormalizeFolderName(PS.OutputDirectory) + thumbFileName;
 
 			return thumbFileName;
 		}
 
-		/*private uint imageIndex;
-		public uint ImageIndex {
-			get { return imageIndex; }
-			set { imageIndex = value; }
-		}*/
+		public ProjectSetting PS {
+			get;
+			set;
+		}
+
+		public uint? ImageIndex {
+			get;
+			set;
+		}
+
+		public string SourceFileName {
+			get;
+			set;
+		}
 	}
 }

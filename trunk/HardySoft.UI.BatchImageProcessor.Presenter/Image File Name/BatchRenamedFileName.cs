@@ -12,26 +12,26 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 	/// This class is used to generate regaular output file with batch rename enabled.
 	/// </summary>
 	class BatchRenamedFileName : IFilenameProvider {
-		public string GetFileName(string sourceFile, ProjectSetting ps, uint? imageIndex) {
+		public string GetFileName() {
 			string fileNameWithoutExtension, extension, newFileName;
-			FileInfo fi = new FileInfo(sourceFile);
+			FileInfo fi = new FileInfo(SourceFileName);
 			string fileName = fi.Name;
 			fileNameWithoutExtension = fileName.Remove(fileName.IndexOf(fi.Extension));
 			extension = fi.Extension;
 
-			if (! string.IsNullOrEmpty(ps.RenamingSetting.OutputFileNamePrefix)
-				|| ! string.IsNullOrEmpty(ps.RenamingSetting.OutputFileNameSuffix)) {
-				newFileName = ps.RenamingSetting.OutputFileNamePrefix 
-					+ ((imageIndex.HasValue ? imageIndex.Value : 0) + ps.RenamingSetting.StartNumber).ToString("D" + ps.RenamingSetting.NumberPadding) 
-					+ ps.RenamingSetting.OutputFileNameSuffix;
+			if (! string.IsNullOrEmpty(PS.RenamingSetting.OutputFileNamePrefix)
+				|| ! string.IsNullOrEmpty(PS.RenamingSetting.OutputFileNameSuffix)) {
+				newFileName = PS.RenamingSetting.OutputFileNamePrefix
+					+ ((ImageIndex.HasValue ? ImageIndex.Value : 0) + PS.RenamingSetting.StartNumber).ToString("D" + PS.RenamingSetting.NumberPadding) 
+					+ PS.RenamingSetting.OutputFileNameSuffix;
 			} else {
 				newFileName = fileNameWithoutExtension + "_"
-					+ ((imageIndex.HasValue ? imageIndex.Value : 0) + ps.RenamingSetting.StartNumber).ToString("D" + ps.RenamingSetting.NumberPadding);
+					+ ((ImageIndex.HasValue ? ImageIndex.Value : 0) + PS.RenamingSetting.StartNumber).ToString("D" + PS.RenamingSetting.NumberPadding);
 			}
 			newFileName = newFileName + extension;
-			newFileName = Formatter.FormalizeFolderName(ps.OutputDirectory) + newFileName;
+			newFileName = Formatter.FormalizeFolderName(PS.OutputDirectory) + newFileName;
 
-			switch (ps.RenamingSetting.FileNameCase) {
+			switch (PS.RenamingSetting.FileNameCase) {
 				case OutputFileNameCase.LowerCase:
 					newFileName = newFileName.ToLower();
 					break;
@@ -40,6 +40,21 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 					break;
 			}
 			return newFileName;
+		}
+
+		public ProjectSetting PS {
+			get;
+			set;
+		}
+
+		public uint? ImageIndex {
+			get;
+			set;
+		}
+
+		public string SourceFileName {
+			get;
+			set;
 		}
 	}
 }

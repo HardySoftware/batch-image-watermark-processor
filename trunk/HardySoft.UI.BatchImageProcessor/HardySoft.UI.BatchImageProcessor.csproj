@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -385,6 +385,9 @@
     <Resource Include="Images\ParagraphCenterJustify.png" />
     <Resource Include="Images\ParagraphLeftJustify.png" />
     <Resource Include="Images\ParagraphRightJustify.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <SplashScreen Include="Images\Splash.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Themes\DarkCool\Images\Menu_Icons\discuss.png" />

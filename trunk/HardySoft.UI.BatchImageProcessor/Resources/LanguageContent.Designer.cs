@@ -223,11 +223,38 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Action Mode.
+        /// </summary>
+        internal static string Enum_ActionMode {
+            get {
+                return ResourceManager.GetString("Enum_ActionMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Aperture Priority.
         /// </summary>
         internal static string Enum_AperturePriority {
             get {
                 return ResourceManager.GetString("Enum_AperturePriority", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Auto.
+        /// </summary>
+        internal static string Enum_Auto {
+            get {
+                return ResourceManager.GetString("Enum_Auto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Average.
+        /// </summary>
+        internal static string Enum_Average {
+            get {
+                return ResourceManager.GetString("Enum_Average", resourceCulture);
             }
         }
         
@@ -259,6 +286,15 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Center.
+        /// </summary>
+        internal static string Enum_Center {
+            get {
+                return ResourceManager.GetString("Enum_Center", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cloudy Weather.
         /// </summary>
         internal static string Enum_CloudyWeather {
@@ -273,6 +309,15 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         internal static string Enum_CoolWhiteFluorescent {
             get {
                 return ResourceManager.GetString("Enum_CoolWhiteFluorescent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Creative Mode.
+        /// </summary>
+        internal static string Enum_Creative {
+            get {
+                return ResourceManager.GetString("Enum_Creative", resourceCulture);
             }
         }
         
@@ -324,18 +369,198 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Flash Did Not Fire.
         /// </summary>
-        internal static string Enum_FlashDidNotFire {
+        internal static string Enum_FlashMode00 {
             get {
-                return ResourceManager.GetString("Enum_FlashDidNotFire", resourceCulture);
+                return ResourceManager.GetString("Enum_FlashMode00", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Flash Fired.
         /// </summary>
-        internal static string Enum_FlashFired {
+        internal static string Enum_FlashMode01 {
             get {
-                return ResourceManager.GetString("Enum_FlashFired", resourceCulture);
+                return ResourceManager.GetString("Enum_FlashMode01", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Flash, no Strobe Return.
+        /// </summary>
+        internal static string Enum_FlashMode05 {
+            get {
+                return ResourceManager.GetString("Enum_FlashMode05", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Flash, Strobe Return.
+        /// </summary>
+        internal static string Enum_FlashMode07 {
+            get {
+                return ResourceManager.GetString("Enum_FlashMode07", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Flash fired; Compulsory flash mode.
+        /// </summary>
+        internal static string Enum_FlashMode09 {
+            get {
+                return ResourceManager.GetString("Enum_FlashMode09", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Flash fired; Compulsory flash mode, Strobe Return light not detected.
+        /// </summary>
+        internal static string Enum_FlashMode13 {
+            get {
+                return ResourceManager.GetString("Enum_FlashMode13", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Flash fired; Compulsory flash mode; Strobe Return light detected.
+        /// </summary>
+        internal static string Enum_FlashMode15 {
+            get {
+                return ResourceManager.GetString("Enum_FlashMode15", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Flash not fired; Compulsory flash mode.
+        /// </summary>
+        internal static string Enum_FlashMode16 {
+            get {
+                return ResourceManager.GetString("Enum_FlashMode16", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No flash, Auto.
+        /// </summary>
+        internal static string Enum_FlashMode24 {
+            get {
+                return ResourceManager.GetString("Enum_FlashMode24", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Flash fired, Auto Mode.
+        /// </summary>
+        internal static string Enum_FlashMode25 {
+            get {
+                return ResourceManager.GetString("Enum_FlashMode25", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Flash fired, Auto Mode, no Strobe Return.
+        /// </summary>
+        internal static string Enum_FlashMode29 {
+            get {
+                return ResourceManager.GetString("Enum_FlashMode29", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Flash fired, Auto Mode, Strobe Return.
+        /// </summary>
+        internal static string Enum_FlashMode31 {
+            get {
+                return ResourceManager.GetString("Enum_FlashMode31", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No Flash Function.
+        /// </summary>
+        internal static string Enum_FlashMode32 {
+            get {
+                return ResourceManager.GetString("Enum_FlashMode32", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Flash fired, Red-eye Reduction Mode.
+        /// </summary>
+        internal static string Enum_FlashMode65 {
+            get {
+                return ResourceManager.GetString("Enum_FlashMode65", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Flash fired, Red-eye Reduction Mode, Strobe Return Light not Detected.
+        /// </summary>
+        internal static string Enum_FlashMode69 {
+            get {
+                return ResourceManager.GetString("Enum_FlashMode69", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Flash fired, Red-eye Reduction Mode, Strobe Return Light Detected.
+        /// </summary>
+        internal static string Enum_FlashMode71 {
+            get {
+                return ResourceManager.GetString("Enum_FlashMode71", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Flash fired, Compulsory Flash Mode, Red-eye Reduction Mode.
+        /// </summary>
+        internal static string Enum_FlashMode73 {
+            get {
+                return ResourceManager.GetString("Enum_FlashMode73", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Flash fired, Compulsory Flash Mode, Red-eye Reduction Mode, Strobe Return Light not Detected.
+        /// </summary>
+        internal static string Enum_FlashMode77 {
+            get {
+                return ResourceManager.GetString("Enum_FlashMode77", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Flash fired, Compulsory Flash Mode, Red-eye Reduction Mode, Strobe Return Light Detected.
+        /// </summary>
+        internal static string Enum_FlashMode79 {
+            get {
+                return ResourceManager.GetString("Enum_FlashMode79", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Flash fired, Auto Mode, Red-eye Reduction Mode.
+        /// </summary>
+        internal static string Enum_FlashMode89 {
+            get {
+                return ResourceManager.GetString("Enum_FlashMode89", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Flash fired, Auto Mode, Strobe Return Light not Detected, Red-eye Reduction Mode.
+        /// </summary>
+        internal static string Enum_FlashMode93 {
+            get {
+                return ResourceManager.GetString("Enum_FlashMode93", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Flash fired, Auto Mode, Strobe Return Light Detected, Red-eye Reduction Mode.
+        /// </summary>
+        internal static string Enum_FlashMode95 {
+            get {
+                return ResourceManager.GetString("Enum_FlashMode95", resourceCulture);
             }
         }
         
@@ -354,15 +579,6 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         internal static string Enum_Height {
             get {
                 return ResourceManager.GetString("Enum_Height", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to High Speed Mode.
-        /// </summary>
-        internal static string Enum_HighSpeedMode {
-            get {
-                return ResourceManager.GetString("Enum_HighSpeedMode", resourceCulture);
             }
         }
         
@@ -403,15 +619,6 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Low Speed Mode.
-        /// </summary>
-        internal static string Enum_LowSpeedMode {
-            get {
-                return ResourceManager.GetString("Enum_LowSpeedMode", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Manual.
         /// </summary>
         internal static string Enum_Manual {
@@ -448,6 +655,24 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Multi Segment.
+        /// </summary>
+        internal static string Enum_MultiSegment {
+            get {
+                return ResourceManager.GetString("Enum_MultiSegment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Multi Spot.
+        /// </summary>
+        internal static string Enum_MultiSpot {
+            get {
+                return ResourceManager.GetString("Enum_MultiSpot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to None.
         /// </summary>
         internal static string Enum_None {
@@ -475,6 +700,15 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Partial.
+        /// </summary>
+        internal static string Enum_Partial {
+            get {
+                return ResourceManager.GetString("Enum_Partial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Portrait Mode.
         /// </summary>
         internal static string Enum_PortraitMode {
@@ -498,6 +732,15 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         internal static string Enum_ShutterPriority {
             get {
                 return ResourceManager.GetString("Enum_ShutterPriority", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Spot.
+        /// </summary>
+        internal static string Enum_Spot {
+            get {
+                return ResourceManager.GetString("Enum_Spot", resourceCulture);
             }
         }
         
@@ -579,15 +822,6 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         internal static string Enum_Unknown {
             get {
                 return ResourceManager.GetString("Enum_Unknown", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Unkown.
-        /// </summary>
-        internal static string Enum_Unkown {
-            get {
-                return ResourceManager.GetString("Enum_Unkown", resourceCulture);
             }
         }
         
@@ -1159,11 +1393,29 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Light Source.
+        /// </summary>
+        internal static string Label_LightSource {
+            get {
+                return ResourceManager.GetString("Label_LightSource", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Manufacturer.
         /// </summary>
         internal static string Label_Manufacturer {
             get {
                 return ResourceManager.GetString("Label_Manufacturer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Metering Mode.
+        /// </summary>
+        internal static string Label_MeteringMode {
+            get {
+                return ResourceManager.GetString("Label_MeteringMode", resourceCulture);
             }
         }
         
@@ -1416,6 +1668,15 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         internal static string Label_ThumbnailSize {
             get {
                 return ResourceManager.GetString("Label_ThumbnailSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Title.
+        /// </summary>
+        internal static string Label_Title {
+            get {
+                return ResourceManager.GetString("Label_Title", resourceCulture);
             }
         }
         

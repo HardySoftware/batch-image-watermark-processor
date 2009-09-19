@@ -66,9 +66,12 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter.UnitTest {
 			ps.ThumbnailSetting.ThumbnailFileNamePrefix = "MyPrefix_";
 			ps.ThumbnailSetting.ThumbnailFileNameSuffix = "_MySuffix";
 
+			target.PS = ps;
+			target.ImageIndex = null;
+			target.SourceFileName = sourceFile;
+
 			string expected = @"C:\Temp\MyPrefix_abc_MySuffix.jpg";
-			string actual;
-			actual = target.GetFileName(sourceFile, ps, null);
+			string actual = target.GetFileName();
 			Assert.AreEqual(expected, actual);
 		}
 
@@ -84,9 +87,13 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter.UnitTest {
 			ps.ThumbnailSetting.ThumbnailFileNamePrefix = string.Empty;
 			ps.ThumbnailSetting.ThumbnailFileNameSuffix = string.Empty;
 
+			target.PS = ps;
+			target.ImageIndex = null;
+			target.SourceFileName = sourceFile;
+
 			string expected = @"C:\Temp\abc_thumb.jpg";
 			string actual;
-			actual = target.GetFileName(sourceFile, ps, null);
+			actual = target.GetFileName();
 			Assert.AreEqual(expected, actual);
 		}
 	}

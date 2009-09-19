@@ -1,33 +1,32 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
-using System.IO;
 
-using HardySoft.CC;
-using HardySoft.CC.ExceptionLog;
-using HardySoft.CC.Transformer;
+using HardySoft.UI.BatchImageProcessor.Model;
 
 namespace HardySoft.UI.BatchImageProcessor.Presenter {
 	class SaveNormalImage : ISaveImage {
-		public bool SaveImageToDisk(Image image, string fileName, ImageFormat format) {
+		public bool SaveImageToDisk(Image image, ImageFormat format, IFilenameProvider fileNameProvider) {
 			try {
+				string fileName = fileNameProvider.GetFileName();
+
 				image.Save(fileName, format);
 
 				return true;
 			} catch (Exception ex) {
-				if (this.EnableDebug) {
-					string logFile = Formatter.FormalizeFolderName(Directory.GetCurrentDirectory()) + @"logs\SeaTurtle_Error.log";
-					string logXml = Serializer.Serialize<ExceptionContainer>(ExceptionLogger.GetException(ex));
-
-					HardySoft.CC.File.FileAccess.AppendFile(logFile, logXml);
-				}
+				Trace.TraceError(ex.ToString());
 				return false;
 			}
 		}
 
-		public bool EnableDebug {
-			get;
-			set;
+		public ExifMetadata Exif {
+			get {
+				throw new NotImplementedException("Not Implemented");
+			}
+			set {
+				throw new NotImplementedException("Not Implemented");
+			}
 		}
 	}
 }
