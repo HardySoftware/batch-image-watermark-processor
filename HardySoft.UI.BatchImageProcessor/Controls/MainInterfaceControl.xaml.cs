@@ -58,7 +58,7 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 			}
 		}
 
-		public ExtraConfiguration HiddenConfig {
+		public IConfiguration HiddenConfig {
 			get;
 			set;
 		}
@@ -692,6 +692,12 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 		private void HelpCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e) {
 			e.CanExecute = true;
 		}
+		#endregion
+
+		#region Discuss forum command
+		private void DiscussCommand_Executed(object sender, ExecutedRoutedEventArgs e) {
+			System.Diagnostics.Process.Start("http://groups.google.com/group/sea-turtle-batch-image-processor");
+		} 
 		#endregion
 		#endregion
 	}

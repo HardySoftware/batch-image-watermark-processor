@@ -736,4 +736,7 @@
   <data name="Label_Value" xml:space="preserve">
     <value>数值</value>
   </data>
+  <data name="Command_Discuss" xml:space="preserve">
+    <value>在线讨论</value>
+  </data>
 </root>
