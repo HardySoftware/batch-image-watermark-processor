@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="HardySoft.UI.BatchImageProcessor.Presenter.ShrinkImage">
+    <Position X="6.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Image Process\ShrinkImage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HardySoft.UI.BatchImageProcessor.Presenter.DropShadowImage">
+    <Position X="2.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Image Process\DropShadowImage.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="HardySoft.UI.BatchImageProcessor.Presenter.ApplyWatermarkText">
+    <Position X="3.25" Y="5.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Image Process\ApplyWatermarkText.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HardySoft.UI.BatchImageProcessor.Presenter.ApplyWatermarkImage">
+    <Position X="3.25" Y="4" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Image Process\ApplyWatermarkImage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HardySoft.UI.BatchImageProcessor.Presenter.AddBorder">
+    <Position X="2.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Image Process\AddBorder.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="HardySoft.UI.BatchImageProcessor.Presenter.GrayScale">
+    <Position X="4.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Image Process\GrayScale.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="HardySoft.UI.BatchImageProcessor.Presenter.NegativeImage">
+    <Position X="4.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Image Process\NegativeImage.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="HardySoft.UI.BatchImageProcessor.Presenter.GenerateThumbnail">
+    <Position X="8.75" Y="3" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Image Process\GenerateThumbnail.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HardySoft.UI.BatchImageProcessor.Presenter.ResizeImage">
+    <Position X="7" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Image Process\ResizeImage.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="HardySoft.UI.BatchImageProcessor.Presenter.ThumbnailFileName">
+    <Position X="2.75" Y="8.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Image File Name\ThumbnailFileName.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="HardySoft.UI.BatchImageProcessor.Presenter.ProcessedFileName">
+    <Position X="0.75" Y="9.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAABAAAAAQAA=</HashCode>
+      <FileName>Image File Name\ProcessedFileName.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="HardySoft.UI.BatchImageProcessor.Presenter.BatchRenamedFileName">
+    <Position X="2.75" Y="9.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Image File Name\BatchRenamedFileName.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="HardySoft.UI.BatchImageProcessor.Presenter.SaveCompressedJPGImage">
+    <Position X="6" Y="8.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAACAAAAAAgQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Save Image\SaveCompressedJPGImage.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="HardySoft.UI.BatchImageProcessor.Presenter.SaveNormalImage">
+    <Position X="8.75" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Save Image\SaveNormalImage.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="HardySoft.UI.BatchImageProcessor.Presenter.Watermark">
+    <Position X="0.5" Y="2.5" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Struct Name="HardySoft.UI.BatchImageProcessor.Presenter.Watermark.RotationSize">
+        <TypeIdentifier>
+          <NewMemberFileName>Image Process\Size Calculator\Watermark.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAAAAQAAAAAAAAAAIBAEAAACA=</HashCode>
+      <FileName>Image Process\Size Calculator\Watermark.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="HardySoft.UI.BatchImageProcessor.Presenter.IProcess">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Image Process\IProcess.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="HardySoft.UI.BatchImageProcessor.Presenter.IFilenameProvider">
+    <Position X="0.75" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Image File Name\IFilenameProvider.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="HardySoft.UI.BatchImageProcessor.Presenter.ISaveImage">
+    <Position X="6" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Save Image\ISaveImage.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

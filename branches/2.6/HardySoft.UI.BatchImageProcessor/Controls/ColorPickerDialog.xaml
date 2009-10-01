@@ -1,0 +1,40 @@
+<Window
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  x:Class="HardySoft.UI.BatchImageProcessor.Controls.ColorPickerDialog"
+  xmlns:customControls="clr-namespace:HardySoft.UI.BatchImageProcessor.Controls"
+  xmlns:HSMarks="clr-namespace:HardySoft.UI.BatchImageProcessor.Classes.MarkExtensions"
+  WindowStyle="None" ResizeMode="NoResize" ShowInTaskbar="False"
+  AllowsTransparency="True" Background="Transparent"
+  Width="600" Height="400"
+  Icon="/SeaTurtle;component/Images/icon.ico">
+	<Border Width="Auto" Height="Auto" Name="windowFrame"
+		Style="{StaticResource WindowBackground}">
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto" />
+				<RowDefinition />
+				<RowDefinition Height="Auto" />
+			</Grid.RowDefinitions>
+			<TextBlock Text="{HSMarks:ResourceExtension WindowTitle_ColorPicker}" Grid.Row="0"
+				MouseLeftButtonDown="tbTitle_MouseLeftButtonDown"
+				Style="{StaticResource WindowTitle}" />
+
+			<customControls:ColorPicker x:Name="cPicker" Margin="10,10,10,0"
+				Grid.Row="1"
+				SelectedColorChanged="onSelectedColorChanged"
+				Foreground="White"
+				Background="Black"
+			/>
+
+			<StackPanel Grid.Row="2"
+				Orientation="Horizontal"
+				HorizontalAlignment="Right" Margin="10">
+				<Button x:Name="btnOK" Click="btnOK_Click" IsEnabled="False" Style="{StaticResource GlassButton}"
+					Content="{HSMarks:ResourceExtension Button_OK}" />
+				<Button x:Name="btnCancel" Click="btnCancel_Click" Style="{StaticResource GlassButton}"
+					Content="{HSMarks:ResourceExtension Button_Cancel}" />
+			</StackPanel>
+		</Grid>
+	</Border>
+</Window>
