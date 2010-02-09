@@ -14,15 +14,35 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 	public class ApplyWatermarkText : Watermark {
 		private List<ExifContainerItem> exifContainer;
 		private string dateTimeStringFormat;
+		private int watermarkIndex;
 
-		public ApplyWatermarkText(List<ExifContainerItem> exifContainer, string dateTimeStringFormat) {
+		public ApplyWatermarkText(List<ExifContainerItem> exifContainer, string dateTimeStringFormat,
+			int watermarkIndex) {
 			this.exifContainer = exifContainer;
 			this.dateTimeStringFormat = dateTimeStringFormat;
+			this.watermarkIndex = watermarkIndex;
 		}
 
 		// TODO examine to add text to a transparent GIF image still works.
 		public override Image ProcessImage(Image input, ProjectSetting ps) {
 			try {
+				if (ps.WatermarkCollection.Count < watermarkIndex) {
+					return input;
+				}
+
+				WatermarkText wt = ps.WatermarkCollection[this.watermarkIndex] as WatermarkText;
+
+				if (wt == null) {
+					return input;
+				}
+
+#if DEBUG
+				System.Diagnostics.Debug.WriteLine("Current Thread: "
+					+ System.Threading.Thread.CurrentThread.ManagedThreadId + ","
+					+ " Image File Name: " + this.ImageFileName + ","
+					+ " Watermark Text index: " + watermarkIndex);
+#endif
+
 				int iHOffset = 0;
 				int iVOffset = 0;
 				int rotatedTextHeight = 0;
@@ -36,53 +56,12 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 				int xAfterOffset = 0;
 				int yAfterOffset = 0;
 
-				string textToDraw = ps.Watermark.WatermarkText;
+				string textToDraw = wt.Text;
 				List<ExifContainerItem> tagsFound = foundExifTags(textToDraw);
 
 				if (tagsFound != null && tagsFound.Count > 0 && !string.IsNullOrEmpty(this.ImageFileName)) {
 					// at least one Exif tag is found
-					ExifMetadata meta = new ExifMetadata(new Uri(this.ImageFileName), true);
-
-					foreach (ExifContainerItem tagFound in tagsFound) {
-						// replace actual value from Exif in watermark text
-						string tag = "[[" + tagFound.ExifTag + "]]";
-						object propertyValue = tagFound.Property.GetValue(meta, null);
-						string localizedValue;
-						if (propertyValue == null) {
-							localizedValue = string.Empty;
-						} else {
-							if (tagFound.Property.PropertyType.IsEnum && tagFound.EnumValueTranslation != null) {
-								localizedValue = propertyValue.ToString();
-
-								foreach (KeyValuePair<string, string> enumItem in tagFound.EnumValueTranslation) {
-									if (localizedValue == enumItem.Key) {
-										localizedValue = enumItem.Value;
-										break;
-									}
-								}
-							} else if (tagFound.Property.PropertyType == typeof(DateTime?)) {
-								System.Diagnostics.Debug.WriteLine("Current Thread " 
-									+ System.Threading.Thread.CurrentThread.ManagedThreadId + " Culture "
-									+ System.Threading.Thread.CurrentThread.CurrentCulture.ToString()
-									+ " in ApplyWatermarkText.");
-
-								// date time value, use format string defined in preference window to overwrite
-								DateTime? d = (DateTime?)propertyValue;
-								if (d.HasValue) {
-									localizedValue = d.Value.ToString(this.dateTimeStringFormat);
-								} else {
-									localizedValue = string.Empty;
-								}
-							} else {
-								localizedValue = propertyValue.ToString();
-							}
-
-							if (!string.IsNullOrEmpty(tagFound.ValueFormat)) {
-								localizedValue = string.Format(tagFound.ValueFormat, localizedValue);
-							}
-						}
-						textToDraw = textToDraw.Replace(tag, localizedValue);
-					}
+					textToDraw = convertTagsToText(textToDraw, tagsFound);
 				}
 
 				// create a bitmap we can use to work out the size of the text,
@@ -93,8 +72,8 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 				fVRes = bmp.VerticalResolution;
 				Graphics g = Graphics.FromImage(bmp);
 				StringFormat format = new StringFormat();
-				format.Alignment = ps.Watermark.WatermarkTextAlignment;
-				SizeF sf = g.MeasureString(textToDraw, ps.Watermark.WatermarkTextFont,
+				format.Alignment = wt.WatermarkTextAlignment;
+				SizeF sf = g.MeasureString(textToDraw, wt.WatermarkTextFont,
 					Int32.MaxValue, format);
 				g.Dispose();
 				bmp.Dispose();
@@ -103,7 +82,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 				textWidth = Math.Max(2, (int)Math.Ceiling(sf.Width));
 				textHeight = Math.Max(2, (int)Math.Ceiling(sf.Height));
 
-				RotationSize rs = CalculateRotationSize(textWidth, textHeight, ps.Watermark.WatermarkTextRotateAngle);
+				RotationSize rs = CalculateRotationSize(textWidth, textHeight, wt.WatermarkRotateAngle);
 				iHOffset = rs.HorizontalOffset;
 				iVOffset = rs.VerticalOffset;
 				rotatedTextWidth = rs.RotatedWidth;
@@ -118,44 +97,44 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 				// in the background if it is not the same size as we calculate was needed for the text
 				// adding in the padding where necessary and
 				// remembering to adjust for differences in padding between left/right top/bottom etc.
-				switch (ps.Watermark.WatermarkTextPosition) {
+				switch (wt.WatermarkPosition) {
 					case ContentAlignment.TopLeft:
 					case ContentAlignment.TopCenter:
 					case ContentAlignment.TopRight:
 						//yAfterOffset = definition.TextPadding.Top;
-						yAfterOffset = Padding;
+						yAfterOffset = wt.Padding;
 						break;
 					case ContentAlignment.MiddleLeft:
 					case ContentAlignment.MiddleCenter:
 					case ContentAlignment.MiddleRight:
 						//yAfterOffset = (bmp.Height - rotatedHeight) / 2 + definition.TextPadding.Top - definition.TextPadding.Bottom;
-						yAfterOffset = (bmp.Height - rotatedTextHeight) / 2 + Padding - Padding;
+						yAfterOffset = (bmp.Height - rotatedTextHeight) / 2 + wt.Padding - wt.Padding;
 						break;
 					case ContentAlignment.BottomLeft:
 					case ContentAlignment.BottomCenter:
 					case ContentAlignment.BottomRight:
 						//yAfterOffset = (bmp.Height - rotatedHeight) - definition.TextPadding.Bottom;
-						yAfterOffset = (bmp.Height - rotatedTextHeight) - Padding;
+						yAfterOffset = (bmp.Height - rotatedTextHeight) - wt.Padding;
 						break;
 				}
-				switch (ps.Watermark.WatermarkTextPosition) {
+				switch (wt.WatermarkPosition) {
 					case ContentAlignment.TopLeft:
 					case ContentAlignment.MiddleLeft:
 					case ContentAlignment.BottomLeft:
 						//xAfterOffset = definition.TextPadding.Left;
-						xAfterOffset = Padding;
+						xAfterOffset = wt.Padding;
 						break;
 					case ContentAlignment.TopCenter:
 					case ContentAlignment.MiddleCenter:
 					case ContentAlignment.BottomCenter:
 						//xAfterOffset = (bmp.Width - rotatedWidth) / 2 + definition.TextPadding.Left - definition.TextPadding.Right;
-						xAfterOffset = (bmp.Width - rotatedTextWidth) / 2 + Padding - Padding;
+						xAfterOffset = (bmp.Width - rotatedTextWidth) / 2 + wt.Padding - wt.Padding;
 						break;
 					case ContentAlignment.TopRight:
 					case ContentAlignment.MiddleRight:
 					case ContentAlignment.BottomRight:
 						//xAfterOffset = (bmp.Width - rotatedWidth) - definition.TextPadding.Right;
-						xAfterOffset = (bmp.Width - rotatedTextWidth) - Padding;
+						xAfterOffset = (bmp.Width - rotatedTextWidth) - wt.Padding;
 						break;
 				}
 
@@ -166,11 +145,11 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 				// translation to bring the rotation back to view
 				matrix.Translate(iHOffset, iVOffset);
 				// transformation to rotate the text
-				matrix.Rotate(ps.Watermark.WatermarkTextRotateAngle);
-				if (ps.Watermark.WatermarkTextAlignment == StringAlignment.Center) {
+				matrix.Rotate(wt.WatermarkRotateAngle);
+				if (wt.WatermarkTextAlignment == StringAlignment.Center) {
 					// transformation to cope with non left aligned text
 					matrix.Translate(textWidth / 2, 0);
-				} else if (ps.Watermark.WatermarkTextAlignment == StringAlignment.Far) {
+				} else if (wt.WatermarkTextAlignment == StringAlignment.Far) {
 					matrix.Translate(textWidth, 0);
 				}
 
@@ -180,12 +159,12 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 				g.TextRenderingHint = TextRenderingHint.AntiAlias;
 				// draw a shadow with semi transparent black
 				g.DrawString(textToDraw,
-					ps.Watermark.WatermarkTextFont,
+					wt.WatermarkTextFont,
 					new SolidBrush(Color.FromArgb(153, 0, 0, 0)), 1, 1, format);
 				// draw the sctual text
 				g.DrawString(textToDraw,
-					ps.Watermark.WatermarkTextFont,
-					new SolidBrush(ps.Watermark.WatermarkTextColor), 0, 0, format);
+					wt.WatermarkTextFont,
+					new SolidBrush(wt.WatermarkTextColor), 0, 0, format);
 				g.Transform = matrix;
 				g.Dispose();
 
@@ -194,6 +173,53 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 				Trace.TraceError(ex.ToString());
 				return input;
 			}
+		}
+
+		private string convertTagsToText(string input, List<ExifContainerItem> tagsFound) {
+			ExifMetadata meta = new ExifMetadata(new Uri(this.ImageFileName), true);
+
+			foreach (ExifContainerItem tagFound in tagsFound) {
+				// replace actual value from Exif in watermark text
+				string tag = "[[" + tagFound.ExifTag + "]]";
+				object propertyValue = tagFound.Property.GetValue(meta, null);
+				string localizedValue;
+				if (propertyValue == null) {
+					localizedValue = string.Empty;
+				} else {
+					if (tagFound.Property.PropertyType.IsEnum && tagFound.EnumValueTranslation != null) {
+						localizedValue = propertyValue.ToString();
+
+						foreach (KeyValuePair<string, string> enumItem in tagFound.EnumValueTranslation) {
+							if (localizedValue == enumItem.Key) {
+								localizedValue = enumItem.Value;
+								break;
+							}
+						}
+					} else if (tagFound.Property.PropertyType == typeof(DateTime?)) {
+#if DEBUG
+						System.Diagnostics.Debug.WriteLine("Current Thread "
+							+ System.Threading.Thread.CurrentThread.ManagedThreadId + " Culture "
+							+ System.Threading.Thread.CurrentThread.CurrentCulture.ToString()
+							+ " in ApplyWatermarkText.");
+#endif
+						// date time value, use format string defined in preference window to overwrite
+						DateTime? d = (DateTime?)propertyValue;
+						if (d.HasValue) {
+							localizedValue = d.Value.ToString(this.dateTimeStringFormat);
+						} else {
+							localizedValue = string.Empty;
+						}
+					} else {
+						localizedValue = propertyValue.ToString();
+					}
+
+					if (!string.IsNullOrEmpty(tagFound.ValueFormat)) {
+						localizedValue = string.Format(tagFound.ValueFormat, localizedValue);
+					}
+				}
+				input = input.Replace(tag, localizedValue);
+			}
+			return input;
 		}
 
 		/// <summary>

@@ -11,6 +11,8 @@ namespace HardySoft.UI.BatchImageProcessor.Classes.Commands {
 		private static RoutedUICommand preference;
 		private static RoutedUICommand about;
 		private static RoutedUICommand discuss;
+		private static RoutedUICommand addWatermark;
+		private static RoutedUICommand deleteWatermark;
 
 		static ApplicationCommand() {
 			// initialize the command
@@ -25,6 +27,10 @@ namespace HardySoft.UI.BatchImageProcessor.Classes.Commands {
 			about = new RoutedUICommand("About", "About", typeof(ApplicationCommand));
 
 			discuss = new RoutedUICommand("Discuss", "Discuss", typeof(ApplicationCommand));
+
+			addWatermark = new RoutedUICommand("AddWatermark", "AddWatermark", typeof(ApplicationCommand));
+
+			deleteWatermark = new RoutedUICommand("DeleteWatermark", "DeleteWatermark", typeof(ApplicationCommand));
 		}
 
 		public static RoutedUICommand Make {
@@ -54,6 +60,18 @@ namespace HardySoft.UI.BatchImageProcessor.Classes.Commands {
 		public static RoutedUICommand Discuss {
 			get {
 				return discuss;
+			}
+		}
+
+		public static RoutedUICommand AddWatermark {
+			get {
+				return addWatermark;
+			}
+		}
+
+		public static RoutedUICommand DeleteWatermark {
+			get {
+				return deleteWatermark;
 			}
 		}
 	}

@@ -91,9 +91,9 @@
 
 				<TextBlock Grid.Column="2" Grid.Row="4">
 					<Hyperlink Style="{StaticResource AboutWindowHyperlink}"
-						NavigateUri="mailto:hardy.yin.wang@gmail.com"
+						NavigateUri="mailto:sea-turtle-batch-image-processor@googlegroups.com"
 						RequestNavigate="hyperlink_RequestNavigate">
-						hardy.yin.wang@gmail.com
+						sea-turtle-batch-image-processor@googlegroups.com
 					</Hyperlink>
 				</TextBlock>
 

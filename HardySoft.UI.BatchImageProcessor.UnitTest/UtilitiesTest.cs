@@ -72,5 +72,13 @@ namespace HardySoft.UI.BatchImageProcessor.UnitTest
 			Assert.AreEqual(expected, actual);
 			//Assert.Inconclusive("Verify the correctness of this test method.");
 		}
+
+		[TestMethod()]
+		public void ParseResource_Without_Parameter() {
+			string input = "ResourceKey";
+			string expected = input;
+			string actual = Utilities.ParseResource(input);
+			Assert.AreEqual(expected, actual);
+		}
 	}
 }

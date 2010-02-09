@@ -138,13 +138,12 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 
 		void view_ProcessImage(object sender, ProcessThreadNumberEventArgs e) {
 			ValidationResults results = Validation.Validate<ProjectSetting>(ps);
-			results.AddAllResults(Validation.Validate<ImageBorder>(ps.BorderSetting));
-			results.AddAllResults(Validation.Validate<HardySoft.UI.BatchImageProcessor.Model.Watermark>(ps.Watermark));
 			List<string> validationMessages = new List<string>();
 			if (!results.IsValid) {
 				foreach (ValidationResult vr in results) {
 					if (vr.Tag == "Warning") {
 						if (!View.DisplayWarning(vr.Message)) {
+							// if user chooses not to continue with warning message, then it is treated as error.
 							validationMessages.Add(vr.Message);
 						}
 					} else {
@@ -221,6 +220,40 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 		void view_StopProcessing(object sender, EventArgs e) {
 			if (engine != null) {
 				engine.StopProcess();
+			}
+		}
+
+		public void AddWatermarkImage() {
+			ps.WatermarkCollection.Add(new WatermarkImage());
+			View.SelectedWatermarkIndex = ps.WatermarkCollection.Count - 1;
+		}
+
+		public void AddWatermarkText() {
+			ps.WatermarkCollection.Add(new WatermarkText());
+			View.SelectedWatermarkIndex = ps.WatermarkCollection.Count - 1;
+		}
+
+		public void CreateWatermarkImageContent(int selectedIndex) {
+			View.LoadWatermarkControl(selectedIndex);
+		}
+
+		public void CreateWatermarkTextContent(int selectedIndex) {
+			View.LoadWatermarkControl(selectedIndex);
+		}
+
+		public void RemoveWatermark(int selectedIndex) {
+			if (ps.WatermarkCollection != null
+				&& ps.WatermarkCollection.Count >= selectedIndex + 1) {
+				ps.WatermarkCollection.RemoveAt(selectedIndex);
+
+				if (ps.WatermarkCollection.Count > 0) {
+					// after current one is removed, focus on first item in the list
+					View.SelectedWatermarkIndex = 0;
+					View.LoadWatermarkControl(0);
+				} else {
+					// if there is nothing left, clear the entire area
+					View.ClearWatermarkArea();
+				}
 			}
 		}
 	}

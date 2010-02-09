@@ -403,9 +403,6 @@
   <data name="Label_UnsavedProject" xml:space="preserve">
     <value>Unsaved Project</value>
   </data>
-  <data name="Label_WatermarkImage" xml:space="preserve">
-    <value>Watermark Image</value>
-  </data>
   <data name="Message_SavePrompt" xml:space="preserve">
     <value>Do you want to save project setting first?</value>
   </data>
@@ -513,7 +510,7 @@
     <comment>Font used by window footer. It is used in Resource Dictionary to hold styles.</comment>
   </data>
   <data name="Style_WindowTitleFont" xml:space="preserve">
-    <value>Verdana</value>
+    <value>Georgia, Verdana</value>
     <comment>Font used by window title bar. It is used in Resource Dictionary to hold styles.</comment>
   </data>
   <data name="Label_ColorCode" xml:space="preserve">
@@ -833,5 +830,26 @@
   </data>
   <data name="Command_Discuss" xml:space="preserve">
     <value>Online Discuss</value>
+  </data>
+  <data name="Button_AddWatermarkImage" xml:space="preserve">
+    <value>Add Watermrk Image</value>
+  </data>
+  <data name="Button_AddWatermarkText" xml:space="preserve">
+    <value>Add Watermrk Text</value>
+  </data>
+  <data name="Validation_OverlapPosition" xml:space="preserve">
+    <value>There are multiple watermarks sitting at {0}, and they may overlap each other. Are you sure to continue?</value>
+  </data>
+  <data name="Label_WatermarkImageSetting" xml:space="preserve">
+    <value>Settings for Watermark Image</value>
+  </data>
+  <data name="Label_WatermarkTextSetting" xml:space="preserve">
+    <value>Settings for Watermark Text</value>
+  </data>
+  <data name="Tooltip_WatermarkImageDelete" xml:space="preserve">
+    <value>Click here to remove the current watermark image.</value>
+  </data>
+  <data name="Tooltip_WatermarkTextDelete" xml:space="preserve">
+    <value>Click here to remove the current watermark text.</value>
   </data>
 </root>

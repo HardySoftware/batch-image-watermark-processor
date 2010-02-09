@@ -1,5 +1,7 @@
 ﻿using System;
+using System.IO;
 using System.Text.RegularExpressions;
+using System.Xml.Serialization;
 
 namespace HardySoft.CC {
 	public class Formatter {
@@ -86,6 +88,53 @@ namespace HardySoft.CC {
 			} else {
 				return folderName;
 			}
+		}
+
+		/// <summary>
+		/// Serialize an object into in memory Xml string.
+		/// </summary>
+		/// <typeparam name="T">Object type to serialize.</typeparam>
+		/// <param name="obj">Object instance to serialize.</param>
+		/// <returns>Xml string to represent object.</returns>
+		public static string Serializer<T>(T obj) {
+			MemoryStream ms = new MemoryStream();
+			XmlSerializer xs = new XmlSerializer(typeof(T));
+			xs.Serialize(ms, obj);
+
+			ms.Seek(0, 0);
+
+			// Create a stream reader.
+			using (StreamReader reader = new StreamReader(ms)) {
+				// Just read to the end.
+				return reader.ReadToEnd();
+			}
+		}
+
+		/// <summary>
+		/// De-serialize a valid in momory Xml string into object.
+		/// </summary>
+		/// <typeparam name="T">Object type to de-serialize.</typeparam>
+		/// <param name="xml">In momory Xml string.</param>
+		/// <returns>Object instance represented by Xml string.</returns>
+		public static T DeSerializer<T>(string xml) {
+			XmlSerializer xs = new XmlSerializer(typeof(T));
+			object obj = xs.Deserialize(new StringReader(xml));
+
+			return (T)obj;
+			// return default(T);
+		}
+
+		/// <summary>
+		/// De-serialize a valid in momory Xml stream string into object.
+		/// </summary>
+		/// <typeparam name="T">Object type to de-serialize.</typeparam>
+		/// <param name="xml">In momory Xml stream.</param>
+		/// <returns>Object instance represented by Xml string.</returns>
+		public static T DeSerializer<T>(Stream xml) {
+			XmlSerializer xs = new XmlSerializer(typeof(T));
+			object obj = xs.Deserialize(xml);
+
+			return (T)obj;
 		}
 	}
 }
