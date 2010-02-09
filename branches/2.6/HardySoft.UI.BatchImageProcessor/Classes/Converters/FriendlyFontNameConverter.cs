@@ -1,11 +1,17 @@
 ﻿using System;
+using System.Drawing;
 using System.Globalization;
 using System.Windows.Data;
 
 namespace HardySoft.UI.BatchImageProcessor.Classes.Converters {
-	public class DebugConvertor : IValueConverter {
+	public class FriendlyFontNameConverter : IValueConverter {
 		public object Convert(object value, Type targetType, object parameter, CultureInfo culture) {
-			return value; // Add the breakpoint here!!
+			if (value is Font) {
+				Font font = value as Font;
+				return font.ToString();
+			} else {
+				return string.Empty;
+			}
 		}
 
 		public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture) {

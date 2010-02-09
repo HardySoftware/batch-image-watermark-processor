@@ -31,9 +31,17 @@ namespace HardySoft.UI.BatchImageProcessor.View {
 			set;
 		}
 
+		int? SelectedWatermarkIndex {
+			get;
+			set;
+		}
+
 		void ResetJobSize(int jobSize);
 		void ReportProgress();
 		//void ProcessingStopped();
+		bool DisplayWarning(string warningMessage);
+		void LoadWatermarkControl(int index);
+		void ClearWatermarkArea();
 
 		event ProjectWithFileNameEventHandler NewProjectCreated;
 		event ProjectWithFileNameEventHandler SaveProject;
@@ -46,7 +54,5 @@ namespace HardySoft.UI.BatchImageProcessor.View {
 			get;
 			set;
 		}
-
-		bool DisplayWarning(string warningMessage);
 	}
 }

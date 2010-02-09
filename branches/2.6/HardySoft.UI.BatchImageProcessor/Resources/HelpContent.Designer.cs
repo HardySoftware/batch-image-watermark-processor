@@ -232,7 +232,7 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;FlowDocument PagePadding=&quot;5,0,5,0&quot; AllowDrop=&quot;True&quot; NumberSubstitution.CultureSource=&quot;User&quot; xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Verdana&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;Date Time Format for Watermark Text&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Calibri&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;It is used to define how does the date time value(s) from Exif Marco (e.g. date time when photo was taken) look like i [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &lt;FlowDocument PagePadding=&quot;5,0,5,0&quot; AllowDrop=&quot;True&quot; NumberSubstitution.CultureSource=&quot;User&quot; xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Verdana&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;Date Time Format for AddWatermark Text&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Calibri&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;It is used to define how does the date time value(s) from Exif Marco (e.g. date time when photo was taken) look like i [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string PreferenceDateTimeFormat {
             get {
@@ -304,7 +304,7 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;FlowDocument PagePadding=&quot;5,0,5,0&quot; AllowDrop=&quot;True&quot; NumberSubstitution.CultureSource=&quot;User&quot; xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Verdana&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;Watermark Image&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Calibri&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;If you like to add image as watermark to your images, please pick your desired image here. If nothing is picked, the program will ignore t [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &lt;FlowDocument PagePadding=&quot;5,0,5,0&quot; AllowDrop=&quot;True&quot; NumberSubstitution.CultureSource=&quot;User&quot; xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Verdana&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;AddWatermark Image&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Calibri&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;If you like to add image as addWatermark to your images, please pick your desired image here. If nothing is picked, the program will ignore t [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string WatermarkImage {
             get {
@@ -313,7 +313,7 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;FlowDocument PagePadding=&quot;5,0,5,0&quot; AllowDrop=&quot;True&quot; NumberSubstitution.CultureSource=&quot;User&quot; xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Verdana&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;Watermark Image Opacity&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Calibri&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;If you like to have semi-transparent watermark image to add to your main image, you can specify the opacity (alpha) value here. 1  [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &lt;FlowDocument PagePadding=&quot;5,0,5,0&quot; AllowDrop=&quot;True&quot; NumberSubstitution.CultureSource=&quot;User&quot; xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Verdana&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;AddWatermark Image Opacity&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Calibri&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;If you like to have semi-transparent addWatermark image to add to your main image, you can specify the opacity (alpha) value here. 1  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string WatermarkImageOpacity {
             get {
@@ -322,7 +322,7 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;FlowDocument PagePadding=&quot;5,0,5,0&quot; AllowDrop=&quot;True&quot; NumberSubstitution.CultureSource=&quot;User&quot; xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Verdana&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;Watermark Image Position&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Calibri&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;It indicates where to put image watermark on your main image. If no watermark image is not picked above, program will ignore the  [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &lt;FlowDocument PagePadding=&quot;5,0,5,0&quot; AllowDrop=&quot;True&quot; NumberSubstitution.CultureSource=&quot;User&quot; xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Verdana&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;AddWatermark Image Position&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Calibri&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;It indicates where to put image addWatermark on your main image. If no addWatermark image is not picked above, program will ignore the  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string WatermarkImagePosition {
             get {
@@ -331,7 +331,7 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;FlowDocument PagePadding=&quot;5,0,5,0&quot; AllowDrop=&quot;True&quot; NumberSubstitution.CultureSource=&quot;User&quot; xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Verdana&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;Watermark Image Preview&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Calibri&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;This is the preview area of selected watermark image. If you are unsatisfied with your choice, you can click on the &quot;&lt;/Run&gt;&lt;Run Fo [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &lt;FlowDocument PagePadding=&quot;5,0,5,0&quot; AllowDrop=&quot;True&quot; NumberSubstitution.CultureSource=&quot;User&quot; xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Verdana&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;AddWatermark Image Preview&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Calibri&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;This is the preview area of selected addWatermark image. If you are unsatisfied with your choice, you can click on the &quot;&lt;/Run&gt;&lt;Run Fo [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string WatermarkImagePreview {
             get {
@@ -340,7 +340,7 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;FlowDocument PagePadding=&quot;5,0,5,0&quot; AllowDrop=&quot;True&quot; NumberSubstitution.CultureSource=&quot;User&quot; xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Verdana&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;Watermark Image Rotation Angle&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Calibri&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;If you need to rotate your watermark image and then put it into your main image, please specify the angle here by dragging  [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &lt;FlowDocument PagePadding=&quot;5,0,5,0&quot; AllowDrop=&quot;True&quot; NumberSubstitution.CultureSource=&quot;User&quot; xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Verdana&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;AddWatermark Image Rotation Angle&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Calibri&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;If you need to rotate your addWatermark image and then put it into your main image, please specify the angle here by dragging  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string WatermarkImageRotationAngle {
             get {
@@ -349,7 +349,7 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;FlowDocument PagePadding=&quot;5,0,5,0&quot; AllowDrop=&quot;True&quot; NumberSubstitution.CultureSource=&quot;User&quot; xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Verdana&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;Watermark Text&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Calibri&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;If you like to add text as watermark to your images, please enter your desired text here. If nothing is entered, the program will ignore th [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &lt;FlowDocument PagePadding=&quot;5,0,5,0&quot; AllowDrop=&quot;True&quot; NumberSubstitution.CultureSource=&quot;User&quot; xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Verdana&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;AddWatermark Text&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Calibri&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;If you like to add text as addWatermark to your images, please enter your desired text here. If nothing is entered, the program will ignore th [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string WatermarkText {
             get {
@@ -358,7 +358,7 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;FlowDocument PagePadding=&quot;5,0,5,0&quot; AllowDrop=&quot;True&quot; NumberSubstitution.CultureSource=&quot;User&quot; xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Verdana&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;Watermark Text Alignment&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Calibri&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;If you have multiple lines of watermark text to put into your main image, you can specify the alignment here. For single line of  [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &lt;FlowDocument PagePadding=&quot;5,0,5,0&quot; AllowDrop=&quot;True&quot; NumberSubstitution.CultureSource=&quot;User&quot; xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Verdana&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;AddWatermark Text Alignment&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Calibri&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;If you have multiple lines of addWatermark text to put into your main image, you can specify the alignment here. For single line of  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string WatermarkTextAlignment {
             get {
@@ -367,7 +367,7 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;FlowDocument PagePadding=&quot;5,0,5,0&quot; AllowDrop=&quot;True&quot; NumberSubstitution.CultureSource=&quot;User&quot; xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Verdana&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;Watermark Text Color&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Calibri&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;You can specify the color of your watermark here. The default value is semi transparent white. You can control the color and transpar [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &lt;FlowDocument PagePadding=&quot;5,0,5,0&quot; AllowDrop=&quot;True&quot; NumberSubstitution.CultureSource=&quot;User&quot; xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Verdana&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;AddWatermark Text Color&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Calibri&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;You can specify the color of your addWatermark here. The default value is semi transparent white. You can control the color and transpar [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string WatermarkTextColor {
             get {
@@ -376,7 +376,7 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;FlowDocument PagePadding=&quot;5,0,5,0&quot; AllowDrop=&quot;True&quot; NumberSubstitution.CultureSource=&quot;User&quot; xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Verdana&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;Watermark Text Font&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Calibri&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;Font you like to use as watermark text.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;.
+        ///   Looks up a localized string similar to &lt;FlowDocument PagePadding=&quot;5,0,5,0&quot; AllowDrop=&quot;True&quot; NumberSubstitution.CultureSource=&quot;User&quot; xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Verdana&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;AddWatermark Text Font&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Calibri&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;Font you like to use as addWatermark text.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;.
         /// </summary>
         internal static string WatermarkTextFont {
             get {
@@ -385,7 +385,7 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;FlowDocument PagePadding=&quot;5,0,5,0&quot; AllowDrop=&quot;True&quot; NumberSubstitution.CultureSource=&quot;User&quot; xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Verdana&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;Watermark Text Position&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Calibri&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;It indicates where to put text watermark on your main image. If no watermark text is not entered above, program will ignore the se [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &lt;FlowDocument PagePadding=&quot;5,0,5,0&quot; AllowDrop=&quot;True&quot; NumberSubstitution.CultureSource=&quot;User&quot; xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Verdana&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;AddWatermark Text Position&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Calibri&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;It indicates where to put text addWatermark on your main image. If no addWatermark text is not entered above, program will ignore the se [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string WatermarkTextPosition {
             get {
@@ -394,7 +394,7 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;FlowDocument PagePadding=&quot;5,0,5,0&quot; AllowDrop=&quot;True&quot; NumberSubstitution.CultureSource=&quot;User&quot; xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Verdana&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;Watermark Text Preview&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Calibri&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;Here you can preview the watermark text with combination of all the parameters (except for position) above.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/Flow [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &lt;FlowDocument PagePadding=&quot;5,0,5,0&quot; AllowDrop=&quot;True&quot; NumberSubstitution.CultureSource=&quot;User&quot; xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Verdana&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;AddWatermark Text Preview&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Calibri&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;Here you can preview the addWatermark text with combination of all the parameters (except for position) above.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/Flow [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string WatermarkTextPreview {
             get {
@@ -403,7 +403,7 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;FlowDocument PagePadding=&quot;5,0,5,0&quot; AllowDrop=&quot;True&quot; NumberSubstitution.CultureSource=&quot;User&quot; xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Verdana&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;Watermark Text Rotation Angle&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Calibri&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;If you like to rotate your watermark text and then put it into your main image, you can do it by dragging the slider.&lt;/Run&gt;&lt; [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &lt;FlowDocument PagePadding=&quot;5,0,5,0&quot; AllowDrop=&quot;True&quot; NumberSubstitution.CultureSource=&quot;User&quot; xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Verdana&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;AddWatermark Text Rotation Angle&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Calibri&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;If you like to rotate your addWatermark text and then put it into your main image, you can do it by dragging the slider.&lt;/Run&gt;&lt; [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string WatermarkTextRotationAngle {
             get {

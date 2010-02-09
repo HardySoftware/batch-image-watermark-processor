@@ -5,7 +5,7 @@ using System.Reflection;
 using Microsoft.Practices.EnterpriseLibrary.Validation;
 using Microsoft.Practices.EnterpriseLibrary.Validation.Validators;
 
-namespace HardySoft.UI.BatchImageProcessor.Model {
+namespace HardySoft.UI.BatchImageProcessor.Model.ModelValidators {
 	public class MacroTagValidatorAttribute : ValidatorAttribute {
 		private string[] validMacros;
 

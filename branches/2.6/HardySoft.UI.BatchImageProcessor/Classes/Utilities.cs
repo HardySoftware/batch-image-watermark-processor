@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Reflection;
+using System.Text.RegularExpressions;
 using System.Threading;
 
 using HardySoft.UI.BatchImageProcessor.Model;
+using HardySoft.UI.BatchImageProcessor.Resources;
 
 namespace HardySoft.UI.BatchImageProcessor.Classes {
 	class Utilities {
@@ -97,6 +99,42 @@ namespace HardySoft.UI.BatchImageProcessor.Classes {
 			}
 
 			return container;
+		}
+
+		/// <summary>
+		/// Due to the restriction of this project that UI resource sits outside of model project,
+		/// the localized validation message returns as a resource key. But when wen need to embed
+		/// some validation value from result there is no default property we can use, so the idea
+		/// is to make returned message like "resource_key||value1||value2".
+		/// </summary>
+		/// <param name="input">"resource_key||value1||value2"</param>
+		/// <returns></returns>
+		public static string ParseResource(string input) {
+			string[] s = Regex.Split(input, Regex.Escape("||"));
+
+			if (s != null && s.Length > 0) {
+				// the first part is base resource key
+				string resourceKey = s[0].Trim();
+
+				string message = LanguageContent.ResourceManager.GetString(resourceKey,
+							Thread.CurrentThread.CurrentCulture);
+
+				if (string.IsNullOrEmpty(message)) {
+					return input;
+				}
+
+				if (s.Length > 1) {
+					// the rest parts are values used to merge into display text
+					List<string> parameters = new List<string>();
+					parameters.AddRange(s);
+					parameters.RemoveAt(0);
+					message = string.Format(message, parameters.ToArray());
+				}
+
+				return message;
+			} else {
+				return input;
+			}
 		}
 	}
 }
