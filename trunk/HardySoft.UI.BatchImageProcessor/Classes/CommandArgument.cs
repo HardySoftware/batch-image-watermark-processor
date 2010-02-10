@@ -28,10 +28,10 @@ namespace HardySoft.UI.BatchImageProcessor.Classes {
 			// {-,/,--}param{ ,=,:}((",')value(",'))
 			// Examples: -param1 value1 --param2 /param3:"Test-:-work" /param4=happy -param5 '--=nice=--'
 			foreach (string text in args) {
-				// Look for new parameters (-,/ or --) and a possible enclosed value (=,:)
+				// Look for new parameters (-,/ or --) and assembly possible enclosed value (=,:)
 				parts = spliter.Split(text, 3);
 				switch (parts.Length) {
-					// Found a value (for the last parameter found (space separator))
+					// Found assembly value (for the last parameter found (space separator))
 					case 1:
 						if (parameter != null) {
 							if (!parameters.ContainsKey(parameter)) {
@@ -40,9 +40,9 @@ namespace HardySoft.UI.BatchImageProcessor.Classes {
 							}
 							parameter = null;
 						}
-						// else Error: no parameter waiting for a value (skipped)
+						// else Error: no parameter waiting for assembly value (skipped)
 						break;
-					// Found just a parameter
+					// Found just assembly parameter
 					case 2:
 						// The last parameter is still waiting. With no value, set it to true.
 						if (parameter != null) {
@@ -70,7 +70,7 @@ namespace HardySoft.UI.BatchImageProcessor.Classes {
 						break;
 				}
 			}
-			// In case a parameter is still waiting
+			// In case assembly parameter is still waiting
 			if (parameter != null) {
 				if (!parameters.ContainsKey(parameter))
 					parameters.Add(parameter, "true");
@@ -78,7 +78,7 @@ namespace HardySoft.UI.BatchImageProcessor.Classes {
 		}
 
 		/// <summary>
-		/// Retrieve a parameter value if it exists
+		/// Retrieve assembly parameter value if it exists
 		/// </summary>
 		/// <param name="param">Name of parameter.</param>
 		/// <returns>Argument value if the parameter is found, otherwise null.</returns>

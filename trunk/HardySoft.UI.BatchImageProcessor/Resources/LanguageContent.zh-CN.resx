@@ -415,9 +415,6 @@
   <data name="Label_UnsavedProject" xml:space="preserve">
     <value>未保存的项目</value>
   </data>
-  <data name="Label_WatermarkImage" xml:space="preserve">
-    <value>水印图形</value>
-  </data>
   <data name="Message_SavePrompt" xml:space="preserve">
     <value>是否先保存项目设置？</value>
   </data>
@@ -825,5 +822,32 @@
   </data>
   <data name="Command_Discuss" xml:space="preserve">
     <value>在线讨论</value>
+  </data>
+  <data name="Button_AddWatermarkImage" xml:space="preserve">
+    <value>添加水印图片</value>
+  </data>
+  <data name="Button_AddWatermarkText" xml:space="preserve">
+    <value>添加水印文字</value>
+  </data>
+  <data name="Validation_OverlapPosition" xml:space="preserve">
+    <value>在图片的{0}位置有多个水印，他们可能会互相重叠。是否还要继续？</value>
+  </data>
+  <data name="Label_WatermarkImageSetting" xml:space="preserve">
+    <value>水印图片设置</value>
+  </data>
+  <data name="Label_WatermarkTextSetting" xml:space="preserve">
+    <value>水印文字设置</value>
+  </data>
+  <data name="Tooltip_WatermarkImageDelete" xml:space="preserve">
+    <value>点击这里可以删除当前水印图形。</value>
+  </data>
+  <data name="Tooltip_WatermarkTextDelete" xml:space="preserve">
+    <value>点击这里可以删除当前水印文字。</value>
+  </data>
+  <data name="Label_Image" xml:space="preserve">
+    <value>图形</value>
+  </data>
+  <data name="Label_Text" xml:space="preserve">
+    <value>文字</value>
   </data>
 </root>

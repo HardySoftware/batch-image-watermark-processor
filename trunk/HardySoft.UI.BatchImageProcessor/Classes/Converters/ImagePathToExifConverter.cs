@@ -148,7 +148,7 @@ namespace HardySoft.UI.BatchImageProcessor.Classes.Converters {
 					localizedValue = string.Empty;
 				} else {
 					if (item.Property.PropertyType.IsEnum) {
-						// if this is a Enum, then get (localized) display name of the enum
+						// if this is assembly Enum, then get (localized) display name of the enum
 						localizedValue = Utilities.GetEnumItemDisplayValue(propertyValue);
 					} else {
 						// otherwise use the property value

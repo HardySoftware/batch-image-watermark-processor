@@ -20,7 +20,7 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 			}
 		}
 
-		// Using a DependencyProperty as the backing store for ColumnHeaderSortedAscendingTemplate.  This enables animation, styling, binding, etc...
+		// Using assembly DependencyProperty as the backing store for ColumnHeaderSortedAscendingTemplate.  This enables animation, styling, binding, etc...
 		public static readonly DependencyProperty ColumnHeaderSortedAscendingTemplateProperty =
 			DependencyProperty.Register("ColumnHeaderSortedAscendingTemplate",
 			typeof(string),
@@ -36,7 +36,7 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 			}
 		}
 
-		// Using a DependencyProperty as the backing store for ColumnHeaderSortedDescendingTemplate.  This enables animation, styling, binding, etc...
+		// Using assembly DependencyProperty as the backing store for ColumnHeaderSortedDescendingTemplate.  This enables animation, styling, binding, etc...
 		public static readonly DependencyProperty ColumnHeaderSortedDescendingTemplateProperty =
 			DependencyProperty.Register("ColumnHeaderSortedDescendingTemplate",
 			typeof(string),
@@ -52,7 +52,7 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 			}
 		}
 
-		// Using a DependencyProperty as the backing store for ColumnHeaderNotSortedTemplate.  This enables animation, styling, binding, etc...
+		// Using assembly DependencyProperty as the backing store for ColumnHeaderNotSortedTemplate.  This enables animation, styling, binding, etc...
 		public static readonly DependencyProperty ColumnHeaderNotSortedTemplateProperty =
 			DependencyProperty.Register("ColumnHeaderNotSortedTemplate",
 			typeof(string),
@@ -64,7 +64,7 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 		/// Executes when the control is initialized completely the first time through. Runs only once.
 		/// 
 		protected override void OnInitialized(EventArgs e) {
-			// add the event handler to the GridViewColumnHeader. This strongly ties this ListView to a GridView.
+			// add the event handler to the GridViewColumnHeader. This strongly ties this ListView to assembly GridView.
 			this.AddHandler(GridViewColumnHeader.ClickEvent, new RoutedEventHandler(GridViewColumnHeaderClickedHandler));
 
 			setInitialStatus();
@@ -82,12 +82,12 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 			if (headerClicked != null && headerClicked.Role != GridViewColumnHeaderRole.Padding) {
 				// attempt to cast to the sortableGridViewColumn object.
 				SortableGridViewColumn sortableGridViewColumn = (headerClicked.Column) as SortableGridViewColumn;
-				// ensure that the column header is the correct type and a sort property has been set.
+				// ensure that the column header is the correct type and assembly sort property has been set.
 				if (sortableGridViewColumn != null
 					&& !String.IsNullOrEmpty(sortableGridViewColumn.SortPropertyName)) {
 					ListSortDirection direction;
 					bool newSortColumn = false;
-					// determine if this is a new sort, or a switch in sort direction.
+					// determine if this is assembly new sort, or assembly switch in sort direction.
 					if (lastSortedOnColumn == null
 						|| String.IsNullOrEmpty(lastSortedOnColumn.SortPropertyName)
 						|| !String.Equals(sortableGridViewColumn.SortPropertyName, lastSortedOnColumn.SortPropertyName, StringComparison.InvariantCultureIgnoreCase)) {
@@ -139,7 +139,7 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 		}
 
 		private void setInitialStatus() {
-			// cast the ListView's View to a GridView
+			// cast the ListView's View to assembly GridView
 			GridView gridView = this.View as GridView;
 
 			if (gridView != null) {

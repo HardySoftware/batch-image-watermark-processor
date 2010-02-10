@@ -51,6 +51,12 @@
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Drawing" />
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel.Web">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
     <Reference Include="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -68,6 +74,13 @@
     <Compile Include="FontConverter.cs" />
     <Compile Include="Formatter.cs" />
     <Compile Include="Fraction.cs" />
+    <Compile Include="OnlinePhotoAlbum\Flickr\FlickrClient.cs" />
+    <Compile Include="OnlinePhotoAlbum\Flickr\FlickrOnlinePhotoAlbum.cs" />
+    <Compile Include="OnlinePhotoAlbum\Flickr\FlickrPhotoResponse.cs" />
+    <Compile Include="OnlinePhotoAlbum\Flickr\IFlickrApi.cs" />
+    <Compile Include="OnlinePhotoAlbum\IOnlinePhotoAlbum.cs" />
+    <Compile Include="OnlinePhotoAlbum\Photo.cs" />
+    <Compile Include="OnlinePhotoAlbum\PhotoCollection.cs" />
     <Compile Include="Parser.cs" />
     <Compile Include="RecursiveFileExplorer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -18,6 +18,8 @@
 	<cnv:CalculatorConverter x:Key="cnvCalculator"></cnv:CalculatorConverter>
 	<cnv:AlignmentConverter x:Key="cnvAlignment"></cnv:AlignmentConverter>
 	<cnv:NotOperationConverter x:Key="cnvNot"></cnv:NotOperationConverter>
+	<cnv:WatermarkCollectionToSelectConverter x:Key="cnvWatermarkToSelect"></cnv:WatermarkCollectionToSelectConverter>
+	<cnv:FriendlyFontNameConverter x:Key="cnvFriendlyFontName"></cnv:FriendlyFontNameConverter>
 
 	<!--<ObjectDataProvider x:Key="PositionData" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
 		<ObjectDataProvider.MethodParameters>

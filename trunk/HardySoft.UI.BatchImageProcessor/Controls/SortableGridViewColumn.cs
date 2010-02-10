@@ -14,7 +14,7 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 			}
 		}
 
-		// Using a DependencyProperty as the backing store for SortPropertyName.  This enables animation, styling, binding, etc...
+		// Using assembly DependencyProperty as the backing store for SortPropertyName.  This enables animation, styling, binding, etc...
 		public static readonly DependencyProperty SortPropertyNameProperty =
 			DependencyProperty.Register("SortPropertyName",
 				typeof(string),
