@@ -317,7 +317,7 @@
 										ItemsSource="{Binding Path=WatermarkCollection, Converter={StaticResource cnvWatermarkToSelect}, UpdateSourceTrigger=PropertyChanged}">
 										<ListBox.ItemTemplate>
 											<DataTemplate>
-												<TextBlock Text="{Binding Path=WatermarkType}" ></TextBlock>
+												<TextBlock Text="{Binding Path=WatermarkTypeDisplayText}" ></TextBlock>
 											</DataTemplate>
 										</ListBox.ItemTemplate>
 									</ListBox>

@@ -88,6 +88,11 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 				// wire events again
 				ps.OpenProject();
 				View.PS = ps;
+				if (ps.WatermarkCollection != null && ps.WatermarkCollection.Count > 0) {
+					View.SelectedWatermarkIndex = 0;
+				} else {
+					View.ClearWatermarkArea();
+				}
 
 				this.currentProjectFile = e.ProjectFileName;
 			} catch (Exception ex) {
@@ -129,7 +134,10 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 		void view_NewProjectCreated(object sender, ProjectWithFileNameEventArgs e) {
 			ps = new ProjectSetting();
 			ps.NewProject();
+
 			View.PS = ps;
+			View.ClearWatermarkArea();
+			View.SelectedWatermarkIndex = 0;
 
 			//this.currentProjectFile = "Untitled.hsbip";
 			this.currentProjectFile = e.ProjectFileName;

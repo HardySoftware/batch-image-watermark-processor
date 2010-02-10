@@ -852,4 +852,10 @@
   <data name="Tooltip_WatermarkTextDelete" xml:space="preserve">
     <value>Click here to remove the current watermark text.</value>
   </data>
+  <data name="Label_Image" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="Label_Text" xml:space="preserve">
+    <value>Text</value>
+  </data>
 </root>
