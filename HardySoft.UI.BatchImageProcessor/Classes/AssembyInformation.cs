@@ -4,6 +4,8 @@ using System.Text.RegularExpressions;
 using System.Reflection;
 using System.Net;
 using System.IO;
+using System.Globalization;
+using System.Linq;
 
 namespace HardySoft.UI.BatchImageProcessor.Classes {
 	public class AssembyInformation {
@@ -72,19 +74,37 @@ namespace HardySoft.UI.BatchImageProcessor.Classes {
 
 		public List<ReferencedAssembly> ReferencedAssemblies {
 			get {
-				List<ReferencedAssembly> referenced = new List<ReferencedAssembly>();
-
-				Assembly entryAssembly = Assembly.GetEntryAssembly();
-				foreach (AssemblyName name in entryAssembly.GetReferencedAssemblies()) {
-					Console.WriteLine("Name: {0}", name.ToString());
-					ReferencedAssembly ra = ReferencedAssembly.ParseAssmbly(name);
-
-					if (ra != null) {
-						referenced.Add(ra);
-					}
-				}
-
+				AssemblyName root = Assembly.GetEntryAssembly().GetName();
+				walkThroughAssemblies(root);
+				
+				referenced.Add(ReferencedAssembly.ParseAssmbly(root));
 				return referenced;
+			}
+		}
+
+		List<ReferencedAssembly> referenced = new List<ReferencedAssembly>();
+
+		private void walkThroughAssemblies(AssemblyName an) {
+			Assembly assembly;
+			try {
+				assembly = Assembly.Load(an);
+			} catch {
+				// oops
+				return;
+			}
+
+			foreach (AssemblyName a in assembly.GetReferencedAssemblies()) {
+				ReferencedAssembly ra = ReferencedAssembly.ParseAssmbly(a);
+				if (ra != null && referenced.FirstOrDefault(r => r.Name == ra.Name && r.Version == ra.Version) == null) {
+					referenced.Add(ra);
+				}
+			}
+
+			// see what is referenced
+			foreach (AssemblyName nextRef in assembly.GetReferencedAssemblies()) {
+				if (nextRef.FullName.StartsWith("HardySoft")) {
+					walkThroughAssemblies(nextRef);
+				}
 			}
 		}
 

@@ -15,6 +15,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			this.watermarkPosition = ContentAlignment.BottomRight;
 			this.watermarkTextColor = System.Drawing.Color.FromArgb(153, 255, 255, 255);
 			this.watermarkTextAlignment = StringAlignment.Center;
+			this.watermarkTextFont = SystemFonts.DialogFont;
 		}
 
 		private string text;

@@ -26,7 +26,7 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 	/// </summary>
 	public partial class MainInterfaceControl : System.Windows.Controls.UserControl, IMainInterfaceControlView {
 		// TODO add more option to "Output" tab to select file format for processed files. Something like batch convert.
-		// TODO in image file list add a new column to include button to remove image from list
+		// TODO in image file list add assembly new column to include button to remove image from list
 		// TODO convert "image effect" into add-ins and open programming interface
 		private MainControl_Presenter presenter;
 		private DispatcherTimer dispatcherTimer;
@@ -163,7 +163,7 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 
 		#region Drag-Drop event handlers
 		protected override void OnPreviewDragOver(System.Windows.DragEventArgs e) {
-			// we only want to deal with a single file.
+			// we only want to deal with assembly single file.
 			if (isSingleFile(e) != null) {
 				e.Effects = System.Windows.DragDropEffects.Copy;
 			} else {
@@ -215,17 +215,17 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 			base.OnPreviewDrop(e);
 		}
 
-		// If the data object in args is a single file, this method will return the filename.
+		// If the data object in args is assembly single file, this method will return the filename.
 		// Otherwise, it returns null.
 		private string isSingleFile(System.Windows.DragEventArgs args) {
 			// Check for files in the hovering data object.
 			if (args.Data.GetDataPresent(System.Windows.DataFormats.FileDrop, true)) {
 				string[] fileNames = args.Data.GetData(System.Windows.DataFormats.FileDrop, true) as string[];
-				// Check fo a single file or folder.
+				// Check fo assembly single file or folder.
 				if (fileNames.Length == 1) {
-					// Check for a file (a directory will return false).
+					// Check for assembly file (assembly directory will return false).
 					if (File.Exists(fileNames[0])) {
-						// At this point we know there is a single file.
+						// At this point we know there is assembly single file.
 						return fileNames[0];
 					}
 				}
@@ -294,7 +294,7 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 				MessageBoxButton button = MessageBoxButton.OK;
 				MessageBoxImage icon = MessageBoxImage.Error;
 
-				// TODO make a new dialog box to show brief error message and detailed information in a Expander
+				// TODO make assembly new dialog box to show brief error message and detailed information in assembly Expander
 				// Display message box
 				System.Windows.MessageBox.Show(messageBoxText, caption, button, icon);
 			}
@@ -312,7 +312,7 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 					MessageBoxButton button = MessageBoxButton.OK;
 					MessageBoxImage icon = MessageBoxImage.Error;
 
-					// TODO make a new dialog box with same look and feel as above.
+					// TODO make assembly new dialog box with same look and feel as above.
 					// Display message box
 					System.Windows.MessageBox.Show(messageBoxText, caption, button, icon);
 				}

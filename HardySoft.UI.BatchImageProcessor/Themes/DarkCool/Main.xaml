@@ -202,6 +202,7 @@
 
 	<!-- Close Button inside Help Popup -->
 	<Style TargetType="Button" x:Key="CloseHelpButton">
+		<Setter Property="Cursor" Value="Hand" />
 		<Setter Property="Margin" Value="5,5,5,0"/>
 		<Setter Property="Height" Value="10"/>
 		<Setter Property="Width" Value="10"/>
@@ -601,6 +602,7 @@
 	-->
 
 	<Style TargetType="Button" x:Key="GlassButton">
+		<Setter Property="Cursor" Value="Hand" />
 		<Setter Property="FrameworkElement.Width" Value="NaN"/>
 		<Setter Property="FrameworkElement.MinWidth" Value="60"/>
 		<Setter Property="FrameworkElement.Height" Value="NaN"/>
@@ -1871,6 +1873,7 @@
 	</Style>
 
 	<Style x:Key="{x:Static ToolBar.ButtonStyleKey}" TargetType="Button">
+		<Setter Property="Cursor" Value="Hand" />
 		<Setter Property="Background" Value="Transparent"/>
 		<Setter Property="Foreground" Value="{StaticResource ToobarTextColorBrush}"/>
 		<Setter Property="FontSize" Value="14"/>

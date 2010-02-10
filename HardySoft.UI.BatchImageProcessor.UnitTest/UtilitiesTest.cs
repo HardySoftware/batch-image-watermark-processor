@@ -8,7 +8,7 @@ namespace HardySoft.UI.BatchImageProcessor.UnitTest
     
     
     /// <summary>
-    ///This is a test class for UtilitiesTest and is intended
+    ///This is assembly test class for UtilitiesTest and is intended
     ///to contain all UtilitiesTest Unit Tests
     ///</summary>
 	[TestClass()]
@@ -40,7 +40,7 @@ namespace HardySoft.UI.BatchImageProcessor.UnitTest
 		//{
 		//}
 		//
-		//Use ClassCleanup to run code after all tests in a class have run
+		//Use ClassCleanup to run code after all tests in assembly class have run
 		//[ClassCleanup()]
 		//public static void MyClassCleanup()
 		//{

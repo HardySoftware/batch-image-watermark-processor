@@ -14,5 +14,10 @@ namespace HardySoft.UI.BatchImageProcessor.Classes {
 			get;
 			set;
 		}
+
+		public string WatermarkTypeDisplayText {
+			get;
+			set;
+		}
 	}
 }

@@ -18,8 +18,10 @@ namespace HardySoft.UI.BatchImageProcessor.Classes.Converters {
 						};
 
 						if (watermark is WatermarkImage) {
+							ws.WatermarkTypeDisplayText = Resources.LanguageContent.Label_Image;
 							ws.WatermarkType = "Image";
 						} else if (watermark is WatermarkText) {
+							ws.WatermarkTypeDisplayText = Resources.LanguageContent.Label_Text;
 							ws.WatermarkType = "Text";
 						}
 

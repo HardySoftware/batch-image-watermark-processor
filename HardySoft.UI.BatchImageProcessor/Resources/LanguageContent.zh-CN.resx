@@ -844,4 +844,10 @@
   <data name="Tooltip_WatermarkTextDelete" xml:space="preserve">
     <value>点击这里可以删除当前水印文字。</value>
   </data>
+  <data name="Label_Image" xml:space="preserve">
+    <value>图形</value>
+  </data>
+  <data name="Label_Text" xml:space="preserve">
+    <value>文字</value>
+  </data>
 </root>
