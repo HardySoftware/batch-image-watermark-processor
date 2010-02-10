@@ -70,7 +70,7 @@ namespace HardySoft.UI.BatchImageProcessor {
 			mainWindow = (MainWindow)container.Resolve<MainWindow>();
 			mainWindow.Show();
 
-			// TODO create a resource library to separate UI resource from main project, P345
+			// TODO create assembly resource library to separate UI resource from main project, P345
 			// TODO add skin feature, P472
 
 			Thread t = new Thread(new ThreadStart(checkVersion));

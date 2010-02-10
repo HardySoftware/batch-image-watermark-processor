@@ -8,22 +8,45 @@ using HardySoft.UI.BatchImageProcessor.Model;
 
 namespace HardySoft.UI.BatchImageProcessor.Presenter {
 	public class ApplyWatermarkImage : Watermark {
+		private int watermarkIndex;
+
+		public ApplyWatermarkImage(int watermarkIndex) {
+			this.watermarkIndex = watermarkIndex;
+		}
+
 		public override Image ProcessImage(Image input, ProjectSetting ps) {
+			if (ps.WatermarkCollection.Count < watermarkIndex) {
+				return input;
+			}
+
+			WatermarkImage wi = ps.WatermarkCollection[this.watermarkIndex] as WatermarkImage;
+
+			if (wi == null) {
+				return input;
+			}
+
+#if DEBUG
+			System.Diagnostics.Debug.WriteLine("Current Thread: "
+					+ System.Threading.Thread.CurrentThread.ManagedThreadId + ","
+					+ " Image File Name: " + this.ImageFileName + ","
+					+ " Watermark Image index: " + watermarkIndex);
+#endif
+
 			try {
 				// image used as watermark
 				Image watermarkImage;
-				using (Stream stream = File.OpenRead(ps.Watermark.WatermarkImageFile)) {
+				using (Stream stream = File.OpenRead(wi.WatermarkImageFile)) {
 					watermarkImage = Image.FromStream(stream);
 				}
 
 				Bitmap rotatedWatermarkImage;
-				if (ps.Watermark.WatermarkImageRotateAngle > 0 && ps.Watermark.WatermarkImageRotateAngle < 360) {
-					rotatedWatermarkImage = RotateImage(watermarkImage, ps.Watermark.WatermarkImageRotateAngle);
+				if (wi.WatermarkRotateAngle > 0 && wi.WatermarkRotateAngle < 360) {
+					rotatedWatermarkImage = RotateImage(watermarkImage, wi.WatermarkRotateAngle);
 				} else {
 					rotatedWatermarkImage = (Bitmap)watermarkImage;
 				}
 
-				rotatedWatermarkImage = setImageOpacity(rotatedWatermarkImage, (float)ps.Watermark.WatermarkImageOpacity);
+				rotatedWatermarkImage = setImageOpacity(rotatedWatermarkImage, (float)wi.WatermarkImageOpacity);
 
 				//int watermarkWidth = watermarkImage.Width;
 				//int watermarkHeight = watermarkImage.Height;
@@ -43,45 +66,45 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 				int xPosOfWatermark = 0;
 				int yPosOfWatermark = 0;
 
-				switch (ps.Watermark.WatermarkImagePosition) {
+				switch (wi.WatermarkPosition) {
 					case ContentAlignment.BottomCenter:
 						xPosOfWatermark = (imageWidth / 2) - (watermarkWidth / 2);
-						yPosOfWatermark = (imageHeight - watermarkHeight) - Padding;
+						yPosOfWatermark = (imageHeight - watermarkHeight) - wi.Padding;
 						break;
 					case ContentAlignment.BottomLeft:
 						xPosOfWatermark = 10;
-						yPosOfWatermark = (imageHeight - watermarkHeight) - Padding;
+						yPosOfWatermark = (imageHeight - watermarkHeight) - wi.Padding;
 						break;
 					case ContentAlignment.BottomRight:
-						xPosOfWatermark = (imageWidth - watermarkWidth) - Padding;
-						yPosOfWatermark = (imageHeight - watermarkHeight) - Padding;
+						xPosOfWatermark = (imageWidth - watermarkWidth) - wi.Padding;
+						yPosOfWatermark = (imageHeight - watermarkHeight) - wi.Padding;
 						break;
 					case ContentAlignment.MiddleCenter:
 						xPosOfWatermark = (imageWidth / 2) - (watermarkWidth / 2);
 						yPosOfWatermark = (imageHeight / 2) - (watermarkHeight / 2);
 						break;
 					case ContentAlignment.MiddleLeft:
-						xPosOfWatermark = Padding;
+						xPosOfWatermark = wi.Padding;
 						yPosOfWatermark = (imageHeight / 2) - (watermarkHeight / 2);
 						break;
 					case ContentAlignment.MiddleRight:
-						xPosOfWatermark = (imageWidth - watermarkWidth) - Padding;
+						xPosOfWatermark = (imageWidth - watermarkWidth) - wi.Padding;
 						yPosOfWatermark = (imageHeight / 2) - (watermarkHeight / 2);
 						break;
 					case ContentAlignment.TopCenter:
 						xPosOfWatermark = (imageWidth / 2) - (watermarkWidth / 2);
-						yPosOfWatermark = Padding;
+						yPosOfWatermark = wi.Padding;
 						break;
 					case ContentAlignment.TopLeft:
-						xPosOfWatermark = Padding;
-						yPosOfWatermark = Padding;
+						xPosOfWatermark = wi.Padding;
+						yPosOfWatermark = wi.Padding;
 						break;
 					case ContentAlignment.TopRight:
 						//For this example we will place the watermark in the upper right
 						//hand corner of the photograph. offset down 10 pixels and to the 
 						//left 10 pixles
-						xPosOfWatermark = (imageWidth - watermarkWidth) - Padding;
-						yPosOfWatermark = Padding;
+						xPosOfWatermark = (imageWidth - watermarkWidth) - wi.Padding;
+						yPosOfWatermark = wi.Padding;
 						break;
 				}
 
@@ -91,7 +114,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 					0,                  // y-coordinate of the portion of the source image to draw. 
 					watermarkWidth,            // Watermark Width
 					watermarkHeight,		    // Watermark Height
-					GraphicsUnit.Pixel); // Unit of measurment*/
+					GraphicsUnit.Pixel); // Unit of measurment
 
 				graphic.Dispose();
 				return (Image)bmp;

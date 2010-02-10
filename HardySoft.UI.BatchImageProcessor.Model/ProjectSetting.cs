@@ -5,6 +5,8 @@ using System.ComponentModel;
 using System.IO;
 using System.Runtime.Serialization;
 
+using HardySoft.UI.BatchImageProcessor.Model.ModelValidators;
+
 using Microsoft.Practices.EnterpriseLibrary.Validation.Validators;
 
 namespace HardySoft.UI.BatchImageProcessor.Model {
@@ -54,13 +56,17 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			this.sourceDirectory = string.Empty;
 			this.outputDirectory = string.Empty;
 
-			this.photos = new ObservableCollection<PhotoItem>();
+			this.Photos = new ObservableCollection<PhotoItem>();
+			this.WatermarkCollection = new ObservableCollection<WatermarkBase>();
+#if DEBUG
+			//this.WatermarkCollection.Add(new WatermarkImage());
+			//this.WatermarkCollection.Add(new WatermarkText());
+#endif
 			this.processType = ImageProcessType.None;
 			this.shrinkMode = ShrinkImageMode.LongSide;
 			this.shrinkPixelTo = 800;
 			this.jpgCompressionRatio = 75;
 
-			this.watermark = new Watermark();
 			this.dropShadowSetting = new DropShadow();
 			this.borderSetting = new ImageBorder();
 			this.thumbnailSetting = new Thumbnail();
@@ -68,15 +74,20 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 		}
 
 		private void wireEvents() {
-			this.photos.CollectionChanged += new NotifyCollectionChangedEventHandler(photos_CollectionChanged);
-			this.watermark.PropertyChanged += new PropertyChangedEventHandler(subSetting_PropertyChanged);
+			this.Photos.CollectionChanged += new NotifyCollectionChangedEventHandler(Photos_CollectionChanged);
+			this.WatermarkCollection.CollectionChanged += new NotifyCollectionChangedEventHandler(WatermarkCollection_CollectionChanged);
 			this.dropShadowSetting.PropertyChanged += new PropertyChangedEventHandler(subSetting_PropertyChanged);
 			this.borderSetting.PropertyChanged += new PropertyChangedEventHandler(subSetting_PropertyChanged);
 			this.thumbnailSetting.PropertyChanged += new PropertyChangedEventHandler(subSetting_PropertyChanged);
 			this.renamingSetting.PropertyChanged += new PropertyChangedEventHandler(subSetting_PropertyChanged);
 		}
 
-		void photos_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e) {
+		void WatermarkCollection_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e) {
+			this.isDirty = true;
+			notify("WatermarkCollection");
+		}
+
+		void Photos_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e) {
 			this.isDirty = true;
 			notify("Photos");
 		}
@@ -114,7 +125,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 		/// </summary>
 		public void OpenProject() {
 			// traverse through image files in the project to make sure they are still available.
-			foreach (PhotoItem photo in photos) {
+			foreach (PhotoItem photo in Photos) {
 				if (!File.Exists(photo.PhotoPath)) {
 					// TODO think about how to handle, remove from list or just uncheck
 					photo.Selected = false;
@@ -148,28 +159,29 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 				return sourceDirectory;
 			}
 			set {
-				if (string.Compare(sourceDirectory, value, true) != 0) {
-					this.isDirty = true;
-					
-					photos.Clear();
-
-					// get photoInstance list with supported file format
-					for (int i = 0; i < supportedImageFormat.Length; i++) {
-						string[] photoFiles = Directory.GetFiles(value, supportedImageFormat[i]);
-
-						for (int j = 0; j < photoFiles.Length; j++) {
-							PhotoItem photoItem = new PhotoItem() {
-								PhotoPath = photoFiles[j]
-							};
-
-							photoItem.PropertyChanged += new PropertyChangedEventHandler(subSetting_PropertyChanged);
-
-							photos.Add(photoItem);
-						}
-					}
-					this.sourceDirectory = value;
-					notify("SourceDirectory");
+				if (string.Compare(sourceDirectory, value, true) == 0) {
+					return;
 				}
+				this.isDirty = true;
+					
+				Photos.Clear();
+
+				// get photoInstance list with supported file format
+				for (int i = 0; i < supportedImageFormat.Length; i++) {
+					string[] photoFiles = Directory.GetFiles(value, supportedImageFormat[i]);
+
+					for (int j = 0; j < photoFiles.Length; j++) {
+						PhotoItem photoItem = new PhotoItem() {
+						                                      	PhotoPath = photoFiles[j]
+						                                      };
+
+						photoItem.PropertyChanged += new PropertyChangedEventHandler(subSetting_PropertyChanged);
+
+						Photos.Add(photoItem);
+					}
+				}
+				this.sourceDirectory = value;
+				notify("SourceDirectory");
 			}
 		}
 
@@ -182,33 +194,25 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 				return outputDirectory;
 			}
 			set {
-				if (string.Compare(outputDirectory, value, true) != 0) {
-					this.outputDirectory = value;
-					this.isDirty = true;
-					notify("OutputDirectory");
+				if (string.Compare(outputDirectory, value, true) == 0) {
+					return;
 				}
+				this.outputDirectory = value;
+				this.isDirty = true;
+				notify("OutputDirectory");
 			}
 		}
 
-		private ObservableCollection<PhotoItem> photos;
 		public ObservableCollection<PhotoItem> Photos {
-			get {
-				return photos;
-			}
-			set {
-				photos = value;
-			}
+			get;
+			set;
 		}
 
-		private Watermark watermark;
-		public Watermark Watermark {
-			get {
-				return watermark;
-			}
-			set {
-				// Xml Serialization requires a property to be public and can be set and read
-				// do nothing
-			}
+		[ObjectCollectionValidatorExt(typeof(WatermarkBase))]
+		[OverlappingWatermarkPositionValdiator(MessageTemplate = "Validation_OverlapPosition||{0}", Tag = "Warning")]
+		public ObservableCollection<WatermarkBase> WatermarkCollection {
+			get;
+			set;
 		}
 
 		private ImageProcessType processType;
@@ -265,6 +269,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 		}
 
 		private ImageBorder borderSetting;
+		[ObjectValidator()]
 		public ImageBorder BorderSetting {
 			get {
 				return borderSetting;
@@ -327,6 +332,8 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			}
 		}
 
+		
+
 		/// <summary>
 		/// When deserialize from save file, all the event handlers will be lost.
 		/// This solution is from http://www.codeproject.com/KB/cs/FixingBindingListDeserial.aspx
@@ -336,8 +343,12 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 		private void OnDeserialized(StreamingContext context) {
 			wireEvents();
 
-			foreach (PhotoItem photoItem in this.photos) {
+			foreach (PhotoItem photoItem in this.Photos) {
 				photoItem.PropertyChanged += new PropertyChangedEventHandler(subSetting_PropertyChanged);
+			}
+
+			foreach (WatermarkBase watermark in this.WatermarkCollection) {
+				watermark.PropertyChanged += new PropertyChangedEventHandler(subSetting_PropertyChanged);
 			}
 		}
 	}

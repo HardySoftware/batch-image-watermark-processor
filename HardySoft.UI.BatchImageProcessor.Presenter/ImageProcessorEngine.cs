@@ -20,6 +20,8 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 		private ProjectSetting ps = null;
 		private Thread[] threads;
 		private IUnityContainer container = new UnityContainer();
+		private List<ExifContainerItem> exifContainer;
+		private string dateTimeStringFormat;
 
 		public event ImageProcessedDelegate ImageProcessed;
 
@@ -31,6 +33,8 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 			this.jobQueue = new Queue<JobItem>();
 			this.events = events;
 			this.threads = new Thread[this.threadNumber];
+			this.exifContainer = exifContainer;
+			this.dateTimeStringFormat = dateTimeStringFormat;
 
 			// add all selected images to job queue.
 			jobQueue = new Queue<JobItem>();
@@ -50,47 +54,26 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 			//section.Containers.Default.Configure(container);
 
 			// register all supported image process classes
-			container.RegisterType<IProcess, AddBorder>("AddBorder",
-				new PerThreadLifetimeManager()/*,
-				new InjectionProperty("EnableDebug")*/);
-			container.RegisterType<IProcess, ApplyWatermarkImage>("WatermarkImage",
-				new PerThreadLifetimeManager()/*,
-				new InjectionProperty("EnableDebug")*/);
-			container.RegisterType<IProcess, ApplyWatermarkText>("WatermarkText",
+			/*container.RegisterType<IProcess, ApplyWatermarkText>("WatermarkText",
 				new PerThreadLifetimeManager(),
-				/*new InjectionProperty("EnableDebug"),*/
-				new InjectionConstructor(exifContainer, dateTimeStringFormat));
-			container.RegisterType<IProcess, DropShadowImage>("DropShadow",
-				new PerThreadLifetimeManager()/*,
-				new InjectionProperty("EnableDebug")*/);
-			container.RegisterType<IProcess, GenerateThumbnail>("ThumbImage",
-				new PerThreadLifetimeManager()/*,
-				new InjectionProperty("EnableDebug")*/);
-			container.RegisterType<IProcess, GrayScale>("GrayscaleEffect",
-				new PerThreadLifetimeManager()/*,
-				new InjectionProperty("EnableDebug")*/);
-			container.RegisterType<IProcess, NegativeImage>("NegativeEffect",
-				new PerThreadLifetimeManager()/*,
-				new InjectionProperty("EnableDebug")*/);
-			container.RegisterType<IProcess, ShrinkImage>("ShrinkImage",
-				new PerThreadLifetimeManager()/*,
-				new InjectionProperty("EnableDebug")*/);
-			// register generate file name classes
-			container.RegisterType<IFilenameProvider, ThumbnailFileName>("ThumbFileName",
-				new PerThreadLifetimeManager());
-			container.RegisterType<IFilenameProvider, ProcessedFileName>("NormalFileName",
-				new PerThreadLifetimeManager());
-			container.RegisterType<IFilenameProvider, BatchRenamedFileName>("BatchRenamedFileName",
-				new PerThreadLifetimeManager());
-
-			// register save image classes
-			container.RegisterType<ISaveImage, SaveNormalImage>("SaveNormalImage",
-				new PerThreadLifetimeManager()/*,
-				new InjectionProperty("EnableDebug")*/);
-			container.RegisterType<ISaveImage, SaveCompressedJPGImage>("SaveCompressedJpgImage",
-				new PerThreadLifetimeManager(),
-				new InjectionConstructor(ps.JpgCompressionRatio)/*,
-				new InjectionProperty("EnableDebug")*/);
+				new InjectionConstructor(exifContainer, dateTimeStringFormat));*/
+			container
+				.RegisterType<IProcess, AddBorder>("AddBorder", new PerThreadLifetimeManager())
+				.RegisterType<IProcess, ApplyWatermarkImage>("WatermarkImage", new TransientLifetimeManager())
+				.RegisterType<IProcess, ApplyWatermarkText>("WatermarkText", new TransientLifetimeManager())
+				.RegisterType<IProcess, DropShadowImage>("DropShadow", new PerThreadLifetimeManager())
+				.RegisterType<IProcess, GenerateThumbnail>("ThumbImage", new PerThreadLifetimeManager())
+				.RegisterType<IProcess, GrayScale>("GrayscaleEffect", new PerThreadLifetimeManager()/*,new InjectionProperty("EnableDebug")*/)
+				.RegisterType<IProcess, NegativeImage>("NegativeEffect", new PerThreadLifetimeManager())
+				.RegisterType<IProcess, ShrinkImage>("ShrinkImage", new PerThreadLifetimeManager())
+				// file name classes
+				.RegisterType<IFilenameProvider, ThumbnailFileName>("ThumbFileName", new PerThreadLifetimeManager())
+				.RegisterType<IFilenameProvider, ProcessedFileName>("NormalFileName", new PerThreadLifetimeManager())
+				.RegisterType<IFilenameProvider, BatchRenamedFileName>("BatchRenamedFileName", new PerThreadLifetimeManager())
+				// register save image classes
+				.RegisterType<ISaveImage, SaveNormalImage>("SaveNormalImage", new PerThreadLifetimeManager())
+				.RegisterType<ISaveImage, SaveCompressedJPGImage>("SaveCompressedJpgImage", new PerThreadLifetimeManager(),
+					new InjectionConstructor(ps.JpgCompressionRatio));
 		}
 
 		public void StartProcess() {
@@ -133,7 +116,9 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 					imageIndex = item.Index;
 				} else {
 					// nothing more to process, signal
+#if DEBUG
 					System.Diagnostics.Debug.WriteLine("Thread " + index + " is set because no more image to process.");
+#endif
 					events[index].Set();
 					return;
 				}
@@ -141,7 +126,9 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 
 			if (stopFlag) {
 				// stop requested, signal
+#if DEBUG
 				System.Diagnostics.Debug.WriteLine("Thread " + index + " is set because stop requested.");
+#endif
 				events[index].Set();
 				return;
 			} else {
@@ -155,10 +142,12 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 						exif = new ExifMetadata(new Uri(imagePath), true);
 					}
 
+					// this will lock image until entire application quits
+					// normalImage = Image.FromFile(imagePath);
+					// this won't lock image
 					using (Stream stream = File.OpenRead(imagePath)) {
 						normalImage = Image.FromStream(stream);
 					}
-					// normalImage = Image.FromFile(imagePath);
 
 					ImageFormat format = getImageFormat(imagePath);
 
@@ -192,25 +181,55 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 						}
 					}
 
-					// text watermark operation
-					if (!string.IsNullOrEmpty(ps.Watermark.WatermarkText)
-						&& ps.Watermark.WatermarkTextColor.A > 0) {
-						System.Diagnostics.Debug.WriteLine("Current Thread "
-									+ System.Threading.Thread.CurrentThread.ManagedThreadId + " Culture "
-									+ System.Threading.Thread.CurrentThread.CurrentCulture.ToString()
-									+ " before ApplyWatermarkText.");
-						process = container.Resolve<IProcess>("WatermarkText");
-						process.ImageFileName = imagePath;
-						normalImage = process.ProcessImage(normalImage, this.ps);
-					}
+					if (ps.WatermarkCollection != null && ps.WatermarkCollection.Count > 0) {
+						IUnityContainer watermarkContainer;
+						watermarkContainer = container.CreateChildContainer();
+						watermarkContainer.RegisterInstance<List<ExifContainerItem>>(exifContainer)
+							.RegisterInstance<string>(dateTimeStringFormat);
 
-					// image watermark operation
-					if (!string.IsNullOrEmpty(ps.Watermark.WatermarkImageFile)
-						&& File.Exists(ps.Watermark.WatermarkImageFile)
-						&& ps.Watermark.WatermarkImageOpacity > 0) {
-						process = container.Resolve<IProcess>("WatermarkImage");
-						normalImage = process.ProcessImage(normalImage, this.ps);
-						//normalImage = process.ProcessImage(normalImage, this.ps);
+						for (int watermarkIndex = 0; watermarkIndex < ps.WatermarkCollection.Count; watermarkIndex++) {
+							watermarkContainer.RegisterInstance<int>(watermarkIndex);
+
+							if (ps.WatermarkCollection[watermarkIndex] is WatermarkText) {
+								// text watermark operation
+								WatermarkText wt = ps.WatermarkCollection[watermarkIndex] as WatermarkText;
+								if (!string.IsNullOrEmpty(wt.Text) && wt.WatermarkTextColor.A > 0) {
+#if DEBUG
+									System.Diagnostics.Debug.WriteLine("Current Thread "
+										+ System.Threading.Thread.CurrentThread.ManagedThreadId + " Culture "
+										+ System.Threading.Thread.CurrentThread.CurrentCulture.ToString()
+										+ " before ApplyWatermarkText.");
+
+									System.Diagnostics.Debug.WriteLine("Current Thread: "
+										+ System.Threading.Thread.CurrentThread.ManagedThreadId + ";"
+										+ " Image File Name: " + imagePath + ","
+										+ " Watermark Text index: " + watermarkIndex
+										+ " before.");
+#endif
+									//process = container.Resolve<IProcess>("WatermarkText");
+									process = watermarkContainer.Resolve<IProcess>("WatermarkText");
+									process.ImageFileName = imagePath;
+									normalImage = process.ProcessImage(normalImage, this.ps);
+								}
+							} else if (ps.WatermarkCollection[watermarkIndex] is WatermarkImage) {
+								// image watermark operation
+								WatermarkImage wi = ps.WatermarkCollection[watermarkIndex] as WatermarkImage;
+								if (!string.IsNullOrEmpty(wi.WatermarkImageFile)
+									&& File.Exists(wi.WatermarkImageFile)
+									&& wi.WatermarkImageOpacity > 0) {
+#if DEBUG
+									System.Diagnostics.Debug.WriteLine("Current Thread: "
+										+ System.Threading.Thread.CurrentThread.ManagedThreadId + ";"
+										+ " Image File Name: " + imagePath + ","
+										+ " Watermark Image index: " + watermarkIndex
+										+ " before.");
+#endif
+									process = watermarkContainer.Resolve<IProcess>("WatermarkImage");
+									process.ImageFileName = imagePath;
+									normalImage = process.ProcessImage(normalImage, this.ps);
+								}
+							}
+						}
 					}
 
 					// border operation
@@ -245,13 +264,15 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 					}
 					imageSaver.SaveImageToDisk(normalImage, format, fileNameProvider);
 
-					// TODO think about applying thumbImage file name to batch renamed original file
-					fileNameProvider = container.Resolve<IFilenameProvider>("ThumbFileName");
-					fileNameProvider.PS = ps;
-					fileNameProvider.ImageIndex = imageIndex;
-					fileNameProvider.SourceFileName = imagePath;
-					//saveImage(imagePath, thumbImage, format, fileNameProvider, imageSaver, imageIndex);
-					imageSaver.SaveImageToDisk(thumbImage, format, fileNameProvider);
+					if (thumbImage != null) {
+						// TODO think about applying thumbImage file name to batch renamed original file
+						fileNameProvider = container.Resolve<IFilenameProvider>("ThumbFileName");
+						fileNameProvider.PS = ps;
+						fileNameProvider.ImageIndex = imageIndex;
+						fileNameProvider.SourceFileName = imagePath;
+						//saveImage(imagePath, thumbImage, format, fileNameProvider, imageSaver, imageIndex);
+						imageSaver.SaveImageToDisk(thumbImage, format, fileNameProvider);
+					}
 				} catch (Exception ex) {
 					Trace.TraceError(ex.ToString());
 				} finally {

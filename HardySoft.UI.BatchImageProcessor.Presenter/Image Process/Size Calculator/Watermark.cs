@@ -307,14 +307,5 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 			public int RotatedHeight;
 			public int RotatedWidth;
 		}
-
-		/// <summary>
-		/// The space of text box or image box between edge of main image.
-		/// </summary>
-		protected int Padding {
-			get {
-				return 10;
-			}
-		}
 	}
 }

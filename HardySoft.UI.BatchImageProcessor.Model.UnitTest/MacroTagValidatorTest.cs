@@ -1,16 +1,15 @@
-﻿using HardySoft.UI.BatchImageProcessor.Model;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
-using Microsoft.Practices.EnterpriseLibrary.Validation;
+﻿using System.Collections.Generic;
 
-namespace HardySoft.UI.BatchImageProcessor.Model.UnitTest
-{
-    
-    
-    /// <summary>
-    ///This is a test class for MacroTagValidatorTest and is intended
-    ///to contain all MacroTagValidatorTest Unit Tests
-    ///</summary>
+using HardySoft.UI.BatchImageProcessor.Model.ModelValidators;
+
+using Microsoft.Practices.EnterpriseLibrary.Validation;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace HardySoft.UI.BatchImageProcessor.Model.UnitTest {
+	/// <summary>
+	///This is a test class for MacroTagValidatorTest and is intended
+	///to contain all MacroTagValidatorTest Unit Tests
+	///</summary>
 	[TestClass()]
 	public class MacroTagValidatorTest {
 

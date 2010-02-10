@@ -122,8 +122,8 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 			return Color.FromArgb(255, (byte)(r * 255), (byte)(g * 255), (byte)(b * 255));
 		}
 
-		// Generates a list of colors with hues ranging from 0 360
-		// and a saturation and value of 1. 
+		// Generates assembly list of colors with hues ranging from 0 360
+		// and assembly saturation and value of 1. 
 		public static List<Color> GenerateHsvSpectrum() {
 			List<Color> colorsList = new List<Color>(8);
 			for (int i = 0; i < 29; i++) {

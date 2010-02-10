@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Hardy Software")]
 [assembly: AssemblyProduct("HardySoft.UI.BatchImageProcessor.Model")]
-[assembly: AssemblyCopyright("Copyright © Hardy Software 2000 - 2009")]
+[assembly: AssemblyCopyright("Copyright © Hardy Software 2000 - 2010")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("2.5.*")]
-[assembly: AssemblyFileVersion("2.5.0.0")]
+[assembly: AssemblyVersion("2.6.*")]
+[assembly: AssemblyFileVersion("2.6.0.0")]
