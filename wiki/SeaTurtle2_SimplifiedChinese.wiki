@@ -29,7 +29,7 @@
 在[Screenshot_zh_cn 这里]可能到关于此工具的一些截图。如果要看视频演示请点[http://www.downloadtube.com/Sea-Turtle-demo-installation-windows.html 这里]。
 = 常见疑问 =
  * 我下载了程序，[FAQ_Begin_zh_cn 然后该怎么做]？
- * 我想把图片作为水印假如我的照片，[FAQ_Image_Watermark_zh_cn 我该怎么做]？
+ * 我想把图片作为水印加入我的照片，[FAQ_Image_Watermark_zh_cn 我该怎么做]？
  * 我想把静态文字就作为水印加入我的照片，[FAQ_StaticText_Watermark_zh_cn 我该怎么做]？
  * 我想把Exif里面的动态内容作为水印加入我的照片，[FAQ_ExifText_Watermark_zh_cn 我该怎么做]？
  * 我想把我的照片加上阴影，[FAQ_DropShadow_zh_cn 我该怎么做]？
