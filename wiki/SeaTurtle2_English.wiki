@@ -18,7 +18,7 @@ Tool also provides following features:
 ==Project Name==
 Sea Turtle Batch Image Watermark Processor
 ==Version Number==
-2.5 (File# 2.5.0.0, Build# 2.5.3548.39692)
+2. 6 (File# 2.6.0.0, Build# 2.6.3692.39078)
 =System Requirement=
 ==After You Download the Package==
 The binary package is compressed by [http://www.7-zip.org/ 7-Zip], which is an open-source software under GNU license.
@@ -38,6 +38,7 @@ For video demo of the tool, please visit [http://www.downloadtube.com/Sea-Turtle
  * I want to generate thumbnail or batch rename output files, [FAQ_Output_en how do I do it]?
  * I finished all settings, [FAQ_Make_en how do I generate output images]?
 =Version History=
+  * 2010-02-15: [Summary_26_en 2.6 (file 2.6.0.0)]
   * 2009-09-18: [Summary_25_en 2.5 (file 2.5.0.0)]
   * 2009-07-29: [Summary_24_en 2.4 (file 2.4.0.0)]
   * 2009-03-19: [Summary_23_en 2.3 (file 2.3.0.0)]
