@@ -1,4 +1,4 @@
-= Sea Turtle Batch Image Processor 2.5 =
+= Sea Turtle Batch Image Processor 2.6 =
 == Release Date ==
 Fenurary 15, 2010
 == Major Changes from Last Version ==
