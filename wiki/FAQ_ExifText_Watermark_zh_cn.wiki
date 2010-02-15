@@ -1,4 +1,4 @@
-= 常见疑问：我如何加入动态Exi内容作为水印文字？ =
+= 常见疑问：我如何加入动态Exif内容作为水印文字？ =
 == 加入你的水印文字 ==
 就像[FAQ_StaticText_Watermark_zh_cn 输入静态文字]一样，从用户界面选择“水印设置”然后展开“水印文字”。
 http://batch-image-watermark-processor.googlecode.com/svn/wiki/screenshots/FAQ_StaticText_Watermark01_zh-cn.jpg
