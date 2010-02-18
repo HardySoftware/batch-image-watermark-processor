@@ -1,0 +1,59 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:cnv="clr-namespace:HardySoft.UI.BatchImageProcessor.Classes.Converters"
+    xmlns:enum="clr-namespace:HardySoft.UI.BatchImageProcessor.Model;assembly=HardySoft.UI.BatchImageProcessor.Model"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+	<cnv:PathToThumbConverter x:Key="cnvPath2Thumb"></cnv:PathToThumbConverter>
+	<cnv:PathToImageConverter x:Key="cnvPath2Image"></cnv:PathToImageConverter>
+	<cnv:DebugConvertor x:Key="cnvDebug"></cnv:DebugConvertor>
+	<cnv:ImagePathToExifConverter x:Key="cnvExif"></cnv:ImagePathToExifConverter>
+	<cnv:EnumToFriendlyNameConverter x:Key="cnvFriendlyEnum"></cnv:EnumToFriendlyNameConverter>
+	<cnv:WatermarkImageSelectedConverter x:Key="cnvHasWatermarkImage"></cnv:WatermarkImageSelectedConverter>
+	<cnv:ColorDisplayNameConverter x:Key="cnvColorValue"></cnv:ColorDisplayNameConverter>
+	<cnv:ColorConverter x:Key="cnvColor"></cnv:ColorConverter>
+	<cnv:PositionSelectionConverter x:Key="cnvPositionSelection"></cnv:PositionSelectionConverter>
+	<cnv:CornerOnlyToVisibilityConverter x:Key="cnvCornerOnlyVisibility"></cnv:CornerOnlyToVisibilityConverter>
+	<cnv:TextSettingToRichtextConverter x:Key="cnvRichTextDisplay"></cnv:TextSettingToRichtextConverter>
+	<cnv:CalculatorConverter x:Key="cnvCalculator"></cnv:CalculatorConverter>
+	<cnv:AlignmentConverter x:Key="cnvAlignment"></cnv:AlignmentConverter>
+	<cnv:NotOperationConverter x:Key="cnvNot"></cnv:NotOperationConverter>
+	<cnv:WatermarkCollectionToSelectConverter x:Key="cnvWatermarkToSelect"></cnv:WatermarkCollectionToSelectConverter>
+	<cnv:FriendlyFontNameConverter x:Key="cnvFriendlyFontName"></cnv:FriendlyFontNameConverter>
+
+	<!--<ObjectDataProvider x:Key="PositionData" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
+		<ObjectDataProvider.MethodParameters>
+			<x:Type TypeName="enum:WatermarkPositions" />
+		</ObjectDataProvider.MethodParameters>
+	</ObjectDataProvider>-->
+
+	<ObjectDataProvider x:Key="ImageProcessTypeData" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
+		<ObjectDataProvider.MethodParameters>
+			<x:Type TypeName="enum:ImageProcessType" />
+		</ObjectDataProvider.MethodParameters>
+	</ObjectDataProvider>
+
+	<!--<ObjectDataProvider x:Key="DropShadowLocationData" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
+		<ObjectDataProvider.MethodParameters>
+			<x:Type TypeName="enum:DropShadowLocation" />
+		</ObjectDataProvider.MethodParameters>
+	</ObjectDataProvider>-->
+
+	<ObjectDataProvider x:Key="ShrinkModeData" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
+		<ObjectDataProvider.MethodParameters>
+			<x:Type TypeName="enum:ShrinkImageMode" />
+		</ObjectDataProvider.MethodParameters>
+	</ObjectDataProvider>
+
+	<ObjectDataProvider x:Key="OutputFileNameCaseData" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
+		<ObjectDataProvider.MethodParameters>
+			<x:Type TypeName="enum:OutputFileNameCase" />
+		</ObjectDataProvider.MethodParameters>
+	</ObjectDataProvider>
+
+	<ObjectDataProvider x:Key="ApplicationSkinData" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
+		<ObjectDataProvider.MethodParameters>
+			<x:Type TypeName="enum:Skin" />
+		</ObjectDataProvider.MethodParameters>
+	</ObjectDataProvider>
+</ResourceDictionary>
