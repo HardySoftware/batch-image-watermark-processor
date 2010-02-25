@@ -5,7 +5,7 @@ using Microsoft.Practices.EnterpriseLibrary.Validation.Validators;
 namespace HardySoft.UI.BatchImageProcessor.Model {
 	[Serializable]
 	public class WatermarkImage : WatermarkBase {
-		public WatermarkImage() {
+		public WatermarkImage() : base() {
 			this.watermarkPosition = ContentAlignment.TopRight;
 			this.watermarkImageOpacity = 1.0;
 		}

@@ -229,7 +229,6 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			}
 		}
 
-		// TODO whenever write EXIF is ready, enable the checkbox on UI.
 		private bool keepExif;
 		public bool KeepExif {
 			get {

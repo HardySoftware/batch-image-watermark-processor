@@ -17,9 +17,6 @@ namespace HardySoft.UI.BatchImageProcessor.Model.UnitTest {
 	[TestClass]
 	public class WatermarkTest {
 		public WatermarkTest() {
-			//
-			// TODO: Add constructor logic here
-			//
 		}
 
 		private TestContext testContextInstance;
@@ -61,10 +58,6 @@ namespace HardySoft.UI.BatchImageProcessor.Model.UnitTest {
 
 		[TestMethod]
 		public void Is_Base_Class_Searilzable() {
-			//
-			// TODO: Add test logic	here
-			//
-
 			ProjectSetting ps = new ProjectSetting();
 			WatermarkText wt =  new WatermarkText {
 			                                      	Text = "Hello world",

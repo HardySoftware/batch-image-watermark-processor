@@ -177,6 +177,109 @@
 		<Setter Property="CornerRadius" Value="10,10,10,10"></Setter>
 		<Setter Property="Background" Value="#FFFBF8C7"></Setter>
 	</Style>
+	
+	<!-- ===================== -->
+	<!-- Begin of Glass Button -->
+	<!-- ===================== -->
+	<Style TargetType="Button" x:Key="GlassButton">
+		<Setter Property="Cursor" Value="Hand" />
+		<Setter Property="FrameworkElement.Width" Value="NaN"/>
+		<Setter Property="FrameworkElement.MinWidth" Value="60"/>
+		<Setter Property="FrameworkElement.Height" Value="NaN"/>
+		<Setter Property="FrameworkElement.MinHeight" Value="25"/>
+		<Setter Property="Control.Padding" Value="10,4,10,4"/>
+		<Setter Property="FrameworkElement.VerticalAlignment" Value="Center"/>
+		<Setter Property="TextElement.Foreground">
+			<Setter.Value>
+				<SolidColorBrush>White</SolidColorBrush>
+			</Setter.Value>
+		</Setter>
+		<Setter Property="TextElement.FontSize" Value="10"/>
+		<Setter Property="TextElement.FontWeight" Value="SemiBold"/>
+		<Setter Property="TextElement.FontFamily" Value="{marks:ResourceFontExtension Style_ButtonFont}"/>
+		<Setter Property="Control.Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type Button}">
+					<ControlTemplate.Resources>
+						<Storyboard x:Key="Timeline1">
+							<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="glow" Storyboard.TargetProperty="(UIElement.Opacity)">
+								<SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="1"/>
+							</DoubleAnimationUsingKeyFrames>
+						</Storyboard>
+						<Storyboard x:Key="Timeline2">
+							<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="glow" Storyboard.TargetProperty="(UIElement.Opacity)">
+								<SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="0"/>
+							</DoubleAnimationUsingKeyFrames>
+						</Storyboard>
+					</ControlTemplate.Resources>
+					<Border BorderBrush="#FFFFFFFF" BorderThickness="1,1,1,1" CornerRadius="4,4,4,4">
+						<Border x:Name="border" Background="#7F000000" BorderBrush="#FF000000" BorderThickness="1,1,1,1" CornerRadius="4,4,4,4">
+							<Grid>
+								<Grid.RowDefinitions>
+									<RowDefinition Height="0.507*"/>
+									<RowDefinition Height="0.493*"/>
+								</Grid.RowDefinitions>
+								<Border Opacity="0" HorizontalAlignment="Stretch" x:Name="glow" Width="Auto" Grid.RowSpan="2" CornerRadius="4,4,4,4">
+									<Border.Background>
+										<RadialGradientBrush>
+											<RadialGradientBrush.RelativeTransform>
+												<TransformGroup>
+													<ScaleTransform ScaleX="1.702" ScaleY="2.243"/>
+													<SkewTransform AngleX="0" AngleY="0"/>
+													<RotateTransform Angle="0"/>
+													<TranslateTransform X="-0.368" Y="-0.152"/>
+												</TransformGroup>
+											</RadialGradientBrush.RelativeTransform>
+											<GradientStop Color="#B28DBDFF" Offset="0"/>
+											<GradientStop Color="#008DBDFF" Offset="1"/>
+										</RadialGradientBrush>
+									</Border.Background>
+								</Border>
+								<ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"
+									Width="Auto" Grid.RowSpan="2" Margin="5,0,5,0"/>
+								<Border HorizontalAlignment="Stretch" Margin="0,0,0,0" x:Name="shine" Width="Auto" CornerRadius="4,4,0,0">
+									<Border.Background>
+										<LinearGradientBrush EndPoint="0.494,0.889" StartPoint="0.494,0.028">
+											<GradientStop Color="#99FFFFFF" Offset="0"/>
+											<GradientStop Color="#33FFFFFF" Offset="1"/>
+										</LinearGradientBrush>
+									</Border.Background>
+								</Border>
+							</Grid>
+						</Border>
+					</Border>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsPressed" Value="True">
+							<Setter Property="Opacity" TargetName="shine" Value="0.4"/>
+							<Setter Property="Background" TargetName="border" Value="#CC000000"/>
+							<Setter Property="Visibility" TargetName="glow" Value="Hidden"/>
+						</Trigger>
+						<Trigger Property="IsMouseOver" Value="True">
+							<Trigger.EnterActions>
+								<BeginStoryboard Storyboard="{StaticResource Timeline1}"/>
+							</Trigger.EnterActions>
+							<Trigger.ExitActions>
+								<BeginStoryboard x:Name="Timeline2_BeginStoryboard" Storyboard="{StaticResource Timeline2}"/>
+							</Trigger.ExitActions>
+						</Trigger>
+						<Trigger Property="IsEnabled" Value="False">
+							<Setter Property="Opacity" TargetName="shine" Value="0.8"/>
+							<Setter Property="Background" TargetName="border" Value="#EE555555"/>
+							<Setter Property="Visibility" TargetName="glow" Value="Hidden"/>
+							<Setter Property="TextElement.Foreground">
+								<Setter.Value>
+									<SolidColorBrush>#FFDDDDDD</SolidColorBrush>
+								</Setter.Value>
+							</Setter>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<!-- =================== -->
+	<!-- End of Glass Button -->
+	<!-- =================== -->
 
 	<!-- Button to display help -->
 	<Style TargetType="Button" x:Key="HelpButton">
@@ -216,15 +319,12 @@
 		</Setter>
 	</Style>
 	
-	<!-- Delete Button -->
-	<ControlTemplate x:Key="TrashImageButtonControlTemplate" TargetType="{x:Type Button}">
-		<Border x:Name="RoundedBorder" Cursor="Hand" CornerRadius="5" BorderThickness="2" >
-			<Border.Background>
-				<SolidColorBrush Color="Transparent"></SolidColorBrush>
-			</Border.Background>
-			<Image x:Name="TrashImage" Source="/SeaTurtle;component/Themes/DarkCool/Images/Menu_Icons/trash.png"
-				HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,2,5,2"
-				Height="24" Width="24" OpacityMask="Black"/>
+	<!-- ========================== -->
+	<!-- Begin of Flat Style Button -->
+	<!-- ========================== -->
+	<ControlTemplate x:Key="FlatImageButton" TargetType="{x:Type Button}">
+		<Border x:Name="RoundedBorder" Cursor="Hand" CornerRadius="5" BorderThickness="2" Background="Transparent" BorderBrush="#FF898989" ToolTip="{TemplateBinding ToolTip}">
+			<ContentPresenter Margin="5,2,5,2"></ContentPresenter>
 		</Border>
 		<ControlTemplate.Triggers>
 			<Trigger Property="IsMouseOver" Value="True">
@@ -232,8 +332,20 @@
 				<Setter Property="Opacity" TargetName="RoundedBorder" Value="1"/>
 				<Setter Property="BorderBrush" TargetName="RoundedBorder" Value="{StaticResource NormalBorderBrush}"/>
 			</Trigger>
+			<Trigger Property="IsEnabled" Value="False">
+				<Setter Property="Background" TargetName="RoundedBorder" Value="{StaticResource DisabledBackgroundBrush}"/>
+				<Setter Property="Cursor" TargetName="RoundedBorder" Value="Arrow"/>
+				<Setter Property="Effect" TargetName="RoundedBorder">
+					<Setter.Value>
+						<BlurEffect Radius="2"/>
+					</Setter.Value>
+				</Setter>
+			</Trigger>
 		</ControlTemplate.Triggers>
 	</ControlTemplate>
+	<!-- ======================== -->
+	<!-- End of Flat Style Button -->
+	<!-- ======================== -->
 
 	<!-- Hyperlink color -->
 	<Style x:Key="AboutWindowHyperlink" TargetType="Hyperlink">
@@ -600,103 +712,6 @@
 		</Setter>
 	</Style>
 	-->
-
-	<Style TargetType="Button" x:Key="GlassButton">
-		<Setter Property="Cursor" Value="Hand" />
-		<Setter Property="FrameworkElement.Width" Value="NaN"/>
-		<Setter Property="FrameworkElement.MinWidth" Value="60"/>
-		<Setter Property="FrameworkElement.Height" Value="NaN"/>
-		<Setter Property="FrameworkElement.MinHeight" Value="25"/>
-		<Setter Property="Control.Padding" Value="10,4,10,4"/>
-		<Setter Property="FrameworkElement.VerticalAlignment" Value="Center"/>
-		<Setter Property="TextElement.Foreground">
-			<Setter.Value>
-				<SolidColorBrush>White</SolidColorBrush>
-			</Setter.Value>
-		</Setter>
-		<Setter Property="TextElement.FontSize" Value="10"/>
-		<Setter Property="TextElement.FontWeight" Value="SemiBold"/>
-		<Setter Property="TextElement.FontFamily" Value="{marks:ResourceFontExtension Style_ButtonFont}"/>
-		<Setter Property="Control.Template">
-			<Setter.Value>
-				<ControlTemplate TargetType="{x:Type Button}">
-					<ControlTemplate.Resources>
-						<Storyboard x:Key="Timeline1">
-							<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="glow" Storyboard.TargetProperty="(UIElement.Opacity)">
-								<SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="1"/>
-							</DoubleAnimationUsingKeyFrames>
-						</Storyboard>
-						<Storyboard x:Key="Timeline2">
-							<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="glow" Storyboard.TargetProperty="(UIElement.Opacity)">
-								<SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="0"/>
-							</DoubleAnimationUsingKeyFrames>
-						</Storyboard>
-					</ControlTemplate.Resources>
-					<Border BorderBrush="#FFFFFFFF" BorderThickness="1,1,1,1" CornerRadius="4,4,4,4">
-						<Border x:Name="border" Background="#7F000000" BorderBrush="#FF000000" BorderThickness="1,1,1,1" CornerRadius="4,4,4,4">
-							<Grid>
-								<Grid.RowDefinitions>
-									<RowDefinition Height="0.507*"/>
-									<RowDefinition Height="0.493*"/>
-								</Grid.RowDefinitions>
-								<Border Opacity="0" HorizontalAlignment="Stretch" x:Name="glow" Width="Auto" Grid.RowSpan="2" CornerRadius="4,4,4,4">
-									<Border.Background>
-										<RadialGradientBrush>
-											<RadialGradientBrush.RelativeTransform>
-												<TransformGroup>
-													<ScaleTransform ScaleX="1.702" ScaleY="2.243"/>
-													<SkewTransform AngleX="0" AngleY="0"/>
-													<RotateTransform Angle="0"/>
-													<TranslateTransform X="-0.368" Y="-0.152"/>
-												</TransformGroup>
-											</RadialGradientBrush.RelativeTransform>
-											<GradientStop Color="#B28DBDFF" Offset="0"/>
-											<GradientStop Color="#008DBDFF" Offset="1"/>
-										</RadialGradientBrush>
-									</Border.Background>
-								</Border>
-								<ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"
-									Width="Auto" Grid.RowSpan="2" Margin="5,0,5,0"/>
-								<Border HorizontalAlignment="Stretch" Margin="0,0,0,0" x:Name="shine" Width="Auto" CornerRadius="4,4,0,0">
-									<Border.Background>
-										<LinearGradientBrush EndPoint="0.494,0.889" StartPoint="0.494,0.028">
-											<GradientStop Color="#99FFFFFF" Offset="0"/>
-											<GradientStop Color="#33FFFFFF" Offset="1"/>
-										</LinearGradientBrush>
-									</Border.Background>
-								</Border>
-							</Grid>
-						</Border>
-					</Border>
-					<ControlTemplate.Triggers>
-						<Trigger Property="IsPressed" Value="True">
-							<Setter Property="Opacity" TargetName="shine" Value="0.4"/>
-							<Setter Property="Background" TargetName="border" Value="#CC000000"/>
-							<Setter Property="Visibility" TargetName="glow" Value="Hidden"/>
-						</Trigger>
-						<Trigger Property="IsMouseOver" Value="True">
-							<Trigger.EnterActions>
-								<BeginStoryboard Storyboard="{StaticResource Timeline1}"/>
-							</Trigger.EnterActions>
-							<Trigger.ExitActions>
-								<BeginStoryboard x:Name="Timeline2_BeginStoryboard" Storyboard="{StaticResource Timeline2}"/>
-							</Trigger.ExitActions>
-						</Trigger>
-						<Trigger Property="IsEnabled" Value="False">
-							<Setter Property="Opacity" TargetName="shine" Value="0.8"/>
-							<Setter Property="Background" TargetName="border" Value="#EE555555"/>
-							<Setter Property="Visibility" TargetName="glow" Value="Hidden"/>
-							<Setter Property="TextElement.Foreground">
-								<Setter.Value>
-									<SolidColorBrush>#FFDDDDDD</SolidColorBrush>
-								</Setter.Value>
-							</Setter>
-						</Trigger>
-					</ControlTemplate.Triggers>
-				</ControlTemplate>
-			</Setter.Value>
-		</Setter>
-	</Style>
 
 	<!-- List control for file selection -->
 	<DataTemplate x:Key="lvFileList">

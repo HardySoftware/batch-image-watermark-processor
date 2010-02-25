@@ -78,6 +78,17 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 			}
 		}
 
+		public static DependencyProperty PaddingProperty = DependencyProperty.Register("Padding",
+			typeof(int), typeof(WatermarkImage));
+		public int Padding {
+			get {
+				return (int)GetValue(PaddingProperty);
+			}
+			set {
+				SetValue(PaddingProperty, value);
+			}
+		}
+
 		private void btnWatermarkImagePicker_Click(object sender, RoutedEventArgs e) {
 			// Configure open file dialog box
 			Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog {

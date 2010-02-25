@@ -20,6 +20,7 @@
 			<RowDefinition Height="auto" />
 			<RowDefinition Height="auto" />
 			<RowDefinition Height="auto" />
+			<RowDefinition Height="auto" />
 		</Grid.RowDefinitions>
 		<TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="6"
 			Style="{StaticResource SubTitle}" Text="{HSMarks:ResourceExtension Label_WatermarkImageSetting}"/>
@@ -27,7 +28,9 @@
 			CommandParameter="{Binding WatermarkIndex, ElementName=WatermarkImageControl, Mode=OneWay}"
 			Command="HSC:ApplicationCommand.DeleteWatermark"
 			ToolTip="{HSMarks:ResourceExtension Tooltip_WatermarkImageDelete}"
-			Template="{DynamicResource TrashImageButtonControlTemplate}" />
+			Template="{DynamicResource FlatImageButton}">
+			<Image Source="/SeaTurtle;component/Images/trash_button.png" Height="24" Width="24"></Image>
+		</Button>
 		<StackPanel Grid.Column="0" Grid.Row="1" Margin="0,5,0,0"
 			Orientation="Horizontal" VerticalAlignment="Top">
 			<TextBlock Style="{StaticResource ConfigSectionLabel}"
@@ -120,7 +123,7 @@
 					Margin="10,0,0,0" />
 		</Grid>
 
-		<StackPanel Grid.Column="0" Grid.Row="6" Margin="0,5,0,0"
+		<StackPanel Grid.Column="0" Grid.Row="7" Margin="0,5,0,0"
 			Orientation="Horizontal" VerticalAlignment="Top">
 			<TextBlock Style="{StaticResource ConfigSectionLabel}" VerticalAlignment="Top"
 				Text="{HSMarks:ResourceExtension Label_WatermarkImagePreview}" />
@@ -128,7 +131,7 @@
 				CommandParameter="WatermarkImagePreview" Command="ApplicationCommands.Help" />
 		</StackPanel>
 		<Image x:Name="imgWatermarkImage" Margin="10,5,0,0" HorizontalAlignment="Left"
-			Grid.Column="1" Grid.Row="6" Grid.ColumnSpan="2"
+			Grid.Column="1" Grid.Row="7" Grid.ColumnSpan="2"
 			Source="{Binding WatermarkImageFile, ElementName=WatermarkImageControl, Mode=OneWay, Converter={StaticResource cnvPath2Image}}"
 			Opacity="{Binding Path=Value, ElementName=ImageOpacitySlider}"
 			MaxWidth="100" MaxHeight="100">
@@ -136,8 +139,7 @@
 				<RotateTransform Angle="{Binding ElementName=ImageRotateAngleSlider, Path=Value}"
 					CenterX="{Binding Path=ActualWidth, Mode=OneWay,
 						RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Image},
-						Converter={StaticResource cnvCalculator},
-						ConverterParameter=0.5}"
+						Converter={StaticResource cnvCalculator}, ConverterParameter=0.5}"
 					CenterY="{Binding Path=ActualHeight, Mode=OneWay,
 						RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Image},
 						Converter={StaticResource cnvCalculator},
@@ -145,9 +147,24 @@
 			</Image.LayoutTransform>
 		</Image>
 		<Button x:Name="btnRemoveWatermarkImage" Margin="10,5,0,0" VerticalAlignment="Top"
-			Style="{StaticResource GlassButton}" Grid.Column="3" Grid.Row="6"
+			Style="{StaticResource GlassButton}" Grid.Column="3" Grid.Row="7"
 			IsEnabled="{Binding WatermarkImageFile, ElementName=WatermarkImageControl, Mode=OneWay, Converter={StaticResource cnvHasWatermarkImage}}"
 			Click="btnRemoveWatermarkImage_Click"
 			Content="{HSMarks:ResourceExtension Button_Remove}" />
+
+		<StackPanel Grid.Column="0" Grid.Row="6" Margin="0,5,0,0" Orientation="Horizontal" VerticalAlignment="Top">
+			<TextBlock Style="{StaticResource ConfigSectionLabel}" Text="{HSMarks:ResourceExtension Label_DistanceToEdge}" />
+			<Button Style="{StaticResource HelpButton}"
+				CommandParameter="WatermarkDistanceToEdge"
+				Command="ApplicationCommands.Help" />
+		</StackPanel>
+		<HSCtrl:NumericEntry Grid.Column="1" Grid.Row="6" Grid.ColumnSpan="3" Margin="10,5,0,0"
+			HorizontalAlignment="Left"
+			Width="{Binding ActualWidth, ElementName=lbCellWidthRuler, Converter={StaticResource cnvCalculator}, ConverterParameter=0.5}"
+			Value="{Binding Padding, ElementName=WatermarkImageControl, Mode=TwoWay}"
+			Height="20" />
+
+		<Label x:Name="lbCellWidthRuler" HorizontalAlignment="Stretch"
+			Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="3"></Label>
 	</Grid>
 </UserControl>

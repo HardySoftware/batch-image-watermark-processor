@@ -858,4 +858,7 @@
   <data name="Label_Text" xml:space="preserve">
     <value>Text</value>
   </data>
+  <data name="Label_DistanceToEdge" xml:space="preserve">
+    <value>Distance to Edge</value>
+  </data>
 </root>
