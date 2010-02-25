@@ -105,6 +105,17 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 			}
 		}
 
+		public static DependencyProperty PaddingProperty = DependencyProperty.Register("Padding",
+			typeof(int), typeof(WatermarkText));
+		public int Padding {
+			get {
+				return (int)GetValue(PaddingProperty);
+			}
+			set {
+				SetValue(PaddingProperty, value);
+			}
+		}
+
 		private void btnWatermarkTextFontPicker_Click(object sender, RoutedEventArgs e) {
 			FontDialog fd = new System.Windows.Forms.FontDialog();
 			if (WatermarkTextFont != null) {
