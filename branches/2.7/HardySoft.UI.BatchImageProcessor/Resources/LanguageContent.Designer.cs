@@ -592,6 +592,15 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Gray Scale.
+        /// </summary>
+        internal static string Enum_GrayScale {
+            get {
+                return ResourceManager.GetString("Enum_GrayScale", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Height.
         /// </summary>
         internal static string Enum_Height {
@@ -691,6 +700,15 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Nagative Image.
+        /// </summary>
+        internal static string Enum_NagativeImage {
+            get {
+                return ResourceManager.GetString("Enum_NagativeImage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to None.
         /// </summary>
         internal static string Enum_None {
@@ -705,6 +723,15 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         internal static string Enum_NormalProgram {
             get {
                 return ResourceManager.GetString("Enum_NormalProgram", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Oil Paint Effect.
+        /// </summary>
+        internal static string Enum_OilPaint {
+            get {
+                return ResourceManager.GetString("Enum_OilPaint", resourceCulture);
             }
         }
         

@@ -21,23 +21,12 @@
 	<cnv:WatermarkCollectionToSelectConverter x:Key="cnvWatermarkToSelect"></cnv:WatermarkCollectionToSelectConverter>
 	<cnv:FriendlyFontNameConverter x:Key="cnvFriendlyFontName"></cnv:FriendlyFontNameConverter>
 
-	<!--<ObjectDataProvider x:Key="PositionData" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
-		<ObjectDataProvider.MethodParameters>
-			<x:Type TypeName="enum:WatermarkPositions" />
-		</ObjectDataProvider.MethodParameters>
-	</ObjectDataProvider>-->
-
+	<!--
 	<ObjectDataProvider x:Key="ImageProcessTypeData" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
 		<ObjectDataProvider.MethodParameters>
 			<x:Type TypeName="enum:ImageProcessType" />
 		</ObjectDataProvider.MethodParameters>
 	</ObjectDataProvider>
-
-	<!--<ObjectDataProvider x:Key="DropShadowLocationData" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
-		<ObjectDataProvider.MethodParameters>
-			<x:Type TypeName="enum:DropShadowLocation" />
-		</ObjectDataProvider.MethodParameters>
-	</ObjectDataProvider>-->
 
 	<ObjectDataProvider x:Key="ShrinkModeData" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
 		<ObjectDataProvider.MethodParameters>
@@ -56,4 +45,5 @@
 			<x:Type TypeName="enum:Skin" />
 		</ObjectDataProvider.MethodParameters>
 	</ObjectDataProvider>
+	-->
 </ResourceDictionary>

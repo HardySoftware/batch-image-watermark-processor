@@ -853,4 +853,13 @@
   <data name="Label_DistanceToEdge" xml:space="preserve">
     <value>到边界距离</value>
   </data>
+  <data name="Enum_GrayScale" xml:space="preserve">
+    <value>灰度</value>
+  </data>
+  <data name="Enum_NagativeImage" xml:space="preserve">
+    <value>负片</value>
+  </data>
+  <data name="Enum_OilPaint" xml:space="preserve">
+    <value>油画效果</value>
+  </data>
 </root>
