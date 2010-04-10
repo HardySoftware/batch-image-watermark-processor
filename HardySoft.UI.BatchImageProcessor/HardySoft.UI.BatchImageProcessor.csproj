@@ -207,6 +207,7 @@
     <Compile Include="Classes\Converters\TextSettingToRichtextConverter.cs" />
     <Compile Include="Classes\Converters\WatermarkCollectionToSelectConverter.cs" />
     <Compile Include="Classes\Converters\WatermarkImageSelectedConverter.cs" />
+    <Compile Include="Classes\MarkExtensions\EnumDisplayExtension.cs" />
     <Compile Include="Classes\MarkExtensions\ResourceFontExtension.cs" />
     <Compile Include="Classes\ProjectNameEventArgs.cs" />
     <Compile Include="Classes\MarkExtensions\ResourceExtension.cs" />

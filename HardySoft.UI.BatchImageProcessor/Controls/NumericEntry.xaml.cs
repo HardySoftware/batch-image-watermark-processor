@@ -16,7 +16,7 @@ using System.Windows.Threading;
 namespace HardySoft.UI.BatchImageProcessor.Controls {
 	/// <summary>
 	/// Interaction logic for NumericEntry.xaml,
-	/// Code is from http://www.philosophicalgeek.com/2009/11/16/a-wpf-numeric-entry-control/
+	/// Code is from http://www.philosophicalgeek.com/2009/11/16/attr-wpf-numeric-entry-control/
 	/// </summary>
 	public partial class NumericEntry : UserControl {
 		private int previousValue = 0;

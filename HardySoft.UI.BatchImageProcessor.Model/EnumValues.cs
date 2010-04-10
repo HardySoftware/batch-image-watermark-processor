@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System;
 
 namespace HardySoft.UI.BatchImageProcessor.Model {
 	public enum OutputFileNameCase {
@@ -13,9 +14,14 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 	}
 
 	public enum ImageProcessType {
+		[Description(@"Enum_None")]
 		None,
+		[Description(@"Enum_GrayScale")]
 		GrayScale,
-		NagativeImage
+		[Description(@"Enum_NagativeImage")]
+		NagativeImage,
+		[Description(@"Enum_OilPaint")]
+		OilPaint
 	}
 
 	public enum Skin {
