@@ -84,6 +84,8 @@
     <Compile Include="Image File Name\BatchRenamedFileName.cs" />
     <Compile Include="Image Process\DropShadowImage.cs" />
     <Compile Include="Image Process\GenerateThumbnail.cs" />
+    <Compile Include="Image Process\OilPaint.cs" />
+    <Compile Include="Image Process\Relief.cs" />
     <Compile Include="Image Process\Size Calculator\IResize.cs" />
     <Compile Include="ImageProcessedEventArgs.cs" />
     <Compile Include="Image Process\Size Calculator\ResizeByLongSize.cs" />

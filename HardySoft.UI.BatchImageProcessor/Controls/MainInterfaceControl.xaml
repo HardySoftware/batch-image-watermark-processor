@@ -374,9 +374,12 @@
 									Margin="10,5,0,0"
 									HorizontalAlignment="Stretch"
 									VerticalAlignment="Stretch"
-									ItemsSource="{Binding Source={StaticResource ImageProcessTypeData}}"
-									SelectedItem="{Binding Path=ProcessType, Mode=TwoWay}"
-									Grid.Column="1" Grid.Row="0" />
+									ItemsSource="{Binding Source={HSMarks:EnumDisplay {x:Type DataSource:ImageProcessType}}}"
+									SelectedValue="{Binding Path=ProcessType, Mode=TwoWay, Converter={StaticResource cnvDebug}}"
+									DisplayMemberPath="Value"
+									SelectedValuePath="Key"
+									Grid.Column="1" Grid.Row="0">
+								</ComboBox>
 
 								<StackPanel Grid.Column="0" Grid.Row="1" Margin="0,5,0,0"
 									Orientation="Horizontal" VerticalAlignment="Top">
@@ -651,15 +654,11 @@
 									<ComboBox x:Name="cmbShrinkMode"
 										Margin="10,0,0,0"
 										MinWidth="75"
-										ItemsSource="{Binding Source={StaticResource ShrinkModeData}}"
-										SelectedItem="{Binding Path=ShrinkMode, Mode=TwoWay}"
+										ItemsSource="{Binding Source={HSMarks:EnumDisplay {x:Type DataSource:ShrinkImageMode}}}"
+										SelectedValue="{Binding Path=ShrinkMode, Mode=TwoWay}"
+										DisplayMemberPath="Value"
+										SelectedValuePath="Key"
 										IsEnabled="{Binding ElementName=chkShrinkImage, Path=IsChecked}">
-										<ComboBox.ItemTemplate>
-											<DataTemplate>
-												<Label Content="{Binding Path=.,Mode=OneWay, Converter={StaticResource cnvFriendlyEnum}}"
-													Height="Auto" Margin="0" VerticalAlignment="Center"/>
-											</DataTemplate>
-										</ComboBox.ItemTemplate>
 									</ComboBox>
 
 									<HSCtrl:IntegerTextBox x:Name="txtShrinkTo"
@@ -899,15 +898,11 @@
 									Margin="10,5,0,0"
 									HorizontalAlignment="Stretch"
 									VerticalAlignment="Stretch"
-									ItemsSource="{Binding Source={StaticResource OutputFileNameCaseData}}"
-									SelectedItem="{Binding Path=RenamingSetting.FileNameCase, Mode=TwoWay}"
+									ItemsSource="{Binding Source={HSMarks:EnumDisplay {x:Type DataSource:OutputFileNameCase}}}"
+									SelectedValue="{Binding Path=RenamingSetting.FileNameCase, Mode=TwoWay}"
+									DisplayMemberPath="Value"
+									SelectedValuePath="Key"
 									IsEnabled="{Binding ElementName=chkEnableBatchRename, Path=IsChecked}">
-									<ComboBox.ItemTemplate>
-										<DataTemplate>
-											<Label Content="{Binding Path=.,Mode=OneWay, Converter={StaticResource cnvFriendlyEnum}}"
-												Height="Auto" Margin="0" VerticalAlignment="Center"/>
-										</DataTemplate>
-									</ComboBox.ItemTemplate>
 								</ComboBox>
 							</Grid>
 						</Expander>

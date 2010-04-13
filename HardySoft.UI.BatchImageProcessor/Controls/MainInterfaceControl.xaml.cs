@@ -399,6 +399,12 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 					opacityBinding.Mode = BindingMode.TwoWay;
 					watermarkControl.SetBinding(WatermarkImage.WatermarkImageOpacityProperty, opacityBinding);
 
+					System.Windows.Data.Binding paddingBinding = new System.Windows.Data.Binding();
+					paddingBinding.Source = watermarkImage;
+					paddingBinding.Path = new PropertyPath("Padding");
+					paddingBinding.Mode = BindingMode.TwoWay;
+					watermarkControl.SetBinding(WatermarkImage.PaddingProperty, paddingBinding);
+
 					watermarkControl.WatermarkImageFile = watermarkImage.WatermarkImageFile;
 					watermarkControl.WatermarkImageRotateAngle = watermarkImage.WatermarkRotateAngle;
 
@@ -443,6 +449,12 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 					aligmentBinding.Path = new PropertyPath("WatermarkTextAlignment");
 					aligmentBinding.Mode = BindingMode.TwoWay;
 					watermarkControl.SetBinding(WatermarkText.WatermarkTextAlignmentProperty, aligmentBinding);
+
+					System.Windows.Data.Binding paddingBinding = new System.Windows.Data.Binding();
+					paddingBinding.Source = watermarkText;
+					paddingBinding.Path = new PropertyPath("Padding");
+					paddingBinding.Mode = BindingMode.TwoWay;
+					watermarkControl.SetBinding(WatermarkText.PaddingProperty, paddingBinding);
 
 					WatermarkPlaceHolder.Content = watermarkControl;
 				}

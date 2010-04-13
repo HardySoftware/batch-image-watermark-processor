@@ -27,7 +27,7 @@ namespace HardySoft.UI.BatchImageProcessor.Classes {
 		public static string GetEnumItemDisplayValue(object objectValue) {
 			FieldInfo fi = objectValue.GetType().GetField(objectValue.ToString());
 
-			// look for Enum member description(resource key) attribute
+			// look for Enum member localizedValue(resource key) attribute
 			DescriptionAttribute[] attributes =
 				(DescriptionAttribute[])fi.GetCustomAttributes(typeof(DescriptionAttribute), false);
 

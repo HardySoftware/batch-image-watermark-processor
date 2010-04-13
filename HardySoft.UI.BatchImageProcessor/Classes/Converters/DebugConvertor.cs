@@ -9,7 +9,7 @@ namespace HardySoft.UI.BatchImageProcessor.Classes.Converters {
 		}
 
 		public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture) {
-			throw new NotImplementedException("This method should never be called");
+			return value; // Add the breakpoint here!!
 		}
 	}
 }

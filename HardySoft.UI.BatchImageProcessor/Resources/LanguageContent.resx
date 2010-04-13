@@ -858,4 +858,19 @@
   <data name="Label_Text" xml:space="preserve">
     <value>Text</value>
   </data>
+  <data name="Label_DistanceToEdge" xml:space="preserve">
+    <value>Distance to Edge</value>
+  </data>
+  <data name="Enum_GrayScale" xml:space="preserve">
+    <value>Gray Scale</value>
+  </data>
+  <data name="Enum_NagativeImage" xml:space="preserve">
+    <value>Nagative Image</value>
+  </data>
+  <data name="Enum_OilPaint" xml:space="preserve">
+    <value>Oil Paint Effect</value>
+  </data>
+  <data name="Enum_Relief" xml:space="preserve">
+    <value>Relief Effect</value>
+  </data>
 </root>

@@ -130,6 +130,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\NumericEntry.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\PositionPicker.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -203,6 +207,7 @@
     <Compile Include="Classes\Converters\TextSettingToRichtextConverter.cs" />
     <Compile Include="Classes\Converters\WatermarkCollectionToSelectConverter.cs" />
     <Compile Include="Classes\Converters\WatermarkImageSelectedConverter.cs" />
+    <Compile Include="Classes\MarkExtensions\EnumDisplayExtension.cs" />
     <Compile Include="Classes\MarkExtensions\ResourceFontExtension.cs" />
     <Compile Include="Classes\ProjectNameEventArgs.cs" />
     <Compile Include="Classes\MarkExtensions\ResourceExtension.cs" />
@@ -223,6 +228,9 @@
     <Compile Include="Controls\IntegerTextBox.cs" />
     <Compile Include="Controls\MainInterfaceControl.xaml.cs">
       <DependentUpon>MainInterfaceControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\NumericEntry.xaml.cs">
+      <DependentUpon>NumericEntry.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\PositionPicker.xaml.cs">
       <DependentUpon>PositionPicker.xaml</DependentUpon>
@@ -418,7 +426,11 @@
     <Resource Include="Themes\DarkCool\Images\Menu_Icons\discuss.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Themes\DarkCool\Images\Menu_Icons\trash.png" />
+    <Resource Include="Images\plus_button.png" />
+    <Resource Include="Images\minus_button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\trash_button.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

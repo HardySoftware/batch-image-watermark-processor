@@ -67,7 +67,7 @@ namespace HardySoft.UI.BatchImageProcessor.UnitTest
 		[TestMethod()]
 		public void GetExifContainerTest() {
 			bool includeEnumValueTranslation = true;
-			List<ExifContainerItem> expected = null; // TODO: Initialize to an appropriate value
+			List<ExifContainerItem> expected = null;
 			List<ExifContainerItem> actual = Utilities.GetExifContainer(includeEnumValueTranslation);
 			Assert.AreEqual(expected, actual);
 			//Assert.Inconclusive("Verify the correctness of this test method.");

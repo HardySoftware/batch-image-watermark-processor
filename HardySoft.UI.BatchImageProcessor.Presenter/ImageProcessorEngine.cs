@@ -65,6 +65,8 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 				.RegisterType<IProcess, GenerateThumbnail>("ThumbImage", new PerThreadLifetimeManager())
 				.RegisterType<IProcess, GrayScale>("GrayscaleEffect", new PerThreadLifetimeManager()/*,new InjectionProperty("EnableDebug")*/)
 				.RegisterType<IProcess, NegativeImage>("NegativeEffect", new PerThreadLifetimeManager())
+				.RegisterType<IProcess, OilPaint>("OilPaint", new PerThreadLifetimeManager())
+				.RegisterType<IProcess, Relief>("Relief", new PerThreadLifetimeManager())
 				.RegisterType<IProcess, ShrinkImage>("ShrinkImage", new PerThreadLifetimeManager())
 				// file name classes
 				.RegisterType<IFilenameProvider, ThumbnailFileName>("ThumbFileName", new PerThreadLifetimeManager())
@@ -174,6 +176,14 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 								break;
 							case ImageProcessType.NagativeImage:
 								process = container.Resolve<IProcess>("NegativeEffect");
+								normalImage = process.ProcessImage(normalImage, null);
+								break;
+							case ImageProcessType.OilPaint:
+								process = container.Resolve<IProcess>("OilPaint");
+								normalImage = process.ProcessImage(normalImage, null);
+								break;
+							case ImageProcessType.Relief:
+								process = container.Resolve<IProcess>("Relief");
 								normalImage = process.ProcessImage(normalImage, null);
 								break;
 							default:
