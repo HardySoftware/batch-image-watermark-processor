@@ -3,6 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:HSC="clr-namespace:HardySoft.UI.BatchImageProcessor.Classes.Commands"
     xmlns:HSMarks="clr-namespace:HardySoft.UI.BatchImageProcessor.Classes.MarkExtensions"
+    xmlns:DataSource="clr-namespace:HardySoft.UI.BatchImageProcessor.Model;assembly=HardySoft.UI.BatchImageProcessor.Model"
     Title="{HSMarks:ResourceExtension WindowTitle_Preference}" Height="300" Width="500"
     AllowsTransparency="True" Background="Transparent" ShowInTaskbar="False"
     WindowStyle="None" Icon="/SeaTurtle;component/Images/icon.ico">
@@ -44,8 +45,10 @@
 
 				<ComboBox x:Name="cmbAppSkin"
 					Margin="9,0,1,0" VerticalAlignment="Top"
-					ItemsSource="{Binding Source={StaticResource ApplicationSkinData}}"
-					SelectedItem="{Binding Path=ApplicationSkin, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+					ItemsSource="{Binding Source={HSMarks:EnumDisplay {x:Type DataSource:Skin}}}"
+					SelectedValue="{Binding Path=ApplicationSkin, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+					DisplayMemberPath="Value"
+					SelectedValuePath="Key"
 					Grid.Column="1" Height="22" />
 
 				<StackPanel Grid.Column="0" Grid.Row="1" Orientation="Horizontal">

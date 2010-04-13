@@ -9,6 +9,10 @@ using Microsoft.Practices.EnterpriseLibrary.Validation.Validators;
 namespace HardySoft.UI.BatchImageProcessor.Model {
 	[Serializable]
 	public abstract class WatermarkBase : INotifyPropertyChanged {
+		public WatermarkBase() {
+			this.padding = 10;
+		}
+
 		protected ContentAlignment watermarkPosition;
 		public ContentAlignment WatermarkPosition {
 			get {
@@ -37,22 +41,28 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			}
 		}
 
+		private int padding;
+		/// <summary>
+		/// The space of text box or image box between edge of main image.
+		/// </summary>
+		public int Padding {
+			get {
+				return padding;
+			}
+			set {
+				if (padding != value) {
+					padding = value;
+					notify("Padding");
+				}
+			}
+		}
+
 		[field: NonSerialized]
 		public event PropertyChangedEventHandler PropertyChanged;
 
 		protected void notify(string propName) {
 			if (PropertyChanged != null) {
 				PropertyChanged(this, new PropertyChangedEventArgs(propName));
-			}
-		}
-
-		/// <summary>
-		/// The space of text box or image box between edge of main image.
-		/// </summary>
-		public int Padding {
-			get {
-				// TODO add UI selection to let user input distance to edge as padding
-				return 10;
 			}
 		}
 	}

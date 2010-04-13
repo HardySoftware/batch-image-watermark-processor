@@ -28,12 +28,12 @@ namespace HardySoft.UI.BatchImageProcessor.Classes.Converters {
 					(DescriptionAttribute[])fi.GetCustomAttributes(typeof(DescriptionAttribute), false);
 
 				if (attributes.Length > 0) {
-					string description = attributes[0].Description;
+					string localizedValue = attributes[0].Description;
 
-					if (!string.IsNullOrEmpty(description)) {
-						description = Resources.LanguageContent.ResourceManager.GetString(description, 
+					if (!string.IsNullOrEmpty(localizedValue)) {
+						localizedValue = Resources.LanguageContent.ResourceManager.GetString(localizedValue, 
 							Thread.CurrentThread.CurrentCulture);
-						return description;
+						return localizedValue;
 					} else {
 						return value.ToString();
 					}

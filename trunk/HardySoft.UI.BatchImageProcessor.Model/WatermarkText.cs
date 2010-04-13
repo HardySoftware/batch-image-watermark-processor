@@ -11,7 +11,7 @@ using Microsoft.Practices.EnterpriseLibrary.Validation.Validators;
 namespace HardySoft.UI.BatchImageProcessor.Model {
 	[Serializable]
 	public class WatermarkText : WatermarkBase {
-		public WatermarkText() {
+		public WatermarkText() : base() {
 			this.watermarkPosition = ContentAlignment.BottomRight;
 			this.watermarkTextColor = System.Drawing.Color.FromArgb(153, 255, 255, 255);
 			this.watermarkTextAlignment = StringAlignment.Center;

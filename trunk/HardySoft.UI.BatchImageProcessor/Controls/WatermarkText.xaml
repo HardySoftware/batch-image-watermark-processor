@@ -23,6 +23,7 @@
 			<RowDefinition Height="auto"></RowDefinition>
 			<RowDefinition Height="auto"></RowDefinition>
 			<RowDefinition Height="auto"></RowDefinition>
+			<RowDefinition Height="auto"></RowDefinition>
 		</Grid.RowDefinitions>
 		
 		<TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"
@@ -31,7 +32,9 @@
 			CommandParameter="{Binding WatermarkIndex, ElementName=WatermarkTextControl, Mode=OneWay}"
 			Command="HSC:ApplicationCommand.DeleteWatermark"
 			ToolTip="{HSMarks:ResourceExtension Tooltip_WatermarkTextDelete}"
-			Template="{DynamicResource TrashImageButtonControlTemplate}" />
+			Template="{DynamicResource FlatImageButton}">
+			<Image Source="/SeaTurtle;component/Images/trash_button.png" Height="24" Width="24"></Image>
+		</Button>
 			
 		<StackPanel Grid.Column="0" Grid.Row="1" Margin="0,5,0,0" Orientation="Horizontal" VerticalAlignment="Top">
 			<TextBlock Style="{StaticResource ConfigSectionLabel}" Text="{HSMarks:ResourceExtension Label_WatermarkText}" />
@@ -177,8 +180,21 @@
 				</ToggleButton.Content>
 			</ToggleButton>
 		</StackPanel>
-
+		
 		<StackPanel Grid.Column="0" Grid.Row="9" Margin="0,5,0,0" Orientation="Horizontal" VerticalAlignment="Top">
+			<TextBlock Style="{StaticResource ConfigSectionLabel}" Text="{HSMarks:ResourceExtension Label_DistanceToEdge}" />
+			<Button Style="{StaticResource HelpButton}"
+				CommandParameter="WatermarkDistanceToEdge"
+				Command="ApplicationCommands.Help" />
+		</StackPanel>
+		
+		<HSCtrl:NumericEntry Grid.Column="1" Grid.Row="9" Grid.ColumnSpan="3" Margin="10,5,0,0"
+			HorizontalAlignment="Left"
+			Width="{Binding ActualWidth, ElementName=lbCellWidthRuler, Converter={StaticResource cnvCalculator}, ConverterParameter=0.5}"
+			Value="{Binding Padding, ElementName=WatermarkTextControl, Mode=TwoWay}"
+			Height="20" />
+
+		<StackPanel Grid.Column="0" Grid.Row="10" Margin="0,5,0,0" Orientation="Horizontal" VerticalAlignment="Top">
 			<TextBlock Style="{StaticResource ConfigSectionLabel}" Text="{HSMarks:ResourceExtension Label_WatermarkTextPreview}" />
 			<Button Style="{StaticResource HelpButton}"
 				CommandParameter="WatermarkTextPreview"
@@ -186,7 +202,7 @@
 		</StackPanel>
 
 		<HSCtrl:BindableRichTextBox IsReadOnly="True"
-			Grid.Column="1" Grid.Row="9" Grid.ColumnSpan="2" Margin="10,5,0,0"
+			Grid.Column="1" Grid.Row="10" Grid.ColumnSpan="2" Margin="10,5,0,0"
 			HorizontalAlignment="Left" Background="Transparent" MinWidth="1">
 			<HSCtrl:BindableRichTextBox.Document>
 				<MultiBinding Converter="{StaticResource cnvRichTextDisplay}">
@@ -207,5 +223,8 @@
 						ConverterParameter=0.5}" />
 			</HSCtrl:BindableRichTextBox.LayoutTransform>
 		</HSCtrl:BindableRichTextBox>
+		
+		<Label x:Name="lbCellWidthRuler" HorizontalAlignment="Stretch"
+			Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="3"></Label>
 	</Grid>
 </UserControl>
