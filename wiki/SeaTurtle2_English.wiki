@@ -13,7 +13,7 @@ Tool also provides following features:
   * Batch add border to pictures.
   * Batch resize original pictures.
   * Generate thumbnail images.
-  * Apply additional processing, such as grey scale, negative colour.
+  * Apply additional processing, such as grey scale, negative colour, oil paint effect, relief effect and so on.
   * Multi-lingual support; currently supported languages: English, Simplified Chinese. Do you know more languages, welcome to help translation.
 ==Project Name==
 Sea Turtle Batch Image Watermark Processor
