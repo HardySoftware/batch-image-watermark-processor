@@ -870,4 +870,7 @@
   <data name="Enum_OilPaint" xml:space="preserve">
     <value>Oil Paint Effect</value>
   </data>
+  <data name="Enum_Relief" xml:space="preserve">
+    <value>Relief Effect</value>
+  </data>
 </root>

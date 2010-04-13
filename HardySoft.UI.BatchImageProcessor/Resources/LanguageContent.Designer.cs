@@ -763,6 +763,15 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Relief Effect.
+        /// </summary>
+        internal static string Enum_Relief {
+            get {
+                return ResourceManager.GetString("Enum_Relief", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Shade.
         /// </summary>
         internal static string Enum_Shade {

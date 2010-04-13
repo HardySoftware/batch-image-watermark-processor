@@ -5,7 +5,7 @@ using System.Drawing;
 using HardySoft.UI.BatchImageProcessor.Model;
 
 namespace HardySoft.UI.BatchImageProcessor.Presenter {
-	public class OilPaint : IProcess {
+	public class Relief : IProcess {
 		public string ImageFileName {
 			get;
 			set;
@@ -18,15 +18,31 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 
 				Bitmap bmp = new Bitmap(input);
 
-				Color color;
+				Color pixel1, pixel2;
 
-				Random rnd = new Random();
+				for (int x = 0; x < width - 1; x++) {
+					for (int y = 0; y < height - 1; y++) {
+						int r = 0, g = 0, b = 0;
+						pixel1 = bmp.GetPixel(x, y);
+						pixel2 = bmp.GetPixel(x + 1, y + 1);
 
-				for (int i = 0; i < width - 5; i++) {
-					for (int j = 0; j < height - 5; j++) {
-						int a = rnd.Next(5);
-						color = bmp.GetPixel(i + a, j + a);
-						bmp.SetPixel(i, j, color);
+						r = Math.Abs(pixel1.R - pixel2.R + 128);
+						g = Math.Abs(pixel1.G - pixel2.G + 128);
+						b = Math.Abs(pixel1.B - pixel2.B + 128);
+
+						if (r > 255) {
+							r = 255;
+						}
+
+						if (g > 255) {
+							g = 255;
+						}
+
+						if (b > 255) {
+							b = 255;
+						}
+
+						bmp.SetPixel(x, y, Color.FromArgb(r, g, b));
 					}
 				}
 
