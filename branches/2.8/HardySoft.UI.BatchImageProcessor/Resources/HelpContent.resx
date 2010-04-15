@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BatchRename" xml:space="preserve">
+    <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Verdana" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="en-ca"&gt;Enable Batch Renaming Output Files&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca"&gt;Instead of keeping original file names as output image file names, you can also define your own rule to batch rename output files and files are saved.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca"&gt;Basically the rule to generate file name is:&lt;/Run&gt;&lt;/Paragraph&gt;&lt;List MarkerStyle="Disc"&gt;&lt;ListItem&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca"&gt;If you specify prefix and/or suffix, the file name is prefix + auto increment number + suffix + extension.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/ListItem&gt;&lt;ListItem&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca"&gt;If none of prefix or suffix is specified, the file name is the original file name + auto increment number + extension.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/ListItem&gt;&lt;/List&gt;&lt;/FlowDocument&gt;</value>
+  </data>
+  <data name="BatchRenameFileNameCase" xml:space="preserve">
+    <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Verdana" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="en-ca"&gt;Batch Renaming File Name Case&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca"&gt;It indicates the way&lt;/Run&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="zh-cn" xml:space="preserve"&gt; how application&lt;/Run&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca" xml:space="preserve"&gt; handle&lt;/Run&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;s&lt;/Run&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca" xml:space="preserve"&gt; case of file name.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
+  </data>
+  <data name="BatchRenameNumberPadding" xml:space="preserve">
+    <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Verdana" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="en-ca"&gt;Batch Renaming File Name Number Padding&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca"&gt;It indicates how many digits of number to use as auto increment number. For example if you specify 3 as value, you get auto increment numbers like 001, 002, 003 and so on.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
+  </data>
+  <data name="BatchRenamePrefix" xml:space="preserve">
+    <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Verdana" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="en-ca"&gt;Batch Renaming File Name Prefix&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca"&gt;Prefix of batch rename file name.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
+  </data>
+  <data name="BatchRenameStartNumber" xml:space="preserve">
+    <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Verdana" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="en-ca"&gt;Batch Renaming File Name Starting Number&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca"&gt;It indicates the starting number as auto increment number as part of the batch renamed file name.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
+  </data>
+  <data name="BatchRenameSuffix" xml:space="preserve">
+    <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Verdana" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="en-ca"&gt;Batch Renaming File Name Suffix&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca"&gt;Suffix of batch rename file name.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
+  </data>
+  <data name="DestinationDirectory" xml:space="preserve">
+    <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Verdana" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="en-ca"&gt;Destination Directory&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca"&gt;This is the directory which will be used to save all processed image files.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
+  </data>
+  <data name="DropShadowBackgroundColor" xml:space="preserve">
+    <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Verdana" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="en-ca"&gt;Drop Shadow Background Color&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca"&gt;If you like to add a drop shadow to each output image file, there is an area outside main image and shadow part. This color will be used to fill in this blank.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
+  </data>
+  <data name="DropShadowColor" xml:space="preserve">
+    <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Verdana" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="en-ca"&gt;Drop Shadow Color&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca"&gt;Color of drop shadow applied to all output images.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
+  </data>
+  <data name="DropShadowDepth" xml:space="preserve">
+    <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Verdana" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="en-ca"&gt;Drop Shadow Depth&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca"&gt;It indicates the depth of drop shadow. If the value is set to 0 the application will not add drop shadow to output images.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
+  </data>
+  <data name="DropShadowLocation" xml:space="preserve">
+    <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Verdana" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="en-ca"&gt;Drop Shadow Location&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca"&gt;It indicates the location (direction) of drop shadow.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
+  </data>
+  <data name="GenerateThumbnail" xml:space="preserve">
+    <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Verdana" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="en-ca"&gt;Generate Thumbnail&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca"&gt;By checking this checkbox, application will generate thumbnail image for each of the output image.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
+  </data>
+  <data name="ImageBorderColor" xml:space="preserve">
+    <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Verdana" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="en-ca"&gt;Image Border Color&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca"&gt;It indicates the color of image border which will be applied to output images.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
+  </data>
+  <data name="ImageBorderWidth" xml:space="preserve">
+    <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Verdana" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="en-ca"&gt;Image Border Width&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca"&gt;If you decide to add a border to all output images please specify the width of border you need. If border width is set to 0 no border will be added.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
+  </data>
+  <data name="ImageEffect" xml:space="preserve">
+    <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Verdana" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="en-ca"&gt;Image Effect&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca"&gt;Additional image effect applied to your selected image.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
+  </data>
+  <data name="ImageFileList" xml:space="preserve">
+    <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Verdana" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="en-ca"&gt;Image File List&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph Margin="0,0,0,13.33" TextAlignment="Left" FontFamily="Times New Roman" FontSize="14.6666666666667"&gt;&lt;Run FontFamily="Calibri" FontSize="12.6666666666667" xml:lang="en-ca"&gt;This is the list with all the supported image files in the source directory you picked before. In this list you can check/uncheck each individual file to control which files to process.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
+  </data>
+  <data name="JpgCompressionRatio" xml:space="preserve">
+    <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Verdana" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="en-ca"&gt;JPG Compression Ratio&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca"&gt;If the processed files are in JPG format, you can specified the compression ratio for the output files. The higher ratio you set the better graphic quality and bigger file size.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
+  </data>
+  <data name="KeepExif" xml:space="preserve">
+    <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Verdana" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="en-ca"&gt;Keep EXIF&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca"&gt;By checking this checkbox, application will preserve the EXIF information from your original images. NOTE: this feature is only available to JPG file format.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
+  </data>
+  <data name="PreferenceApplicationSkin" xml:space="preserve">
+    <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Verdana" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="en-ca"&gt;Application Skin&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca"&gt;Choose the skin of application.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
+  </data>
+  <data name="PreferenceDateTimeFormat" xml:space="preserve">
+    <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Verdana" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="en-ca"&gt;Date Time Format for Watermark Text&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca"&gt;It is used to define how does the date time value(s) from Exif Marco (e.g. date time when photo was taken) look like in watermark text output.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
+  </data>
+  <data name="PreferenceThreadNumber" xml:space="preserve">
+    <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Verdana" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="en-ca"&gt;Thread Number&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca"&gt;It is used to define how many concurrent thread(s) used to process images simultaneously. If you have multiple cores CPU and big memory, it is suggested to increase the thread number to improve the performance.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
+  </data>
+  <data name="ShrinkImage" xml:space="preserve">
+    <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Verdana" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="en-ca"&gt;Shrink Image&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca"&gt;By checking this checkbox, the application will shrink output images to your designated size.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
+  </data>
+  <data name="ShrinkImageSize" xml:space="preserve">
+    <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Verdana" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="en-ca"&gt;Shrink Image Size&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca"&gt;Here you can specify the expected new size of output images as long as the mode how to calculate new image size. There 3 modes you can choose:&lt;/Run&gt;&lt;/Paragraph&gt;&lt;List MarkerStyle="Disc"&gt;&lt;ListItem&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Verdana" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="en-ca"&gt;By Long Side&lt;/Run&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca" xml:space="preserve"&gt; - application will take the new size entered by you and make it as the new image size of long side. For example if you have an image with resolution of 800 * 600 (wider image) and you input 400 as new size, the output image will have 400 * 300 as new resolution; if you have an image with resolution of 600 * 800 (taller image) and you input 400 as new size, the output image will have 300 * 400 as new resolution. The aspect ratio will be persisted in new image.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/ListItem&gt;&lt;ListItem&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Verdana" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="en-ca"&gt;By Width&lt;/Run&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca" xml:space="preserve"&gt; - application will take the new size entered by you and make it as new image width. The aspect ratio will be persisted in new image.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/ListItem&gt;&lt;ListItem&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Verdana" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="en-ca"&gt;By Height&lt;/Run&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca" xml:space="preserve"&gt; - application will take the new size entered by you and make it as new image height. The aspect ratio will be persisted in new image.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/ListItem&gt;&lt;/List&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Calibri" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="en-ca"&gt;Note&lt;/Run&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca" xml:space="preserve"&gt;: &lt;/Run&gt;&lt;/Paragraph&gt;&lt;List MarkerStyle="Disc"&gt;&lt;ListItem&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca"&gt;If the entered new size of image in any of the choice above results image enlargement, the application will keep original image resolution.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/ListItem&gt;&lt;ListItem&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca"&gt;If the entered new size of image is 0, the application will keep original image resolution.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/ListItem&gt;&lt;/List&gt;&lt;/FlowDocument&gt;</value>
+  </data>
+  <data name="SourceDirectory" xml:space="preserve">
+    <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Verdana" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="en-ca"&gt;Source Directory&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca"&gt;This is the directory which contains all the image files waiting to be processed.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
+  </data>
+  <data name="ThumbnailFileNamePrefix" xml:space="preserve">
+    <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Verdana" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="en-ca"&gt;Thumbnail Image File Name Prefix&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca"&gt;It is used as prefix of output thumbnail file name.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
+  </data>
+  <data name="ThumbnailFileNameSuffix" xml:space="preserve">
+    <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Verdana" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="en-ca"&gt;Thumbnail Image File Name Suffix&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca"&gt;It is used as suffix of output thumbnail file name.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
+  </data>
+  <data name="ThumbnailImageSize" xml:space="preserve">
+    <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Verdana" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="en-ca"&gt;Thumbnail Image Size&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca" xml:space="preserve"&gt;The size of thumbnail image, application uses "shrink by long side" algorithm to calculate the actual size of thumbnail. NOTE: is the size of thumbnail is set to 0, no thumbnail will be generated even the &lt;/Run&gt;&lt;Run FontFamily="Calibri" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="en-ca"&gt;Generate Thumbnail&lt;/Run&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca" xml:space="preserve"&gt; checkbox is checked.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
+  </data>
+  <data name="WatermarkDistanceToEdge" xml:space="preserve">
+    <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Verdana" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="en-ca"&gt;Distance To Edge&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca"&gt;This number indicates how far in pixels that watermark image/text away from edge of image. The logic to use this value in your watermark layout calculation is based on the position of watermark:&lt;/Run&gt;&lt;/Paragraph&gt;&lt;List MarkerStyle="Disc"&gt;&lt;ListItem&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca"&gt;Bottom Center - Watermark will be placed x pixels above bottom edge.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/ListItem&gt;&lt;ListItem&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca"&gt;Bottom Left - Watermark will be placed x pixels above bottom edge and x pixels right to left edge.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/ListItem&gt;&lt;ListItem&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca"&gt;Bottom Right - Watermark will be placed x pixels above bottom edge and x pixels left to right edge.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/ListItem&gt;&lt;ListItem&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca"&gt;Middle Center - This value won't take effect.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/ListItem&gt;&lt;ListItem&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca"&gt;Middle Left - Watermark will be placed x pixels right to left edge.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/ListItem&gt;&lt;ListItem&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca"&gt;Middle Right - Watermark will be placed x pixels left to right edge.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/ListItem&gt;&lt;ListItem&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca"&gt;Top Center - Watermark will be placed x pixels below top edge.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/ListItem&gt;&lt;ListItem&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca"&gt;Top Left - Watermark will be placed x pixels below top edge and x pixels right to left edge.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/ListItem&gt;&lt;ListItem&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca"&gt;Top Right - Watermark will be placed x pixels below top edge and x pixels left to right edge.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/ListItem&gt;&lt;/List&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca"&gt;In paragraphs above x means the Distance to Edge value you have selected or entered.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
+  </data>
+  <data name="WatermarkImage" xml:space="preserve">
+    <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Verdana" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="en-ca"&gt;Watermark Image&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca"&gt;If you like to add image as watermark to your images, please pick your desired image here. If nothing is picked, the program will ignore the task to add image watermark.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
+  </data>
+  <data name="WatermarkImageOpacity" xml:space="preserve">
+    <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Verdana" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="en-ca"&gt;Watermark Image Opacity&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca"&gt;If you like to have semi-transparent watermark image to add to your main image, you can specify the opacity (alpha) value here. 1 means no opacity, while 0 mean total transparent. If you set the opacity value to 0, the program will ignore the action to add watermark image.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
+  </data>
+  <data name="WatermarkImagePosition" xml:space="preserve">
+    <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Verdana" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="en-ca"&gt;Watermark Image Position&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca"&gt;It indicates where to put image watermark on your main image. If no watermark image is not picked above, program will ignore the selection here.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
+  </data>
+  <data name="WatermarkImagePreview" xml:space="preserve">
+    <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Verdana" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="en-ca"&gt;Watermark Image Preview&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca"&gt;This is the preview area of selected watermark image. If you are unsatisfied with your choice, you can click on the "&lt;/Run&gt;&lt;Run FontFamily="Calibri" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="en-ca"&gt;Remove&lt;/Run&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca"&gt;" button on the right side to remove it. Note: once you remove the image watermark application will not put any image watermark on your main image.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
+  </data>
+  <data name="WatermarkImageRotationAngle" xml:space="preserve">
+    <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Verdana" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="en-ca"&gt;Watermark Image Rotation Angle&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca"&gt;If you need to rotate your watermark image and then put it into your main image, please specify the angle here by dragging the slider.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
+  </data>
+  <data name="WatermarkText" xml:space="preserve">
+    <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Verdana" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="en-ca"&gt;Watermark Text&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca"&gt;If you like to add text as watermark to your images, please enter your desired text here. If nothing is entered, the program will ignore the task to add text watermark.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca"&gt;If you need to break your text into multiple lines, simply press "Enter" at where you need a new line, the text box will automatically expand to fit your text.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca"&gt;Here you also can insert your selected Exif macros from photos (JPG files only) into your watermark text. For example you want to include date or time when the photo was taken to watermark text, you can simply select "Date Taken" from Exif toolbar.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
+  </data>
+  <data name="WatermarkTextAlignment" xml:space="preserve">
+    <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Verdana" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="en-ca"&gt;Watermark Text Alignment&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca"&gt;If you have multiple lines of watermark text to put into your main image, you can specify the alignment here. For single line of watermark text you still can do so, but it won't affect any output.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
+  </data>
+  <data name="WatermarkTextColor" xml:space="preserve">
+    <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Verdana" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="en-ca"&gt;Watermark Text Color&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca"&gt;You can specify the color of your watermark here. The default value is semi transparent white. You can control the color and transparency (alpha value) in the color-picker window.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
+  </data>
+  <data name="WatermarkTextFont" xml:space="preserve">
+    <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Verdana" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="en-ca"&gt;Watermark Text Font&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca"&gt;Font you like to use as watermark text.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
+  </data>
+  <data name="WatermarkTextPosition" xml:space="preserve">
+    <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Verdana" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="en-ca"&gt;Watermark Text Position&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca"&gt;It indicates where to put text watermark on your main image. If no watermark text is not entered above, program will ignore the selection here.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
+  </data>
+  <data name="WatermarkTextPreview" xml:space="preserve">
+    <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Verdana" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="en-ca"&gt;Watermark Text Preview&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca"&gt;Here you can preview the watermark text with combination of all the parameters (except for position) above.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
+  </data>
+  <data name="WatermarkTextRotationAngle" xml:space="preserve">
+    <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Verdana" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="en-ca"&gt;Watermark Text Rotation Angle&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Calibri" FontSize="13.3333333333333" xml:lang="en-ca"&gt;If you like to rotate your watermark text and then put it into your main image, you can do it by dragging the slider.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
+  </data>
+</root>
