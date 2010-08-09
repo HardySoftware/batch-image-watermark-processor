@@ -6,14 +6,14 @@
     Icon="/SeaTurtle;component/Images/icon.ico"
     Title="Help" Height="150" Width="250">
 	<Border Width="Auto" Height="Auto" Name="windowFrame"
-		Style="{StaticResource HelpPopupStyle}">
+		Style="{DynamicResource HelpPopupStyle}">
 		<Grid>
 			<Grid.RowDefinitions>
 				<RowDefinition Height="15"></RowDefinition>
 				<RowDefinition></RowDefinition>
 			</Grid.RowDefinitions>
 			
-			<Button x:Name="btnClose" Click="btnClose_Click" Style="{StaticResource CloseHelpButton}"></Button>
+			<Button x:Name="btnClose" Click="btnClose_Click" Style="{DynamicResource CloseHelpButton}"></Button>
 			<RichTextBox x:Name="HelpPopupContent" Grid.Row="1"
 				Background="Transparent" Margin="5,5,5,5"
 				VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"

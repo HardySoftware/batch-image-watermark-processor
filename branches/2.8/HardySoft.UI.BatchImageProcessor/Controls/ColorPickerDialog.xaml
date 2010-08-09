@@ -9,7 +9,7 @@
   Width="600" Height="400"
   Icon="/SeaTurtle;component/Images/icon.ico">
 	<Border Width="Auto" Height="Auto" Name="windowFrame"
-		Style="{StaticResource WindowBackground}">
+		Style="{DynamicResource WindowBackground}">
 		<Grid>
 			<Grid.RowDefinitions>
 				<RowDefinition Height="Auto" />
@@ -18,21 +18,20 @@
 			</Grid.RowDefinitions>
 			<TextBlock Text="{HSMarks:ResourceExtension WindowTitle_ColorPicker}" Grid.Row="0"
 				MouseLeftButtonDown="tbTitle_MouseLeftButtonDown"
-				Style="{StaticResource WindowTitle}" />
+				Style="{DynamicResource WindowTitle}" />
 
 			<customControls:ColorPicker x:Name="cPicker" Margin="10,10,10,0"
 				Grid.Row="1"
 				SelectedColorChanged="onSelectedColorChanged"
 				Foreground="White"
-				Background="Black"
 			/>
 
 			<StackPanel Grid.Row="2"
 				Orientation="Horizontal"
 				HorizontalAlignment="Right" Margin="10">
-				<Button x:Name="btnOK" Click="btnOK_Click" IsEnabled="False" Style="{StaticResource GlassButton}"
+				<Button x:Name="btnOK" Click="btnOK_Click" IsEnabled="False" Style="{DynamicResource GlassButton}"
 					Content="{HSMarks:ResourceExtension Button_OK}" />
-				<Button x:Name="btnCancel" Click="btnCancel_Click" Style="{StaticResource GlassButton}"
+				<Button x:Name="btnCancel" Click="btnCancel_Click" Style="{DynamicResource GlassButton}"
 					Content="{HSMarks:ResourceExtension Button_Cancel}" />
 			</StackPanel>
 		</Grid>

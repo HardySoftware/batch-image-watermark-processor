@@ -8,11 +8,8 @@
     Title="{HSMarks:ResourceExtension WindowTitle_Main}" Height="500" Width="800"
     AllowsTransparency="True" Background="Transparent"
     WindowStyle="None" ResizeMode="CanResizeWithGrip" Icon="/SeaTurtle;component/Images/icon.ico">
-	<Window.Resources>
-		
-	</Window.Resources>
-	<Border Width="Auto" Height="Auto" Name="windowFrame"
-		Style="{StaticResource WindowBackground}">
+
+	<Border Width="Auto" Height="Auto" Name="windowFrame" Style="{DynamicResource WindowBackground}">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"></RowDefinition>
@@ -20,13 +17,9 @@
                 <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
             <TextBlock Text="{HSMarks:ResourceExtension WindowTitle_Main}" 
-				Style="{StaticResource WindowTitle}" Grid.Row="0"
+				Style="{DynamicResource WindowTitle}" Grid.Row="0"
 				MouseLeftButtonDown="titleBar_MouseLeftButtonDown"></TextBlock>
-            <Grid Grid.Row="1">
-                <Grid.Background>
-                    <ImageBrush ImageSource="/SeaTurtle;component/Themes/DarkCool/Images/Background.jpg"
-                        TileMode="Tile" Viewport="0,0,0.3,0.3" Opacity="0.7"></ImageBrush>
-                </Grid.Background>
+            <Grid Grid.Row="1" Style="{DynamicResource WindowBackgroundImage}">
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
@@ -39,7 +32,7 @@
 
             <TextBlock x:Name="tbFooter" Grid.Row="2" Margin="1,10,1,1" Padding="5"
 				HorizontalAlignment="Center"
-				Style="{StaticResource WindowFooter}"></TextBlock>
+				Style="{DynamicResource WindowFooter}"></TextBlock>
 
             <Rectangle Grid.Row="2"
                 Cursor="SizeWE" Fill="Transparent" Width="5"

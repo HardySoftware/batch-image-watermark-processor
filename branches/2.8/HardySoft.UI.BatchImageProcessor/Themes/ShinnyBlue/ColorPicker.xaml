@@ -44,8 +44,10 @@
 		<EllipseGeometry RadiusX="4" RadiusY="4"  />
 	</GeometryGroup>
 
+
 	<!-- Spectrum Slider Styles -->
-	<Style x:Key="SliderRepeatButtonStyle" TargetType="{x:Type RepeatButton}">
+	<Style x:Key="SliderRepeatButtonStyle"
+         TargetType="{x:Type RepeatButton}">
 		<Setter Property="OverridesDefaultStyle"
             Value="true"/>
 		<Setter Property="IsTabStop"
@@ -64,7 +66,8 @@
 	</Style>
 
 	<Style x:Key="{x:Type customControls:ColorThumb}" TargetType="{x:Type customControls:ColorThumb}">
-		<Setter Property="PointerOutlineBrush" Value="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}" />
+		<Setter Property="PointerOutlineBrush"
+			Value="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}" />
 		<Setter Property="PointerOutlineThickness" Value="2" />
 		<Setter Property="Foreground" Value="{x:Null}"/>
 		<Setter Property="ThumbColor" Value="Transparent" />
@@ -262,11 +265,11 @@
 
 							<Track Grid.Column="1" Name="PART_Track">
 								<Track.DecreaseRepeatButton>
-									<RepeatButton Style="{DynamicResource SliderRepeatButtonStyle}"
+									<RepeatButton Style="{StaticResource SliderRepeatButtonStyle}"
 										Command="Slider.DecreaseLarge"/>
 								</Track.DecreaseRepeatButton>
 								<Track.IncreaseRepeatButton>
-									<RepeatButton Style="{DynamicResource SliderRepeatButtonStyle}"
+									<RepeatButton Style="{StaticResource SliderRepeatButtonStyle}"
 										Command="Slider.IncreaseLarge"/>
 								</Track.IncreaseRepeatButton>
 								<Track.Thumb>
@@ -300,7 +303,8 @@
 	</Style>
 
 	<!-- ColorPicker  Styles-->
-	<Style x:Key="{x:Type customControls:ColorPicker}" TargetType="{x:Type customControls:ColorPicker}">
+	<Style x:Key="{x:Type customControls:ColorPicker}"
+         TargetType="{x:Type customControls:ColorPicker}">
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="{x:Type customControls:ColorPicker}">
@@ -442,10 +446,14 @@
 										Grid.Row="3"
 										Margin="0,2,0,5">
 
-										<Slider x:Name="opacitySlider" Orientation="Horizontal" Minimum="0" Maximum="1"
-											TickFrequency="0.01" SmallChange="0.01" LargeChange="0.02"
-											IsDirectionReversed="True"
-											Value="{Binding ScA, RelativeSource={RelativeSource TemplatedParent}}">
+										<Slider x:Name="opacitySlider"
+											  Orientation="Horizontal"
+											  Minimum="0" Maximum="1"
+											  TickFrequency="0.01" 
+											  SmallChange="0.01"
+											  LargeChange="0.02"
+											  IsDirectionReversed="True"
+											  Value="{Binding ScA, RelativeSource={RelativeSource TemplatedParent}}">
 											<Slider.Background>
 												<LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
 													<GradientStop Offset="0.0" Color="Black" />

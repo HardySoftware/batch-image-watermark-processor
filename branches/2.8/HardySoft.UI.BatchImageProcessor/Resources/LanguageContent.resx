@@ -873,4 +873,10 @@
   <data name="Enum_Relief" xml:space="preserve">
     <value>Relief Effect</value>
   </data>
+  <data name="Enum_Skin_DarkCool" xml:space="preserve">
+    <value>Dark Cool</value>
+  </data>
+  <data name="Enum_Skin_ShinnyBlue" xml:space="preserve">
+    <value>Shinny Blue</value>
+  </data>
 </root>

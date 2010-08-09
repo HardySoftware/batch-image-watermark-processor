@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Threading;
@@ -11,6 +12,7 @@ using HardySoft.UI.BatchImageProcessor.Classes;
 using HardySoft.UI.BatchImageProcessor.View;
 
 using Microsoft.Practices.Unity;
+using HardySoft.UI.BatchImageProcessor.Model;
 
 namespace HardySoft.UI.BatchImageProcessor {
 	/// <summary>
@@ -68,10 +70,12 @@ namespace HardySoft.UI.BatchImageProcessor {
 			#endregion
 
 			mainWindow = (MainWindow)container.Resolve<MainWindow>();
+			mainWindow.SetSkin();
 			mainWindow.Show();
 
 			// TODO create assembly resource library to separate UI resource from main project, P345
-			// TODO add skin feature, P472
+			
+			// TODO make button image to support skin
 
 			Thread t = new Thread(new ThreadStart(checkVersion));
 			t.Start();

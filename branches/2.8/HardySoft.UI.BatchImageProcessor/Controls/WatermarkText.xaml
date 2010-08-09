@@ -27,7 +27,7 @@
 		</Grid.RowDefinitions>
 		
 		<TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"
-			Style="{StaticResource SubTitle}" Text="{HSMarks:ResourceExtension Label_WatermarkTextSetting}"/>
+			Style="{DynamicResource SubTitle}" Text="{HSMarks:ResourceExtension Label_WatermarkTextSetting}"/>
 		<Button Grid.Row="0" Grid.Column="3"
 			CommandParameter="{Binding WatermarkIndex, ElementName=WatermarkTextControl, Mode=OneWay}"
 			Command="HSC:ApplicationCommand.DeleteWatermark"
@@ -37,13 +37,13 @@
 		</Button>
 			
 		<StackPanel Grid.Column="0" Grid.Row="1" Margin="0,5,0,0" Orientation="Horizontal" VerticalAlignment="Top">
-			<TextBlock Style="{StaticResource ConfigSectionLabel}" Text="{HSMarks:ResourceExtension Label_WatermarkText}" />
-			<Button Style="{StaticResource HelpButton}"
+			<TextBlock Style="{DynamicResource ConfigSectionLabel}" Text="{HSMarks:ResourceExtension Label_WatermarkText}" />
+			<Button Style="{DynamicResource HelpButton}"
 				CommandParameter="WatermarkText" Command="ApplicationCommands.Help" />
 		</StackPanel>
 
 		<ToolBar HorizontalAlignment="Stretch" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1" Margin="10,5,0,0">
-			<TextBlock HorizontalAlignment="Left" Style="{StaticResource ConfigSectionLabel}"
+			<TextBlock HorizontalAlignment="Left" Style="{DynamicResource ConfigSectionLabel}"
 				Text="{HSMarks:ResourceExtension Label_ExifMacro}" />
 
 			<ComboBox x:Name="cmbExifTag" HorizontalContentAlignment="Stretch" Margin="10,0,0,0"
@@ -56,7 +56,7 @@
 			</ComboBox>
 
 			<Button x:Name="btnInsertExifTag" Click="btnInsertExifTag_Click"
-				Style="{StaticResource GlassButton}" Content="{HSMarks:ResourceExtension Button_InsertExifTag}"
+				Style="{DynamicResource GlassButton}" Content="{HSMarks:ResourceExtension Button_InsertExifTag}"
 				Margin="10,0,0,0" IsEnabled="{Binding ElementName=txtWatermarkText, Path=IsFocused}" />
 		</ToolBar>
 
@@ -64,31 +64,31 @@
 			Margin="10,5,0,5" SpellCheck.IsEnabled="True"
 			Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2"
 			HorizontalAlignment="Stretch" VerticalAlignment="Top"
-			AcceptsReturn="True" Style="{StaticResource cfgTextBox}"
+			AcceptsReturn="True" Style="{DynamicResource cfgTextBox}"
 			Text="{Binding WatermarkTextToDisplay, ElementName=WatermarkTextControl, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
 		<StackPanel Grid.Column="0" Grid.Row="3" Margin="0,5,0,0" Orientation="Horizontal" VerticalAlignment="Top">
-			<TextBlock Style="{StaticResource ConfigSectionLabel}"
+			<TextBlock Style="{DynamicResource ConfigSectionLabel}"
 				Text="{HSMarks:ResourceExtension Label_WatermarkTextFont}" />
-			<Button Style="{StaticResource HelpButton}"
+			<Button Style="{DynamicResource HelpButton}"
 				CommandParameter="WatermarkTextFont"
 				Command="ApplicationCommands.Help" />
 		</StackPanel>
 		<TextBox x:Name="txtWatermarkTextFont" Margin="10,5,0,5"
 			Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2"
 			HorizontalAlignment="Stretch" VerticalAlignment="Top"
-			Style="{StaticResource cfgTextBox}"
+			Style="{DynamicResource cfgTextBox}"
 			Text="{Binding WatermarkTextFont, ElementName=WatermarkTextControl, Mode=OneWay, Converter={StaticResource cnvFriendlyFontName}}"
 			IsReadOnly="True" />
 		<Button x:Name="btnWatermarkTextFontPicker"
 			Margin="10,5,0,0"
-			Style="{StaticResource GlassButton}"
+			Style="{DynamicResource GlassButton}"
 			Grid.Column="3" Grid.Row="3" Click="btnWatermarkTextFontPicker_Click"
 			Content="{HSMarks:ResourceExtension Button_Font}" />
 
 		<StackPanel Grid.Column="0" Grid.Row="4" Margin="0,5,0,0" Orientation="Horizontal" VerticalAlignment="Top">
-			<TextBlock Style="{StaticResource ConfigSectionLabel}" Text="{HSMarks:ResourceExtension Label_WatermarkTextColor}" />
-			<Button Style="{StaticResource HelpButton}"
+			<TextBlock Style="{DynamicResource ConfigSectionLabel}" Text="{HSMarks:ResourceExtension Label_WatermarkTextColor}" />
+			<Button Style="{DynamicResource HelpButton}"
 				CommandParameter="WatermarkTextColor"
 				Command="ApplicationCommands.Help" />
 		</StackPanel>
@@ -106,21 +106,21 @@
 				Text="{Binding WatermarkTextColor, ElementName=WatermarkTextControl, Mode=OneWay, Converter={StaticResource cnvColorValue}}" />
 		</StackPanel>
 
-		<TextBlock Style="{StaticResource ConfigSectionLabel}" Grid.Column="0" Grid.Row="5" Margin="0,5,0,0"
+		<TextBlock Style="{DynamicResource ConfigSectionLabel}" Grid.Column="0" Grid.Row="5" Margin="0,5,0,0"
 			Text="{HSMarks:ResourceExtension Label_WatermarkTextLayout}" />
 
 		<StackPanel Grid.Column="1" Grid.Row="5" Margin="10,5,0,0" Orientation="Horizontal" VerticalAlignment="Top">
-			<TextBlock Style="{StaticResource ConfigSectionLabel}"
+			<TextBlock Style="{DynamicResource ConfigSectionLabel}"
 				Text="{HSMarks:ResourceExtension Label_WatermarkTextPosition}" />
-			<Button Style="{StaticResource HelpButton}"
+			<Button Style="{DynamicResource HelpButton}"
 				CommandParameter="WatermarkTextPosition"
 				Command="ApplicationCommands.Help" />
 		</StackPanel>
 
 		<StackPanel Grid.Column="2" Grid.Row="5" Margin="10,5,0,0" Orientation="Horizontal" VerticalAlignment="Top">
-			<TextBlock Style="{StaticResource ConfigSectionLabel}"
+			<TextBlock Style="{DynamicResource ConfigSectionLabel}"
 				Text="{HSMarks:ResourceExtension Label_WatermarkTextRotationAngle}" />
-			<Button Style="{StaticResource HelpButton}"
+			<Button Style="{DynamicResource HelpButton}"
 				CommandParameter="WatermarkTextRotationAngle"
 				Command="ApplicationCommands.Help" />
 		</StackPanel>
@@ -148,14 +148,14 @@
 		</Grid>
 
 		<StackPanel Grid.Column="2" Grid.Row="7" Margin="10,5,0,0" Orientation="Horizontal" VerticalAlignment="Top">
-			<TextBlock Style="{StaticResource ConfigSectionLabel}" Text="{HSMarks:ResourceExtension Label_WatermarkTextAlignment}" />
-			<Button Style="{StaticResource HelpButton}"
+			<TextBlock Style="{DynamicResource ConfigSectionLabel}" Text="{HSMarks:ResourceExtension Label_WatermarkTextAlignment}" />
+			<Button Style="{DynamicResource HelpButton}"
 				CommandParameter="WatermarkTextAlignment"
 				Command="ApplicationCommands.Help" />
 		</StackPanel>
 
 		<StackPanel Grid.Column="2" Grid.Row="8" Margin="10,5,0,0" Orientation="Horizontal">
-			<ToggleButton Style="{StaticResource NormalToggleButton}"
+			<ToggleButton Style="{DynamicResource NormalToggleButton}"
 				IsChecked="{Binding WatermarkTextAlignment, ElementName=WatermarkTextControl, Mode=TwoWay,
 				UpdateSourceTrigger=PropertyChanged, Converter={StaticResource cnvAlignment}, ConverterParameter=Left}"
 				IsEnabled="{Binding Path=IsChecked, Mode=OneWay, RelativeSource={RelativeSource Mode=Self}, Converter={StaticResource cnvNot}}">
@@ -163,7 +163,7 @@
 					<Image Source="/SeaTurtle;component/Images/ParagraphLeftJustify.png" Stretch="None"></Image>
 				</ToggleButton.Content>
 			</ToggleButton>
-			<ToggleButton Style="{StaticResource NormalToggleButton}"
+			<ToggleButton Style="{DynamicResource NormalToggleButton}"
 				IsChecked="{Binding WatermarkTextAlignment, ElementName=WatermarkTextControl, Mode=TwoWay,
 				UpdateSourceTrigger=PropertyChanged, Converter={StaticResource cnvAlignment}, ConverterParameter=Center}"
 				IsEnabled="{Binding Path=IsChecked, Mode=OneWay, RelativeSource={RelativeSource Mode=Self}, Converter={StaticResource cnvNot}}">
@@ -171,7 +171,7 @@
 					<Image Source="/SeaTurtle;component/Images/ParagraphCenterJustify.png" Stretch="None"></Image>
 				</ToggleButton.Content>
 			</ToggleButton>
-			<ToggleButton Style="{StaticResource NormalToggleButton}"
+			<ToggleButton Style="{DynamicResource NormalToggleButton}"
 				IsChecked="{Binding WatermarkTextAlignment, ElementName=WatermarkTextControl, Mode=TwoWay,
 				UpdateSourceTrigger=PropertyChanged, Converter={StaticResource cnvAlignment}, ConverterParameter=Right}"
 				IsEnabled="{Binding Path=IsChecked, Mode=OneWay, RelativeSource={RelativeSource Mode=Self}, Converter={StaticResource cnvNot}}">
@@ -182,8 +182,8 @@
 		</StackPanel>
 		
 		<StackPanel Grid.Column="0" Grid.Row="9" Margin="0,5,0,0" Orientation="Horizontal" VerticalAlignment="Top">
-			<TextBlock Style="{StaticResource ConfigSectionLabel}" Text="{HSMarks:ResourceExtension Label_DistanceToEdge}" />
-			<Button Style="{StaticResource HelpButton}"
+			<TextBlock Style="{DynamicResource ConfigSectionLabel}" Text="{HSMarks:ResourceExtension Label_DistanceToEdge}" />
+			<Button Style="{DynamicResource HelpButton}"
 				CommandParameter="WatermarkDistanceToEdge"
 				Command="ApplicationCommands.Help" />
 		</StackPanel>
@@ -195,8 +195,8 @@
 			Height="20" />
 
 		<StackPanel Grid.Column="0" Grid.Row="10" Margin="0,5,0,0" Orientation="Horizontal" VerticalAlignment="Top">
-			<TextBlock Style="{StaticResource ConfigSectionLabel}" Text="{HSMarks:ResourceExtension Label_WatermarkTextPreview}" />
-			<Button Style="{StaticResource HelpButton}"
+			<TextBlock Style="{DynamicResource ConfigSectionLabel}" Text="{HSMarks:ResourceExtension Label_WatermarkTextPreview}" />
+			<Button Style="{DynamicResource HelpButton}"
 				CommandParameter="WatermarkTextPreview"
 				Command="ApplicationCommands.Help" />
 		</StackPanel>

@@ -790,6 +790,24 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Dark Cool.
+        /// </summary>
+        internal static string Enum_Skin_DarkCool {
+            get {
+                return ResourceManager.GetString("Enum_Skin_DarkCool", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Shinny Blue.
+        /// </summary>
+        internal static string Enum_Skin_ShinnyBlue {
+            get {
+                return ResourceManager.GetString("Enum_Skin_ShinnyBlue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Spot.
         /// </summary>
         internal static string Enum_Spot {
