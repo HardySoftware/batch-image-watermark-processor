@@ -159,10 +159,10 @@
 					</Grid.ColumnDefinitions>
 
 					<StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
-						<TextBlock x:Name="lSourceDirectory" Style="{StaticResource ConfigSectionLabel}"
+						<TextBlock x:Name="lSourceDirectory" Style="{DynamicResource ConfigSectionLabel}"
 							VerticalAlignment="Center" 
 							Text="{HSMarks:ResourceExtension Label_SourceDirectory}"/>
-						<Button Style="{StaticResource HelpButton}"
+						<Button Style="{DynamicResource HelpButton}"
 							CommandParameter="SourceDirectory"
 							Command="ApplicationCommands.Help" />
 					</StackPanel>
@@ -170,37 +170,37 @@
 						Grid.Row="0" Grid.Column="1" IsReadOnly="True"
 						VerticalAlignment="Center" HorizontalAlignment="Stretch"
 						MaxLines="1" Margin="0, 5, 5, 5"
-						Style="{StaticResource cfgTextBox}"
+						Style="{DynamicResource cfgTextBox}"
 						Text="{Binding Path=SourceDirectory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
 					<Button x:Name="btnSourceDirectory" VerticalAlignment="Center"
-						Style="{StaticResource GlassButton}"
+						Style="{DynamicResource GlassButton}"
 						Height="{Binding ElementName=lSourceDirectory, Path=Height}"
 						Grid.Row="0" Grid.Column="2"
 						Click="btnSourceDirectory_Click">...</Button>
 
 					<StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal">
-						<TextBlock Style="{StaticResource ConfigSectionLabel}" VerticalAlignment="Center"
+						<TextBlock Style="{DynamicResource ConfigSectionLabel}" VerticalAlignment="Center"
 							Text="{HSMarks:ResourceExtension Label_OuputDirectory}"/>
-						<Button Style="{StaticResource HelpButton}"
+						<Button Style="{DynamicResource HelpButton}"
 							CommandParameter="DestinationDirectory"
 							Command="ApplicationCommands.Help" />
 					</StackPanel>
 					<TextBox x:Name="txtDestDirectory"
 						Grid.Row="1" Grid.Column="1" IsReadOnly="True"
-						Style="{StaticResource cfgTextBox}" Margin="0, 5, 5, 5"
+						Style="{DynamicResource cfgTextBox}" Margin="0, 5, 5, 5"
 						VerticalAlignment="Center" HorizontalAlignment="Stretch"
 						MaxLines="1"
 						Text="{Binding Path=OutputDirectory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
 					<Button x:Name="btnDestDirectory" VerticalAlignment="Center"
-						Style="{StaticResource GlassButton}"
+						Style="{DynamicResource GlassButton}"
 						Grid.Row="1" Grid.Column="2"
 						Click="btnDestDirectory_Click">...</Button>
 
 					<StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Orientation="Horizontal">
 						<TextBlock HorizontalAlignment="Center"
-							Style="{StaticResource SubTitle}"
+							Style="{DynamicResource SubTitle}"
 							Text="{HSMarks:ResourceExtension Label_ImageFileList}" />
-						<Button Style="{StaticResource HelpButton}"
+						<Button Style="{DynamicResource HelpButton}"
 							CommandParameter="ImageFileList"
 							Command="ApplicationCommands.Help" />
 					</StackPanel>
@@ -211,14 +211,14 @@
 						ColumnHeaderSortedAscendingTemplate="HeaderTemplateArrowUp"
 						ColumnHeaderSortedDescendingTemplate="HeaderTemplateArrowDown"
 						ColumnHeaderNotSortedTemplate="HeaderTemplateTransparent"
-						ItemContainerStyle="{StaticResource AlternatingListBoxItemStyle}"
+						ItemContainerStyle="{DynamicResource AlternatingListBoxItemStyle}"
 						AlternationCount="2" SnapsToDevicePixels="True"
 						ScrollViewer.HorizontalScrollBarVisibility="Disabled"
 						ScrollViewer.VerticalScrollBarVisibility="Auto"
 						ItemsSource="{Binding Path=Photos}">
 						<ListView.View>
-							<GridView ColumnHeaderContainerStyle="{StaticResource GridViewHeaderStyle}"
-								ColumnHeaderTemplate="{StaticResource HeaderTemplateTransparent}">
+							<GridView ColumnHeaderContainerStyle="{DynamicResource GridViewHeaderStyle}"
+								ColumnHeaderTemplate="{DynamicResource HeaderTemplateTransparent}">
 								<HSCtrl:SortableGridViewColumn Header="{HSMarks:ResourceExtension Label_Selected}" x:Name="colSelected"
 									SortPropertyName="Selected" Width="70" >
 									<HSCtrl:SortableGridViewColumn.CellTemplate>
@@ -269,8 +269,8 @@
 															<ListView x:Name="lvExifInfo" Grid.Column="2" Grid.Row="0"
 																ItemsSource="{Binding Path=PhotoPath, Converter={StaticResource cnvExif}}">
 																<ListView.View>
-																	<GridView ColumnHeaderContainerStyle="{StaticResource GridViewHeaderStyle}"
-																		ColumnHeaderTemplate="{StaticResource HeaderTemplateTransparent}">
+																	<GridView ColumnHeaderContainerStyle="{DynamicResource GridViewHeaderStyle}"
+																		ColumnHeaderTemplate="{DynamicResource HeaderTemplateTransparent}">
 																		<GridViewColumn Header="{HSMarks:ResourceExtension Label_Attribute}" DisplayMemberBinding="{Binding Path=Attribute}"></GridViewColumn>
 																		<GridViewColumn Header="{HSMarks:ResourceExtension Label_Value}" DisplayMemberBinding="{Binding Path=Value}"></GridViewColumn>
 																	</GridView>
@@ -296,24 +296,24 @@
 			<!-- Second Tab, watermark options -->
 			<TabItem Header="{HSMarks:ResourceExtension TabHeader_WatermarkSetting}">
 				<ScrollViewer VerticalScrollBarVisibility="Auto">
-					<Grid Background="{StaticResource NormalBorderBrush}">
+					<Grid Background="{DynamicResource NormalBorderBrush}">
 						<Grid.RowDefinitions>
 							<RowDefinition Height="auto"></RowDefinition>
 							<RowDefinition></RowDefinition>
 						</Grid.RowDefinitions>
 
 						<!-- Watermark selection area -->
-						<Border Background="{StaticResource NormalBrush}" Margin="3" CornerRadius="3" >
+						<Border Background="{DynamicResource NormalBrush}" Margin="3" CornerRadius="3" >
 							<Grid Margin="3" ShowGridLines="False">
 								<Grid.ColumnDefinitions>
 									<ColumnDefinition></ColumnDefinition>
 									<ColumnDefinition Width="auto"></ColumnDefinition>
 								</Grid.ColumnDefinitions>
-								<ScrollViewer x:Name="svWatermarkList" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" >
+								<ScrollViewer x:Name="svWatermarkList" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
 									<ListBox Grid.Column="0"
 										Name="lbWatermarkCollection" SelectionChanged="lbWatermarkCollection_SelectionChanged"
 										SelectionMode="Single"
-										Style="{StaticResource HorizontalRadioButtonList}"
+										Style="{DynamicResource HorizontalRadioButtonList}"
 										ItemsSource="{Binding Path=WatermarkCollection, Converter={StaticResource cnvWatermarkToSelect}, UpdateSourceTrigger=PropertyChanged}">
 										<ListBox.ItemTemplate>
 											<DataTemplate>
@@ -323,12 +323,12 @@
 									</ListBox>
 								</ScrollViewer>
 								<StackPanel Grid.Column="1" HorizontalAlignment="Right" Orientation="Horizontal" VerticalAlignment="Top">
-									<Button Style="{StaticResource GlassButton}"
+									<Button Style="{DynamicResource GlassButton}"
 										Command="HSC:ApplicationCommand.AddWatermark"
 										CommandParameter="WatermarkImage"
 										Margin="5,0,5,0"
 										Content="{HSMarks:ResourceExtension Button_AddWatermarkImage}"></Button>
-									<Button Style="{StaticResource GlassButton}"
+									<Button Style="{DynamicResource GlassButton}"
 										Command="HSC:ApplicationCommand.AddWatermark"
 										CommandParameter="WatermarkText"
 										Margin="5,0,5,0"
@@ -338,7 +338,7 @@
 						</Border>
 						
 						<!-- watermark control placeholder-->
-						<Border Background="{StaticResource NormalBrush}" Grid.Row="1" Margin="3" CornerRadius="3" >
+						<Border Background="{DynamicResource NormalBrush}" Grid.Row="1" Margin="3" CornerRadius="3" >
 							<ContentControl x:Name="WatermarkPlaceHolder" Margin="3" ></ContentControl>
 						</Border>
 					</Grid>
@@ -363,9 +363,9 @@
 
 								<StackPanel Grid.Column="0" Grid.Row="0" Margin="0,5,0,0"
 									Orientation="Horizontal" VerticalAlignment="Top">
-									<TextBlock Style="{StaticResource ConfigSectionLabel}"
+									<TextBlock Style="{DynamicResource ConfigSectionLabel}"
 										Text="{HSMarks:ResourceExtension Label_ImageEffect}" />
-									<Button Style="{StaticResource HelpButton}"
+									<Button Style="{DynamicResource HelpButton}"
 										CommandParameter="ImageEffect"
 										Command="ApplicationCommands.Help" />
 								</StackPanel>
@@ -383,9 +383,9 @@
 
 								<StackPanel Grid.Column="0" Grid.Row="1" Margin="0,5,0,0"
 									Orientation="Horizontal" VerticalAlignment="Top">
-									<TextBlock Style="{StaticResource ConfigSectionLabel}"
+									<TextBlock Style="{DynamicResource ConfigSectionLabel}"
 										Text="{HSMarks:ResourceExtension Label_KeepEXIF}" />
-									<Button Style="{StaticResource HelpButton}"
+									<Button Style="{DynamicResource HelpButton}"
 										CommandParameter="KeepExif"
 										Command="ApplicationCommands.Help" />
 								</StackPanel>
@@ -397,9 +397,9 @@
 
 								<StackPanel Grid.Column="0" Grid.Row="2" Margin="0,5,0,0"
 									Orientation="Horizontal" VerticalAlignment="Top">
-									<TextBlock Style="{StaticResource ConfigSectionLabel}"
+									<TextBlock Style="{DynamicResource ConfigSectionLabel}"
 										Text="{HSMarks:ResourceExtension Label_JPGCompressionRatio}" />
-									<Button Style="{StaticResource HelpButton}"
+									<Button Style="{DynamicResource HelpButton}"
 										CommandParameter="JpgCompressionRatio"
 										Command="ApplicationCommands.Help" />
 								</StackPanel>
@@ -417,7 +417,7 @@
 										IsSnapToTickEnabled="True"
 										TickFrequency="1" />
 									<StackPanel Grid.Column="1" FlowDirection="LeftToRight" Margin="0,5,0,0"
-									Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+										Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Stretch">
 										<TextBlock Text="{Binding Path=JpgCompressionRatio}" Margin="10,0,0,0" VerticalAlignment="Center" />
 										<TextBlock Text=" %" VerticalAlignment="Center" />
 									</StackPanel>
@@ -440,11 +440,11 @@
 
 								<StackPanel Grid.Column="0" Grid.Row="0" Margin="0,5,0,0"
 									Orientation="Horizontal" VerticalAlignment="Top">
-									<TextBlock Style="{StaticResource ConfigSectionLabel}"
+									<TextBlock Style="{DynamicResource ConfigSectionLabel}"
 										Grid.Column="0" Grid.Row="0"
 										VerticalAlignment="Top"
 										Text="{HSMarks:ResourceExtension Label_BackgroundColor}" />
-									<Button Style="{StaticResource HelpButton}"
+									<Button Style="{DynamicResource HelpButton}"
 										CommandParameter="DropShadowBackgroundColor"
 										Command="ApplicationCommands.Help" />
 								</StackPanel>
@@ -467,9 +467,9 @@
 
 								<StackPanel Grid.Column="0" Grid.Row="1" Margin="0,5,0,0"
 									Orientation="Horizontal" VerticalAlignment="Top">
-									<TextBlock Style="{StaticResource ConfigSectionLabel}"
+									<TextBlock Style="{DynamicResource ConfigSectionLabel}"
 										Text="{HSMarks:ResourceExtension Label_DropShadowColor}" />
-									<Button Style="{StaticResource HelpButton}"
+									<Button Style="{DynamicResource HelpButton}"
 										CommandParameter="DropShadowColor"
 										Command="ApplicationCommands.Help" />
 								</StackPanel>
@@ -492,9 +492,9 @@
 
 								<StackPanel Grid.Column="0" Grid.Row="2" Margin="0,5,0,0"
 									Orientation="Horizontal" VerticalAlignment="Top">
-									<TextBlock Style="{StaticResource ConfigSectionLabel}"
+									<TextBlock Style="{DynamicResource ConfigSectionLabel}"
 										Text="{HSMarks:ResourceExtension Label_ShadowDepth}" />
-									<Button Style="{StaticResource HelpButton}"
+									<Button Style="{DynamicResource HelpButton}"
 										CommandParameter="DropShadowDepth"
 										Command="ApplicationCommands.Help" />
 								</StackPanel>
@@ -514,17 +514,17 @@
 									<StackPanel Grid.Column="1" FlowDirection="LeftToRight" Margin="0,5,0,0"
 										Orientation="Horizontal" VerticalAlignment="Top">
 										<TextBlock Text="{Binding Path=DropShadowSetting.ShadowDepth}" 
-										Margin="10,0,0,0" VerticalAlignment="Center" />
+											Margin="10,0,0,0" VerticalAlignment="Center" />
 										<TextBlock Text="{HSMarks:ResourceExtension Label_Pixel}" 
-										Margin="5,0,0,0" VerticalAlignment="Center" />
+											Margin="5,0,0,0" VerticalAlignment="Center" />
 									</StackPanel>
 								</Grid>
 								
 								<StackPanel Grid.Column="0" Grid.Row="3" Margin="0,5,0,0"
 									Orientation="Horizontal" VerticalAlignment="Top">
-									<TextBlock Style="{StaticResource ConfigSectionLabel}"
+									<TextBlock Style="{DynamicResource ConfigSectionLabel}"
 										Text="{HSMarks:ResourceExtension Label_ShadowLocation}" />
-									<Button Style="{StaticResource HelpButton}"
+									<Button Style="{DynamicResource HelpButton}"
 										CommandParameter="DropShadowLocation"
 										Command="ApplicationCommands.Help" />
 								</StackPanel>
@@ -559,9 +559,9 @@
 
 								<StackPanel Grid.Column="0" Grid.Row="0" Margin="0,5,0,0"
 									Orientation="Horizontal" VerticalAlignment="Top">
-									<TextBlock Style="{StaticResource ConfigSectionLabel}"
+									<TextBlock Style="{DynamicResource ConfigSectionLabel}"
 										Text="{HSMarks:ResourceExtension Label_BorderWidth}" />
-									<Button Style="{StaticResource HelpButton}"
+									<Button Style="{DynamicResource HelpButton}"
 										CommandParameter="ImageBorderWidth"
 										Command="ApplicationCommands.Help" />
 								</StackPanel>
@@ -589,9 +589,9 @@
 
 								<StackPanel Grid.Column="0" Grid.Row="1" Margin="0,5,0,0"
 									Orientation="Horizontal" VerticalAlignment="Top">
-									<TextBlock Style="{StaticResource ConfigSectionLabel}"
+									<TextBlock Style="{DynamicResource ConfigSectionLabel}"
 										Text="{HSMarks:ResourceExtension Label_BorderColor}" />
-									<Button Style="{StaticResource HelpButton}"
+									<Button Style="{DynamicResource HelpButton}"
 										CommandParameter="ImageBorderColor"
 										Command="ApplicationCommands.Help" />
 								</StackPanel>
@@ -627,9 +627,9 @@
 
 								<StackPanel Grid.Column="0" Grid.Row="0" Margin="0,5,0,0"
 									Orientation="Horizontal" VerticalAlignment="Top">
-									<TextBlock Style="{StaticResource ConfigSectionLabel}"
+									<TextBlock Style="{DynamicResource ConfigSectionLabel}"
 										Text="{HSMarks:ResourceExtension Label_ShrinkImage}" />
-									<Button Style="{StaticResource HelpButton}"
+									<Button Style="{DynamicResource HelpButton}"
 										CommandParameter="ShrinkImage"
 										Command="ApplicationCommands.Help" />
 								</StackPanel>
@@ -642,9 +642,9 @@
 								
 								<StackPanel Grid.Column="0" Grid.Row="1" Margin="0,5,0,0"
 									Orientation="Horizontal" VerticalAlignment="Top">
-									<TextBlock Style="{StaticResource ConfigSectionLabel}"
+									<TextBlock Style="{DynamicResource ConfigSectionLabel}"
 										Text="{HSMarks:ResourceExtension Label_ShrinkImageTo}" />
-									<Button Style="{StaticResource HelpButton}"
+									<Button Style="{DynamicResource HelpButton}"
 										CommandParameter="ShrinkImageSize"
 										Command="ApplicationCommands.Help" />
 								</StackPanel>
@@ -664,7 +664,7 @@
 									<HSCtrl:IntegerTextBox x:Name="txtShrinkTo"
 										Margin="5,0,0,0"
 										HorizontalAlignment="Stretch"
-										Style="{StaticResource cfgTextBox}"
+										Style="{DynamicResource cfgTextBox}"
 										Text="{Binding Path=ShrinkPixelTo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 										IsEnabled="{Binding ElementName=chkShrinkImage, Path=IsChecked}" />
 
@@ -696,9 +696,9 @@
 
 								<StackPanel Grid.Column="0" Grid.Row="0" Margin="0,5,0,0"
 									Orientation="Horizontal" VerticalAlignment="Top">
-									<TextBlock Style="{StaticResource ConfigSectionLabel}"
+									<TextBlock Style="{DynamicResource ConfigSectionLabel}"
 										Text="{HSMarks:ResourceExtension Label_GenerateThumbnail}" />
-									<Button Style="{StaticResource HelpButton}"
+									<Button Style="{DynamicResource HelpButton}"
 										CommandParameter="GenerateThumbnail"
 										Command="ApplicationCommands.Help" />
 								</StackPanel>
@@ -710,9 +710,9 @@
 
 								<StackPanel Grid.Column="0" Grid.Row="1" Margin="0,5,0,0"
 									Orientation="Horizontal" VerticalAlignment="Top">
-									<TextBlock Style="{StaticResource ConfigSectionLabel}"
+									<TextBlock Style="{DynamicResource ConfigSectionLabel}"
 										Text="{HSMarks:ResourceExtension Label_ThumbnailFileNamePrefix}" />
-									<Button Style="{StaticResource HelpButton}"
+									<Button Style="{DynamicResource HelpButton}"
 										CommandParameter="ThumbnailFileNamePrefix"
 										Command="ApplicationCommands.Help" />
 								</StackPanel>
@@ -720,16 +720,16 @@
 								<TextBox x:Name="txtThumbnailFileNamePrefix"
 									Grid.Column="1" Grid.Row="1"
 									Margin="10,5,0,5"
-									Style="{StaticResource cfgTextBox}"
+									Style="{DynamicResource cfgTextBox}"
 									HorizontalAlignment="Stretch"
 									Text="{Binding Path=ThumbnailSetting.ThumbnailFileNamePrefix, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 									IsEnabled="{Binding ElementName=chkGenerateThumbnail, Path=IsChecked}" />
 
 								<StackPanel Grid.Column="0" Grid.Row="2" Margin="0,5,0,0"
 									Orientation="Horizontal" VerticalAlignment="Top">
-									<TextBlock Style="{StaticResource ConfigSectionLabel}"
+									<TextBlock Style="{DynamicResource ConfigSectionLabel}"
 										Text="{HSMarks:ResourceExtension Label_ThumbnailFileNameSuffix}" />
-									<Button Style="{StaticResource HelpButton}"
+									<Button Style="{DynamicResource HelpButton}"
 										CommandParameter="ThumbnailFileNameSuffix"
 										Command="ApplicationCommands.Help" />
 								</StackPanel>
@@ -737,16 +737,16 @@
 								<TextBox x:Name="txtThumbnailFileNameSuffix"
 									Grid.Column="1" Grid.Row="2"
 									Margin="10,5,0,5"
-									Style="{StaticResource cfgTextBox}"
+									Style="{DynamicResource cfgTextBox}"
 									HorizontalAlignment="Stretch"
 									Text="{Binding Path=ThumbnailSetting.ThumbnailFileNameSuffix, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 									IsEnabled="{Binding ElementName=chkGenerateThumbnail, Path=IsChecked}"/>
 
 								<StackPanel Grid.Column="0" Grid.Row="3" Margin="0,5,0,0"
 									Orientation="Horizontal" VerticalAlignment="Top">
-									<TextBlock Style="{StaticResource ConfigSectionLabel}"
+									<TextBlock Style="{DynamicResource ConfigSectionLabel}"
 										Text="{HSMarks:ResourceExtension Label_ThumbnailSize}" />
-									<Button Style="{StaticResource HelpButton}"
+									<Button Style="{DynamicResource HelpButton}"
 										CommandParameter="ThumbnailImageSize"
 										Command="ApplicationCommands.Help" />
 								</StackPanel>
@@ -793,9 +793,9 @@
 
 								<StackPanel Grid.Column="0" Grid.Row="0" Margin="0,5,0,0"
 									Orientation="Horizontal" VerticalAlignment="Top">
-									<TextBlock Style="{StaticResource ConfigSectionLabel}"
+									<TextBlock Style="{DynamicResource ConfigSectionLabel}"
 										Text="{HSMarks:ResourceExtension Label_EnableBatchRename}" />
-									<Button Style="{StaticResource HelpButton}"
+									<Button Style="{DynamicResource HelpButton}"
 										CommandParameter="BatchRename"
 										Command="ApplicationCommands.Help" />
 								</StackPanel>
@@ -807,9 +807,9 @@
 
 								<StackPanel Grid.Column="0" Grid.Row="1" Margin="0,5,0,0"
 									Orientation="Horizontal" VerticalAlignment="Top">
-									<TextBlock Style="{StaticResource ConfigSectionLabel}"
+									<TextBlock Style="{DynamicResource ConfigSectionLabel}"
 										Text="{HSMarks:ResourceExtension Label_OutputFileNamePrefix}" />
-									<Button Style="{StaticResource HelpButton}"
+									<Button Style="{DynamicResource HelpButton}"
 										CommandParameter="BatchRenamePrefix"
 										Command="ApplicationCommands.Help" />
 								</StackPanel>
@@ -817,16 +817,16 @@
 								<TextBox x:Name="txtOutputFileNamePrefix"
 									Grid.Column="1" Grid.Row="1"
 									Margin="10,5,0,5"
-									Style="{StaticResource cfgTextBox}"
+									Style="{DynamicResource cfgTextBox}"
 									HorizontalAlignment="Stretch"
 									Text="{Binding Path=RenamingSetting.OutputFileNamePrefix, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 									IsEnabled="{Binding ElementName=chkEnableBatchRename, Path=IsChecked}"/>
 
 								<StackPanel Grid.Column="0" Grid.Row="2" Margin="0,5,0,0"
 									Orientation="Horizontal" VerticalAlignment="Top">
-									<TextBlock Style="{StaticResource ConfigSectionLabel}"
+									<TextBlock Style="{DynamicResource ConfigSectionLabel}"
 										Text="{HSMarks:ResourceExtension Label_OutputFileNameSuffix}" />
-									<Button Style="{StaticResource HelpButton}"
+									<Button Style="{DynamicResource HelpButton}"
 										CommandParameter="BatchRenameSuffix"
 										Command="ApplicationCommands.Help" />
 								</StackPanel>
@@ -834,16 +834,16 @@
 								<TextBox x:Name="txtOutputFileNameSuffix"
 									Grid.Column="1" Grid.Row="2"
 									Margin="10,5,0,5"
-									Style="{StaticResource cfgTextBox}"
+									Style="{DynamicResource cfgTextBox}"
 									HorizontalAlignment="Stretch"
 									Text="{Binding Path=RenamingSetting.OutputFileNameSuffix, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 									IsEnabled="{Binding ElementName=chkEnableBatchRename, Path=IsChecked}"/>
 
 								<StackPanel Grid.Column="0" Grid.Row="3" Margin="0,5,0,0"
 									Orientation="Horizontal" VerticalAlignment="Top">
-									<TextBlock Style="{StaticResource ConfigSectionLabel}"
+									<TextBlock Style="{DynamicResource ConfigSectionLabel}"
 										Text="{HSMarks:ResourceExtension Label_NumberPadding}" />
-									<Button Style="{StaticResource HelpButton}"
+									<Button Style="{DynamicResource HelpButton}"
 										CommandParameter="BatchRenameNumberPadding"
 										Command="ApplicationCommands.Help" />
 								</StackPanel>
@@ -868,9 +868,9 @@
 
 								<StackPanel Grid.Column="0" Grid.Row="4" Margin="0,5,0,0"
 									Orientation="Horizontal" VerticalAlignment="Top">
-									<TextBlock Style="{StaticResource ConfigSectionLabel}"
+									<TextBlock Style="{DynamicResource ConfigSectionLabel}"
 										Text="{HSMarks:ResourceExtension Label_StartNumber}" />
-									<Button Style="{StaticResource HelpButton}"
+									<Button Style="{DynamicResource HelpButton}"
 										CommandParameter="BatchRenameStartNumber"
 										Command="ApplicationCommands.Help" />
 								</StackPanel>
@@ -879,16 +879,16 @@
 									Grid.Column="1" Grid.Row="4"
 									Margin="10,5,0,5"
 									HorizontalAlignment="Stretch"
-									Style="{StaticResource cfgTextBox}"
+									Style="{DynamicResource cfgTextBox}"
 									Text="{Binding Path=RenamingSetting.StartNumber, Mode=TwoWay}"
 									IsEnabled="{Binding ElementName=chkEnableBatchRename, Path=IsChecked}">
 								</HSCtrl:IntegerTextBox>
 
 								<StackPanel Grid.Column="0" Grid.Row="5" Margin="0,5,0,0"
 									Orientation="Horizontal" VerticalAlignment="Top">
-									<TextBlock Style="{StaticResource ConfigSectionLabel}"
+									<TextBlock Style="{DynamicResource ConfigSectionLabel}"
 										Text="{HSMarks:ResourceExtension Label_OutputFileNameCase}" />
-									<Button Style="{StaticResource HelpButton}"
+									<Button Style="{DynamicResource HelpButton}"
 										CommandParameter="BatchRenameFileNameCase"
 										Command="ApplicationCommands.Help" />
 								</StackPanel>

@@ -27,7 +27,10 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 	}
 
 	public enum Skin {
-		DarkCool
+		[Description(@"Enum_Skin_DarkCool")]
+		DarkCool,
+		[Description(@"Enum_Skin_ShinnyBlue")]
+		ShinnyBlue
 	}
 
 	public enum ShrinkImageMode {

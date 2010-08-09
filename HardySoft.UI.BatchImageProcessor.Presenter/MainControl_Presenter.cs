@@ -21,6 +21,8 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 		public MainControl_Presenter() {
 			ps = new ProjectSetting();
 
+			//view_NewProjectCreated(this, null);
+
 			this.processing = false;
 		}
 

@@ -78,9 +78,9 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 			}
 		}
 
-		public static DependencyProperty PaddingProperty = DependencyProperty.Register("Padding",
+		public static new DependencyProperty PaddingProperty = DependencyProperty.Register("Padding",
 			typeof(int), typeof(WatermarkImage));
-		public int Padding {
+		public new int Padding {
 			get {
 				return (int)GetValue(PaddingProperty);
 			}

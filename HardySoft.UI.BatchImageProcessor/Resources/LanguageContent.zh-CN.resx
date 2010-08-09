@@ -865,4 +865,10 @@
   <data name="Enum_Relief" xml:space="preserve">
     <value>浮雕效果</value>
   </data>
+  <data name="Enum_Skin_DarkCool" xml:space="preserve">
+    <value>酷黑</value>
+  </data>
+  <data name="Enum_Skin_ShinnyBlue" xml:space="preserve">
+    <value>闪亮蓝色</value>
+  </data>
 </root>

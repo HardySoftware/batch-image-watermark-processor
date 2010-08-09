@@ -23,7 +23,7 @@
 			<RowDefinition Height="auto" />
 		</Grid.RowDefinitions>
 		<TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="6"
-			Style="{StaticResource SubTitle}" Text="{HSMarks:ResourceExtension Label_WatermarkImageSetting}"/>
+			Style="{DynamicResource SubTitle}" Text="{HSMarks:ResourceExtension Label_WatermarkImageSetting}"/>
 		<Button Grid.Row="0" Grid.Column="6"
 			CommandParameter="{Binding WatermarkIndex, ElementName=WatermarkImageControl, Mode=OneWay}"
 			Command="HSC:ApplicationCommand.DeleteWatermark"
@@ -33,42 +33,42 @@
 		</Button>
 		<StackPanel Grid.Column="0" Grid.Row="1" Margin="0,5,0,0"
 			Orientation="Horizontal" VerticalAlignment="Top">
-			<TextBlock Style="{StaticResource ConfigSectionLabel}"
+			<TextBlock Style="{DynamicResource ConfigSectionLabel}"
 				Text="{HSMarks:ResourceExtension Label_ChooseWatermarkImage}" />
-			<Button Style="{StaticResource HelpButton}" CommandParameter="WatermarkImage" Command="ApplicationCommands.Help" />
+			<Button Style="{DynamicResource HelpButton}" CommandParameter="WatermarkImage" Command="ApplicationCommands.Help" />
 		</StackPanel>
 		<TextBox Margin="10,5,0,5"
 			Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"
 			HorizontalAlignment="Stretch" VerticalAlignment="Top"
-			Style="{StaticResource cfgTextBox}"
+			Style="{DynamicResource cfgTextBox}"
 			Text="{Binding WatermarkImageFile, ElementName=WatermarkImageControl, Mode=TwoWay}"
 			IsReadOnly="True" />
 		<Button x:Name="btnWatermarkImagePicker"
 			Margin="10,0,0,0"
-			Style="{StaticResource GlassButton}"
+			Style="{DynamicResource GlassButton}"
 			Grid.Column="3" Grid.Row="1"
 			Click="btnWatermarkImagePicker_Click">...</Button>
 
 		<StackPanel Grid.Column="0" Grid.Row="2" Margin="0,5,0,0"
 			Orientation="Horizontal" VerticalAlignment="Top">
-			<TextBlock Style="{StaticResource ConfigSectionLabel}"
+			<TextBlock Style="{DynamicResource ConfigSectionLabel}"
 				Text="{HSMarks:ResourceExtension Label_WatermarkImageLayout}" />
 		</StackPanel>
 
 		<StackPanel Grid.Column="1" Grid.Row="2" Margin="10,5,0,0"
 			Orientation="Horizontal" VerticalAlignment="Top">
-			<TextBlock Style="{StaticResource ConfigSectionLabel}"
+			<TextBlock Style="{DynamicResource ConfigSectionLabel}"
 				Text="{HSMarks:ResourceExtension Label_WatermarkImagePosition}" />
-			<Button Style="{StaticResource HelpButton}"
+			<Button Style="{DynamicResource HelpButton}"
 				CommandParameter="WatermarkImagePosition"
 				Command="ApplicationCommands.Help" />
 		</StackPanel>
 
 		<StackPanel Grid.Column="2" Grid.Row="2" Margin="10,5,0,0"
 			Orientation="Horizontal" VerticalAlignment="Top">
-			<TextBlock Style="{StaticResource ConfigSectionLabel}"
+			<TextBlock Style="{DynamicResource ConfigSectionLabel}"
 				Text="{HSMarks:ResourceExtension Label_WatermarkImageRotationAngle}" />
-			<Button Style="{StaticResource HelpButton}"
+			<Button Style="{DynamicResource HelpButton}"
 				CommandParameter="WatermarkImageRotationAngle"
 				Command="ApplicationCommands.Help" />
 		</StackPanel>
@@ -100,9 +100,9 @@
 
 		<StackPanel Grid.Column="2" Grid.Row="4" Margin="10,5,0,0"
 			Orientation="Horizontal" VerticalAlignment="Top">
-			<TextBlock Style="{StaticResource ConfigSectionLabel}"
+			<TextBlock Style="{DynamicResource ConfigSectionLabel}"
 				Text="{HSMarks:ResourceExtension Label_WatermarkImageOpacity}" />
-			<Button Style="{StaticResource HelpButton}"
+			<Button Style="{DynamicResource HelpButton}"
 				CommandParameter="WatermarkImageOpacity" Command="ApplicationCommands.Help" />
 		</StackPanel>
 
@@ -125,9 +125,9 @@
 
 		<StackPanel Grid.Column="0" Grid.Row="7" Margin="0,5,0,0"
 			Orientation="Horizontal" VerticalAlignment="Top">
-			<TextBlock Style="{StaticResource ConfigSectionLabel}" VerticalAlignment="Top"
+			<TextBlock Style="{DynamicResource ConfigSectionLabel}" VerticalAlignment="Top"
 				Text="{HSMarks:ResourceExtension Label_WatermarkImagePreview}" />
-			<Button Style="{StaticResource HelpButton}" VerticalAlignment="Top"
+			<Button Style="{DynamicResource HelpButton}" VerticalAlignment="Top"
 				CommandParameter="WatermarkImagePreview" Command="ApplicationCommands.Help" />
 		</StackPanel>
 		<Image x:Name="imgWatermarkImage" Margin="10,5,0,0" HorizontalAlignment="Left"
@@ -147,14 +147,14 @@
 			</Image.LayoutTransform>
 		</Image>
 		<Button x:Name="btnRemoveWatermarkImage" Margin="10,5,0,0" VerticalAlignment="Top"
-			Style="{StaticResource GlassButton}" Grid.Column="3" Grid.Row="7"
+			Style="{DynamicResource GlassButton}" Grid.Column="3" Grid.Row="7"
 			IsEnabled="{Binding WatermarkImageFile, ElementName=WatermarkImageControl, Mode=OneWay, Converter={StaticResource cnvHasWatermarkImage}}"
 			Click="btnRemoveWatermarkImage_Click"
 			Content="{HSMarks:ResourceExtension Button_Remove}" />
 
 		<StackPanel Grid.Column="0" Grid.Row="6" Margin="0,5,0,0" Orientation="Horizontal" VerticalAlignment="Top">
-			<TextBlock Style="{StaticResource ConfigSectionLabel}" Text="{HSMarks:ResourceExtension Label_DistanceToEdge}" />
-			<Button Style="{StaticResource HelpButton}"
+			<TextBlock Style="{DynamicResource ConfigSectionLabel}" Text="{HSMarks:ResourceExtension Label_DistanceToEdge}" />
+			<Button Style="{DynamicResource HelpButton}"
 				CommandParameter="WatermarkDistanceToEdge"
 				Command="ApplicationCommands.Help" />
 		</StackPanel>
