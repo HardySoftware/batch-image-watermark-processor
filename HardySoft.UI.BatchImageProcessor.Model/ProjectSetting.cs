@@ -57,7 +57,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			this.outputDirectory = string.Empty;
 
 			this.Photos = new ObservableCollection<PhotoItem>();
-			this.WatermarkCollection = new ObservableCollection<WatermarkBase>();
+			this.watermarkCollection = new ObservableCollection<WatermarkBase>();
 #if DEBUG
 			//this.WatermarkCollection.Add(new WatermarkImage());
 			//this.WatermarkCollection.Add(new WatermarkText());
@@ -75,21 +75,21 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 
 		private void wireEvents() {
 			this.Photos.CollectionChanged += new NotifyCollectionChangedEventHandler(Photos_CollectionChanged);
-			this.WatermarkCollection.CollectionChanged += new NotifyCollectionChangedEventHandler(WatermarkCollection_CollectionChanged);
+			this.watermarkCollection.CollectionChanged += new NotifyCollectionChangedEventHandler(watermarkCollection_CollectionChanged);
 			this.dropShadowSetting.PropertyChanged += new PropertyChangedEventHandler(subSetting_PropertyChanged);
 			this.borderSetting.PropertyChanged += new PropertyChangedEventHandler(subSetting_PropertyChanged);
 			this.thumbnailSetting.PropertyChanged += new PropertyChangedEventHandler(subSetting_PropertyChanged);
 			this.renamingSetting.PropertyChanged += new PropertyChangedEventHandler(subSetting_PropertyChanged);
 		}
 
-		void WatermarkCollection_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e) {
+		protected void watermarkCollection_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e) {
 			this.isDirty = true;
 			notify("WatermarkCollection");
 		}
 
 		void Photos_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e) {
 			this.isDirty = true;
-			notify("Photos");
+			notify("PhotoCollection");
 		}
 
 		void subSetting_PropertyChanged(object sender, PropertyChangedEventArgs e) {
@@ -208,11 +208,51 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			set;
 		}
 
+		private ObservableCollection<WatermarkBase> watermarkCollection;
+
 		[ObjectCollectionValidatorExt(typeof(WatermarkBase))]
 		[OverlappingWatermarkPositionValdiator(MessageTemplate = "Validation_OverlapPosition||{0}", Tag = "Warning")]
 		public ObservableCollection<WatermarkBase> WatermarkCollection {
-			get;
-			set;
+			get {
+				return this.watermarkCollection;
+			}
+			//set;
+		}
+
+		public void AddWatermark(WatermarkBase watermark) {
+			watermark.PropertyChanged += new PropertyChangedEventHandler(watermark_PropertyChanged);
+			this.watermarkCollection.Add(watermark);
+		}
+
+		protected void watermark_PropertyChanged(object sender, PropertyChangedEventArgs e) {
+			this.isDirty = true;
+			notify("Watermark");
+		}
+
+		/// <summary>
+		/// remove watermark from list
+		/// </summary>
+		/// <param name="selectedIndex"></param>
+		/// <returns>
+		/// Returns true if there is at least one watermark remaining; otherwise false.
+		/// </returns>
+		public bool RemoveWatermark(int selectedIndex) {
+			if (this.watermarkCollection != null
+				&& this.watermarkCollection.Count >= selectedIndex + 1) {
+
+				WatermarkBase watermark = this.watermarkCollection[selectedIndex];
+				watermark.PropertyChanged -= watermark_PropertyChanged;
+
+				this.watermarkCollection.RemoveAt(selectedIndex);
+
+				if (this.watermarkCollection.Count > 0) {
+					return true;
+				} else {
+					return false;
+				}
+			} else {
+				return false;
+			}
 		}
 
 		private ImageProcessType processType;
