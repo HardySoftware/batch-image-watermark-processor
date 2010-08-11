@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Threading;
+using System.Windows;
 
 using HardySoft.UI.BatchImageProcessor.Model;
 using HardySoft.UI.BatchImageProcessor.Resources;
@@ -135,6 +136,13 @@ namespace HardySoft.UI.BatchImageProcessor.Classes {
 			} else {
 				return input;
 			}
+		}
+
+		public static void SetSkin() {
+			ResourceDictionary newDictionary = new ResourceDictionary();
+			Skin skin = HardySoft.UI.BatchImageProcessor.Properties.Settings.Default.AppSkin;
+			newDictionary.Source = new Uri("Themes/" + skin.ToString() + "/Main.xaml", UriKind.Relative);
+			Application.Current.Resources.MergedDictionaries[1] = newDictionary;
 		}
 	}
 }

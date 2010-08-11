@@ -174,6 +174,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Themes\ShinnyBlue\ColorPicker.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\ShinnyBlue\Main.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="VersionCheckingResult.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -308,32 +316,32 @@
     <Resource Include="Themes\DarkCool\Images\Background.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Themes\DarkCool\Images\Menu_Icons\new.png" />
+    <Resource Include="Images\Menu_Icons\new.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Themes\DarkCool\Images\Menu_Icons\open.png" />
+    <Resource Include="Images\Menu_Icons\open.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Themes\DarkCool\Images\Menu_Icons\save.png" />
+    <Resource Include="Images\Menu_Icons\save.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Themes\DarkCool\Images\Menu_Icons\exit.png" />
+    <Resource Include="Images\Menu_Icons\exit.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Themes\DarkCool\Images\Menu_Icons\help.png" />
-    <Resource Include="Themes\DarkCool\Images\Menu_Icons\information.png" />
+    <Resource Include="Images\Menu_Icons\help.png" />
+    <Resource Include="Images\Menu_Icons\information.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Themes\DarkCool\Images\Menu_Icons\saveas.png" />
+    <Resource Include="Images\Menu_Icons\saveas.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Themes\DarkCool\Images\Menu_Icons\fire.png" />
+    <Resource Include="Images\Menu_Icons\fire.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Themes\DarkCool\Images\Menu_Icons\stop.png" />
+    <Resource Include="Images\Menu_Icons\stop.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HardySoft.CC\HardySoft.CC.csproj">
@@ -354,27 +362,27 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Themes\DarkCool\Images\MessageBox\Error.png" />
+    <Resource Include="Images\MessageBox\Error.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Themes\DarkCool\Images\MessageBox\Information.png" />
-    <Resource Include="Themes\DarkCool\Images\MessageBox\Question.png" />
+    <Resource Include="Images\MessageBox\Information.png" />
+    <Resource Include="Images\MessageBox\Question.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Themes\DarkCool\Images\MessageBox\Security.png" />
-    <Resource Include="Themes\DarkCool\Images\MessageBox\SecurityError.png" />
-    <Resource Include="Themes\DarkCool\Images\MessageBox\SecurityQuestion.png" />
-    <Resource Include="Themes\DarkCool\Images\MessageBox\SecuritySuccess.png" />
-    <Resource Include="Themes\DarkCool\Images\MessageBox\SecurityWarning.png" />
+    <Resource Include="Images\MessageBox\Security.png" />
+    <Resource Include="Images\MessageBox\SecurityError.png" />
+    <Resource Include="Images\MessageBox\SecurityQuestion.png" />
+    <Resource Include="Images\MessageBox\SecuritySuccess.png" />
+    <Resource Include="Images\MessageBox\SecurityWarning.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Themes\DarkCool\Images\MessageBox\Warning.png" />
+    <Resource Include="Images\MessageBox\Warning.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\icon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Themes\DarkCool\Images\Menu_Icons\preference.png" />
+    <Resource Include="Images\Menu_Icons\preference.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Themes\DarkCool\Images\HelpPopup\help_icon.gif" />
@@ -423,7 +431,7 @@
     <SplashScreen Include="Images\Splash.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Themes\DarkCool\Images\Menu_Icons\discuss.png" />
+    <Resource Include="Images\Menu_Icons\discuss.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\plus_button.png" />
@@ -431,6 +439,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\trash_button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Themes\ShinnyBlue\Images\HelpPopup\close_icon.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Themes\ShinnyBlue\Images\HelpPopup\help_icon.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

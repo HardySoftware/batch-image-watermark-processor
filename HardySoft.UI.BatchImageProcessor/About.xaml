@@ -7,7 +7,7 @@
     AllowsTransparency="True" Background="Transparent" ShowInTaskbar="False"
     WindowStyle="None" Icon="/SeaTurtle;component/Images/icon.ico">
 	<Border Width="Auto" Height="Auto" Name="windowFrame"
-		Style="{StaticResource WindowBackground}">
+		Style="{DynamicResource WindowBackground}">
 		<Grid Margin="10,10,10,10">
 			<Grid.RowDefinitions>
 				<RowDefinition Height="Auto" />
@@ -15,7 +15,7 @@
 				<RowDefinition Height="Auto" />
 			</Grid.RowDefinitions>
 			<TextBlock Text="{HSMarks:ResourceExtension WindowTitle_About}" 
-				Style="{StaticResource WindowTitle}"
+				Style="{DynamicResource WindowTitle}"
 				MouseLeftButtonDown="titleBar_MouseLeftButtonDown" />
 			<Grid Grid.Row="1" x:Name="InformationSection">
 				<Grid.ColumnDefinitions>
@@ -42,55 +42,55 @@
 				<TextBlock Grid.Column="1" Grid.Row="0"
 					VerticalAlignment="Top"
 					Margin="10, 0, 10, 0"
-					Style="{StaticResource AboutWindowLabel}"
+					Style="{DynamicResource ConfigSectionLabel}"
 					Text="{HSMarks:ResourceExtension Label_ProductName}" />
 
 				<TextBlock Grid.Column="2" Grid.Row="0"
 					VerticalAlignment="Top" TextWrapping="WrapWithOverflow"
-					Style="{StaticResource AboutWindowText}"
+					Style="{DynamicResource AboutWindowText}"
 					Text="{Binding Path=AssemblyProduct, Mode=OneWay}" />
 					
 				<TextBlock Grid.Column="1" Grid.Row="1"
 					VerticalAlignment="Top"
 					Margin="10, 0, 10, 0"
-					Style="{StaticResource AboutWindowLabel}"
+					Style="{DynamicResource ConfigSectionLabel}"
 					Text="{HSMarks:ResourceExtension Label_Version}" />
 
 				<TextBlock Grid.Column="2" Grid.Row="1"
 					VerticalAlignment="Top" TextWrapping="WrapWithOverflow"
-					Style="{StaticResource AboutWindowText}"
+					Style="{DynamicResource AboutWindowText}"
 					Text="{Binding Path=AssemblyVersion, Mode=OneWay}" />
 					
 				<TextBlock Grid.Column="1" Grid.Row="2"
 					VerticalAlignment="Top"
 					Margin="10, 0, 10, 0"
-					Style="{StaticResource AboutWindowLabel}"
+					Style="{DynamicResource ConfigSectionLabel}"
 					Text="{HSMarks:ResourceExtension Label_Copyright}" />
 
 				<TextBlock Grid.Column="2" Grid.Row="2"
 					VerticalAlignment="Top" TextWrapping="WrapWithOverflow"
-					Style="{StaticResource AboutWindowText}"
+					Style="{DynamicResource AboutWindowText}"
 					Text="{Binding Path=AssemblyCopyright, Mode=OneWay}" />
 					
 				<TextBlock Grid.Column="1" Grid.Row="3"
 					VerticalAlignment="Top"
 					Margin="10, 0, 10, 0"
-					Style="{StaticResource AboutWindowLabel}"
+					Style="{DynamicResource ConfigSectionLabel}"
 					Text="{HSMarks:ResourceExtension Label_Author}" />
 
 				<TextBlock Grid.Column="2" Grid.Row="3"
 					VerticalAlignment="Top" TextWrapping="WrapWithOverflow"
-					Style="{StaticResource AboutWindowText}"
+					Style="{DynamicResource AboutWindowText}"
 					Text="{Binding Path=AssemblyCompany, Mode=OneWay}" />
 					
 				<TextBlock Grid.Column="1" Grid.Row="4"
 					VerticalAlignment="Top"
 					Margin="10, 0, 10, 0"
-					Style="{StaticResource AboutWindowLabel}"
+					Style="{DynamicResource ConfigSectionLabel}"
 					Text="{HSMarks:ResourceExtension Label_Email}" />
 
 				<TextBlock Grid.Column="2" Grid.Row="4">
-					<Hyperlink Style="{StaticResource AboutWindowHyperlink}"
+					<Hyperlink Style="{DynamicResource AboutWindowHyperlink}"
 						NavigateUri="mailto:sea-turtle-batch-image-processor@googlegroups.com"
 						RequestNavigate="hyperlink_RequestNavigate">
 						sea-turtle-batch-image-processor@googlegroups.com
@@ -100,7 +100,7 @@
 				<TextBlock Grid.Column="1" Grid.Row="5"
 					VerticalAlignment="Top"
 					Margin="10, 0, 10, 0"
-					Style="{StaticResource AboutWindowLabel}"
+					Style="{DynamicResource ConfigSectionLabel}"
 					Text="{HSMarks:ResourceExtension Label_ProductURL}" />
 					
 				<StackPanel Grid.Column="2" Grid.Row="5">
@@ -114,7 +114,7 @@
 					</TextBlock>-->
 					<TextBlock>
 						<Hyperlink x:Name="hGoogleCode"
-							Style="{StaticResource AboutWindowHyperlink}"
+							Style="{DynamicResource AboutWindowHyperlink}"
 							NavigateUri="{Binding Path=ApplicationUrl, Mode=OneWay}"
 							RequestNavigate="hyperlink_RequestNavigate">
 							<TextBlock Text="{Binding Path=ApplicationUrl, Mode=OneWay}" />
@@ -126,7 +126,7 @@
 					Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="3"
 					VerticalAlignment="Top"
 					Margin="10, 0, 10, 0"
-					Style="{StaticResource AboutWindowLabel}"
+					Style="{DynamicResource ConfigSectionLabel}"
 					Text="{HSMarks:ResourceExtension Label_SysInfo}" />
 
 				<HSCtrl:SortableListView x:Name="lvAssemblyList"
@@ -135,14 +135,14 @@
 					ColumnHeaderSortedAscendingTemplate="HeaderTemplateArrowUp"
 					ColumnHeaderSortedDescendingTemplate="HeaderTemplateArrowDown"
 					ColumnHeaderNotSortedTemplate="HeaderTemplateTransparent"
-					ItemContainerStyle="{StaticResource AlternatingListBoxItemStyle}"
+					ItemContainerStyle="{DynamicResource AlternatingListBoxItemStyle}"
 					AlternationCount="2" SnapsToDevicePixels="True"
 					ScrollViewer.HorizontalScrollBarVisibility="Disabled"
 					ScrollViewer.VerticalScrollBarVisibility="Auto"
 					ItemsSource="{Binding Path=ReferencedAssemblies}">
 					<ListView.View>
-						<GridView ColumnHeaderContainerStyle="{StaticResource GridViewHeaderStyle}"
-							ColumnHeaderTemplate="{StaticResource HeaderTemplateTransparent}">
+						<GridView ColumnHeaderContainerStyle="{DynamicResource GridViewHeaderStyle}"
+							ColumnHeaderTemplate="{DynamicResource HeaderTemplateTransparent}">
 							<HSCtrl:SortableGridViewColumn Header="{HSMarks:ResourceExtension Label_Assembly}"
 								DisplayMemberBinding="{Binding Path=Name}"
 								SortPropertyName="Name" IsDefaultSortColumn="True">
@@ -163,13 +163,13 @@
 					Click="btnOK_Click"
 					Margin="0, 10, 10, 0"
 					Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="3"
-					Style="{StaticResource GlassButton}"
+					Style="{DynamicResource GlassButton}"
 					Content="{HSMarks:ResourceExtension Button_OK}" />
 				<Button x:Name="btnCheckNewVersion" HorizontalAlignment="Right"
 					Click="btnCheckNewVersion_Click"
 					Margin="0, 10, 10, 0"
 					Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="3"
-					Style="{StaticResource GlassButton}"
+					Style="{DynamicResource GlassButton}"
 					Content="{HSMarks:ResourceExtension Button_CheckVersion}"></Button>
 			</StackPanel>
 		</Grid>

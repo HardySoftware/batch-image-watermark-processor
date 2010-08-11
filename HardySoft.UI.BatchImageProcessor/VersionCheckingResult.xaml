@@ -6,7 +6,7 @@
     AllowsTransparency="True" Background="Transparent" ShowInTaskbar="True"
     WindowStyle="None" Icon="/SeaTurtle;component/Images/icon.ico">
     <Border Width="Auto" Height="Auto" Name="windowFrame"
-		Style="{StaticResource WindowBackground}">
+		Style="{DynamicResource WindowBackground}">
 		<Grid Margin="10,10,10,10" x:Name="mainGrid">
 			<Grid.RowDefinitions>
 				<RowDefinition Height="Auto" />
@@ -14,7 +14,7 @@
 				<RowDefinition Height="Auto" />
 			</Grid.RowDefinitions>
 			<TextBlock Text="{HSMarks:ResourceExtension WindowTitle_ApplicationVersion}" 
-				Style="{StaticResource WindowTitle}"
+				Style="{DynamicResource WindowTitle}"
 				MouseLeftButtonDown="titleBar_MouseLeftButtonDown" />
 			<Grid x:Name="InformationSection"
 				Grid.Row="1" ShowGridLines="False">
@@ -29,19 +29,19 @@
 					<RowDefinition Height="auto" />
 				</Grid.RowDefinitions>
 				
-				<TextBlock Style="{StaticResource AboutWindowText}"
+				<TextBlock Style="{DynamicResource AboutWindowText}"
 					Grid.ColumnSpan="2" Grid.Row="0"
 					Text="{Binding Path=VersionCompareStatus, Mode=OneWay}" TextWrapping="Wrap">
 				</TextBlock>
 
 				<StackPanel Grid.Column="0" Grid.Row="1" Orientation="Horizontal">
 					<TextBlock Margin="10, 0, 10, 0"
-						Style="{StaticResource AboutWindowLabel}"
+						Style="{DynamicResource ConfigSectionLabel}"
 						Text="{HSMarks:ResourceExtension Label_LatestVersion}" />
 				</StackPanel>
 
 				<TextBlock
-					Style="{StaticResource AboutWindowText}"
+					Style="{DynamicResource AboutWindowText}"
 					Grid.Column="1" Grid.Row="1"
 					Text="{Binding Path=LatestVersion, Mode=OneWay}">
 				</TextBlock>
@@ -49,20 +49,20 @@
 				<StackPanel Grid.Column="0" Grid.Row="2" Orientation="Horizontal">
 					<TextBlock VerticalAlignment="Top"
 						Margin="10, 0, 10, 0"
-						Style="{StaticResource AboutWindowLabel}"
+						Style="{DynamicResource ConfigSectionLabel}"
 						Text="{HSMarks:ResourceExtension Label_MyVersion}" />
 				</StackPanel>
 
 				<TextBlock
 					Grid.Column="1" Grid.Row="2"
 					Text="{Binding Path=MyVersion, Mode=OneWay}" 
-					Style="{StaticResource AboutWindowText}"
+					Style="{DynamicResource AboutWindowText}"
 					VerticalAlignment="Center" />
 					
 				<StackPanel Grid.Column="0" Grid.Row="3" Orientation="Horizontal">
 					<TextBlock VerticalAlignment="Top"
 						Margin="10, 0, 10, 0"
-						Style="{StaticResource AboutWindowLabel}"
+						Style="{DynamicResource ConfigSectionLabel}"
 						Text="{HSMarks:ResourceExtension Label_ProductURL}" />
 				</StackPanel>
 
@@ -80,7 +80,7 @@
 				HorizontalAlignment="Right" Margin="10">
 				<Button x:Name="btnOK" HorizontalAlignment="Right"
 					Click="btnOK_Click"
-					Margin="0,0,10,0" Style="{StaticResource GlassButton}"
+					Margin="0,0,10,0" Style="{DynamicResource GlassButton}"
 					Content="{HSMarks:ResourceExtension Button_OK}" />
 			</StackPanel>
 		</Grid>
