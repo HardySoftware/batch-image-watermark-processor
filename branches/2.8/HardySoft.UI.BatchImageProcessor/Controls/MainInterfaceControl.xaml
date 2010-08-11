@@ -39,57 +39,57 @@
 				<MenuItem Header="{HSMarks:ResourceExtension Menu_File}">
 					<MenuItem Header="{HSMarks:ResourceExtension Command_NewProject}" Command="ApplicationCommands.New">
 						<MenuItem.Icon>
-							<Image Source="/SeaTurtle;component/Themes/DarkCool/Images/Menu_Icons/new.png"></Image>
+							<Image Source="/SeaTurtle;component/Images/Menu_Icons/new.png"></Image>
 						</MenuItem.Icon>
 					</MenuItem>
 					<MenuItem Header="{HSMarks:ResourceExtension Command_OpenProject}" Command="ApplicationCommands.Open">
 						<MenuItem.Icon>
-							<Image Source="/SeaTurtle;component/Themes/DarkCool/Images/Menu_Icons/open.png"></Image>
+							<Image Source="/SeaTurtle;component/Images/Menu_Icons/open.png"></Image>
 						</MenuItem.Icon>
 					</MenuItem>
 					<MenuItem Header="{HSMarks:ResourceExtension Command_SaveProject}" Command="ApplicationCommands.Save">
 						<MenuItem.Icon>
-							<Image Source="/SeaTurtle;component/Themes/DarkCool/Images/Menu_Icons/save.png"></Image>
+							<Image Source="/SeaTurtle;component/Images/Menu_Icons/save.png"></Image>
 						</MenuItem.Icon>
 					</MenuItem>
 					<MenuItem Header="{HSMarks:ResourceExtension Command_SaveAs}" Command="ApplicationCommands.SaveAs">
 						<MenuItem.Icon>
-							<Image Source="/SeaTurtle;component/Themes/DarkCool/Images/Menu_Icons/saveas.png"></Image>
+							<Image Source="/SeaTurtle;component/Images/Menu_Icons/saveas.png"></Image>
 						</MenuItem.Icon>
 					</MenuItem>
 					<Separator></Separator>
 					<MenuItem Header="{HSMarks:ResourceExtension Command_Exit}" Command="HSC:ApplicationCommand.Exit">
 						<MenuItem.Icon>
-							<Image Source="/SeaTurtle;component/Themes/DarkCool/Images/Menu_Icons/exit.png"></Image>
+							<Image Source="/SeaTurtle;component/Images/Menu_Icons/exit.png"></Image>
 						</MenuItem.Icon>
 					</MenuItem>
 				</MenuItem>
 				<MenuItem Header="{HSMarks:ResourceExtension Menu_Process}">
 					<MenuItem Header="{HSMarks:ResourceExtension Command_Make}" Command="HSC:ApplicationCommand.Make">
 						<MenuItem.Icon>
-							<Image Source="/SeaTurtle;component/Themes/DarkCool/Images/Menu_Icons/fire.png"></Image>
+							<Image Source="/SeaTurtle;component/Images/Menu_Icons/fire.png"></Image>
 						</MenuItem.Icon>
 					</MenuItem>
 					<MenuItem Header="{HSMarks:ResourceExtension Command_Stop}" Command="ApplicationCommands.Stop">
 						<MenuItem.Icon>
-							<Image Source="/SeaTurtle;component/Themes/DarkCool/Images/Menu_Icons/stop.png"></Image>
+							<Image Source="/SeaTurtle;component/Images/Menu_Icons/stop.png"></Image>
 						</MenuItem.Icon>
 					</MenuItem>
 					<MenuItem Header="{HSMarks:ResourceExtension Command_Preference}" Command="HSC:ApplicationCommand.Preference">
 						<MenuItem.Icon>
-							<Image Source="/SeaTurtle;component/Themes/DarkCool/Images/Menu_Icons/preference.png"></Image>
+							<Image Source="/SeaTurtle;component/Images/Menu_Icons/preference.png"></Image>
 						</MenuItem.Icon>
 					</MenuItem>
 				</MenuItem>
 				<MenuItem Header="{HSMarks:ResourceExtension Menu_Help}">
 					<MenuItem Header="{HSMarks:ResourceExtension Command_About}" Command="HSC:ApplicationCommand.About">
 						<MenuItem.Icon>
-							<Image Source="/SeaTurtle;component/Themes/DarkCool/Images/Menu_Icons/information.png"></Image>
+							<Image Source="/SeaTurtle;component/Images/Menu_Icons/information.png"></Image>
 						</MenuItem.Icon>
 					</MenuItem>
 					<MenuItem Header="{HSMarks:ResourceExtension Command_Discuss}" Command="HSC:ApplicationCommand.Discuss">
 						<MenuItem.Icon>
-							<Image Source="/SeaTurtle;component/Themes/DarkCool/Images/Menu_Icons/discuss.png"></Image>
+							<Image Source="/SeaTurtle;component/Images/Menu_Icons/discuss.png"></Image>
 						</MenuItem.Icon>
 					</MenuItem>
 				</MenuItem>
@@ -99,31 +99,31 @@
 			<ToolBar Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top">
 				<Button Command="ApplicationCommands.New">
 					<StackPanel Orientation="Horizontal">
-						<Image Source="/SeaTurtle;component/Themes/DarkCool/Images/Menu_Icons/new.png"></Image>
+						<Image Source="/SeaTurtle;component/Images/Menu_Icons/new.png"></Image>
 						<TextBlock Text="{HSMarks:ResourceExtension Command_NewProject}" />
 					</StackPanel>
 				</Button>
 				<Button Command="ApplicationCommands.Open">
 					<StackPanel Orientation="Horizontal">
-						<Image Source="/SeaTurtle;component/Themes/DarkCool/Images/Menu_Icons/open.png"></Image>
+						<Image Source="/SeaTurtle;component/Images/Menu_Icons/open.png"></Image>
 						<TextBlock Text="{HSMarks:ResourceExtension Command_OpenProject}" />
 					</StackPanel>
 				</Button>
 				<Button Command="ApplicationCommands.Save">
 					<StackPanel Orientation="Horizontal">
-						<Image Source="/SeaTurtle;component/Themes/DarkCool/Images/Menu_Icons/save.png"></Image>
+						<Image Source="/SeaTurtle;component/Images/Menu_Icons/save.png"></Image>
 						<TextBlock Text="{HSMarks:ResourceExtension Command_SaveProject}" />
 					</StackPanel>
 				</Button>
 				<Button Command="HSC:ApplicationCommand.Make">
 					<StackPanel Orientation="Horizontal">
-						<Image Source="/SeaTurtle;component/Themes/DarkCool/Images/Menu_Icons/fire.png"></Image>
+						<Image Source="/SeaTurtle;component/Images/Menu_Icons/fire.png"></Image>
 						<TextBlock Text="{HSMarks:ResourceExtension Command_Make}" />
 					</StackPanel>
 				</Button>
 				<Button Command="ApplicationCommands.Stop">
 					<StackPanel Orientation="Horizontal">
-						<Image Source="/SeaTurtle;component/Themes/DarkCool/Images/Menu_Icons/stop.png"></Image>
+						<Image Source="/SeaTurtle;component/Images/Menu_Icons/stop.png"></Image>
 						<TextBlock Text="{HSMarks:ResourceExtension Command_Stop}" />
 					</StackPanel>
 				</Button>

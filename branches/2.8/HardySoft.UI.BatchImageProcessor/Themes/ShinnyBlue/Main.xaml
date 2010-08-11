@@ -1158,7 +1158,10 @@
 								<vsm:VisualState x:Name="Normal" />
 								<vsm:VisualState x:Name="MouseOver">
 									<Storyboard>
-										<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="HoverRectangle" Storyboard.TargetProperty="(UIElement.Opacity)">
+										<DoubleAnimationUsingKeyFrames BeginTime="00:00:00"
+											Duration="00:00:00.0010000"
+											Storyboard.TargetName="HoverRectangle"
+											Storyboard.TargetProperty="(UIElement.Opacity)">
 											<SplineDoubleKeyFrame KeyTime="00:00:00" Value="1" />
 										</DoubleAnimationUsingKeyFrames>
 									</Storyboard>
@@ -1172,18 +1175,25 @@
 								<vsm:VisualState x:Name="Unselected" />
 								<vsm:VisualState x:Name="Selected">
 									<Storyboard>
-										<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="SelectedRectangle" Storyboard.TargetProperty="(UIElement.Opacity)">
+										<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000"
+											Storyboard.TargetName="SelectedRectangle"
+											Storyboard.TargetProperty="(UIElement.Opacity)">
 											<SplineDoubleKeyFrame KeyTime="00:00:00" Value="1" />
 										</DoubleAnimationUsingKeyFrames>
 									</Storyboard>
 								</vsm:VisualState>
 							</vsm:VisualStateGroup>
 						</vsm:VisualStateManager.VisualStateGroups>
-						<Rectangle x:Name="Background" IsHitTestVisible="False" Opacity="0.25" Fill="{StaticResource NormalBrush}" RadiusX="1" RadiusY="1" />
-						<Rectangle x:Name="HoverRectangle" IsHitTestVisible="False" Opacity="0" Fill="{StaticResource NormalBrush}" RadiusX="1" RadiusY="1" />
-						<Rectangle x:Name="SelectedRectangle" IsHitTestVisible="False" Opacity="0" Fill="{StaticResource SelectedBackgroundBrush}" RadiusX="1" RadiusY="1" />
-						<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" />
-						<Rectangle x:Name="FocusVisualElement" Visibility="Collapsed" Stroke="{StaticResource HoverShineBrush}" StrokeThickness="1" RadiusX="1" RadiusY="1" />
+						<Rectangle x:Name="Background" IsHitTestVisible="False" Opacity="0.25"
+							Fill="{StaticResource NormalBrush}" RadiusX="1" RadiusY="1" />
+						<Rectangle x:Name="HoverRectangle" IsHitTestVisible="False" Opacity="0"
+							Fill="{StaticResource NormalBrush}" RadiusX="1" RadiusY="1" />
+						<Rectangle x:Name="SelectedRectangle" IsHitTestVisible="False" Opacity="0"
+							Fill="{StaticResource SelectedBackgroundBrush}" RadiusX="1" RadiusY="1" />
+						<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+							Margin="{TemplateBinding Padding}" />
+						<Rectangle x:Name="FocusVisualElement" Visibility="Collapsed"
+							Stroke="{StaticResource HoverShineBrush}" StrokeThickness="1" RadiusX="1" RadiusY="1" />
 					</Grid>
 				</ControlTemplate>
 			</Setter.Value>

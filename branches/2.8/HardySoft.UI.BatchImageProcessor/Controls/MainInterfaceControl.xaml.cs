@@ -28,8 +28,6 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 		// TODO add more option to "Output" tab to select file format for processed files. Something like batch convert.
 		// TODO in image file list add assembly new column to include button to remove image from list
 		// TODO convert "image effect" into add-ins and open programming interface
-		// TODO when font size is changed, application does not detect the setting has been updated.
-		// TODO when watermark text's distance to edge is changed, application does not detect the setting has been updated.
 		private MainControl_Presenter presenter;
 		private DispatcherTimer dispatcherTimer;
 		private IUnityContainer container = new UnityContainer();
