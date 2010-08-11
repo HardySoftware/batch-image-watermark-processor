@@ -18,45 +18,45 @@
 		<RadioButton x:Name="TopLeft" Grid.Column="0" Grid.Row="0"
 			ToolTip="{HSMarks:ResourceExtension Enum_TopLeft}"
 			IsChecked="{Binding ElementName=positionPicker, Path=SelectedPosition, Converter={StaticResource cnvPositionSelection}, ConverterParameter=TopLeft}"
-			Style="{StaticResource PositionSelectionItem}" />
+			Style="{DynamicResource PositionSelectionItem}" />
 		<RadioButton x:Name="TopCenter" Grid.Column="1" Grid.Row="0"
 			ToolTip="{HSMarks:ResourceExtension Enum_TopCenter}"
 			IsChecked="{Binding ElementName=positionPicker, Path=SelectedPosition, Converter={StaticResource cnvPositionSelection}, ConverterParameter=TopCenter}"
 			Visibility="{Binding ElementName=positionPicker, Path=CornerOnly, Converter={StaticResource cnvCornerOnlyVisibility}}"
-			Style="{StaticResource PositionSelectionItem}" />
+			Style="{DynamicResource PositionSelectionItem}" />
 		<RadioButton x:Name="TopRight" Grid.Column="2" Grid.Row="0"
 			ToolTip="{HSMarks:ResourceExtension Enum_TopRight}"
 			IsChecked="{Binding ElementName=positionPicker, Path=SelectedPosition, Converter={StaticResource cnvPositionSelection}, ConverterParameter=TopRight}"
-			Style="{StaticResource PositionSelectionItem}" />
+			Style="{DynamicResource PositionSelectionItem}" />
 
 		<RadioButton x:Name="MiddleLeft" Grid.Column="0" Grid.Row="1"
 			ToolTip="{HSMarks:ResourceExtension Enum_MiddleLeft}"
 			IsChecked="{Binding ElementName=positionPicker, Path=SelectedPosition, Converter={StaticResource cnvPositionSelection}, ConverterParameter=MiddleLeft}"
 			Visibility="{Binding ElementName=positionPicker, Path=CornerOnly, Converter={StaticResource cnvCornerOnlyVisibility}}"
-			Style="{StaticResource PositionSelectionItem}" />
+			Style="{DynamicResource PositionSelectionItem}" />
 		<RadioButton x:Name="MiddleCenter" Grid.Column="1" Grid.Row="1"
 			ToolTip="{HSMarks:ResourceExtension Enum_MiddleCenter}"
 			IsChecked="{Binding ElementName=positionPicker, Path=SelectedPosition, Converter={StaticResource cnvPositionSelection}, ConverterParameter=MiddleCenter}"
 			Visibility="{Binding ElementName=positionPicker, Path=CornerOnly, Converter={StaticResource cnvCornerOnlyVisibility}}"
-			Style="{StaticResource PositionSelectionItem}" />
+			Style="{DynamicResource PositionSelectionItem}" />
 		<RadioButton x:Name="MiddleRight" Grid.Column="2" Grid.Row="1"
 			ToolTip="{HSMarks:ResourceExtension Enum_MiddleRight}"
 			IsChecked="{Binding ElementName=positionPicker, Path=SelectedPosition, Converter={StaticResource cnvPositionSelection}, ConverterParameter=MiddleRight}"
 			Visibility="{Binding ElementName=positionPicker, Path=CornerOnly, Converter={StaticResource cnvCornerOnlyVisibility}}"
-			Style="{StaticResource PositionSelectionItem}" />
+			Style="{DynamicResource PositionSelectionItem}" />
 
 		<RadioButton x:Name="BottomLeft" Grid.Column="0" Grid.Row="2"
 			ToolTip="{HSMarks:ResourceExtension Enum_BottomLeft}"
 			IsChecked="{Binding ElementName=positionPicker, Path=SelectedPosition, Converter={StaticResource cnvPositionSelection}, ConverterParameter=BottomLeft}"
-			Style="{StaticResource PositionSelectionItem}" />
+			Style="{DynamicResource PositionSelectionItem}" />
 		<RadioButton x:Name="BottomCenter" Grid.Column="1" Grid.Row="2"
 			ToolTip="{HSMarks:ResourceExtension Enum_BottomCenter}"
 			IsChecked="{Binding ElementName=positionPicker, Path=SelectedPosition, Converter={StaticResource cnvPositionSelection}, ConverterParameter=BottomCenter}"
 			Visibility="{Binding ElementName=positionPicker, Path=CornerOnly, Converter={StaticResource cnvCornerOnlyVisibility}}"
-			Style="{StaticResource PositionSelectionItem}" />
+			Style="{DynamicResource PositionSelectionItem}" />
 		<RadioButton x:Name="BottomRight" Grid.Column="2" Grid.Row="2"
 			ToolTip="{HSMarks:ResourceExtension Enum_BottomRight}"
 			IsChecked="{Binding ElementName=positionPicker, Path=SelectedPosition, Converter={StaticResource cnvPositionSelection}, ConverterParameter=BottomRight}"
-			Style="{StaticResource PositionSelectionItem}" />
+			Style="{DynamicResource PositionSelectionItem}" />
 	</Grid>
 </UserControl>

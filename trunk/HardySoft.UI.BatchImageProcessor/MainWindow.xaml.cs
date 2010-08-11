@@ -18,6 +18,7 @@ using HardySoft.UI.BatchImageProcessor.Controls;
 using HardySoft.UI.BatchImageProcessor.Classes;
 using HardySoft.UI.BatchImageProcessor.Classes.Commands;
 using HardySoft.UI.BatchImageProcessor.View;
+using HardySoft.UI.BatchImageProcessor.Model;
 
 namespace HardySoft.UI.BatchImageProcessor {
 	/// <summary>
@@ -33,6 +34,9 @@ namespace HardySoft.UI.BatchImageProcessor {
 			mainControl = (MainInterfaceControl)container.Resolve<MainInterfaceControl>();
 			mainControl.ProjectFileNameObtained += new ProjectFileNameObtainedHandler(mainControl_ProjectFileNameObtained);
 			MainControlPlaceHolder.Children.Add(mainControl);
+
+			// when project starts up, createa new empty project by default
+			mainControl.NewProject();
 
 			// command / focus issue
 			// see http://social.msdn.microsoft.com/Forums/en-US/wpf/thread/753c2a0b-753f-43d3-afb3-01d4d3c93787
@@ -65,6 +69,12 @@ namespace HardySoft.UI.BatchImageProcessor {
 			KeyBinding kbM = new KeyBinding(ApplicationCommand.Make, keyM);
 			kbM.CommandTarget = mainControl;
 			this.InputBindings.Add(kbM);
+
+			SetSkin();
+		}
+
+		public void SetSkin() {
+			Utilities.SetSkin();
 		}
 
 		void mainControl_ProjectFileNameObtained(object sender, ProjectFileNameEventArgs args) {

@@ -63,6 +63,10 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 			set;
 		}
 
+		public void NewProject() {
+			newProject();
+		}
+
 		public event ProjectFileNameObtainedHandler ProjectFileNameObtained;
 
 		protected void OnProjectFileNameObtained() {

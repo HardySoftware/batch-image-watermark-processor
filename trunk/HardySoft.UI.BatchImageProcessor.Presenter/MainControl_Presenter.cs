@@ -10,6 +10,7 @@ using HardySoft.UI.BatchImageProcessor.Model;
 using HardySoft.UI.BatchImageProcessor.View;
 
 using Microsoft.Practices.EnterpriseLibrary.Validation;
+using System.ComponentModel;
 
 namespace HardySoft.UI.BatchImageProcessor.Presenter {
 	public class MainControl_Presenter : Presenter<IMainInterfaceControlView> {
@@ -20,6 +21,8 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 
 		public MainControl_Presenter() {
 			ps = new ProjectSetting();
+
+			//view_NewProjectCreated(this, null);
 
 			this.processing = false;
 		}
@@ -232,12 +235,20 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 		}
 
 		public void AddWatermarkImage() {
-			ps.WatermarkCollection.Add(new WatermarkImage());
+			//WatermarkImage wi = new WatermarkImage();
+			//wi.PropertyChanged += new PropertyChangedEventHandler(watermark_PropertyChanged);
+			//ps.WatermarkCollection.Add(wi);
+
+			ps.AddWatermark(new WatermarkImage());
 			View.SelectedWatermarkIndex = ps.WatermarkCollection.Count - 1;
 		}
 
 		public void AddWatermarkText() {
-			ps.WatermarkCollection.Add(new WatermarkText());
+			//WatermarkText wt = new WatermarkText();
+			//wt.PropertyChanged += new PropertyChangedEventHandler(watermark_PropertyChanged);
+			//ps.WatermarkCollection.Add(wt);
+
+			ps.AddWatermark(new WatermarkText());
 			View.SelectedWatermarkIndex = ps.WatermarkCollection.Count - 1;
 		}
 
@@ -250,18 +261,13 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 		}
 
 		public void RemoveWatermark(int selectedIndex) {
-			if (ps.WatermarkCollection != null
-				&& ps.WatermarkCollection.Count >= selectedIndex + 1) {
-				ps.WatermarkCollection.RemoveAt(selectedIndex);
-
-				if (ps.WatermarkCollection.Count > 0) {
-					// after current one is removed, focus on first item in the list
-					View.SelectedWatermarkIndex = 0;
-					View.LoadWatermarkControl(0);
-				} else {
-					// if there is nothing left, clear the entire area
-					View.ClearWatermarkArea();
-				}
+			if (ps.RemoveWatermark(selectedIndex)) {
+				// after current one is removed, focus on first item in the list
+				View.SelectedWatermarkIndex = 0;
+				View.LoadWatermarkControl(0);
+			} else {
+				// if there is nothing left, clear the entire area
+				View.ClearWatermarkArea();
 			}
 		}
 	}

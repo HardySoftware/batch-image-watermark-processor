@@ -1,16 +1,16 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Windows;
 using System.Windows.Input;
 
+using HardySoft.UI.BatchImageProcessor.Classes;
 using HardySoft.UI.BatchImageProcessor.Controls;
 using HardySoft.UI.BatchImageProcessor.Model;
 using HardySoft.UI.BatchImageProcessor.Presenter;
 using HardySoft.UI.BatchImageProcessor.View;
 
 using Microsoft.Practices.Unity;
-using System.Globalization;
-using System;
 
 namespace HardySoft.UI.BatchImageProcessor {
 	/// <summary>
@@ -26,6 +26,8 @@ namespace HardySoft.UI.BatchImageProcessor {
 			//sThreadNumber.DataContext = this;
 			//tbThreadNumber.DataContext = this;
 			InformationSection.DataContext = this;
+
+			Utilities.SetSkin();
 		}
 
 		[Dependency]
@@ -118,6 +120,11 @@ namespace HardySoft.UI.BatchImageProcessor {
 			Properties.Settings.Default.Save();
 
 			DialogResult = false;
+
+			MainWindow mainWindow = this.Owner as MainWindow;
+			if (mainWindow != null) {
+				mainWindow.SetSkin();
+			}
 		}
 
 		private void btnCancel_Click(object sender, RoutedEventArgs e) {
