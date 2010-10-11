@@ -10,7 +10,6 @@ namespace HardySoft.UI.BatchImageProcessor.Classes.Commands {
 		private static RoutedUICommand exit;
 		private static RoutedUICommand preference;
 		private static RoutedUICommand about;
-		private static RoutedUICommand discuss;
 
 		static ApplicationCommand() {
 			// initialize the command
@@ -23,8 +22,6 @@ namespace HardySoft.UI.BatchImageProcessor.Classes.Commands {
 			preference = new RoutedUICommand("Preference", "Preference", typeof(ApplicationCommand));
 
 			about = new RoutedUICommand("About", "About", typeof(ApplicationCommand));
-
-			discuss = new RoutedUICommand("Discuss", "Discuss", typeof(ApplicationCommand));
 		}
 
 		public static RoutedUICommand Make {
@@ -48,12 +45,6 @@ namespace HardySoft.UI.BatchImageProcessor.Classes.Commands {
 		public static RoutedUICommand About {
 			get {
 				return about;
-			}
-		}
-
-		public static RoutedUICommand Discuss {
-			get {
-				return discuss;
 			}
 		}
 	}
