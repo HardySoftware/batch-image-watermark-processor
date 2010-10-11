@@ -25,7 +25,7 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 	/// Interaction logic for MainInterfaceControl.xaml
 	/// </summary>
 	public partial class MainInterfaceControl : System.Windows.Controls.UserControl, IMainInterfaceControlView {
-		// TODO add more option to "Output" tab to select file format for processed files. Something like batch convert.
+		// TODO add more option to "Output" tab to select file format for processed files. Something like batch convert..
 		// TODO in image file list add assembly new column to include button to remove image from list
 		// TODO convert "image effect" into add-ins and open programming interface
 		// TODO Think about "Glass Behavior" @ http://jmorrill.hjtcentral.com/Home/tabid/428/EntryId/403/Glass-Behavior-for-WPF.aspx
