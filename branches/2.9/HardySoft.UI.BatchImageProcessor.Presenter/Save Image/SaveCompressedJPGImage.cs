@@ -2,10 +2,9 @@
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.Threading;
 
 using HardySoft.UI.BatchImageProcessor.Model;
-using System.Windows.Media.Imaging;
-using System.IO;
 
 namespace HardySoft.UI.BatchImageProcessor.Presenter {
 	/// <summary>
@@ -50,6 +49,8 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 				image.Save(fileName, imageCodec, encoder);
 
 				addExif(fileName, (uint)image.Width, (uint)image.Height);
+
+				System.Diagnostics.Debug.WriteLine("Thread " + Thread.CurrentThread.ManagedThreadId + " saved " + fileName + " at " + DateTime.Now + ".");
 
 				return true;
 			} catch (Exception ex) {
