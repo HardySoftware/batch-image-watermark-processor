@@ -151,7 +151,7 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 			if (e.AddedItems.Count > 0) {
 #if DEBUG
 
-				System.Diagnostics.Debug.WriteLine("watermark selection changed " + e.AddedItems[0].ToString());
+				System.Diagnostics.Debug.WriteLine("watermark selection changed " + e.AddedItems[0].ToString() + " at " + DateTime.Now);
 #endif
 				WatermarkSelection selectedItem = e.AddedItems[0] as WatermarkSelection;
 
