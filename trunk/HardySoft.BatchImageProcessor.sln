@@ -1,6 +1,16 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Supporting Tools", "Supporting Tools", "{AF0B357C-7852-44C3-BBEF-5233B9339ECD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9A8F7E58-6A12-42E3-BB24-35D6862B3F97}"
+	ProjectSection(SolutionItems) = preProject
+		HardySoft.BatchImageProcessor.vsmdi = HardySoft.BatchImageProcessor.vsmdi
+		LocalTestRun.testrunconfig = LocalTestRun.testrunconfig
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{4122C242-B9B6-4483-9620-8D10318B1D28}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HardySoft.UI.BatchImageProcessor", "HardySoft.UI.BatchImageProcessor\HardySoft.UI.BatchImageProcessor.csproj", "{D5B6B547-B5AE-4188-B7DE-8DB86D6B5362}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HardySoft.UI.BatchImageProcessor.View", "HardySoft.UI.BatchImageProcessor.View\HardySoft.UI.BatchImageProcessor.View.csproj", "{9C6D00B8-CD82-49FC-A857-44B3A57AF627}"
@@ -11,14 +21,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HardySoft.UI.BatchImageProc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HardySoft.CC", "HardySoft.CC\HardySoft.CC.csproj", "{D162A876-9517-4E74-89AF-C889FF5BFAD0}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Supporting Tools", "Supporting Tools", "{AF0B357C-7852-44C3-BBEF-5233B9339ECD}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9A8F7E58-6A12-42E3-BB24-35D6862B3F97}"
-	ProjectSection(SolutionItems) = preProject
-		HardySoft.BatchImageProcessor.vsmdi = HardySoft.BatchImageProcessor.vsmdi
-		LocalTestRun.testrunconfig = LocalTestRun.testrunconfig
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HardySoft.UI.BatchImageProcessor.Presenter.UnitTest", "HardySoft.UI.BatchImageProcessor.Presenter.UnitTest\HardySoft.UI.BatchImageProcessor.Presenter.UnitTest.csproj", "{05293D3E-2CF1-4914-8B4F-2648F3E4E598}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenXMLWriter", "OpenXMLWriter\OpenXMLWriter.csproj", "{DE9DB900-DA1D-4914-8E70-F4A3E1D6578C}"
@@ -26,8 +28,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HardySoft.UI.BatchImageProcessor.Model.UnitTest", "HardySoft.UI.BatchImageProcessor.Model.UnitTest\HardySoft.UI.BatchImageProcessor.Model.UnitTest.csproj", "{758D8B0A-742D-4C75-B2AE-83ED1C06A67C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HardySoft.UI.BatchImageProcessor.UnitTest", "HardySoft.UI.BatchImageProcessor.UnitTest\HardySoft.UI.BatchImageProcessor.UnitTest.csproj", "{2389B515-54CF-456C-B1C0-CA23C2BBF870}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{4122C242-B9B6-4483-9620-8D10318B1D28}"
 EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
@@ -103,8 +103,8 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{DE9DB900-DA1D-4914-8E70-F4A3E1D6578C} = {AF0B357C-7852-44C3-BBEF-5233B9339ECD}
-		{758D8B0A-742D-4C75-B2AE-83ED1C06A67C} = {4122C242-B9B6-4483-9620-8D10318B1D28}
 		{05293D3E-2CF1-4914-8B4F-2648F3E4E598} = {4122C242-B9B6-4483-9620-8D10318B1D28}
+		{758D8B0A-742D-4C75-B2AE-83ED1C06A67C} = {4122C242-B9B6-4483-9620-8D10318B1D28}
 		{2389B515-54CF-456C-B1C0-CA23C2BBF870} = {4122C242-B9B6-4483-9620-8D10318B1D28}
 	EndGlobalSection
 EndGlobal

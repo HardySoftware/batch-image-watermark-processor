@@ -25,9 +25,8 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 
 		public event ImageProcessedDelegate ImageProcessed;
 
-		public ImageProcessorEngine(ProjectSetting ps,
-			uint threadNumber, string dateTimeStringFormat,
-			AutoResetEvent[] events, List<ExifContainerItem> exifContainer) {
+		public ImageProcessorEngine(ProjectSetting ps, uint threadNumber, string dateTimeStringFormat, AutoResetEvent[] events, List<ExifContainerItem> exifContainer) {
+			Trace.WriteLine("Number of Thread " + threadNumber);
 			this.ps = ps;
 			this.threadNumber = threadNumber;
 			this.jobQueue = new Queue<JobItem>();
@@ -65,8 +64,8 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 				.RegisterType<IProcess, GenerateThumbnail>("ThumbImage", new PerThreadLifetimeManager())
 				.RegisterType<IProcess, GrayScale>("GrayscaleEffect", new PerThreadLifetimeManager()/*,new InjectionProperty("EnableDebug")*/)
 				.RegisterType<IProcess, NegativeImage>("NegativeEffect", new PerThreadLifetimeManager())
-				.RegisterType<IProcess, OilPaint>("OilPaint", new PerThreadLifetimeManager())
-				.RegisterType<IProcess, Relief>("Relief", new PerThreadLifetimeManager())
+				.RegisterType<IProcess, OilPaint>("OilPaintEffect", new PerThreadLifetimeManager())
+				.RegisterType<IProcess, Relief>("ReliefEffect", new PerThreadLifetimeManager())
 				.RegisterType<IProcess, ShrinkImage>("ShrinkImage", new PerThreadLifetimeManager())
 				// file name classes
 				.RegisterType<IFilenameProvider, ThumbnailFileName>("ThumbFileName", new PerThreadLifetimeManager())
@@ -80,6 +79,16 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 
 		public void StartProcess() {
 			this.stopFlag = false;
+
+			try {
+				if (!Directory.Exists(ps.OutputDirectory)) {
+					// if the directory does not exist, create first
+					Directory.CreateDirectory(ps.OutputDirectory);
+				}
+			} catch (Exception ex) {
+				Trace.TraceError(ex.ToString());
+				return;
+			}
 
 			for (int i = 0; i < this.threadNumber; i++) {
 				threads[i] = new Thread(new ParameterizedThreadStart(processImage));
@@ -105,8 +114,8 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 
 		private void processImage(object threadIndex) {
 			int index = (int)threadIndex;
-			System.Diagnostics.Debug.WriteLine("Thread " + index + " is created.");
-			System.Diagnostics.Debug.WriteLine("Current Thread Culture " + Thread.CurrentThread.CurrentCulture.ToString() + " during processing.");
+			Trace.WriteLine("Thread " + Thread.CurrentThread.ManagedThreadId + " is created to process indexed item [" + index + "] at " + DateTime.Now + ".");
+			Trace.WriteLine("Current Thread " + Thread.CurrentThread.ManagedThreadId + " Culture " + Thread.CurrentThread.CurrentCulture.ToString() + " during processing.");
 
 			string imagePath = string.Empty;
 			uint imageIndex = 0;
@@ -116,10 +125,11 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 					JobItem item = jobQueue.Dequeue();
 					imagePath = item.FileName;
 					imageIndex = item.Index;
+					Trace.WriteLine("Thread " + Thread.CurrentThread.ManagedThreadId + " is handling " + imagePath);
 				} else {
 					// nothing more to process, signal
 #if DEBUG
-					System.Diagnostics.Debug.WriteLine("Thread " + index + " is set because no more image to process.");
+					System.Diagnostics.Debug.WriteLine("Thread " + Thread.CurrentThread.ManagedThreadId + " is set because no more image to process at " + DateTime.Now + ".");
 #endif
 					events[index].Set();
 					return;
@@ -129,7 +139,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 			if (stopFlag) {
 				// stop requested, signal
 #if DEBUG
-				System.Diagnostics.Debug.WriteLine("Thread " + index + " is set because stop requested.");
+				System.Diagnostics.Debug.WriteLine("Thread " + Thread.CurrentThread.ManagedThreadId + " is set because stop requested.");
 #endif
 				events[index].Set();
 				return;
@@ -142,6 +152,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 					if (ps.KeepExif) {
 						// keep exif information from original file
 						exif = new ExifMetadata(new Uri(imagePath), true);
+						Trace.WriteLine("Thread " + Thread.CurrentThread.ManagedThreadId + " obtained EXIF for " + imagePath + " at " + DateTime.Now + ".");
 					}
 
 					// this will lock image until entire application quits
@@ -149,6 +160,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 					// this won't lock image
 					using (Stream stream = File.OpenRead(imagePath)) {
 						normalImage = Image.FromStream(stream);
+						Trace.WriteLine("Thread " + Thread.CurrentThread.ManagedThreadId + " opened " + imagePath + " at " + DateTime.Now + ".");
 					}
 
 					ImageFormat format = getImageFormat(imagePath);
@@ -159,12 +171,14 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 					if (ps.ThumbnailSetting.GenerateThumbnail && ps.ThumbnailSetting.ThumbnailSize > 0) {
 						process = container.Resolve<IProcess>("ThumbImage");
 						thumbImage = process.ProcessImage(normalImage, ps);
+						Trace.WriteLine("Thread " + Thread.CurrentThread.ManagedThreadId + " processed thumbnail for " + imagePath + " at " + DateTime.Now + ".");
 					}
 
 					// shrink image operation
 					if (ps.ShrinkImage && ps.ShrinkPixelTo > 0) {
 						process = container.Resolve<IProcess>("ShrinkImage");
 						normalImage = process.ProcessImage(normalImage, this.ps);
+						Trace.WriteLine("Thread " + Thread.CurrentThread.ManagedThreadId + " shrinked " + imagePath + " at " + DateTime.Now + ".");
 					}
 
 					// image process effect
@@ -173,18 +187,22 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 							case ImageProcessType.GrayScale:
 								process = container.Resolve<IProcess>("GrayscaleEffect");
 								normalImage = process.ProcessImage(normalImage, null);
+								Trace.WriteLine("Thread " + Thread.CurrentThread.ManagedThreadId + " applied GrayscaleEffect for " + imagePath + " at " + DateTime.Now + ".");
 								break;
 							case ImageProcessType.NagativeImage:
 								process = container.Resolve<IProcess>("NegativeEffect");
 								normalImage = process.ProcessImage(normalImage, null);
+								Trace.WriteLine("Thread " + Thread.CurrentThread.ManagedThreadId + " applied NegativeEffect for " + imagePath + " at " + DateTime.Now + ".");
 								break;
 							case ImageProcessType.OilPaint:
-								process = container.Resolve<IProcess>("OilPaint");
+								process = container.Resolve<IProcess>("OilPaintEffect");
 								normalImage = process.ProcessImage(normalImage, null);
+								Trace.WriteLine("Thread " + Thread.CurrentThread.ManagedThreadId + " applied OilPaintEffect for " + imagePath + " at " + DateTime.Now + ".");
 								break;
 							case ImageProcessType.Relief:
-								process = container.Resolve<IProcess>("Relief");
+								process = container.Resolve<IProcess>("ReliefEffect");
 								normalImage = process.ProcessImage(normalImage, null);
+								Trace.WriteLine("Thread " + Thread.CurrentThread.ManagedThreadId + " applied ReliefEffect for " + imagePath + " at " + DateTime.Now + ".");
 								break;
 							default:
 								break;
@@ -206,12 +224,12 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 								if (!string.IsNullOrEmpty(wt.Text) && wt.WatermarkTextColor.A > 0) {
 #if DEBUG
 									System.Diagnostics.Debug.WriteLine("Current Thread "
-										+ System.Threading.Thread.CurrentThread.ManagedThreadId + " Culture "
-										+ System.Threading.Thread.CurrentThread.CurrentCulture.ToString()
+										+ Thread.CurrentThread.ManagedThreadId + " Culture "
+										+ Thread.CurrentThread.CurrentCulture.ToString()
 										+ " before ApplyWatermarkText.");
 
 									System.Diagnostics.Debug.WriteLine("Current Thread: "
-										+ System.Threading.Thread.CurrentThread.ManagedThreadId + ";"
+										+ Thread.CurrentThread.ManagedThreadId + ";"
 										+ " Image File Name: " + imagePath + ","
 										+ " Watermark Text index: " + watermarkIndex
 										+ " before.");
@@ -240,18 +258,22 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 								}
 							}
 						}
+
+						Trace.WriteLine("Thread " + Thread.CurrentThread.ManagedThreadId + " applied watermark(s) for " + imagePath + " at " + DateTime.Now + ".");
 					}
 
 					// border operation
 					if (ps.BorderSetting.BorderWidth > 0) {
 						process = container.Resolve<IProcess>("AddBorder");
 						normalImage = process.ProcessImage(normalImage, this.ps);
+						Trace.WriteLine("Thread " + Thread.CurrentThread.ManagedThreadId + " added border for " + imagePath + " at " + DateTime.Now + ".");
 					}
 
 					// drop shadow operation
 					if (ps.DropShadowSetting.ShadowDepth > 0) {
 						process = container.Resolve<IProcess>("DropShadow");
 						normalImage = process.ProcessImage(normalImage, this.ps);
+						Trace.WriteLine("Thread " + Thread.CurrentThread.ManagedThreadId + " added dropshadow for " + imagePath + " at " + DateTime.Now + ".");
 					}
 
 					IFilenameProvider fileNameProvider;

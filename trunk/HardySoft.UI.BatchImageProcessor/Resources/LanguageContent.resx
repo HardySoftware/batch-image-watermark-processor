@@ -457,9 +457,6 @@
   <data name="Label_SysInfo" xml:space="preserve">
     <value>System Information</value>
   </data>
-  <data name="Label_ThreadNumber" xml:space="preserve">
-    <value>Process Thread Number</value>
-  </data>
   <data name="Label_UntitledProjectName" xml:space="preserve">
     <value>Untitled.hsbip</value>
   </data>

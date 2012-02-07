@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.Threading;
 
 using HardySoft.UI.BatchImageProcessor.Model;
 
@@ -12,6 +13,8 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 				string fileName = fileNameProvider.GetFileName();
 
 				image.Save(fileName, format);
+
+				Trace.WriteLine("Thread " + Thread.CurrentThread.ManagedThreadId + " saved " + fileName + " at " + DateTime.Now + ".");
 
 				return true;
 			} catch (Exception ex) {

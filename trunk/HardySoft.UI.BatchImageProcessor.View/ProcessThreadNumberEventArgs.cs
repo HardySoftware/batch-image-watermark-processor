@@ -5,8 +5,8 @@ using System.Text;
 
 namespace HardySoft.UI.BatchImageProcessor.View {
 	public class ProcessThreadNumberEventArgs : EventArgs {
-		private uint threadNumber;
 		private string dateTimeFormat;
+		private uint threadNumber;
 
 		public ProcessThreadNumberEventArgs(uint threadNumber, string dateTimeFormat)
 			: base() {
@@ -19,15 +19,15 @@ namespace HardySoft.UI.BatchImageProcessor.View {
 			this.dateTimeFormat = dateTimeFormat;
 		}
 
-		public uint ThreadNumber {
-			get {
-				return this.threadNumber;
-			}
-		}
-
 		public string DateTimeFormat {
 			get {
 				return this.dateTimeFormat;
+			}
+		}
+
+		public uint ThreadNumber {
+			get {
+				return this.threadNumber;
 			}
 		}
 	}
