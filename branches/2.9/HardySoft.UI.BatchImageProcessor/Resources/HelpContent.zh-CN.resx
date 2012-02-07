@@ -174,9 +174,6 @@
   <data name="PreferenceApplicationSkin" xml:space="preserve">
     <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimHei" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;程序皮肤&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;选择程序皮肤。&lt;/Run&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="en-ca" xml:space="preserve" /&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
   </data>
-  <data name="PreferenceThreadNumber" xml:space="preserve">
-    <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimHei" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;线程数量&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimHei" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;这是用来定义同时有多少个并发线程用来处理所有被选中的图形文件。如果你有一个多核处理器以及大量内存的话，建议增加线程数量来提高性能。&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
-  </data>
   <data name="ShrinkImage" xml:space="preserve">
     <value>&lt;FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimHei" FontWeight="Bold" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;缩小图形&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="SimSun" FontSize="13.3333333333333" xml:lang="zh-cn"&gt;如果这个选项框被选中的话程序将按照指定尺寸缩小被处理的图形。&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;</value>
   </data>

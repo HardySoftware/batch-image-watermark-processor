@@ -439,9 +439,6 @@
   <data name="Label_SysInfo" xml:space="preserve">
     <value>系统信息</value>
   </data>
-  <data name="Label_ThreadNumber" xml:space="preserve">
-    <value>处理线程数量</value>
-  </data>
   <data name="Label_UntitledProjectName" xml:space="preserve">
     <value>未命名.hsbip</value>
   </data>

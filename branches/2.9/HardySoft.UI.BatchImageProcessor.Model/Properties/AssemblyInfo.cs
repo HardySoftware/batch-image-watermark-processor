@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Hardy Software")]
 [assembly: AssemblyProduct("HardySoft.UI.BatchImageProcessor.Model")]
-[assembly: AssemblyCopyright("Copyright © Hardy Software 2000 - 2010")]
+[assembly: AssemblyCopyright("Copyright © Hardy Software 2000 - 2011")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

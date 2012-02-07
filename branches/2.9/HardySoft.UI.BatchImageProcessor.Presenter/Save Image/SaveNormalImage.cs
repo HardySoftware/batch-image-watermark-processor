@@ -14,7 +14,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 
 				image.Save(fileName, format);
 
-				System.Diagnostics.Debug.WriteLine("Thread " + Thread.CurrentThread.ManagedThreadId + " saved " + fileName + " at " + DateTime.Now + ".");
+				Trace.WriteLine("Thread " + Thread.CurrentThread.ManagedThreadId + " saved " + fileName + " at " + DateTime.Now + ".");
 
 				return true;
 			} catch (Exception ex) {

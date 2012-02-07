@@ -42,18 +42,6 @@ namespace HardySoft.UI.BatchImageProcessor {
 		}
 
 		#region View member
-		private uint threadNumber = Properties.Settings.Default.ThreadNumber;
-		public uint ThreadNumber {
-			get {
-				return threadNumber;
-			}
-			set {
-				if (value > 0) {
-					threadNumber = value;
-				}
-			}
-		}
-
 		private Skin applicationSkin = Properties.Settings.Default.AppSkin;
 		public Skin ApplicationSkin {
 			get {
@@ -115,7 +103,6 @@ namespace HardySoft.UI.BatchImageProcessor {
 
 		private void btnSave_Click(object sender, RoutedEventArgs e) {
 			Properties.Settings.Default.AppSkin = this.applicationSkin;
-			Properties.Settings.Default.ThreadNumber = this.threadNumber;
 			Properties.Settings.Default.DateTimeFormatString = this.dateTimeFormatString;
 			Properties.Settings.Default.Save();
 

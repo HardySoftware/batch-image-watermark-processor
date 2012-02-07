@@ -55,29 +55,6 @@
 					<TextBlock VerticalAlignment="Top"
 						Margin="10, 0, 10, 0"
 						Style="{DynamicResource ConfigSectionLabel}"
-						Text="{HSMarks:ResourceExtension Label_ThreadNumber}" />
-					<Button Style="{DynamicResource HelpButton}"
-						CommandParameter="PreferenceThreadNumber"
-						Command="ApplicationCommands.Help" />
-				</StackPanel>
-
-				<StackPanel Grid.Column="1" Grid.Row="1" FlowDirection="LeftToRight" Orientation="Horizontal">
-					<Slider x:Name="sThreadNumber" Margin="10,0,0,0"
-						Orientation="Horizontal" Width="200"
-						Minimum="1" Maximum="50"
-						Value="{Binding Path=ThreadNumber, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-						IsSnapToTickEnabled="True"
-						TickFrequency="1"/>
-					<TextBlock x:Name="tbThreadNumber"
-						Text="{Binding ElementName=sThreadNumber, Path=Value}" 
-						Style="{DynamicResource AboutWindowText}"
-						Margin="10,0,0,0" VerticalAlignment="Center" />
-				</StackPanel>
-				
-				<StackPanel Grid.Column="0" Grid.Row="2" Orientation="Horizontal">
-					<TextBlock VerticalAlignment="Top"
-						Margin="10, 0, 10, 0"
-						Style="{DynamicResource ConfigSectionLabel}"
 						Text="{HSMarks:ResourceExtension Label_DateTimeFormat}" />
 					<Button Style="{DynamicResource HelpButton}"
 						CommandParameter="PreferenceDateTimeFormat"
@@ -87,7 +64,7 @@
 				<ComboBox x:Name="cmbDateTimeFormat"
 					Margin="9,0,1,0" VerticalAlignment="Top"
 					SelectedValue="{Binding Path=DateTimeFormatString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-					Grid.Column="1" Grid.Row="2" Height="22"
+					Grid.Column="1" Grid.Row="1" Height="22"
 					SelectedValuePath="Key" DisplayMemberPath="Value" />
 			</Grid>
 
