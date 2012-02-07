@@ -151,7 +151,7 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 			if (e.AddedItems.Count > 0) {
 #if DEBUG
 
-				System.Diagnostics.Debug.WriteLine("watermark selection changed " + e.AddedItems[0].ToString());
+				System.Diagnostics.Debug.WriteLine("watermark selection changed " + e.AddedItems[0].ToString() + " at " + DateTime.Now);
 #endif
 				WatermarkSelection selectedItem = e.AddedItems[0] as WatermarkSelection;
 
@@ -740,7 +740,13 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 			if (handlers != null) {
 				//this.processing = true;
 				this.Progress.Value = 0;
-				ProcessThreadNumberEventArgs args = new ProcessThreadNumberEventArgs(Properties.Settings.Default.ThreadNumber,
+				uint threadNumber;
+#if DEBUG
+				threadNumber = 1;
+#else
+				threadNumber = (uint)Environment.ProcessorCount;
+#endif
+				ProcessThreadNumberEventArgs args = new ProcessThreadNumberEventArgs(threadNumber,
 					Properties.Settings.Default.DateTimeFormatString);
 				handlers(this, args);
 			}

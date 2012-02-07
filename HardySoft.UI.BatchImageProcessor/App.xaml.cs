@@ -57,7 +57,7 @@ namespace HardySoft.UI.BatchImageProcessor {
 						Directory.CreateDirectory(logDir);
 					}
 
-					TextWriterTraceListener listener = new TextWriterTraceListener(logDir + "exception.log");
+					TextWriterTraceListener listener = new TextWriterTraceListener(logDir + "application.log");
 					Trace.Listeners.RemoveAt(0);
 					Trace.Listeners.Add(listener);
 					Trace.AutoFlush = true;
