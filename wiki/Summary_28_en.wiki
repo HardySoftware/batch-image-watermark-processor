@@ -1,5 +1,6 @@
-= Sea Turtle Batch Image Processor 2.9 =
+= Sea Turtle Batch Image Processor 2.8 =
 == Release Date ==
-Feburary 7, 2012
+August 11, 2010
 == Major Changes from Last Version ==
-  * Removed the configuration of thread number from Preference Window, instead use CPU number to drive the thread number.
+  * Added theme support.
+  * Some bug fixes.
