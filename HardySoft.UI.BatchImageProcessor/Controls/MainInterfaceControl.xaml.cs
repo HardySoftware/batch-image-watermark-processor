@@ -740,7 +740,13 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 			if (handlers != null) {
 				//this.processing = true;
 				this.Progress.Value = 0;
-				ProcessThreadNumberEventArgs args = new ProcessThreadNumberEventArgs(Properties.Settings.Default.ThreadNumber,
+				uint threadNumber;
+#if DEBUG
+				threadNumber = 1;
+#else
+				threadNumber = (uint)Environment.ProcessorCount;
+#endif
+				ProcessThreadNumberEventArgs args = new ProcessThreadNumberEventArgs(threadNumber,
 					Properties.Settings.Default.DateTimeFormatString);
 				handlers(this, args);
 			}

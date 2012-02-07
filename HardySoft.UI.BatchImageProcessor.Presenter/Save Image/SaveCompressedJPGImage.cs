@@ -50,7 +50,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 
 				addExif(fileName, (uint)image.Width, (uint)image.Height);
 
-				System.Diagnostics.Debug.WriteLine("Thread " + Thread.CurrentThread.ManagedThreadId + " saved " + fileName + " at " + DateTime.Now + ".");
+				Trace.WriteLine("Thread " + Thread.CurrentThread.ManagedThreadId + " saved " + fileName + " at " + DateTime.Now + ".");
 
 				return true;
 			} catch (Exception ex) {
