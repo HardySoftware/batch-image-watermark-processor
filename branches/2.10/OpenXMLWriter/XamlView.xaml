@@ -1,0 +1,16 @@
+﻿<Window x:Class="OpenXMLWriter.XamlView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Xaml" Height="300" Width="300" Icon="/OpenXMLWriter;component/AppIcon.ico"
+    WindowStyle="ThreeDBorderWindow" ShowInTaskbar="False">
+    <Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition></RowDefinition>
+			<RowDefinition Height="auto" ></RowDefinition>
+		</Grid.RowDefinitions>
+		<TextBox x:Name="tbXaml" Grid.Row="0" IsReadOnly="True"
+			VerticalScrollBarVisibility="Auto" MinLines="2" TextWrapping="WrapWithOverflow"></TextBox>
+		<Button x:Name="btnClose" Grid.Row="1" Height="25"
+			HorizontalAlignment="Right" Click="btnClose_Click">Close</Button>
+	</Grid>
+</Window>
