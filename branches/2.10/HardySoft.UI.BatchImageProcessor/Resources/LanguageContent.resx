@@ -876,4 +876,13 @@
   <data name="Enum_Skin_ShinnyBlue" xml:space="preserve">
     <value>Shinny Blue</value>
   </data>
+  <data name="Label_Latitude" xml:space="preserve">
+    <value>Latitude</value>
+  </data>
+  <data name="Label_Longitude" xml:space="preserve">
+    <value>Longitude</value>
+  </data>
+  <data name="Label_Altitude" xml:space="preserve">
+    <value>Altitude</value>
+  </data>
 </root>
