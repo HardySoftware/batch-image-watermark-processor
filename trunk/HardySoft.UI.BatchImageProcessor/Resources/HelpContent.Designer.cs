@@ -151,7 +151,7 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;FlowDocument PagePadding=&quot;5,0,5,0&quot; AllowDrop=&quot;True&quot; NumberSubstitution.CultureSource=&quot;User&quot; xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Verdana&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;Drop Shadow Location&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Calibri&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;It indicates the location (direction) of drop shadow.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;.
+        ///   Looks up a localized string similar to &lt;FlowDocument PagePadding=&quot;5,0,5,0&quot; AllowDrop=&quot;True&quot; NumberSubstitution.CultureSource=&quot;User&quot; xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Verdana&quot; FontWeight=&quot;Bold&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;Drop Shadow Location&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily=&quot;Calibri&quot; FontSize=&quot;13.3333333333333&quot; xml:lang=&quot;en-ca&quot;&gt;It indicates the location (longitudeRef) of drop shadow.&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/FlowDocument&gt;.
         /// </summary>
         internal static string DropShadowLocation {
             get {

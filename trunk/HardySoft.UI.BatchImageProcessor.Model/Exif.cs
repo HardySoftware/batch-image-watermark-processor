@@ -1,10 +1,10 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Windows.Media.Imaging;
-
-using HardySoft.CC.Mathematics;
 using System.IO;
+using System.Windows.Media.Imaging;
+using HardySoft.CC.Mathematics;
 
 namespace HardySoft.UI.BatchImageProcessor.Model {
 	public enum ColorRepresentation {
@@ -291,6 +291,34 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 
 		private long createSignedRational(long numerator, long denominator) {
 			return (long)(denominator << 32) + numerator;
+		}
+
+		/// <summary>
+		/// Convert a Decimal to Sexagesimal
+		/// </summary>
+		/// <param name="degree"></param>
+		/// <returns></returns>
+		/// <remarks>
+		/// Reference http://geography.about.com/library/howto/htdegrees.htm
+		/// </remarks>
+		private int[] convertDecimalToMinuteSecondDegree(decimal degree) {
+			// TODO when upgrade to .Net 4.0 change return type to Tuple.
+			List<int> result = new List<int>();
+			int hour = (int)Math.Truncate(degree);
+			result.Add(hour);
+
+			decimal remainder = Math.Abs(degree - hour);
+
+			decimal minuteDecimal = remainder * 60;
+			int minute = (int)Math.Truncate(minuteDecimal);
+			result.Add(minute);
+
+			remainder = minuteDecimal - minute;
+
+			int second = (int)Math.Truncate(remainder * 60);
+			result.Add(second);
+
+			return result.ToArray();
 		}
 
 		private object queryMetadata(string query) {
@@ -794,6 +822,129 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			}
 		}
 
+		private GPSExifLocation latitudeCache;
+
+		[ExifDisplay("Label_Latitude")]
+		public decimal? Latitude {
+			get {
+				if (LatitudeRaw != null) {
+					decimal latitude = parseUnsignedRational(latitudeCache.RawCoordinate[0]) 
+						+ (parseUnsignedRational(latitudeCache.RawCoordinate[1]) / 60) 
+						+ (parseUnsignedRational(latitudeCache.RawCoordinate[2]) / 3600);
+
+					if (latitudeCache.CoordinateRef == "S") {
+						latitude *= -1;
+					}
+
+					return latitude;
+				} else {
+					return null;
+				}
+			}
+		}
+
+		public GPSExifLocation LatitudeRaw {
+			get {
+				GPSExifLocation location = null;
+				ulong[] val = (ulong[])queryMetadata("/app1/ifd/gps/{uint=2}");
+				if (val != null) {
+					location = new GPSExifLocation();
+					location.RawCoordinate = val;
+
+					// N or S
+					string longitudeRef = queryMetadata("/app1/ifd/gps/{uint=1}").ToString().ToUpper();
+					location.CoordinateRef = longitudeRef;
+
+					latitudeCache = location;
+				}
+
+				return location;
+			}
+			set {
+				if (value != null) {
+					writeMetatadata("/app1/ifd/gps/{uint=2}", value.RawCoordinate);
+					writeMetatadata("/app1/ifd/gps/{uint=1}", value.CoordinateRef);
+				}
+			}
+		}
+
+		private GPSExifLocation longitudeCache;
+
+		[ExifDisplay("Label_Longitude")]
+		public decimal? Longitude {
+			get {
+				if (LongitudeRaw != null) {
+					decimal longitude = parseUnsignedRational(longitudeCache.RawCoordinate[0])
+						+ (parseUnsignedRational(longitudeCache.RawCoordinate[1]) / 60)
+						+ (parseUnsignedRational(longitudeCache.RawCoordinate[2]) / 3600);
+
+					if (longitudeCache.CoordinateRef == "W") {
+						longitude *= -1;
+					}
+
+					return longitude;
+				} else {
+					return null;
+				}
+			}
+		}
+
+		public GPSExifLocation LongitudeRaw {
+			get {
+				GPSExifLocation location = null;
+				ulong[] val = (ulong[])queryMetadata("/app1/ifd/gps/{uint=4}");
+				if (val != null) {
+					location = new GPSExifLocation();
+					location.RawCoordinate = val;
+
+					// N or S
+					string longitudeRef = queryMetadata("/app1/ifd/gps/{uint=3}").ToString().ToUpper();
+					location.CoordinateRef = longitudeRef;
+
+					longitudeCache = location;
+				}
+
+				return location;
+			}
+			set {
+				if (value != null) {
+					writeMetatadata("/app1/ifd/gps/{uint=4}", value.RawCoordinate);
+					writeMetatadata("/app1/ifd/gps/{uint=3}", value.CoordinateRef);
+				}
+			}
+		}
+
+		[ExifDisplay("Label_Altitude")]
+		public decimal? Altitude {
+			get {
+				var val = queryMetadata("/app1/ifd/gps/{uint=6}");
+				if (val == null) {
+					return null;
+				} else {
+					decimal altitude = parseUnsignedRational(Convert.ToUInt64(val));
+
+					var altitudeRef = queryMetadata("/app1/ifd/gps/{uint=5}");
+
+					// 0 = Above Sea Level, 1 = Below Sea Level
+					if (altitudeRef != null && altitudeRef.ToString() == "1") {
+						altitude *= -1;
+					}
+					return altitude;
+				}
+			}
+			set {
+				if (value.HasValue) {
+					if (value.Value >= 0) {
+						writeMetatadata("/app1/ifd/gps/{uint=6}", createUnsignedRational((uint)value.Value, 1));
+						writeMetatadata("/app1/ifd/gps/{uint=5}", "0");
+					} else {
+						writeMetatadata("/app1/ifd/gps/{uint=6}", createUnsignedRational((uint)(value.Value * -1), 1));
+						writeMetatadata("/app1/ifd/gps/{uint=5}", "1");
+					}
+				}
+			}
+		}
+
 		public bool SaveExif() {
 			JpegBitmapEncoder encoder = new JpegBitmapEncoder();
 			encoder.Frames.Add(BitmapFrame.Create(frame, frame.Thumbnail, metadata, frame.ColorContexts));
@@ -844,6 +995,27 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 		public DisplayAttribute(string displayName)
 			: base() {
 			this.displayName = displayName;
+		}
+	}
+
+	/// <summary>
+	/// A class used to represent a latitude or longitude data in GPS Exif.
+	/// </summary>
+	public class GPSExifLocation {
+		/// <summary>
+		/// "/app1/ifd/gps/{uint=2}" or "/app1/ifd/gps/{uint=4}" value
+		/// </summary>
+		public ulong[] RawCoordinate {
+			get;
+			set;
+		}
+
+		/// <summary>
+		/// "/app1/ifd/gps/{uint=1}" or "/app1/ifd/gps/{uint=3}" value
+		/// </summary>
+		public string CoordinateRef {
+			get;
+			set;
 		}
 	}
 }
