@@ -868,4 +868,13 @@
   <data name="Enum_Skin_ShinnyBlue" xml:space="preserve">
     <value>闪亮蓝色</value>
   </data>
+  <data name="Label_Latitude" xml:space="preserve">
+    <value>维度</value>
+  </data>
+  <data name="Label_Longitude" xml:space="preserve">
+    <value>经度</value>
+  </data>
+  <data name="Label_Altitude" xml:space="preserve">
+    <value>海拔高度</value>
+  </data>
 </root>
