@@ -26,3 +26,5 @@ What you need to do is to follow the steps:
   * Do your editing.
   * Click "Show XAML" button at far right of the toolbar, a window will popup to display the modifed FlowDocument content.
   * Copy and paste it into crowdin's Your Language area as marked in screenshot.
+
+Since the text here is actually a format of rich text, it is encouraged to use the font name optimized to your language and operating system.
