@@ -15,7 +15,7 @@ This file is the resource file used by application to display all localized text
 Many phrases of this file are short and are designed to fit into small display area, thus you may have different ways to interpret the actual meaning. If you are not 100% sure please simply drop me an email with the “Resource Key Label” as marked in the screenshot above, I will get to you with detailed explanation.
 
 Special resource key to pay attention to:
-  * You will see some key begins with "Style_", and the actual content is a list of font name. These keys are used to control the tool what fonts to use when some certain areas are displayed. If you are not sure what window each key refers to, I will be happy to help you. It is encouraged to use the font name optimized to your language and operating system.
+  * You will see some key begins with "Style", and the actual content is a list of font name. These keys are used to control the tool what fonts to use when some certain areas are displayed. If you are not sure what window each key refers to, I will be happy to help you. It is encouraged to use the font name optimized to your language and operating system.
 
 ===HelpContent.resx===
 This file is the resource file used by application to display all tooltip text which you can see when clicking on small blue question marks beside each section's label.
