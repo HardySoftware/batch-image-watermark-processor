@@ -16,3 +16,13 @@ Many phrases of this file are short and are designed to fit into small display a
 
 ===HelpContent.resx===
 This file is the resource file used by application to display all tooltip text which you can see when clicking on small blue question marks beside each section's label.
+
+This is a more complicated format to deal with, I have prepared a tool named OpenXML Writer, which could be downloaded at http://code.google.com/p/batch-image-watermark-processor/downloads/detail?name=OpenXMLWriter.exe&can=2&q=. This is a rich text editor tool to open/edit/save [http://msdn.microsoft.com/en-us/library/aa970909.aspx Xaml FlowDocument] files.
+
+What you need to do is to follow the steps:
+* Click on the entry you want to translate;
+* Get the text with all tags (e.g. <FlowDocument PagePadding="5,0,5,0" AllowDrop="True" NumberSubstitution.CultureSource="User" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"><Paragraph> ... </Paragraph></FlowDocument>), copy and paste to a text editor. Save it to a file with extention .xaml.
+* Run the Open Xml Writer and open the file you have just saved.
+* Do your editing.
+* Click "Show XAML" button at far right of the toolbar, a window will popup to display the modifed FlowDocument content.
+* Copy and paste it into crowdin's Your Language area as marked in screenshot.
