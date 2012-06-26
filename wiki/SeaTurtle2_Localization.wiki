@@ -1,3 +1,18 @@
-#summary One-sentence summary of this page.
+#summary Localization Guide
 
 = Translate into More Languages =
+
+Anybody who can speak other languages are welcome to contribute to the translations. An online collaborative translation service has been setup at [http://crowdin.net/project/sea-turtle-batch-image-process], it is FREE and open to any registered users.
+
+http://batch-image-watermark-processor.googlecode.com/svn/wiki/screenshots/translation.png
+
+==Translation Guide==
+From the site there are 2 files available HelpContent.resx and LanguageContent.resx.
+
+===LanguageContent.resx===
+This file is the resource file used by application to display all localized texts/labels/buttons/tabs wording throughout the tool.
+
+Many phrases of this file are short and are designed to fit into small display area, thus you may have different ways to interpret the actual meaning. If you are not 100% sure please simply drop me an email with the “Resource Key Label” as marked in the screenshot above, I will get to you with detailed explanation.
+
+===HelpContent.resx===
+This file is the resource file used by application to display all tooltip text which you can see when clicking on small blue question marks beside each section's label.
