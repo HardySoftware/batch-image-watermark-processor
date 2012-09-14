@@ -260,7 +260,7 @@
     <value>Choose Watermark Image</value>
   </data>
   <data name="Label_WatermarkImagePosition" xml:space="preserve">
-    <value>Image Position</value>
+    <value>Watermark Position</value>
   </data>
   <data name="Label_WatermarkImagePreview" xml:space="preserve">
     <value>Watermark Image</value>
