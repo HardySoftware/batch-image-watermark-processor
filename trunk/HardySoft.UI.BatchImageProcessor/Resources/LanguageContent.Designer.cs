@@ -1870,7 +1870,7 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Image Position.
+        ///   Looks up a localized string similar to Watermark Position.
         /// </summary>
         internal static string Label_WatermarkImagePosition {
             get {
