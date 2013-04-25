@@ -58,6 +58,12 @@
 			<Button x:Name="btnInsertExifTag" Click="btnInsertExifTag_Click"
 				Style="{DynamicResource GlassButton}" Content="{HSMarks:ResourceExtension Button_InsertExifTag}"
 				Margin="10,0,0,0" IsEnabled="{Binding ElementName=txtWatermarkText, Path=IsFocused}" />
+
+			<Separator />
+
+			<Button x:Name="btnInsertExternalText" Click="btnInsertExternalText_Click"
+				Style="{DynamicResource GlassButton}" Content="{HSMarks:ResourceExtension Button_InsertExternalText}"
+				Margin="10,0,0,0" IsEnabled="{Binding ElementName=txtWatermarkText, Path=IsFocused}" />
 		</ToolBar>
 
 		<TextBox x:Name="txtWatermarkText"

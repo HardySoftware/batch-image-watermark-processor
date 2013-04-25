@@ -1030,23 +1030,19 @@
 														<vsm:VisualState x:Name="Normal" />
 														<vsm:VisualState x:Name="MouseOver">
 															<Storyboard>
-
 																<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="HoverRectangle" Storyboard.TargetProperty="(UIElement.Opacity)">
 																	<SplineDoubleKeyFrame KeyTime="00:00:00" Value="0.5" />
 																</DoubleAnimationUsingKeyFrames>
 																<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="HoverShineRectangle" Storyboard.TargetProperty="(UIElement.Opacity)">
 																	<SplineDoubleKeyFrame KeyTime="00:00:00" Value="1" />
 																</DoubleAnimationUsingKeyFrames>
-
 															</Storyboard>
 														</vsm:VisualState>
 														<vsm:VisualState x:Name="Pressed">
 															<Storyboard>
-
 																<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="PressedRectangle" Storyboard.TargetProperty="(UIElement.Opacity)">
 																	<SplineDoubleKeyFrame KeyTime="00:00:00" Value="1" />
 																</DoubleAnimationUsingKeyFrames>
-
 															</Storyboard>
 														</vsm:VisualState>
 														<vsm:VisualState x:Name="Disabled">
@@ -1947,6 +1943,11 @@
 		<Setter Property="FontWeight" Value="Bold"/>
 		<Setter Property="Background" Value="LightSteelBlue"/>
 	</Style>
+
+	<Style x:Key="{x:Static ToolBar.SeparatorStyleKey}" TargetType="{x:Type Separator}">
+		<Setter Property="Margin" Value="10,2,0,2"/>
+		<Setter Property="Focusable" Value="false"/>
+	</Style>
 	<!-- ==================== -->
 	<!-- End of ToolBar Style -->
 	<!-- ==================== -->
@@ -1999,10 +2000,10 @@
 											</vsm:VisualStateGroup.Transitions>
 											<vsm:VisualState x:Name="Checked">
 												<!--                                                <Storyboard>
-                                                    <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="arrow" Storyboard.TargetProperty="Data">
-                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="M 1,4.5 L 4.5,1 L 8,4.5"/>
-                                                    </ObjectAnimationUsingKeyFrames>
-                                                </Storyboard>-->
+													<ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="arrow" Storyboard.TargetProperty="Data">
+														<DiscreteObjectKeyFrame KeyTime="0" Value="M 1,4.5 L 4.5,1 L 8,4.5"/>
+													</ObjectAnimationUsingKeyFrames>
+												</Storyboard>-->
 											</vsm:VisualState>
 											<vsm:VisualState x:Name="Unchecked"/>
 										</vsm:VisualStateGroup>
@@ -2536,21 +2537,21 @@
 				<ControlTemplate TargetType="ToggleButton">
 					<Grid>
 						<Border x:Name="border"    
-                      Background="{TemplateBinding Background}"  
-                      BorderBrush="{TemplateBinding BorderBrush}"    
-                      BorderThickness="{TemplateBinding BorderThickness}"    
-                      CornerRadius="3" />
+					  Background="{TemplateBinding Background}"  
+					  BorderBrush="{TemplateBinding BorderBrush}"    
+					  BorderThickness="{TemplateBinding BorderThickness}"    
+					  CornerRadius="3" />
 						<ContentPresenter x:Name="contentPresenter"    
-                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"  
-                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+								HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"  
+								VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
 						<Border x:Name="checked"    
-                      IsHitTestVisible="False"
-                      Background="Transparent"
-                      CornerRadius="3" />
+					  IsHitTestVisible="False"
+					  Background="Transparent"
+					  CornerRadius="3" />
 						<Border x:Name="shine"
-                      IsHitTestVisible="False"
-                      Background="Transparent"
-                      CornerRadius="3" />
+					  IsHitTestVisible="False"
+					  Background="Transparent"
+					  CornerRadius="3" />
 					</Grid>
 					<ControlTemplate.Triggers>
 						<Trigger Property="IsMouseOver" Value="True">

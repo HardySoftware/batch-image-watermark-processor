@@ -347,6 +347,7 @@
     <EmbeddedResource Include="Resources\LanguageContent.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>LanguageContent.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="Properties\Settings.settings">

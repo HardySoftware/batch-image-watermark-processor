@@ -877,4 +877,10 @@
   <data name="Label_Altitude" xml:space="preserve">
     <value>海拔高度</value>
   </data>
+  <data name="Button_InsertExternalText" xml:space="preserve">
+    <value>插入外部文字</value>
+  </data>
+  <data name="Label_DatePattern_YMD" xml:space="preserve">
+    <value>年-月-日</value>
+  </data>
 </root>

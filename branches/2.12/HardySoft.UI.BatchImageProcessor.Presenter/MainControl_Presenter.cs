@@ -177,7 +177,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 				//e.DateTimeFormat = checkDateTimeFormatString(e.DateTimeFormat
 				BehaviorSetting bs = new BehaviorSetting() {
 					ThreadNumber = e.ThreadNumber,
-					DateTimeFormatString = checkDateTimeFormatString(e.DateTimeFormat, getDateTimeFormatStrings())
+					DateTimeFormatString = checkDateTimeFormatString(e.DateTimeFormat, GetDateTimeFormatStrings())
 				};
 
 				// we need to use WaitAll to be notified all jobs from all threads are done,
