@@ -1989,6 +1989,11 @@
 		<Setter Property="FontWeight" Value="Bold"/>
 		<Setter Property="Background" Value="LightSteelBlue"/>
 	</Style>
+
+	<Style x:Key="{x:Static ToolBar.SeparatorStyleKey}" TargetType="{x:Type Separator}">
+		<Setter Property="Margin" Value="10,2,0,2"/>
+		<Setter Property="Focusable" Value="false"/>
+	</Style>
 	<!-- ==================== -->
 	<!-- End of ToolBar Style -->
 	<!-- ==================== -->
@@ -2041,10 +2046,10 @@
 											</vsm:VisualStateGroup.Transitions>
 											<vsm:VisualState x:Name="Checked">
 												<!--                                                <Storyboard>
-                                                    <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="arrow" Storyboard.TargetProperty="Data">
-                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="M 1,4.5 L 4.5,1 L 8,4.5"/>
-                                                    </ObjectAnimationUsingKeyFrames>
-                                                </Storyboard>-->
+													<ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="arrow" Storyboard.TargetProperty="Data">
+														<DiscreteObjectKeyFrame KeyTime="0" Value="M 1,4.5 L 4.5,1 L 8,4.5"/>
+													</ObjectAnimationUsingKeyFrames>
+												</Storyboard>-->
 											</vsm:VisualState>
 											<vsm:VisualState x:Name="Unchecked"/>
 										</vsm:VisualStateGroup>

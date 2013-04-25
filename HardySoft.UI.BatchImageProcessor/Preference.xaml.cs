@@ -55,14 +55,14 @@ namespace HardySoft.UI.BatchImageProcessor {
 		private string dateTimeFormatString = Properties.Settings.Default.DateTimeFormatString;
 		public string DateTimeFormatString {
 			get {
-				return checkDateTimeFormatString(this.dateTimeFormatString);
+				return CheckDateTimeFormatString(this.dateTimeFormatString);
 			}
 			set {
-				this.dateTimeFormatString = checkDateTimeFormatString(value);
+				this.dateTimeFormatString = CheckDateTimeFormatString(value);
 			}
 		}
 
-		private string checkDateTimeFormatString(string format) {
+		private string CheckDateTimeFormatString(string format) {
 			foreach (KeyValuePair<string, string> validDateTimeFormatString in this.ValidDateTimeFormatStrings) {
 				if (string.Compare(format, validDateTimeFormatString.Key, false) == 0) {
 					return format;
