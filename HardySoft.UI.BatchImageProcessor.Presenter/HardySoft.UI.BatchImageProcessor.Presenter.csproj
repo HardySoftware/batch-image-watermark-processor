@@ -30,6 +30,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -50,6 +51,15 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AForge">
+      <HintPath>..\packages\AForge.2.2.4\lib\AForge.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Imaging">
+      <HintPath>..\packages\AForge.Imaging.2.2.4\lib\AForge.Imaging.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Math">
+      <HintPath>..\packages\AForge.Math.2.2.4\lib\AForge.Math.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Practices.EnterpriseLibrary.Validation, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\References\Microsoft.Practices.EnterpriseLibrary.Validation.dll</HintPath>
@@ -89,9 +99,12 @@
     <Compile Include="Image Process\ApplyWatermarkImage.cs" />
     <Compile Include="Image Process\ApplyWatermarkText.cs" />
     <Compile Include="Image File Name\BatchRenamedFileName.cs" />
+    <Compile Include="Image Process\BlendFilter.cs" />
+    <Compile Include="Image Process\BlendMode.cs" />
     <Compile Include="Image Process\DropShadowImage.cs" />
     <Compile Include="Image Process\GenerateThumbnail.cs" />
     <Compile Include="Image Process\OilPaint.cs" />
+    <Compile Include="Image Process\PencilSketch.cs" />
     <Compile Include="Image Process\Relief.cs" />
     <Compile Include="Image Process\Size Calculator\IResize.cs" />
     <Compile Include="ImageProcessedEventArgs.cs" />
@@ -133,6 +146,7 @@
   <ItemGroup>
     <None Include="Image Process\Size Calculator\ResizeCalculator.cd" />
     <None Include="Image Process\ProcessImage.cd" />
+    <None Include="packages.config" />
     <None Include="PresenterClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

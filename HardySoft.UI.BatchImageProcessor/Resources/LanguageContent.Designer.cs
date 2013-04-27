@@ -763,6 +763,15 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Pencil Sketch Effect.
+        /// </summary>
+        internal static string Enum_PencilSketch {
+            get {
+                return ResourceManager.GetString("Enum_PencilSketch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Portrait Mode.
         /// </summary>
         internal static string Enum_PortraitMode {

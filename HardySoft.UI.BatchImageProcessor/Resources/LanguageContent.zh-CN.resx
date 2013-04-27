@@ -883,4 +883,7 @@
   <data name="Label_DatePattern_YMD" xml:space="preserve">
     <value>年-月-日</value>
   </data>
+  <data name="Enum_PencilSketch" xml:space="preserve">
+    <value>素描效果</value>
+  </data>
 </root>
