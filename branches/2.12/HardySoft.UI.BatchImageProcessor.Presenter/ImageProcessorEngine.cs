@@ -65,6 +65,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 				.RegisterType<IProcess, GrayScale>("GrayscaleEffect", new PerThreadLifetimeManager()/*,new InjectionProperty("EnableDebug")*/)
 				.RegisterType<IProcess, NegativeImage>("NegativeEffect", new PerThreadLifetimeManager())
 				.RegisterType<IProcess, OilPaint>("OilPaintEffect", new PerThreadLifetimeManager())
+				.RegisterType<IProcess, PencilSketch>("PencilSketchEffect", new PerThreadLifetimeManager())
 				.RegisterType<IProcess, Relief>("ReliefEffect", new PerThreadLifetimeManager())
 				.RegisterType<IProcess, ShrinkImage>("ShrinkImage", new PerThreadLifetimeManager())
 				// file name classes
@@ -197,6 +198,11 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 								process = container.Resolve<IProcess>("OilPaintEffect");
 								normalImage = process.ProcessImage(normalImage, null);
 								Trace.WriteLine("Thread " + Thread.CurrentThread.ManagedThreadId + " applied OilPaintEffect for " + imagePath + " at " + DateTime.Now + ".");
+								break;
+							case ImageProcessType.PencilSketch:
+								process = container.Resolve<IProcess>("PencilSketchEffect");
+								normalImage = process.ProcessImage(normalImage, null);
+								Trace.WriteLine("Thread " + Thread.CurrentThread.ManagedThreadId + " applied PencilSketchEffect for " + imagePath + " at " + DateTime.Now + ".");
 								break;
 							case ImageProcessType.Relief:
 								process = container.Resolve<IProcess>("ReliefEffect");
