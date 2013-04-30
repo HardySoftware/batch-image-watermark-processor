@@ -1,0 +1,888 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ApplicationUrl" xml:space="preserve">
+    <value>http://code.google.com/p/batch-image-watermark-processor/</value>
+  </data>
+  <data name="Button_Font" xml:space="preserve">
+    <value>Carattere</value>
+  </data>
+  <data name="Button_Remove" xml:space="preserve">
+    <value>Rimuovi</value>
+  </data>
+  <data name="Command_About" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="Command_Exit" xml:space="preserve">
+    <value>Esci</value>
+  </data>
+  <data name="Command_Make" xml:space="preserve">
+    <value>Crea</value>
+  </data>
+  <data name="Command_NewProject" xml:space="preserve">
+    <value>Nuovo Progetto</value>
+  </data>
+  <data name="Command_OpenProject" xml:space="preserve">
+    <value>Apri progetto</value>
+  </data>
+  <data name="Command_Preference" xml:space="preserve">
+    <value>Preferiti</value>
+  </data>
+  <data name="Command_SaveAs" xml:space="preserve">
+    <value>Salva Progetto con nome</value>
+  </data>
+  <data name="Command_SaveProject" xml:space="preserve">
+    <value>Salva Progetto</value>
+  </data>
+  <data name="Command_Stop" xml:space="preserve">
+    <value>Ferma</value>
+  </data>
+  <data name="Label_Error" xml:space="preserve">
+    <value>Errore</value>
+  </data>
+  <data name="Style_MenuFont" xml:space="preserve">
+    <value>Verdana</value>
+    <comment>Font used by menu. It is used in Resource Dictionary to hold styles.</comment>
+  </data>
+  <data name="Label_Aperture" xml:space="preserve">
+    <value>Apertura</value>
+  </data>
+  <data name="Label_BackgroundColor" xml:space="preserve">
+    <value>Colore di sfondo</value>
+  </data>
+  <data name="Label_BorderColor" xml:space="preserve">
+    <value>Colore bordo immagine</value>
+  </data>
+  <data name="Label_BorderWidth" xml:space="preserve">
+    <value>Larghezza bordo immagine</value>
+  </data>
+  <data name="Label_Camera" xml:space="preserve">
+    <value>Fotocamera</value>
+  </data>
+  <data name="Label_ColorRepresentation" xml:space="preserve">
+    <value>Rappresentazione dei colori</value>
+  </data>
+  <data name="Label_CreationSoftware" xml:space="preserve">
+    <value>Software per la creazione</value>
+  </data>
+  <data name="Label_DateTaken" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="Label_DropShadowColor" xml:space="preserve">
+    <value>Colore Ombra Esterna</value>
+  </data>
+  <data name="Label_ExposureCompensation" xml:space="preserve">
+    <value>Compensazione esposizione</value>
+  </data>
+  <data name="Label_ExposureMode" xml:space="preserve">
+    <value>Modalità di esposizione</value>
+  </data>
+  <data name="Label_ExposureTime" xml:space="preserve">
+    <value>Tempo di esposizione</value>
+  </data>
+  <data name="Label_FlashMode" xml:space="preserve">
+    <value>Modalità flash</value>
+  </data>
+  <data name="Label_FocalLength" xml:space="preserve">
+    <value>Lunghezza focale</value>
+  </data>
+  <data name="Label_Height" xml:space="preserve">
+    <value>Altezza</value>
+  </data>
+  <data name="Label_HorizontalResolution" xml:space="preserve">
+    <value>Risoluzione orizzontale</value>
+  </data>
+  <data name="Label_ImageEffect" xml:space="preserve">
+    <value>Effetto immagine</value>
+  </data>
+  <data name="Label_ImageFileList" xml:space="preserve">
+    <value>Elenco File immagine</value>
+  </data>
+  <data name="Label_ImageFileName" xml:space="preserve">
+    <value>Nome File immagine</value>
+  </data>
+  <data name="Label_ISOSpeed" xml:space="preserve">
+    <value>Velocità ISO</value>
+  </data>
+  <data name="Label_JPGCompressionRatio" xml:space="preserve">
+    <value>Rapporto di compressione JPG</value>
+  </data>
+  <data name="Label_KeepEXIF" xml:space="preserve">
+    <value>Mantenere EXIF</value>
+  </data>
+  <data name="Label_Manufacturer" xml:space="preserve">
+    <value>Produttore</value>
+  </data>
+  <data name="Label_OuputDirectory" xml:space="preserve">
+    <value>Directory di output</value>
+  </data>
+  <data name="Label_Pixel" xml:space="preserve">
+    <value> pixel</value>
+  </data>
+  <data name="Label_Selected" xml:space="preserve">
+    <value>Selezionato</value>
+  </data>
+  <data name="Label_ShadowDepth" xml:space="preserve">
+    <value>Profondità Ombra</value>
+  </data>
+  <data name="Label_ShadowLocation" xml:space="preserve">
+    <value>Posizione ombra</value>
+  </data>
+  <data name="Label_ShrinkImage" xml:space="preserve">
+    <value>Riduci immagine</value>
+  </data>
+  <data name="Label_ShrinkImageTo" xml:space="preserve">
+    <value>Riduci immagine</value>
+  </data>
+  <data name="Label_SourceDirectory" xml:space="preserve">
+    <value>Directory di origine</value>
+  </data>
+  <data name="Label_VerticalResolution" xml:space="preserve">
+    <value>Risoluzione verticale</value>
+  </data>
+  <data name="Label_ChooseWatermarkImage" xml:space="preserve">
+    <value>Scegli immagine filigrana</value>
+  </data>
+  <data name="Label_WatermarkImagePosition" xml:space="preserve">
+    <value>Posizione immagine</value>
+  </data>
+  <data name="Label_WatermarkImagePreview" xml:space="preserve">
+    <value>Immagine filigrana</value>
+  </data>
+  <data name="Label_WatermarkText" xml:space="preserve">
+    <value>Testo filigrana</value>
+  </data>
+  <data name="Label_WatermarkTextFont" xml:space="preserve">
+    <value>Carattere filigrana</value>
+  </data>
+  <data name="Label_WatermarkTextPosition" xml:space="preserve">
+    <value>Posizione testo</value>
+  </data>
+  <data name="Label_WhiteBalanceMode" xml:space="preserve">
+    <value>Modalità di bilanciamento del bianco</value>
+  </data>
+  <data name="Label_Width" xml:space="preserve">
+    <value>Larghezza</value>
+  </data>
+  <data name="Menu_File" xml:space="preserve">
+    <value>_File</value>
+  </data>
+  <data name="Menu_Help" xml:space="preserve">
+    <value>_Aiuto</value>
+  </data>
+  <data name="Menu_Process" xml:space="preserve">
+    <value>_Process</value>
+  </data>
+  <data name="Message_NewVersionAvailable" xml:space="preserve">
+    <value>È disponibile una nuova versione {0}, visita la homepage del sito per scaricarla.</value>
+  </data>
+  <data name="Message_NoNewVersion" xml:space="preserve">
+    <value>Nessun Aggiornamento Disponibile.</value>
+  </data>
+  <data name="TabHeader_DirectorySelection" xml:space="preserve">
+    <value>Selezione Directory</value>
+  </data>
+  <data name="TabHeader_OutputSettings" xml:space="preserve">
+    <value>Impostazioni Output</value>
+  </data>
+  <data name="TabHeader_ProcessSettings" xml:space="preserve">
+    <value>Impostazioni processo</value>
+  </data>
+  <data name="TabHeader_WatermarkSetting" xml:space="preserve">
+    <value>Impostazioni filigrana</value>
+  </data>
+  <data name="Message_UnableToCheckVersion" xml:space="preserve">
+    <value>Impossibile cercare nuovi aggiornamenti, assicurarsi che la connessione Internet sia attiva e riprovare più tardi.</value>
+  </data>
+  <data name="Validation_JpgCompressionRatio" xml:space="preserve">
+    <value>Il rapporto di compressione jpg deve essere compreso tra 0 e 100.</value>
+  </data>
+  <data name="Validation_ReqDestDirectory" xml:space="preserve">
+    <value>Selezionare una directory di output per procedere.</value>
+  </data>
+  <data name="Validation_ReqSouceDirectory" xml:space="preserve">
+    <value>Selezionare una directory con delle immagini per procedere.</value>
+  </data>
+  <data name="Enum_Height" xml:space="preserve">
+    <value>Altezza</value>
+  </data>
+  <data name="Enum_LongSide" xml:space="preserve">
+    <value>Lato lungo</value>
+  </data>
+  <data name="Enum_LowerCase" xml:space="preserve">
+    <value>Minuscolo</value>
+  </data>
+  <data name="Enum_None" xml:space="preserve">
+    <value>Nessuno</value>
+  </data>
+  <data name="Enum_UpperCase" xml:space="preserve">
+    <value>Maiuscolo</value>
+  </data>
+  <data name="Enum_Width" xml:space="preserve">
+    <value>Larghezza</value>
+  </data>
+  <data name="Label_AllProjects" xml:space="preserve">
+    <value>All Image Process Project Files</value>
+  </data>
+  <data name="Label_AllSupportedImagesFiles" xml:space="preserve">
+    <value>File immagine supportati</value>
+  </data>
+  <data name="Label_BatchRename" xml:space="preserve">
+    <value>Rinomina</value>
+  </data>
+  <data name="Label_BorderSettings" xml:space="preserve">
+    <value>Impostazioni bordo</value>
+  </data>
+  <data name="Label_DestFolder" xml:space="preserve">
+    <value>Seleziona la cartella di destinazione</value>
+  </data>
+  <data name="Label_DropShadowSettings" xml:space="preserve">
+    <value>Impostazioni Ombra Esterna</value>
+  </data>
+  <data name="Label_EnableBatchRename" xml:space="preserve">
+    <value>Attiva rinomina batch</value>
+  </data>
+  <data name="Label_GenerateThumbnail" xml:space="preserve">
+    <value>Crea Thumbnail</value>
+  </data>
+  <data name="Label_NumberPadding" xml:space="preserve">
+    <value>Numero di Padding</value>
+  </data>
+  <data name="Label_OpenWatermarkImage" xml:space="preserve">
+    <value>Apri immagine filigrana</value>
+  </data>
+  <data name="Label_OutputFileNameCase" xml:space="preserve">
+    <value>Output nome File</value>
+  </data>
+  <data name="Label_OutputFileNamePrefix" xml:space="preserve">
+    <value>Output prefisso nome File</value>
+  </data>
+  <data name="Label_OutputFileNameSuffix" xml:space="preserve">
+    <value>Output suffisso nome File</value>
+  </data>
+  <data name="Label_PictureSettings" xml:space="preserve">
+    <value>Impostazioni immagine</value>
+  </data>
+  <data name="Label_ShrinkOption" xml:space="preserve">
+    <value>Opzione Shrink</value>
+  </data>
+  <data name="Label_SourceFolder" xml:space="preserve">
+    <value>Seleziona la cartella di origine</value>
+  </data>
+  <data name="Label_StartNumber" xml:space="preserve">
+    <value>Numero di partenza</value>
+  </data>
+  <data name="Label_Thumbnail" xml:space="preserve">
+    <value>Anteprima</value>
+  </data>
+  <data name="Label_ThumbnailFileNamePrefix" xml:space="preserve">
+    <value>Prefisso nome file di anteprima</value>
+  </data>
+  <data name="Label_ThumbnailFileNameSuffix" xml:space="preserve">
+    <value>Suffisso nome file di anteprima</value>
+  </data>
+  <data name="Label_ThumbnailSize" xml:space="preserve">
+    <value>Dimensioni anteprima</value>
+  </data>
+  <data name="Label_UnsavedProject" xml:space="preserve">
+    <value>Progetto non salvato</value>
+  </data>
+  <data name="Message_SavePrompt" xml:space="preserve">
+    <value>Salvare impostazioni progetto?</value>
+  </data>
+  <data name="Button_Cancel" xml:space="preserve">
+    <value>Annulla</value>
+  </data>
+  <data name="Button_CheckVersion" xml:space="preserve">
+    <value>Guarda nuova versione</value>
+  </data>
+  <data name="Button_OK" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="Button_Save" xml:space="preserve">
+    <value>Salva</value>
+  </data>
+  <data name="Label_ApplicationSkin" xml:space="preserve">
+    <value>Aspetto applicazione</value>
+  </data>
+  <data name="Label_Assembly" xml:space="preserve">
+    <value>Assembly</value>
+  </data>
+  <data name="Label_Author" xml:space="preserve">
+    <value>Autore</value>
+  </data>
+  <data name="Label_Copyright" xml:space="preserve">
+    <value>Copyright</value>
+  </data>
+  <data name="Label_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Label_Hex" xml:space="preserve">
+    <value>Notazione esadecimale</value>
+  </data>
+  <data name="Label_LatestVersion" xml:space="preserve">
+    <value>Ultima versione</value>
+  </data>
+  <data name="Label_MyVersion" xml:space="preserve">
+    <value>La mia versione</value>
+  </data>
+  <data name="Label_Opacity" xml:space="preserve">
+    <value>Opacità</value>
+  </data>
+  <data name="Label_ProductName" xml:space="preserve">
+    <value>Nome prodotto</value>
+  </data>
+  <data name="Label_ProductURL" xml:space="preserve">
+    <value>URL prodotto</value>
+  </data>
+  <data name="Label_SelectedColor" xml:space="preserve">
+    <value>Colore selezionato</value>
+  </data>
+  <data name="Label_SysInfo" xml:space="preserve">
+    <value>Informazioni di sistema</value>
+  </data>
+  <data name="Label_UntitledProjectName" xml:space="preserve">
+    <value>Untitled.hsbip</value>
+  </data>
+  <data name="Label_Version" xml:space="preserve">
+    <value>Versione</value>
+  </data>
+  <data name="WindowTitle_About" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="WindowTitle_ApplicationVersion" xml:space="preserve">
+    <value>Versione dell'applicazione</value>
+  </data>
+  <data name="WindowTitle_ColorPicker" xml:space="preserve">
+    <value>Scegli colore</value>
+  </data>
+  <data name="WindowTitle_Main" xml:space="preserve">
+    <value>Sea Turtle Batch Image Processor</value>
+  </data>
+  <data name="WindowTitle_Preference" xml:space="preserve">
+    <value>Preferiti</value>
+  </data>
+  <data name="Style_AboutLabel" xml:space="preserve">
+    <value>Calibri, Verdana</value>
+    <comment>Font used by labels of about window. It is used in Resource Dictionary to hold styles.</comment>
+  </data>
+  <data name="Style_AboutText" xml:space="preserve">
+    <value>Calibri, Verdana</value>
+    <comment>Font used by texts of about window. It is used in Resource Dictionary to hold styles.</comment>
+  </data>
+  <data name="Style_ButtonFont" xml:space="preserve">
+    <value>Verdana</value>
+    <comment>Font used by button of configuration areas and other popup windows. It is used in Resource Dictionary to hold styles.</comment>
+  </data>
+  <data name="Style_ConfigLabel" xml:space="preserve">
+    <value>Verdana</value>
+    <comment>Font used by labels of configuration areas. It is used in Resource Dictionary to hold styles.</comment>
+  </data>
+  <data name="Style_ConfigTextBox" xml:space="preserve">
+    <value>Calibri, Tahoma, Arial</value>
+    <comment>Font used by text box of configuration areas. It is used in Resource Dictionary to hold styles.</comment>
+  </data>
+  <data name="Style_ToolbarText" xml:space="preserve">
+    <value>Verdana</value>
+    <comment>Font used by text of toolbar buttons. It is used in Resource Dictionary to hold styles.</comment>
+  </data>
+  <data name="Style_WindowFooterFont" xml:space="preserve">
+    <value>Verdana</value>
+    <comment>Font used by window footer. It is used in Resource Dictionary to hold styles.</comment>
+  </data>
+  <data name="Style_WindowTitleFont" xml:space="preserve">
+    <value>Georgia, Verdana</value>
+    <comment>Font used by window title bar. It is used in Resource Dictionary to hold styles.</comment>
+  </data>
+  <data name="Label_ColorCode" xml:space="preserve">
+    <value>Codice colore:</value>
+  </data>
+  <data name="Enum_BottomCenter" xml:space="preserve">
+    <value>Al centro in basso</value>
+  </data>
+  <data name="Enum_BottomLeft" xml:space="preserve">
+    <value>In basso a sinistra</value>
+  </data>
+  <data name="Enum_BottomRight" xml:space="preserve">
+    <value>Basso a destra</value>
+  </data>
+  <data name="Enum_MiddleCenter" xml:space="preserve">
+    <value>Centrato</value>
+  </data>
+  <data name="Enum_MiddleLeft" xml:space="preserve">
+    <value>Centro Sinistra</value>
+  </data>
+  <data name="Enum_MiddleRight" xml:space="preserve">
+    <value>Centro destra</value>
+  </data>
+  <data name="Enum_TopCenter" xml:space="preserve">
+    <value>Centro superiore</value>
+  </data>
+  <data name="Enum_TopLeft" xml:space="preserve">
+    <value>In alto a sinistra</value>
+  </data>
+  <data name="Enum_TopRight" xml:space="preserve">
+    <value>In alto a destra</value>
+  </data>
+  <data name="Enum_AperturePriority" xml:space="preserve">
+    <value>Aperture Priority</value>
+  </data>
+  <data name="Enum_CloudyWeather" xml:space="preserve">
+    <value>Tempo nuvoloso</value>
+  </data>
+  <data name="Enum_CoolWhiteFluorescent" xml:space="preserve">
+    <value>Cool bianco fluorescente</value>
+  </data>
+  <data name="Enum_Daylight" xml:space="preserve">
+    <value>Luce diurna</value>
+  </data>
+  <data name="Enum_DaylightFluorescent" xml:space="preserve">
+    <value>Luce diurna fluorescente</value>
+  </data>
+  <data name="Enum_DayWhiteFluorescent" xml:space="preserve">
+    <value>Giorno bianco fluorescente</value>
+  </data>
+  <data name="Enum_FineWeather" xml:space="preserve">
+    <value>Bel tempo</value>
+  </data>
+  <data name="Enum_Flash" xml:space="preserve">
+    <value>Flash</value>
+  </data>
+  <data name="Enum_FlashMode00" xml:space="preserve">
+    <value>Il Flash non ha funzionato</value>
+  </data>
+  <data name="Enum_FlashMode01" xml:space="preserve">
+    <value>Flash applicato</value>
+  </data>
+  <data name="Enum_Fluorescent" xml:space="preserve">
+    <value>Fluorescente</value>
+  </data>
+  <data name="Enum_ActionMode" xml:space="preserve">
+    <value>Modalità azione</value>
+  </data>
+  <data name="Enum_ISOStudioTungsten" xml:space="preserve">
+    <value>ISO Studio tungsteno</value>
+  </data>
+  <data name="Enum_LandscapeMode" xml:space="preserve">
+    <value>Modalità paesaggio</value>
+  </data>
+  <data name="Enum_Creative" xml:space="preserve">
+    <value>Modalità creative</value>
+  </data>
+  <data name="Enum_Manual" xml:space="preserve">
+    <value>Manuale</value>
+  </data>
+  <data name="Enum_NormalProgram" xml:space="preserve">
+    <value>Programma normale</value>
+  </data>
+  <data name="Enum_Other" xml:space="preserve">
+    <value>Altri</value>
+  </data>
+  <data name="Enum_PortraitMode" xml:space="preserve">
+    <value>Modalità ritratto</value>
+  </data>
+  <data name="Enum_Shade" xml:space="preserve">
+    <value>Ombra</value>
+  </data>
+  <data name="Enum_ShutterPriority" xml:space="preserve">
+    <value>Priorità Shutter</value>
+  </data>
+  <data name="Enum_StandardLightA" xml:space="preserve">
+    <value>Luce standard A</value>
+  </data>
+  <data name="Enum_StandardLightB" xml:space="preserve">
+    <value>Luce standard B</value>
+  </data>
+  <data name="Enum_StandardLightC" xml:space="preserve">
+    <value>Luce standard C</value>
+  </data>
+  <data name="Enum_Tungsten" xml:space="preserve">
+    <value>Tungsteno</value>
+  </data>
+  <data name="Enum_Uncalibrated" xml:space="preserve">
+    <value>Non calibrato</value>
+  </data>
+  <data name="Enum_Unknown" xml:space="preserve">
+    <value>Sconosciuto</value>
+  </data>
+  <data name="Enum_WhiteFluorescent" xml:space="preserve">
+    <value>Bianco fluorescente</value>
+  </data>
+  <data name="Label_ExifValue_Aperture" xml:space="preserve">
+    <value>f {0}</value>
+  </data>
+  <data name="Label_ExifValue_DPI" xml:space="preserve">
+    <value>dpi: {0}</value>
+  </data>
+  <data name="Label_ExifValue_MM" xml:space="preserve">
+    <value>mm: {0}</value>
+  </data>
+  <data name="Label_ExifValue_Pixel" xml:space="preserve">
+    <value>pixel: {0}</value>
+  </data>
+  <data name="Label_ExifValue_Second" xml:space="preserve">
+    <value>{0} sec.</value>
+  </data>
+  <data name="Validation_ImageBorderWidth" xml:space="preserve">
+    <value>Seleziona un numero intero positivo per la larghezza del bordo.</value>
+  </data>
+  <data name="Label_WatermarkTextLayout" xml:space="preserve">
+    <value>Layout testo filigrana</value>
+  </data>
+  <data name="Label_WatermarkTextPreview" xml:space="preserve">
+    <value>Anteprima</value>
+  </data>
+  <data name="Label_WatermarkTextRotationAngle" xml:space="preserve">
+    <value>Angolo di rotazione</value>
+  </data>
+  <data name="Label_WatermarkTextAlignment" xml:space="preserve">
+    <value>Allineamento testo</value>
+  </data>
+  <data name="Label_WatermarkTextColor" xml:space="preserve">
+    <value>Colore testo filigrana</value>
+  </data>
+  <data name="Label_WatermarkImageLayout" xml:space="preserve">
+    <value>Layout immagine filigrana</value>
+  </data>
+  <data name="Label_WatermarkImageRotationAngle" xml:space="preserve">
+    <value>Angolo di rotazione</value>
+  </data>
+  <data name="Validation_RotationAngle" xml:space="preserve">
+    <value>L'angolo di rotazione deve essere un numero intero compreso tra 0 e 360.</value>
+  </data>
+  <data name="Label_WatermarkImageOpacity" xml:space="preserve">
+    <value>Opacità</value>
+  </data>
+  <data name="Validation_Opacity" xml:space="preserve">
+    <value>Il valore di opacità deve essere compreso tra 0,0 e 1,0.</value>
+  </data>
+  <data name="Label_Degree" xml:space="preserve">
+    <value>degree(s)</value>
+  </data>
+  <data name="WindowTitle_ExifMacroBuilder" xml:space="preserve">
+    <value>Generatore di Macro EXIF</value>
+  </data>
+  <data name="Button_InsertExifTag" xml:space="preserve">
+    <value>Inserire il Tag Exif</value>
+  </data>
+  <data name="Label_Exif" xml:space="preserve">
+    <value>Exif disponibili</value>
+  </data>
+  <data name="Label_ExifMacro" xml:space="preserve">
+    <value>EXIF Macro</value>
+  </data>
+  <data name="Label_Warning" xml:space="preserve">
+    <value>Avviso</value>
+  </data>
+  <data name="Validation_ExifMacroError" xml:space="preserve">
+    <value>{0} non è un tag Exif valido. Procedere?</value>
+  </data>
+  <data name="Validation_SourceDestFolderSame" xml:space="preserve">
+    <value>Le directory di origine e di output non possono essere le stesse.</value>
+  </data>
+  <data name="Label_DateTimeFormat" xml:space="preserve">
+    <value>Formato data e ora</value>
+  </data>
+  <data name="Label_DatePattern_FullDatetimeLongTimePattern" xml:space="preserve">
+    <value>Pattern completo data e ora (periodo lungo)</value>
+  </data>
+  <data name="Label_DatePattern_FullDatetimeShortTimePattern" xml:space="preserve">
+    <value>Pattern completo data (periodo breve)</value>
+  </data>
+  <data name="Label_DatePattern_GeneralDatetimeLongTimePattern" xml:space="preserve">
+    <value>Modello generale data e ora (periodo lungo)</value>
+  </data>
+  <data name="Label_DatePattern_GeneralDatetimeShortTimePattern" xml:space="preserve">
+    <value>Modello generale data e ora (periodo breve)</value>
+  </data>
+  <data name="Label_DatePattern_LongDatePattern" xml:space="preserve">
+    <value>Pattern di lunga data</value>
+  </data>
+  <data name="Label_DatePattern_LongTimePattern" xml:space="preserve">
+    <value>Modello di periodo lungo</value>
+  </data>
+  <data name="Label_DatePattern_MonthDayPattern" xml:space="preserve">
+    <value>Modello giorno e mese</value>
+  </data>
+  <data name="Label_DatePattern_ShortDatePattern" xml:space="preserve">
+    <value>Modello data breve</value>
+  </data>
+  <data name="Label_DatePattern_ShortTimePattern" xml:space="preserve">
+    <value>Modello periodo breve</value>
+  </data>
+  <data name="Label_DatePattern_YearMonthPattern" xml:space="preserve">
+    <value>Modello mese e anno</value>
+  </data>
+  <data name="Label_Attribute" xml:space="preserve">
+    <value>Attributo</value>
+  </data>
+  <data name="Label_Value" xml:space="preserve">
+    <value>Valore</value>
+  </data>
+  <data name="Enum_Auto" xml:space="preserve">
+    <value>Automatico</value>
+  </data>
+  <data name="Enum_Average" xml:space="preserve">
+    <value>Media</value>
+  </data>
+  <data name="Enum_Center" xml:space="preserve">
+    <value>Centro</value>
+  </data>
+  <data name="Enum_MultiSegment" xml:space="preserve">
+    <value>Multi Segment</value>
+  </data>
+  <data name="Enum_MultiSpot" xml:space="preserve">
+    <value>Multi Spot</value>
+  </data>
+  <data name="Enum_Partial" xml:space="preserve">
+    <value>Parziale</value>
+  </data>
+  <data name="Enum_Spot" xml:space="preserve">
+    <value>Spot</value>
+  </data>
+  <data name="Label_MeteringMode" xml:space="preserve">
+    <value>Metering Mode</value>
+  </data>
+  <data name="Label_Title" xml:space="preserve">
+    <value>Titolo</value>
+  </data>
+  <data name="Enum_FlashMode05" xml:space="preserve">
+    <value>Flash, no Strobe Return</value>
+  </data>
+  <data name="Enum_FlashMode07" xml:space="preserve">
+    <value>Flash, Strobe Return</value>
+  </data>
+  <data name="Enum_FlashMode09" xml:space="preserve">
+    <value>Flash fired; Compulsory flash mode</value>
+  </data>
+  <data name="Enum_FlashMode13" xml:space="preserve">
+    <value>Flash fired; Compulsory flash mode, Strobe Return light not detected</value>
+  </data>
+  <data name="Enum_FlashMode15" xml:space="preserve">
+    <value>Flash fired; Compulsory flash mode; Strobe Return light detected</value>
+  </data>
+  <data name="Enum_FlashMode16" xml:space="preserve">
+    <value>Flash not fired; Compulsory flash mode</value>
+  </data>
+  <data name="Enum_FlashMode24" xml:space="preserve">
+    <value>No Auto flash</value>
+  </data>
+  <data name="Enum_FlashMode25" xml:space="preserve">
+    <value>Flash fired, Auto Mode</value>
+  </data>
+  <data name="Enum_FlashMode29" xml:space="preserve">
+    <value>Flash fired, Auto Mode, no Strobe Return</value>
+  </data>
+  <data name="Enum_FlashMode31" xml:space="preserve">
+    <value>Flash fired, Auto Mode, Strobe Return</value>
+  </data>
+  <data name="Enum_FlashMode32" xml:space="preserve">
+    <value>No funzione Flash</value>
+  </data>
+  <data name="Enum_FlashMode65" xml:space="preserve">
+    <value>Flash fired, Red-eye Reduction Mode</value>
+  </data>
+  <data name="Enum_FlashMode69" xml:space="preserve">
+    <value>Flash fired, Red-eye Reduction Mode, Strobe Return Light not Detected</value>
+  </data>
+  <data name="Enum_FlashMode71" xml:space="preserve">
+    <value>Flash fired, Red-eye Reduction Mode, Strobe Return Light Detected</value>
+  </data>
+  <data name="Enum_FlashMode73" xml:space="preserve">
+    <value>Flash fired, Compulsory Flash Mode, Red-eye Reduction Mode</value>
+  </data>
+  <data name="Enum_FlashMode77" xml:space="preserve">
+    <value>Flash fired, Compulsory Flash Mode, Red-eye Reduction Mode, Strobe Return Light not Detected</value>
+  </data>
+  <data name="Enum_FlashMode79" xml:space="preserve">
+    <value>Flash fired, Compulsory Flash Mode, Red-eye Reduction Mode, Strobe Return Light Detected</value>
+  </data>
+  <data name="Enum_FlashMode89" xml:space="preserve">
+    <value>Flash fired, Auto Mode, Red-eye Reduction Mode</value>
+  </data>
+  <data name="Enum_FlashMode93" xml:space="preserve">
+    <value>Flash fired, Auto Mode, Strobe Return Light not Detected, Red-eye Reduction Mode</value>
+  </data>
+  <data name="Enum_FlashMode95" xml:space="preserve">
+    <value>Flash fired, Auto Mode, Strobe Return Light Detected, Red-eye Reduction Mode</value>
+  </data>
+  <data name="Label_LightSource" xml:space="preserve">
+    <value>Fonte di luce</value>
+  </data>
+  <data name="Command_Discuss" xml:space="preserve">
+    <value>Discussioni Online</value>
+  </data>
+  <data name="Button_AddWatermarkImage" xml:space="preserve">
+    <value>Aggiungi immagine filigrana</value>
+  </data>
+  <data name="Button_AddWatermarkText" xml:space="preserve">
+    <value>Aggiungi testo filigrana</value>
+  </data>
+  <data name="Validation_OverlapPosition" xml:space="preserve">
+    <value>Ci sono multiple filigrane {0} e potrebberro essere sovrapposte. Sicuro di voler continuare?</value>
+  </data>
+  <data name="Label_WatermarkImageSetting" xml:space="preserve">
+    <value>Impostazioni immagine filigrana</value>
+  </data>
+  <data name="Label_WatermarkTextSetting" xml:space="preserve">
+    <value>Impostazioni testo filigrana</value>
+  </data>
+  <data name="Tooltip_WatermarkImageDelete" xml:space="preserve">
+    <value>Clicca qui per rimuovere l'immagine filigrana corrente.</value>
+  </data>
+  <data name="Tooltip_WatermarkTextDelete" xml:space="preserve">
+    <value>Clicca qui per rimuovere il testo filigrana corrente.</value>
+  </data>
+  <data name="Label_Image" xml:space="preserve">
+    <value>Immagine</value>
+  </data>
+  <data name="Label_Text" xml:space="preserve">
+    <value>Testo</value>
+  </data>
+  <data name="Label_DistanceToEdge" xml:space="preserve">
+    <value>Distanza dal bordo</value>
+  </data>
+  <data name="Enum_GrayScale" xml:space="preserve">
+    <value>Scala di grigi</value>
+  </data>
+  <data name="Enum_NagativeImage" xml:space="preserve">
+    <value>Immagine Negativa</value>
+  </data>
+  <data name="Enum_OilPaint" xml:space="preserve">
+    <value>Effetto pittura ad olio</value>
+  </data>
+  <data name="Enum_Relief" xml:space="preserve">
+    <value>Effetto rilievo</value>
+  </data>
+  <data name="Enum_Skin_DarkCool" xml:space="preserve">
+    <value>Cool Dark</value>
+  </data>
+  <data name="Enum_Skin_ShinnyBlue" xml:space="preserve">
+    <value>Blue shinny</value>
+  </data>
+  <data name="Label_Latitude" xml:space="preserve">
+    <value>Latitudine</value>
+  </data>
+  <data name="Label_Longitude" xml:space="preserve">
+    <value>Longitudine</value>
+  </data>
+  <data name="Label_Altitude" xml:space="preserve">
+    <value>Altitudine</value>
+  </data>
+</root>
