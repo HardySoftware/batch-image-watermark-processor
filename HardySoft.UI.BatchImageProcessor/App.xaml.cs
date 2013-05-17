@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Threading;
@@ -12,7 +11,6 @@ using HardySoft.UI.BatchImageProcessor.Classes;
 using HardySoft.UI.BatchImageProcessor.View;
 
 using Microsoft.Practices.Unity;
-using HardySoft.UI.BatchImageProcessor.Model;
 
 namespace HardySoft.UI.BatchImageProcessor {
 	/// <summary>
@@ -24,9 +22,12 @@ namespace HardySoft.UI.BatchImageProcessor {
 		private MainWindow mainWindow;
 
 		public App() {
-			container.RegisterType<IConfiguration, ExtraConfiguration>();
+			this.container.RegisterType<IConfiguration, ExtraConfiguration>();
 			// depedency injection
-			extraConfig = container.Resolve<ExtraConfiguration>();
+			this.extraConfig = container.Resolve<ExtraConfiguration>();
+
+			AppDomain currentDomain = AppDomain.CurrentDomain;
+			currentDomain.UnhandledException += new UnhandledExceptionEventHandler(CurrentDomain_UnhandledException);
 		}
 
 		private void Application_Startup(object sender, StartupEventArgs e) {
@@ -113,9 +114,18 @@ namespace HardySoft.UI.BatchImageProcessor {
 			window.Show();
 		}
 
+		#region Unhandled excpetions
 		private void Application_DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e) {
 			Trace.TraceError(e.Exception.ToString());
 		}
+
+		void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e) {
+			Exception ex = (Exception)e.ExceptionObject;
+
+			Trace.TraceError(ex.Message);
+			Console.WriteLine(ex.Message);
+		}
+		#endregion
 
 		private void Application_Exit(object sender, ExitEventArgs e) {
 			return;
