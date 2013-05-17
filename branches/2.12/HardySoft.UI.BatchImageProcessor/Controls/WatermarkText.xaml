@@ -46,6 +46,9 @@
 			<TextBlock HorizontalAlignment="Left" Style="{DynamicResource ConfigSectionLabel}"
 				Text="{HSMarks:ResourceExtension Label_ExifMacro}" />
 
+			<Button Style="{DynamicResource HelpButton}"
+				CommandParameter="WatermarkTextExif" Command="ApplicationCommands.Help" />
+
 			<ComboBox x:Name="cmbExifTag" HorizontalContentAlignment="Stretch" Margin="10,0,0,0"
 				IsEnabled="{Binding ElementName=txtWatermarkText, Path=IsFocused}">
 				<ComboBox.ItemTemplate>
@@ -60,6 +63,9 @@
 				Margin="10,0,0,0" IsEnabled="{Binding ElementName=txtWatermarkText, Path=IsFocused}" />
 
 			<Separator />
+
+			<Button Style="{DynamicResource HelpButton}"
+				CommandParameter="WatermarkTextExternalText" Command="ApplicationCommands.Help" />
 
 			<Button x:Name="btnInsertExternalText" Click="btnInsertExternalText_Click"
 				Style="{DynamicResource GlassButton}" Content="{HSMarks:ResourceExtension Button_InsertExternalText}"
