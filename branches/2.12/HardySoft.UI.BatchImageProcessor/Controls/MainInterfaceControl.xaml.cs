@@ -167,7 +167,7 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 		#region Drag-Drop event handlers
 		protected override void OnPreviewDragOver(System.Windows.DragEventArgs e) {
 			// we only want to deal with assembly single file.
-			if (isSingleFile(e) != null) {
+			if (IsSingleFile(e) != null) {
 				e.Effects = System.Windows.DragDropEffects.Copy;
 			} else {
 				e.Effects = System.Windows.DragDropEffects.None;
@@ -183,7 +183,7 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 			// Mark the event as handled, so TextBox's native Drop handler is not called.
 			e.Handled = true;
 
-			string fileName = isSingleFile(e);
+			string fileName = IsSingleFile(e);
 			if (fileName == null) {
 				return;
 			}
@@ -201,17 +201,17 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 					switch (result) {
 						case MessageBoxResult.Yes:
 							saveProject();
-							openProject(fileName);
+							this.OpenProjectFile(fileName);
 							break;
 						case MessageBoxResult.No:
-							openProject(fileName);
+							this.OpenProjectFile(fileName);
 							break;
 						default:
 							// "Cancel" do nothing
 							break;
 					}
 				} else {
-					openProject(fileName);
+					this.OpenProjectFile(fileName);
 				}
 			}
 
@@ -220,7 +220,7 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 
 		// If the data object in args is assembly single file, this method will return the filename.
 		// Otherwise, it returns null.
-		private string isSingleFile(System.Windows.DragEventArgs args) {
+		private string IsSingleFile(System.Windows.DragEventArgs args) {
 			// Check for files in the hovering data object.
 			if (args.Data.GetDataPresent(System.Windows.DataFormats.FileDrop, true)) {
 				string[] fileNames = args.Data.GetData(System.Windows.DataFormats.FileDrop, true) as string[];
@@ -585,33 +585,33 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 				switch (result) {
 					case MessageBoxResult.Yes:
 						saveProject();
-						openProject();
+						this.OpenProjectFile();
 						break;
 					case MessageBoxResult.No:
-						openProject();
+						this.OpenProjectFile();
 						break;
 					default:
 						// "Cancel" do nothing
 						break;
 				}
 			} else {
-				openProject();
+				this.OpenProjectFile();
 			}
 		}
 
-		private void openProject() {
+		private void OpenProjectFile() {
 			OpenFileDialog openFile = new OpenFileDialog();
 			openFile.Filter = res.LanguageContent.Label_AllProjects + " (*.hsbip)|*.hsbip;";
 			openFile.Multiselect = false;
 			if (openFile.ShowDialog() == DialogResult.OK) {
 				string projectFileName = openFile.FileName;
 				if (!string.IsNullOrEmpty(projectFileName)) {
-					openProject(projectFileName);
+					OpenProjectFile(projectFileName);
 				}
 			}
 		}
 
-		private void openProject(string projectFileName) {
+		private void OpenProjectFile(string projectFileName) {
 			ProjectWithFileNameEventArgs args = new ProjectWithFileNameEventArgs(projectFileName);
 
 			ProjectWithFileNameEventHandler handlers = OpenProject;

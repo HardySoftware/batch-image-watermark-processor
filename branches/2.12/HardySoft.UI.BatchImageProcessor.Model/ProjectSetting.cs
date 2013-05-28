@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization;
 
 using HardySoft.UI.BatchImageProcessor.Model.ModelValidators;
@@ -34,7 +35,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			}
 		}
 		
-		private void notify(string propName) {
+		private void Notify(string propName) {
 			/*if (PropertyChanged != null) {
 				PropertyChanged(this, new PropertyChangedEventArgs(propName));
 			}*/
@@ -46,7 +47,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 
 		public ProjectSetting() {
 			Initialize();
-			wireEvents();
+			WireEvents();
 		}
 
 		public void Initialize() {
@@ -73,7 +74,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			this.renamingSetting = new BatchRename();
 		}
 
-		private void wireEvents() {
+		private void WireEvents() {
 			this.Photos.CollectionChanged += new NotifyCollectionChangedEventHandler(Photos_CollectionChanged);
 			this.watermarkCollection.CollectionChanged += new NotifyCollectionChangedEventHandler(watermarkCollection_CollectionChanged);
 			this.dropShadowSetting.PropertyChanged += new PropertyChangedEventHandler(subSetting_PropertyChanged);
@@ -84,17 +85,17 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 
 		protected void watermarkCollection_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e) {
 			this.isDirty = true;
-			notify("WatermarkCollection");
+			Notify("WatermarkCollection");
 		}
 
 		void Photos_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e) {
 			this.isDirty = true;
-			notify("PhotoCollection");
+			Notify("PhotoCollection");
 		}
 
 		void subSetting_PropertyChanged(object sender, PropertyChangedEventArgs e) {
 			this.isDirty = true;
-			notify(e.PropertyName);
+			Notify(e.PropertyName);
 		}
 
 		/// <summary>
@@ -102,7 +103,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 		/// </summary>
 		public void NewProject() {
 			Initialize();
-			wireEvents();
+			WireEvents();
 
 			this.projectCreated = true;
 
@@ -125,12 +126,29 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 		/// </summary>
 		public void OpenProject() {
 			// traverse through image files in the project to make sure they are still available.
-			foreach (PhotoItem photo in Photos) {
+			foreach (PhotoItem photo in this.Photos) {
 				if (!File.Exists(photo.PhotoPath)) {
 					// TODO think about how to handle, remove from list or just uncheck
 					photo.Selected = false;
 				}
 			}
+
+			// check if there are any new files in the same folder but not in project, list them but don't select them,
+			// TODO in .net 4.0 and up, replace the code with Directory.EnumerateFiles to avoid loading all files first.
+			var allNewPhotoFiles = Directory.GetFiles(this.SourceDirectory, "*.*")
+				.Where(s => this.supportedImageFormat.Contains("*" + (new FileInfo(s).Extension).ToLower()) && !this.Photos.Any(x => string.Compare(x.PhotoPath, s, true) == 0))
+				.ToArray();
+
+			foreach (string newPhoto in allNewPhotoFiles) {
+				PhotoItem pi = new PhotoItem()
+				{
+					PhotoPath = newPhoto,
+					Selected = false,
+				};
+				pi.PropertyChanged += new PropertyChangedEventHandler(subSetting_PropertyChanged);
+				this.Photos.Add(pi);
+			}
+			
 			this.isDirty = false;
 			this.projectCreated = true;
 		}
@@ -181,7 +199,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 					}
 				}
 				this.sourceDirectory = value;
-				notify("SourceDirectory");
+				Notify("SourceDirectory");
 			}
 		}
 
@@ -199,7 +217,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 				}
 				this.outputDirectory = value;
 				this.isDirty = true;
-				notify("OutputDirectory");
+				Notify("OutputDirectory");
 			}
 		}
 
@@ -226,7 +244,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 
 		protected void watermark_PropertyChanged(object sender, PropertyChangedEventArgs e) {
 			this.isDirty = true;
-			notify("Watermark");
+			Notify("Watermark");
 		}
 
 		/// <summary>
@@ -264,7 +282,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 				if (this.processType != value) {
 					this.processType = value;
 					this.isDirty = true;
-					notify("ProcessType");
+					Notify("ProcessType");
 				}
 			}
 		}
@@ -278,7 +296,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 				if (keepExif != value) {
 					this.keepExif = value;
 					this.isDirty = true;
-					notify("KeepExif");
+					Notify("KeepExif");
 				}
 			}
 		}
@@ -294,7 +312,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 				if (this.jpgCompressionRatio != value) {
 					this.jpgCompressionRatio = value;
 					this.isDirty = true;
-					notify("JpgCompressionRatio");
+					Notify("JpgCompressionRatio");
 				}
 			}
 		}
@@ -324,7 +342,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 				if (this.shrinkImage != value) {
 					this.shrinkImage = value;
 					this.isDirty = true;
-					notify("ShrinkImage");
+					Notify("ShrinkImage");
 				}
 			}
 		}
@@ -338,7 +356,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 				if (this.shrinkPixelTo != value) {
 					this.shrinkPixelTo = value;
 					this.isDirty = true;
-					notify("ShrinkPixelTo");
+					Notify("ShrinkPixelTo");
 				}
 			}
 		}
@@ -352,7 +370,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 				if (this.shrinkMode != value) {
 					this.shrinkMode = value;
 					this.isDirty = true;
-					notify("ShrinkMode");
+					Notify("ShrinkMode");
 				}
 			}
 		}
@@ -380,7 +398,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 		/// <param name="context"></param>
 		[OnDeserialized]
 		private void OnDeserialized(StreamingContext context) {
-			wireEvents();
+			WireEvents();
 
 			foreach (PhotoItem photoItem in this.Photos) {
 				photoItem.PropertyChanged += new PropertyChangedEventHandler(subSetting_PropertyChanged);
