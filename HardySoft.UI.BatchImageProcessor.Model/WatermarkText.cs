@@ -40,7 +40,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			set {
 				watermarkTextFont = value;
 				//fontName = watermarkTextFont.ToString();
-				//notify("WatermarkTextFontName");
+				//Notify("WatermarkTextFontName");
 				notify("WatermarkTextFont");
 			}
 		}

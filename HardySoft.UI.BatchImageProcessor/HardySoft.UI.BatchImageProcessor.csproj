@@ -336,6 +336,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>HelpContent.zh-CN.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\LanguageContent.fr-FR.resx" />
+    <EmbeddedResource Include="Resources\LanguageContent.it-IT.resx" />
+    <EmbeddedResource Include="Resources\LanguageContent.ru-RU.resx" />
     <EmbeddedResource Include="Resources\LanguageContent.zh-CN.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>LanguageContent.zh-CN.Designer.cs</LastGenOutput>
@@ -347,8 +350,11 @@
     <EmbeddedResource Include="Resources\LanguageContent.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>LanguageContent.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -22,6 +22,8 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 		NagativeImage,
 		[Description(@"Enum_OilPaint")]
 		OilPaint,
+		[Description(@"Enum_PencilSketch")]
+		PencilSketch,
 		[Description(@"Enum_Relief")]
 		Relief
 	}

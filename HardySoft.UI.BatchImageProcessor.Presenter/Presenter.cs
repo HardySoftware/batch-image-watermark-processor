@@ -16,7 +16,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 		public virtual void OnViewLoaded() {
 		}*/
 
-		protected Dictionary<string, string> getDateTimeFormatStrings() {
+		protected Dictionary<string, string> GetDateTimeFormatStrings() {
 			Dictionary<string, string> d = new Dictionary<string, string>();
 			d.Add("d", "Label_DatePattern_ShortDatePattern");
 			d.Add("D", "Label_DatePattern_LongDatePattern");
@@ -28,6 +28,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 			d.Add("t", "Label_DatePattern_ShortTimePattern");
 			d.Add("T", "Label_DatePattern_LongTimePattern");
 			d.Add("Y", "Label_DatePattern_YearMonthPattern");
+			d.Add("yyyy-MM-dd", "Label_DatePattern_YMD");
 
 			return d;
 		}
