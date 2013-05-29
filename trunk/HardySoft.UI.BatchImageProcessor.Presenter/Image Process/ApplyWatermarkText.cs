@@ -5,10 +5,11 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.Drawing.Text;
-
+using System.Linq;
+using System.Threading;
 using HardySoft.CC;
-
 using HardySoft.UI.BatchImageProcessor.Model;
+using System.IO;
 
 namespace HardySoft.UI.BatchImageProcessor.Presenter {
 	public class ApplyWatermarkText : Watermark {
@@ -37,8 +38,8 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 				}
 
 #if DEBUG
-				System.Diagnostics.Debug.WriteLine("Current Thread: "
-					+ System.Threading.Thread.CurrentThread.ManagedThreadId + ","
+				Debug.WriteLine("Current Thread: "
+					+ Thread.CurrentThread.ManagedThreadId + ","
 					+ " Image File Name: " + this.ImageFileName + ","
 					+ " Watermark Text index: " + watermarkIndex);
 #endif
@@ -57,12 +58,14 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 				int yAfterOffset = 0;
 
 				string textToDraw = wt.Text;
-				List<ExifContainerItem> tagsFound = foundExifTags(textToDraw);
+				List<ExifContainerItem> tagsFound = this.FindExifTags(textToDraw);
 
 				if (tagsFound != null && tagsFound.Count > 0 && !string.IsNullOrEmpty(this.ImageFileName)) {
 					// at least one Exif tag is found
-					textToDraw = convertTagsToText(textToDraw, tagsFound);
+					textToDraw = ConvertExifTagsToText(textToDraw, tagsFound);
 				}
+
+				textToDraw = this.ConvertControlTagsToText(textToDraw);
 
 				// create a bitmap we can use to work out the size of the text,
 				// we will then create a new bitmap that is the right size.
@@ -175,7 +178,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 			}
 		}
 
-		private string convertTagsToText(string input, List<ExifContainerItem> tagsFound) {
+		private string ConvertExifTagsToText(string input, List<ExifContainerItem> tagsFound) {
 			ExifMetadata meta = new ExifMetadata(new Uri(this.ImageFileName), true);
 
 			foreach (ExifContainerItem tagFound in tagsFound) {
@@ -197,7 +200,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 						}
 					} else if (tagFound.Property.PropertyType == typeof(DateTime?)) {
 #if DEBUG
-						System.Diagnostics.Debug.WriteLine("Current Thread "
+						Debug.WriteLine("Current Thread "
 							+ System.Threading.Thread.CurrentThread.ManagedThreadId + " Culture "
 							+ System.Threading.Thread.CurrentThread.CurrentCulture.ToString()
 							+ " in ApplyWatermarkText.");
@@ -223,11 +226,11 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 		}
 
 		/// <summary>
-		/// Get all valid image tags in watermark text.
+		/// Get all valid EXIF tags in watermark text.
 		/// </summary>
 		/// <param name="textToDraw"></param>
 		/// <returns></returns>
-		private List<ExifContainerItem> foundExifTags(string textToDraw) {
+		private List<ExifContainerItem> FindExifTags(string textToDraw) {
 			string[] tagsFound = Parser.TagParser(textToDraw, "[[", "]]");
 			if (tagsFound == null || tagsFound.Length == 0) {
 				return null;
@@ -243,6 +246,43 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 				}
 
 				return tags;
+			}
+		}
+
+		/// <summary>
+		/// Finds all controlling tag "{{...}}" and translate them into real texts.
+		/// </summary>
+		/// <param name="input"></param>
+		/// <returns></returns>
+		private string ConvertControlTagsToText(string input) {
+			string[] tagsFound = Parser.TagParser(input, "{{", "}}");
+			if (tagsFound == null || tagsFound.Length == 0) {
+				// no controlling tags, remove the tag.
+				return input;
+			} else {
+				// Controlling file is same name as image file, but with .txt as extension
+				FileInfo fi = new FileInfo(this.ImageFileName);
+				string controllingFile = Path.Combine(fi.DirectoryName, fi.Name.Replace(fi.Extension, string.Empty) + ".txt");
+				if (File.Exists(controllingFile)) {
+					string[] controllingLines = File.ReadAllLines(controllingFile);
+
+					foreach (string tag in tagsFound) {
+						string completeTag = "{{" + tag + "}}";
+						string controllingLine = (from c in controllingLines where c.StartsWith(completeTag) select c.Replace(completeTag, string.Empty).Trim()).FirstOrDefault();
+
+						input = input.Replace(completeTag, controllingLine);
+					}
+				} else {
+					// controlling file is not available
+
+					foreach (string tag in tagsFound) {
+						string completeTag = "{{" + tag + "}}";
+
+						input = input.Replace(completeTag, string.Empty);
+					}
+				}
+
+				return input;
 			}
 		}
 	}

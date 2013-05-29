@@ -11,7 +11,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 		/// <summary>
 		/// Process image in memory.
 		/// </summary>
-		/// <param name="input"></param>
+		/// <param name="input">Image object to process.</param>
 		/// <param name="ps">Project setting used by process logic to look for detailed settings
 		/// related to this module only. Even though application sends the entire settings,
 		/// but each proceesing module may have interest in only 1 or limited section(s).</param>

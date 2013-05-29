@@ -8,7 +8,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 		public override void SetView(IPreferenceView view) {
 			this.View = view;
 
-			this.View.ValidDateTimeFormatStrings = getDateTimeFormatStrings();
+			this.View.ValidDateTimeFormatStrings = GetDateTimeFormatStrings();
 		}
 	}
 }

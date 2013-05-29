@@ -140,6 +140,11 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 			}
 		}
 
+		/// <summary>
+		/// Handles the event to insert an EXIF tag into watermark text.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void btnInsertExifTag_Click(object sender, RoutedEventArgs e) {
 			if (cmbExifTag.SelectedIndex <= 0) {
 				return;
@@ -148,14 +153,31 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 			KeyValuePair<string, string> selectedItem = (KeyValuePair<string, string>)cmbExifTag.SelectedValue;
 			string tag = "[[" + selectedItem.Key + "]]";
 
+			this.InsertTextToWatermarkTextBoxCurrentPosition(tag);
+		}
+
+		/// <summary>
+		/// Handles the event to insert external text into watermark text.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void btnInsertExternalText_Click(object sender, RoutedEventArgs e) {
+			this.InsertTextToWatermarkTextBoxCurrentPosition("{{}}");
+		}
+
+		/// <summary>
+		/// Insert a piece of text to the current cursor position of watermark textbox.
+		/// </summary>
+		/// <param name="textToInsert"></param>
+		private void InsertTextToWatermarkTextBoxCurrentPosition(string textToInsert) {
 			int insertPosition = txtWatermarkText.CaretIndex;
 			string firstPart = txtWatermarkText.Text.Substring(0, insertPosition);
 			string secondPart = txtWatermarkText.Text.Substring(insertPosition);
 
-			this.WatermarkTextToDisplay = firstPart + tag + secondPart;
+			this.WatermarkTextToDisplay = firstPart + textToInsert + secondPart;
 
 			txtWatermarkText.Text = WatermarkTextToDisplay;
-			txtWatermarkText.CaretIndex = firstPart.Length + tag.Length;
+			txtWatermarkText.CaretIndex = firstPart.Length + firstPart.Length;
 		}
 	}
 }
