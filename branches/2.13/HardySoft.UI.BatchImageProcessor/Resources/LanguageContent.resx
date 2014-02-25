@@ -894,4 +894,13 @@
   <data name="Enum_PencilSketch" xml:space="preserve">
     <value>Pencil Sketch Effect</value>
   </data>
+  <data name="Enum_ByDateTimeTaken" xml:space="preserve">
+    <value>Sort by Date/Time the Photos Taken</value>
+  </data>
+  <data name="Enum_ByOriginalFileName" xml:space="preserve">
+    <value>Sort by Original File Names</value>
+  </data>
+  <data name="Label_FileSortOption" xml:space="preserve">
+    <value>Sort Option</value>
+  </data>
 </root>

@@ -12,7 +12,7 @@ using System.Windows;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Hardy Software")]
 [assembly: AssemblyProduct("Sea Turtle Batch Image Processor")]
-[assembly: AssemblyCopyright("Copyright © Hardy Software 2000 - 2013")]
+[assembly: AssemblyCopyright("Copyright © Hardy Software 2000 - 2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -51,6 +51,6 @@ using System.Windows;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("2.12.*")]
-[assembly: AssemblyFileVersion("2.12.0.0")]
+[assembly: AssemblyVersion("2.13.*")]
+[assembly: AssemblyFileVersion("2.13.0.0")]
 [assembly: System.Runtime.CompilerServices.InternalsVisibleTo("HardySoft.UI.BatchImageProcessor.UnitTest")]

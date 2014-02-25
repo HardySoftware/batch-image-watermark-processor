@@ -677,7 +677,7 @@
 				</ScrollViewer>
 			</TabItem>
 
-			<!-- Forth Tab, thumbnail output options and batch rename output files-->
+			<!-- Fourth Tab, thumbnail output options and batch rename output files-->
 			<TabItem Header="{HSMarks:ResourceExtension TabHeader_OutputSettings}">
 				<ScrollViewer VerticalScrollBarVisibility="Auto">
 					<StackPanel Grid.IsSharedSizeScope="True">
@@ -782,6 +782,7 @@
 									<ColumnDefinition Width="3*" />
 								</Grid.ColumnDefinitions>
 								<Grid.RowDefinitions>
+									<RowDefinition Height="auto" />
 									<RowDefinition Height="auto" />
 									<RowDefinition Height="auto" />
 									<RowDefinition Height="auto" />
@@ -900,6 +901,27 @@
 									VerticalAlignment="Stretch"
 									ItemsSource="{Binding Source={HSMarks:EnumDisplay {x:Type DataSource:OutputFileNameCase}}}"
 									SelectedValue="{Binding Path=RenamingSetting.FileNameCase, Mode=TwoWay}"
+									DisplayMemberPath="Value"
+									SelectedValuePath="Key"
+									IsEnabled="{Binding ElementName=chkEnableBatchRename, Path=IsChecked}">
+								</ComboBox>
+
+								<StackPanel Grid.Column="0" Grid.Row="6" Margin="0,5,0,0"
+									Orientation="Horizontal" VerticalAlignment="Top">
+									<TextBlock Style="{DynamicResource ConfigSectionLabel}"
+										Text="{HSMarks:ResourceExtension Label_FileSortOption}" />
+									<Button Style="{DynamicResource HelpButton}"
+										CommandParameter="BatchRenameFileSortOption"
+										Command="ApplicationCommands.Help" />
+								</StackPanel>
+
+								<ComboBox x:Name="cmbOutputFileSortOption"
+									Grid.Column="1" Grid.Row="6"
+									Margin="10,5,0,0"
+									HorizontalAlignment="Stretch"
+									VerticalAlignment="Stretch"
+									ItemsSource="{Binding Source={HSMarks:EnumDisplay {x:Type DataSource:OutputFileSortOption}}}"
+									SelectedValue="{Binding Path=RenamingSetting.SortOption, Mode=TwoWay}"
 									DisplayMemberPath="Value"
 									SelectedValuePath="Key"
 									IsEnabled="{Binding ElementName=chkEnableBatchRename, Path=IsChecked}">

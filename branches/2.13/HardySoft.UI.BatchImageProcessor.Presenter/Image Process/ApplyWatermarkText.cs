@@ -239,7 +239,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 				foreach (ExifContainerItem exifItem in this.exifContainer) {
 					for (int i = 0; i < tagsFound.Length; i++) {
 						if (string.Compare(exifItem.ExifTag, tagsFound[i], false) == 0) {
-							// found at least one tage match
+							// found at least one tag match
 							tags.Add(exifItem);
 						}
 					}

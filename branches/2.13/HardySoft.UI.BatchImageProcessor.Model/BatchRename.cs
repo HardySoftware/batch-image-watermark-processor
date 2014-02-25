@@ -108,5 +108,18 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 				}
 			}
 		}
+
+		private OutputFileSortOption sortOption;
+		public OutputFileSortOption SortOption {
+			get {
+				return this.sortOption;
+			}
+			set {
+				if (this.sortOption != value) {
+					this.sortOption = value;
+					notify("SortOption");
+				}
+			}
+		}
 	}
 }
