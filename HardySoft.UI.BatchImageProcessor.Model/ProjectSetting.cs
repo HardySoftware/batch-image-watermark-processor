@@ -234,7 +234,6 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			get {
 				return this.watermarkCollection;
 			}
-			//set;
 		}
 
 		public void AddWatermark(WatermarkBase watermark) {

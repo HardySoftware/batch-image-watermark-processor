@@ -45,4 +45,12 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 		[Description(@"Enum_Height")]
 		Height
 	}
+
+	public enum OutputFileSortOption {
+		[Description(@"Enum_ByDateTimeTaken")]
+		ByDateTimeTaken,
+
+		[Description(@"Enum_ByOriginalFileName")]
+		ByOriginalFileName
+	}
 }

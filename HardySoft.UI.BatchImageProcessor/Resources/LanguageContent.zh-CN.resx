@@ -886,4 +886,13 @@
   <data name="Enum_PencilSketch" xml:space="preserve">
     <value>素描效果</value>
   </data>
+  <data name="Enum_ByDateTimeTaken" xml:space="preserve">
+    <value>根据照片拍摄时间日期</value>
+  </data>
+  <data name="Enum_ByOriginalFileName" xml:space="preserve">
+    <value>根据原始文件名次序</value>
+  </data>
+  <data name="Label_FileSortOption" xml:space="preserve">
+    <value>排序选项</value>
+  </data>
 </root>

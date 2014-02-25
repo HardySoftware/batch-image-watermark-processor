@@ -9,7 +9,7 @@ using HardySoft.CC;
 
 namespace HardySoft.UI.BatchImageProcessor.Presenter {
 	/// <summary>
-	/// This class is used to generate regaular output file with batch rename enabled.
+	/// This class is used to generate regular output file with batch rename enabled.
 	/// </summary>
 	class BatchRenamedFileName : IFilenameProvider {
 		public string GetFileName() {

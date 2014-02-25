@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
+using System.Linq;
 using System.Threading;
 
 using HardySoft.UI.BatchImageProcessor.Model;
@@ -29,16 +30,29 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 			Trace.WriteLine("Number of Thread " + threadNumber);
 			this.ps = ps;
 			this.threadNumber = threadNumber;
+
+			// add all selected images to job queue.
 			this.jobQueue = new Queue<JobItem>();
 			this.events = events;
 			this.threads = new Thread[this.threadNumber];
 			this.exifContainer = exifContainer;
 			this.dateTimeStringFormat = dateTimeStringFormat;
 
-			// add all selected images to job queue.
-			jobQueue = new Queue<JobItem>();
 			uint index = 0;
-			foreach (PhotoItem item in ps.Photos) {
+
+			List<PhotoItem> photoList = new List<PhotoItem>();
+			if (ps.RenamingSetting.EnableBatchRename) {
+				// do s sort of photo items first if batch rename is enabled.
+				if (ps.RenamingSetting.SortOption == OutputFileSortOption.ByDateTimeTaken) {
+					photoList = (from p in ps.Photos orderby (new ExifMetadata(new Uri(p.PhotoPath), true)).DateImageTaken select p).ToList();
+				} else if (ps.RenamingSetting.SortOption == OutputFileSortOption.ByOriginalFileName) {
+					photoList = (from p in ps.Photos orderby p.PhotoPath select p).ToList();
+				} else {
+					throw new InvalidOperationException("Sort method is not supported.");
+				}
+			}
+
+			foreach (PhotoItem item in photoList) {
 				if (item.Selected) {
 					jobQueue.Enqueue(new JobItem() {
 						FileName = item.PhotoPath,
@@ -178,7 +192,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 					if (ps.ShrinkImage && ps.ShrinkPixelTo > 0) {
 						process = container.Resolve<IProcess>("ShrinkImage");
 						normalImage = process.ProcessImage(normalImage, this.ps);
-						Trace.WriteLine("Thread " + Thread.CurrentThread.ManagedThreadId + " shrinked " + imagePath + " at " + DateTime.Now + ".");
+						Trace.WriteLine("Thread " + Thread.CurrentThread.ManagedThreadId + " shrank " + imagePath + " at " + DateTime.Now + ".");
 					}
 
 					// image process effect
