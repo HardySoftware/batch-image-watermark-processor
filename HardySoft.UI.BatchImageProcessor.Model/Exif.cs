@@ -817,7 +817,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 			set {
 				if (value.HasValue) {
 					writeMetatadata("/app1/ifd/exif/subifd:{uint=36867}",
-						value.Value.ToString("yyyy:MM:dd hh:mm:ss"));
+						value.Value.ToString("yyyy:MM:dd HH:mm:ss"));
 				}
 			}
 		}
