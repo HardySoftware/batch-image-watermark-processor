@@ -11,6 +11,7 @@ using HardySoft.UI.BatchImageProcessor.View;
 
 using Microsoft.Practices.EnterpriseLibrary.Validation;
 using System.ComponentModel;
+using HardySoft.UI.BatchImageProcessor.Model.Exif;
 
 namespace HardySoft.UI.BatchImageProcessor.Presenter {
 	public class MainControl_Presenter : Presenter<IMainInterfaceControlView> {

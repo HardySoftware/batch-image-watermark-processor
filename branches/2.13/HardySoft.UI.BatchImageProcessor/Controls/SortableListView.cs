@@ -87,7 +87,7 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 					&& !String.IsNullOrEmpty(sortableGridViewColumn.SortPropertyName)) {
 					ListSortDirection direction;
 					bool newSortColumn = false;
-					// determine if this is assembly new sort, or assembly switch in sort longitudeRef.
+					// determine if this is assembly new sort, or assembly switch in sort latitudeRef.
 					if (lastSortedOnColumn == null
 						|| String.IsNullOrEmpty(lastSortedOnColumn.SortPropertyName)
 						|| !String.Equals(sortableGridViewColumn.SortPropertyName, lastSortedOnColumn.SortPropertyName, StringComparison.InvariantCultureIgnoreCase)) {

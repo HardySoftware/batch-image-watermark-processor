@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-
+using HardySoft.UI.BatchImageProcessor.Model.Exif;
 using HardySoft.UI.BatchImageProcessor.Model.ModelValidators;
-
-using Microsoft.Practices.EnterpriseLibrary.Validation.Validators;
 
 namespace HardySoft.UI.BatchImageProcessor.Model {
 	[Serializable]

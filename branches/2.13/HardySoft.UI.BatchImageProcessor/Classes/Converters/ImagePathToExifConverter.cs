@@ -2,15 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading;
 using System.Windows.Data;
-using System.Windows.Media.Imaging;
-
 using HardySoft.UI.BatchImageProcessor.Model;
-using System.ComponentModel;
+using HardySoft.UI.BatchImageProcessor.Model.Exif;
 
 namespace HardySoft.UI.BatchImageProcessor.Classes.Converters {
 	public class ImagePathToExifConverter : IValueConverter {
@@ -136,7 +130,7 @@ namespace HardySoft.UI.BatchImageProcessor.Classes.Converters {
 
 			Uri source = new Uri(imagePath);
 
-			ExifMetadata meta = new ExifMetadata(source, true);
+			ExifMetadata meta = new ExifMetadata(source);
 
 			List<ExifContainerItem> exifContainer = Utilities.GetExifContainer();
 

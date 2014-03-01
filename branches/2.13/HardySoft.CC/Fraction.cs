@@ -265,6 +265,32 @@ namespace HardySoft.CC.Mathematics {
 		}
 
 		/// <summary>
+		/// Get the value of the Fraction object as double with full support for NaNs and infinities.
+		/// </summary>
+		/// <returns>
+		/// The float representation of the Fraction, or float.NaN, float.NegativeInfinity
+		/// or float.PositiveInfinity.
+		/// </returns>
+		public float ToFloat() {
+			if (this.denominator == 1) {
+				return this.numerator;
+			} else if (this.denominator == 0) {
+				switch (NormalizeIndeterminate(this.numerator)) {
+					case Indeterminates.NegativeInfinity:
+						return float.NegativeInfinity;
+					case Indeterminates.PositiveInfinity:
+						return float.PositiveInfinity;
+					case Indeterminates.NaN:
+					default:
+						// this can't happen
+						return float.NaN;
+				}
+			} else {
+				return (float)this.numerator / (float)this.denominator;
+			}
+		}
+
+		/// <summary>
 		/// Get the value of the Fraction as a string, with proper representation for NaNs and infinites.
 		/// </summary>
 		/// <returns>

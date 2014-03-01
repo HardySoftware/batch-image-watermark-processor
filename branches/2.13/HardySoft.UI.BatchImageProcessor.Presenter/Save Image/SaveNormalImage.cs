@@ -5,6 +5,7 @@ using System.Drawing.Imaging;
 using System.Threading;
 
 using HardySoft.UI.BatchImageProcessor.Model;
+using HardySoft.UI.BatchImageProcessor.Model.Exif;
 
 namespace HardySoft.UI.BatchImageProcessor.Presenter {
 	class SaveNormalImage : ISaveImage {

@@ -10,6 +10,7 @@ using System.Threading;
 using HardySoft.CC;
 using HardySoft.UI.BatchImageProcessor.Model;
 using System.IO;
+using HardySoft.UI.BatchImageProcessor.Model.Exif;
 
 namespace HardySoft.UI.BatchImageProcessor.Presenter {
 	public class ApplyWatermarkText : Watermark {
@@ -179,7 +180,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 		}
 
 		private string ConvertExifTagsToText(string input, List<ExifContainerItem> tagsFound) {
-			ExifMetadata meta = new ExifMetadata(new Uri(this.ImageFileName), true);
+			ExifMetadata meta = new ExifMetadata(new Uri(this.ImageFileName));
 
 			foreach (ExifContainerItem tagFound in tagsFound) {
 				// replace actual value from Exif in watermark text
