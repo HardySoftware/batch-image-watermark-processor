@@ -3,8 +3,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Threading;
-
-using HardySoft.UI.BatchImageProcessor.Model;
+using HardySoft.UI.BatchImageProcessor.Model.Exif;
 
 namespace HardySoft.UI.BatchImageProcessor.Presenter {
 	/// <summary>
@@ -64,7 +63,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 				return;
 			}
 
-			ExifMetadata targetExif = new ExifMetadata(new Uri(fileName, UriKind.Absolute), false);
+			ExifMetadata targetExif = new ExifMetadata(new Uri(fileName, UriKind.Absolute));
 			targetExif.CameraModel = this.exif.CameraModel;
 			targetExif.ColorRepresentation = this.exif.ColorRepresentation;
 			targetExif.CreationSoftware = "Sea Turtle Batch Image Processor";

@@ -6,9 +6,8 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Threading;
-
 using HardySoft.UI.BatchImageProcessor.Model;
-
+using HardySoft.UI.BatchImageProcessor.Model.Exif;
 using Microsoft.Practices.Unity;
 
 namespace HardySoft.UI.BatchImageProcessor.Presenter {
@@ -44,9 +43,10 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 			if (ps.RenamingSetting.EnableBatchRename) {
 				// do s sort of photo items first if batch rename is enabled.
 				if (ps.RenamingSetting.SortOption == OutputFileSortOption.ByDateTimeTaken) {
-					var pl = (from p in ps.Photos select new { p.PhotoPath, (new ExifMetadata(new Uri(p.PhotoPath), true)).DateImageTaken.Value }).Distinct().OrderBy(p => p.Value);
-					// pl.OrderBy(p => p.DateImageTaken);
-					photoList = (from p in ps.Photos orderby (new ExifMetadata(new Uri(p.PhotoPath), true)).DateImageTaken select p).ToList();
+					var pl = (from p in ps.Photos
+							  orderby (new ExifMetadata(new Uri(p.PhotoPath))).DateImageTaken
+							  select p);
+					photoList = pl.ToList();
 				} else if (ps.RenamingSetting.SortOption == OutputFileSortOption.ByOriginalFileName) {
 					photoList = (from p in ps.Photos orderby p.PhotoPath select p).ToList();
 				} else {
@@ -168,7 +168,7 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 				try {
 					if (ps.KeepExif) {
 						// keep exif information from original file
-						exif = new ExifMetadata(new Uri(imagePath), true);
+						exif = new ExifMetadata(new Uri(imagePath));
 						Trace.WriteLine("Thread " + Thread.CurrentThread.ManagedThreadId + " obtained EXIF for " + imagePath + " at " + DateTime.Now + ".");
 					}
 
