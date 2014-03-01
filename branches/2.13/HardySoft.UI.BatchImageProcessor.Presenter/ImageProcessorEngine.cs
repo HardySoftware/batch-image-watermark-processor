@@ -44,6 +44,8 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 			if (ps.RenamingSetting.EnableBatchRename) {
 				// do s sort of photo items first if batch rename is enabled.
 				if (ps.RenamingSetting.SortOption == OutputFileSortOption.ByDateTimeTaken) {
+					var pl = (from p in ps.Photos select new { p.PhotoPath, (new ExifMetadata(new Uri(p.PhotoPath), true)).DateImageTaken.Value }).Distinct().OrderBy(p => p.Value);
+					// pl.OrderBy(p => p.DateImageTaken);
 					photoList = (from p in ps.Photos orderby (new ExifMetadata(new Uri(p.PhotoPath), true)).DateImageTaken select p).ToList();
 				} else if (ps.RenamingSetting.SortOption == OutputFileSortOption.ByOriginalFileName) {
 					photoList = (from p in ps.Photos orderby p.PhotoPath select p).ToList();
