@@ -106,7 +106,7 @@ namespace HardySoft.UI.BatchImageProcessor.Classes {
 		/// <summary>
 		/// Due to the restriction of this project that UI resource sits outside of model project,
 		/// the localized validation message returns as assembly resource key. But when wen need to embed
-		/// some validation value from result there is no default property we can use, so the idea
+		/// some validation value from result there is no default propertyItem we can use, so the idea
 		/// is to make returned message like "resource_key||value1||value2".
 		/// </summary>
 		/// <param name="input">"resource_key||value1||value2"</param>

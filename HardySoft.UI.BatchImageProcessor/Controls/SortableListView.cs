@@ -82,7 +82,7 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 			if (headerClicked != null && headerClicked.Role != GridViewColumnHeaderRole.Padding) {
 				// attempt to cast to the sortableGridViewColumn object.
 				SortableGridViewColumn sortableGridViewColumn = (headerClicked.Column) as SortableGridViewColumn;
-				// ensure that the column header is the correct type and assembly sort property has been set.
+				// ensure that the column header is the correct type and assembly sort propertyItem has been set.
 				if (sortableGridViewColumn != null
 					&& !String.IsNullOrEmpty(sortableGridViewColumn.SortPropertyName)) {
 					ListSortDirection direction;
@@ -101,7 +101,7 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 						}
 					}
 
-					// get the sort property name from the column's information.
+					// get the sort propertyItem name from the column's information.
 					string sortPropertyName = sortableGridViewColumn.SortPropertyName;
 					// sort the data.
 					sort(sortPropertyName, direction);

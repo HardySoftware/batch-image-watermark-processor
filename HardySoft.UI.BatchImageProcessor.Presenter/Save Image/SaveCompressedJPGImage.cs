@@ -83,8 +83,8 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 			targetExif.MeteringMode = this.exif.MeteringMode;
 			targetExif.VerticalResolution = this.exif.VerticalResolution;
 			targetExif.Width = width;
-			targetExif.LatitudeRaw = this.exif.LatitudeRaw;
-			targetExif.LongitudeRaw = this.exif.LongitudeRaw;
+			targetExif.Latitude = this.exif.Latitude;
+			targetExif.Longitude = this.exif.Longitude;
 			targetExif.Altitude = this.exif.Altitude;
 
 			targetExif.SaveExif();

@@ -16,7 +16,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model.Exif {
 		/// 
 		/// </summary>
 		/// <remarks>
-		/// All property tags http://msdn.microsoft.com/en-us/library/ms534417%28v=vs.85%29.aspx
+		/// All propertyItem tags http://msdn.microsoft.com/en-us/library/ms534417%28v=vs.85%29.aspx
 		/// </remarks>
 		private PropertyItem[] propItems;
 		private string fileName;
@@ -26,12 +26,6 @@ namespace HardySoft.UI.BatchImageProcessor.Model.Exif {
 		private static readonly int UInt32Size = Marshal.SizeOf(typeof(uint));
 		private static readonly int RationalSize = 2 * Marshal.SizeOf(typeof(int));
 		private static readonly int URationalSize = 2 * Marshal.SizeOf(typeof(uint));
-
-		private string[] exifDateTimeFormats = new string[]{
-					"yyyy:MM:dd HH:mm:ss",
-					"yyyy:MM:dd   :  :  ",
-					"    :  :   HH:mm:ss",
-				};
 
 		public ExifMetadata(Uri imageUri) {
 			this.fileName = imageUri.AbsolutePath;
@@ -43,28 +37,28 @@ namespace HardySoft.UI.BatchImageProcessor.Model.Exif {
 		}
 
 		/// <summary>
-		/// Queries the image's property item list to get value of the designated property Id.
+		/// Queries the image's propertyItem item list to get value of the designated propertyItem Id.
 		/// </summary>
-		/// <param name="propertyId">The property Id to query by.</param>
-		/// <param name="typeOfValue">The type of the value should be.</param>
+		/// <typeparam name="T">The type of the value should be.</typeparam>
+		/// <param name="propertyId">The propertyItem Id to query by.</param>
 		/// <returns></returns>
-		private object QueryMetadata(int propertyId, Type typeOfValue) {
+		private object QueryMetadata<T>(int propertyId) {
 			var property = (from p in this.propItems where p.Id == propertyId select p).FirstOrDefault();
 
 			if (property != null) {
-				return this.FromPropertyItem(property, typeOfValue);
+				object o = this.FromPropertyItem(property);
+				return this.ConvertData<T>(o);
 			}
 
 			return null;
 		}
 
 		/// <summary>
-		/// Converts a property item to an object or array of objects.
+		/// Converts a propertyItem item to an object or array of objects.
 		/// </summary>
-		/// <param name="propertyItem">the property item to convert</param>
-		/// <param name="typeOfValue">The type of the value should be.</param>
-		/// <returns>the property value</returns>
-		private object FromPropertyItem(PropertyItem propertyItem, Type typeOfValue) {
+		/// <param name="propertyItem">the propertyItem item to convert</param>
+		/// <returns>the propertyItem value</returns>
+		private object FromPropertyItem(PropertyItem propertyItem) {
 			if (propertyItem == null) {
 				return null;
 			}
@@ -168,16 +162,27 @@ namespace HardySoft.UI.BatchImageProcessor.Model.Exif {
 					}
 			}
 
-			return this.ConvertData(typeOfValue, data);
+			return data;
 		}
 
-		private object ConvertData(Type targetType, object value) {
-			if (targetType == null || value == null) {
+		/// <summary>
+		/// Convert data from propertyItem item into actual value.
+		/// </summary>
+		/// <typeparam name="T">The type of the value should be.</typeparam>
+		/// <param name="targetType"></param>
+		/// <param name="value"></param>
+		/// <returns></returns>
+		private object ConvertData<T>(object value) {
+			if (typeof(T) == null || value == null) {
+				return value;
+			}
+
+			if (typeof(T) == typeof(Fraction) || typeof(T) == typeof(Fraction[])) {
 				return value;
 			}
 
 			if (value is Array) {
-				if (targetType == typeof(string)) {
+				if (typeof(T) == typeof(string)) {
 					return Encoding.ASCII.GetString((byte[])value);
 				} else {
 					int length = ((Array)value).Length;
@@ -193,7 +198,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model.Exif {
 				value = ((String)value).TrimEnd('\0').Trim();
 			}
 
-			if (targetType == typeof(DateTime) && value is String) {
+			if (typeof(T) == typeof(DateTime) && value is String) {
 				string date = value.ToString();
 				try {
 					return new DateTime(
@@ -219,20 +224,20 @@ namespace HardySoft.UI.BatchImageProcessor.Model.Exif {
 				}
 			}
 
-			if (targetType.IsEnum) {
-				Type underlyingType = Enum.GetUnderlyingType(targetType);
+			if (typeof(T).IsEnum) {
+				Type underlyingType = Enum.GetUnderlyingType(typeof(T));
 				if (value.GetType() != underlyingType) {
 					value = Convert.ChangeType(value, underlyingType);
 				}
 
-				if (Enum.IsDefined(targetType, value) || FlagsAttribute.IsDefined(targetType, typeof(FlagsAttribute))) {
+				if (Enum.IsDefined(typeof(T), value) || FlagsAttribute.IsDefined(typeof(T), typeof(FlagsAttribute))) {
 					try {
-						return Enum.ToObject(targetType, value);
+						return Enum.ToObject(typeof(T), value);
 					} catch { }
 				}
 			}
 
-			if (targetType == typeof(UnicodeEncoding) && value is byte[]) {
+			if (typeof(T) == typeof(UnicodeEncoding) && value is byte[]) {
 				byte[] bytes = (byte[])value;
 				if (bytes.Length <= 1) {
 					return String.Empty;
@@ -241,7 +246,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model.Exif {
 				return Encoding.Unicode.GetString(bytes, 0, bytes.Length - 1);
 			}
 
-			if (targetType == typeof(Bitmap) && value is byte[]) {
+			if (typeof(T) == typeof(Bitmap) && value is byte[]) {
 				byte[] bytes = (byte[])value;
 				if (bytes.Length < 1) {
 					return null;
@@ -255,50 +260,52 @@ namespace HardySoft.UI.BatchImageProcessor.Model.Exif {
 			return value;
 		}
 
-		private void writeMetadata(int propertyId, object value) {
-			var property = (from p in this.propItems where p.Id == propertyId select p).FirstOrDefault();
+		/// <summary>
+		/// Convert actual value into byte array to save with image.
+		/// </summary>
+		/// <param name="dataType"></param>
+		/// <param name="targetType"></param>
+		/// <param name="value"></param>
+		/// <returns></returns>
+		private byte[] ConvertData<T>(ExifType targetType, object value) {
+			if (value == null) {
+				return new byte[0];
+			}
 
-			if (property != null) {
-				byte[] buffer;
+			switch (targetType) {
+				case ExifType.Ascii: {
+						return Encoding.ASCII.GetBytes(Convert.ToString(value) + '\0');
+					}
+				case ExifType.Byte:
+				case ExifType.Raw: {
+						if (typeof(T) == typeof(UnicodeEncoding)) {
+							return Encoding.Unicode.GetBytes(Convert.ToString(value) + '\0');
+						}
 
-				switch (property.Type) {
-					case 2:
-					// ASCII
-					case 7:
-						// Raw
-						buffer = Encoding.ASCII.GetBytes(Convert.ToString(value) + '\0');
-						property.Len = buffer.Length;
-						property.Value = buffer;
-						break;
-					case 3:
-						if (value == null) {
-							property.Len = 0;
-							property.Value = new byte[0];
-						} else if (value is Array) {
+						if (typeof(T) == typeof(string)) {
+							return Encoding.ASCII.GetBytes(Convert.ToString(value));
+						}
+
+						if (value is Array) {
 							Array array = value as Array;
 							int count = array.Length;
-							buffer = new byte[count * Marshal.SizeOf(typeof(uint))];
+							byte[] data = new byte[count];
 
 							for (int i = 0; i < count; i++) {
-								byte[] item = BitConverter.GetBytes(Convert.ToUInt32(array.GetValue(i)));
-								item.CopyTo(buffer, i * Marshal.SizeOf(typeof(uint)));
+								data[i] = Convert.ToByte(array.GetValue(i));
 							}
 
-							property.Len = buffer.Length;
-							property.Value = buffer;
-						} else if (value.GetType().IsValueType || value is IConvertible) {
-							byte[] data = BitConverter.GetBytes(Convert.ToUInt32(value));
-
-							// property.Len = buffer.Length;
-							// property.Value = buffer;
+							return data;
 						}
-						break;
-					case 9:
-						// Int32
-						if (value == null) {
-							property.Len = 0;
-							property.Value = new byte[0];
-						} else if (value is Array) {
+
+						if (value.GetType().IsValueType || value is IConvertible) {
+							return new byte[] { Convert.ToByte(value) };
+						}
+
+						throw new ArgumentException(String.Format("Error converting {0} to byte[].", value.GetType().Name));
+					}
+				case ExifType.Int32: {
+						if (value is Array) {
 							Array array = value as Array;
 							int count = array.Length;
 							byte[] data = new byte[count * Int32Size];
@@ -308,52 +315,137 @@ namespace HardySoft.UI.BatchImageProcessor.Model.Exif {
 								item.CopyTo(data, i * Int32Size);
 							}
 
-							// return data;
+							return data;
 						}
 
 						if (value.GetType().IsValueType || value is IConvertible) {
-							// return BitConverter.GetBytes(Convert.ToInt32(value));
+							return BitConverter.GetBytes(Convert.ToInt32(value));
 						}
-						break;
-					case 4:
-						BitConverter.ToInt32(property.Value, 0);
-						break;
-					case 10:
-					case 5:
-						int numberator = BitConverter.ToInt32(property.Value, 0);
-						int denominator = BitConverter.ToInt32(property.Value, 4);
 
-						if (denominator != 0) {
-							// return (double)numberator / (double)denominator;
-						} else {
-							// return 0;
+						throw new ArgumentException(String.Format("Error converting {0} to Int32[].", value.GetType().Name));
+					}
+				case ExifType.Rational: {
+						byte[] data;
+
+						if (value is Array) {
+							Array array = value as Array;
+							int count = array.Length;
+							data = new byte[count * RationalSize];
+
+							for (int i = 0; i < count; i++) {
+								Fraction item = (Fraction)Convert.ChangeType(array.GetValue(i), typeof(Fraction));
+								BitConverter.GetBytes(Convert.ToInt32(item.Numerator)).CopyTo(data, i * RationalSize);
+								BitConverter.GetBytes(Convert.ToInt32(item.Denominator)).CopyTo(data, i * RationalSize + Int32Size);
+							}
+
+							return data;
 						}
-						break;
-					default:
-						throw new NotSupportedException("Property type " + property.Type + " is not supported.");
-				}
 
+						Fraction singleItem = (Fraction)Convert.ChangeType(value, typeof(Fraction));
+						data = new byte[RationalSize];
+						BitConverter.GetBytes(Convert.ToInt32(singleItem.Numerator)).CopyTo(data, 0);
+						BitConverter.GetBytes(Convert.ToInt32(singleItem.Denominator)).CopyTo(data, Int32Size);
+						return data;
+					}
+				case ExifType.UInt16: {
+						if (value is Array) {
+							Array array = value as Array;
+							int count = array.Length;
+							byte[] data = new byte[count * UInt16Size];
+
+							for (int i = 0; i < count; i++) {
+								byte[] item = BitConverter.GetBytes(Convert.ToUInt16(array.GetValue(i)));
+								item.CopyTo(data, i * UInt16Size);
+							}
+
+							return data;
+						}
+
+						if (value.GetType().IsValueType || value is IConvertible) {
+							return BitConverter.GetBytes(Convert.ToUInt16(value));
+						}
+
+						throw new ArgumentException(String.Format("Error converting {0} to UInt16[].", value.GetType().Name));
+					}
+				case ExifType.UInt32: {
+						if (value is Array) {
+							Array array = value as Array;
+							int count = array.Length;
+							byte[] data = new byte[count * UInt32Size];
+
+							for (int i = 0; i < count; i++) {
+								byte[] item = BitConverter.GetBytes(Convert.ToUInt32(array.GetValue(i)));
+								item.CopyTo(data, i * UInt32Size);
+							}
+
+							return data;
+						}
+
+						if (value.GetType().IsValueType || value is IConvertible) {
+							return BitConverter.GetBytes(Convert.ToUInt32(value));
+						}
+
+						throw new ArgumentException(String.Format("Error converting {0} to UInt32[].", value.GetType().Name));
+					}
+				case ExifType.URational: {
+						byte[] data;
+						if (value is Array) {
+							Array array = value as Array;
+							int count = array.Length;
+							data = new byte[count * URationalSize];
+
+							for (int i = 0; i < count; i++) {
+								Fraction item = (Fraction)Convert.ChangeType(array.GetValue(i), typeof(Fraction));
+								BitConverter.GetBytes(Convert.ToInt32(item.Numerator)).CopyTo(data, i * URationalSize);
+								BitConverter.GetBytes(Convert.ToInt32(item.Denominator)).CopyTo(data, i * URationalSize + UInt32Size);
+							}
+
+							return data;
+						}
+
+						Fraction singleItem = (Fraction)Convert.ChangeType(value, typeof(Fraction));
+
+						data = new byte[RationalSize];
+						BitConverter.GetBytes(Convert.ToInt32(singleItem.Numerator)).CopyTo(data, 0);
+						BitConverter.GetBytes(Convert.ToInt32(singleItem.Denominator)).CopyTo(data, UInt32Size);
+
+						return data;
+					}
+				default: {
+						throw new NotImplementedException(String.Format("Encoding for EXIF type \"{0}\" has not yet been implemented.", targetType));
+					}
 			}
 		}
 
-		private decimal parseUnsignedRational(ulong exifValue) {
-			// UInt64's in this case are actually two 32-bit numbers which form a fraction.
-			// To decode, the high part is the numerator and the bottom is the denominator.
-			return (decimal)(exifValue & 0xFFFFFFFFL) / (decimal)((exifValue & 0xFFFFFFFF00000000L) >> 32);
+		private string ConvertLatitudeLongitudeDirection(CoordinateDirection direction) {
+			switch (direction) {
+				case CoordinateDirection.East:
+					return "E";
+				case CoordinateDirection.North:
+					return "N";
+				case CoordinateDirection.South:
+					return "S";
+				case CoordinateDirection.West:
+					return "W";
+				default:
+					return string.Empty;
+			}
 		}
 
-		private decimal parseSignedRational(long exifValue) {
-			//return (decimal)(exifValue & 0xFFFFFFFFL) / (decimal)((exifValue & 0x7FFFFFFF00000000L) >> 32);
-			return (decimal)(new Fraction(BitConverter.ToInt32(BitConverter.GetBytes(exifValue), 0),
-				BitConverter.ToInt32(BitConverter.GetBytes(exifValue), 4)).ToDouble());
-		}
+		private void WriteMetadata<T>(int propertyId, object value) {
+			var propertyItem = (from p in this.propItems where p.Id == propertyId select p).FirstOrDefault();
 
-		private ulong createUnsignedRational(uint numerator, uint denominator) {
-			return (ulong)((ulong)denominator << 32) + (ulong)numerator;
-		}
+			if (propertyItem != null) {
+				// the item is currently being used by the image.
+				ExifType exifType = (ExifType)propertyItem.Type;
 
-		private long createSignedRational(long numerator, long denominator) {
-			return (long)(denominator << 32) + numerator;
+				byte[] buffer = this.ConvertData<T>(exifType, value);
+				propertyItem.Len = buffer.Length;
+				propertyItem.Value = buffer;
+			} else {
+				// it is a brand new item to the image.
+				Trace.TraceWarning("Property Id {0} is not found in the image, the value setting will be ignored.", propertyId);
+			}
 		}
 
 		/// <summary>
@@ -361,7 +453,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model.Exif {
 		/// </summary>
 		public string ExifVersion {
 			get {
-				object val = this.QueryMetadata(36864, typeof(string));
+				object val = this.QueryMetadata<string>(36864);
 				if (val == null) {
 					return string.Empty;
 				} else {
@@ -369,14 +461,14 @@ namespace HardySoft.UI.BatchImageProcessor.Model.Exif {
 				}
 			}
 			set {
-				this.writeMetadata(36864, value);
+				this.WriteMetadata<string>(36864, value);
 			}
 		}
 
 		[ExifDisplay("Label_MeteringMode")]
 		public MeteringMode MeteringMode {
 			get {
-				object val = this.QueryMetadata(37383, typeof(MeteringMode));
+				object val = this.QueryMetadata<int>(37383);
 				if (val == null) {
 					return MeteringMode.Unknown;
 				} else {
@@ -385,7 +477,9 @@ namespace HardySoft.UI.BatchImageProcessor.Model.Exif {
 			}
 			set {
 				if (value != MeteringMode.Unknown) {
-					this.writeMetadata(37383, ((ushort)value).ToString());
+					this.WriteMetadata<int>(37383, (int)value);
+				} else {
+					this.WriteMetadata<int>(37383, null);
 				}
 			}
 		}
@@ -393,28 +487,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model.Exif {
 		[ExifDisplay("Label_Width", "Label_ExifValue_Pixel")]
 		public uint? Width {
 			get {
-				object val = this.QueryMetadata(40962, typeof(uint?));
-				if (val == null) {
-					return null;
-				} else {
-					if (val.GetType() == typeof(UInt32)) {
-						return (uint?)val;
-					} else {
-						return Convert.ToUInt32(val);
-					}
-				}
-			}
-			set {
-				if (value.HasValue) {
-					this.writeMetadata(40962, value.Value.ToString());
-				}
-			}
-		}
-
-		[ExifDisplay("Label_Height", "Label_ExifValue_Pixel")]
-		public uint? Height {
-			get {
-				object val = this.QueryMetadata(40963, typeof(uint?));
+				object val = this.QueryMetadata<uint>(40962);
 				if (val == null) {
 					return null;
 				} else {
@@ -423,32 +496,36 @@ namespace HardySoft.UI.BatchImageProcessor.Model.Exif {
 			}
 			set {
 				if (value.HasValue) {
-					this.writeMetadata(40963, value.Value.ToString());
+					this.WriteMetadata<int?>(40962, value.Value);
+				} else {
+					this.WriteMetadata<int?>(40962, null);
+				}
+			}
+		}
+
+		[ExifDisplay("Label_Height", "Label_ExifValue_Pixel")]
+		public uint? Height {
+			get {
+				object val = this.QueryMetadata<uint>(40963);
+				if (val == null) {
+					return null;
+				} else {
+					return Convert.ToUInt32(val);
+				}
+			}
+			set {
+				if (value.HasValue) {
+					this.WriteMetadata<uint?>(40963, value.Value);
+				} else {
+					this.WriteMetadata<uint?>(40963, null);
 				}
 			}
 		}
 
 		[ExifDisplay("Label_HorizontalResolution", "Label_ExifValue_DPI")]
-		public decimal? HorizontalResolution {
+		public float? HorizontalResolution {
 			get {
-				Fraction[] val = this.QueryMetadata(282, typeof(decimal?)) as Fraction[];
-				if (val != null && val.Length > 0) {
-					return Convert.ToDecimal(val[0].ToDouble());
-				} else {
-					return null;
-				}
-			}
-			set {
-				if (value.HasValue) {
-					this.writeMetadata(282, this.createUnsignedRational((uint)value.Value, 1).ToString());
-				}
-			}
-		}
-
-		[ExifDisplay("Label_VerticalResolution", "Label_ExifValue_DPI")]
-		public float? VerticalResolution {
-			get {
-				Fraction[] val = this.QueryMetadata(283, typeof(Fraction)) as Fraction[];
+				Fraction[] val = this.QueryMetadata<Fraction[]>(282) as Fraction[];
 				if (val != null && val.Length > 0) {
 					return val[0].ToFloat();
 				} else {
@@ -457,7 +534,30 @@ namespace HardySoft.UI.BatchImageProcessor.Model.Exif {
 			}
 			set {
 				if (value.HasValue) {
-					this.writeMetadata(283, this.createUnsignedRational((uint)value.Value, 1).ToString());
+					Fraction f = new Fraction(value.Value);
+					this.WriteMetadata<Fraction>(282, f);
+				} else {
+					this.WriteMetadata<Fraction>(282, null);
+				}
+			}
+		}
+
+		[ExifDisplay("Label_VerticalResolution", "Label_ExifValue_DPI")]
+		public float? VerticalResolution {
+			get {
+				Fraction[] val = this.QueryMetadata<Fraction[]>(283) as Fraction[];
+				if (val != null && val.Length > 0) {
+					return val[0].ToFloat();
+				} else {
+					return null;
+				}
+			}
+			set {
+				if (value.HasValue) {
+					Fraction f = new Fraction(value.Value);
+					this.WriteMetadata<Fraction>(283, f);
+				} else {
+					this.WriteMetadata<Fraction>(283, null);
 				}
 			}
 		}
@@ -465,7 +565,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model.Exif {
 		[ExifDisplay("Label_Manufacturer")]
 		public string EquipmentManufacturer {
 			get {
-				object val = this.QueryMetadata(271, typeof(string));
+				object val = this.QueryMetadata<string>(271);
 				if (val != null) {
 					return val.ToString();
 				} else {
@@ -473,14 +573,14 @@ namespace HardySoft.UI.BatchImageProcessor.Model.Exif {
 				}
 			}
 			set {
-				this.writeMetadata(271, value);
+				this.WriteMetadata<string>(271, value);
 			}
 		}
 
 		[ExifDisplay("Label_Camera")]
 		public string CameraModel {
 			get {
-				object val = this.QueryMetadata(272, typeof(string));
+				object val = this.QueryMetadata<string>(272);
 				if (val != null) {
 					return val.ToString();
 				} else {
@@ -488,14 +588,14 @@ namespace HardySoft.UI.BatchImageProcessor.Model.Exif {
 				}
 			}
 			set {
-				this.writeMetadata(272, value);
+				this.WriteMetadata<string>(272, value);
 			}
 		}
 
 		[ExifDisplay("Label_CreationSoftware")]
 		public string CreationSoftware {
 			get {
-				object val = this.QueryMetadata(305, typeof(string));
+				object val = this.QueryMetadata<string>(305);
 				if (val != null) {
 					return val.ToString();
 				} else {
@@ -503,14 +603,14 @@ namespace HardySoft.UI.BatchImageProcessor.Model.Exif {
 				}
 			}
 			set {
-				this.writeMetadata(305, value);
+				this.WriteMetadata<string>(305, value);
 			}
 		}
 
 		[ExifDisplay("Label_ColorRepresentation")]
 		public ColorRepresentation ColorRepresentation {
 			get {
-				object val = this.QueryMetadata(40961, typeof(uint));
+				object val = this.QueryMetadata<uint>(40961);
 				if (val != null) {
 					if (Convert.ToUInt16(val) == 1) {
 						return ColorRepresentation.sRGB;
@@ -522,14 +622,15 @@ namespace HardySoft.UI.BatchImageProcessor.Model.Exif {
 				}
 			}
 			set {
-				this.writeMetadata(40961, ((ushort)value).ToString());
+				uint val = value == ColorRepresentation.sRGB ? 1u : 0u;
+				this.WriteMetadata<uint>(40961, val);
 			}
 		}
 
 		[ExifDisplay("Label_ExposureTime", "Label_ExifValue_Second")]
 		public Fraction ExposureTime {
 			get {
-				Fraction[] val = this.QueryMetadata(33434, typeof(Fraction)) as Fraction[];
+				Fraction[] val = this.QueryMetadata<Fraction[]>(33434) as Fraction[];
 				if (val != null && val.Length > 0) {
 					return val[0];
 				} else {
@@ -538,7 +639,9 @@ namespace HardySoft.UI.BatchImageProcessor.Model.Exif {
 			}
 			set {
 				if (value != null) {
-					this.writeMetadata(33434, this.createUnsignedRational((uint)value.Numerator, (uint)value.Denominator).ToString());
+					this.WriteMetadata<Fraction>(33434, value);
+				} else {
+					this.WriteMetadata<Fraction>(33434, null);
 				}
 			}
 		}
@@ -546,7 +649,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model.Exif {
 		[ExifDisplay("Label_ExposureCompensation")]
 		public Fraction ExposureCompensation {
 			get {
-				Fraction[] val = this.QueryMetadata(37380, typeof(Fraction)) as Fraction[];
+				Fraction[] val = this.QueryMetadata<Fraction[]>(37380) as Fraction[];
 				if (val != null && val.Length > 0) {
 					return val[0];
 				} else {
@@ -555,7 +658,9 @@ namespace HardySoft.UI.BatchImageProcessor.Model.Exif {
 			}
 			set {
 				if (value != null) {
-					this.writeMetadata(37380, this.createSignedRational(value.Numerator, value.Denominator).ToString());
+					this.WriteMetadata<Fraction>(37380, value);
+				} else {
+					this.WriteMetadata<Fraction>(37380, null);
 				}
 			}
 		}
@@ -563,7 +668,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model.Exif {
 		[ExifDisplay("Label_Aperture", "Label_ExifValue_Aperture")]
 		public Fraction LensAperture {
 			get {
-				Fraction[] val = this.QueryMetadata(33437, typeof(Fraction)) as Fraction[];
+				Fraction[] val = this.QueryMetadata<Fraction[]>(33437) as Fraction[];
 				if (val != null && val.Length > 0) {
 					return val[0];
 				} else {
@@ -572,7 +677,9 @@ namespace HardySoft.UI.BatchImageProcessor.Model.Exif {
 			}
 			set {
 				if (value != null) {
-					this.writeMetadata(33437, this.createUnsignedRational((uint)value.Numerator, (uint)value.Denominator).ToString());
+					this.WriteMetadata<Fraction>(33437, value);
+				} else {
+					this.WriteMetadata<Fraction>(33437, null);
 				}
 			}
 		}
@@ -580,7 +687,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model.Exif {
 		[ExifDisplay("Label_FocalLength", "Label_ExifValue_MM")]
 		public Fraction FocalLength {
 			get {
-				Fraction[] val = this.QueryMetadata(37386, typeof(Fraction)) as Fraction[];
+				Fraction[] val = this.QueryMetadata<Fraction[]>(37386) as Fraction[];
 				if (val != null && val.Length > 0) {
 					return val[0];
 				} else {
@@ -589,7 +696,9 @@ namespace HardySoft.UI.BatchImageProcessor.Model.Exif {
 			}
 			set {
 				if (value != null) {
-					this.writeMetadata(37386, this.createUnsignedRational((uint)value.Numerator, (uint)value.Denominator).ToString());
+					this.WriteMetadata<Fraction>(37386, value);
+				} else {
+					this.WriteMetadata<Fraction>(37386, null);
 				}
 			}
 		}
@@ -597,7 +706,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model.Exif {
 		[ExifDisplay("Label_ISOSpeed")]
 		public ushort? IsoSpeed {
 			get {
-				object val = this.QueryMetadata(34855, typeof(ushort));
+				object val = this.QueryMetadata<ushort>(34855);
 				if (val != null) {
 					return Convert.ToUInt16(val);
 				} else {
@@ -606,7 +715,9 @@ namespace HardySoft.UI.BatchImageProcessor.Model.Exif {
 			}
 			set {
 				if (value.HasValue) {
-					this.writeMetadata(34855, value.Value.ToString());
+					this.WriteMetadata<ushort>(34855, value.Value);
+				} else {
+					this.WriteMetadata<ushort>(34855, null);
 				}
 			}
 		}
@@ -614,7 +725,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model.Exif {
 		[ExifDisplay("Label_FlashMode")]
 		public FlashMode FlashMode {
 			get {
-				object o = this.QueryMetadata(37385, typeof(ushort));
+				object o = this.QueryMetadata<ushort>(37385);
 				if (o != null) {
 					ushort mode;
 					if (ushort.TryParse(o.ToString(), out mode)) {
@@ -628,7 +739,9 @@ namespace HardySoft.UI.BatchImageProcessor.Model.Exif {
 			}
 			set {
 				if (value != FlashMode.Unknown) {
-					this.writeMetadata(37385, ((ushort)value).ToString());
+					this.WriteMetadata<ushort>(37385, (ushort)value);
+				} else {
+					this.WriteMetadata<ushort>(37385, null);
 				}
 			}
 		}
@@ -636,7 +749,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model.Exif {
 		[ExifDisplay("Label_ExposureMode")]
 		public ExposureMode ExposureMode {
 			get {
-				object val = this.QueryMetadata(34850, typeof(ushort));
+				object val = this.QueryMetadata<ushort>(34850);
 				if (val != null) {
 					ushort mode = Convert.ToUInt16(val);
 					return (ExposureMode)mode;
@@ -646,7 +759,9 @@ namespace HardySoft.UI.BatchImageProcessor.Model.Exif {
 			}
 			set {
 				if (value != ExposureMode.Unknown) {
-					this.writeMetadata(34850, ((ushort)value).ToString());
+					this.WriteMetadata<ushort>(34850, (ushort)value);
+				} else {
+					this.WriteMetadata<ushort>(34850, null);
 				}
 			}
 		}
@@ -654,16 +769,18 @@ namespace HardySoft.UI.BatchImageProcessor.Model.Exif {
 		[ExifDisplay("Label_LightSource")]
 		public LightSourceMode LightSource {
 			get {
-				object val = this.QueryMetadata(37384, typeof(int));
+				object val = this.QueryMetadata<int>(37384);
 				if (val != null) {
 					return (LightSourceMode)(Convert.ToInt32(val));
 				} else {
-					return LightSourceMode.Unknown;
+					return LightSourceMode.None;
 				}
 			}
 			set {
-				if (value != LightSourceMode.Unknown) {
-					this.writeMetadata(37384, ((ushort)value).ToString());
+				if (value != LightSourceMode.None) {
+					this.WriteMetadata<int>(37384, (int)value);
+				} else {
+					this.WriteMetadata<int>(37384, null);
 				}
 			}
 		}
@@ -671,7 +788,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model.Exif {
 		[ExifDisplay("Label_DateTaken")]
 		public DateTime? DateImageTaken {
 			get {
-				object val = this.QueryMetadata(36867, typeof(DateTime));
+				object val = this.QueryMetadata<DateTime>(36867);
 				if (val == null) {
 					return null;
 				} else {
@@ -680,28 +797,18 @@ namespace HardySoft.UI.BatchImageProcessor.Model.Exif {
 			}
 			set {
 				if (value.HasValue) {
-					this.writeMetadata(36867, value.Value.ToString("yyyy:MM:dd HH:mm:ss"));
+					this.WriteMetadata<string>(36867, value.Value.ToString("yyyy:MM:dd HH:mm:ss"));
+				} else {
+					this.WriteMetadata<string>(36867, null);
 				}
 			}
 		}
-
-		private GpsLocation latitudeCache = null;
 
 		[ExifDisplay("Label_Latitude")]
-		public float? Latitude {
+		public GeographicCoordinate Latitude {
 			get {
-				if (this.LatitudeRaw != null) {
-					return this.latitudeCache.DecimalDegree;
-				} else {
-					return null;
-				}
-			}
-		}
-
-		public GpsLocation LatitudeRaw {
-			get {
-				GpsLocation location = null;
-				Fraction[] val = this.QueryMetadata(2, typeof(object)) as Fraction[];
+				GeographicCoordinate location = null;
+				Fraction[] val = this.QueryMetadata<Fraction[]>(2) as Fraction[];
 				if (val != null && val.Length > 0) {
 					uint degree;
 					uint? minute = null;
@@ -717,44 +824,48 @@ namespace HardySoft.UI.BatchImageProcessor.Model.Exif {
 					}
 
 					// N or S
-					string latitudeRef = this.QueryMetadata(1, typeof(string)).ToString();
+					string latitudeRef = this.QueryMetadata<string>(1).ToString();
 					if (string.Compare(latitudeRef, "S", StringComparison.OrdinalIgnoreCase) == 0) {
 						direction = CoordinateDirection.South;
 					} else if (string.Compare(latitudeRef, "N", StringComparison.OrdinalIgnoreCase) == 0) {
 						direction = CoordinateDirection.North;
 					}
 
-					location = new GpsLocation(degree, minute, second, direction);
-					latitudeCache = location;
+					location = new GeographicCoordinate(degree, minute, second, direction);
 				}
 
 				return location;
 			}
 			set {
 				if (value != null) {
-					//this.writeMetadata(2, value.RawCoordinate.ToString());
-					//this.writeMetadata(1, value.CoordinateDirection.ToString());
+					if (value.CoordinateDirection != CoordinateDirection.North
+						&& value.CoordinateDirection != CoordinateDirection.South
+						&& value.CoordinateDirection != CoordinateDirection.TheEquator) {
+							throw new ArgumentException(string.Format("Invalid CoordinateDirection {0} provided", value.CoordinateDirection));
+					}
+
+					if (value.CoordinateType != CoordinateType.Latitude) {
+						throw new ArgumentException(string.Format("Invalid CoordinateType {0} provided", value.CoordinateType));
+					}
+
+					Fraction[] values = new Fraction[3];
+					values[0] = new Fraction(value.Degree, 1);
+					values[1] = new Fraction(value.Minute.HasValue ? value.Minute.Value : 0, 1);
+					values[2] = new Fraction(value.Second.HasValue ? value.Second.Value : 0);
+					this.WriteMetadata<Fraction[]>(2, values);
+					this.WriteMetadata<string>(1, this.ConvertLatitudeLongitudeDirection(value.CoordinateDirection));
+				} else {
+					this.WriteMetadata<Fraction[]>(2, null);
+					this.WriteMetadata<string>(1, null);
 				}
 			}
 		}
-
-		private GpsLocation longitudeCache;
 
 		[ExifDisplay("Label_Longitude")]
-		public float? Longitude {
+		public GeographicCoordinate Longitude {
 			get {
-				if (this.LongitudeRaw != null) {
-					return this.longitudeCache.DecimalDegree;
-				} else {
-					return null;
-				}
-			}
-		}
-
-		public GpsLocation LongitudeRaw {
-			get {
-				GpsLocation location = null;
-				Fraction[] val = this.QueryMetadata(4, typeof(object)) as Fraction[];
+				GeographicCoordinate location = null;
+				Fraction[] val = this.QueryMetadata<Fraction[]>(4) as Fraction[];
 				if (val != null && val.Length > 0) {
 					uint degree;
 					uint? minute = null;
@@ -770,36 +881,52 @@ namespace HardySoft.UI.BatchImageProcessor.Model.Exif {
 					}
 
 					// E or W
-					string longitudeRef = this.QueryMetadata(3, typeof(string)).ToString();
+					string longitudeRef = this.QueryMetadata<string>(3).ToString();
 					if (string.Compare(longitudeRef, "E", StringComparison.OrdinalIgnoreCase) == 0) {
 						direction = CoordinateDirection.East;
 					} else if (string.Compare(longitudeRef, "W", StringComparison.OrdinalIgnoreCase) == 0) {
 						direction = CoordinateDirection.West;
 					}
 
-					location = new GpsLocation(degree, minute, second, direction);
-					longitudeCache = location;
+					location = new GeographicCoordinate(degree, minute, second, direction);
 				}
 
 				return location;
 			}
 			set {
 				if (value != null) {
-					//this.writeMetadata(4, value.RawCoordinate.ToString());
-					//this.writeMetadata(3, value.CoordinateDirection.ToString());
+					if (value.CoordinateDirection != CoordinateDirection.East
+						&& value.CoordinateDirection != CoordinateDirection.West
+						&& value.CoordinateDirection != CoordinateDirection.PrimeMeridian) {
+						throw new ArgumentException(string.Format("Invalid CoordinateDirection {0} provided", value.CoordinateDirection));
+					}
+
+					if (value.CoordinateType != CoordinateType.Longitude) {
+						throw new ArgumentException(string.Format("Invalid CoordinateType {0} provided", value.CoordinateType));
+					}
+
+					Fraction[] values = new Fraction[3];
+					values[0] = new Fraction(value.Degree, 1);
+					values[1] = new Fraction(value.Minute.HasValue ? value.Minute.Value : 0, 1);
+					values[2] = new Fraction(value.Second.HasValue ? value.Second.Value : 0);
+					this.WriteMetadata<Fraction[]>(4, values);
+					this.WriteMetadata<string>(3, this.ConvertLatitudeLongitudeDirection(value.CoordinateDirection));
+				} else {
+					this.WriteMetadata<Fraction[]>(4, null);
+					this.WriteMetadata<string>(3, null);
 				}
 			}
 		}
 
 		[ExifDisplay("Label_Altitude")]
-		public decimal? Altitude {
+		public float? Altitude {
 			get {
-				Fraction[] val = this.QueryMetadata(6, typeof(Fraction)) as Fraction[];
+				Fraction[] val = this.QueryMetadata<Fraction>(6) as Fraction[];
 				if (val != null && val.Length > 0) {
-					decimal altitude = Convert.ToDecimal(val[0].ToDouble());
+					float altitude = val[0].ToFloat();
 
 					// 0 = Above Sea Level, 1 = Below Sea Level
-					var altitudeRef = this.QueryMetadata(5, typeof(int));
+					var altitudeRef = this.QueryMetadata<int>(5);
 
 					if (altitudeRef != null && altitudeRef.ToString() == "1") {
 						altitude *= -1;
@@ -812,19 +939,22 @@ namespace HardySoft.UI.BatchImageProcessor.Model.Exif {
 			set {
 				if (value.HasValue) {
 					if (value.Value >= 0) {
-						this.writeMetadata(6, this.createUnsignedRational((uint)value.Value, 1).ToString());
-						this.writeMetadata(5, "0");
+						this.WriteMetadata<string>(5, "0");
 					} else {
-						this.writeMetadata(6, this.createUnsignedRational((uint)(value.Value * -1), 1).ToString());
-						this.writeMetadata(5, "1");
+						this.WriteMetadata<string>(5, "1");
 					}
+
+					this.WriteMetadata<Fraction>(6, new Fraction(Math.Abs(value.Value)));
+				} else {
+					this.WriteMetadata<string>(5, null);
+					this.WriteMetadata<Fraction>(6, null);
 				}
 			}
 		}
 
 		public void SaveExif() {
 			FileInfo fi = new FileInfo(this.fileName);
-			string randomName = Path.Combine(fi.DirectoryName, Guid.NewGuid().ToString() + ".jpg");
+			string randomName = Path.Combine(fi.DirectoryName, fi.Name + Guid.NewGuid().ToString() + ".jpg");
 			File.Move(this.fileName, randomName);
 
 			using (Image image = new Bitmap(randomName)) {

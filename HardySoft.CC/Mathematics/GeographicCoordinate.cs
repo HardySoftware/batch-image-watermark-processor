@@ -1,11 +1,36 @@
-﻿
-using System;
-namespace HardySoft.UI.BatchImageProcessor.Model.Exif {
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace HardySoft.CC.Mathematics {
 	/// <summary>
-	/// A class used to represent a latitude or longitude data in GPS.
+	/// A class used to represent a latitude or longitude data in geographic coordinate.
 	/// </summary>
-	public class GpsLocation {
-		public GpsLocation(uint degree, uint? minute, float? second, CoordinateDirection coordinateDirection) {
+	public class GeographicCoordinate {
+		public GeographicCoordinate(uint degree, uint? minute, float? second, CoordinateDirection coordinateDirection) {
+			if (coordinateDirection == CoordinateDirection.North
+				|| coordinateDirection == CoordinateDirection.South
+				|| coordinateDirection == CoordinateDirection.TheEquator) {
+					if (degree > 90) {
+						throw new ArgumentException("Degree must be between 0 and 90.", "degree");
+					}
+			} else if (coordinateDirection == CoordinateDirection.East
+				|| coordinateDirection == CoordinateDirection.West
+				|| coordinateDirection == CoordinateDirection.PrimeMeridian) {
+					if (degree > 180) {
+						throw new ArgumentException("Degree must be between 0 and 180.", "degree");
+					}
+			}
+
+			if (minute.HasValue && minute.Value >= 60) {
+				throw new ArgumentException("Minute must be between 0 and 60.", "minute");
+			}
+
+			if (second.HasValue && second.Value >= 60) {
+				throw new ArgumentException("Second must be between 0 and 60.", "second");
+			}
+
 			this.Degree = degree;
 			this.Minute = minute;
 			this.Second = second;
@@ -14,7 +39,16 @@ namespace HardySoft.UI.BatchImageProcessor.Model.Exif {
 			this.ConvertToDecimalDegree();
 		}
 
-		public GpsLocation(float decimalDegree, CoordinateType coordinateType) {
+		public GeographicCoordinate(float decimalDegree, CoordinateType coordinateType) {
+			if (coordinateType == CoordinateType.Latitude) {
+				if (decimalDegree > 90 || decimalDegree < -90) {
+					throw new ArgumentException("Invalid latitude number.");
+				}
+			} else if (coordinateType == CoordinateType.Longitude) {
+				if (decimalDegree > 180 || decimalDegree < -180) {
+					throw new ArgumentException("Invalid longitude number.");
+				}
+			}
 			this.DecimalDegree = decimalDegree;
 			this.CoordinateType = coordinateType;
 

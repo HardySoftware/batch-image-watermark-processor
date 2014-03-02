@@ -18,7 +18,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model {
 		}
 
 		/// <summary>
-		/// A helper property used to help the applciation to use reflection to retrieve value
+		/// A helper propertyItem used to help the applciation to use reflection to retrieve value
 		/// from real object.
 		/// </summary>
 		public PropertyInfo Property {

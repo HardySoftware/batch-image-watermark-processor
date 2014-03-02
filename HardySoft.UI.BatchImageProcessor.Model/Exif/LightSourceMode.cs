@@ -65,6 +65,6 @@ namespace HardySoft.UI.BatchImageProcessor.Model.Exif {
 		ISOStudioTungsten = 24,
 
 		[Description(@"Enum_Unknown")]
-		Unknown = 0
+		None = 0
 	}
 }

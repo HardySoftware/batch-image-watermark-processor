@@ -80,7 +80,10 @@
     <Compile Include="FileAccess.cs" />
     <Compile Include="FontConverter.cs" />
     <Compile Include="Formatter.cs" />
-    <Compile Include="Fraction.cs" />
+    <Compile Include="Mathematics\CoordinateDirection.cs" />
+    <Compile Include="Mathematics\CoordinateType.cs" />
+    <Compile Include="Mathematics\Fraction.cs" />
+    <Compile Include="Mathematics\GeographicCoordinate.cs" />
     <Compile Include="OnlinePhotoAlbum\Flickr\FlickrClient.cs" />
     <Compile Include="OnlinePhotoAlbum\Flickr\FlickrOnlinePhotoAlbum.cs" />
     <Compile Include="OnlinePhotoAlbum\Flickr\FlickrPhotoResponse.cs" />
