@@ -952,6 +952,25 @@ namespace HardySoft.UI.BatchImageProcessor.Model.Exif {
 			}
 		}
 
+		public ExifOrientation Orientation {
+			get {
+				object val = this.QueryMetadata<ushort>(274);
+				if (val != null) {
+					ushort mode = Convert.ToUInt16(val);
+					return (ExifOrientation)mode;
+				} else {
+					return ExifOrientation.Unknown;
+				}
+			}
+			set {
+				if (value != ExifOrientation.Unknown) {
+					this.WriteMetadata<ushort>(274, (ushort)value);
+				} else {
+					this.WriteMetadata<ushort>(274, null);
+				}
+			}
+		}
+
 		public void SaveExif() {
 			FileInfo fi = new FileInfo(this.fileName);
 			string randomName = Path.Combine(fi.DirectoryName, fi.Name + Guid.NewGuid().ToString() + ".jpg");
