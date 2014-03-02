@@ -95,6 +95,7 @@
     <Compile Include="Exif\DisplayAttribute.cs" />
     <Compile Include="Exif\ExifDisplayAttribute.cs" />
     <Compile Include="Exif\ExifMetadata.cs" />
+    <Compile Include="Exif\ExifOrientation.cs" />
     <Compile Include="Exif\ExifType.cs" />
     <Compile Include="Exif\ExposureMode.cs" />
     <Compile Include="Exif\FlashMode.cs" />

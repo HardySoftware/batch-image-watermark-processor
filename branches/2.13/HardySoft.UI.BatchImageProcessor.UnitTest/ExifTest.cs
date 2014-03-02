@@ -37,6 +37,7 @@ namespace HardySoft.UI.BatchImageProcessor.UnitTest {
 			var a22 = meta.MeteringMode;
 			var a23 = meta.VerticalResolution;
 			var a24 = meta.Width;
+			var a25 = meta.Orientation;
 		}
 
 		[TestMethod()]
@@ -183,6 +184,13 @@ namespace HardySoft.UI.BatchImageProcessor.UnitTest {
 		public void ExifWrite_Width_Integration_Test() {
 			ExifMetadata meta = new ExifMetadata(new Uri(this.testImageFile));
 			meta.Width = 1122;
+			meta.SaveExif();
+		}
+
+		[TestMethod()]
+		public void ExifWrite_Orientation_Integration_Test() {
+			ExifMetadata meta = new ExifMetadata(new Uri(this.testImageFile));
+			meta.Orientation = ExifOrientation.Rotate270;
 			meta.SaveExif();
 		}
 	}
