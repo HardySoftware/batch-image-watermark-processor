@@ -8,7 +8,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model.Exif {
 	/// Defines types for Exif Properties.
 	/// </summary>
 	/// <remarks>
-	/// // property type http://msdn.microsoft.com/en-us/library/xddt0dz7(v=vs.110).aspx
+	/// // propertyItem type http://msdn.microsoft.com/en-us/library/xddt0dz7(v=vs.110).aspx
 	/// </remarks>
 	internal enum ExifType {
 		/// <summary>

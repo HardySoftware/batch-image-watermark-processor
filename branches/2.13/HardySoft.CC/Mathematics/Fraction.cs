@@ -11,9 +11,6 @@ namespace HardySoft.CC.Mathematics {
 	/// </remarks>
 	[Serializable, StructLayout(LayoutKind.Sequential)]
 	public class Fraction : IComparable, IFormattable {
-		private long numerator;
-		private long denominator;
-
 		/// <summary>
 		/// The 'top' part of the fraction.
 		/// </summary>
@@ -21,12 +18,8 @@ namespace HardySoft.CC.Mathematics {
 		/// For 3/4ths, this is the 3.
 		/// </remarks>
 		public long Numerator {
-			get {
-				return numerator;
-			}
-			set {
-				numerator = value;
-			}
+			get;
+			private set;
 		}
 
 		/// <summary>
@@ -36,12 +29,8 @@ namespace HardySoft.CC.Mathematics {
 		/// For 3/4ths, this is the 4
 		/// </remarks>
 		public long Denominator {
-			get {
-				return denominator;
-			}
-			set {
-				denominator = value;
-			}
+			get;
+			private set;
 		}
 
 		#region Constructors
@@ -49,18 +38,18 @@ namespace HardySoft.CC.Mathematics {
 		/// Construct a Fraction from an integral value
 		/// </summary>
 		/// <param name="wholeNumber">
-		/// The value (eventual numerator).
+		/// The value (eventual Numerator).
 		/// </param>
 		/// <remarks>
-		/// The denominator will be 1.
+		/// The Denominator will be 1.
 		/// </remarks>
 		public Fraction(long wholeNumber) {
 			if (wholeNumber == long.MinValue) {
 				wholeNumber++;
 			}
 			// prevent serious issues later..
-			this.numerator = wholeNumber;
-			this.denominator = 1; // no reducing required, we're a whole number
+			this.Numerator = wholeNumber;
+			this.Denominator = 1; // no reducing required, we're a whole number
 		}
 
 		/// <summary>
@@ -71,8 +60,8 @@ namespace HardySoft.CC.Mathematics {
 		/// </param>
 		public Fraction(double floatingPointNumber) {
 			Fraction f = ToFraction(floatingPointNumber);
-			this.denominator = f.Denominator;
-			this.numerator = f.Numerator;
+			this.Denominator = f.Denominator;
+			this.Numerator = f.Numerator;
 		}
 
 		/// <summary>
@@ -83,7 +72,7 @@ namespace HardySoft.CC.Mathematics {
 		/// </param>
 		/// <param name="info">Number info used to parse string.</param>
 		/// <remarks>
-		/// Will reduce the fraction to smallest possible denominator
+		/// Will reduce the fraction to smallest possible Denominator
 		/// ToFraction(string strValue).
 		/// </remarks>
 		public Fraction(string inValue, NumberFormatInfo info) {
@@ -109,28 +98,28 @@ namespace HardySoft.CC.Mathematics {
 		}
 
 		/// <summary>
-		/// Construct a Fraction from a numerator, denominator pair.
+		/// Construct a Fraction from a Numerator, Denominator pair.
 		/// </summary>
-		/// <param name="numerator">
-		/// The numerator (top number).
+		/// <param name="Numerator">
+		/// The Numerator (top number).
 		/// </param>
-		/// <param name="denominator">
-		/// The denominator (bottom number).
+		/// <param name="Denominator">
+		/// The Denominator (bottom number).
 		/// </param>
 		/// <remarks>
-		/// Will reduce the fraction to smallest possible denominator.
+		/// Will reduce the fraction to smallest possible Denominator.
 		/// </remarks>
-		public Fraction(long numerator, long denominator) {
-			if (numerator == long.MinValue) {
-				numerator++;
+		public Fraction(long Numerator, long Denominator) {
+			if (Numerator == long.MinValue) {
+				Numerator++;
 				// prevent serious issues later..
 			}
-			if (denominator == long.MinValue) {
-				denominator++;
+			if (Denominator == long.MinValue) {
+				Denominator++;
 				// prevent serious issues later..
 			}
-			this.numerator = numerator;
-			this.denominator = denominator;
+			this.Numerator = Numerator;
+			this.Denominator = Denominator;
 			ReduceFraction();
 		}
 
@@ -141,15 +130,15 @@ namespace HardySoft.CC.Mathematics {
 		/// Kind of inderterminate
 		/// </param>
 		private Fraction(Indeterminates type) {
-			this.numerator = (long)type;
-			this.denominator = 0;
+			this.Numerator = (long)type;
+			this.Denominator = 0;
 			// do NOT reduce, we're clean as can be!
 		}
 		#endregion
 
 		#region Expose constants
 		/// <summary>
-		/// Represents zero denominator fraction.
+		/// Represents zero Denominator fraction.
 		/// </summary>
 		public static readonly Fraction NaN = new Fraction(Indeterminates.NaN);
 
@@ -203,13 +192,13 @@ namespace HardySoft.CC.Mathematics {
 		/// large or small to be represented as an Int32.
 		/// </returns>
 		public Int32 ToInt32() {
-			if (this.denominator == 0) {
+			if (this.Denominator == 0) {
 				throw new FractionException(string.Format("Cannot convert {0} to Int32",
-					indeterminateTypeName(this.numerator)),
+					indeterminateTypeName(this.Numerator)),
 					new System.NotFiniteNumberException());
 			}
 
-			long bestGuess = this.numerator / this.denominator;
+			long bestGuess = this.Numerator / this.Denominator;
 			if (bestGuess > Int32.MaxValue || bestGuess < Int32.MinValue) {
 				throw new FractionException("Cannot convert to Int32", new System.OverflowException());
 			}
@@ -229,13 +218,13 @@ namespace HardySoft.CC.Mathematics {
 		/// or NegativeInfinity with the InnerException set to a System.NotFiniteNumberException.
 		/// </returns>
 		public Int64 ToInt64() {
-			if (this.denominator == 0) {
+			if (this.Denominator == 0) {
 				throw new FractionException(string.Format("Cannot convert {0} to Int64",
-					indeterminateTypeName(this.numerator)),
+					indeterminateTypeName(this.Numerator)),
 					new System.NotFiniteNumberException());
 			}
 
-			return this.numerator / this.denominator;
+			return this.Numerator / this.Denominator;
 		}
 
 		/// <summary>
@@ -246,10 +235,10 @@ namespace HardySoft.CC.Mathematics {
 		/// or double.PositiveInfinity.
 		/// </returns>
 		public double ToDouble() {
-			if (this.denominator == 1) {
-				return this.numerator;
-			} else if (this.denominator == 0) {
-				switch (NormalizeIndeterminate(this.numerator)) {
+			if (this.Denominator == 1) {
+				return this.Numerator;
+			} else if (this.Denominator == 0) {
+				switch (NormalizeIndeterminate(this.Numerator)) {
 					case Indeterminates.NegativeInfinity:
 						return double.NegativeInfinity;
 					case Indeterminates.PositiveInfinity:
@@ -260,7 +249,7 @@ namespace HardySoft.CC.Mathematics {
 						return double.NaN;
 				}
 			} else {
-				return (double)this.numerator / (double)this.denominator;
+				return (double)this.Numerator / (double)this.Denominator;
 			}
 		}
 
@@ -272,10 +261,10 @@ namespace HardySoft.CC.Mathematics {
 		/// or float.PositiveInfinity.
 		/// </returns>
 		public float ToFloat() {
-			if (this.denominator == 1) {
-				return this.numerator;
-			} else if (this.denominator == 0) {
-				switch (NormalizeIndeterminate(this.numerator)) {
+			if (this.Denominator == 1) {
+				return this.Numerator;
+			} else if (this.Denominator == 0) {
+				switch (NormalizeIndeterminate(this.Numerator)) {
 					case Indeterminates.NegativeInfinity:
 						return float.NegativeInfinity;
 					case Indeterminates.PositiveInfinity:
@@ -286,7 +275,7 @@ namespace HardySoft.CC.Mathematics {
 						return float.NaN;
 				}
 			} else {
-				return (float)this.numerator / (float)this.denominator;
+				return (float)this.Numerator / (float)this.Denominator;
 			}
 		}
 
@@ -299,17 +288,17 @@ namespace HardySoft.CC.Mathematics {
 		/// The current culture determines the textual representation the Indeterminates.
 		/// </returns>
 		public override string ToString() {
-			if (this.denominator == 1) {
-				return this.numerator.ToString();
-			} else if (this.denominator == 0) {
-				return indeterminateTypeName(this.numerator);
+			if (this.Denominator == 1) {
+				return this.Numerator.ToString();
+			} else if (this.Denominator == 0) {
+				return indeterminateTypeName(this.Numerator);
 			} else {
-				if (this.numerator > this.denominator) {
-					long div = this.numerator / this.denominator;
-					Fraction rem = new Fraction(this.numerator - (div * this.denominator), this.denominator);
+				if (this.Numerator > this.Denominator) {
+					long div = this.Numerator / this.Denominator;
+					Fraction rem = new Fraction(this.Numerator - (div * this.Denominator), this.Denominator);
 					return div.ToString() + " " + rem.ToString();
 				} else {
-					return this.numerator.ToString() + "/" + this.denominator.ToString();
+					return this.Numerator.ToString() + "/" + this.Denominator.ToString();
 				}
 			}
 		}
@@ -391,9 +380,9 @@ namespace HardySoft.CC.Mathematics {
 				int slashPos = inValue.IndexOf('/');
 				if (slashPos > -1) {
 					// string is in the form of Numerator/Denominator
-					long numerator = Convert.ToInt64(inValue.Substring(0, slashPos));
-					long denominator = Convert.ToInt64(inValue.Substring(slashPos + 1));
-					return new Fraction(numerator, denominator);
+					long Numerator = Convert.ToInt64(inValue.Substring(0, slashPos));
+					long Denominator = Convert.ToInt64(inValue.Substring(slashPos + 1));
+					return new Fraction(Numerator, Denominator);
 				} else {
 					// the string is not in the form of a fraction
 					// hopefully it is double or integer, do we see a decimal point?
@@ -419,7 +408,7 @@ namespace HardySoft.CC.Mathematics {
 		/// True if the Fraction is a NaN.
 		/// </returns>
 		public bool IsNaN() {
-			if (this.denominator == 0 && NormalizeIndeterminate(this.numerator) == Indeterminates.NaN) {
+			if (this.Denominator == 0 && NormalizeIndeterminate(this.Numerator) == Indeterminates.NaN) {
 				return true;
 			} else {
 				return false;
@@ -433,7 +422,7 @@ namespace HardySoft.CC.Mathematics {
 		/// True if the Fraction is Positive Infinity or Negative Infinity.
 		/// </returns>
 		public bool IsInfinity() {
-			if (this.denominator == 0 && NormalizeIndeterminate(this.numerator) != Indeterminates.NaN) {
+			if (this.Denominator == 0 && NormalizeIndeterminate(this.Numerator) != Indeterminates.NaN) {
 				return true;
 			} else {
 				return false;
@@ -445,7 +434,7 @@ namespace HardySoft.CC.Mathematics {
 		/// </summary>
 		/// <returns>True if the Fraction is Positive Infinity.</returns>
 		public bool IsPositiveInfinity() {
-			if (this.denominator == 0 && NormalizeIndeterminate(this.numerator) == Indeterminates.PositiveInfinity) {
+			if (this.Denominator == 0 && NormalizeIndeterminate(this.Numerator) == Indeterminates.PositiveInfinity) {
 				return true;
 			} else {
 				return false;
@@ -457,7 +446,7 @@ namespace HardySoft.CC.Mathematics {
 		/// </summary>
 		/// <returns>True if the Fraction is Negative Infinity.</returns>
 		public bool IsNegativeInfinity() {
-			if (this.denominator == 0 && NormalizeIndeterminate(this.numerator) == Indeterminates.NegativeInfinity) {
+			if (this.Denominator == 0 && NormalizeIndeterminate(this.Numerator) == Indeterminates.NegativeInfinity) {
 				return true;
 			} else {
 				return false;
@@ -475,9 +464,9 @@ namespace HardySoft.CC.Mathematics {
 		public void Inverse() {
 			long temp;
 			// don't use the obvious constructor because we do not want it normalized at this time
-			temp = this.denominator;
-			this.denominator = this.numerator;
-			this.numerator = temp;
+			temp = this.Denominator;
+			this.Denominator = this.Numerator;
+			this.Numerator = temp;
 		}
 
 		/// <summary>
@@ -765,7 +754,7 @@ namespace HardySoft.CC.Mathematics {
 		/// Implicit conversion of a long integral value to a Fraction.
 		/// </summary>
 		/// <param name="value">The long integral value to convert.</param>
-		/// <returns>A Fraction whose denominator is 1.</returns>
+		/// <returns>A Fraction whose Denominator is 1.</returns>
 		public static implicit operator Fraction(long value) {
 			return new Fraction(value);
 		}
@@ -862,8 +851,8 @@ namespace HardySoft.CC.Mathematics {
 		public override int GetHashCode() {
 			// insure we're as close to normalized as possible first
 			ReduceFraction();
-			int numeratorHash = this.numerator.GetHashCode();
-			int denominatorHash = this.denominator.GetHashCode();
+			int numeratorHash = this.Numerator.GetHashCode();
+			int denominatorHash = this.Denominator.GetHashCode();
 			return (numeratorHash ^ denominatorHash);
 		}
 		#endregion
@@ -912,20 +901,20 @@ namespace HardySoft.CC.Mathematics {
 		/// </returns>
 		public int CompareTo(Fraction right) {
 			// if left is an indeterminate, punt to the helper...
-			if (this.denominator == 0) {
-				return indeterminantCompare(NormalizeIndeterminate(this.numerator), right);
+			if (this.Denominator == 0) {
+				return indeterminantCompare(NormalizeIndeterminate(this.Numerator), right);
 			}
 			// if right is an indeterminate, punt to the helper...
-			if (right.denominator == 0) {
+			if (right.Denominator == 0) {
 				// note sign-flip...
-				return -indeterminantCompare(NormalizeIndeterminate(right.numerator), this);
+				return -indeterminantCompare(NormalizeIndeterminate(right.Numerator), this);
 			}
 			// they're both normal Fractions
 			CrossReducePair(this, right);
 			try {
 				checked {
-					long leftScale = this.numerator * right.denominator;
-					long rightScale = this.denominator * right.numerator;
+					long leftScale = this.Numerator * right.Denominator;
+					long rightScale = this.Denominator * right.Numerator;
 					if (leftScale < rightScale)
 						return -1;
 					else if (leftScale > rightScale)
@@ -941,70 +930,70 @@ namespace HardySoft.CC.Mathematics {
 
 		#region IFormattable Members
 		string System.IFormattable.ToString(string format, IFormatProvider formatProvider) {
-			return this.numerator.ToString(format, formatProvider) + "/" + this.denominator.ToString(format, formatProvider);
+			return this.Numerator.ToString(format, formatProvider) + "/" + this.Denominator.ToString(format, formatProvider);
 		}
 		#endregion
 
 		#region Reduction
 		/// <summary>
-		/// Reduces (simplifies) a Fraction by dividing down to lowest possible denominator (via GCD).
+		/// Reduces (simplifies) a Fraction by dividing down to lowest possible Denominator (via GCD).
 		/// </summary>
 		/// <param name="frac">The Fraction to be reduced [WILL BE MODIFIED IN PLACE].</param>
 		/// <remarks>
 		/// Modifies the input arguments in-place! Will normalize the NaN and infinites
-		/// representation. Will set Denominator to 1 for any zero numerator. Moves sign to the
+		/// representation. Will set Denominator to 1 for any zero Numerator. Moves sign to the
 		/// Numerator. 2/4 will be reduced to 1/2.
 		/// </remarks>
 		public void ReduceFraction() {
 			// clean up the NaNs and infinites
-			if (this.denominator == 0) {
-				this.numerator = (long)NormalizeIndeterminate(this.numerator);
+			if (this.Denominator == 0) {
+				this.Numerator = (long)NormalizeIndeterminate(this.Numerator);
 				return;
 			}
 			// all forms of zero are alike.
-			if (this.numerator == 0) {
-				this.denominator = 1;
+			if (this.Numerator == 0) {
+				this.Denominator = 1;
 				return;
 			}
-			long iGCD = GCD(this.numerator, this.denominator);
-			this.numerator /= iGCD;
-			this.denominator /= iGCD;
-			// if negative sign in denominator
-			if (this.denominator < 0) {
-				//move negative sign to numerator
-				this.numerator = -this.numerator;
-				this.denominator = -this.denominator;
+			long iGCD = GCD(this.Numerator, this.Denominator);
+			this.Numerator /= iGCD;
+			this.Denominator /= iGCD;
+			// if negative sign in Denominator
+			if (this.Denominator < 0) {
+				//move negative sign to Numerator
+				this.Numerator = -this.Numerator;
+				this.Denominator = -this.Denominator;
 			}
 		}
 
 		/// <summary>
-		/// Reduces (simplifies) a Fraction by dividing down to lowest possible denominator (via GCD).
+		/// Reduces (simplifies) a Fraction by dividing down to lowest possible Denominator (via GCD).
 		/// </summary>
 		/// <param name="frac">The Fraction to be reduced [WILL BE MODIFIED IN PLACE].</param>
 		/// <remarks>
 		/// Modifies the input arguments in-place! Will normalize the NaN and infinites
-		/// representation. Will set Denominator to 1 for any zero numerator. Moves sign to the
+		/// representation. Will set Denominator to 1 for any zero Numerator. Moves sign to the
 		/// Numerator. 2/4 will be reduced to 1/2.
 		/// </remarks>
 		public void ReduceFraction(Fraction fraction) {
 			// clean up the NaNs and infinites
-			if (fraction.denominator == 0) {
-				fraction.numerator = (long)NormalizeIndeterminate(fraction.numerator);
+			if (fraction.Denominator == 0) {
+				fraction.Numerator = (long)NormalizeIndeterminate(fraction.Numerator);
 				return;
 			}
 			// all forms of zero are alike.
-			if (fraction.numerator == 0) {
-				fraction.denominator = 1;
+			if (fraction.Numerator == 0) {
+				fraction.Denominator = 1;
 				return;
 			}
-			long iGCD = GCD(fraction.numerator, fraction.denominator);
-			fraction.numerator /= iGCD;
-			fraction.denominator /= iGCD;
-			// if negative sign in denominator
-			if (fraction.denominator < 0) {
-				//move negative sign to numerator
-				fraction.numerator = -fraction.numerator;
-				fraction.denominator = -fraction.denominator;
+			long iGCD = GCD(fraction.Numerator, fraction.Denominator);
+			fraction.Numerator /= iGCD;
+			fraction.Denominator /= iGCD;
+			// if negative sign in Denominator
+			if (fraction.Denominator < 0) {
+				//move negative sign to Numerator
+				fraction.Numerator = -fraction.Numerator;
+				fraction.Denominator = -fraction.Denominator;
 			}
 		}
 
@@ -1018,16 +1007,16 @@ namespace HardySoft.CC.Mathematics {
 		/// </remarks>
 		public static void CrossReducePair(Fraction frac1, Fraction frac2) {
 			// leave the indeterminates alone!
-			if (frac1.denominator == 0 || frac2.denominator == 0) {
+			if (frac1.Denominator == 0 || frac2.Denominator == 0) {
 				return;
 			}
-			long gcdTop = GCD(frac1.numerator, frac2.denominator);
-			frac1.numerator = frac1.numerator / gcdTop;
-			frac2.denominator = frac2.denominator / gcdTop;
+			long gcdTop = GCD(frac1.Numerator, frac2.Denominator);
+			frac1.Numerator = frac1.Numerator / gcdTop;
+			frac2.Denominator = frac2.Denominator / gcdTop;
 
-			long gcdBottom = GCD(frac1.denominator, frac2.numerator);
-			frac2.numerator = frac2.numerator / gcdBottom;
-			frac1.denominator = frac1.denominator / gcdBottom;
+			long gcdBottom = GCD(frac1.Denominator, frac2.Numerator);
+			frac2.Numerator = frac2.Numerator / gcdBottom;
+			frac1.Denominator = frac1.Denominator / gcdBottom;
 		}
 		#endregion
 
@@ -1072,7 +1061,7 @@ namespace HardySoft.CC.Mathematics {
 			ReduceFraction();
 			// now normalize the comperand
 			ReduceFraction(right);
-			if (this.numerator == right.numerator && this.denominator == right.denominator) {
+			if (this.Numerator == right.Numerator && this.Denominator == right.Denominator) {
 				// special-case rule, two NaNs are always both equal
 				if (notEqualCheck && this.IsNaN()) {
 					return true;
@@ -1140,7 +1129,7 @@ namespace HardySoft.CC.Mathematics {
 		/// <returns>A new Fraction that is sign-flipped from the input.</returns>
 		private static Fraction negate(Fraction frac) {
 			// for a NaN, it's still a NaN
-			return new Fraction(-frac.numerator, frac.denominator);
+			return new Fraction(-frac.Numerator, frac.Denominator);
 		}
 
 		/// <summary>
@@ -1155,15 +1144,15 @@ namespace HardySoft.CC.Mathematics {
 		private static Fraction add(Fraction left, Fraction right) {
 			if (left.IsNaN() || right.IsNaN())
 				return NaN;
-			long gcd = GCD(left.denominator, right.denominator);
+			long gcd = GCD(left.Denominator, right.Denominator);
 			// cannot return less than 1
-			long leftDenominator = left.denominator / gcd;
-			long rightDenominator = right.denominator / gcd;
+			long leftDenominator = left.Denominator / gcd;
+			long rightDenominator = right.Denominator / gcd;
 			try {
 				checked {
-					long numerator = left.numerator * rightDenominator + right.numerator * leftDenominator;
-					long denominator = leftDenominator * rightDenominator * gcd;
-					return new Fraction(numerator, denominator);
+					long Numerator = left.Numerator * rightDenominator + right.Numerator * leftDenominator;
+					long Denominator = leftDenominator * rightDenominator * gcd;
+					return new Fraction(Numerator, Denominator);
 				}
 			} catch (Exception e) {
 				throw new FractionException("Add error", e);
@@ -1189,9 +1178,9 @@ namespace HardySoft.CC.Mathematics {
 			CrossReducePair(left, right);
 			try {
 				checked {
-					long numerator = left.numerator * right.numerator;
-					long denominator = left.denominator * right.denominator;
-					return new Fraction(numerator, denominator);
+					long Numerator = left.Numerator * right.Numerator;
+					long Denominator = left.Denominator * right.Denominator;
+					return new Fraction(Numerator, Denominator);
 				}
 			} catch (Exception e) {
 				throw new FractionException("Multiply error", e);
@@ -1216,7 +1205,7 @@ namespace HardySoft.CC.Mathematics {
 				checked {
 					// this will discard any fractional places...
 					Int64 quotient = (Int64)(left / right);
-					Fraction whole = new Fraction(quotient * right.numerator, right.denominator);
+					Fraction whole = new Fraction(quotient * right.Numerator, right.Denominator);
 					return left - whole;
 				}
 			} catch (Exception e) {
@@ -1265,15 +1254,15 @@ namespace HardySoft.CC.Mathematics {
 		/// Gives the culture-related representation of the indeterminate types NaN, PositiveInfinity
 		/// and NegativeInfinity.
 		/// </summary>
-		/// <param name="numerator">The value in the numerator.</param>
+		/// <param name="Numerator">The value in the Numerator.</param>
 		/// <returns>The culture-specific string representation of the implied value.</returns>
 		/// <remarks>
 		/// Only the sign and zero/non-zero information is relevant.
 		/// </remarks>
-		private static string indeterminateTypeName(long numerator) {
+		private static string indeterminateTypeName(long Numerator) {
 			// could also be NumberFormatInfo.InvariantInfo
 			NumberFormatInfo info = NumberFormatInfo.CurrentInfo;
-			switch (NormalizeIndeterminate(numerator)) {
+			switch (NormalizeIndeterminate(Numerator)) {
 				case Indeterminates.PositiveInfinity:
 					return info.PositiveInfinitySymbol;
 				case Indeterminates.NegativeInfinity:
@@ -1289,13 +1278,13 @@ namespace HardySoft.CC.Mathematics {
 		/// Gives the normalize representation of the indeterminate types NaN, PositiveInfinity
 		/// and NegativeInfinity.
 		/// </summary>
-		/// <param name="numerator">The value in the numerator.</param>
+		/// <param name="Numerator">The value in the Numerator.</param>
 		/// <returns>The normalized version of the indeterminate type.</returns>
 		/// <remarks>
 		/// Only the sign and zero/non-zero information is relevant.
 		/// </remarks>
-		private static Indeterminates NormalizeIndeterminate(long numerator) {
-			switch (Math.Sign(numerator)) {
+		private static Indeterminates NormalizeIndeterminate(long Numerator) {
+			switch (Math.Sign(Numerator)) {
 				case 1:
 					return Indeterminates.PositiveInfinity;
 				case -1:
@@ -1312,7 +1301,7 @@ namespace HardySoft.CC.Mathematics {
 		/// </summary>
 		private enum Indeterminates {
 			/// <summary>
-			/// Zero denominator fraction.
+			/// Zero Denominator fraction.
 			/// </summary>
 			NaN = 0,
 
