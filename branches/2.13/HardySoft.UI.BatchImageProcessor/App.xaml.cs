@@ -114,7 +114,7 @@ namespace HardySoft.UI.BatchImageProcessor {
 			window.Show();
 		}
 
-		#region Unhandled excpetions
+		#region Unhandled exceptions
 		private void Application_DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e) {
 			Trace.TraceError(e.Exception.ToString());
 		}

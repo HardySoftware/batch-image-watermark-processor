@@ -41,7 +41,8 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 
 			List<PhotoItem> photoList = new List<PhotoItem>();
 			if (ps.RenamingSetting.EnableBatchRename) {
-				// do s sort of photo items first if batch rename is enabled.
+				// TODO improve this feature under large volume, it could take long time to get it sorted first.
+				// do sort of photo items first if batch rename is enabled.
 				if (ps.RenamingSetting.SortOption == OutputFileSortOption.ByDateTimeTaken) {
 					var pl = (from p in ps.Photos
 							  orderby (new ExifMetadata(new Uri(p.PhotoPath))).DateImageTaken
@@ -52,6 +53,8 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 				} else {
 					throw new InvalidOperationException("Sort method is not supported.");
 				}
+			} else {
+				photoList = ps.Photos.ToList();
 			}
 
 			foreach (PhotoItem item in photoList) {

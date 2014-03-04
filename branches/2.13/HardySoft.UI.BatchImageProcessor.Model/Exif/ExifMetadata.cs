@@ -28,7 +28,7 @@ namespace HardySoft.UI.BatchImageProcessor.Model.Exif {
 		private static readonly int URationalSize = 2 * Marshal.SizeOf(typeof(uint));
 
 		public ExifMetadata(Uri imageUri) {
-			this.fileName = imageUri.AbsolutePath;
+			this.fileName = imageUri.LocalPath;
 			using (FileStream stream = new FileStream(this.fileName, FileMode.Open)) {
 				using (Image image = Image.FromStream(stream)) {
 					this.propItems = image.PropertyItems;
