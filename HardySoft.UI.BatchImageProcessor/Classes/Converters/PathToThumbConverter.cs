@@ -29,12 +29,19 @@ namespace HardySoft.UI.BatchImageProcessor.Classes.Converters {
 				if (!File.Exists(imageUri.LocalPath)) {
 					return null;
 				}
+				
+				MemoryStream ms = new MemoryStream();
+				byte[] bytArray = File.ReadAllBytes(imageUri.LocalPath);
+				ms.Write(bytArray, 0, bytArray.Length);
+				ms.Position = 0;
+
 				BitmapImage bi = new BitmapImage();
 				bi.BeginInit();
 				bi.CacheOption = BitmapCacheOption.OnDemand;
 				bi.DecodePixelWidth = 200;
 				//bi.DecodePixelHeight = 60;
-				bi.UriSource = imageUri;
+				//bi.UriSource = imageUri;
+				bi.StreamSource = ms;
 				bi.EndInit();
 				return bi;
 			}

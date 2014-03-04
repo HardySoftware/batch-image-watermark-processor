@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.IO;
 using System.Windows.Data;
 using HardySoft.UI.BatchImageProcessor.Model;
@@ -8,7 +9,7 @@ using HardySoft.UI.BatchImageProcessor.Model.Exif;
 
 namespace HardySoft.UI.BatchImageProcessor.Classes.Converters {
 	public class ImagePathToExifConverter : IValueConverter {
-		public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture) {
+		public object Convert(object value, Type targetType, object parameter, CultureInfo culture) {
 			string imagePath = (string)value;
 
 			if (File.Exists(imagePath)) {
@@ -16,7 +17,7 @@ namespace HardySoft.UI.BatchImageProcessor.Classes.Converters {
 
 				if (string.Compare(fi.Extension, ".jpg", true) == 0
 					|| string.Compare(fi.Extension, ".jpeg", true) == 0) {
-					// EXIF information is avaialble for JPG file only
+					// EXIF information is available for JPG file only
 					return getExifMetaData(imagePath);
 				}
 			}
@@ -24,7 +25,7 @@ namespace HardySoft.UI.BatchImageProcessor.Classes.Converters {
 			return null;
 		}
 
-		public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture) {
+		public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture) {
 			throw new NotImplementedException("The method or operation is not implemented.");
 		}
 
