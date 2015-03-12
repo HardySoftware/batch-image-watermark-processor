@@ -1,0 +1,2 @@
+# 常见疑问：我如何批量重命名输出图形以及生成缩图？ #
+![http://batch-image-watermark-processor.googlecode.com/svn/wiki/screenshots/FAQ_Shrink01_zh-cn.jpg](http://batch-image-watermark-processor.googlecode.com/svn/wiki/screenshots/FAQ_Shrink01_zh-cn.jpg)

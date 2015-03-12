@@ -1,0 +1,2 @@
+# 常见疑问：我如何批量缩小输出图形尺寸？ #
+![http://batch-image-watermark-processor.googlecode.com/svn/wiki/screenshots/FAQ_Shrink01_zh-cn.jpg](http://batch-image-watermark-processor.googlecode.com/svn/wiki/screenshots/FAQ_Shrink01_zh-cn.jpg)
