@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<project>
+  <configuration createBackupFiles="False" hideEmptyRows="True" useSpellChecker="True" neutralLanguageCode="en-US">
+    <globalSetting name="OmitEmptyItems">True</globalSetting>
+    <globalSetting name="IgnoreWindowsFormsResourcesWithDesignerFiles">True</globalSetting>
+    <userSetting name="hardy@HARDYSOFT.filesInitialDir">C:\Tech Sector\Projects\Windows Projects\Batch Image Processor\Trunk\HardySoft.UI.BatchImageProcessor\Resources</userSetting>
+    <userSetting name="hardy@HARDYSOFT.FindText">
+    </userSetting>
+    <userSetting name="hardy@HARDYSOFT.RecentFiles">C:\Tech Sector\Projects\Windows Projects\Batch Image Processor\Trunk\HardySoft.UI.BatchImageProcessor\Resources\HelpContent.resx;C:\Tech Sector\Projects\Windows Projects\Batch Image Processor\Trunk\HardySoft.UI.BatchImageProcessor\Resources\HelpContent.zh-CN.resx###***###C:\Tech Sector\Projects\Windows Projects\Batch Image Processor\Trunk\HardySoft.UI.BatchImageProcessor\Resources\LanguageContent.resx;C:\Tech Sector\Projects\Windows Projects\Batch Image Processor\Trunk\HardySoft.UI.BatchImageProcessor\Resources\LanguageContent.zh-CN.resx</userSetting>
+    <description>
+    </description>
+  </configuration>
+  <fileGroups>
+    <fileGroup name="">
+      <file filePath="HardySoft.UI.BatchImageProcessor\Resources\LanguageContent.resx" absoluteFilePath="C:\Tech Sector\Projects\Windows Projects\Batch Image Processor\Trunk\HardySoft.UI.BatchImageProcessor\Resources\LanguageContent.resx" />
+      <file filePath="HardySoft.UI.BatchImageProcessor\Resources\LanguageContent.zh-CN.resx" absoluteFilePath="C:\Tech Sector\Projects\Windows Projects\Batch Image Processor\Trunk\HardySoft.UI.BatchImageProcessor\Resources\LanguageContent.zh-CN.resx" />
+    </fileGroup>
+  </fileGroups>
+</project>

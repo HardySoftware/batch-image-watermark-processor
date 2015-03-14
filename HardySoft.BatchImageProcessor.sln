@@ -1,6 +1,8 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HardySoft.UI.BatchImageProcessor", "HardySoft.UI.BatchImageProcessor\HardySoft.UI.BatchImageProcessor.csproj", "{D5B6B547-B5AE-4188-B7DE-8DB86D6B5362}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HardySoft.UI.BatchImageProcessor.View", "HardySoft.UI.BatchImageProcessor.View\HardySoft.UI.BatchImageProcessor.View.csproj", "{9C6D00B8-CD82-49FC-A857-44B3A57AF627}"
@@ -18,10 +20,23 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{46709B
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenXMLWriter", "OpenXMLWriter\OpenXMLWriter.csproj", "{DE9DB900-DA1D-4914-8E70-F4A3E1D6578C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SupportingFiles", "SupportingFiles", "{D912614E-4F82-43B9-99E0-AC8DCB42E624}"
+	ProjectSection(SolutionItems) = preProject
+		SupportingFiles\Batch Image Processor.pdn = SupportingFiles\Batch Image Processor.pdn
+		SupportingFiles\Batch Image Processor.png = SupportingFiles\Batch Image Processor.png
+		SupportingFiles\Gold Text.png = SupportingFiles\Gold Text.png
+		SupportingFiles\icon.png = SupportingFiles\icon.png
+		SupportingFiles\readme .zh-cn.docx = SupportingFiles\readme .zh-cn.docx
+		SupportingFiles\readme.docx = SupportingFiles\readme.docx
+		SupportingFiles\Resources.zreproj = SupportingFiles\Resources.zreproj
+		SupportingFiles\Sea Turtle.pdn = SupportingFiles\Sea Turtle.pdn
+		SupportingFiles\Splash.pdn = SupportingFiles\Splash.pdn
+		SupportingFiles\Splash.png = SupportingFiles\Splash.png
+	EndProjectSection
+EndProject
 Global
-	GlobalSection(TestCaseManagementSettings) = postSolution
-		CategoryFile = HardySoft.BatchImageProcessor.vsmdi
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		NoUnity|Any CPU = NoUnity|Any CPU
@@ -58,8 +73,17 @@ Global
 		{D162A876-9517-4E74-89AF-C889FF5BFAD0}.NoUnity|Any CPU.Build.0 = NoUnity|Any CPU
 		{D162A876-9517-4E74-89AF-C889FF5BFAD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D162A876-9517-4E74-89AF-C889FF5BFAD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE9DB900-DA1D-4914-8E70-F4A3E1D6578C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE9DB900-DA1D-4914-8E70-F4A3E1D6578C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE9DB900-DA1D-4914-8E70-F4A3E1D6578C}.NoUnity|Any CPU.ActiveCfg = NoUnity|Any CPU
+		{DE9DB900-DA1D-4914-8E70-F4A3E1D6578C}.NoUnity|Any CPU.Build.0 = NoUnity|Any CPU
+		{DE9DB900-DA1D-4914-8E70-F4A3E1D6578C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE9DB900-DA1D-4914-8E70-F4A3E1D6578C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = HardySoft.BatchImageProcessor.vsmdi
 	EndGlobalSection
 EndGlobal
