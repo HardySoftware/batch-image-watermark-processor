@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ApplicationUrl" xml:space="preserve">
-    <value>http://code.google.com/p/batch-image-watermark-processor/</value>
+    <value>https://github.com/hardywang/batch-image-watermark-processor/</value>
   </data>
   <data name="Button_Font" xml:space="preserve">
     <value>Шрифт</value>

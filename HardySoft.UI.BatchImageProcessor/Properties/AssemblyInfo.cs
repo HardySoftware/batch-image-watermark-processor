@@ -12,7 +12,7 @@ using System.Windows;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Hardy Software")]
 [assembly: AssemblyProduct("Sea Turtle Batch Image Processor")]
-[assembly: AssemblyCopyright("Copyright © Hardy Software 2000 - 2013")]
+[assembly: AssemblyCopyright("Copyright © Hardy Software 2000 - 2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

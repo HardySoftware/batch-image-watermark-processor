@@ -67,7 +67,7 @@
 				</StackPanel>
 
 				<TextBlock Grid.Column="1" Grid.Row="3">
-					<Hyperlink x:Name="hGoogleCode"
+					<Hyperlink x:Name="hGitHubCode"
 						Style="{StaticResource AboutWindowHyperlink}"
 						NavigateUri="{Binding Path=ApplicationURL, Mode=OneWay}"
 						RequestNavigate="hyperlink_RequestNavigate">

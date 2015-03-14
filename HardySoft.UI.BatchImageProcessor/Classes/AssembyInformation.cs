@@ -122,13 +122,13 @@ namespace HardySoft.UI.BatchImageProcessor.Classes {
 		/// </returns>
 		public static Version GetLatestVersion() {
 			try {
-				WebRequest request = WebRequest.Create("http://code.google.com/p/batch-image-watermark-processor/wiki/CurrentVersion");
+                WebRequest request = WebRequest.Create("https://github.com/hardywang/batch-image-watermark-processor/blob/wiki/CurrentVersion.md");
 				HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 				Stream dataStream = response.GetResponseStream();
 				StreamReader reader = new StreamReader(dataStream);
 				string responseFromServer = reader.ReadToEnd();
 
-				Regex reg = new Regex(@"&gt;&gt;&gt;([\d]+\.[\d]+\.[\d]+\.[\d]+)?&lt;&lt;&lt;");
+                Regex reg = new Regex(@"{Current Version Begins}([\d]+\.[\d]+\.[\d]+\.[\d]+)?{Current Version Ends}");
 				MatchCollection matches = reg.Matches(responseFromServer);
 
 				Version v = null;
@@ -137,17 +137,15 @@ namespace HardySoft.UI.BatchImageProcessor.Classes {
 					for (int i = 0; i < matches.Count; i++) {
 						Match m = matches[i];
 						string foundVersion = m.Value;
-						foundVersion = foundVersion.Replace("&gt;", "");
-						foundVersion = foundVersion.Replace(">", "");
-						foundVersion = foundVersion.Replace("&lt;", "");
-						foundVersion = foundVersion.Replace("<", "");
+                        foundVersion = foundVersion.Replace("{Current Version Begins}", "");
+                        foundVersion = foundVersion.Replace("{Current Version Ends}", "");
 
 						v = new Version(foundVersion);
 					}
 				}
 
 				return v;
-			} catch {
+			} catch (Exception ex) {
 				return null;
 			}
 		}

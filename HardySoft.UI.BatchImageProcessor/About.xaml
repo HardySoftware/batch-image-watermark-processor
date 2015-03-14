@@ -87,23 +87,9 @@
 					VerticalAlignment="Top"
 					Margin="10, 0, 10, 0"
 					Style="{DynamicResource ConfigSectionLabel}"
-					Text="{HSMarks:ResourceExtension Label_Email}" />
-
-				<TextBlock Grid.Column="2" Grid.Row="4">
-					<Hyperlink Style="{DynamicResource AboutWindowHyperlink}"
-						NavigateUri="mailto:sea-turtle-batch-image-processor@googlegroups.com"
-						RequestNavigate="hyperlink_RequestNavigate">
-						sea-turtle-batch-image-processor@googlegroups.com
-					</Hyperlink>
-				</TextBlock>
-
-				<TextBlock Grid.Column="1" Grid.Row="5"
-					VerticalAlignment="Top"
-					Margin="10, 0, 10, 0"
-					Style="{DynamicResource ConfigSectionLabel}"
 					Text="{HSMarks:ResourceExtension Label_ProductURL}" />
 					
-				<StackPanel Grid.Column="2" Grid.Row="5">
+				<StackPanel Grid.Column="2" Grid.Row="4">
 					<!--<TextBlock>
 						<Hyperlink x:Name="hMSDNCode"
 							Style="{StaticResource AboutWindowHyperlink}"
@@ -113,7 +99,7 @@
 						</Hyperlink>
 					</TextBlock>-->
 					<TextBlock>
-						<Hyperlink x:Name="hGoogleCode"
+						<Hyperlink x:Name="hGitHubCode"
 							Style="{DynamicResource AboutWindowHyperlink}"
 							NavigateUri="{Binding Path=ApplicationUrl, Mode=OneWay}"
 							RequestNavigate="hyperlink_RequestNavigate">
@@ -123,7 +109,7 @@
 				</StackPanel>
 					
 				<TextBlock x:Name="tbSystemInfo"
-					Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="3"
+					Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="3"
 					VerticalAlignment="Top"
 					Margin="10, 0, 10, 0"
 					Style="{DynamicResource ConfigSectionLabel}"
