@@ -35,9 +35,10 @@ Some screenshots of the applciation could be found [here](Screenshot_en.md).
   * I finished all settings, [how do I generate output images](FAQ_Make_en.md)?
   
 ## Future Feature Consideration ##
-    * Add theme feature.
-    * To publish to online image host service from the tool, for example Flickr, SkyDrive, Pisaca Web and so on, upon availability of API from the providers.
-    * Enhance border, drop shadow feature. There are some good and free tools to provide very cool border and shadow feature, such as http://www.neoimaging.cn/
-    * More ideas, welcome to talk with me.
+  * Add theme feature.
+  * To publish to online image host service from the tool, for example Flickr, SkyDrive, Pisaca Web and so on, upon availability of API from the providers.
+  * Enhance border, drop shadow feature. There are some good and free tools to provide very cool border and shadow feature, such as http://www.neoimaging.cn/
+  * More ideas, welcome to talk with me.
+  
 # Visitor Map #
 [![](http://www2.clustrmaps.com/stats/maps-no_clusters/code.google.com-p-batch-image-watermark-processor--thumb.jpg)](http://www2.clustrmaps.com/counter/maps.php?url=http://code.google.com/p/batch-image-watermark-processor/)
