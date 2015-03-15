@@ -16,7 +16,7 @@ Tool also provides following features:
  * Apply additional processing, such as grey scale, negative colour, oil paint effect, relief effect and so on.
  * Multi-lingual support; currently supported languages: English, Simplified Chinese, partial French, partial Italian and partial Russian. Do you know more languages, welcome to help the translation.
 
-# System Requirement #
+# System Requirements #
 ## After You Download the Package ##
 The binary package is compressed by [7-Zip](http://www.7-zip.org/), which is an open-source software under GNU license.
 ## Before You Run It ##
