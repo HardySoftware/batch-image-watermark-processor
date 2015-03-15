@@ -6,6 +6,7 @@ This is a tool to add watermark (image or text) to existing images at designated
  * Rotate watermark text;
  * Choose color and opacity of watermark text;
  * Able to use Exif information in watermark text.
+  
 Tool also provides following features:
  * Batch rename files while they are being processed.
  * Batch add drop shadow to pictures.
