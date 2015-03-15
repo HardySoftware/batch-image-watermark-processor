@@ -32,40 +32,10 @@ Some screenshots of the applciation could be found [here](Screenshot_en.md).
   * I want to shrink all output images, [how do I do it](FAQ_Shrink_en.md)?
   * I want to generate thumbnail or batch rename output files, [how do I do it](FAQ_Output_en.md)?
   * I finished all settings, [how do I generate output images](FAQ_Make_en.md)?
-# Version History #
-    * 2013-05-29: [2.12 (file 2.12.0.0)](Summary_212_en.md)
-    * 2012-05-17: [2.10 (file 2.10.0.0)](Summary_210_en.md)
-    * 2012-02-07: [2.9 (file 2.9.0.0)](Summary_29_en.md)
-    * 2010-08-11: [2.8 (file 2.8.0.0)](Summary_28_en.md)
-    * 2010-04-12: [2.7 (file 2.7.0.0)](Summary_27_en.md)
-    * 2010-02-15: [2.6 (file 2.6.0.0)](Summary_26_en.md)
-    * 2009-09-18: [2.5 (file 2.5.0.0)](Summary_25_en.md)
-    * 2009-07-29: [2.4 (file 2.4.0.0)](Summary_24_en.md)
-    * 2009-03-19: [2.3 (file 2.3.0.0)](Summary_23_en.md)
-    * 2009-03-06: [2.2 (file 2.2.0.0)](Summary_22_en.md)
-    * 2009-02-24: [2.1 (file 2.1.0.0)](Summary_21_en.md)
-    * 2009-02-08: [2.0 (file 2.0.0.0)](Summary_20_en.md)
-    * 2008-02: [Version 1.0](Summary_for_Version_1.md)
-# About This Project #
-## Techinical Hilite ##
-    * The project is created with Microsoft .Net Framework 3.5 in C# language.
-    * Windows Presentation Foundation (WPF) is used to create User Interfrace (UI) layer.
-    * Model View Presenter (MVP) pattern supported by Microsoft Unity Framework is used.
 ## Future Feature Consideration ##
     * Add theme feature.
     * To publish to online image host service from the tool, for example Flickr, SkyDrive, Pisaca Web and so on, upon availability of API from the providers.
     * Enhance border, drop shadow feature. There are some good and free tools to provide very cool border and shadow feature, such as http://www.neoimaging.cn/
     * More ideas, welcome to talk with me.
-## Join the Development Team ##
-I welcome anybody who can provide help from following areas:
-    * Strong user interface (WPF) designer.
-    * Developers with strong GDI background.
-    * Translators to localize the product into your own languages.
-If you have the interest to help to make this project better, feel free to contact with me.
-# Contact Author #
-## Direct Contact ##
-Please feel free to send me comments, bugs, feature requests and so on to my email address hardy.yin.wang(at)gmail.com (please replace (at) with @ when you send email).
-## Online Discussion Group ##
-http://groups.google.ca/group/sea-turtle-batch-image-processor
 # Visitor Map #
 [![](http://www2.clustrmaps.com/stats/maps-no_clusters/code.google.com-p-batch-image-watermark-processor--thumb.jpg)](http://www2.clustrmaps.com/counter/maps.php?url=http://code.google.com/p/batch-image-watermark-processor/)
