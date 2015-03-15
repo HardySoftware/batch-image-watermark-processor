@@ -33,6 +33,7 @@
   * 我想把输出图形缩小尺寸，[我该怎么做](FAQ_Shrink_zh_cn.md)？
   * 我想同时输出缩图以及批量重命名，[我该怎么做](FAQ_Output_zh_cn.md)？
   * 我所有设置都完成了，[然后我该怎么做来生成我的图片](FAQ_Make_zh_cn.md)？
+
 ## 未来功能设想 ##
     * 增加皮肤功能。
     * 增加功能直接把处理好的文件发布到诸如Flickr、SkyDrive、Pisaca Web等网站。
