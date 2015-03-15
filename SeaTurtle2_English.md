@@ -33,6 +33,7 @@ Some screenshots of the applciation could be found [here](Screenshot_en.md).
   * I want to shrink all output images, [how do I do it](FAQ_Shrink_en.md)?
   * I want to generate thumbnail or batch rename output files, [how do I do it](FAQ_Output_en.md)?
   * I finished all settings, [how do I generate output images](FAQ_Make_en.md)?
+  
 ## Future Feature Consideration ##
     * Add theme feature.
     * To publish to online image host service from the tool, for example Flickr, SkyDrive, Pisaca Web and so on, upon availability of API from the providers.
