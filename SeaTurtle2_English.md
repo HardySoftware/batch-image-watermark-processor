@@ -1,28 +1,25 @@
 # Introduction #
 ## Sumamry ##
 This is a tool to add watermark (image or text) to existing images at designated position. The tool can:
-  * Rotate watermark image;
-  * Choose opacity level of watermark image;
-  * Rotate watermark text;
-  * Choose color and opacity of watermark text;
-  * Able to use Exif information in watermark text.
+ * Rotate watermark image;
+ * Choose opacity level of watermark image;
+ * Rotate watermark text;
+ * Choose color and opacity of watermark text;
+ * Able to use Exif information in watermark text.
 Tool also provides following features:
-  * Batch rename files while they are being processed.
-  * Batch add drop shadow to pictures.
-  * Batch add border to pictures.
-  * Batch resize original pictures.
-  * Generate thumbnail images.
-  * Apply additional processing, such as grey scale, negative colour, oil paint effect, relief effect and so on.
-  * Multi-lingual support; currently supported languages: English, Simplified Chinese. Do you know more languages, welcome to help translation.
-## Project Name ##
-Sea Turtle Batch Image Watermark Processor
-## Version Number ##
-2.12 (File# 2.12.0.0, Build# 2.12.4896.36977)
+ * Batch rename files while they are being processed.
+ * Batch add drop shadow to pictures.
+ * Batch add border to pictures.
+ * Batch resize original pictures.
+ * Generate thumbnail images.
+ * Apply additional processing, such as grey scale, negative colour, oil paint effect, relief effect and so on.
+ * Multi-lingual support; currently supported languages: English, Simplified Chinese, partial French, partial Italian and partial Russian. Do you know more languages, welcome to help the translation.
+
 # System Requirement #
 ## After You Download the Package ##
 The binary package is compressed by [7-Zip](http://www.7-zip.org/), which is an open-source software under GNU license.
 ## Before You Run It ##
-Please make sure you have Microsoft .Net Framework 3.5 Runtime installed (download at http://www.microsoft.com/downloads/details.aspx?FamilyId=333325FD-AE52-4E35-B531-508D977D32A6) AND Microsoft .Net Framework 3.5 Service Pack 1 ( download at http://www.microsoft.com/downloads/details.aspx?familyid=ab99342f-5d1a-413d-8319-81da479ab0d7)
+Please make sure you have Microsoft .Net Framework 4.5 Runtime installed (download it from  https://www.microsoft.com/en-ca/download/details.aspx?id=30653)
 # Screenshots and Video Demo #
 Some screenshots of the applciation could be found [here](Screenshot_en.md).
 # FAQ #
