@@ -2,7 +2,7 @@
 ## Open or Create Project ##
 From main user interface, you can choose to open an existing project to or create a new project.
 
-![http://batch-image-watermark-processor.googlecode.com/svn/wiki/screenshots/FAQ_Begin01_en.jpg](http://batch-image-watermark-processor.googlecode.com/svn/wiki/screenshots/FAQ_Begin01_en.jpg)
+![https://raw.githubusercontent.com/hardywang/batch-image-watermark-processor/wiki/screenshots/FAQ_Begin01_en.jpg](https://raw.githubusercontent.com/hardywang/batch-image-watermark-processor/wiki/screenshots/FAQ_Begin01_en.jpg)
 
 ## Choose source and output directory ##
 All the supported image files under source directory are loaded in the list.
