@@ -1,2 +1,2 @@
 # FAQ: How do I add dropshadow to my output images? #
-![http://batch-image-watermark-processor.googlecode.com/svn/wiki/screenshots/FAQ_Dropshadow01_en.jpg](http://batch-image-watermark-processor.googlecode.com/svn/wiki/screenshots/FAQ_Dropshadow01_en.jpg)
+![https://raw.githubusercontent.com/hardywang/batch-image-watermark-processor/wiki/screenshots/FAQ_Dropshadow01_en.jpg](https://raw.githubusercontent.com/hardywang/batch-image-watermark-processor/wiki/screenshots/FAQ_Dropshadow01_en.jpg)

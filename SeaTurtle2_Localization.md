@@ -2,7 +2,7 @@
 
 Anybody who can speak other languages are welcome to contribute to the translations. An online collaborative translation service has been setup at http://crowdin.net/project/sea-turtle-batch-image-process, it is FREE and open to any registered users.
 
-![http://batch-image-watermark-processor.googlecode.com/svn/wiki/screenshots/translation.png](http://batch-image-watermark-processor.googlecode.com/svn/wiki/screenshots/translation.png)
+![https://raw.githubusercontent.com/hardywang/batch-image-watermark-processor/wiki/screenshots/translation.png](https://raw.githubusercontent.com/hardywang/batch-image-watermark-processor/wiki/screenshots/translation.png)
 
 ## Translation Guide ##
 From the site there are 2 files available HelpContent.resx and LanguageContent.resx.
