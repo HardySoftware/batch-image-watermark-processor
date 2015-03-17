@@ -4,5 +4,3 @@
 
 # Appendeix #
 ## Other Languages and [Translation](SeaTurtle2_Localization.md) ##
-
-[![](http://www2.clustrmaps.com/stats/maps-no_clusters/code.google.com-p-batch-image-watermark-processor--thumb.jpg)](http://www2.clustrmaps.com/counter/maps.php?url=http://code.google.com/p/batch-image-watermark-processor/)
