@@ -1,2 +1,2 @@
 # FAQ: How do I make output files? #
-![https://raw.githubusercontent.com/hardywang/batch-image-watermark-processor/wiki/screenshots/FAQ_Make01_en.jpg](https://raw.githubusercontent.com/hardywang/batch-image-watermark-processor/wiki/screenshots/FAQ_Make01_en.jpg)
+![https://raw.githubusercontent.com/HardySoftware/batch-image-watermark-processor/wiki/screenshots/FAQ_Make01_en.jpg](https://raw.githubusercontent.com/HardySoftware/batch-image-watermark-processor/wiki/screenshots/FAQ_Make01_en.jpg)

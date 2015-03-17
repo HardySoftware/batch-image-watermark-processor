@@ -1,2 +1,2 @@
 # 常见疑问：我如何批量缩小输出图形尺寸？ #
-![https://raw.githubusercontent.com/hardywang/batch-image-watermark-processor/wiki/screenshots/FAQ_Shrink01_zh-cn.jpg](https://raw.githubusercontent.com/hardywang/batch-image-watermark-processor/wiki/screenshots/FAQ_Shrink01_zh-cn.jpg)
+![https://raw.githubusercontent.com/HardySoftware/batch-image-watermark-processor/wiki/screenshots/FAQ_Shrink01_zh-cn.jpg](https://raw.githubusercontent.com/HardySoftware/batch-image-watermark-processor/wiki/screenshots/FAQ_Shrink01_zh-cn.jpg)

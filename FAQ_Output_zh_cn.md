@@ -1,2 +1,2 @@
 # 常见疑问：我如何批量重命名输出图形以及生成缩图？ #
-![https://raw.githubusercontent.com/hardywang/batch-image-watermark-processor/wiki/screenshots/FAQ_Shrink01_zh-cn.jpg](https://raw.githubusercontent.com/hardywang/batch-image-watermark-processor/wiki/screenshots/FAQ_Shrink01_zh-cn.jpg)
+![https://raw.githubusercontent.com/HardySoftware/batch-image-watermark-processor/wiki/screenshots/FAQ_Shrink01_zh-cn.jpg](https://raw.githubusercontent.com/HardySoftware/batch-image-watermark-processor/wiki/screenshots/FAQ_Shrink01_zh-cn.jpg)

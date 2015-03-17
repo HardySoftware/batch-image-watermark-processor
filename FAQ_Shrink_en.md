@@ -1,2 +1,2 @@
 # FAQ: How do I shrink all output images? #
-![https://raw.githubusercontent.com/hardywang/batch-image-watermark-processor/wiki/screenshots/FAQ_Shrink01_en.jpg](https://raw.githubusercontent.com/hardywang/batch-image-watermark-processor/wiki/screenshots/FAQ_Shrink01_en.jpg)
+![https://raw.githubusercontent.com/HardySoftware/batch-image-watermark-processor/wiki/screenshots/FAQ_Shrink01_en.jpg](https://raw.githubusercontent.com/HardySoftware/batch-image-watermark-processor/wiki/screenshots/FAQ_Shrink01_en.jpg)

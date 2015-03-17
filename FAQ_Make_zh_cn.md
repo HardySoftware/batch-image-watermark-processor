@@ -1,2 +1,2 @@
 # 常见疑问：我怎么生成输出图片？ #
-![https://raw.githubusercontent.com/hardywang/batch-image-watermark-processor/wiki/screenshots/FAQ_Make01_zh-cn.jpg](https://raw.githubusercontent.com/hardywang/batch-image-watermark-processor/wiki/screenshots/FAQ_Make01_zh-cn.jpg)
+![https://raw.githubusercontent.com/HardySoftware/batch-image-watermark-processor/wiki/screenshots/FAQ_Make01_zh-cn.jpg](https://raw.githubusercontent.com/HardySoftware/batch-image-watermark-processor/wiki/screenshots/FAQ_Make01_zh-cn.jpg)

@@ -2,9 +2,9 @@
 ## Add Your Watermark Image ##
 From main user interface, select "Watermark Settings" tab, click button to add a new watermark image.
 
-![https://raw.githubusercontent.com/hardywang/batch-image-watermark-processor/wiki/screenshots/FAQ_Image_Watermark01_en.jpg](https://raw.githubusercontent.com/hardywang/batch-image-watermark-processor/wiki/screenshots/FAQ_Image_Watermark01_en.jpg)
+![https://raw.githubusercontent.com/HardySoftware/batch-image-watermark-processor/wiki/screenshots/FAQ_Image_Watermark01_en.jpg](https://raw.githubusercontent.com/HardySoftware/batch-image-watermark-processor/wiki/screenshots/FAQ_Image_Watermark01_en.jpg)
 
 ## Adjust Settings for Selected Watermark ##
 Browse for your desired image as watermark, and you can adjust settings of watermark image.
 
-![https://raw.githubusercontent.com/hardywang/batch-image-watermark-processor/wiki/screenshots/FAQ_Image_Watermark02_en.jpg](https://raw.githubusercontent.com/hardywang/batch-image-watermark-processor/wiki/screenshots/FAQ_Image_Watermark02_en.jpg)
+![https://raw.githubusercontent.com/HardySoftware/batch-image-watermark-processor/wiki/screenshots/FAQ_Image_Watermark02_en.jpg](https://raw.githubusercontent.com/HardySoftware/batch-image-watermark-processor/wiki/screenshots/FAQ_Image_Watermark02_en.jpg)
