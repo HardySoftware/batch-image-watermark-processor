@@ -39,6 +39,3 @@
  * 增加功能直接把处理好的文件发布到诸如Flickr、SkyDrive、Pisaca Web等网站。
  * 增强边框、阴影功能。
  * 如果你有好点子，请不吝赐教。
-
-# Visitor Map #
-[![](http://www2.clustrmaps.com/stats/maps-no_clusters/code.google.com-p-batch-image-watermark-processor--thumb.jpg)](http://www2.clustrmaps.com/counter/maps.php?url=http://code.google.com/p/batch-image-watermark-processor/)
