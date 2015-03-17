@@ -61,7 +61,7 @@ namespace HardySoft.UI.BatchImageProcessor.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://github.com/hardywang/batch-image-watermark-processor/.
+        ///   Looks up a localized string similar to https://github.com/HardySoftware/batch-image-watermark-processor/.
         /// </summary>
         internal static string ApplicationUrl {
             get {

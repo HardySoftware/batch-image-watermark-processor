@@ -122,7 +122,7 @@ namespace HardySoft.UI.BatchImageProcessor.Classes {
 		/// </returns>
 		public static Version GetLatestVersion() {
 			try {
-                WebRequest request = WebRequest.Create("https://github.com/hardywang/batch-image-watermark-processor/blob/wiki/CurrentVersion.md");
+                WebRequest request = WebRequest.Create("https://raw.githubusercontent.com/HardySoftware/batch-image-watermark-processor/wiki/CurrentVersion.md");
 				HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 				Stream dataStream = response.GetResponseStream();
 				StreamReader reader = new StreamReader(dataStream);

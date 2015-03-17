@@ -822,7 +822,7 @@ namespace HardySoft.UI.BatchImageProcessor.Controls {
 
 		#region Discuss forum command
 		private void DiscussCommand_Executed(object sender, ExecutedRoutedEventArgs e) {
-            System.Diagnostics.Process.Start("https://github.com/hardywang/batch-image-watermark-processor/issues");
+            System.Diagnostics.Process.Start("https://github.com/HardySoftware/batch-image-watermark-processor/issues");
 		} 
 		#endregion
 
