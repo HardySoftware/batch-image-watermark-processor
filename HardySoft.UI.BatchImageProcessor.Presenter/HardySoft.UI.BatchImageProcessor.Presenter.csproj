@@ -141,14 +141,6 @@
     <Compile Include="Image Process\Size Calculator\Watermark.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\HardySoft.CC\HardySoft.CC.csproj">
-      <Project>{D162A876-9517-4E74-89AF-C889FF5BFAD0}</Project>
-      <Name>HardySoft.CC</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\HardySoft.UI.BatchImageProcessor.Model\HardySoft.UI.BatchImageProcessor.Model.csproj">
-      <Project>{5AC6B983-70B4-4FC9-A3E2-5C95C74AEE08}</Project>
-      <Name>HardySoft.UI.BatchImageProcessor.Model</Name>
-    </ProjectReference>
     <ProjectReference Include="..\HardySoft.UI.BatchImageProcessor.View\HardySoft.UI.BatchImageProcessor.View.csproj">
       <Project>{9C6D00B8-CD82-49FC-A857-44B3A57AF627}</Project>
       <Name>HardySoft.UI.BatchImageProcessor.View</Name>

@@ -98,6 +98,7 @@
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq">
@@ -409,10 +410,6 @@
     <Resource Include="Images\Menu_Icons\stop.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\HardySoft.CC\HardySoft.CC.csproj">
-      <Project>{D162A876-9517-4E74-89AF-C889FF5BFAD0}</Project>
-      <Name>HardySoft.CC</Name>
-    </ProjectReference>
     <ProjectReference Include="..\HardySoft.UI.BatchImageProcessor.Model\HardySoft.UI.BatchImageProcessor.Model.csproj">
       <Project>{5AC6B983-70B4-4FC9-A3E2-5C95C74AEE08}</Project>
       <Name>HardySoft.UI.BatchImageProcessor.Model</Name>

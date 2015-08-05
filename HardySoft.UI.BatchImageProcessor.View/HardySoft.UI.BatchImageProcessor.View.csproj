@@ -83,12 +83,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\HardySoft.UI.BatchImageProcessor.Model\HardySoft.UI.BatchImageProcessor.Model.csproj">
-      <Project>{5AC6B983-70B4-4FC9-A3E2-5C95C74AEE08}</Project>
-      <Name>HardySoft.UI.BatchImageProcessor.Model</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
