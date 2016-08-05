@@ -885,4 +885,13 @@
   <data name="Label_Altitude" xml:space="preserve">
     <value>Altitudine</value>
   </data>
+  <data name="Button_InsertExternalText" xml:space="preserve">
+    <value>Insert External Text</value>
+  </data>
+  <data name="Label_DatePattern_YMD" xml:space="preserve">
+    <value>Year-Month-Day</value>
+  </data>
+  <data name="Enum_PencilSketch" xml:space="preserve">
+    <value>Pencil Sketch Effect</value>
+  </data>
 </root>
