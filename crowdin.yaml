@@ -1,0 +1,8 @@
+files:
+  -
+    source: '/HardySoft.UI.BatchImageProcessor/Resources/LanguageContent.resx'
+    translation: '/HardySoft.UI.BatchImageProcessor/Resources/LanguageContent.%locale%.resx'
+
+  -
+    source: '/HardySoft.UI.BatchImageProcessor/Resources/HelpContent.resx'
+    translation: '/HardySoft.UI.BatchImageProcessor/Resources/HelpContent.%locale%.resx'
