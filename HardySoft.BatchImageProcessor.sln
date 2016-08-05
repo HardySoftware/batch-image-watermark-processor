@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HardySoft.UI.BatchImageProcessor", "HardySoft.UI.BatchImageProcessor\HardySoft.UI.BatchImageProcessor.csproj", "{D5B6B547-B5AE-4188-B7DE-8DB86D6B5362}"
 EndProject
@@ -26,6 +26,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SupportingFiles", "Supporti
 	ProjectSection(SolutionItems) = preProject
 		SupportingFiles\Batch Image Processor.pdn = SupportingFiles\Batch Image Processor.pdn
 		SupportingFiles\Batch Image Processor.png = SupportingFiles\Batch Image Processor.png
+		crowdin.yaml = crowdin.yaml
 		SupportingFiles\Gold Text.png = SupportingFiles\Gold Text.png
 		SupportingFiles\icon.png = SupportingFiles\icon.png
 		SupportingFiles\readme .zh-cn.docx = SupportingFiles\readme .zh-cn.docx

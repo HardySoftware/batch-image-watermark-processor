@@ -338,6 +338,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>LanguageContent.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\LanguageContent.zh-TW.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LanguageContent.zh-TW.resx</DependentUpon>
+    </Compile>
     <Compile Include="VersionCheckingResult.xaml.cs">
       <DependentUpon>VersionCheckingResult.xaml</DependentUpon>
     </Compile>
@@ -345,6 +350,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>HelpContent.zh-CN.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\HelpContent.zh-TW.resx" />
     <EmbeddedResource Include="Resources\LanguageContent.fr-FR.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -376,6 +382,11 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <EmbeddedResource Include="Resources\LanguageContent.zh-TW.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>LanguageContent.zh-TW.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Themes\DarkCool\Images\Background.jpg" />
