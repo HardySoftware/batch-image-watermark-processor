@@ -145,16 +145,16 @@
     <value>Preference</value>
   </data>
   <data name="Command_SaveAs" xml:space="preserve">
-    <value>Save Project As</value>
+    <value>專案另存為</value>
   </data>
   <data name="Command_SaveProject" xml:space="preserve">
-    <value>Save Project</value>
+    <value>保存專案</value>
   </data>
   <data name="Command_Stop" xml:space="preserve">
-    <value>Stop</value>
+    <value>停止</value>
   </data>
   <data name="Label_Error" xml:space="preserve">
-    <value>Error</value>
+    <value>錯誤</value>
   </data>
   <data name="Style_MenuFont" xml:space="preserve">
     <value>Verdana</value>
