@@ -320,7 +320,7 @@
     <value>Please select a source directory with image(s) to proceed.</value>
   </data>
   <data name="Enum_Height" xml:space="preserve">
-    <value>Высота</value>
+    <value>Height</value>
   </data>
   <data name="Enum_LongSide" xml:space="preserve">
     <value>Long Side</value>
@@ -335,7 +335,7 @@
     <value>Upper Case</value>
   </data>
   <data name="Enum_Width" xml:space="preserve">
-    <value>Ширина</value>
+    <value>Width</value>
   </data>
   <data name="Label_AllProjects" xml:space="preserve">
     <value>All Image Process Project Files</value>
@@ -464,7 +464,7 @@
     <value>Version</value>
   </data>
   <data name="WindowTitle_About" xml:space="preserve">
-    <value>О программе</value>
+    <value>About</value>
   </data>
   <data name="WindowTitle_ApplicationVersion" xml:space="preserve">
     <value>Application Version</value>
