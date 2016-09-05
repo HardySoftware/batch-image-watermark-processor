@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -320,7 +320,7 @@
     <value>Please select a source directory with image(s) to proceed.</value>
   </data>
   <data name="Enum_Height" xml:space="preserve">
-    <value>Height</value>
+    <value>Высота</value>
   </data>
   <data name="Enum_LongSide" xml:space="preserve">
     <value>Long Side</value>
@@ -335,7 +335,7 @@
     <value>Upper Case</value>
   </data>
   <data name="Enum_Width" xml:space="preserve">
-    <value>Width</value>
+    <value>Ширина</value>
   </data>
   <data name="Label_AllProjects" xml:space="preserve">
     <value>All Image Process Project Files</value>
@@ -464,7 +464,7 @@
     <value>Version</value>
   </data>
   <data name="WindowTitle_About" xml:space="preserve">
-    <value>About</value>
+    <value>О программе</value>
   </data>
   <data name="WindowTitle_ApplicationVersion" xml:space="preserve">
     <value>Application Version</value>
