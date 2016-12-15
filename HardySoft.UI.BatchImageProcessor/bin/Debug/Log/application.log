@@ -1,0 +1,531 @@
+Processing status is unknown at 2016-12-14 7:54:57 PM.
+SeaTurtle.vshost.exe Error: 0 : Resolution of the dependency failed, type = "HardySoft.UI.BatchImageProcessor.MainWindow", name = "". Exception message is: The current build operation (build key Build Key[HardySoft.UI.BatchImageProcessor.MainWindow, null]) failed: An error occurred creating the configuration section handler for userSettings/HardySoft.UI.BatchImageProcessor.Properties.Settings: Could not load file or assembly 'System' or one of its dependencies. The system cannot find the file specified. (D:\Tech Sector\Projects\Windows Projects\batch-image-watermark-processor\HardySoft.UI.BatchImageProcessor\bin\Debug\SeaTurtle.vshost.exe.Config line 5) (Strategy type BuildPlanStrategy, index 3)
+Processing status is unknown at 2016-12-14 7:56:37 PM.
+Processing status is False at 2016-12-14 7:56:38 PM.
+Processing status is False at 2016-12-14 7:56:38 PM.
+Processing status is False at 2016-12-14 7:56:38 PM.
+Processing status is False at 2016-12-14 7:56:39 PM.
+Processing status is False at 2016-12-14 7:56:40 PM.
+Processing status is False at 2016-12-14 7:56:40 PM.
+Processing status is False at 2016-12-14 7:56:41 PM.
+Processing status is False at 2016-12-14 7:56:41 PM.
+Processing status is False at 2016-12-14 7:56:42 PM.
+Processing status is False at 2016-12-14 7:56:43 PM.
+Processing status is False at 2016-12-14 7:56:44 PM.
+Processing status is False at 2016-12-14 7:56:45 PM.
+Processing status is False at 2016-12-14 7:56:46 PM.
+Processing status is False at 2016-12-14 7:56:47 PM.
+Processing status is False at 2016-12-14 7:56:48 PM.
+Processing status is False at 2016-12-14 7:56:49 PM.
+Processing status is False at 2016-12-14 7:56:50 PM.
+Processing status is False at 2016-12-14 7:56:51 PM.
+Processing status is False at 2016-12-14 7:56:52 PM.
+Processing status is False at 2016-12-14 7:56:53 PM.
+Processing status is False at 2016-12-14 7:56:53 PM.
+watermark selection changed HardySoft.UI.BatchImageProcessor.Classes.WatermarkSelection at 2016-12-14 7:56:54 PM
+Processing status is False at 2016-12-14 7:56:54 PM.
+Processing status is False at 2016-12-14 7:56:54 PM.
+Processing status is False at 2016-12-14 7:56:55 PM.
+Processing status is False at 2016-12-14 7:56:57 PM.
+Processing status is False at 2016-12-14 7:56:58 PM.
+Processing status is False at 2016-12-14 7:56:59 PM.
+Processing status is False at 2016-12-14 7:56:59 PM.
+Processing status is False at 2016-12-14 7:57:00 PM.
+Processing status is False at 2016-12-14 7:57:00 PM.
+Processing status is False at 2016-12-14 7:57:01 PM.
+Processing status is False at 2016-12-14 7:57:02 PM.
+Processing status is False at 2016-12-14 7:57:02 PM.
+Processing status is False at 2016-12-14 7:57:03 PM.
+Processing status is False at 2016-12-14 7:57:04 PM.
+Processing status is False at 2016-12-14 7:57:04 PM.
+Processing status is False at 2016-12-14 7:57:04 PM.
+Processing status is False at 2016-12-14 7:57:05 PM.
+Processing status is False at 2016-12-14 7:57:06 PM.
+Processing status is False at 2016-12-14 7:57:06 PM.
+Processing status is False at 2016-12-14 7:57:06 PM.
+Processing status is False at 2016-12-14 7:57:06 PM.
+Current Thread: 8 Culture: en-CA before processing.
+Current Thread: 13 Culture: en-CA in main UI.
+Processing status is True at 2016-12-14 7:57:07 PM.
+Number of Thread 1
+Thread 15 is created to process indexed item [0] at 2016-12-14 7:57:07 PM.
+Current Thread 15 Culture en-CA during processing.
+Thread 15 is handling E:\Temp\Cuba\Processed\2016-11-19\01 Casa.jpg
+Thread 15 opened E:\Temp\Cuba\Processed\2016-11-19\01 Casa.jpg at 2016-12-14 7:57:07 PM.
+Thread 15 shrinked E:\Temp\Cuba\Processed\2016-11-19\01 Casa.jpg at 2016-12-14 7:57:07 PM.
+Current Thread 15 Culture en-CA before ApplyWatermarkText.
+Current Thread: 15; Image File Name: E:\Temp\Cuba\Processed\2016-11-19\01 Casa.jpg, Watermark Text index: 0 before.
+Current Thread: 15, Image File Name: E:\Temp\Cuba\Processed\2016-11-19\01 Casa.jpg, Watermark Text index: 0
+Current Thread 15 Culture en-CA before ApplyWatermarkText.
+Current Thread: 15; Image File Name: E:\Temp\Cuba\Processed\2016-11-19\01 Casa.jpg, Watermark Text index: 1 before.
+Current Thread: 15, Image File Name: E:\Temp\Cuba\Processed\2016-11-19\01 Casa.jpg, Watermark Text index: 1
+Thread 15 applied watermark(s) for E:\Temp\Cuba\Processed\2016-11-19\01 Casa.jpg at 2016-12-14 7:57:07 PM.
+Thread 15 added border for E:\Temp\Cuba\Processed\2016-11-19\01 Casa.jpg at 2016-12-14 7:57:07 PM.
+Thread 15 saved E:\Temp\Cuba\Processed\2016-11-19\Resized\01 Casa.jpg at 2016-12-14 7:57:08 PM.
+Thread 15 is created to process indexed item [0] at 2016-12-14 7:57:08 PM.
+Current Thread 15 Culture en-CA during processing.
+Thread 15 is handling E:\Temp\Cuba\Processed\2016-11-19\02 Outside Casa -1.jpg
+Processing status is True at 2016-12-14 7:57:08 PM.
+Thread 15 opened E:\Temp\Cuba\Processed\2016-11-19\02 Outside Casa -1.jpg at 2016-12-14 7:57:08 PM.
+Thread 15 shrinked E:\Temp\Cuba\Processed\2016-11-19\02 Outside Casa -1.jpg at 2016-12-14 7:57:08 PM.
+Current Thread 15 Culture en-CA before ApplyWatermarkText.
+Current Thread: 15; Image File Name: E:\Temp\Cuba\Processed\2016-11-19\02 Outside Casa -1.jpg, Watermark Text index: 0 before.
+Current Thread: 15, Image File Name: E:\Temp\Cuba\Processed\2016-11-19\02 Outside Casa -1.jpg, Watermark Text index: 0
+Current Thread 15 Culture en-CA before ApplyWatermarkText.
+Current Thread: 15; Image File Name: E:\Temp\Cuba\Processed\2016-11-19\02 Outside Casa -1.jpg, Watermark Text index: 1 before.
+Current Thread: 15, Image File Name: E:\Temp\Cuba\Processed\2016-11-19\02 Outside Casa -1.jpg, Watermark Text index: 1
+Thread 15 applied watermark(s) for E:\Temp\Cuba\Processed\2016-11-19\02 Outside Casa -1.jpg at 2016-12-14 7:57:08 PM.
+Thread 15 added border for E:\Temp\Cuba\Processed\2016-11-19\02 Outside Casa -1.jpg at 2016-12-14 7:57:08 PM.
+Thread 15 saved E:\Temp\Cuba\Processed\2016-11-19\Resized\02 Outside Casa -1.jpg at 2016-12-14 7:57:08 PM.
+Thread 15 is created to process indexed item [0] at 2016-12-14 7:57:08 PM.
+Current Thread 15 Culture en-CA during processing.
+Thread 15 is handling E:\Temp\Cuba\Processed\2016-11-19\02 Outside Casa -2.jpg
+Processing status is True at 2016-12-14 7:57:09 PM.
+Thread 15 opened E:\Temp\Cuba\Processed\2016-11-19\02 Outside Casa -2.jpg at 2016-12-14 7:57:09 PM.
+Thread 15 shrinked E:\Temp\Cuba\Processed\2016-11-19\02 Outside Casa -2.jpg at 2016-12-14 7:57:09 PM.
+Current Thread 15 Culture en-CA before ApplyWatermarkText.
+Current Thread: 15; Image File Name: E:\Temp\Cuba\Processed\2016-11-19\02 Outside Casa -2.jpg, Watermark Text index: 0 before.
+Current Thread: 15, Image File Name: E:\Temp\Cuba\Processed\2016-11-19\02 Outside Casa -2.jpg, Watermark Text index: 0
+Current Thread 15 Culture en-CA before ApplyWatermarkText.
+Current Thread: 15; Image File Name: E:\Temp\Cuba\Processed\2016-11-19\02 Outside Casa -2.jpg, Watermark Text index: 1 before.
+Current Thread: 15, Image File Name: E:\Temp\Cuba\Processed\2016-11-19\02 Outside Casa -2.jpg, Watermark Text index: 1
+Thread 15 applied watermark(s) for E:\Temp\Cuba\Processed\2016-11-19\02 Outside Casa -2.jpg at 2016-12-14 7:57:09 PM.
+Thread 15 added border for E:\Temp\Cuba\Processed\2016-11-19\02 Outside Casa -2.jpg at 2016-12-14 7:57:09 PM.
+Thread 15 saved E:\Temp\Cuba\Processed\2016-11-19\Resized\02 Outside Casa -2.jpg at 2016-12-14 7:57:09 PM.
+Thread 15 is created to process indexed item [0] at 2016-12-14 7:57:09 PM.
+Current Thread 15 Culture en-CA during processing.
+Thread 15 is handling E:\Temp\Cuba\Processed\2016-11-19\03 Hotels.jpg
+Processing status is True at 2016-12-14 7:57:10 PM.
+Thread 15 opened E:\Temp\Cuba\Processed\2016-11-19\03 Hotels.jpg at 2016-12-14 7:57:10 PM.
+Thread 15 shrinked E:\Temp\Cuba\Processed\2016-11-19\03 Hotels.jpg at 2016-12-14 7:57:10 PM.
+Current Thread 15 Culture en-CA before ApplyWatermarkText.
+Current Thread: 15; Image File Name: E:\Temp\Cuba\Processed\2016-11-19\03 Hotels.jpg, Watermark Text index: 0 before.
+Current Thread: 15, Image File Name: E:\Temp\Cuba\Processed\2016-11-19\03 Hotels.jpg, Watermark Text index: 0
+Current Thread 15 Culture en-CA before ApplyWatermarkText.
+Current Thread: 15; Image File Name: E:\Temp\Cuba\Processed\2016-11-19\03 Hotels.jpg, Watermark Text index: 1 before.
+Current Thread: 15, Image File Name: E:\Temp\Cuba\Processed\2016-11-19\03 Hotels.jpg, Watermark Text index: 1
+Thread 15 applied watermark(s) for E:\Temp\Cuba\Processed\2016-11-19\03 Hotels.jpg at 2016-12-14 7:57:10 PM.
+Thread 15 added border for E:\Temp\Cuba\Processed\2016-11-19\03 Hotels.jpg at 2016-12-14 7:57:10 PM.
+Thread 15 saved E:\Temp\Cuba\Processed\2016-11-19\Resized\03 Hotels.jpg at 2016-12-14 7:57:10 PM.
+Thread 15 is created to process indexed item [0] at 2016-12-14 7:57:10 PM.
+Current Thread 15 Culture en-CA during processing.
+Thread 15 is handling E:\Temp\Cuba\Processed\2016-11-19\04 Iglesia De Nuestra Señora De La Soledad - 1.jpg
+Thread 15 opened E:\Temp\Cuba\Processed\2016-11-19\04 Iglesia De Nuestra Señora De La Soledad - 1.jpg at 2016-12-14 7:57:11 PM.
+Processing status is True at 2016-12-14 7:57:11 PM.
+Thread 15 shrinked E:\Temp\Cuba\Processed\2016-11-19\04 Iglesia De Nuestra Señora De La Soledad - 1.jpg at 2016-12-14 7:57:11 PM.
+Current Thread 15 Culture en-CA before ApplyWatermarkText.
+Current Thread: 15; Image File Name: E:\Temp\Cuba\Processed\2016-11-19\04 Iglesia De Nuestra Señora De La Soledad - 1.jpg, Watermark Text index: 0 before.
+Current Thread: 15, Image File Name: E:\Temp\Cuba\Processed\2016-11-19\04 Iglesia De Nuestra Señora De La Soledad - 1.jpg, Watermark Text index: 0
+Current Thread 15 Culture en-CA before ApplyWatermarkText.
+Current Thread: 15; Image File Name: E:\Temp\Cuba\Processed\2016-11-19\04 Iglesia De Nuestra Señora De La Soledad - 1.jpg, Watermark Text index: 1 before.
+Current Thread: 15, Image File Name: E:\Temp\Cuba\Processed\2016-11-19\04 Iglesia De Nuestra Señora De La Soledad - 1.jpg, Watermark Text index: 1
+Thread 15 applied watermark(s) for E:\Temp\Cuba\Processed\2016-11-19\04 Iglesia De Nuestra Señora De La Soledad - 1.jpg at 2016-12-14 7:57:11 PM.
+Thread 15 added border for E:\Temp\Cuba\Processed\2016-11-19\04 Iglesia De Nuestra Señora De La Soledad - 1.jpg at 2016-12-14 7:57:11 PM.
+Thread 15 saved E:\Temp\Cuba\Processed\2016-11-19\Resized\04 Iglesia De Nuestra Señora De La Soledad - 1.jpg at 2016-12-14 7:57:11 PM.
+Thread 15 is created to process indexed item [0] at 2016-12-14 7:57:11 PM.
+Current Thread 15 Culture en-CA during processing.
+Thread 15 is handling E:\Temp\Cuba\Processed\2016-11-19\04 Iglesia De Nuestra Señora De La Soledad - 2.jpg
+Processing status is True at 2016-12-14 7:57:12 PM.
+Thread 15 opened E:\Temp\Cuba\Processed\2016-11-19\04 Iglesia De Nuestra Señora De La Soledad - 2.jpg at 2016-12-14 7:57:12 PM.
+Thread 15 shrinked E:\Temp\Cuba\Processed\2016-11-19\04 Iglesia De Nuestra Señora De La Soledad - 2.jpg at 2016-12-14 7:57:12 PM.
+Current Thread 15 Culture en-CA before ApplyWatermarkText.
+Current Thread: 15; Image File Name: E:\Temp\Cuba\Processed\2016-11-19\04 Iglesia De Nuestra Señora De La Soledad - 2.jpg, Watermark Text index: 0 before.
+Current Thread: 15, Image File Name: E:\Temp\Cuba\Processed\2016-11-19\04 Iglesia De Nuestra Señora De La Soledad - 2.jpg, Watermark Text index: 0
+Current Thread 15 Culture en-CA before ApplyWatermarkText.
+Current Thread: 15; Image File Name: E:\Temp\Cuba\Processed\2016-11-19\04 Iglesia De Nuestra Señora De La Soledad - 2.jpg, Watermark Text index: 1 before.
+Current Thread: 15, Image File Name: E:\Temp\Cuba\Processed\2016-11-19\04 Iglesia De Nuestra Señora De La Soledad - 2.jpg, Watermark Text index: 1
+Thread 15 applied watermark(s) for E:\Temp\Cuba\Processed\2016-11-19\04 Iglesia De Nuestra Señora De La Soledad - 2.jpg at 2016-12-14 7:57:12 PM.
+Thread 15 added border for E:\Temp\Cuba\Processed\2016-11-19\04 Iglesia De Nuestra Señora De La Soledad - 2.jpg at 2016-12-14 7:57:12 PM.
+Thread 15 saved E:\Temp\Cuba\Processed\2016-11-19\Resized\04 Iglesia De Nuestra Señora De La Soledad - 2.jpg at 2016-12-14 7:57:12 PM.
+Thread 15 is created to process indexed item [0] at 2016-12-14 7:57:12 PM.
+Current Thread 15 Culture en-CA during processing.
+Thread 15 is handling E:\Temp\Cuba\Processed\2016-11-19\05 Breakfast - 1.jpg
+Thread 15 opened E:\Temp\Cuba\Processed\2016-11-19\05 Breakfast - 1.jpg at 2016-12-14 7:57:13 PM.
+Processing status is True at 2016-12-14 7:57:13 PM.
+Thread 15 shrinked E:\Temp\Cuba\Processed\2016-11-19\05 Breakfast - 1.jpg at 2016-12-14 7:57:13 PM.
+Current Thread 15 Culture en-CA before ApplyWatermarkText.
+Current Thread: 15; Image File Name: E:\Temp\Cuba\Processed\2016-11-19\05 Breakfast - 1.jpg, Watermark Text index: 0 before.
+Current Thread: 15, Image File Name: E:\Temp\Cuba\Processed\2016-11-19\05 Breakfast - 1.jpg, Watermark Text index: 0
+Current Thread 15 Culture en-CA before ApplyWatermarkText.
+Current Thread: 15; Image File Name: E:\Temp\Cuba\Processed\2016-11-19\05 Breakfast - 1.jpg, Watermark Text index: 1 before.
+Current Thread: 15, Image File Name: E:\Temp\Cuba\Processed\2016-11-19\05 Breakfast - 1.jpg, Watermark Text index: 1
+Thread 15 applied watermark(s) for E:\Temp\Cuba\Processed\2016-11-19\05 Breakfast - 1.jpg at 2016-12-14 7:57:13 PM.
+Thread 15 added border for E:\Temp\Cuba\Processed\2016-11-19\05 Breakfast - 1.jpg at 2016-12-14 7:57:13 PM.
+Thread 15 saved E:\Temp\Cuba\Processed\2016-11-19\Resized\05 Breakfast - 1.jpg at 2016-12-14 7:57:13 PM.
+Thread 15 is created to process indexed item [0] at 2016-12-14 7:57:13 PM.
+Current Thread 15 Culture en-CA during processing.
+Thread 15 is handling E:\Temp\Cuba\Processed\2016-11-19\05 Breakfast - 2.jpg
+Thread 15 opened E:\Temp\Cuba\Processed\2016-11-19\05 Breakfast - 2.jpg at 2016-12-14 7:57:13 PM.
+Thread 15 shrinked E:\Temp\Cuba\Processed\2016-11-19\05 Breakfast - 2.jpg at 2016-12-14 7:57:14 PM.
+Current Thread 15 Culture en-CA before ApplyWatermarkText.
+Current Thread: 15; Image File Name: E:\Temp\Cuba\Processed\2016-11-19\05 Breakfast - 2.jpg, Watermark Text index: 0 before.
+Current Thread: 15, Image File Name: E:\Temp\Cuba\Processed\2016-11-19\05 Breakfast - 2.jpg, Watermark Text index: 0
+Current Thread 15 Culture en-CA before ApplyWatermarkText.
+Current Thread: 15; Image File Name: E:\Temp\Cuba\Processed\2016-11-19\05 Breakfast - 2.jpg, Watermark Text index: 1 before.
+Current Thread: 15, Image File Name: E:\Temp\Cuba\Processed\2016-11-19\05 Breakfast - 2.jpg, Watermark Text index: 1
+Thread 15 applied watermark(s) for E:\Temp\Cuba\Processed\2016-11-19\05 Breakfast - 2.jpg at 2016-12-14 7:57:14 PM.
+Thread 15 added border for E:\Temp\Cuba\Processed\2016-11-19\05 Breakfast - 2.jpg at 2016-12-14 7:57:14 PM.
+Thread 15 saved E:\Temp\Cuba\Processed\2016-11-19\Resized\05 Breakfast - 2.jpg at 2016-12-14 7:57:14 PM.
+Thread 15 is created to process indexed item [0] at 2016-12-14 7:57:14 PM.
+Current Thread 15 Culture en-CA during processing.
+Thread 15 is handling E:\Temp\Cuba\Processed\2016-11-19\05 Breakfast - 3.jpg
+Thread 15 opened E:\Temp\Cuba\Processed\2016-11-19\05 Breakfast - 3.jpg at 2016-12-14 7:57:14 PM.
+Processing status is True at 2016-12-14 7:57:14 PM.
+Thread 15 shrinked E:\Temp\Cuba\Processed\2016-11-19\05 Breakfast - 3.jpg at 2016-12-14 7:57:14 PM.
+Current Thread 15 Culture en-CA before ApplyWatermarkText.
+Current Thread: 15; Image File Name: E:\Temp\Cuba\Processed\2016-11-19\05 Breakfast - 3.jpg, Watermark Text index: 0 before.
+Current Thread: 15, Image File Name: E:\Temp\Cuba\Processed\2016-11-19\05 Breakfast - 3.jpg, Watermark Text index: 0
+Current Thread 15 Culture en-CA before ApplyWatermarkText.
+Current Thread: 15; Image File Name: E:\Temp\Cuba\Processed\2016-11-19\05 Breakfast - 3.jpg, Watermark Text index: 1 before.
+Current Thread: 15, Image File Name: E:\Temp\Cuba\Processed\2016-11-19\05 Breakfast - 3.jpg, Watermark Text index: 1
+Thread 15 applied watermark(s) for E:\Temp\Cuba\Processed\2016-11-19\05 Breakfast - 3.jpg at 2016-12-14 7:57:14 PM.
+Thread 15 added border for E:\Temp\Cuba\Processed\2016-11-19\05 Breakfast - 3.jpg at 2016-12-14 7:57:14 PM.
+Thread 15 saved E:\Temp\Cuba\Processed\2016-11-19\Resized\05 Breakfast - 3.jpg at 2016-12-14 7:57:14 PM.
+Thread 15 is created to process indexed item [0] at 2016-12-14 7:57:14 PM.
+Current Thread 15 Culture en-CA during processing.
+Thread 15 is handling E:\Temp\Cuba\Processed\2016-11-19\06 Ignacio Agramonte - 1.jpg
+Processing status is True at 2016-12-14 7:57:14 PM.
+Thread 15 opened E:\Temp\Cuba\Processed\2016-11-19\06 Ignacio Agramonte - 1.jpg at 2016-12-14 7:57:15 PM.
+Processing status is True at 2016-12-14 7:57:15 PM.
+Thread 15 shrinked E:\Temp\Cuba\Processed\2016-11-19\06 Ignacio Agramonte - 1.jpg at 2016-12-14 7:57:15 PM.
+Current Thread 15 Culture en-CA before ApplyWatermarkText.
+Current Thread: 15; Image File Name: E:\Temp\Cuba\Processed\2016-11-19\06 Ignacio Agramonte - 1.jpg, Watermark Text index: 0 before.
+Current Thread: 15, Image File Name: E:\Temp\Cuba\Processed\2016-11-19\06 Ignacio Agramonte - 1.jpg, Watermark Text index: 0
+Current Thread 15 Culture en-CA before ApplyWatermarkText.
+Current Thread: 15; Image File Name: E:\Temp\Cuba\Processed\2016-11-19\06 Ignacio Agramonte - 1.jpg, Watermark Text index: 1 before.
+Current Thread: 15, Image File Name: E:\Temp\Cuba\Processed\2016-11-19\06 Ignacio Agramonte - 1.jpg, Watermark Text index: 1
+Thread 15 applied watermark(s) for E:\Temp\Cuba\Processed\2016-11-19\06 Ignacio Agramonte - 1.jpg at 2016-12-14 7:57:15 PM.
+Thread 15 added border for E:\Temp\Cuba\Processed\2016-11-19\06 Ignacio Agramonte - 1.jpg at 2016-12-14 7:57:15 PM.
+Thread 15 saved E:\Temp\Cuba\Processed\2016-11-19\Resized\06 Ignacio Agramonte - 1.jpg at 2016-12-14 7:57:15 PM.
+Thread 15 is created to process indexed item [0] at 2016-12-14 7:57:15 PM.
+Current Thread 15 Culture en-CA during processing.
+Thread 15 is handling E:\Temp\Cuba\Processed\2016-11-19\06 Ignacio Agramonte - 2.jpg
+Thread 15 opened E:\Temp\Cuba\Processed\2016-11-19\06 Ignacio Agramonte - 2.jpg at 2016-12-14 7:57:16 PM.
+Processing status is True at 2016-12-14 7:57:16 PM.
+Thread 15 shrinked E:\Temp\Cuba\Processed\2016-11-19\06 Ignacio Agramonte - 2.jpg at 2016-12-14 7:57:16 PM.
+Current Thread 15 Culture en-CA before ApplyWatermarkText.
+Current Thread: 15; Image File Name: E:\Temp\Cuba\Processed\2016-11-19\06 Ignacio Agramonte - 2.jpg, Watermark Text index: 0 before.
+Current Thread: 15, Image File Name: E:\Temp\Cuba\Processed\2016-11-19\06 Ignacio Agramonte - 2.jpg, Watermark Text index: 0
+Current Thread 15 Culture en-CA before ApplyWatermarkText.
+Current Thread: 15; Image File Name: E:\Temp\Cuba\Processed\2016-11-19\06 Ignacio Agramonte - 2.jpg, Watermark Text index: 1 before.
+Current Thread: 15, Image File Name: E:\Temp\Cuba\Processed\2016-11-19\06 Ignacio Agramonte - 2.jpg, Watermark Text index: 1
+Thread 15 applied watermark(s) for E:\Temp\Cuba\Processed\2016-11-19\06 Ignacio Agramonte - 2.jpg at 2016-12-14 7:57:16 PM.
+Thread 15 added border for E:\Temp\Cuba\Processed\2016-11-19\06 Ignacio Agramonte - 2.jpg at 2016-12-14 7:57:16 PM.
+Thread 15 saved E:\Temp\Cuba\Processed\2016-11-19\Resized\06 Ignacio Agramonte - 2.jpg at 2016-12-14 7:57:16 PM.
+Thread 15 is created to process indexed item [0] at 2016-12-14 7:57:16 PM.
+Current Thread 15 Culture en-CA during processing.
+Thread 15 is handling E:\Temp\Cuba\Processed\2016-11-19\06 Ignacio Agramonte - 3.jpg
+Thread 15 opened E:\Temp\Cuba\Processed\2016-11-19\06 Ignacio Agramonte - 3.jpg at 2016-12-14 7:57:17 PM.
+Processing status is True at 2016-12-14 7:57:17 PM.
+Thread 15 shrinked E:\Temp\Cuba\Processed\2016-11-19\06 Ignacio Agramonte - 3.jpg at 2016-12-14 7:57:17 PM.
+Current Thread 15 Culture en-CA before ApplyWatermarkText.
+Current Thread: 15; Image File Name: E:\Temp\Cuba\Processed\2016-11-19\06 Ignacio Agramonte - 3.jpg, Watermark Text index: 0 before.
+Current Thread: 15, Image File Name: E:\Temp\Cuba\Processed\2016-11-19\06 Ignacio Agramonte - 3.jpg, Watermark Text index: 0
+Current Thread 15 Culture en-CA before ApplyWatermarkText.
+Current Thread: 15; Image File Name: E:\Temp\Cuba\Processed\2016-11-19\06 Ignacio Agramonte - 3.jpg, Watermark Text index: 1 before.
+Current Thread: 15, Image File Name: E:\Temp\Cuba\Processed\2016-11-19\06 Ignacio Agramonte - 3.jpg, Watermark Text index: 1
+Thread 15 applied watermark(s) for E:\Temp\Cuba\Processed\2016-11-19\06 Ignacio Agramonte - 3.jpg at 2016-12-14 7:57:17 PM.
+Thread 15 added border for E:\Temp\Cuba\Processed\2016-11-19\06 Ignacio Agramonte - 3.jpg at 2016-12-14 7:57:17 PM.
+Thread 15 saved E:\Temp\Cuba\Processed\2016-11-19\Resized\06 Ignacio Agramonte - 3.jpg at 2016-12-14 7:57:17 PM.
+Thread 15 is created to process indexed item [0] at 2016-12-14 7:57:17 PM.
+Current Thread 15 Culture en-CA during processing.
+Thread 15 is handling E:\Temp\Cuba\Processed\2016-11-19\07.jpg
+Thread 15 opened E:\Temp\Cuba\Processed\2016-11-19\07.jpg at 2016-12-14 7:57:17 PM.
+Thread 15 shrinked E:\Temp\Cuba\Processed\2016-11-19\07.jpg at 2016-12-14 7:57:17 PM.
+Current Thread 15 Culture en-CA before ApplyWatermarkText.
+Current Thread: 15; Image File Name: E:\Temp\Cuba\Processed\2016-11-19\07.jpg, Watermark Text index: 0 before.
+Current Thread: 15, Image File Name: E:\Temp\Cuba\Processed\2016-11-19\07.jpg, Watermark Text index: 0
+Current Thread 15 Culture en-CA before ApplyWatermarkText.
+Current Thread: 15; Image File Name: E:\Temp\Cuba\Processed\2016-11-19\07.jpg, Watermark Text index: 1 before.
+Current Thread: 15, Image File Name: E:\Temp\Cuba\Processed\2016-11-19\07.jpg, Watermark Text index: 1
+Thread 15 applied watermark(s) for E:\Temp\Cuba\Processed\2016-11-19\07.jpg at 2016-12-14 7:57:17 PM.
+Thread 15 added border for E:\Temp\Cuba\Processed\2016-11-19\07.jpg at 2016-12-14 7:57:17 PM.
+Thread 15 saved E:\Temp\Cuba\Processed\2016-11-19\Resized\07.jpg at 2016-12-14 7:57:17 PM.
+Thread 15 is created to process indexed item [0] at 2016-12-14 7:57:17 PM.
+Current Thread 15 Culture en-CA during processing.
+Thread 15 is handling E:\Temp\Cuba\Processed\2016-11-19\08 Iglesia Catedral de Nuestra Señora de la Candelaria.jpg
+Processing status is True at 2016-12-14 7:57:18 PM.
+Thread 15 opened E:\Temp\Cuba\Processed\2016-11-19\08 Iglesia Catedral de Nuestra Señora de la Candelaria.jpg at 2016-12-14 7:57:18 PM.
+Thread 15 shrinked E:\Temp\Cuba\Processed\2016-11-19\08 Iglesia Catedral de Nuestra Señora de la Candelaria.jpg at 2016-12-14 7:57:18 PM.
+Current Thread 15 Culture en-CA before ApplyWatermarkText.
+Current Thread: 15; Image File Name: E:\Temp\Cuba\Processed\2016-11-19\08 Iglesia Catedral de Nuestra Señora de la Candelaria.jpg, Watermark Text index: 0 before.
+Current Thread: 15, Image File Name: E:\Temp\Cuba\Processed\2016-11-19\08 Iglesia Catedral de Nuestra Señora de la Candelaria.jpg, Watermark Text index: 0
+Current Thread 15 Culture en-CA before ApplyWatermarkText.
+Current Thread: 15; Image File Name: E:\Temp\Cuba\Processed\2016-11-19\08 Iglesia Catedral de Nuestra Señora de la Candelaria.jpg, Watermark Text index: 1 before.
+Current Thread: 15, Image File Name: E:\Temp\Cuba\Processed\2016-11-19\08 Iglesia Catedral de Nuestra Señora de la Candelaria.jpg, Watermark Text index: 1
+Thread 15 applied watermark(s) for E:\Temp\Cuba\Processed\2016-11-19\08 Iglesia Catedral de Nuestra Señora de la Candelaria.jpg at 2016-12-14 7:57:19 PM.
+Thread 15 added border for E:\Temp\Cuba\Processed\2016-11-19\08 Iglesia Catedral de Nuestra Señora de la Candelaria.jpg at 2016-12-14 7:57:19 PM.
+Thread 15 saved E:\Temp\Cuba\Processed\2016-11-19\Resized\08 Iglesia Catedral de Nuestra Señora de la Candelaria.jpg at 2016-12-14 7:57:19 PM.
+Thread 15 is created to process indexed item [0] at 2016-12-14 7:57:19 PM.
+Current Thread 15 Culture en-CA during processing.
+Thread 15 is handling E:\Temp\Cuba\Processed\2016-11-19\09 Plaza del Carmen - 1.jpg
+Processing status is True at 2016-12-14 7:57:19 PM.
+Thread 15 opened E:\Temp\Cuba\Processed\2016-11-19\09 Plaza del Carmen - 1.jpg at 2016-12-14 7:57:19 PM.
+Thread 15 shrinked E:\Temp\Cuba\Processed\2016-11-19\09 Plaza del Carmen - 1.jpg at 2016-12-14 7:57:19 PM.
+Current Thread 15 Culture en-CA before ApplyWatermarkText.
+Current Thread: 15; Image File Name: E:\Temp\Cuba\Processed\2016-11-19\09 Plaza del Carmen - 1.jpg, Watermark Text index: 0 before.
+Current Thread: 15, Image File Name: E:\Temp\Cuba\Processed\2016-11-19\09 Plaza del Carmen - 1.jpg, Watermark Text index: 0
+Current Thread 15 Culture en-CA before ApplyWatermarkText.
+Current Thread: 15; Image File Name: E:\Temp\Cuba\Processed\2016-11-19\09 Plaza del Carmen - 1.jpg, Watermark Text index: 1 before.
+Current Thread: 15, Image File Name: E:\Temp\Cuba\Processed\2016-11-19\09 Plaza del Carmen - 1.jpg, Watermark Text index: 1
+Thread 15 applied watermark(s) for E:\Temp\Cuba\Processed\2016-11-19\09 Plaza del Carmen - 1.jpg at 2016-12-14 7:57:19 PM.
+Thread 15 added border for E:\Temp\Cuba\Processed\2016-11-19\09 Plaza del Carmen - 1.jpg at 2016-12-14 7:57:19 PM.
+Thread 15 saved E:\Temp\Cuba\Processed\2016-11-19\Resized\09 Plaza del Carmen - 1.jpg at 2016-12-14 7:57:19 PM.
+Thread 15 is created to process indexed item [0] at 2016-12-14 7:57:19 PM.
+Current Thread 15 Culture en-CA during processing.
+Thread 15 is handling E:\Temp\Cuba\Processed\2016-11-19\09 Plaza del Carmen - 2.jpg
+Processing status is True at 2016-12-14 7:57:20 PM.
+Thread 15 opened E:\Temp\Cuba\Processed\2016-11-19\09 Plaza del Carmen - 2.jpg at 2016-12-14 7:57:20 PM.
+Thread 15 shrinked E:\Temp\Cuba\Processed\2016-11-19\09 Plaza del Carmen - 2.jpg at 2016-12-14 7:57:20 PM.
+Current Thread 15 Culture en-CA before ApplyWatermarkText.
+Current Thread: 15; Image File Name: E:\Temp\Cuba\Processed\2016-11-19\09 Plaza del Carmen - 2.jpg, Watermark Text index: 0 before.
+Current Thread: 15, Image File Name: E:\Temp\Cuba\Processed\2016-11-19\09 Plaza del Carmen - 2.jpg, Watermark Text index: 0
+Current Thread 15 Culture en-CA before ApplyWatermarkText.
+Current Thread: 15; Image File Name: E:\Temp\Cuba\Processed\2016-11-19\09 Plaza del Carmen - 2.jpg, Watermark Text index: 1 before.
+Current Thread: 15, Image File Name: E:\Temp\Cuba\Processed\2016-11-19\09 Plaza del Carmen - 2.jpg, Watermark Text index: 1
+Thread 15 applied watermark(s) for E:\Temp\Cuba\Processed\2016-11-19\09 Plaza del Carmen - 2.jpg at 2016-12-14 7:57:20 PM.
+Thread 15 added border for E:\Temp\Cuba\Processed\2016-11-19\09 Plaza del Carmen - 2.jpg at 2016-12-14 7:57:20 PM.
+Thread 15 saved E:\Temp\Cuba\Processed\2016-11-19\Resized\09 Plaza del Carmen - 2.jpg at 2016-12-14 7:57:20 PM.
+Thread 15 is created to process indexed item [0] at 2016-12-14 7:57:20 PM.
+Current Thread 15 Culture en-CA during processing.
+Thread 15 is handling E:\Temp\Cuba\Processed\2016-11-19\10 Necropolis de Camagüey - 1.jpg
+Processing status is True at 2016-12-14 7:57:21 PM.
+Thread 15 opened E:\Temp\Cuba\Processed\2016-11-19\10 Necropolis de Camagüey - 1.jpg at 2016-12-14 7:57:21 PM.
+Thread 15 shrinked E:\Temp\Cuba\Processed\2016-11-19\10 Necropolis de Camagüey - 1.jpg at 2016-12-14 7:57:21 PM.
+Current Thread 15 Culture en-CA before ApplyWatermarkText.
+Current Thread: 15; Image File Name: E:\Temp\Cuba\Processed\2016-11-19\10 Necropolis de Camagüey - 1.jpg, Watermark Text index: 0 before.
+Current Thread: 15, Image File Name: E:\Temp\Cuba\Processed\2016-11-19\10 Necropolis de Camagüey - 1.jpg, Watermark Text index: 0
+Current Thread 15 Culture en-CA before ApplyWatermarkText.
+Current Thread: 15; Image File Name: E:\Temp\Cuba\Processed\2016-11-19\10 Necropolis de Camagüey - 1.jpg, Watermark Text index: 1 before.
+Current Thread: 15, Image File Name: E:\Temp\Cuba\Processed\2016-11-19\10 Necropolis de Camagüey - 1.jpg, Watermark Text index: 1
+Thread 15 applied watermark(s) for E:\Temp\Cuba\Processed\2016-11-19\10 Necropolis de Camagüey - 1.jpg at 2016-12-14 7:57:21 PM.
+Thread 15 added border for E:\Temp\Cuba\Processed\2016-11-19\10 Necropolis de Camagüey - 1.jpg at 2016-12-14 7:57:21 PM.
+Thread 15 saved E:\Temp\Cuba\Processed\2016-11-19\Resized\10 Necropolis de Camagüey - 1.jpg at 2016-12-14 7:57:21 PM.
+Thread 15 is created to process indexed item [0] at 2016-12-14 7:57:21 PM.
+Current Thread 15 Culture en-CA during processing.
+Thread 15 is handling E:\Temp\Cuba\Processed\2016-11-19\10 Necropolis de Camagüey - 2.jpg
+Thread 15 opened E:\Temp\Cuba\Processed\2016-11-19\10 Necropolis de Camagüey - 2.jpg at 2016-12-14 7:57:22 PM.
+Processing status is True at 2016-12-14 7:57:22 PM.
+Thread 15 shrinked E:\Temp\Cuba\Processed\2016-11-19\10 Necropolis de Camagüey - 2.jpg at 2016-12-14 7:57:22 PM.
+Current Thread 15 Culture en-CA before ApplyWatermarkText.
+Current Thread: 15; Image File Name: E:\Temp\Cuba\Processed\2016-11-19\10 Necropolis de Camagüey - 2.jpg, Watermark Text index: 0 before.
+Current Thread: 15, Image File Name: E:\Temp\Cuba\Processed\2016-11-19\10 Necropolis de Camagüey - 2.jpg, Watermark Text index: 0
+Current Thread 15 Culture en-CA before ApplyWatermarkText.
+Current Thread: 15; Image File Name: E:\Temp\Cuba\Processed\2016-11-19\10 Necropolis de Camagüey - 2.jpg, Watermark Text index: 1 before.
+Current Thread: 15, Image File Name: E:\Temp\Cuba\Processed\2016-11-19\10 Necropolis de Camagüey - 2.jpg, Watermark Text index: 1
+Thread 15 applied watermark(s) for E:\Temp\Cuba\Processed\2016-11-19\10 Necropolis de Camagüey - 2.jpg at 2016-12-14 7:57:22 PM.
+Thread 15 added border for E:\Temp\Cuba\Processed\2016-11-19\10 Necropolis de Camagüey - 2.jpg at 2016-12-14 7:57:22 PM.
+Thread 15 saved E:\Temp\Cuba\Processed\2016-11-19\Resized\10 Necropolis de Camagüey - 2.jpg at 2016-12-14 7:57:22 PM.
+Thread 15 is created to process indexed item [0] at 2016-12-14 7:57:22 PM.
+Current Thread 15 Culture en-CA during processing.
+Thread 15 is handling E:\Temp\Cuba\Processed\2016-11-19\11.jpg
+Processing status is True at 2016-12-14 7:57:22 PM.
+Thread 15 opened E:\Temp\Cuba\Processed\2016-11-19\11.jpg at 2016-12-14 7:57:22 PM.
+Thread 15 shrinked E:\Temp\Cuba\Processed\2016-11-19\11.jpg at 2016-12-14 7:57:23 PM.
+Current Thread 15 Culture en-CA before ApplyWatermarkText.
+Current Thread: 15; Image File Name: E:\Temp\Cuba\Processed\2016-11-19\11.jpg, Watermark Text index: 0 before.
+Current Thread: 15, Image File Name: E:\Temp\Cuba\Processed\2016-11-19\11.jpg, Watermark Text index: 0
+Current Thread 15 Culture en-CA before ApplyWatermarkText.
+Current Thread: 15; Image File Name: E:\Temp\Cuba\Processed\2016-11-19\11.jpg, Watermark Text index: 1 before.
+Current Thread: 15, Image File Name: E:\Temp\Cuba\Processed\2016-11-19\11.jpg, Watermark Text index: 1
+Thread 15 applied watermark(s) for E:\Temp\Cuba\Processed\2016-11-19\11.jpg at 2016-12-14 7:57:23 PM.
+Thread 15 added border for E:\Temp\Cuba\Processed\2016-11-19\11.jpg at 2016-12-14 7:57:23 PM.
+Thread 15 saved E:\Temp\Cuba\Processed\2016-11-19\Resized\11.jpg at 2016-12-14 7:57:23 PM.
+Thread 15 is created to process indexed item [0] at 2016-12-14 7:57:23 PM.
+Current Thread 15 Culture en-CA during processing.
+Thread 15 is handling E:\Temp\Cuba\Processed\2016-11-19\12 Plaza San Juan de Dios - 1.jpg
+Processing status is True at 2016-12-14 7:57:23 PM.
+Processing status is True at 2016-12-14 7:57:23 PM.
+Thread 15 opened E:\Temp\Cuba\Processed\2016-11-19\12 Plaza San Juan de Dios - 1.jpg at 2016-12-14 7:57:24 PM.
+Thread 15 shrinked E:\Temp\Cuba\Processed\2016-11-19\12 Plaza San Juan de Dios - 1.jpg at 2016-12-14 7:57:24 PM.
+Current Thread 15 Culture en-CA before ApplyWatermarkText.
+Current Thread: 15; Image File Name: E:\Temp\Cuba\Processed\2016-11-19\12 Plaza San Juan de Dios - 1.jpg, Watermark Text index: 0 before.
+Current Thread: 15, Image File Name: E:\Temp\Cuba\Processed\2016-11-19\12 Plaza San Juan de Dios - 1.jpg, Watermark Text index: 0
+Current Thread 15 Culture en-CA before ApplyWatermarkText.
+Current Thread: 15; Image File Name: E:\Temp\Cuba\Processed\2016-11-19\12 Plaza San Juan de Dios - 1.jpg, Watermark Text index: 1 before.
+Current Thread: 15, Image File Name: E:\Temp\Cuba\Processed\2016-11-19\12 Plaza San Juan de Dios - 1.jpg, Watermark Text index: 1
+Thread 15 applied watermark(s) for E:\Temp\Cuba\Processed\2016-11-19\12 Plaza San Juan de Dios - 1.jpg at 2016-12-14 7:57:24 PM.
+Thread 15 added border for E:\Temp\Cuba\Processed\2016-11-19\12 Plaza San Juan de Dios - 1.jpg at 2016-12-14 7:57:24 PM.
+Thread 15 saved E:\Temp\Cuba\Processed\2016-11-19\Resized\12 Plaza San Juan de Dios - 1.jpg at 2016-12-14 7:57:24 PM.
+Thread 15 is created to process indexed item [0] at 2016-12-14 7:57:24 PM.
+Current Thread 15 Culture en-CA during processing.
+Thread 15 is handling E:\Temp\Cuba\Processed\2016-11-19\12 Plaza San Juan de Dios - 2.jpg
+Processing status is True at 2016-12-14 7:57:24 PM.
+Thread 15 opened E:\Temp\Cuba\Processed\2016-11-19\12 Plaza San Juan de Dios - 2.jpg at 2016-12-14 7:57:25 PM.
+Processing status is True at 2016-12-14 7:57:25 PM.
+Thread 15 shrinked E:\Temp\Cuba\Processed\2016-11-19\12 Plaza San Juan de Dios - 2.jpg at 2016-12-14 7:57:25 PM.
+Current Thread 15 Culture en-CA before ApplyWatermarkText.
+Current Thread: 15; Image File Name: E:\Temp\Cuba\Processed\2016-11-19\12 Plaza San Juan de Dios - 2.jpg, Watermark Text index: 0 before.
+Current Thread: 15, Image File Name: E:\Temp\Cuba\Processed\2016-11-19\12 Plaza San Juan de Dios - 2.jpg, Watermark Text index: 0
+Current Thread 15 Culture en-CA before ApplyWatermarkText.
+Current Thread: 15; Image File Name: E:\Temp\Cuba\Processed\2016-11-19\12 Plaza San Juan de Dios - 2.jpg, Watermark Text index: 1 before.
+Current Thread: 15, Image File Name: E:\Temp\Cuba\Processed\2016-11-19\12 Plaza San Juan de Dios - 2.jpg, Watermark Text index: 1
+Thread 15 applied watermark(s) for E:\Temp\Cuba\Processed\2016-11-19\12 Plaza San Juan de Dios - 2.jpg at 2016-12-14 7:57:25 PM.
+Thread 15 added border for E:\Temp\Cuba\Processed\2016-11-19\12 Plaza San Juan de Dios - 2.jpg at 2016-12-14 7:57:25 PM.
+Thread 15 saved E:\Temp\Cuba\Processed\2016-11-19\Resized\12 Plaza San Juan de Dios - 2.jpg at 2016-12-14 7:57:25 PM.
+Thread 15 is created to process indexed item [0] at 2016-12-14 7:57:25 PM.
+Current Thread 15 Culture en-CA during processing.
+Thread 15 is handling E:\Temp\Cuba\Processed\2016-11-19\13 Lunch - 1.jpg
+Thread 15 opened E:\Temp\Cuba\Processed\2016-11-19\13 Lunch - 1.jpg at 2016-12-14 7:57:26 PM.
+Thread 15 shrinked E:\Temp\Cuba\Processed\2016-11-19\13 Lunch - 1.jpg at 2016-12-14 7:57:26 PM.
+Current Thread 15 Culture en-CA before ApplyWatermarkText.
+Current Thread: 15; Image File Name: E:\Temp\Cuba\Processed\2016-11-19\13 Lunch - 1.jpg, Watermark Text index: 0 before.
+Current Thread: 15, Image File Name: E:\Temp\Cuba\Processed\2016-11-19\13 Lunch - 1.jpg, Watermark Text index: 0
+Current Thread 15 Culture en-CA before ApplyWatermarkText.
+Current Thread: 15; Image File Name: E:\Temp\Cuba\Processed\2016-11-19\13 Lunch - 1.jpg, Watermark Text index: 1 before.
+Current Thread: 15, Image File Name: E:\Temp\Cuba\Processed\2016-11-19\13 Lunch - 1.jpg, Watermark Text index: 1
+Thread 15 applied watermark(s) for E:\Temp\Cuba\Processed\2016-11-19\13 Lunch - 1.jpg at 2016-12-14 7:57:26 PM.
+Thread 15 added border for E:\Temp\Cuba\Processed\2016-11-19\13 Lunch - 1.jpg at 2016-12-14 7:57:26 PM.
+Thread 15 saved E:\Temp\Cuba\Processed\2016-11-19\Resized\13 Lunch - 1.jpg at 2016-12-14 7:57:26 PM.
+Thread 15 is created to process indexed item [0] at 2016-12-14 7:57:26 PM.
+Current Thread 15 Culture en-CA during processing.
+Thread 15 is handling E:\Temp\Cuba\Processed\2016-11-19\13 Lunch - 2.jpg
+Thread 15 opened E:\Temp\Cuba\Processed\2016-11-19\13 Lunch - 2.jpg at 2016-12-14 7:57:26 PM.
+Processing status is True at 2016-12-14 7:57:26 PM.
+Thread 15 shrinked E:\Temp\Cuba\Processed\2016-11-19\13 Lunch - 2.jpg at 2016-12-14 7:57:26 PM.
+Current Thread 15 Culture en-CA before ApplyWatermarkText.
+Current Thread: 15; Image File Name: E:\Temp\Cuba\Processed\2016-11-19\13 Lunch - 2.jpg, Watermark Text index: 0 before.
+Current Thread: 15, Image File Name: E:\Temp\Cuba\Processed\2016-11-19\13 Lunch - 2.jpg, Watermark Text index: 0
+Current Thread 15 Culture en-CA before ApplyWatermarkText.
+Current Thread: 15; Image File Name: E:\Temp\Cuba\Processed\2016-11-19\13 Lunch - 2.jpg, Watermark Text index: 1 before.
+Current Thread: 15, Image File Name: E:\Temp\Cuba\Processed\2016-11-19\13 Lunch - 2.jpg, Watermark Text index: 1
+Thread 15 applied watermark(s) for E:\Temp\Cuba\Processed\2016-11-19\13 Lunch - 2.jpg at 2016-12-14 7:57:26 PM.
+Thread 15 added border for E:\Temp\Cuba\Processed\2016-11-19\13 Lunch - 2.jpg at 2016-12-14 7:57:26 PM.
+Thread 15 saved E:\Temp\Cuba\Processed\2016-11-19\Resized\13 Lunch - 2.jpg at 2016-12-14 7:57:26 PM.
+Thread 15 is created to process indexed item [0] at 2016-12-14 7:57:26 PM.
+Current Thread 15 Culture en-CA during processing.
+Thread 15 is handling E:\Temp\Cuba\Processed\2016-11-19\13 Lunch - 3.jpg
+Thread 15 opened E:\Temp\Cuba\Processed\2016-11-19\13 Lunch - 3.jpg at 2016-12-14 7:57:27 PM.
+Thread 15 shrinked E:\Temp\Cuba\Processed\2016-11-19\13 Lunch - 3.jpg at 2016-12-14 7:57:27 PM.
+Current Thread 15 Culture en-CA before ApplyWatermarkText.
+Current Thread: 15; Image File Name: E:\Temp\Cuba\Processed\2016-11-19\13 Lunch - 3.jpg, Watermark Text index: 0 before.
+Current Thread: 15, Image File Name: E:\Temp\Cuba\Processed\2016-11-19\13 Lunch - 3.jpg, Watermark Text index: 0
+Current Thread 15 Culture en-CA before ApplyWatermarkText.
+Current Thread: 15; Image File Name: E:\Temp\Cuba\Processed\2016-11-19\13 Lunch - 3.jpg, Watermark Text index: 1 before.
+Current Thread: 15, Image File Name: E:\Temp\Cuba\Processed\2016-11-19\13 Lunch - 3.jpg, Watermark Text index: 1
+Thread 15 applied watermark(s) for E:\Temp\Cuba\Processed\2016-11-19\13 Lunch - 3.jpg at 2016-12-14 7:57:27 PM.
+Thread 15 added border for E:\Temp\Cuba\Processed\2016-11-19\13 Lunch - 3.jpg at 2016-12-14 7:57:27 PM.
+Thread 15 saved E:\Temp\Cuba\Processed\2016-11-19\Resized\13 Lunch - 3.jpg at 2016-12-14 7:57:27 PM.
+Thread 15 is created to process indexed item [0] at 2016-12-14 7:57:27 PM.
+Current Thread 15 Culture en-CA during processing.
+Thread 15 is handling E:\Temp\Cuba\Processed\2016-11-19\13 Lunch - 4.jpg
+Thread 15 opened E:\Temp\Cuba\Processed\2016-11-19\13 Lunch - 4.jpg at 2016-12-14 7:57:27 PM.
+Processing status is True at 2016-12-14 7:57:27 PM.
+Thread 15 shrinked E:\Temp\Cuba\Processed\2016-11-19\13 Lunch - 4.jpg at 2016-12-14 7:57:27 PM.
+Current Thread 15 Culture en-CA before ApplyWatermarkText.
+Current Thread: 15; Image File Name: E:\Temp\Cuba\Processed\2016-11-19\13 Lunch - 4.jpg, Watermark Text index: 0 before.
+Current Thread: 15, Image File Name: E:\Temp\Cuba\Processed\2016-11-19\13 Lunch - 4.jpg, Watermark Text index: 0
+Current Thread 15 Culture en-CA before ApplyWatermarkText.
+Current Thread: 15; Image File Name: E:\Temp\Cuba\Processed\2016-11-19\13 Lunch - 4.jpg, Watermark Text index: 1 before.
+Current Thread: 15, Image File Name: E:\Temp\Cuba\Processed\2016-11-19\13 Lunch - 4.jpg, Watermark Text index: 1
+Thread 15 applied watermark(s) for E:\Temp\Cuba\Processed\2016-11-19\13 Lunch - 4.jpg at 2016-12-14 7:57:27 PM.
+Thread 15 added border for E:\Temp\Cuba\Processed\2016-11-19\13 Lunch - 4.jpg at 2016-12-14 7:57:27 PM.
+Thread 15 saved E:\Temp\Cuba\Processed\2016-11-19\Resized\13 Lunch - 4.jpg at 2016-12-14 7:57:27 PM.
+Thread 15 is created to process indexed item [0] at 2016-12-14 7:57:27 PM.
+Current Thread 15 Culture en-CA during processing.
+Thread 15 is handling E:\Temp\Cuba\Processed\2016-11-19\14 Dinner el Patio - 1.jpg
+Thread 15 opened E:\Temp\Cuba\Processed\2016-11-19\14 Dinner el Patio - 1.jpg at 2016-12-14 7:57:28 PM.
+Thread 15 shrinked E:\Temp\Cuba\Processed\2016-11-19\14 Dinner el Patio - 1.jpg at 2016-12-14 7:57:28 PM.
+Current Thread 15 Culture en-CA before ApplyWatermarkText.
+Current Thread: 15; Image File Name: E:\Temp\Cuba\Processed\2016-11-19\14 Dinner el Patio - 1.jpg, Watermark Text index: 0 before.
+Current Thread: 15, Image File Name: E:\Temp\Cuba\Processed\2016-11-19\14 Dinner el Patio - 1.jpg, Watermark Text index: 0
+Current Thread 15 Culture en-CA before ApplyWatermarkText.
+Current Thread: 15; Image File Name: E:\Temp\Cuba\Processed\2016-11-19\14 Dinner el Patio - 1.jpg, Watermark Text index: 1 before.
+Current Thread: 15, Image File Name: E:\Temp\Cuba\Processed\2016-11-19\14 Dinner el Patio - 1.jpg, Watermark Text index: 1
+Thread 15 applied watermark(s) for E:\Temp\Cuba\Processed\2016-11-19\14 Dinner el Patio - 1.jpg at 2016-12-14 7:57:28 PM.
+Thread 15 added border for E:\Temp\Cuba\Processed\2016-11-19\14 Dinner el Patio - 1.jpg at 2016-12-14 7:57:28 PM.
+Thread 15 saved E:\Temp\Cuba\Processed\2016-11-19\Resized\14 Dinner el Patio - 1.jpg at 2016-12-14 7:57:28 PM.
+Thread 15 is created to process indexed item [0] at 2016-12-14 7:57:28 PM.
+Current Thread 15 Culture en-CA during processing.
+Thread 15 is handling E:\Temp\Cuba\Processed\2016-11-19\14 Dinner el Patio - 2.jpg
+Processing status is True at 2016-12-14 7:57:28 PM.
+Thread 15 opened E:\Temp\Cuba\Processed\2016-11-19\14 Dinner el Patio - 2.jpg at 2016-12-14 7:57:28 PM.
+Thread 15 shrinked E:\Temp\Cuba\Processed\2016-11-19\14 Dinner el Patio - 2.jpg at 2016-12-14 7:57:29 PM.
+Current Thread 15 Culture en-CA before ApplyWatermarkText.
+Current Thread: 15; Image File Name: E:\Temp\Cuba\Processed\2016-11-19\14 Dinner el Patio - 2.jpg, Watermark Text index: 0 before.
+Current Thread: 15, Image File Name: E:\Temp\Cuba\Processed\2016-11-19\14 Dinner el Patio - 2.jpg, Watermark Text index: 0
+Current Thread 15 Culture en-CA before ApplyWatermarkText.
+Current Thread: 15; Image File Name: E:\Temp\Cuba\Processed\2016-11-19\14 Dinner el Patio - 2.jpg, Watermark Text index: 1 before.
+Current Thread: 15, Image File Name: E:\Temp\Cuba\Processed\2016-11-19\14 Dinner el Patio - 2.jpg, Watermark Text index: 1
+Thread 15 applied watermark(s) for E:\Temp\Cuba\Processed\2016-11-19\14 Dinner el Patio - 2.jpg at 2016-12-14 7:57:29 PM.
+Thread 15 added border for E:\Temp\Cuba\Processed\2016-11-19\14 Dinner el Patio - 2.jpg at 2016-12-14 7:57:29 PM.
+Thread 15 saved E:\Temp\Cuba\Processed\2016-11-19\Resized\14 Dinner el Patio - 2.jpg at 2016-12-14 7:57:29 PM.
+Thread 15 is created to process indexed item [0] at 2016-12-14 7:57:29 PM.
+Current Thread 15 Culture en-CA during processing.
+Thread 15 is handling E:\Temp\Cuba\Processed\2016-11-19\14 Dinner el Patio - 3.jpg
+Thread 15 opened E:\Temp\Cuba\Processed\2016-11-19\14 Dinner el Patio - 3.jpg at 2016-12-14 7:57:29 PM.
+Processing status is True at 2016-12-14 7:57:29 PM.
+Thread 15 shrinked E:\Temp\Cuba\Processed\2016-11-19\14 Dinner el Patio - 3.jpg at 2016-12-14 7:57:29 PM.
+Current Thread 15 Culture en-CA before ApplyWatermarkText.
+Current Thread: 15; Image File Name: E:\Temp\Cuba\Processed\2016-11-19\14 Dinner el Patio - 3.jpg, Watermark Text index: 0 before.
+Current Thread: 15, Image File Name: E:\Temp\Cuba\Processed\2016-11-19\14 Dinner el Patio - 3.jpg, Watermark Text index: 0
+Current Thread 15 Culture en-CA before ApplyWatermarkText.
+Current Thread: 15; Image File Name: E:\Temp\Cuba\Processed\2016-11-19\14 Dinner el Patio - 3.jpg, Watermark Text index: 1 before.
+Current Thread: 15, Image File Name: E:\Temp\Cuba\Processed\2016-11-19\14 Dinner el Patio - 3.jpg, Watermark Text index: 1
+Thread 15 applied watermark(s) for E:\Temp\Cuba\Processed\2016-11-19\14 Dinner el Patio - 3.jpg at 2016-12-14 7:57:29 PM.
+Thread 15 added border for E:\Temp\Cuba\Processed\2016-11-19\14 Dinner el Patio - 3.jpg at 2016-12-14 7:57:29 PM.
+Thread 15 saved E:\Temp\Cuba\Processed\2016-11-19\Resized\14 Dinner el Patio - 3.jpg at 2016-12-14 7:57:29 PM.
+Thread 15 is created to process indexed item [0] at 2016-12-14 7:57:29 PM.
+Current Thread 15 Culture en-CA during processing.
+Thread 15 is handling E:\Temp\Cuba\Processed\2016-11-19\14 Dinner el Patio - 4.jpg
+Thread 15 opened E:\Temp\Cuba\Processed\2016-11-19\14 Dinner el Patio - 4.jpg at 2016-12-14 7:57:29 PM.
+Thread 15 shrinked E:\Temp\Cuba\Processed\2016-11-19\14 Dinner el Patio - 4.jpg at 2016-12-14 7:57:30 PM.
+Current Thread 15 Culture en-CA before ApplyWatermarkText.
+Current Thread: 15; Image File Name: E:\Temp\Cuba\Processed\2016-11-19\14 Dinner el Patio - 4.jpg, Watermark Text index: 0 before.
+Current Thread: 15, Image File Name: E:\Temp\Cuba\Processed\2016-11-19\14 Dinner el Patio - 4.jpg, Watermark Text index: 0
+Current Thread 15 Culture en-CA before ApplyWatermarkText.
+Current Thread: 15; Image File Name: E:\Temp\Cuba\Processed\2016-11-19\14 Dinner el Patio - 4.jpg, Watermark Text index: 1 before.
+Current Thread: 15, Image File Name: E:\Temp\Cuba\Processed\2016-11-19\14 Dinner el Patio - 4.jpg, Watermark Text index: 1
+Thread 15 applied watermark(s) for E:\Temp\Cuba\Processed\2016-11-19\14 Dinner el Patio - 4.jpg at 2016-12-14 7:57:30 PM.
+Thread 15 added border for E:\Temp\Cuba\Processed\2016-11-19\14 Dinner el Patio - 4.jpg at 2016-12-14 7:57:30 PM.
+Thread 15 saved E:\Temp\Cuba\Processed\2016-11-19\Resized\14 Dinner el Patio - 4.jpg at 2016-12-14 7:57:30 PM.
+Thread 15 is created to process indexed item [0] at 2016-12-14 7:57:30 PM.
+Current Thread 15 Culture en-CA during processing.
+Thread 15 is handling E:\Temp\Cuba\Processed\2016-11-19\13 Lunch - 5.jpg
+Processing status is True at 2016-12-14 7:57:30 PM.
+Thread 15 opened E:\Temp\Cuba\Processed\2016-11-19\13 Lunch - 5.jpg at 2016-12-14 7:57:30 PM.
+Thread 15 shrinked E:\Temp\Cuba\Processed\2016-11-19\13 Lunch - 5.jpg at 2016-12-14 7:57:31 PM.
+Current Thread 15 Culture en-CA before ApplyWatermarkText.
+Current Thread: 15; Image File Name: E:\Temp\Cuba\Processed\2016-11-19\13 Lunch - 5.jpg, Watermark Text index: 0 before.
+Current Thread: 15, Image File Name: E:\Temp\Cuba\Processed\2016-11-19\13 Lunch - 5.jpg, Watermark Text index: 0
+Current Thread 15 Culture en-CA before ApplyWatermarkText.
+Current Thread: 15; Image File Name: E:\Temp\Cuba\Processed\2016-11-19\13 Lunch - 5.jpg, Watermark Text index: 1 before.
+Current Thread: 15, Image File Name: E:\Temp\Cuba\Processed\2016-11-19\13 Lunch - 5.jpg, Watermark Text index: 1
+Thread 15 applied watermark(s) for E:\Temp\Cuba\Processed\2016-11-19\13 Lunch - 5.jpg at 2016-12-14 7:57:31 PM.
+Thread 15 added border for E:\Temp\Cuba\Processed\2016-11-19\13 Lunch - 5.jpg at 2016-12-14 7:57:31 PM.
+Thread 15 saved E:\Temp\Cuba\Processed\2016-11-19\Resized\13 Lunch - 5.jpg at 2016-12-14 7:57:31 PM.
+Thread 15 is created to process indexed item [0] at 2016-12-14 7:57:31 PM.
+Current Thread 15 Culture en-CA during processing.
+Thread 15 is set because no more image to process at 2016-12-14 7:57:31 PM.
+Processing status is False at 2016-12-14 7:57:31 PM.
+Processing status is False at 2016-12-14 7:57:31 PM.
+Processing status is False at 2016-12-14 7:57:32 PM.
+Processing status is False at 2016-12-14 7:57:32 PM.
+Processing status is False at 2016-12-14 7:57:33 PM.
+Processing status is False at 2016-12-14 7:57:34 PM.
+Processing status is False at 2016-12-14 7:57:35 PM.
+Processing status is False at 2016-12-14 7:57:36 PM.
+Processing status is False at 2016-12-14 7:57:37 PM.
+Processing status is False at 2016-12-14 7:57:38 PM.
+Processing status is False at 2016-12-14 7:57:39 PM.
+Processing status is False at 2016-12-14 7:57:40 PM.
+Processing status is False at 2016-12-14 7:57:41 PM.
+Processing status is False at 2016-12-14 7:57:42 PM.
+Processing status is False at 2016-12-14 7:57:43 PM.
+Processing status is False at 2016-12-14 7:57:44 PM.
+Processing status is False at 2016-12-14 7:57:45 PM.
+Processing status is False at 2016-12-14 7:57:46 PM.
+Processing status is False at 2016-12-14 7:57:47 PM.
+Processing status is False at 2016-12-14 7:57:48 PM.
+Processing status is False at 2016-12-14 7:57:49 PM.
+Processing status is False at 2016-12-14 7:57:50 PM.
+Processing status is False at 2016-12-14 7:57:51 PM.
+Processing status is False at 2016-12-14 7:57:52 PM.
+Processing status is False at 2016-12-14 7:57:53 PM.
+Processing status is False at 2016-12-14 7:57:54 PM.
+Processing status is False at 2016-12-14 7:57:55 PM.
+Processing status is False at 2016-12-14 7:57:56 PM.
+Processing status is False at 2016-12-14 7:57:58 PM.
+Processing status is False at 2016-12-14 7:57:59 PM.
+Processing status is False at 2016-12-14 7:58:00 PM.
+Processing status is False at 2016-12-14 7:58:01 PM.

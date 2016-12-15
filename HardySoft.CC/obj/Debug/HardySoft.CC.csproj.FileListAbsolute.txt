@@ -1,0 +1,4 @@
+D:\Tech Sector\Projects\Windows Projects\batch-image-watermark-processor\HardySoft.CC\bin\Debug\HardySoft.CC.dll
+D:\Tech Sector\Projects\Windows Projects\batch-image-watermark-processor\HardySoft.CC\bin\Debug\HardySoft.CC.pdb
+D:\Tech Sector\Projects\Windows Projects\batch-image-watermark-processor\HardySoft.CC\obj\Debug\HardySoft.CC.dll
+D:\Tech Sector\Projects\Windows Projects\batch-image-watermark-processor\HardySoft.CC\obj\Debug\HardySoft.CC.pdb
