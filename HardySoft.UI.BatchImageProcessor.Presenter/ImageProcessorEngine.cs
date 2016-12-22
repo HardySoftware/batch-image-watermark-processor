@@ -124,7 +124,8 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 			lock (syncRoot) {
 				if (jobQueue.Count > 0) {
 					JobItem item = jobQueue.Dequeue();
-					imagePath = item.FileName;
+
+                    imagePath = item.FileName;
 					imageIndex = item.Index;
 					Trace.WriteLine("Thread " + Thread.CurrentThread.ManagedThreadId + " is handling " + imagePath);
 				} else {
@@ -313,8 +314,12 @@ namespace HardySoft.UI.BatchImageProcessor.Presenter {
 				} catch (Exception ex) {
 					Trace.TraceError(ex.ToString());
 				} finally {
-					normalImage.Dispose();
-					normalImage = null;
+                    if (normalImage != null)
+                    {
+                        // if there is an source image in queue which does not exist any more, this could be null.
+                        normalImage.Dispose();
+                        normalImage = null;
+                    }
 
 					if (thumbImage != null) {
 						thumbImage.Dispose();
