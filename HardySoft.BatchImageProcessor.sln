@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HardySoft.UI.BatchImageProcessor", "HardySoft.UI.BatchImageProcessor\HardySoft.UI.BatchImageProcessor.csproj", "{D5B6B547-B5AE-4188-B7DE-8DB86D6B5362}"
 EndProject
@@ -12,13 +12,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HardySoft.UI.BatchImageProcessor.Model", "HardySoft.UI.BatchImageProcessor.Model\HardySoft.UI.BatchImageProcessor.Model.csproj", "{5AC6B983-70B4-4FC9-A3E2-5C95C74AEE08}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HardySoft.CC", "HardySoft.CC\HardySoft.CC.csproj", "{D162A876-9517-4E74-89AF-C889FF5BFAD0}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{46709BB8-2ECA-497E-A146-008DFDF2E2E8}"
-	ProjectSection(SolutionItems) = preProject
-		.nuget\NuGet.Config = .nuget\NuGet.Config
-		.nuget\NuGet.exe = .nuget\NuGet.exe
-		.nuget\NuGet.targets = .nuget\NuGet.targets
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenXMLWriter", "OpenXMLWriter\OpenXMLWriter.csproj", "{DE9DB900-DA1D-4914-8E70-F4A3E1D6578C}"
 EndProject
@@ -83,6 +76,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4EF39311-A326-40EB-BB3B-011612B6D6AB}
 	EndGlobalSection
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = HardySoft.BatchImageProcessor.vsmdi

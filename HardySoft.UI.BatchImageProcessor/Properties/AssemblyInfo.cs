@@ -7,8 +7,8 @@ using System.Windows;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("HardySoft.UI.BatchImageProcessor")]
-[assembly: AssemblyDescription("Hardy Software Batch Image Process Utility")]
+[assembly: AssemblyTitle("Hardy Software Batch Image Processor")]
+[assembly: AssemblyDescription("A utility to batch process images by adding watermarks, borders or applying various effects.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Hardy Software")]
 [assembly: AssemblyProduct("Sea Turtle Batch Image Processor")]
@@ -52,5 +52,5 @@ using System.Windows;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("2.14.*")]
-[assembly: AssemblyFileVersion("2.14.0.0")]
+[assembly: AssemblyFileVersion("2.15.0.0")]
 [assembly: System.Runtime.CompilerServices.InternalsVisibleTo("HardySoft.UI.BatchImageProcessor.UnitTest")]
